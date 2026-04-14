@@ -4,24 +4,30 @@
 
 A central repository for reusable, general-purpose skills for coding agents.
 
-This repository serves as a collection of modular skills for my own personal use. I am sharing this publicly just in case it might be useful for other people looking to extend the capabilities of their AI coding assistants and autonomous agents.
+This repository serves as a collection of modular skills for my own personal use. I am sharing this publicly just in case it proves useful for other people's own use cases, which can be optimized or improved when coding agents are equipped with the right skills for the job.
 
 ## Available Skills
 
 | Skill | Description |
 | ----- | ----------- |
-| `presentation-builder` | Build single-file HTML presentations with a dark theme, scroll-driven slides, responsive card grids, and reveal animations. |
+| `presentation-building` | Build single-file HTML presentations with a dark theme, scroll-driven slides, responsive card grids, and reveal animations. |
+| `architecture-diagraming` | Build responsive, theme-aware HTML architecture diagrams using CSS grid/flexbox and CSS variables. Covers system, cloud, sequence, state, pipeline, and more. |
 
 ## Installation
 
 To make these skills available to your coding agents, you can use one of the two methods below:
 
-### Option 1: Using the Vercel Skills Tool
+### Option 1: Using the Vercel Skills CLI
 
-The easiest way to integrate is using the official Vercel-Labs [skills](https://github.com/vercel-labs/skills) repository tool:
+The easiest way to integrate is using the official Vercel-Labs [skills](https://github.com/vercel-labs/skills) CLI tool, which natively supports fetching skills from GitHub repositories directly into your supported agents (like Cursor, Claude Code, or Antigravity):
 
-1. Ensure your agents are configured to recognize tools from the Vercel-Labs framework.
-2. Link or include this repository's `skills/` folder so the framework can automatically discover and bind them.
+```bash
+# Install all skills from this repository
+npx skills add joao-aires/skills
+
+# Or to install a specific skill (e.g., presentation-building)
+npx skills add joao-aires/skills --skill presentation-building
+```
 
 ### Option 2: Using the Sync Script
 
