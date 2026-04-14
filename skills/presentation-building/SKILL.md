@@ -1,5 +1,5 @@
 ---
-name: presentation-builder
+name: presentation-building
 description: "Build single-file HTML presentations with a dark theme, scroll-driven slides, responsive card grids, and reveal animations. Optional addons extend the base with features like a vertical timeline navigation. Use when the user asks to: create a presentation, build a slide deck, add or edit slides, fix slide layout or overflow issues, add timeline events, create card grids, add reveal animations, embed images or tweets, fix fullscreen rendering, or any task involving HTML presentation creation and refinement."
 metadata:
   version: "1.0"
