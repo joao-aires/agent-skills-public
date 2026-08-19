@@ -12,6 +12,7 @@ This repository serves as a collection of modular skills for my own personal use
 | ----- | ----------- |
 | `presentation-building` | Build single-file HTML presentations with a dark theme, scroll-driven slides, responsive card grids, and reveal animations. |
 | `architecture-diagraming` | Build responsive, theme-aware HTML architecture diagrams using CSS grid/flexbox and CSS variables. Covers system, cloud, sequence, state, pipeline, and more. |
+| `business-opportunity-analysis` | Analyze business opportunities from first principles, including TAM/SAM/SOM, pricing, GTM, revenue scenarios, OSS commercialization, unit economics, moats, and valuation. |
 
 ## Installation
 
