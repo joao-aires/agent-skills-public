@@ -12,56 +12,55 @@ This repository serves as a collection of modular skills for my own personal use
 | ----- | ----------- |
 | `presentation-building` | Build single-file HTML presentations with a dark theme, scroll-driven slides, responsive card grids, and reveal animations. |
 | `architecture-diagraming` | Build responsive, theme-aware HTML architecture diagrams using CSS grid/flexbox and CSS variables. Covers system, cloud, sequence, state, pipeline, and more. |
-| `business-opportunity-analysis` | Analyze business opportunities from first principles, including TAM/SAM/SOM, pricing, GTM, revenue scenarios, OSS commercialization, unit economics, moats, and valuation. |
+| `business-strategy` | Develop, evaluate, compare, and continuously update business/product strategy: decision framing, claim-led research, market systems, customer behavior and culture, layered competitive dynamics, wedge selection, positioning, future-market scenarios, TAM/pricing/GTM/economics, moats/control points, falsifiable assumptions, and strategy review. |
+| `business-opportunity-analysis` | Legacy compatibility alias for `business-strategy`; existing installs can continue to use the old name. |
+
+## Business Strategy v2
+
+`business-strategy` treats the initial business concept as a hypothesis rather than a fixed plan. For deep work it can maintain a living strategy state, evidence ledger, assumption register, decision log, and wedge scorecard across sessions.
+
+It supports five modes that are inferred from the request:
+
+- **explore** — search the opportunity and wedge space
+- **evaluate** — test a defined business or product
+- **decide** — compare strategic alternatives
+- **develop** — iteratively evolve what the company/product should become
+- **review** — update an existing strategy when the market or evidence changes
+
+The skill uses progressive disclosure: the main `SKILL.md` contains the operating loop and routes to focused reference files only when those modules matter.
 
 ## Installation
 
-To make these skills available to your coding agents, you can use one of the two methods below:
+To make these skills available to your coding agents, you can use one of the two methods below.
 
 ### Option 1: Using the Vercel Skills CLI
 
-The easiest way to integrate is using the official Vercel-Labs [skills](https://github.com/vercel-labs/skills) CLI tool, which natively supports fetching skills from GitHub repositories directly into your supported agents (like Cursor, Claude Code, or Antigravity):
-
 ```bash
 # Install all skills from this repository
-npx skills add joao-aires/skills
+npx skills add joao-aires/agent-skills-public
 
-# Or to install a specific skill (e.g., presentation-building)
-npx skills add joao-aires/skills --skill presentation-building
+# Install only business-strategy
+npx skills add joao-aires/agent-skills-public --skill business-strategy
 ```
 
 ### Option 2: Using the Sync Script
 
-Alternatively, you can use the included `sync-skills.sh` script to symlink the tools into a global `~/.agents/skills` directory, making them accessible to any custom agent that reads from that path.
-
-First, you'll need to clone this repository to your local machine:
+Alternatively, use the included `sync-skills.sh` script to symlink tools into a global `~/.agents/skills` directory.
 
 ```bash
-git clone git@github.com:joao-aires/skills.git
-cd skills
-```
+git clone git@github.com:joao-aires/agent-skills-public.git
+cd agent-skills-public
 
-Then, you can use the sync script:
-
-```bash
 # Sync all skills
 ./scripts/sync-skills.sh sync
 
 # Sync a specific skill
-./scripts/sync-skills.sh sync my_skill
-# Or simply:
-./scripts/sync-skills.sh my_skill
-```
+./scripts/sync-skills.sh business-strategy
 
-To view the current sync status of skills:
-
-```bash
+# Check status
 ./scripts/sync-skills.sh status
-```
 
-To remove all symlinks managed by this repo:
-
-```bash
+# Remove managed symlinks
 ./scripts/sync-skills.sh remove
 ```
 
@@ -70,8 +69,10 @@ To remove all symlinks managed by this repo:
 When adding a new skill:
 
 1. Create a new directory under `skills/` with an intuitive name.
-2. Include the necessary scripts, dependencies, and a localized README if needed.
-3. Keep the skill modular and self-contained so that agents can easily ingest and run it.
+2. Include the necessary scripts, dependencies, assets, and references as needed.
+3. Keep the main `SKILL.md` concise and use progressive disclosure for detailed methodologies.
+4. Keep the skill modular and self-contained so agents can ingest and run it in different environments.
+5. Add regression cases for important behavior when a skill contains a multi-step reasoning workflow.
 
 ## License
 
