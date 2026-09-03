@@ -2,9 +2,9 @@
 
 ## Principle
 
-Do not pretend to forecast a novel market precisely. Build a small set of plausible future states and test whether the strategy remains valuable.
+Do not pretend to forecast a novel market precisely. Build a small set of plausible future states and test whether the strategy remains valuable **and economically powerful**.
 
-The objective is **robustness**, not prediction theater.
+The objective is robustness, not prediction theater.
 
 ## When this is mandatory
 
@@ -94,11 +94,46 @@ For each strategy or wedge evaluate:
 - distribution
 - competitor pressure
 - monetization
+- economic power / value leakage
 - moat
 - required capabilities
 - risk of obsolescence
 
 Use simple ratings such as strong / viable / weak / invalidated.
+
+## Last-mover / mature-market test
+
+Robustness asks whether the company remains useful. The last-mover test asks something stronger:
+
+> If the company succeeds and the market matures, why does it still occupy an unusually valuable economic position?
+
+Project the market forward roughly 7–10 years when the time horizon warrants it.
+
+Ask:
+
+```text
+What has commoditized?
+What has standardized?
+What became dramatically cheaper?
+What can customers now build or multi-home?
+What did platforms bundle?
+Who consolidated?
+What advantage did the company accumulate?
+Who has bargaining power now?
+Why can the company still earn attractive returns?
+```
+
+Then state:
+
+- **what compounds** — data, distribution, network, trust, integrations, installed base, standards, learning, etc.
+- **what disappears** — today's temporary technical or market advantage
+- **what becomes commodity**
+- **why the strategic position survives**
+- **main long-term threat**
+
+The answer should not simply be "we innovate faster forever."
+
+Use `economic-power-and-value-capture.md` and `moats-and-control-points.md` when this test is central.
 
 ## Option value
 
@@ -127,8 +162,10 @@ End with:
 1. scenarios considered
 2. assumptions classified as invariant / structural / transitional / fragile
 3. which strategy is most robust
-4. which current opportunity is intentionally transitional
-5. signals to monitor
-6. decisions to revisit if those signals occur
+4. mature-market / last-mover thesis
+5. what compounds versus commoditizes
+6. which current opportunity is intentionally transitional
+7. signals to monitor
+8. decisions to revisit if those signals occur
 
 Do not choose the most futuristic scenario simply because it is interesting.
