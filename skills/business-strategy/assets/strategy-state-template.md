@@ -30,7 +30,7 @@
 
 ### Product / capability
 
-### Initial wedge
+### Initial wedge / beachhead
 
 ### Long-term destination
 
@@ -40,7 +40,39 @@
 
 ### Business model
 
-### Strategic control point / accumulating asset
+## Contrarian / Non-Consensus Thesis
+
+- Market consensus:
+- What we believe instead:
+- Why it may be true:
+- Opportunity created if true:
+- Evidence that would falsify it:
+
+Use this section only when a non-consensus belief materially drives the strategy.
+
+## Value Creation and Economic Power
+
+### Value creation
+
+- Important customer outcome:
+- Magnitude versus best alternative: incremental | meaningful | dramatic | qualitatively new
+- Evidence customers care enough to change behavior:
+
+### Value capture
+
+- Primary economic-power mechanism:
+- Pricing discretion or structural cost advantage:
+- Customer bargaining / substitution risk:
+- Supplier / platform bargaining risk:
+- Entry / imitation risk:
+- Main source of value leakage:
+
+### Durability
+
+- What compounds with customers / scale / time:
+- Strategic control point / accumulating asset:
+- What is likely to commoditize:
+- Mature-market / last-mover thesis:
 
 ## Market System
 
@@ -74,19 +106,26 @@
 
 ### Likely competitor trajectories
 
-## Wedge and Expansion Sequence
+## Wedge and Expansion Geometry
+
+### Beachhead coherence / dominance thesis
 
 ```text
-initial wedge
-→ next use case / segment
-→ organizational / geographic expansion
-→ long-term platform or control point
+initial wedge / beachhead
+→ next use case / segment because [accumulated advantage]
+→ next expansion because [new leverage]
+→ long-term position because [economic-power mechanism]
 ```
+
+- Why this beachhead can be won deeply:
+- What winning it accumulates:
+- How expansion strengthens or dilutes power:
 
 ## Positioning
 
 - Competitive alternatives:
 - Unique capability:
+- Magnitude of difference:
 - Primary value:
 - Best-fit customer:
 - Category / frame:
@@ -101,6 +140,14 @@ initial wedge
 ### Transitional opportunities
 
 ### Fragile dependencies
+
+### Last-mover / mature-market test
+
+- What compounds:
+- What disappears:
+- What becomes commodity:
+- Why the position survives:
+- Main long-term threat:
 
 ## Economics Snapshot
 
