@@ -12,39 +12,32 @@ This repository serves as a collection of modular skills for my own personal use
 | ----- | ----------- |
 | `presentation-building` | Build single-file HTML presentations with a dark theme, scroll-driven slides, responsive card grids, and reveal animations. |
 | `architecture-diagraming` | Build responsive, theme-aware HTML architecture diagrams using CSS grid/flexbox and CSS variables. Covers system, cloud, sequence, state, pipeline, and more. |
-| `business-strategy` | Develop, evaluate, compare, and continuously update business/product strategy: decision framing, claim-led research, market systems, customer behavior and culture, layered competitive dynamics, wedge selection, positioning, future-market scenarios, TAM/pricing/GTM/economics, moats/control points, falsifiable assumptions, and strategy review. |
+| `business-strategy` | Develop, evaluate, compare, and continuously update business/product strategy: decision framing, evidence, market/customer reality, wedge and beachhead selection, positioning, competitive dynamics, economic power/value capture, future-market durability, TAM/pricing/GTM/economics, moats/control points, falsifiable assumptions, and strategy review. |
 | `business-opportunity-analysis` | Deprecated compatibility entry point. It uses `business-strategy` when available and retains a self-contained v1-style evaluation fallback for standalone legacy installs. |
 
-## Business Strategy v2
+## Business Strategy v2.1
 
-`business-strategy` treats the initial business concept as a hypothesis rather than a fixed plan. For deep work it can maintain a living strategy state, evidence ledger, assumption register, decision log, and wedge scorecard across sessions.
+`business-strategy` treats the initial business concept as a hypothesis rather than a fixed plan. Its core reasoning model separates **value creation, value capture, and durability**: a good product is not automatically a good business if competition, buyers, suppliers, or platforms capture the economic surplus.
 
-It supports five modes that are inferred from the request:
+The skill supports five inferred modes:
 
-- **explore** — search the opportunity and wedge space
+- **explore** — search the opportunity and wedge space, including non-consensus hypotheses
 - **evaluate** — test a defined business or product
 - **decide** — compare strategic alternatives
 - **develop** — iteratively evolve what the company/product should become
 - **review** — update an existing strategy when the market or evidence changes
 
-The skill uses progressive disclosure: the main `SKILL.md` contains the operating loop and routes to focused reference files only when those modules matter.
+The main `SKILL.md` is an orchestrator built around six phases: frame → ground in market reality → design the strategic position → test future/economics → decide/red-team → persist/review. Detailed methods remain in selectively loaded references.
 
-### Strategy v2 modules
+The reference library is organized conceptually into:
 
-The reference system covers:
+- **process and evidence** — decision framing, claim-led research, stress testing
+- **market reality** — market systems, customer behavior/culture, layered competition and trajectories
+- **strategic position and power** — beachheads, non-comparability, positioning, economic power/value capture, moats/control points, future-market/last-mover tests
+- **economics** — bottom-up sizing, unit economics, financial scenarios and valuation
+- **specialized models** — open-source commercialization
 
-- decision framing and claim-led research
-- market-system and profit-pool mapping
-- customer behavior, organizational culture, and geography
-- product, capability, and whole-vision competition plus competitor trajectory
-- wedge generation, scoring, and sequencing
-- positioning and category framing
-- future-market scenarios and invariant/structural/transitional/fragile assumptions
-- moats, accumulating assets, and strategic control points
-- red-teaming and falsifiable tripwires
-- bottom-up market sizing, OSS commercialization, unit economics, financial scenarios, and valuation
-
-The `assets/` directory contains templates for persistent strategy state, evidence, assumptions, decisions, and wedge comparisons. The `evals/` directory contains regression cases designed to catch premature convergence, shallow competitive analysis, and failure to mutate the thesis.
+For deep work, `assets/` contains living templates for strategy state, evidence, assumptions, decisions, and wedge comparisons. `evals/` contains regression cases designed to catch premature convergence, shallow competition analysis, TAM shortcuts, false "no competition" conclusions, weak value-capture reasoning, and failure to mutate the thesis.
 
 ## Installation
 

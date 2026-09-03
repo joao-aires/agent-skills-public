@@ -1,30 +1,18 @@
 # Wedge Scorecard
 
-Use scores to expose trade-offs, not to mechanically choose the strategy.
+Use this to expose trade-offs between serious wedge candidates—not to manufacture precision.
 
-Scale: 1 = poor, 3 = acceptable, 5 = exceptional.
+Scale when useful: 1 = weak, 3 = viable, 5 = exceptional. A fatal gating issue overrides the total score.
 
-| Dimension | Wedge A | Wedge B | Wedge C | Notes / evidence |
+| Dimension | Wedge A | Wedge B | Wedge C | What to inspect / evidence |
 |---|---:|---:|---:|---|
-| Pain intensity / urgency |  |  |  |  |
-| Adoption trigger clarity |  |  |  |  |
-| Time-to-value |  |  |  |  |
-| Behavior-change burden |  |  |  |  |
-| Buyer clarity |  |  |  |  |
-| Budget availability |  |  |  |  |
-| Distribution advantage |  |  |  |  |
-| Beachhead coherence |  |  |  |  |
-| Dominance potential |  |  |  |  |
-| Magnitude / non-comparability of advantage |  |  |  |  |
-| Competitive density |  |  |  |  |
-| Bundling / incumbent risk |  |  |  |  |
-| Value-capture potential |  |  |  |  |
-| Asset accumulation |  |  |  |  |
-| Expansion surface |  |  |  |  |
-| Expansion strengthens economic power |  |  |  |  |
-| Path to control point |  |  |  |  |
-| Unit-economic potential |  |  |  |  |
-| Future resilience / last-mover durability |  |  |  |  |
+| Customer pull |  |  |  | pain, urgency, trigger, willingness to change, time-to-value |
+| Beachhead / dominance |  |  |  | coherence, concentrated distribution, plausible depth of win |
+| Magnitude of advantage |  |  |  | incremental vs meaningful vs dramatic vs new capability |
+| Buyer + distribution |  |  |  | buyer, budget, channel access, sales-cycle fit, adoption burden |
+| Competition + value capture |  |  |  | substitutes, bundling, copying, buyer/platform power, pricing/cost power |
+| Expansion + accumulation |  |  |  | adjacent moves, data/integrations/network/trust, control-point path |
+| Economics + future durability |  |  |  | margin/CAC/ACV potential, capital intensity, resilience, mature-market power |
 
 ## Gating Conditions
 
@@ -32,19 +20,11 @@ Scale: 1 = poor, 3 = acceptable, 5 = exceptional.
 |---|---|---|
 |  |  |  |
 
-Examples of gating issues include weak demand despite low competition, no credible buyer, inaccessible distribution, regulatory impossibility, or platform dependency that destroys value capture.
-
-## Beachhead Thesis
-
-For each leading wedge answer:
-
-- Is this a real, coherent customer group rather than an artificially narrow category?
-- Why can we become a default or strongly preferred choice?
-- What does high penetration create that a thin presence in a broad market would not?
+Examples: weak demand despite no competition, no credible buyer, inaccessible distribution, regulatory impossibility, or dependency that destroys value capture.
 
 ## Magnitude Test
 
-| Buying criterion | Proposed wedge | Best alternative | Incremental / meaningful / dramatic / new capability |
+| Important buying criterion | Proposed wedge | Best alternative | Incremental / meaningful / dramatic / new capability |
 |---|---|---|---|
 |  |  |  |  |
 
@@ -57,16 +37,15 @@ Beachhead
 → long-term position because [economic-power mechanism]
 ```
 
-- Which wedge creates learning, integrations, data, community, standards influence, or credibility?
-- Which risks trapping the company in a low-value category?
-- Does expansion increase or dilute bargaining / pricing power?
+Ask whether each expansion strengthens the original position or pulls the company toward commodity competition.
 
 ## Recommendation
 
 - Selected wedge:
 - Why it wins despite trade-offs:
 - Beachhead dominance thesis:
+- Primary value-creation advantage:
 - Primary economic-power mechanism:
-- Second-best option:
-- What evidence would cause a switch:
 - First expansion step:
+- Second-best option:
+- Evidence that would cause a switch:
