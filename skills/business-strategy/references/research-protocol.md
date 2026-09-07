@@ -16,7 +16,7 @@ research priority = decision impact × uncertainty × cost of being wrong
 
 ## 1. Create decision-changing claims
 
-For standard/deep work, write 5–15 high-impact claims with stable IDs.
+For standard/deep work, write a small set of high-impact claims. Use stable IDs when the work is persistent.
 
 Example:
 
@@ -64,22 +64,22 @@ Examples:
 
 Top-down consultancy market reports are directional, not ground truth.
 
-## 4. Maintain an evidence ledger
+## 4. Persist only decision-relevant evidence
 
-For deep work, record each meaningful evidence item with:
+For substantive strategy work, keep a compact **Decision-Relevant Evidence** table inside `strategy-state.md` rather than a separate evidence ledger.
 
-- claim ID
-- source
-- date / period
-- geography
-- evidence type
-- supporting or contradicting
-- key fact
-- source quality
-- confidence impact
-- notes on definitions or limitations
+Record an item when it materially changes confidence, an assumption, an option, or the recommendation. Capture:
 
-Use `../assets/evidence-ledger-template.md`.
+- stable evidence ID when useful
+- claim / finding
+- source / origin
+- supporting, contradicting, or mixed direction
+- confidence / source quality
+- strategic implication
+
+Keep detailed citations and source discussion in the analysis/output. The persistent state is for strategic memory, not bibliography management.
+
+Record important unresolved contradictions or evidence gaps in the same section.
 
 ## 5. Separate epistemic types
 
@@ -121,7 +121,7 @@ When sources conflict, do not average automatically. Check:
 
 Record unresolved contradictions when they matter.
 
-## 8. Confidence
+## 8. Confidence and assumptions
 
 Use simple confidence levels:
 
@@ -129,7 +129,9 @@ Use simple confidence levels:
 - **Medium** — reasonable evidence but meaningful uncertainty remains
 - **Low** — indirect, sparse, stale, or contradictory evidence
 
-Confidence should be claim-specific, not one rating for the whole report.
+Confidence should be claim- or assumption-specific, not one rating for the whole report.
+
+When a decision depends on an unverified belief, add it to the **Critical Assumptions** table in `strategy-state.md` with importance, confidence, the strongest evidence for/against, a falsifier or next test, and a review trigger.
 
 ## 9. Gap closure
 
@@ -153,5 +155,7 @@ For each high-impact finding ask:
 - Which assumption changes confidence?
 - Does the thesis need to mutate?
 - What should be researched or tested next?
+
+Update `strategy-state.md` as these answers change. If a material choice changes, record it in `decision-log.md`.
 
 The result should be an updated decision, not a bibliography.

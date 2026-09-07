@@ -36,7 +36,7 @@ A large useful market can still produce a weak business if competition, buyers, 
 
 ### 3. Strategy is a set of choices
 
-Frameworks are lenses, not required sections. Use Jobs to Be Done, Playing to Win, positioning, Five Forces, Wardley mapping, scenario planning, pre-mortems, or other frameworks only when they improve the decision.
+Frameworks are lenses, not required sections. Use Jobs to Be Done, Playing to Win, positioning, Five Forces, Wardley mapping, scenario planning, pre-mortems, or other frameworks when they improve the decision, and apply named frameworks explicitly when the user requests them.
 
 ### 4. Research decision-changing uncertainty
 
@@ -72,9 +72,24 @@ Infer the mode from the request; do not force the user to choose.
 
 - **Light** — narrow question; answer directly and load only the relevant reference.
 - **Standard** — material strategic decision; use the relevant phases below.
-- **Deep** — ambiguous, high-stakes, fast-moving, or explicitly comprehensive work; use the full loop and persistent artifacts when possible.
+- **Deep** — ambiguous, high-stakes, fast-moving, or explicitly comprehensive work; use the full loop and persistent state when possible.
 
 Do not turn a simple revenue or pricing question into a full strategy engagement.
+
+## Persistent Strategy State
+
+For substantive strategy work with a writable workspace, always maintain two durable artifacts:
+
+- `strategy-state.md` — the current source of truth, including thesis, market, evidence, assumptions, alternatives, economics, risks, experiments, and recommendation;
+- `decision-log.md` — the history of material strategic choices, thesis mutations, rejected alternatives, and what would reopen them.
+
+If they do not exist, create them from `assets/strategy-state-template.md` and `assets/decision-log-template.md` before substantive analysis. If they exist, read them before re-analyzing.
+
+Update `strategy-state.md` whenever new evidence, assumptions, options, economics, risks, or conclusions materially change. Update `decision-log.md` whenever a material strategic decision is made, reversed, or reopened.
+
+Do **not** create separate evidence-ledger, assumption-register, or wedge-scorecard files. Keep decision-relevant evidence and assumptions compactly inside `strategy-state.md`; compare wedges or alternatives inline when needed and persist only the current alternatives/conclusion.
+
+If no writable workspace exists, maintain the same state conceptually in the conversation.
 
 ## The Strategy Loop
 
@@ -164,12 +179,14 @@ Run the **mature-market / last-mover test** when the long-term position matters:
 
 > If the company succeeds and the market matures, what has commoditized, what has compounded, and why does the company still earn attractive returns?
 
-Then validate only the economics relevant to the decision:
+Then validate the economics relevant to the strategy:
 
 - bottom-up TAM / SAM / obtainable market;
-- pricing and GTM;
+- monetization alternatives, pricing model and willingness to pay;
+- GTM and distribution economics;
 - revenue scenarios and sensitivities;
 - gross margin, retention, expansion and variable costs;
+- capital intensity when relevant;
 - valuation when requested;
 - OSS adoption-to-monetization boundary when applicable.
 
@@ -182,7 +199,7 @@ Use:
 - `references/valuation-framework.md`
 - `references/open-source-commercialization.md`
 
-Do not jump from a large market number to obtainable revenue or from revenue to valuation.
+Do not jump from a large market number to obtainable revenue or from revenue to valuation. Monetization and economics can change the product, buyer, wedge, distribution, and strategic position; treat them as part of strategy, not merely downstream calculations.
 
 ### Phase 5 — Decide, red-team, and falsify
 
@@ -195,7 +212,7 @@ Synthesize explicit choices:
 - expansion sequence;
 - required capabilities;
 - economic-power / moat mechanism;
-- business model;
+- business model and monetization;
 - strategic exclusions.
 
 Then attack the strategy:
@@ -210,35 +227,25 @@ Then attack the strategy:
 - future-state obsolescence;
 - team/capability constraints when relevant.
 
-For each critical assumption record confidence, supporting/contradicting evidence, falsifier, next test, and review trigger.
+For each critical assumption record confidence, the strongest supporting/contradicting evidence, falsifier, next test, and review trigger in `strategy-state.md`.
 
 End with the cheapest evidence-producing actions that test the highest-impact uncertainty.
 
-Use `references/strategy-stress-testing.md` plus the assumption/evidence templates for deep work.
+Use `references/strategy-stress-testing.md` for deep work.
 
 ### Phase 6 — Persist and review
 
-For deep `develop` or `review` work, maintain a living strategy state when a writable workspace exists:
-
-- `strategy-state.md`
-- `evidence-ledger.md`
-- `assumption-register.md`
-- `decision-log.md`
-- `wedge-scorecard.md` when alternatives matter
-
-Use the templates in `assets/`.
-
-When prior state exists, read it before re-analyzing from scratch.
+For substantive strategy work, keep `strategy-state.md` and `decision-log.md` current throughout the analysis rather than only at the end.
 
 A review loop is:
 
 ```text
 what changed
-→ which assumptions are affected
+→ which evidence / assumptions are affected
 → which decisions should reopen
 → rerun only the affected modules
 → mutate or reaffirm the thesis
-→ update state + decision log
+→ update strategy state + decision log
 ```
 
 Every material strategy change should record the old belief, new choice, reason/evidence, rejected alternatives, and what would reopen the decision.
@@ -252,7 +259,7 @@ When evidence materially weakens the current thesis:
 3. generate at least one revised thesis, not merely a lower confidence score;
 4. compare the revised and current theses;
 5. change the recommendation if warranted;
-6. update the decision log in persistent work.
+6. update `strategy-state.md` and the decision log in persistent work.
 
 Do not defend the initial concept for conversational consistency.
 
@@ -270,6 +277,8 @@ Prefer primary sources where possible and match source type to claim type. Activ
 
 When evidence conflicts, examine definition, geography, time period, methodology, accounting basis, incentives, and source independence rather than averaging automatically.
 
+Persist only decision-relevant evidence in `strategy-state.md`; citations and detailed research can remain in the analysis/output rather than becoming a separate bookkeeping artifact.
+
 ## Reference Map
 
 Load references selectively.
@@ -277,7 +286,7 @@ Load references selectively.
 ### Process and evidence
 
 - `references/decision-framing.md` — clarify the decision, options, criteria and reversibility
-- `references/research-protocol.md` — claim-led research, evidence ledger, contradiction handling
+- `references/research-protocol.md` — claim-led research, compact evidence tracking, contradiction handling
 - `references/strategy-stress-testing.md` — pre-mortem, failure mechanisms, coherence and verdict
 
 ### Market reality
@@ -294,15 +303,12 @@ Load references selectively.
 - `references/moats-and-control-points.md` — accumulating assets, control points, durability, commoditization
 - `references/future-market-scenarios.md` — future states, invariant/fragile assumptions, last-mover test
 
-### Economics
+### Economics and monetization
 
 - `references/market-sizing.md` — bottom-up TAM/SAM/SOM
 - `references/revenue-quality-and-unit-economics.md` — margins, retention, NRR, AI/variable costs
 - `references/financial-scenario-modeling.md` — revenue paths, sensitivities, what-must-be-true
 - `references/valuation-framework.md` — contextual multiples and strategic acquisition value
-
-### Specialized business model
-
 - `references/open-source-commercialization.md` — OSS adoption, commercial boundary, monetization and GTM
 
 ## Recommended Deep Output
@@ -313,10 +319,11 @@ Adapt to the decision; do not mechanically output every section.
 2. **Current thesis and alternatives** — including any thesis mutation
 3. **Market reality** — decisive customer, market and competitive evidence
 4. **Strategic position** — beachhead, positioning, value creation, economic power, expansion
-5. **Future + economics** — durability and financial implications as relevant
-6. **Risks / assumptions** — what could break the thesis
-7. **Experiments / tripwires** — what to learn next and what would change the recommendation
-8. **State changes** — for ongoing `develop` / `review` work
+5. **Business model + economics** — monetization, market size, pricing, GTM, unit economics and scenarios as relevant
+6. **Future durability** — why the advantage survives or does not
+7. **Risks / assumptions** — what could break the thesis
+8. **Experiments / tripwires** — what to learn next and what would change the recommendation
+9. **State changes** — for ongoing `develop` / `review` work
 
 ## Anti-Patterns
 

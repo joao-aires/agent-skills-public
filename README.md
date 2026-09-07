@@ -34,10 +34,9 @@ The reference library is organized conceptually into:
 - **process and evidence** — decision framing, claim-led research, stress testing
 - **market reality** — market systems, customer behavior/culture, layered competition and trajectories
 - **strategic position and power** — beachheads, non-comparability, positioning, economic power/value capture, moats/control points, future-market/last-mover tests
-- **economics** — bottom-up sizing, unit economics, financial scenarios and valuation
-- **specialized models** — open-source commercialization
+- **economics and monetization** — bottom-up sizing, business-model options, pricing, unit economics, financial scenarios, valuation, and OSS commercialization
 
-For deep work, `assets/` contains living templates for strategy state, evidence, assumptions, decisions, and wedge comparisons. `evals/` contains regression cases designed to catch premature convergence, shallow competition analysis, TAM shortcuts, false "no competition" conclusions, weak value-capture reasoning, and failure to mutate the thesis.
+For substantive strategy work with a writable workspace, the skill maintains two durable artifacts: `strategy-state.md` as the current source of truth and `decision-log.md` as the history of material choices. Decision-relevant evidence and critical assumptions live compactly inside the strategy state rather than in separate bookkeeping files. `evals/` contains regression cases designed to catch premature convergence, shallow competition analysis, TAM shortcuts, false "no competition" conclusions, weak value-capture reasoning, and failure to mutate the thesis.
 
 ## Installation
 

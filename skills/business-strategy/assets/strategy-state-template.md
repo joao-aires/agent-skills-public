@@ -1,6 +1,6 @@
 # Strategy State
 
-> Living source of truth. Update this file when evidence or decisions materially change the strategy.
+> Living source of truth for the current strategy. Keep this file current as evidence, assumptions, economics, options, and conclusions change. Historical decisions belong in `decision-log.md`.
 
 ## Metadata
 
@@ -20,37 +20,83 @@
 
 ## Current Thesis
 
-### Customer / user
-
-### Economic buyer
-
-### Problem / job
-
-### Why now
-
-### Product / capability
-
-### Initial wedge / beachhead
-
-### Long-term destination
-
-### Where to play
-
-### How to win
-
-### Business model
+- **Customer / user:**
+- **Economic buyer:**
+- **Problem / job:**
+- **Why now:**
+- **Product / capability:**
+- **Initial wedge / beachhead:**
+- **Long-term destination:**
+- **Where to play:**
+- **How to win:**
+- **Business model / monetization:**
 
 ## Contrarian / Non-Consensus Thesis
+
+Use only when a non-consensus belief materially drives the strategy.
 
 - Market consensus:
 - What we believe instead:
 - Why it may be true:
 - Opportunity created if true:
-- Evidence that would falsify it:
+- What would falsify it:
 
-Use this section only when a non-consensus belief materially drives the strategy.
+## Market and Customer Reality
 
-## Value Creation and Economic Power
+### Market system
+
+- Key actors / value chain:
+- Budget / profit pools:
+- Important platforms / standards / constraints:
+- Alternatives / substitutes:
+- Market evolution:
+
+### Customer behavior
+
+- Current workflow:
+- Adoption trigger:
+- Behavior change required:
+- Trust / organizational / geographic considerations:
+
+### Competition
+
+- Product competitors:
+- Capability competitors:
+- Whole-vision competitors:
+- Likely trajectories / bundling risk:
+
+## Strategic Position
+
+### Wedge / beachhead
+
+- Why this beachhead is coherent:
+- Why it can be won deeply:
+- Magnitude of customer advantage:
+- Distribution path:
+- What winning it accumulates:
+
+### Expansion geometry
+
+```text
+initial wedge
+→ next adjacency because [asset / distribution / credibility]
+→ next adjacency because [new leverage]
+→ long-term position because [power mechanism]
+```
+
+- How expansion strengthens or dilutes power:
+
+### Positioning
+
+- Competitive alternatives:
+- Unique capability:
+- Magnitude of difference:
+- Primary value:
+- Best-fit customer:
+- Category / frame:
+- Strategic exclusions:
+
+## Value Creation, Economic Power, and Durability
 
 ### Value creation
 
@@ -74,72 +120,53 @@ Use this section only when a non-consensus belief materially drives the strategy
 - What is likely to commoditize:
 - Mature-market / last-mover thesis:
 
-## Market System
+## Business Model and Economics
 
-### Key actors
+- Monetization options considered:
+- Selected monetization model and why:
+- Pricing metric / willingness-to-pay logic:
+- TAM / SAM / realistically obtainable market:
+- GTM / distribution economics:
+- Base revenue scenario:
+- Gross margin / unit economics:
+- Retention / expansion / revenue-quality notes:
+- Capital intensity / financing needs if material:
+- Valuation / strategic value if relevant:
 
-### Budget / profit pools
+## Current Strategic Alternatives
 
-### Important layers / value chain
+Keep only alternatives that are still live or useful for comparison. Historical rejected choices belong in `decision-log.md`.
 
-### Alternatives / substitutes
+| Option | Why plausible | Main advantage | Main weakness / gating issue | Status |
+|---|---|---|---|---|
+|  |  |  |  | open / preferred / parked |
 
-### Market evolution
+## Decision-Relevant Evidence
 
-## Customer Behavior and Culture
+Keep this compact. Record evidence that materially changes confidence, an assumption, an option, or the recommendation; do not turn this into a bibliography.
 
-### Current workflow
+| ID | Claim / finding | Source / origin | Supports / contradicts | Confidence / quality | Strategic implication |
+|---|---|---|---|---|---|
+| E01 |  |  | supports / contradicts / mixed | high / medium / low |  |
 
-### Adoption trigger
+### Important unresolved contradictions / evidence gaps
 
-### Behavior change required
+- 
 
-### Trust / organizational / geographic considerations
+## Critical Assumptions
 
-## Competitive Dynamics
+Track only assumptions important enough to change the strategy if wrong.
 
-### Product competitors
-
-### Capability competitors
-
-### Whole-vision competitors
-
-### Likely competitor trajectories
-
-## Wedge and Expansion Geometry
-
-### Beachhead coherence / dominance thesis
-
-```text
-initial wedge / beachhead
-→ next use case / segment because [accumulated advantage]
-→ next expansion because [new leverage]
-→ long-term position because [economic-power mechanism]
-```
-
-- Why this beachhead can be won deeply:
-- What winning it accumulates:
-- How expansion strengthens or dilutes power:
-
-## Positioning
-
-- Competitive alternatives:
-- Unique capability:
-- Magnitude of difference:
-- Primary value:
-- Best-fit customer:
-- Category / frame:
-- Strategic exclusions:
+| ID | Assumption | Importance | Confidence | Best evidence for / against | Falsifier / next test | Review trigger |
+|---|---|---|---|---|---|---|
+| A01 |  | critical / high / medium | high / medium / low |  |  |  |
 
 ## Future-Market Robustness
 
-### Invariant assumptions / needs
-
-### Structural assumptions
-
-### Transitional opportunities
-
-### Fragile dependencies
+- **Invariant needs:**
+- **Structural assumptions:**
+- **Transitional opportunities:**
+- **Fragile dependencies:**
 
 ### Last-mover / mature-market test
 
@@ -149,30 +176,30 @@ initial wedge / beachhead
 - Why the position survives:
 - Main long-term threat:
 
-## Economics Snapshot
-
-- TAM / SAM / SOM:
-- Pricing model:
-- GTM motion:
-- Base revenue scenario:
-- Gross-margin / unit-economic notes:
-
-## Critical Assumptions
-
-See `assumption-register.md`. Summarize only the most decision-critical assumptions here.
-
-## Rejected Alternatives
-
-See `decision-log.md`.
-
 ## Current Risks
+
+- 
 
 ## Experiments / Evidence Needed Next
 
+- 
+
 ## Signals to Monitor
 
-For each signal, state which decision it would reopen.
+For each signal, state which assumption or decision it would reopen.
+
+- 
 
 ## Current Recommendation
 
-State the current choice and the strongest reason it could change.
+- **Recommendation:**
+- **Why:**
+- **Strongest reason it could change:**
+
+## Maintenance Rules
+
+- Update this file continuously during substantive strategy work, not only at the end.
+- Keep current truth here; keep historical material decisions in `decision-log.md`.
+- Add evidence only when it is decision-relevant.
+- Add assumptions only when being wrong could materially change the strategy.
+- Remove stale alternatives from the live table once the decision log preserves why they were rejected.

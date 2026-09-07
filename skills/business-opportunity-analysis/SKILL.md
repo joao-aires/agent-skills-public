@@ -146,4 +146,4 @@ Prefer primary sources for pricing, product capabilities, filings, regulation, a
 
 ## Upgrade Path
 
-For wedge selection, layered competitor trajectories, customer culture/behavior, future-market scenarios, claim-led research, strategy mutation, persistent assumption registers, decision logs, or ongoing strategy review, install and use `business-strategy`.
+For wedge selection, layered competitor trajectories, customer culture/behavior, future-market scenarios, claim-led research, strategy mutation, persistent strategy state, decision logs, or ongoing strategy review, install and use `business-strategy`.

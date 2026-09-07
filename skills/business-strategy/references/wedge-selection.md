@@ -47,6 +47,8 @@ Generate alternatives across:
 
 For `explore` and `develop` work, also generate at least one alternative from a **different underlying belief about the market**, not just a different segment or packaging choice.
 
+When multiple alternatives remain live, compare them inline and persist only a compact summary in the **Current Strategic Alternatives** section of `strategy-state.md`. Do not maintain a separate wedge-scorecard artifact.
+
 ## Contrarian / secret hypothesis
 
 Use this when the opportunity is novel or the market consensus itself may be wrong.
@@ -117,18 +119,7 @@ Do not impose a universal market-share threshold. The strategic question is whet
 
 A wedge that is merely a little better may be forced into feature and price competition.
 
-For the customer's important buying criteria, compare the best alternative with the proposed product:
-
-| Dimension | Proposed product | Best alternative | Magnitude / consequence |
-|---|---|---|---|
-| Time |  |  |  |
-| Cost |  |  |  |
-| Quality / accuracy |  |  |  |
-| Effort / friction |  |  |  |
-| Risk |  |  |  |
-| Capability |  |  |  |
-
-Classify the overall advantage as:
+For the customer's important buying criteria, compare the best alternative with the proposed product. Classify the overall advantage as:
 
 - incremental
 - meaningfully better
@@ -141,75 +132,17 @@ A "10×" advantage is a heuristic, not a literal requirement. The key question i
 
 ## Evaluation dimensions
 
-Score qualitatively or 1–5 when useful.
+Compare alternatives qualitatively; use lightweight scoring only when it clarifies a difficult trade-off.
 
-### Customer pull
+- **Customer pull** — pain, urgency, frequency, trigger, willingness to change
+- **Adoption** — time-to-value, implementation, behavior change, trust, integrations
+- **Commercial clarity** — buyer, budget, pricing metric, reachable accounts, sales cycle
+- **Distribution** — channel access, community/ecosystem leverage, partnerships, founder advantage
+- **Competition and power** — density, bundling, internal build, imitation, dominance potential, value capture
+- **Strategic leverage** — accumulation, switching costs, expansion surface, control point
+- **Economics and resilience** — margins, CAC, ACV/usage expansion, capital intensity, future robustness
 
-- pain intensity
-- urgency
-- frequency
-- clear trigger
-- willingness to change
-
-### Adoption
-
-- time-to-value
-- implementation burden
-- behavior change
-- trust requirements
-- integration requirements
-
-### Commercial clarity
-
-- identifiable buyer
-- existing budget
-- plausible pricing metric
-- reachable accounts
-- sales-cycle fit
-
-### Distribution
-
-- low-cost channel access
-- community / ecosystem leverage
-- viral or collaborative exposure
-- partnerships
-- founder advantage
-
-### Competition and power
-
-- direct density
-- bundled alternatives
-- internal build
-- incumbent reaction
-- ease of copying
-- beachhead coherence
-- dominance potential
-- magnitude of differentiation
-- value-capture potential
-
-### Strategic leverage
-
-- data / workflow / integration accumulation
-- ecosystem growth
-- switching costs
-- expansion surface
-- cross-sell
-- movement toward a control point
-
-### Economics
-
-- gross margin
-- support burden
-- CAC potential
-- ACV / usage expansion
-- capital intensity
-
-### Future resilience
-
-- dependency on today's technology architecture
-- dependency on a temporary market transition
-- value across plausible future scenarios
-- whether expansion increases or dilutes economic power
+Do not let a weighted average hide a fatal flaw. Buyer absence, weak demand, impossible distribution, regulation, or extreme platform risk can override an otherwise attractive comparison.
 
 ## Expansion geometry
 
@@ -231,22 +164,6 @@ Ask:
 - Does an early wedge trap positioning in a low-value category?
 - Does each adjacency strengthen the original advantage or push the company toward commodity competition?
 
-## Use scoring correctly
-
-A scorecard is for exposing trade-offs.
-
-Do not let a weighted average hide fatal flaws. A wedge with a high total score but no buyer, no distribution path, weak demand, or extreme platform risk may still be unacceptable.
-
-Mark **gating conditions** separately.
-
-Example:
-
-```text
-Wedge A score: 4.2 / 5
-Gating issue: requires regulator approval that is unlikely within 24 months.
-Verdict: not first wedge despite high theoretical attractiveness.
-```
-
 ## Wedge recommendation
 
 End with:
@@ -264,4 +181,4 @@ End with:
 11. biggest risk
 12. evidence that would cause selection of a different wedge
 
-Use `../assets/wedge-scorecard-template.md` for deep comparisons and `economic-power-and-value-capture.md` when value capture is strategically material.
+Persist the current wedge and live alternatives in `strategy-state.md`; record material wedge changes in `decision-log.md`. Use `economic-power-and-value-capture.md` when value capture is strategically material.
