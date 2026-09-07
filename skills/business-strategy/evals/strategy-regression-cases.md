@@ -12,12 +12,14 @@ Score each dimension 0–2 when it is relevant to the case:
 - **Competition and alternatives** — substitutes, three competition levels, trajectories, genuinely different options
 - **Wedge / beachhead quality** — coherence, depth-of-win logic, distribution and expansion geometry
 - **Value creation + economic power** — magnitude of advantage and why value is captured or leaked
+- **Business model + economic coherence** — monetization alternatives, market, pricing, GTM, unit economics and scenarios agree
 - **Future durability** — invariant vs fragile assumptions, commoditization and mature-market/last-mover logic
-- **Economic coherence** — market, pricing, GTM, unit economics and scenarios agree
 - **Falsifiability** — critical assumptions have tests, falsifiers or tripwires
 - **Decision usefulness** — explicit recommendation, trade-offs and what would change it
 
 A strong deep run should normally score at least 17/20 with no zero in thesis quality/mutation, evidence discipline, value creation/economic power, or decision usefulness. Lightweight cases should not be penalized for omitting irrelevant modules.
+
+For an explicit named-framework request, also check **framework fidelity**: the response should use the framework's actual logic, not merely its vocabulary, and should integrate material findings into the wider strategy.
 
 ---
 
@@ -149,7 +151,7 @@ The skill should:
 - test whether 20% better is enough to change behavior or pricing;
 - inspect buyer and incumbent power;
 - search for a coherent beachhead where the advantage is much stronger;
-- consider changing product, segment, distribution, or category rather than assuming horizontal entry;
+- consider changing product, segment, distribution, monetization, or category rather than assuming horizontal entry;
 - distinguish value creation from value capture.
 
 ### Failure modes
@@ -204,8 +206,36 @@ The skill should:
 - validate that customers value the newly possible outcome;
 - examine behavior change and category-education cost;
 - test whether the capability creates a new market, reframes an existing budget, or remains a novelty;
+- explore plausible monetization models rather than assuming a standard SaaS subscription;
 - examine pricing discretion and likely competitive entry;
 - identify what can compound before the capability itself commoditizes.
+
+---
+
+## Case 10 — Explicit Named Framework
+
+### Prompt
+
+> Analyze this market using Porter's Five Forces and then apply Peter Thiel's Zero to One lens. I want to understand both industry attractiveness and whether there is a non-commodity position worth building.
+
+### Expected behavior
+
+The skill should:
+
+- explicitly separate the two requested lenses;
+- apply all five Porter forces to structural industry economics rather than producing a feature matrix;
+- use the Thiel lens for non-consensus insight, magnitude/non-comparability, coherent beachhead dominance, economic power, and long-term durability;
+- not treat "no competition" or contrarianism as proof;
+- explain where the frameworks agree, where they illuminate different questions, and what strategic choice follows;
+- integrate material conclusions into the overall thesis rather than ending with two disconnected framework summaries;
+- preserve fact/inference/assumption distinctions and research current claims as needed.
+
+### Failure modes
+
+- merely uses Porter/Thiel vocabulary around generic analysis;
+- forces the frameworks to give the same answer;
+- treats framework claims as factual evidence;
+- produces two matrices with no recommendation or thesis update.
 
 ---
 
@@ -213,10 +243,11 @@ The skill should:
 
 When changing the skill materially:
 
-1. run at least Cases 1, 2, 5, 6, and 8;
+1. run at least Cases 1, 2, 5, 6, 8, and 10;
 2. compare conclusions and intermediate reasoning against expected behavior;
 3. check that new instructions do not over-process simple cases;
 4. check that "no competition" and "contrarian" are never treated as evidence by themselves;
-5. add any newly discovered failure mode as a regression case.
+5. for framework requests, check fidelity and integration rather than name-dropping;
+6. add any newly discovered failure mode as a regression case.
 
 The objective is not identical prose across runs. It is preserving the strategy behaviors that matter.

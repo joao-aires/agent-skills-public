@@ -12,31 +12,45 @@ This repository serves as a collection of modular skills for my own personal use
 | ----- | ----------- |
 | `presentation-building` | Build single-file HTML presentations with a dark theme, scroll-driven slides, responsive card grids, and reveal animations. |
 | `architecture-diagraming` | Build responsive, theme-aware HTML architecture diagrams using CSS grid/flexbox and CSS variables. Covers system, cloud, sequence, state, pipeline, and more. |
-| `business-strategy` | Develop, evaluate, compare, and continuously update business/product strategy: decision framing, evidence, market/customer reality, wedge and beachhead selection, positioning, competitive dynamics, economic power/value capture, future-market durability, TAM/pricing/GTM/economics, moats/control points, falsifiable assumptions, and strategy review. |
+| `business-strategy` | Develop, evaluate, compare, and continuously update business/product strategy: opportunity, where-to-play/how-to-win, beachheads, positioning, competition, monetization/economics, economic power, durability, falsifiable assumptions, and named strategy frameworks. |
 | `business-opportunity-analysis` | Deprecated compatibility entry point. It uses `business-strategy` when available and retains a self-contained v1-style evaluation fallback for standalone legacy installs. |
 
-## Business Strategy v2.1
+## Business Strategy v2.2
 
 `business-strategy` treats the initial business concept as a hypothesis rather than a fixed plan. Its core reasoning model separates **value creation, value capture, and durability**: a good product is not automatically a good business if competition, buyers, suppliers, or platforms capture the economic surplus.
 
 The skill supports five inferred modes:
 
-- **explore** — search the opportunity and wedge space, including non-consensus hypotheses
+- **explore** — search the opportunity, business-model, and wedge space, including non-consensus hypotheses
 - **evaluate** — test a defined business or product
 - **decide** — compare strategic alternatives
 - **develop** — iteratively evolve what the company/product should become
 - **review** — update an existing strategy when the market or evidence changes
 
-The main `SKILL.md` is an orchestrator built around six phases: frame → ground in market reality → design the strategic position → test future/economics → decide/red-team → persist/review. Detailed methods remain in selectively loaded references.
+The main `SKILL.md` is organized around six fundamental questions rather than a fixed procedural workflow:
+
+1. **What opportunity actually exists?**
+2. **Where should we play?**
+3. **How can we win?**
+4. **How does this become a great business?**
+5. **Why does the advantage persist?**
+6. **What must be true, and what changes our mind?**
+
+These questions are iterative: evidence from any one can reopen the others. Detailed methods remain in selectively loaded references.
 
 The reference library is organized conceptually into:
 
+- **framework routing** — explicit support for named lenses such as Jobs to Be Done, Playing to Win, Porter, Zero to One/Thiel, Blue Ocean, Wardley Mapping, Crossing the Chasm, 7 Powers, Rumelt, scenario planning, and others
 - **process and evidence** — decision framing, claim-led research, stress testing
 - **market reality** — market systems, customer behavior/culture, layered competition and trajectories
 - **strategic position and power** — beachheads, non-comparability, positioning, economic power/value capture, moats/control points, future-market/last-mover tests
 - **economics and monetization** — bottom-up sizing, business-model options, pricing, unit economics, financial scenarios, valuation, and OSS commercialization
 
-For substantive strategy work with a writable workspace, the skill maintains two durable artifacts: `strategy-state.md` as the current source of truth and `decision-log.md` as the history of material choices. Decision-relevant evidence and critical assumptions live compactly inside the strategy state rather than in separate bookkeeping files. `evals/` contains regression cases designed to catch premature convergence, shallow competition analysis, TAM shortcuts, false "no competition" conclusions, weak value-capture reasoning, and failure to mutate the thesis.
+For substantive strategy work with a writable workspace, the skill maintains two durable artifacts: `strategy-state.md` as the current source of truth and `decision-log.md` as the history of material choices. Decision-relevant evidence and critical assumptions live compactly inside the strategy state rather than in separate bookkeeping files.
+
+Named frameworks are applied explicitly when requested, but their conclusions feed back into the same integrated strategy state rather than creating parallel strategy systems.
+
+`evals/` contains regression cases designed to catch premature convergence, shallow competition analysis, TAM shortcuts, false "no competition" conclusions, weak value-capture reasoning, framework name-dropping, and failure to mutate the thesis.
 
 ## Installation
 

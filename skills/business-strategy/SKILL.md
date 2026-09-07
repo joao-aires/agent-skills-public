@@ -1,8 +1,8 @@
 ---
 name: business-strategy
-description: "Develop, evaluate, compare, and continuously update business and product strategy from first principles. Use for startup ideas, business plans, market entry, wedge/beachhead selection, positioning, competitive analysis, economic power and value capture, market structure, customer behavior and culture, future-market scenarios, TAM/SAM/SOM, pricing, go-to-market, monetization, open-source commercialization, unit economics, moats, strategic control points, revenue scenarios, valuation, or when the user wants to determine what a product or company should become. Treat the user's initial concept as a hypothesis, not the strategy."
+description: "Develop, evaluate, compare, and continuously update business and product strategy from first principles. Use for startup ideas, business plans, market entry, wedge/beachhead selection, positioning, competitive analysis, economic power and value capture, market structure, customer behavior and culture, future-market scenarios, TAM/SAM/SOM, pricing, go-to-market, monetization, open-source commercialization, unit economics, moats, strategic control points, revenue scenarios, valuation, named strategy frameworks, or when the user wants to determine what a product or company should become. Treat the user's initial concept as a hypothesis, not the strategy."
 metadata:
-  version: "2.1"
+  version: "2.2"
 ---
 
 # Business Strategy
@@ -11,11 +11,11 @@ Use this skill as a **strategy-thinking system**, not a consulting-report checkl
 
 The objective is to determine:
 
-- what the business should be;
-- where it should play and how it can win;
-- why customers will change behavior;
-- why the company can capture part of the value it creates;
-- what remains durable as the market changes;
+- what opportunity actually exists;
+- where the business should play;
+- how it can win;
+- how the position becomes an economically attractive business;
+- why the advantage can persist;
 - what evidence should cause the strategy to change.
 
 ## Core Principles
@@ -36,7 +36,9 @@ A large useful market can still produce a weak business if competition, buyers, 
 
 ### 3. Strategy is a set of choices
 
-Frameworks are lenses, not required sections. Use Jobs to Be Done, Playing to Win, positioning, Five Forces, Wardley mapping, scenario planning, pre-mortems, or other frameworks when they improve the decision, and apply named frameworks explicitly when the user requests them.
+A strategy should resolve real choices about customer, market, product, distribution, business model, capabilities, sequencing, and exclusions. Frameworks are lenses for making those choices, not substitutes for them.
+
+When the user explicitly requests a named framework, apply it explicitly and faithfully using `references/frameworks.md`. When no framework is requested, use the native strategy questions below and invoke framework logic only when it improves the decision.
 
 ### 4. Research decision-changing uncertainty
 
@@ -50,7 +52,7 @@ Research should change confidence, options, or decisions—not maximize source c
 
 ### 5. Generate before converging
 
-For ambiguous strategy work, create materially different alternatives before choosing. Include different customers, buyers, jobs, layers, wedges, channels, business models, geographies, and—when useful—different beliefs about how the market will evolve.
+For ambiguous strategy work, create materially different alternatives before choosing. Include different customers, buyers, jobs, layers, wedges, channels, business models, monetization models, geographies, and—when useful—different beliefs about how the market will evolve.
 
 ### 6. Make the strategy falsifiable
 
@@ -62,7 +64,7 @@ Infer the mode from the request; do not force the user to choose.
 
 | Mode | Use when | Emphasis |
 |---|---|---|
-| `explore` | Opportunity is ambiguous | opportunity space, non-consensus insights, alternative wedges |
+| `explore` | Opportunity is ambiguous | opportunity space, non-consensus insights, alternative businesses/wedges/models |
 | `evaluate` | Business/product is reasonably defined | demand, competition, power, GTM, economics, durability |
 | `decide` | Choosing among options | explicit criteria, trade-offs, opportunity cost, recommendation |
 | `develop` | Iteratively shaping what the company should become | thesis → evidence → contradiction → revised thesis |
@@ -71,8 +73,8 @@ Infer the mode from the request; do not force the user to choose.
 ### Depth
 
 - **Light** — narrow question; answer directly and load only the relevant reference.
-- **Standard** — material strategic decision; use the relevant phases below.
-- **Deep** — ambiguous, high-stakes, fast-moving, or explicitly comprehensive work; use the full loop and persistent state when possible.
+- **Standard** — material strategic decision; use the relevant strategy questions below.
+- **Deep** — ambiguous, high-stakes, fast-moving, or explicitly comprehensive work; iterate across all material questions and maintain persistent state when possible.
 
 Do not turn a simple revenue or pricing question into a full strategy engagement.
 
@@ -91,164 +93,245 @@ Do **not** create separate evidence-ledger, assumption-register, or wedge-scorec
 
 If no writable workspace exists, maintain the same state conceptually in the conversation.
 
-## The Strategy Loop
+# Six Fundamental Strategy Questions
 
-The six phases are a routing model, not mandatory report sections. Skip phases that cannot change the decision.
+These questions are the primary structure of the skill. They are **not a fixed sequence or six mandatory report sections**. Strategy is iterative: evidence from one question can reopen any other question.
 
-### Phase 1 — Frame the decision and provisional thesis
+For a new deep analysis, start with a provisional thesis, work across the questions that can change the decision, synthesize explicit choices, define falsifiers/tests, and update persistent state.
 
-Clarify:
+```text
+provisional thesis
+      ↕
+1. opportunity ↔ 2. where to play ↔ 3. how to win
+      ↕                 ↕                 ↕
+4. great business ↔ 5. durability ↔ 6. what must be true
+      ↓
+explicit choices + tests + updated state
+```
 
-- decision, objective, horizon, constraints, reversibility;
-- customer/user and economic buyer;
-- problem/job and why now;
-- proposed product/capability;
-- initial wedge and long-term destination;
-- business model and provisional way to win;
-- highest-risk assumptions.
+## 1. What opportunity actually exists?
 
-Mark the thesis **provisional**.
+Establish the reality underneath the proposed business:
 
-Use `references/decision-framing.md` when the decision or alternatives are ambiguous.
+- who has the problem or desired outcome;
+- economic buyer versus user/beneficiary;
+- pain, urgency, frequency, and trigger;
+- current workflow and actual alternatives, including do nothing and internal build;
+- behavior change, trust, organizational norms, culture, and geography when material;
+- why now and what structural change creates the opening;
+- market actors, value chain, budgets, profit pools, platforms, standards, and constraints;
+- current and plausible future market size when it affects the decision;
+- what is fact, inference, assumption, and strategic judgment.
 
-### Phase 2 — Ground the thesis in market reality
+For novel markets, test whether an apparently new category represents real new demand, a shift of an existing budget, or only technical novelty.
 
-Research the claims that could most change the choice.
+Use as relevant:
 
-Understand, as relevant:
-
-- market actors, workflow, budgets, profit pools, platforms, standards and substitutes;
-- actual customer behavior, trust, organizational norms, geography and change burden;
-- product competitors, capability owners, whole-vision competitors and 12–36 month trajectories;
-- internal build, open source and doing nothing.
-
-Do not confuse a feature matrix with competitive analysis.
-
-Use:
-
+- `references/decision-framing.md`
 - `references/research-protocol.md`
 - `references/market-system-mapping.md`
 - `references/customer-behavior-and-culture.md`
 - `references/competitive-dynamics.md`
+- `references/market-sizing.md`
 
-### Phase 3 — Design the strategic position
+## 2. Where should we play?
 
-Generate alternatives before convergence.
+Choose the part of the opportunity where the company should concentrate first.
 
-For novel markets, ask whether the market consensus itself is wrong:
+Compare genuine alternatives across:
+
+- customer segment and economic buyer;
+- job / use case / workflow;
+- geography;
+- product layer or place in the value chain;
+- channel or ecosystem;
+- beachhead market;
+- high-touch versus self-serve motion;
+- proprietary versus open-source boundary where relevant.
+
+Prefer a coherent beachhead that can be won deeply over an arbitrary small niche or a thin presence in a huge TAM. Ask whether customers share enough pain, workflow, buying criteria, willingness to pay, and distribution for one product/GTM motion to become strongly preferred.
+
+Separate the **first market** from the **long-term destination**.
+
+Use as relevant:
+
+- `references/wedge-selection.md`
+- `references/market-system-mapping.md`
+- `references/customer-behavior-and-culture.md`
+- `references/market-sizing.md`
+
+## 3. How can we win?
+
+Define why customers choose this company and why the position is strategically advantaged.
+
+Test:
+
+- magnitude of customer value versus the best alternative: incremental, meaningful, dramatic, or qualitatively new;
+- whether the difference is large enough to change behavior or the comparison set;
+- positioning and category frame;
+- distribution advantage and route to the buyer;
+- beachhead dominance potential;
+- capabilities the company must uniquely perform well;
+- competitor response, bundling, internal build, and future entrants;
+- expansion geometry: why winning the first market makes the next move easier;
+- what the company intentionally will **not** do.
+
+For novel or `explore`/`develop` work, test non-consensus hypotheses:
 
 ```text
-What does the market believe?
+What does the market broadly believe?
 What might it be wrong about?
 What do we believe instead?
+Why might we be right?
 If true, what opportunity follows?
-What evidence would falsify this belief?
+What evidence would falsify the belief?
 ```
 
 Contrarianism is not evidence.
 
-Then choose the strongest position by testing:
-
-- **wedge / beachhead** — can a coherent initial market be won deeply?
-- **magnitude of value** — incremental, meaningful, dramatic, or qualitatively new?
-- **distribution** — can the company reach and convert the buyer efficiently?
-- **positioning** — does the customer compare the product on the right dimensions?
-- **economic power** — why will competition, customers, suppliers, or platforms not erase the surplus?
-- **expansion geometry** — does each adjacency become easier and strengthen the strategic position?
-- **accumulating assets / control points** — what gets stronger with use, scale, or time?
-
-Use:
+Use as relevant:
 
 - `references/wedge-selection.md`
 - `references/positioning-and-category.md`
+- `references/competitive-dynamics.md`
 - `references/economic-power-and-value-capture.md`
-- `references/moats-and-control-points.md`
 
-### Phase 4 — Test the future and the economics
+## 4. How does this become a great business?
 
-For fast-moving or novel markets, build plausible future states instead of pretending to forecast one exact future.
+Treat business model, monetization, market size, and unit economics as part of strategy—not merely downstream calculations.
 
-Separate:
+Explore materially different models when plausible. Ask:
 
-- invariant needs;
-- structural assumptions;
-- transitional opportunities;
-- fragile dependencies.
-
-Run the **mature-market / last-mover test** when the long-term position matters:
-
-> If the company succeeds and the market matures, what has commoditized, what has compounded, and why does the company still earn attractive returns?
-
-Then validate the economics relevant to the strategy:
-
-- bottom-up TAM / SAM / obtainable market;
-- monetization alternatives, pricing model and willingness to pay;
+- who pays, for what outcome, and why;
+- what pricing metric aligns with value;
+- willingness to pay and pricing discretion;
+- subscription, usage, transaction, marketplace, services, licensing, OSS/commercial, or hybrid alternatives as relevant;
+- whether the monetization model changes the product, buyer, wedge, or distribution motion;
+- bottom-up TAM / SAM / realistically obtainable market;
 - GTM and distribution economics;
-- revenue scenarios and sensitivities;
-- gross margin, retention, expansion and variable costs;
-- capital intensity when relevant;
-- valuation when requested;
-- OSS adoption-to-monetization boundary when applicable.
+- gross margin and variable-cost exposure;
+- retention, expansion, concentration, and revenue quality;
+- customer-count × ACV/usage paths and sensitivities;
+- capital intensity and implementation burden when material;
+- which actors can capture or leak the economic surplus;
+- valuation only when it is part of the user's decision.
 
-Use:
+A monetization model that weakens adoption, power, distribution, or durability can be strategically inferior even if near-term ARPU is higher.
 
-- `references/future-market-scenarios.md`
+Use as relevant:
+
+- `references/economic-power-and-value-capture.md`
 - `references/market-sizing.md`
 - `references/revenue-quality-and-unit-economics.md`
 - `references/financial-scenario-modeling.md`
 - `references/valuation-framework.md`
 - `references/open-source-commercialization.md`
 
-Do not jump from a large market number to obtainable revenue or from revenue to valuation. Monetization and economics can change the product, buyer, wedge, distribution, and strategic position; treat them as part of strategy, not merely downstream calculations.
+Do not jump from a large market number to obtainable revenue or from revenue to valuation.
 
-### Phase 5 — Decide, red-team, and falsify
+## 5. Why does the advantage persist?
 
-Synthesize explicit choices:
+Test whether today's advantage becomes durable economic power rather than being competed away.
 
-- ambition / objective;
-- where to play;
-- how to win;
-- wedge / beachhead;
-- expansion sequence;
-- required capabilities;
-- economic-power / moat mechanism;
-- business model and monetization;
-- strategic exclusions.
+Ask:
+
+- what accumulates with customers, scale, usage, ecosystem, or time;
+- what creates switching costs, network effects, economies of scale, trust/brand, proprietary data/context, standards influence, unique distribution, scarce resources, process advantages, or other barriers;
+- whether a strategic control point develops;
+- what technology or capability is likely to commoditize;
+- whether suppliers or platforms can capture the margin;
+- whether customers can multi-home or switch easily;
+- what incumbents can bundle or copy;
+- whether expansion strengthens or dilutes the power mechanism;
+- which customer need is invariant even if the current technical implementation disappears.
+
+For fast-moving or novel markets, build plausible future states and run the mature-market / last-mover test:
+
+> If the company succeeds and the market matures, what has commoditized, what has compounded, and why does the company still earn attractive returns?
+
+Use as relevant:
+
+- `references/economic-power-and-value-capture.md`
+- `references/moats-and-control-points.md`
+- `references/future-market-scenarios.md`
+- `references/competitive-dynamics.md`
+
+## 6. What must be true, and what changes our mind?
+
+Turn the strategy into falsifiable beliefs and decisions.
+
+For each critical assumption, keep compactly in `strategy-state.md`:
+
+- importance;
+- confidence;
+- strongest supporting and contradicting evidence;
+- falsifier or tripwire;
+- next test;
+- review trigger.
 
 Then attack the strategy:
 
-- strongest incumbent reaction / bundling;
+- strongest incumbent response;
 - customer non-adoption;
 - distribution failure;
-- pricing or unit-economic failure;
-- supplier/platform dependency;
+- pricing / unit-economic failure;
+- supplier or platform dependency;
 - commoditization;
 - regulatory/cultural friction;
 - future-state obsolescence;
 - team/capability constraints when relevant.
 
-For each critical assumption record confidence, the strongest supporting/contradicting evidence, falsifier, next test, and review trigger in `strategy-state.md`.
-
 End with the cheapest evidence-producing actions that test the highest-impact uncertainty.
-
-Use `references/strategy-stress-testing.md` for deep work.
-
-### Phase 6 — Persist and review
-
-For substantive strategy work, keep `strategy-state.md` and `decision-log.md` current throughout the analysis rather than only at the end.
 
 A review loop is:
 
 ```text
 what changed
 → which evidence / assumptions are affected
-→ which decisions should reopen
-→ rerun only the affected modules
+→ which of the six questions should reopen
+→ rerun only the affected analysis
 → mutate or reaffirm the thesis
-→ update strategy state + decision log
+→ update strategy-state + decision-log
 ```
 
-Every material strategy change should record the old belief, new choice, reason/evidence, rejected alternatives, and what would reopen the decision.
+Use as relevant:
+
+- `references/research-protocol.md`
+- `references/strategy-stress-testing.md`
+- `references/future-market-scenarios.md`
+
+## Synthesize the Strategy
+
+After working the relevant questions, make the choices explicit:
+
+- strategic ambition / objective;
+- customer and economic buyer;
+- where to play;
+- wedge / beachhead;
+- how to win and positioning;
+- distribution / GTM;
+- business model and monetization;
+- expansion sequence;
+- required capabilities;
+- economic-power / durability mechanism;
+- strategic exclusions;
+- critical assumptions and tests;
+- current recommendation and what would change it.
+
+Do not hide unresolved contradictions behind a polished narrative.
+
+## Named Strategy Frameworks
+
+When the user names a framework, school of strategy, or thinker, read `references/frameworks.md` and apply that lens explicitly.
+
+Rules:
+
+1. **Be faithful to the framework.** Use its canonical logic rather than merely labeling generic analysis with the framework name.
+2. **Keep framework and evidence separate.** A framework structures reasoning; it does not prove a market fact.
+3. **Integrate the result.** Map framework insights back into the six strategy questions, `strategy-state.md`, and `decision-log.md` when they change the strategy.
+4. **Do not create framework soup.** Combine frameworks only when each answers a different material question.
+5. **Respect the user's request.** If the user asks specifically for Five Forces, Playing to Win, Zero to One, Wardley Mapping, 7 Powers, etc., show the analysis through that framework rather than silently translating it into another one.
+6. **Verify unfamiliar frameworks.** If a requested named framework is not covered in `references/frameworks.md`, research its canonical method before applying it instead of improvising from the name.
 
 ## Strategy Mutation Protocol
 
@@ -259,7 +342,7 @@ When evidence materially weakens the current thesis:
 3. generate at least one revised thesis, not merely a lower confidence score;
 4. compare the revised and current theses;
 5. change the recommendation if warranted;
-6. update `strategy-state.md` and the decision log in persistent work.
+6. update `strategy-state.md` and `decision-log.md` in persistent work.
 
 Do not defend the initial concept for conversational consistency.
 
@@ -282,6 +365,10 @@ Persist only decision-relevant evidence in `strategy-state.md`; citations and de
 ## Reference Map
 
 Load references selectively.
+
+### Framework routing
+
+- `references/frameworks.md` — named strategy lenses, canonical logic, when to use them, and how to integrate them
 
 ### Process and evidence
 
@@ -317,10 +404,10 @@ Adapt to the decision; do not mechanically output every section.
 
 1. **Decision / recommendation** — what should be done and why
 2. **Current thesis and alternatives** — including any thesis mutation
-3. **Market reality** — decisive customer, market and competitive evidence
-4. **Strategic position** — beachhead, positioning, value creation, economic power, expansion
+3. **Opportunity reality** — decisive customer, market and competitive evidence
+4. **Where to play + how to win** — beachhead, positioning, distribution, value creation, expansion
 5. **Business model + economics** — monetization, market size, pricing, GTM, unit economics and scenarios as relevant
-6. **Future durability** — why the advantage survives or does not
+6. **Durability** — economic power, accumulating assets, future-market robustness
 7. **Risks / assumptions** — what could break the thesis
 8. **Experiments / tripwires** — what to learn next and what would change the recommendation
 9. **State changes** — for ongoing `develop` / `review` work
@@ -335,7 +422,8 @@ Avoid:
 - treating any differentiation as economic power;
 - feature-matrix-only competitive analysis;
 - researching broad topics instead of decision-changing claims;
-- listing frameworks instead of making choices;
+- name-dropping frameworks without using their actual logic;
+- forcing every framework or every strategy question into every answer;
 - assuming today's technical architecture or user behavior is permanent;
 - copying competitor pricing without value analysis;
 - confusing OSS popularity with monetization;
