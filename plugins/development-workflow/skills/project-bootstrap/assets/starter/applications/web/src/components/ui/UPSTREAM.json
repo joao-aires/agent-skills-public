@@ -1,0 +1,12 @@
+{
+  "repository": "https://github.com/shadcn-ui/ui",
+  "commit": "0e3abd65a97707f4a9cc3ed07bf5006e1cb67b13",
+  "sources": [
+    "apps/v4/registry/new-york-v4/ui/button.tsx",
+    "apps/v4/registry/new-york-v4/ui/input.tsx",
+    "apps/v4/registry/new-york-v4/ui/label.tsx",
+    "apps/v4/registry/new-york-v4/ui/card.tsx",
+    "apps/v4/registry/new-york-v4/lib/utils.ts"
+  ],
+  "adaptation": "cn import rewritten to @/lib/utils; neutral semantic tokens are local. CLI registry endpoint unavailable in execution environment; copied official source via GitHub. Local cn helper uses clsx/tailwind-merge instead of upstream cn package re-export."
+}

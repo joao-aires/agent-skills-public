@@ -1,0 +1,55 @@
+name: Verify reference application
+on:
+  pull_request:
+  push:
+permissions:
+  contents: read
+concurrency:
+  group: reference-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  reference:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    services:
+      postgres:
+        image: postgres:17.11
+        env:
+          POSTGRES_USER: notes
+          POSTGRES_PASSWORD: ci-synthetic-password
+          POSTGRES_DB: notes
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U notes -d notes"
+          --health-interval 5s --health-timeout 5s --health-retries 10
+    env:
+      DATABASE_URL: postgresql+psycopg://notes:ci-synthetic-password@127.0.0.1:5432/notes
+      WEB_ORIGIN: http://localhost:3000
+      COOKIE_SECURE: 'false'
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        with:
+          node-version: '24'
+      - run: python -m pip install uv==0.12.19
+      - run: npm install --global pnpm@10.32.1
+      - run: bash applications/api/ci/check.sh
+        working-directory: .
+      - run: pnpm install --frozen-lockfile
+        working-directory: applications/web
+      - run: pnpm exec playwright install --with-deps chromium
+        working-directory: applications/web
+      - run: bash ci/check.sh
+        working-directory: applications/web
+      - run: uv run --frozen --group mcp python ci/mcp_integration.py
+        working-directory: applications/api
+      - run: git diff --exit-code -- documentation/architecture/schemas/openapi.json applications/web/src/lib/api-schema.d.ts
+      - uses: actions/upload-artifact@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        if: failure()
+        with:
+          name: reference-failure-evidence
+          path: artifacts/
+          retention-days: 3

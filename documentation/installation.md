@@ -46,3 +46,7 @@ Vercel web-design-guidelines remains reference-only: its selected source declare
 Run `python scripts/inventory_skills.py --root /path/to/client/skills --output /path/to/project/.local/installed-skills.json` for each actual client skill root (repeat --root). Keep `.local/` ignored: the report contains local paths/metadata but never copies skill bodies. Select compatible UI/UX guidance in the project's skill-routing document.
 
 For the project skills route, validate discoverable metadata with the same command against `.agents/skills`, then use the actual client to implement a small representative change invoking the local contract and matching upstream skill. Record the client version and evidence in the project verification log. This environment currently has no callable Codex CLI, so disk-level build/metadata checks cannot be reported as successful native-client invocation. Portable plugin compatibility also depends on the actual consumer; no universal client installer is assumed.
+
+## Runnable application option
+
+After plugin installation, use the bootstrap script with --starter to generate the locked reference application. See [starter](starter.md). This does not install runtime tools or call live AI services.

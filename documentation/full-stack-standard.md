@@ -1,6 +1,6 @@
 # Opinionated full-stack development standard
 
-Status: conventions implemented; selected upstream integrations are acquired by the pinned profile builder; runnable starter implementation remains a separate increment. Reviewed 2026-10-05.
+Status: conventions implemented; selected upstream integrations are acquired by the pinned profile builder; runnable reference starter is available in the follow-up PR. Reviewed 2026-10-05.
 
 ## Design rationale
 
@@ -30,7 +30,7 @@ These conventions incorporate recurring engineering themes: consistent component
 
 ### A working application needs reproducible environment setup
 
-A folder structure cannot remove repeated setup work. A future runnable starter should include compatible pinned dependencies, application entrypoints, PostgreSQL orchestration, reviewed migrations, deterministic synthetic seed data and one primary integration test. Setup must work from a clean environment. This release gives the contract/templates, not fictitious runnable commands.
+A folder structure cannot remove repeated setup work. The optional reference starter includes compatible pinned dependencies, application entrypoints, PostgreSQL orchestration, reviewed migrations, deterministic synthetic seed data and one primary integration test. Setup must work from a clean environment. The default scaffold remains governance-only; --starter includes the reference app, actual commands and lockfiles. Execution evidence is tracked separately.
 
 ### Acceptance and domain correctness
 
@@ -100,7 +100,7 @@ Superpowers provides substantial process discipline, but its complete global wor
 
 ## Remaining highest-value increment
 
-A tested runnable starter proving one browser/API/PostgreSQL flow will save more repeated setup and correction than adding another large instruction catalogue. Build that once, then benchmark representative agent tasks against it. Measure time to first verified journey, success/correction rates, regressions, flakiness, UI/doc drift and token/tool cost. Promote harness changes only when the evidence supports improvement.
+A tested runnable starter proving one browser/API/PostgreSQL flow will save more repeated setup and correction than adding another large instruction catalogue. Use the reference starter, then benchmark representative agent tasks against it. Measure time to first verified journey, success/correction rates, regressions, flakiness, UI/doc drift and token/tool cost. Promote harness changes only when the evidence supports improvement.
 
 ## Research references
 

@@ -11,7 +11,7 @@ Use Next.js App Router, TypeScript, shadcn/ui, and the configured Tailwind/base/
 
 Load the official shadcn skill for composition and registry operations; use its MCP server when available and correctly scoped to the application's components.json. Load version-matched Next.js agent documentation and relevant Vercel React/composition guidance. Consult upstream sources listed in this plugin's references; do not claim a reference is installed.
 
-Apply Vercel web-design-guidelines for UX review. If UI/UX Pro Max is installed, constrain it to the existing tokens, components, and approved visual direction. Verify availability rather than assuming installation. Treat Anthropic frontend-design as an explicit exploration option, not the default during consistency cleanup. Preserve user-installed design guidance that is compatible with project decisions.
+If Vercel web-design-guidelines is explicitly available, apply it for UX review; otherwise use the local UX contract and version-matched first-party documentation. The public builder does not acquire that unlicensed source. If UI/UX Pro Max is installed, constrain it to the existing tokens, components, and approved visual direction. Verify availability rather than assuming installation. Treat Anthropic frontend-design as an explicit exploration option, not the default during consistency cleanup. Preserve user-installed design guidance that is compatible with project decisions.
 
 Reuse existing components and semantic tokens. Do not introduce new fonts, palettes, spacing scales, navigation patterns, animation styles, or UI kits without a documented reason. Establish one design-system contract for a new project before repeating screens.
 

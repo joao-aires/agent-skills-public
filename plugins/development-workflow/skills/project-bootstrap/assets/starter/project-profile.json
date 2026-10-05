@@ -1,0 +1,100 @@
+{
+  "profile_version": 1,
+  "layout": {
+    "applications": "applications",
+    "documentation": "documentation"
+  },
+  "stack": {
+    "backend": [
+      "python",
+      "fastapi",
+      "uvicorn",
+      "sqlalchemy",
+      "alembic",
+      "postgresql"
+    ],
+    "frontend": [
+      "nextjs",
+      "typescript",
+      "shadcn",
+      "tailwind"
+    ],
+    "ai": "none",
+    "mcp": false
+  },
+  "package_managers": {
+    "api": "uv",
+    "web": "pnpm"
+  },
+  "versions": {
+    "python": "3.12",
+    "node": "24",
+    "uv": "0.12.19",
+    "pnpm": "10.32.1",
+    "next": "16.3.8",
+    "shadcn-cli": "4.21.2",
+    "postgresql": "17.11"
+  },
+  "deployment": {
+    "web": "unresolved",
+    "api": "unresolved",
+    "database": "unresolved"
+  },
+  "upstream_skills": [],
+  "checks": {
+    "structure": [
+      "python3",
+      "applications/tooling/check_project.py",
+      "."
+    ],
+    "setup": [
+      "bash",
+      "applications/tooling/setup.sh"
+    ],
+    "dev": [
+      "bash",
+      "applications/tooling/dev.sh"
+    ],
+    "api-tests": [
+      "uv",
+      "run",
+      "--directory",
+      "applications/api",
+      "pytest"
+    ],
+    "web-build": [
+      "pnpm",
+      "--dir",
+      "applications/web",
+      "build"
+    ],
+    "e2e-critical": [
+      "pnpm",
+      "--dir",
+      "applications/web",
+      "test:e2e"
+    ],
+    "api-quality-and-migrations": [
+      "bash",
+      "applications/api/ci/check.sh"
+    ]
+  },
+  "pending_checks": [
+    "deploy-smoke",
+    "live-gemini",
+    "native-client-discovery"
+  ],
+  "readiness": "implemented",
+  "testing": {
+    "e2e_runner": "playwright",
+    "internal_api": "real",
+    "database": "postgresql",
+    "external_providers": "stubbed-in-default-ci",
+    "critical_journeys": [
+      "register-create-note-reload-logout-login-persistence",
+      "second-account-cannot-read-owner-note",
+      "invalid-input-and-origin-rejection"
+    ],
+    "artifact_directory": "artifacts/e2e"
+  }
+}

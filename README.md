@@ -29,7 +29,7 @@ Create conventions in a new/empty project:
 python3 plugins/development-workflow/skills/project-bootstrap/scripts/scaffold.py /path/to/new-project --ai adk --mcp
 ```
 
-Omit --ai/--mcp for a normal application. This creates governance and documentation, not runnable application code. Fill the PRD, choose compatible dependencies, implement the first end-to-end slice and configure real verification commands.
+Omit --ai/--mcp for a normal application. The default creates governance and documentation. Add `--starter` to include the locked Project Notes reference application; follow its runbook and execute checks before claiming it works. Fill the PRD, choose compatible dependencies, implement the first end-to-end slice and configure real verification commands.
 
 Legacy skills-only fallback:
 
@@ -66,3 +66,5 @@ Keep skills concise and packages self-contained. Use references/templates/script
 The profile builder acquires selected upstream skill directories at locked commits and packages their references and notices inside plugin boundaries. See [installation](documentation/installation.md), [workflow map](documentation/workflow-map.md), and `upstream.lock.json`. Earlier reference-only catalogue descriptions apply only to sources absent from that lock. No MCP runtime is automatically installed.
 
 The [requirements ledger](documentation/requirements.md) tracks every initial requirement and the evidence still needed. Use `scripts/inventory_skills.py` to inspect installed skill metadata without redistributing private content.
+
+See [runnable starter](documentation/starter.md) for clean-start commands, verification gates and optional Gemini/MCP tooling.

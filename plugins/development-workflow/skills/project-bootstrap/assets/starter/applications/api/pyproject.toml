@@ -1,0 +1,21 @@
+[project]
+name = "project-notes-api"
+version = "0.1.0"
+requires-python = ">=3.12,<3.13"
+dependencies = ["fastapi>=0.115,<1", "uvicorn>=0.34,<1", "sqlalchemy>=2.0,<2.1", "alembic>=1.14,<2", "psycopg[binary]>=3.2,<4", "pwdlib[argon2]>=0.2,<1", "pydantic[email]>=2.10,<3"]
+[dependency-groups]
+dev = ["pytest>=8,<10", "httpx>=0.28,<1", "ruff>=0.11,<1", "mypy>=1.15,<2", "PyYAML==6.0.3"]
+ai = ["google-genai>=1,<3"]
+mcp = ["fastmcp>=2,<4"]
+[tool.pytest.ini_options]
+pythonpath = ["src"]
+[tool.ruff]
+line-length = 100
+[tool.mypy]
+files = ["src"]
+ignore_missing_imports = true
+[build-system]
+requires = ["hatchling>=1.27,<2"]
+build-backend = "hatchling.build"
+[tool.hatch.build.targets.wheel]
+packages = ["src/notes"]
