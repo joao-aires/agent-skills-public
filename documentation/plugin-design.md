@@ -95,3 +95,7 @@ https://adr.github.io/madr/
 ## Holistic workflow extension
 
 See [full-stack-standard.md](full-stack-standard.md). development-workflow now includes maintain-agent-harness, test-end-to-end and deliver-reliable-changes. New scaffolds include engineering context/lessons, E2E, delivery, observability and security documents. Profile metadata declares readiness and an explicit real-stack Playwright testing contract. The structural checker detects missing critical commands/journeys for implemented/deployed claims; it does not execute those commands or prove those claims true. Upstream catalogue adds focused browser/testing/debugging/CI/security/documentation sources. Application starter code, upstream installation and live app E2E remain separate tasks.
+
+## Reproducible upstream packages
+
+The profile builder acquires selected upstream skill directories at locked commits and packages their references and notices inside plugin boundaries. See [installation](installation.md), [workflow map](workflow-map.md), and `upstream.lock.json`. Earlier reference-only catalogue descriptions apply only to sources absent from that lock. No MCP runtime is automatically installed.

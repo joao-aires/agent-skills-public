@@ -14,12 +14,14 @@ Packages follow [Agent Plugins 1.0.0](https://agent-plugins.org/specification). 
 | plugins/python-backend | build-python-backend |
 | plugins/web-frontend | build-consistent-frontend |
 | plugins/ai-development | build-evaluated-ai |
+| plugins/ai-adk / ai-langchain | Optional locked official AI framework skills |
+| plugins/security-quality / mcp-development | Optional locked review/testing and MCP builder skills |
 
 The [full-stack profile](profiles/full-stack.json) selects workflow, backend and frontend; AI, strategy and visuals are optional. Profiles are repository conventions, not standard dependency manifests.
 
 ## Use
 
-Select/install a plugin directory through your compatible client's documented flow. There is no universal plugin installation command in this standard. Load the three full-stack plugins together and add AI only when needed.
+Build packages with `python scripts/install_profile.py --destination /tmp/development-plugins`, then install the resulting plugin directories through your compatible client's documented flow. There is no universal plugin installation command in this standard. Load the three full-stack plugins together and add AI only when needed.
 
 Create conventions in a new/empty project:
 
@@ -53,8 +55,12 @@ python3 -m unittest discover -s tests -v
 
 Validation covers official manifest schemas, skill metadata, package containment, profile references and scaffold regressions. Structural checks do not establish application correctness or semantic documentation freshness.
 
-Upstream skill content is referenced, not vendored or installed. No MCP server is automatically launched; configure optional project integrations with the actual application path.
+Selected upstream skill content is acquired into self-contained built packages. Sources absent from upstream.lock.json remain references. No MCP server is automatically launched; configure optional project integrations with the actual application path.
 
 ## Contributing
 
 Keep skills concise and packages self-contained. Use references/templates/scripts for repeated work. Keep docs and evaluations aligned with behavior. Review/pin upstream content and preserve attribution before redistribution. MIT; upstream sources retain their licenses.
+
+## Reproducible upstream packages
+
+The profile builder acquires selected upstream skill directories at locked commits and packages their references and notices inside plugin boundaries. See [installation](documentation/installation.md), [workflow map](documentation/workflow-map.md), and `upstream.lock.json`. Earlier reference-only catalogue descriptions apply only to sources absent from that lock. No MCP runtime is automatically installed.

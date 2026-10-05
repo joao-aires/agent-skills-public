@@ -68,6 +68,19 @@ def validate() -> list[str]:
         for name in referenced:
             if name not in names:
                 failures.append(f"{profile.name}: unknown plugin {name}")
+    lock = json.loads((ROOT / "upstream.lock.json").read_text())
+    for source in lock["sources"]:
+        if source["plugin"] not in names:
+            failures.append("Unknown upstream plugin")
+        for field in ("commit", "tree"):
+            if not re.fullmatch(r"[0-9a-f]{40}", source[field]):
+                failures.append("Unpinned upstream " + field)
+        for field in ("path", "license_path"):
+            value = source.get(field)
+            if value and (Path(value).is_absolute() or ".." in Path(value).parts):
+                failures.append("Escaping upstream " + field)
+        if not source.get("license"):
+            failures.append("Missing upstream license")
     return failures
 
 

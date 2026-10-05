@@ -1,6 +1,6 @@
 # Opinionated full-stack development standard
 
-Status: conventions implemented; upstream integrations remain reference-only; runnable starter implementation remains a separate increment. Reviewed 2026-10-04.
+Status: conventions implemented; selected upstream integrations are acquired by the pinned profile builder; runnable starter implementation remains a separate increment. Reviewed 2026-10-05.
 
 ## Design rationale
 

@@ -1,0 +1,167 @@
+{
+  "version": 1,
+  "sources": [
+    {
+      "plugin": "web-frontend",
+      "repository": "https://github.com/vercel-labs/agent-skills.git",
+      "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "path": "skills/composition-patterns",
+      "tree": "bf90d0a4b83ea054653350f9c67f6de235d3a368",
+      "license": "MIT (skill frontmatter)",
+      "license_path": null
+    },
+    {
+      "plugin": "web-frontend",
+      "repository": "https://github.com/vercel-labs/agent-skills.git",
+      "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+      "path": "skills/react-best-practices",
+      "tree": "343db72180d05814949fef7d46be96b5c6ee86b3",
+      "license": "MIT (skill frontmatter)",
+      "license_path": null
+    },
+    {
+      "plugin": "web-frontend",
+      "repository": "https://github.com/shadcn-ui/ui.git",
+      "commit": "6b600cf1ff42f8a746747ea587e52af3ee224643",
+      "path": "skills/shadcn",
+      "tree": "b5791523e07794a4deb201e78eab3f3adbd022c0",
+      "license": "MIT",
+      "license_path": "LICENSE.md"
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/microsoft/playwright-cli.git",
+      "commit": "b85c7a736bb473bf55b584e54a09ffa698d6d871",
+      "path": "skills/playwright-cli",
+      "tree": "6b746b43751be277378e0ee04fe0db69f24da045",
+      "license": "Apache-2.0",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/github/awesome-copilot.git",
+      "commit": "143a3d976b3c1603cc8932984d5e1f28501cb5fc",
+      "path": "skills/github-actions-hardening",
+      "tree": "25d75a622f5f8c034be5b25bf6585850d6f7fcd7",
+      "license": "MIT",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/obra/superpowers.git",
+      "commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "path": "skills/systematic-debugging",
+      "tree": "9a48dfda84bf339cba4b03fd803ba0dca2e158e3",
+      "license": "MIT",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/obra/superpowers.git",
+      "commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
+      "path": "skills/verification-before-completion",
+      "tree": "a4cb0b69aaefeab540947a7f1642bdaad810e37a",
+      "license": "MIT",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "python-backend",
+      "repository": "https://github.com/trailofbits/skills.git",
+      "commit": "82fe8226252622fa807643bdca1710901198553a",
+      "path": "plugins/modern-python/skills/modern-python",
+      "tree": "e84fa2b3a076b4333e4cc6187510f2b180eed427",
+      "license": "CC-BY-SA-4.0",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "security-quality",
+      "repository": "https://github.com/trailofbits/skills.git",
+      "commit": "82fe8226252622fa807643bdca1710901198553a",
+      "path": "plugins/property-based-testing/skills/property-based-testing",
+      "tree": "cf5e77d684180c80a2f3aa228c53d04b1fa1ba77",
+      "license": "CC-BY-SA-4.0",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "security-quality",
+      "repository": "https://github.com/trailofbits/skills.git",
+      "commit": "82fe8226252622fa807643bdca1710901198553a",
+      "path": "plugins/differential-review/skills/differential-review",
+      "tree": "09ff02c96f84ad4b98184bcd5efae5b218caa910",
+      "license": "CC-BY-SA-4.0",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "security-quality",
+      "repository": "https://github.com/getsentry/skills.git",
+      "commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
+      "path": "skills/code-review",
+      "tree": "b7760b1d61900ceaa93362ef677c55f01523ef05",
+      "license": "Apache-2.0",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "mcp-development",
+      "repository": "https://github.com/anthropics/skills.git",
+      "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+      "path": "skills/mcp-builder",
+      "tree": "b866bcfb57b780c10b587c7b543e871a91661ce0",
+      "license": "Apache-2.0",
+      "license_path": "skills/mcp-builder/LICENSE.txt"
+    },
+    {
+      "plugin": "ai-adk",
+      "repository": "https://github.com/google/adk-python.git",
+      "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
+      "path": ".agents/skills/adk-agent-builder",
+      "tree": "c5fab86ae823f33b275d9c095a3693ba48a2260d",
+      "license": "Apache-2.0",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "ai-adk",
+      "repository": "https://github.com/google/adk-python.git",
+      "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
+      "path": ".agents/skills/adk-architecture",
+      "tree": "f062f6120ab85242bafbe09188c08388fd94631a",
+      "license": "Apache-2.0",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "ai-langchain",
+      "repository": "https://github.com/langchain-ai/langchain-skills.git",
+      "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
+      "path": "config/skills/langchain-fundamentals",
+      "tree": "64d425535583b9bd96a434be24986bca192e45f6",
+      "license": "MIT",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "ai-langchain",
+      "repository": "https://github.com/langchain-ai/langchain-skills.git",
+      "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
+      "path": "config/skills/langgraph-fundamentals",
+      "tree": "480d57e3f5d3f0ac2d98108592a2d185f61cc2ec",
+      "license": "MIT",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "ai-langchain",
+      "repository": "https://github.com/langchain-ai/langchain-skills.git",
+      "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
+      "path": "config/skills/langgraph-persistence",
+      "tree": "78329e3bc968c16282b186a265e04eaa01ca8fbd",
+      "license": "MIT",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "ai-langchain",
+      "repository": "https://github.com/langchain-ai/langchain-skills.git",
+      "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
+      "path": "config/skills/langchain-dependencies",
+      "tree": "ebdb8abc2c1ee9cea5da98f08043ce01e55a2b43",
+      "license": "MIT",
+      "license_path": "LICENSE"
+    }
+  ]
+}

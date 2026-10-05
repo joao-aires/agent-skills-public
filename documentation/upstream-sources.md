@@ -1,6 +1,6 @@
 # Upstream source catalogue
 
-Reviewed 2026-10-04. Reference-only: not bundled or installed. Review exact version/path/license before acquiring; select relevant skills rather than unrelated whole catalogues.
+Reviewed 2026-10-05. Selected components are now acquired by `scripts/install_profile.py` using immutable commits and Git tree identities in `upstream.lock.json`. See [installation](installation.md) for packages, notices and runtime limits. Sources absent from the lock remain reference-only.
 
 | Area | Source | Qualification |
 | --- | --- | --- |
@@ -21,11 +21,11 @@ Reviewed 2026-10-04. Reference-only: not bundled or installed. Review exact vers
 
 Record source commit/release, selected skills, license, scripts/network behavior and actual install route in project-profile.json. The standard is not a universal dependency installer. Do not redistribute private skills.
 
-Official documented skills CLI examples: `pnpm dlx skills add shadcn/ui`; `npx skills add vercel-labs/agent-skills`; `npx skills add vercel/next.js`. These acquire skills, not complete portable plugins. They have not been executed by this release.
+Official documented skills CLI examples: `pnpm dlx skills add shadcn/ui`; `npx skills add vercel-labs/agent-skills`; `npx skills add vercel/next.js`. These are upstream alternatives. This repository uses its pinned builder rather than these floating commands.
 
 ## Wider development workflow sources
 
-These recommendations are based on first-party provenance, applicability and inspectable workflow—not a claim of universal popularity or benchmark superiority. Reference-only; none is installed or copied here.
+These recommendations are based on first-party provenance, applicability and inspectable workflow—not a claim of universal popularity or benchmark superiority. Selected rows are acquired into built packages; the source checkout retains recipes rather than vendored trees.
 
 | Source / component | Provenance | Priority / fit | Integration limits |
 | --- | --- | --- | --- |
@@ -45,4 +45,4 @@ These recommendations are based on first-party provenance, applicability and ins
 | https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring | Anthropic | Substantive PRD/spec/decision drafting and reader clarity | Do not force collaborative interview steps on routine synchronization |
 | https://agents.md/ | Open format reference | Core scoped repository instructions | Not a skill or enforcement engine |
 
-Trail of Bits publishes CC-BY-SA-4.0 guidance. Linking to it does not relicense this repository; any vendoring must preserve applicable notices/terms. Check all other sources' licenses at the exact pinned version too.
+Trail of Bits publishes CC-BY-SA-4.0 guidance. Linking to it does not relicense this repository; acquired components preserve their applicable notices/terms. Check all other sources' licenses at the exact pinned version too.

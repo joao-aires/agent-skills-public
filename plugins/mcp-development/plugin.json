@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "mcp-development",
+  "version": "0.2.0",
+  "description": "MCP builder acquired from pinned Anthropic sources; local FastMCP conventions apply.",
+  "author": {
+    "name": "Jo\u00e3o Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "MIT"
+}

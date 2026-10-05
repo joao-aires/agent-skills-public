@@ -14,6 +14,20 @@
     ],
     "presentations_and_diagrams": [
       "visual-communication"
+    ],
+    "adk": [
+      "ai-development",
+      "ai-adk"
+    ],
+    "langchain": [
+      "ai-development",
+      "ai-langchain"
+    ],
+    "security": [
+      "security-quality"
+    ],
+    "mcp_authoring": [
+      "mcp-development"
     ]
   }
 }
