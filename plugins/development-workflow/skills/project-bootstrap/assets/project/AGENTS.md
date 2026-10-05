@@ -25,3 +25,5 @@ Read project-profile.json, documentation/README.md, and instructions scoped to t
 - Read documentation/engineering/agent-harness.md for context/commands and record recurring corrections as mechanical checks or narrow lessons.
 - Keep policy/auth/tenant isolation/budget enforcement and consequential state changes deterministic outside the model. Use AI for bounded reasoning and generation.
 - Development, deployment and production readiness are different claims; require evidence appropriate to each.
+
+Read documentation/engineering/skill-routing.md for task-matched local/upstream guidance and installed design-skill selection. Local accepted decisions govern upstream examples; verify skill availability and client discovery instead of assuming it.

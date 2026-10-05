@@ -64,3 +64,5 @@ Keep skills concise and packages self-contained. Use references/templates/script
 ## Reproducible upstream packages
 
 The profile builder acquires selected upstream skill directories at locked commits and packages their references and notices inside plugin boundaries. See [installation](documentation/installation.md), [workflow map](documentation/workflow-map.md), and `upstream.lock.json`. Earlier reference-only catalogue descriptions apply only to sources absent from that lock. No MCP runtime is automatically installed.
+
+The [requirements ledger](documentation/requirements.md) tracks every initial requirement and the evidence still needed. Use `scripts/inventory_skills.py` to inspect installed skill metadata without redistributing private content.

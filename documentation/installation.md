@@ -40,3 +40,9 @@ No MCP server is automatically enabled by these packages. Skills, executable too
 Official setup: https://ui.shadcn.com/docs/mcp, https://github.com/microsoft/playwright-cli, https://github.com/microsoft/playwright-mcp, https://gofastmcp.com/. Runtime versions, endpoints and credentials are deliberately project-specific. The portable manifest does not invent dependency semantics or a universal client configuration.
 
 Vercel web-design-guidelines remains reference-only: its selected source declares no license and dynamically fetches current guidelines. The locked React/composition skills supply redistributable frontend guidance; local UX policy supplies the consistent design contract. UI/UX Pro Max and existing private UI skills are not copied or installed by this public repository.
+
+## Installed design skills and client verification
+
+Run `python scripts/inventory_skills.py --root /path/to/client/skills --output /path/to/project/.local/installed-skills.json` for each actual client skill root (repeat --root). Keep `.local/` ignored: the report contains local paths/metadata but never copies skill bodies. Select compatible UI/UX guidance in the project's skill-routing document.
+
+For the project skills route, validate discoverable metadata with the same command against `.agents/skills`, then use the actual client to implement a small representative change invoking the local contract and matching upstream skill. Record the client version and evidence in the project verification log. This environment currently has no callable Codex CLI, so disk-level build/metadata checks cannot be reported as successful native-client invocation. Portable plugin compatibility also depends on the actual consumer; no universal client installer is assumed.

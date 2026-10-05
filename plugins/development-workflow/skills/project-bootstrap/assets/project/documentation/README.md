@@ -23,3 +23,4 @@ Create AI evaluation documentation when AI is enabled. Additional docs should re
 - [observability.md](operations/observability.md)
 
 - [security.md](architecture/security.md)
+- [Skill routing](engineering/skill-routing.md)
