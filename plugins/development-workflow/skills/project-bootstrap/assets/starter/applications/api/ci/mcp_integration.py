@@ -35,6 +35,9 @@ server = subprocess.Popen(
     [
         "uv",
         "run",
+        "--frozen",
+        "--group",
+        "mcp",
         "uvicorn",
         "notes.main:app",
         "--app-dir",
