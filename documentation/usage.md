@@ -127,3 +127,5 @@ For new applications, the local skills prefer `applications/` for code, migratio
 Keep the application's root `AGENTS.md` short: purpose, stack, commands and shared conventions, including a requirement to synchronize affected documentation with implementation and decisions. Put local exceptions beside the code.
 
 The repository's validation checks package structure, metadata and packaging behavior. They do not prove your application's quality. Ask the agent to report the application checks it actually ran, important user journeys exercised, mocked boundaries and remaining gaps. Installation makes guidance available; it does not automatically enforce application standards.
+
+The local skills provide concrete decision rules and completion criteria, not a requirement to run every check on every change. Select evidence for the affected risk: a visual fix needs rendered inspection; an ownership change needs direct cross-user access tests; a model feature needs separate application and live-quality evidence. [Skill evaluation](skill-evaluation.md) records how the guidance was exercised and what those checks cannot establish.

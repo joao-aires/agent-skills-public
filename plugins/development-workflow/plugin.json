@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "development-workflow",
-  "version": "0.4.1",
+  "version": "0.5.0",
   "description": "Principles for organizing applications, keeping documentation current, testing user journeys and delivering changes.",
   "author": {
     "name": "João Aires"

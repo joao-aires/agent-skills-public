@@ -1,6 +1,6 @@
 ---
 name: deliver-reliable-changes
-description: Implement, review and deliver application changes with focused verification, practical CI/CD and clear operational considerations.
+description: Implement, review and prepare application changes for delivery with focused verification, practical CI/CD and operational evidence. Use for feature implementation, bug fixes, PR preparation, pipeline changes and deployment readiness.
 ---
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
@@ -8,12 +8,32 @@ Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation bo
 
 # Deliver useful changes
 
-- Read the relevant project instructions and existing patterns. Keep the change focused on the requested outcome and preserve accepted architecture and design decisions.
-- Diagnose failures from evidence before patching symptoms. Use relevant upstream debugging, review or security skills when the change benefits from them; scale the depth to the risk.
-- Run the checks that establish the changed behavior: lint/types/build, focused tests and important end-to-end journeys as applicable. Do not claim checks that were not run.
-- Keep local and CI verification aligned. Prefer a small fast pipeline, minimal permissions, protected secrets and reproducible dependencies. Add delivery automation when the deployment target is known.
-- Treat configuration, authorization, migrations, sensitive data and external side effects as application responsibilities. Use timeouts and bounded retries; plan recovery for meaningful data or deployment changes.
-- Make failures diagnosable with useful logs and basic health signals. Add deeper monitoring, performance testing and backup/restore checks when operational needs justify them.
-- Keep affected documentation current. Explain what changed, why, the verification evidence and remaining limitations in the PR. Capture recurring mistakes in concise project guidance.
+## Preserve scope and diagnose first
 
-Optimize for a working, maintainable application. Add process and infrastructure when they solve an observed problem.
+Read project instructions, accepted decisions and nearby code. Connect the requested outcome to concrete acceptance criteria; preserve existing architecture and UI direction. Keep unrelated cleanup separate. Use the conversation or plan as scope without requiring tickets.
+
+For a failure, establish a reproduction and inspect relevant logs/state before patching. Use `diagnosing-bugs` for investigation, `tdd` for behavior/regression checks and `code-review` for review when installed and relevant. Use differential/security or property-based specialists for risks that benefit from them; do not launch every available workflow. Fix the cause and preserve assertions that exposed it.
+
+## Match verification to the change
+
+| Change | Evidence to seek |
+| --- | --- |
+| Domain logic or bug fix | Focused behavior/regression tests |
+| API, auth or persistence | Integration tests with real contracts, authorization and PostgreSQL where relevant |
+| User journey or UI | Affected Playwright flow and rendered UI inspection |
+| Dependencies or configuration | Applicable build, startup and configuration checks |
+| Migration or deployment | Migration/compatibility check and a practical recovery approach |
+
+Run applicable lint, type and build checks plus behavior tests. Use `test-end-to-end` for full-stack claims and `maintain-documentation` for affected knowledge. A passing build is not evidence that the user journey works. Report blocked checks, pre-existing failures and mocked boundaries explicitly; do not imply they passed.
+
+## Keep delivery practical
+
+Keep local and CI checks aligned, dependencies reproducible and pipelines focused on useful feedback. Use minimal permissions, protected secrets and reviewed dependency/action versions; use the bundled GitHub Actions hardening skill for pipeline changes. Respect provider-required workflow paths. Add deployment automation when the target is known, without inventing an infrastructure platform for an unspecified target.
+
+Check resource authorization, configuration and sensitive-data handling at their application boundaries. Bound external calls and retries; account for duplicate side effects before retrying. Make failures diagnosable through useful logs and basic health signals. Add deeper monitoring, load testing and backup/restore checks when operational needs warrant them.
+
+For a migration that removes data, assess old/new application compatibility and recovery before delivery. Reverting application code alone may not restore lost data. Record the consequential tradeoff; keep destructive/live actions within the user's authorization.
+
+## Close with evidence
+
+Review the diff for scope, correctness and avoidable complexity; resolve material findings. Keep affected docs synchronized and capture repeated mistakes as a concise instruction or check. Explain behavior changed, rationale, commands/results and remaining limitations in the PR or completion report. Distinguish implemented, verified, deployed and planned work. Publish or merge only within the requested authorization; a delivery skill is not permission to deploy.

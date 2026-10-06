@@ -31,6 +31,8 @@ Installing a plugin makes skills available; it does not require running every sk
 
 For a full-stack application, use workflow + backend + frontend; add AI when needed. Load task-relevant skills rather than every skill at once. The new local skills are concise principles: the agent chooses implementation details from the product, existing code and accepted decisions. Upstream guidance contributes expertise without expanding the requested scope or overriding those decisions. Use compatible installed UI/UX skills locally.
 
+Local development skills include decision rules, examples and proportionate completion criteria: a real persisted journey, resource ownership, deliberate migrations, consistent rendered UI and explicit AI evaluation boundaries. These guide the agent toward observable outcomes while leaving implementation choices open. See [skill evaluation evidence and limits](documentation/skill-evaluation.md).
+
 ## Invocation and workflow selection
 
 Our `project-bootstrap` starts only on an explicit request. The six other local development skills are agent-invoked when relevant and can also be invoked manually. Automatic selection helps perform the requested work without expanding its scope.

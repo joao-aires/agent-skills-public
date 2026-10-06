@@ -1,6 +1,6 @@
 ---
 name: project-bootstrap
-description: Guide the structure and first implementation of a new application, or organize an existing repository, Use when the user explicitly asks to start or organize a project.
+description: Organize a new or existing application around a useful first slice, scoped AGENTS.md instructions, documentation and verification. Use only when the user explicitly asks to start or organize a project.
 disable-model-invocation: true
 ---
 
@@ -9,13 +9,24 @@ Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation bo
 
 # Organize an application
 
-- Start with the user's problem, a small useful outcome and clear non-goals. Build a working vertical slice early; add architecture as the product needs it.
-- Put application code, migrations, tests, dependencies, application-specific CI/CD and scoped AGENTS.md under `applications/`. Use `api/` and `web/` when those boundaries make sense. Keep provider-required workflow entrypoints where the provider expects them.
-- Put product and engineering knowledge under `documentation/`. Use the documentation skill for a lean structure; create documents when there is something useful to record.
-- Keep root AGENTS.md short: project purpose, stack, commands and shared conventions. Put local exceptions beside the code. State that documentation must stay synchronized with implementation and decisions.
-- Prefer Python/FastAPI/PostgreSQL and Next.js/shadcn for new full-stack projects. Add AI or MCP only for a concrete need. Adapt existing applications deliberately rather than rewriting them to match a preferred layout.
-- Use only the skills relevant to the current task. Reuse available upstream expertise and compatible installed UI/UX guidance; do not assume a linked skill is installed or copy private skills into this repository.
-- Capture recurring corrections as a brief scoped instruction or a useful check. Keep instructions specific to this project, without duplicating general programming knowledge.
-- Make local startup and verification straightforward. Choose compatible dependencies, commit lockfiles and record consequential tradeoffs. Avoid speculative services, layers and abstractions.
+## Choose the first outcome
 
-Treat these as defaults. Let product requirements and existing decisions determine the implementation.
+Read the request, existing code and accepted decisions before choosing structure. State the smallest useful user journey and its observable acceptance criteria; carry forward answers already agreed. Resolve ambiguity that changes the product or data boundary, and make reversible implementation choices without another planning ceremony. Use the conversation as scope unless a separate spec is useful; require no tickets or tracker.
+
+Prefer Python/FastAPI/PostgreSQL and Next.js/shadcn for new full-stack projects. Add AI or MCP for a concrete capability. Preserve an existing stack and layout unless changing them solves an agreed problem.
+
+## Establish a small, navigable repository
+
+- Put code, migrations, tests, dependencies, application configuration and scoped AGENTS.md under `applications/`. Separate `api/` and `web/` when they represent actual boundaries. Keep provider-required CI entrypoints in their required locations.
+- Put product and engineering knowledge under `documentation/`; use `maintain-documentation` to create only useful documents.
+- Keep root AGENTS.md focused on purpose, stack, startup/test commands, shared conventions and the requirement to synchronize affected docs with code and decisions. Put component-specific commands and exceptions beside that component. Link authoritative information instead of duplicating it.
+- Record compatible dependencies and lockfiles, required configuration and a safe local setup. Make it possible to start and verify the first slice without guessing secrets or commands.
+- Add boundaries, services and infrastructure when a concrete requirement justifies them. Prefer domain-oriented code over layers with no present responsibility.
+
+Use the relevant backend/frontend/AI skills and installed upstream expertise; do not assume a reference is installed. Preserve compatible installed UI/UX guidance without redistributing private material. Capture repeated corrections as a short scoped instruction or an executable check, rather than accumulating generic rules.
+
+## Build and prove a vertical slice
+
+For a saved-search application, start with saving a named filter and reopening it through the UI, API and database. Include ownership enforcement if users have private data. Defer sharing, recommendation agents and a generic workflow engine until requested. Prefer a real useful flow over disconnected mock screens and endpoints.
+
+Finish by showing how to start the application, what journey works, which checks ran and what remains incomplete. Verify the applicable startup, migration and browser/API path; distinguish mocked providers from real integrations. Keep first-slice knowledge and decisions current. Do not describe a scaffold or a successful build alone as a working application.
