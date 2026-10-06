@@ -12,6 +12,8 @@ Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation bo
 
 Read project instructions, accepted decisions and nearby code. Connect the requested outcome to concrete acceptance criteria; preserve existing architecture and UI direction. Keep unrelated cleanup separate. Use the conversation or plan as scope without requiring tickets.
 
+Use `contribute-with-git` for feature worktree isolation, Conventional Commits and publication to the intended remote. Keep checks and documentation in that feature workspace; reuse it for follow-up work on the same objective.
+
 For a failure, establish a reproduction and inspect relevant logs/state before patching. Use `diagnosing-bugs` for investigation, `tdd` for behavior/regression checks and `code-review` for review when installed and relevant. Use differential/security or property-based specialists for risks that benefit from them; do not launch every available workflow. Fix the cause and preserve assertions that exposed it.
 
 ## Match verification to the change

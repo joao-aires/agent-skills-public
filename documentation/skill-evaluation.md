@@ -1,6 +1,6 @@
 # Local skill evaluation
 
-The seven local development skills were revised using the skill-creator process: concrete tasks, clear trigger descriptions, context-dependent decision rules, short examples and observable completion criteria. Each remains a single Markdown guide of roughly 430–550 words. No application template, generation framework or mandatory tracker was added.
+The original seven local development skills were revised using the skill-creator process: concrete tasks, clear trigger descriptions, context-dependent decision rules, short examples and observable completion criteria. Each remains a single Markdown guide of roughly 430–550 words. A subsequent eighth skill, `contribute-with-git`, adds feature worktrees, Conventional Commits and PR contribution guidance. No application template, generation framework or mandatory tracker was added.
 
 ## Independent task walkthroughs
 
@@ -15,6 +15,15 @@ Four fresh agents received the revised skills and task-local requests without th
 
 These responses demonstrated useful interpretation across all seven skills, including evidence boundaries, existing decisions and proportionate scope. They are not a numerical quality benchmark or proof of general reliability.
 
+## Git contribution checks
+
+Two fresh agents exercised `contribute-with-git` with task-local facts:
+
+- **Local execution:** a disposable repository had a `main` branch, a local bare remote and an unrelated uncommitted README edit. The agent implemented an optional case-insensitive sorting feature in a new worktree, updated related docs/checks, ran the checks, created `feat: add optional case-insensitive name sorting` and pushed the feature branch. Independent inspection confirmed the remote SHA, clean feature worktree, unchanged original branch and preserved user edit. No issue scope was invented. A concise PR body was prepared; no live GitHub PR was claimed for a local-only remote.
+- **Fork/PR planning:** supplied state contained an existing worktree and PR, different fork/upstream remotes, component-scope conventions and issue `OPS-12`. The agent reused the feature workspace/PR, chose `feat(export)` with an issue reference in the body, selected the correct upstream target/base and fork head, and disclosed untested worker recovery. It kept the description concise without requiring a diagram. No actions were executed in this plan-only case.
+
+The new skill passes creator validation, repository checks and actual packaging with its implicit-invocation metadata. These checks cover local Git behavior and interpretation of PR instructions; they do not independently establish live GitHub CLI/MCP behavior in every client.
+
 ## Structural checks
 
 Run the repository checks after edits:
@@ -28,6 +37,6 @@ The creator's `quick_validate.py` checks names and standard frontmatter. Its cur
 
 ## Limits and further iteration
 
-The walkthroughs did not implement an application, run a browser/database or call a model. They establish that independent agents can apply the guidance in plans and supplied-artifact reviews. Package checks establish metadata and packaging integrity, not runtime discovery in every client.
+The original four walkthroughs did not implement an application, run a browser/database or call a model. They establish that independent agents can apply the guidance in plans and supplied-artifact reviews. The later Git check executed a small helper feature and local push, not a full-stack application or live GitHub publication. Package checks establish metadata and packaging integrity, not runtime discovery in every client.
 
 Further confidence must come from actual application work: inspect an implemented first slice and an existing-code change, run their relevant tests, and review the rendered UI and documentation. Record observed deviations and strengthen the relevant decision rule or project check. Preserve successful implementation choices; avoid adding process solely to make a checklist longer.

@@ -62,7 +62,7 @@ flowchart TD
 
 **User-invoked** skills begin distinct activities on an explicit request. Examples include `project-bootstrap`, `grill-me`, `to-spec`, `implement`, `implement-spec` and `retro`. A plain-language request can express that intent; exact command syntax and discovery depend on the client.
 
-**Agent-invoked** skills support work already requested. Examples include our backend/frontend/AI guidance, documentation, E2E and delivery skills, plus upstream debugging, TDD and review guidance. These can also be requested manually.
+**Agent-invoked** skills support work already requested. Examples include our backend/frontend/AI guidance, documentation, E2E, delivery and `contribute-with-git` skills, plus upstream debugging, TDD and review guidance. These can also be requested manually.
 
 Native invocation controls are preserved, including `disable-model-invocation` and Codex metadata where supplied. They are client-specific; package checks do not establish runtime behavior in every client. Ask for a skill by name if automatic selection misses it.
 
@@ -87,6 +87,12 @@ The [workflow guide](../plugins/development-workflow/WORKFLOW.md#project-fit) ex
 > Fix the mobile layout of the saved-search list. Reuse existing shadcn components and tokens. Check loading, empty and error states, keyboard access and the affected browser journey. Keep the change focused and update documentation only where behavior changed.
 
 Routine work can go directly to implementation. No interview, spec or orchestration workflow is required for every change.
+
+### Develop a feature and open its PR
+
+> Add saved-search deletion in the target application repository. Use contribute-with-git to create a feature worktree from the project's intended base and keep all code, tests and documentation for this objective there. Use Conventional Commits, run the relevant checks, push the branch and open a concise PR in that repository. No tracker is used. Explain the problem, resulting behavior, impact and actual verification; include a Mermaid diagram only if it clarifies the change.
+
+The skill is agent-invoked for this activity even when not named. It inspects the repository/remotes/base, reuses an existing worktree/PR for follow-up work, and prefers Git/`gh` CLI with GitHub MCP fallback. If an existing issue association is unclear, it may ask once; no issue means no issue scope or tracker setup. Repository component-scope conventions remain authoritative. Publishing a PR does not merge or deploy it.
 
 ### Write a plan before implementation
 

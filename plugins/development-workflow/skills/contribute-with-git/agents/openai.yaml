@@ -1,0 +1,6 @@
+interface:
+  display_name: "Contribute with Git"
+  short_description: "Feature worktrees, conventional commits and clear PRs"
+  default_prompt: "Use $contribute-with-git to develop this feature in a worktree and prepare its commits and pull request."
+policy:
+  allow_implicit_invocation: true

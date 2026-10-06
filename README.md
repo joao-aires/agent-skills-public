@@ -22,7 +22,7 @@ Installing a plugin makes skills available; it does not require running every sk
 
 | Plugin | Guidance | Upstream expertise included when built |
 | --- | --- | --- |
-| `development-workflow` | Project structure, documentation, E2E, delivery | Matt Pocock engineering/productivity skills, Playwright, GitHub Actions hardening, Trail of Bits testing/review |
+| `development-workflow` | Project structure, documentation, E2E, delivery, Git contribution flow | Matt Pocock engineering/productivity skills, Playwright, GitHub Actions hardening, Trail of Bits testing/review |
 | `python-backend` | Python, uv, FastAPI/Uvicorn, SQLAlchemy/Alembic, PostgreSQL, optional FastMCP | Trail of Bits modern-python; Anthropic MCP builder |
 | `web-frontend` | Next.js, shadcn, consistent UI/UX, accessibility and performance | Official shadcn; Vercel React practices and composition |
 | `ai-development` | Framework choice, Gemini LLM/audio experiments, evaluation and tool boundaries | Official Google ADK and LangChain/LangGraph skills |
@@ -35,7 +35,7 @@ Local development skills include decision rules, examples and proportionate comp
 
 ## Invocation and workflow selection
 
-Our `project-bootstrap` starts only on an explicit request. The six other local development skills are agent-invoked when relevant and can also be invoked manually. Automatic selection helps perform the requested work without expanding its scope.
+Our `project-bootstrap` starts only on an explicit request. The seven other local development skills are agent-invoked when relevant and can also be invoked manually. `contribute-with-git` applies by default to feature development and Git/PR work: use a feature worktree, Conventional Commits, optional issue references and concise PR descriptions. Automatic selection helps perform the requested work without expanding its scope.
 
 Matt's released engineering and productivity skills join `development-workflow`, including `implement`, `implement-spec`, their testing/review dependencies, and setup. Preserve his user/agent distinction: user-invoked orchestration is a deliberate choice; agent-invoked guidance is task-matched. See the concise [workflow map](plugins/development-workflow/WORKFLOW.md) for available activities, documentation paths and setup boundaries. No workflow is mandatory for every change. Implementation and review work directly from your request or a Markdown spec/plan; tickets and trackers are optional, including for `implement-spec`.
 
