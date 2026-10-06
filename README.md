@@ -33,6 +33,56 @@ For a full-stack application, use workflow + backend + frontend; add AI when nee
 
 Local development skills include decision rules, examples and proportionate completion criteria: a real persisted journey, resource ownership, deliberate migrations, consistent rendered UI and explicit AI evaluation boundaries. These guide the agent toward observable outcomes while leaving implementation choices open. See [skill evaluation evidence and limits](documentation/skill-evaluation.md).
 
+## SDLC coverage
+
+This is a capability map, not a mandatory sequence. Enter at the phase relevant to the request, iterate when evidence changes the plan, and select only useful skills. **L** means local principles; **U** means bundled upstream expertise. The diagram shows representative skills; the table maps the complete current inventory.
+
+```mermaid
+flowchart TD
+    D["Discover: L business-strategy; U research"] --> P["Plan: L project-bootstrap; U to-spec"]
+    P --> A["Design: L architecture-diagraming; U domain-modeling"]
+    A --> B["Build: L stack guidance; U implement"]
+    B --> V["Verify: L test-end-to-end; U tdd and code-review"]
+    V --> C["Contribute: L contribute-code; U pr"]
+    C --> R["Release: L deliver-reliable-changes; partial coverage"]
+    R --> O["Operate: U diagnosing-bugs and retro; partial coverage"]
+    O -->|Feedback| D
+    V -->|Failures| B
+    C -->|Review changes| B
+    G["Across phases: L maintain-documentation; U writing-for-agents"] -.-> P
+    G -.-> B
+    G -.-> O
+```
+
+| Phase or activity | Local skills | Upstream skills | Contribution and limits |
+| --- | --- | --- | --- |
+| Discovery and requirements | `business-strategy`; legacy `business-opportunity-analysis` only as fallback | `research`, `grill-me`, `grilling`, `grill-with-docs`, `to-questionnaire`, `prototype` | Test the problem and assumptions, clarify scope, explore uncertainty. Interviews/prototypes are optional; market analysis is not evidence of user adoption. |
+| Planning and project setup | `project-bootstrap` | `to-spec`, `wayfinder`, optional `to-tickets` | Choose a useful slice and proportionate plan. Conversation/Markdown scope is sufficient; tickets and tracker setup are optional. |
+| Architecture, domain and UX design | `architecture-diagraming`, `build-consistent-frontend`, `build-python-backend`, `build-evaluated-ai` | `domain-modeling`, `codebase-design`, `improve-codebase-architecture`, `adk-architecture`, `vercel-composition-patterns` | Choose boundaries, data/ownership rules and reusable interactions. Framework-specific skills apply only to the chosen stack. |
+| Implementation | `build-python-backend`, `build-consistent-frontend`, `build-evaluated-ai` | `implement`, `implement-spec`, `modern-python`, `mcp-builder`, `shadcn`, `vercel-react-best-practices`, `vercel-composition-patterns`, `adk-agent-builder`, `langchain-fundamentals`, `langchain-dependencies`, `langgraph-fundamentals`, `langgraph-persistence` | Apply stack expertise to the agreed feature. Orchestration is explicitly chosen; MCP/AI frameworks are used only when needed. |
+| Testing and review | `test-end-to-end`, `deliver-reliable-changes`, `build-evaluated-ai` | `tdd`, `playwright-cli`, `property-based-testing`, `code-review`, `differential-review` | Establish behavior, persistence, authorization and appropriate model quality. Security-focused diff review is not a complete threat model or security audit. |
+| Git contribution and PR | `contribute-code`, `deliver-reliable-changes` | `pr` | Isolate feature work, commit coherently, publish/update the correct PR and explain impact with evidence. Review does not automatically authorize merge/deployment. |
+| Release and deployment | `deliver-reliable-changes` | `github-actions-hardening`; `wizard` for requested human setup | **Partial:** CI security, configuration and migration/recovery principles. No dedicated release, environment-promotion or deployment verification skill. |
+| Operations and maintenance | `deliver-reliable-changes`, `maintain-documentation` | `diagnosing-bugs`, `retro`; `triage` when explicitly using tracked issues/PRs | **Partial:** diagnosis, basic health/logging, runbooks and learning. No dedicated production SLO, incident, backup/restore or capacity workflow. |
+| Knowledge and communication across phases | `maintain-documentation`, `presentation-building`, `architecture-diagraming` | `writing-for-agents`, `handoff`, `teach`, `wait-what` | Keep authoritative knowledge current, explain decisions and preserve context. Presentation/teaching activities remain task-specific. |
+| Skill selection and optional setup | Local workflow guidance | `ask-matt`, `setup-matt-pocock-skills`, `wizard` | Route to relevant activities; configure tools only when requested. Packaging does not execute setup. |
+
+The same skill can support several phases; repeated entries do not represent duplicate installations. Upstream names above use actual skill metadata, which can differ from source directory names. MCPs provide optional execution tools, not another SDLC phase; see [optional tools](#optional-tools).
+
+### Gaps worth addressing next
+
+These are suggested capabilities, **not additional installed skills**. Extend an existing guide where a few rules suffice; create a focused skill only for a distinct recurring workflow.
+
+| Priority | Gap | Useful scope for future guidance |
+| --- | --- | --- |
+| First | Release and recovery | Target-aware deployment, staging/production configuration, compatible migrations, post-deploy smoke checks, rollback/roll-forward and release evidence |
+| First | Operating the application | Useful logs/metrics/traces, user-facing health/SLOs when warranted, incident diagnosis, recovery, backup/restore verification and capacity/cost signals |
+| Next | Security and privacy design | Assets/trust boundaries, abuse cases, data minimization/retention, secrets and dependency risk; connect design risks to implementation checks |
+| As needed | Performance and resilience verification | Representative load, concurrency, latency/error budgets, query behavior and bounded failure/retry behavior beyond frontend optimization |
+| As needed | Product feedback and experiments | Instrument intended outcomes, evaluate adoption/usability and feed evidence into roadmap decisions rather than treating feature delivery as success |
+
+Potential upstream additions to review separately: Trail of Bits [supply-chain-risk-auditor](https://github.com/trailofbits/skills/blob/main/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/SKILL.md) for dependency risk, and GitHub's [phoenix-tracing](https://github.com/github/awesome-copilot/blob/main/skills/phoenix-tracing/SKILL.md) for Phoenix-specific AI observability. Neither fills generic release/operations coverage. Check their fit, resources, license and immutable pins before packaging; they are not in the current lockfile.
+
 ## Invocation and workflow selection
 
 Our `project-bootstrap` starts only on an explicit request. The seven other local development skills are agent-invoked when relevant and can also be invoked manually. `contribute-code` applies by default to feature development and Git/PR work: use a feature worktree, Conventional Commits, optional issue references and concise PR descriptions. Automatic selection helps perform the requested work without expanding its scope.

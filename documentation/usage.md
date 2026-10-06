@@ -2,6 +2,8 @@
 
 Choose the bundles for your activity, install them in your agent client, and work in the application repository. Local skills steer the approach; upstream skills contribute techniques. Existing project instructions and accepted decisions remain authoritative.
 
+Use the [SDLC map](../README.md#sdlc-coverage) to locate relevant local/upstream skills and distinguish current coverage from suggested additions. The phases describe capabilities, not required ceremonies.
+
 ## Choose bundles
 
 | Work | Bundles |
