@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "business-strategy",
-  "version": "0.1.0",
-  "description": "Business strategy, opportunity evaluation, and the legacy opportunity-analysis entry point.",
+  "version": "0.2.0",
+  "description": "Business strategy, opportunity evaluation and evidence-led product feedback.",
   "author": {
     "name": "João Aires"
   },

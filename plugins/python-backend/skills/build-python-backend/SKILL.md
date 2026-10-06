@@ -21,6 +21,10 @@ Organize around domain responsibilities. Keep routes concerned with HTTP input, 
 
 For a user-owned saved search, set ownership from the session and scope fetch/delete by authenticated identity. Test user B requesting user A's resource ID directly. For a feature that writes a parent and dependent records, inject a failure between writes and confirm no partial state survives.
 
+## Design for concurrency and latency
+
+Give critical journeys a practical latency expectation and inspect the whole path: queries, serialization, provider calls and queueing. Bound worker concurrency, external timeouts and retries; calculate the combined connection-pool budget across processes and replicas against PostgreSQL's available connections. Avoid N+1 queries and unnecessary round trips. Choose pagination, batching and indexes from query patterns; measure tail latency before declaring an optimization. Caching needs explicit freshness, ownership and invalidation rules. Backpressure is preferable to an unbounded queue or tasks that exhaust the database. Use application capacity guidance when sizing or scaling is part of the request; apply the project's load/failure-testing instructions when supplied.
+
 ## Evolve persistence safely
 
 Review Alembic migrations as code: defaults, nullability, constraints, indexes, backfills, locks and old/new application compatibility where deployment requires it. For existing data, prefer a staged change when adding a new constraint; avoid treating a destructive downgrade as guaranteed recovery. Apply relevant migrations against PostgreSQL, not only an SQLite substitute. Keep the data model/OpenAPI and migration/recovery notes aligned.

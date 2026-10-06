@@ -15,6 +15,10 @@ Local guidance sets project defaults; upstream skills supply techniques. Read th
 | Plan substantial work | `to-spec`, `to-tickets`, `wayfinder` (user) |
 | Execute agreed work | `implement`, `implement-spec` (user); `tdd` and `code-review` support execution |
 | Develop and publish a contribution | Local `contribute-code` (agent): feature worktree, Conventional Commits and concise PR; upstream `pr` supports preparation |
+| Build delivery infrastructure | Local `build-delivery-pipelines` (agent); GitHub Actions hardening supports detailed review |
+| Design data and authority boundaries | Local `design-secure-features` (agent); security diff/dependency specialists when relevant |
+| Plan recovery, capacity or cost | Local skills in `application-operations` (agent); AKS specialist only on AKS |
+| Evaluate product outcomes | Local `learn-from-product-feedback` in `business-strategy` (agent for requested analysis) |
 | Debug and review | `diagnosing-bugs`, `code-review`, `pr` (agent); use security/property-based specialists when warranted |
 | Improve the environment | `improve-codebase-architecture`, `retro` (user); `writing-for-agents` (agent) |
 | Navigate, hand off or learn | `ask-matt`, `handoff`, `wait-what`, `teach` (user) |

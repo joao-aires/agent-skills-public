@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1000" role="img" aria-labelledby="title desc">
+<title id="title">Product discovery, the SDLC cycle and product feedback</title>
+<desc id="desc">Discovery feeds planning. The SDLC cycles through planning, requirements analysis, design, implementation, testing, deployment and maintenance. Live product feedback informs discovery and the next development cycle. Skills shown are representative; documentation, Git and security support all phases.</desc>
+<defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#526580"/></marker></defs>
+<rect width="1440" height="1000" fill="#f8fafc"/>
+<g font-family="Arial, Helvetica, sans-serif">
+<text x="40" y="48" font-size="26" font-weight="700" fill="#15233b">From product evidence to software — and back</text>
+<text x="40" y="78" font-size="15" fill="#526580">Representative skill entry points · Choose only what the task needs</text>
+<rect x="20" y="110" width="240" height="820" rx="18" fill="#e8f5ef" stroke="#cbd5e1"/>
+<text x="140.0" y="147" text-anchor="middle" font-size="18" font-weight="700" fill="#15233b">Before development</text>
+<text x="140.0" y="166" text-anchor="middle" font-size="14" fill="#526580">Product discovery</text>
+<rect x="280" y="110" width="860" height="820" rx="18" fill="#eef2ff" stroke="#cbd5e1"/>
+<text x="710.0" y="147" text-anchor="middle" font-size="18" font-weight="700" fill="#15233b">Software development</text>
+<text x="710.0" y="166" text-anchor="middle" font-size="14" fill="#526580">Seven-phase SDLC cycle</text>
+<rect x="1160" y="110" width="260" height="820" rx="18" fill="#fff4e7" stroke="#cbd5e1"/>
+<text x="1290.0" y="147" text-anchor="middle" font-size="18" font-weight="700" fill="#15233b">Beyond delivery</text>
+<text x="1290.0" y="166" text-anchor="middle" font-size="14" fill="#526580">Product feedback</text>
+<path d="M 809.7 278.0 Q 820.9 279.8 829.2 287.4" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M 939.9 383.4 Q 977.1 449.0 972.0 524.3" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M 944.7 620.3 Q 921.3 678.5 869.8 714.3" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M 726.5 762.3 Q 710.0 767.2 693.5 762.3" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M 550.2 714.3 Q 498.7 678.5 475.3 620.3" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M 448.0 524.3 Q 442.9 449.0 480.1 383.4" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M 590.8 287.4 Q 599.1 279.8 610.3 278.0" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
+<text x="710" y="495" text-anchor="middle" font-size="22" font-weight="700" fill="#15233b">Iterate on evidence</text>
+<text x="710" y="525" text-anchor="middle" font-size="14" fill="#526580">Testing and review can return to code</text>
+<text x="710" y="549" text-anchor="middle" font-size="14" fill="#526580">Enter at the relevant phase</text>
+<rect x="605.0" y="182.0" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
+<text x="710.0" y="202.0" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">1. Planning</text>
+<text x="710.0" y="226.0" text-anchor="middle" font-size="13" fill="#354966">project-bootstrap</text>
+<rect x="823.9" y="287.4" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
+<text x="928.9" y="307.4" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">2. Requirements analysis</text>
+<text x="928.9" y="331.4" text-anchor="middle" font-size="13" fill="#354966">grill-with-docs</text>
+<rect x="878.0" y="524.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
+<text x="983.0" y="544.3" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">3. Design</text>
+<text x="983.0" y="568.3" text-anchor="middle" font-size="13" fill="#354966">build-consistent-frontend</text>
+<text x="983.0" y="588.3" text-anchor="middle" font-size="13" fill="#354966">design-secure-features</text>
+<rect x="726.5" y="714.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
+<text x="831.5" y="734.3" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">4. Implementation</text>
+<text x="831.5" y="758.3" text-anchor="middle" font-size="13" fill="#354966">build-python-backend</text>
+<text x="831.5" y="778.3" text-anchor="middle" font-size="13" fill="#354966">implement / implement-spec</text>
+<rect x="483.5" y="714.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
+<text x="588.5" y="734.3" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">5. Testing</text>
+<text x="588.5" y="758.3" text-anchor="middle" font-size="13" fill="#354966">test-end-to-end</text>
+<text x="588.5" y="778.3" text-anchor="middle" font-size="13" fill="#354966">tdd · playwright-cli</text>
+<rect x="332.0" y="524.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
+<text x="437.0" y="544.3" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">6. Deployment</text>
+<text x="437.0" y="568.3" text-anchor="middle" font-size="13" fill="#354966">build-delivery-pipelines</text>
+<rect x="386.1" y="287.4" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
+<text x="491.1" y="307.4" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">7. Maintenance</text>
+<text x="491.1" y="331.4" text-anchor="middle" font-size="13" fill="#354966">protect-and-restore-data</text>
+<text x="491.1" y="351.4" text-anchor="middle" font-size="13" fill="#354966">plan-application-capacity</text>
+<text x="491.1" y="371.4" text-anchor="middle" font-size="13" fill="#354966">optimize-application-cost</text>
+<rect x="35" y="416" width="210" height="110" rx="12" fill="white" stroke="#9aaecb"/>
+<text x="140.0" y="444" text-anchor="middle" font-size="15" fill="#15233b" font-weight="700">Choose a useful problem</text>
+<text x="140.0" y="470" text-anchor="middle" font-size="13" fill="#15233b" font-weight="400">business-strategy</text>
+<text x="140.0" y="496" text-anchor="middle" font-size="13" fill="#15233b" font-weight="400">research · grill-me</text>
+<rect x="1175" y="416" width="230" height="110" rx="12" fill="white" stroke="#9aaecb"/>
+<text x="1290.0" y="444" text-anchor="middle" font-size="15" fill="#15233b" font-weight="700">Evaluate the user outcome</text>
+<text x="1290.0" y="470" text-anchor="middle" font-size="13" fill="#15233b" font-weight="400">learn-from-product-feedback</text>
+<text x="1290.0" y="496" text-anchor="middle" font-size="13" fill="#15233b" font-weight="400">Existing reports and usage</text>
+<path d="M 245 440 C 300 440 310 230 600 230" fill="none" stroke="#526580" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="380" y="207" font-size="13" fill="#526580">Agreed problem / scope</text>
+<path d="M 386 335 H 305 V 852 H 1148 V 454 H 1172" fill="none" stroke="#526580" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="980" y="839" font-size="13" fill="#526580">Live product evidence</text>
+<path d="M 1290 528 V 896 H 140 V 529" fill="none" stroke="#526580" stroke-width="2" marker-end="url(#arrow)"/>
+<text x="710" y="884" text-anchor="middle" font-size="14" fill="#526580">Feedback informs discovery and the next change</text>
+<text x="710" y="963" text-anchor="middle" font-size="15" fill="#354966">Across the cycle: documentation · Git contributions · security and privacy · capacity and cost constraints</text>
+</g></svg>

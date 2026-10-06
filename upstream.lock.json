@@ -486,6 +486,24 @@
         "workflow-framing",
         "documentation-paths"
       ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/trailofbits/skills.git",
+      "commit": "82fe8226252622fa807643bdca1710901198553a",
+      "path": "plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor",
+      "tree": "954cc68e05e24a2a14447b60d1e8946b53323b1b",
+      "license": "CC-BY-SA-4.0",
+      "license_path": "LICENSE"
+    },
+    {
+      "plugin": "application-operations",
+      "repository": "https://github.com/Azure/AKS-Skills.git",
+      "commit": "20bf35201a79b324d2ca3e00e5c82020ff362024",
+      "path": "skills/aks-cost-optimization",
+      "tree": "23b00af7a0919279d80cc9a776ff728cee2c6efa",
+      "license": "MIT",
+      "license_path": "LICENSE"
     }
   ]
 }

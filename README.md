@@ -22,11 +22,12 @@ Installing a plugin makes skills available; it does not require running every sk
 
 | Plugin | Guidance | Upstream expertise included when built |
 | --- | --- | --- |
-| `development-workflow` | Project structure, documentation, E2E, delivery, Git contribution flow | Matt Pocock engineering/productivity skills, Playwright, GitHub Actions hardening, Trail of Bits testing/review |
+| `development-workflow` | Project structure, documentation, E2E, Git contributions, CI/CD and security/privacy | Matt Pocock engineering/productivity skills, Playwright, GitHub Actions hardening, Trail of Bits testing/review and dependency risk |
 | `python-backend` | Python, uv, FastAPI/Uvicorn, SQLAlchemy/Alembic, PostgreSQL, optional FastMCP | Trail of Bits modern-python; Anthropic MCP builder |
 | `web-frontend` | Next.js, shadcn, consistent UI/UX, accessibility and performance | Official shadcn; Vercel React practices and composition |
 | `ai-development` | Framework choice, Gemini LLM/audio experiments, evaluation and tool boundaries | Official Google ADK and LangChain/LangGraph skills |
-| `business-strategy` | Existing strategy and opportunity-analysis skills | Original resources preserved |
+| `business-strategy` | Strategy, opportunity analysis and product feedback | Original resources preserved; vendor-specific analytics are references |
+| `application-operations` | Backup/restore and DR, capacity/concurrency and cost | Microsoft AKS cost optimization, only for AKS |
 | `visual-communication` | Existing architecture-diagram and presentation skills | Original resources preserved |
 
 For a full-stack application, use workflow + backend + frontend; add AI when needed. Load task-relevant skills rather than every skill at once. The new local skills are concise principles: the agent chooses implementation details from the product, existing code and accepted decisions. Upstream guidance contributes expertise without expanding the requested scope or overriding those decisions. Use compatible installed UI/UX skills locally.
@@ -35,57 +36,41 @@ Local development skills include decision rules, examples and proportionate comp
 
 ## SDLC coverage
 
-This is a capability map, not a mandatory sequence. Enter at the phase relevant to the request, iterate when evidence changes the plan, and select only useful skills. **L** means local principles; **U** means bundled upstream expertise. The diagram shows representative skills; the table maps the complete current inventory.
+The lifecycle below uses the [common seven-phase breakdown](https://www.ibm.com/think/topics/sdlc): **planning, requirements analysis, design, implementation, testing, deployment and maintenance**. Phase names and grouping vary between models; this separates planning from requirements analysis. Product discovery establishes what is worth building; feedback evaluates the live product and informs the next cycle. Both also happen during development. The diagram separates their scope rather than imposing handoff gates or a waterfall process.
 
-```mermaid
-flowchart TD
-    D["Discover: L business-strategy; U research"] --> P["Plan: L project-bootstrap; U to-spec"]
-    P --> A["Design: L architecture-diagraming; U domain-modeling"]
-    A --> B["Build: L stack guidance; U implement"]
-    B --> V["Verify: L test-end-to-end; U tdd and code-review"]
-    V --> C["Contribute: L contribute-code; U pr"]
-    C --> R["Release: L deliver-reliable-changes; partial coverage"]
-    R --> O["Operate: U diagnosing-bugs and retro; partial coverage"]
-    O -->|Feedback| D
-    V -->|Failures| B
-    C -->|Review changes| B
-    G["Across phases: L maintain-documentation; U writing-for-agents"] -.-> P
-    G -.-> B
-    G -.-> O
-```
+![Product discovery, seven-phase SDLC cycle and product feedback, with representative skill names](documentation/images/sdlc-cycle.svg)
 
-| Phase or activity | Local skills | Upstream skills | Contribution and limits |
-| --- | --- | --- | --- |
-| Discovery and requirements | `business-strategy`; legacy `business-opportunity-analysis` only as fallback | `research`, `grill-me`, `grilling`, `grill-with-docs`, `to-questionnaire`, `prototype` | Test the problem and assumptions, clarify scope, explore uncertainty. Interviews/prototypes are optional; market analysis is not evidence of user adoption. |
-| Planning and project setup | `project-bootstrap` | `to-spec`, `wayfinder`, optional `to-tickets` | Choose a useful slice and proportionate plan. Conversation/Markdown scope is sufficient; tickets and tracker setup are optional. |
-| Architecture, domain and UX design | `architecture-diagraming`, `build-consistent-frontend`, `build-python-backend`, `build-evaluated-ai` | `domain-modeling`, `codebase-design`, `improve-codebase-architecture`, `adk-architecture`, `vercel-composition-patterns` | Choose boundaries, data/ownership rules and reusable interactions. Framework-specific skills apply only to the chosen stack. |
-| Implementation | `build-python-backend`, `build-consistent-frontend`, `build-evaluated-ai` | `implement`, `implement-spec`, `modern-python`, `mcp-builder`, `shadcn`, `vercel-react-best-practices`, `vercel-composition-patterns`, `adk-agent-builder`, `langchain-fundamentals`, `langchain-dependencies`, `langgraph-fundamentals`, `langgraph-persistence` | Apply stack expertise to the agreed feature. Orchestration is explicitly chosen; MCP/AI frameworks are used only when needed. |
-| Testing and review | `test-end-to-end`, `deliver-reliable-changes`, `build-evaluated-ai` | `tdd`, `playwright-cli`, `property-based-testing`, `code-review`, `differential-review` | Establish behavior, persistence, authorization and appropriate model quality. Security-focused diff review is not a complete threat model or security audit. |
-| Git contribution and PR | `contribute-code`, `deliver-reliable-changes` | `pr` | Isolate feature work, commit coherently, publish/update the correct PR and explain impact with evidence. Review does not automatically authorize merge/deployment. |
-| Release and deployment | `deliver-reliable-changes` | `github-actions-hardening`; `wizard` for requested human setup | **Partial:** CI security, configuration and migration/recovery principles. No dedicated release, environment-promotion or deployment verification skill. |
-| Operations and maintenance | `deliver-reliable-changes`, `maintain-documentation` | `diagnosing-bugs`, `retro`; `triage` when explicitly using tracked issues/PRs | **Partial:** diagnosis, basic health/logging, runbooks and learning. No dedicated production SLO, incident, backup/restore or capacity workflow. |
-| Knowledge and communication across phases | `maintain-documentation`, `presentation-building`, `architecture-diagraming` | `writing-for-agents`, `handoff`, `teach`, `wait-what` | Keep authoritative knowledge current, explain decisions and preserve context. Presentation/teaching activities remain task-specific. |
-| Skill selection and optional setup | Local workflow guidance | `ask-matt`, `setup-matt-pocock-skills`, `wizard` | Route to relevant activities; configure tools only when requested. Packaging does not execute setup. |
+Links are in the table so they remain usable in GitHub and clients that render diagrams as images. The names in the diagram are representative entry points, not a checklist. Supporting helpers, Git contributions, documentation and security are not invented SDLC phases.
 
-The same skill can support several phases; repeated entries do not represent duplicate installations. Upstream names above use actual skill metadata, which can differ from source directory names. MCPs provide optional execution tools, not another SDLC phase; see [optional tools](#optional-tools).
-
-### Gaps worth addressing next
-
-These are suggested capabilities, **not additional installed skills**. Extend an existing guide where a few rules suffice; create a focused skill only for a distinct recurring workflow.
-
-| Priority | Gap | Useful scope for future guidance |
+| Scope / phase | Relevant local guidance | Directly relevant bundled upstream expertise |
 | --- | --- | --- |
-| First | Release and recovery | Target-aware deployment, staging/production configuration, compatible migrations, post-deploy smoke checks, rollback/roll-forward and release evidence |
-| First | Operating the application | Useful logs/metrics/traces, user-facing health/SLOs when warranted, incident diagnosis, recovery, backup/restore verification and capacity/cost signals |
-| Next | Security and privacy design | Assets/trust boundaries, abuse cases, data minimization/retention, secrets and dependency risk; connect design risks to implementation checks |
-| As needed | Performance and resilience verification | Representative load, concurrency, latency/error budgets, query behavior and bounded failure/retry behavior beyond frontend optimization |
-| As needed | Product feedback and experiments | Instrument intended outcomes, evaluate adoption/usability and feed evidence into roadmap decisions rather than treating feature delivery as success |
+| Before: product discovery | [business-strategy](plugins/business-strategy/skills/business-strategy/SKILL.md) | [research](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/research); [grill-me](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grill-me) for requested clarification |
+| 1. Planning | [project-bootstrap](plugins/development-workflow/skills/project-bootstrap/SKILL.md) | [to-spec](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/to-spec) when a separate spec is useful |
+| 2. Requirements analysis | [project-bootstrap](plugins/development-workflow/skills/project-bootstrap/SKILL.md) — observable acceptance criteria | [grill-with-docs](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/grill-with-docs) for requested requirements clarification |
+| 3. Design | [build-python-backend](plugins/python-backend/skills/build-python-backend/SKILL.md); [build-consistent-frontend](plugins/web-frontend/skills/build-consistent-frontend/SKILL.md); [design-secure-features](plugins/development-workflow/skills/design-secure-features/SKILL.md) | [domain-modeling](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/domain-modeling); [vercel-composition-patterns](https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/composition-patterns) for React architecture |
+| 4. Implementation | [build-python-backend](plugins/python-backend/skills/build-python-backend/SKILL.md); [build-consistent-frontend](plugins/web-frontend/skills/build-consistent-frontend/SKILL.md); [build-evaluated-ai](plugins/ai-development/skills/build-evaluated-ai/SKILL.md) when AI is needed | [implement](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/implement) / [implement-spec](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/implement-spec) when explicitly choosing those workflows; [modern-python](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/modern-python/skills/modern-python); [shadcn](https://github.com/shadcn-ui/ui/tree/6b600cf1ff42f8a746747ea587e52af3ee224643/skills/shadcn) |
+| 5. Testing | [test-end-to-end](plugins/development-workflow/skills/test-end-to-end/SKILL.md); [deliver-reliable-changes](plugins/development-workflow/skills/deliver-reliable-changes/SKILL.md) | [tdd](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/tdd); [playwright-cli](https://github.com/microsoft/playwright-cli/tree/b85c7a736bb473bf55b584e54a09ffa698d6d871/skills/playwright-cli) for browser journeys |
+| 6. Deployment | [build-delivery-pipelines](plugins/development-workflow/skills/build-delivery-pipelines/SKILL.md) — promotion, verification, rollback / roll-forward | [github-actions-hardening](https://github.com/github/awesome-copilot/tree/143a3d976b3c1603cc8932984d5e1f28501cb5fc/skills/github-actions-hardening) for GitHub Actions security |
+| 7. Maintenance | [protect-and-restore-data](plugins/application-operations/skills/protect-and-restore-data/SKILL.md); [plan-application-capacity](plugins/application-operations/skills/plan-application-capacity/SKILL.md); [optimize-application-cost](plugins/application-operations/skills/optimize-application-cost/SKILL.md) | [diagnosing-bugs](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/diagnosing-bugs) for diagnosis; [aks-cost-optimization](https://github.com/Azure/AKS-Skills/tree/20bf35201a79b324d2ca3e00e5c82020ff362024/skills/aks-cost-optimization) **only for AKS** |
+| Beyond delivery: product feedback | [learn-from-product-feedback](plugins/business-strategy/skills/learn-from-product-feedback/SKILL.md) | No analytics vendor required; optional Amplitude reference in the skill |
 
-Potential upstream additions to review separately: Trail of Bits [supply-chain-risk-auditor](https://github.com/trailofbits/skills/blob/main/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor/SKILL.md) for dependency risk, and GitHub's [phoenix-tracing](https://github.com/github/awesome-copilot/blob/main/skills/phoenix-tracing/SKILL.md) for Phoenix-specific AI observability. Neither fills generic release/operations coverage. Check their fit, resources, license and immutable pins before packaging; they are not in the current lockfile.
+**Across the cycle:** [maintain-documentation](plugins/development-workflow/skills/maintain-documentation/SKILL.md) keeps project knowledge aligned; [contribute-code](plugins/development-workflow/skills/contribute-code/SKILL.md) supplies the default worktree/commit/PR flow; [design-secure-features](plugins/development-workflow/skills/design-secure-features/SKILL.md) revisits data and authority risks. Security review and dependency auditing use relevant Trail of Bits expertise rather than masquerading as full security/privacy coverage. Capacity, cost and recovery constraints inform design as well as maintenance. CI/CD supports implementation and testing as well as deployment.
+
+The mapping deliberately omits general helpers and stack tools whose relevance depends on the specific task. See the [upstream catalogue](documentation/upstream-sources.md) and [workflow selection](plugins/development-workflow/WORKFLOW.md) for the wider inventory. Tickets remain optional.
+
+### Product feedback in practice
+
+Ask whether users achieved the outcome, rather than whether the feature shipped. Start with available support reports, observations and usage; organize evidence by problem and affected users, then decide what to investigate or change. For a saved-search application, successful saves and later reopening are more useful signals than page views. Combine those signals with reports of confusing names or poor discoverability. A small user base may justify a few focused conversations rather than an analytics platform or an A/B test.
+
+The output is a short evidence note: question, sources/time window, findings and limits, next action and how to assess it. Feed accepted work into requirements/planning and revisit the outcome afterward. No mandatory tracker, survey program, telemetry installation or external communication. See [feedback example](documentation/usage.md#product-feedback).
+
+### Operations instructions still to integrate
+
+Backup/restore, disaster recovery, capacity and cost are covered by focused principles, with platform-specific references and an AKS-only upstream skill. Detailed **observability, monitoring, incident response, SLIs/SLOs, load testing and failure testing** remain pending the user's operating instructions. Existing diagnostic and focused performance checks do not establish those workflows. Architectural guidance already addresses concurrency, dependency budgets and latency; it does not impose a load/chaos test regimen in advance.
 
 ## Invocation and workflow selection
 
-Our `project-bootstrap` starts only on an explicit request. The seven other local development skills are agent-invoked when relevant and can also be invoked manually. `contribute-code` applies by default to feature development and Git/PR work: use a feature worktree, Conventional Commits, optional issue references and concise PR descriptions. Automatic selection helps perform the requested work without expanding its scope.
+Our `project-bootstrap` starts only on an explicit request. The other local development and operations skills are agent-invoked when relevant and can also be invoked manually. `contribute-code` applies by default to feature development and Git/PR work: use a feature worktree, Conventional Commits, optional issue references and concise PR descriptions. Automatic selection helps perform the requested work without expanding its scope.
 
 Matt's released engineering and productivity skills join `development-workflow`, including `implement`, `implement-spec`, their testing/review dependencies, and setup. Preserve his user/agent distinction: user-invoked orchestration is a deliberate choice; agent-invoked guidance is task-matched. See the concise [workflow map](plugins/development-workflow/WORKFLOW.md) for available activities, documentation paths and setup boundaries. No workflow is mandatory for every change. Implementation and review work directly from your request or a Markdown spec/plan; tickets and trackers are optional, including for `implement-spec`.
 

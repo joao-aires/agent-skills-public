@@ -137,3 +137,31 @@ Keep the application's root `AGENTS.md` short: purpose, stack, commands and shar
 The repository's validation checks package structure, metadata and packaging behavior. They do not prove your application's quality. Ask the agent to report the application checks it actually ran, important user journeys exercised, mocked boundaries and remaining gaps. Installation makes guidance available; it does not automatically enforce application standards.
 
 The local skills provide concrete decision rules and completion criteria, not a requirement to run every check on every change. Select evidence for the affected risk: a visual fix needs rendered inspection; an ownership change needs direct cross-user access tests; a model feature needs separate application and live-quality evidence. [Skill evaluation](skill-evaluation.md) records how the guidance was exercised and what those checks cannot establish.
+
+## Delivery and recovery
+
+> Review our API's Dockerfile and GitHub Actions. Apply build-delivery-pipelines: readable workflow/job/step names, one immutable artifact promoted through environments, post-deploy checks, and a usable rollback or roll-forward route compatible with migrations. Explain what you verified and what still needs an environment rehearsal.
+
+Install `application-operations` when recovery, sizing or cost is part of the project. To acquire its AKS specialist with the existing helper:
+
+```bash
+python scripts/build_plugins.py --plugin application-operations --destination ./built-operations
+```
+
+This outputs `built-operations/application-operations`. Install that directory through the client's supported route. Local principles apply to the actual hosting platform; the upstream AKS skill is only relevant on Azure AKS. No MCP server is automatically configured.
+
+> Review backup and recovery for this PostgreSQL application on EKS with RDS. Use protect-and-restore-data. Identify RPO/RTO assumptions, database and object-store coverage, isolated restore verification, application cutover and the documentation that changes with migrations. Consult current AWS/PostgreSQL documentation; don't deploy infrastructure from this review alone.
+
+> Estimate capacity and monthly EUR cost for this application in its actual European region. Use plan-application-capacity and optimize-application-cost. Include peak demand, database connections across replicas, autoscaling constraints and backup/egress/AI costs. Distinguish measured usage and billed cost from assumptions and projected savings.
+
+## Product feedback
+
+> Use learn-from-product-feedback on these anonymized support notes and usage export. Are users able to save and later reuse a search? Identify evidence and uncertainty, the smallest useful next change and how we'd assess it. No analytics setup, user outreach or tickets.
+
+The feedback skill is in `business-strategy`. Use existing evidence first. A request to analyze feedback does not authorize sending surveys or enabling tracking.
+
+## Security and performance by design
+
+> Add private saved-search sharing. Apply design-secure-features and the backend/frontend guidance. Identify authority boundaries, data exposure/retention and abuse cases; enforce them in code and focused checks. Consider concurrency and latency on the critical path. Use relevant installed security-review skills without claiming a complete audit.
+
+Detailed observability/incident/SLO and load/failure-testing workflows will be integrated after the user's operating instructions are supplied. The current skills leave those decisions open.

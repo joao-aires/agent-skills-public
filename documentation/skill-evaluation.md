@@ -33,10 +33,25 @@ python scripts/validate_plugins.py
 python -m unittest discover -s tests -v
 ```
 
-The creator's `quick_validate.py` checks names and standard frontmatter. All eight local development skills use only name/description frontmatter and Markdown instructions; local client-specific metadata files have been removed. The repository validator can still check optional invocation metadata supplied by upstream resources. Client selection remains separate from structural validation.
+The creator's `quick_validate.py` checks names and standard frontmatter. The original eight local development skills use only name/description frontmatter and Markdown instructions; local client-specific metadata files have been removed. The repository validator can still check optional invocation metadata supplied by upstream resources. Client selection remains separate from structural validation.
 
 ## Limits and further iteration
 
 The original four walkthroughs did not implement an application, run a browser/database or call a model. They establish that independent agents can apply the guidance in plans and supplied-artifact reviews. The later Git check executed a small helper feature and local push, not a full-stack application or live GitHub publication. Package checks establish metadata and packaging integrity, not runtime discovery in every client.
 
 Further confidence must come from actual application work: inspect an implemented first slice and an existing-code change, run their relevant tests, and review the rendered UI and documentation. Record observed deviations and strengthen the relevant decision rule or project check. Preserve successful implementation choices; avoid adding process solely to make a checklist longer.
+
+## Delivery, operations, security and feedback additions
+
+Six focused Markdown guides add CI/CD, security/privacy, data recovery, capacity, cost and product feedback. They use standard name/description frontmatter, contextual decisions and evidence boundaries; no client metadata or application templates. All six passed creator metadata validation. Existing bootstrap/backend guidance now brings security, recovery, cost, bounded concurrency and latency into architecture decisions.
+
+Two fresh task walkthroughs received only the relevant skills and scenario facts, without the preceding discussion or expected answers. Both were plan-only: no file changes, service access, purchases, deployment or outreach.
+
+| Case and supplied facts | Observed response |
+| --- | --- |
+| FastAPI on EKS/RDS with S3 uploads; separate environment builds, mutable image tag, destructive column drop, enabled but untested backups | Chose one immutable artifact for promotion, held the destructive drop in favor of staged compatibility, separated application recovery from data restore, proposed readable workflow/job/step names and an isolated restore with measured RPO/RTO and side effects disabled; did not claim recoverability |
+| GKE with 4 replicas × 4 workers × pool 20, database maximum 200, a short 5% CPU snapshot, peak tail-latency growth, 20 registered users/5 savers/2 reopeners, 8 naming mentions from 2 accounts, private sharing request | Identified a potential 320-connection ceiling before rollout, rejected blind rightsizing/commitments from a short snapshot, kept AKS commands out of GKE advice, deduplicated feedback and qualified cohort denominators, proposed a small usability decision and server-side sharing/revocation checks; used no new platform or outreach |
+
+All seven plugin bundles built successfully with 44 pinned upstream skills, including complete AKS references and the Trail of Bits dependency-auditor scripts/lockfile. Repository metadata/containment checks and all three helper regression tests passed. Local Markdown links and whitespace checks passed; the SVG was rendered and visually inspected for legibility and lifecycle direction.
+
+These checks establish packaging and useful interpretation of supplied cases. They do not demonstrate a deployed application, restore rehearsal, measured cloud savings, live analytics integration or complete security/privacy assessment. Observability, incident/SLO/monitoring and load/failure-testing workflows await the user's operating instructions.

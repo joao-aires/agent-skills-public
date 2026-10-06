@@ -24,6 +24,10 @@ Prefer Python/FastAPI/PostgreSQL and Next.js/shadcn for new full-stack projects.
 
 Use the relevant backend/frontend/AI skills and installed upstream expertise; do not assume a reference is installed. Preserve compatible installed UI/UX guidance without redistributing private material. Capture repeated corrections as a short scoped instruction or an executable check, rather than accumulating generic rules.
 
+## Include operating constraints in design
+
+Use `design-secure-features` for changed data flows and authority boundaries. Identify critical latency/concurrency constraints, durable state and meaningful recovery needs early; choose simple hosting that meets them. Bring capacity, cost and data-recovery guidance into design when relevant rather than treating them as production afterthoughts. Use `build-delivery-pipelines` when creating CI/CD. Do not introduce platforms or complete operations frameworks merely because their skills are available.
+
 ## Build and prove a vertical slice
 
 For a saved-search application, start with saving a named filter and reopening it through the UI, API and database. Include ownership enforcement if users have private data. Defer sharing, recommendation agents and a generic workflow engine until requested. Prefer a real useful flow over disconnected mock screens and endpoints.
