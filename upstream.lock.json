@@ -146,26 +146,7 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths",
-        "tickets-optional"
-      ],
-      "replacements": [
-        {
-          "from": "**Yes** \u2192 **`/to-spec`** (turn the thread into a spec), then **`/to-tickets`** to split it into tracer-bullet tickets, each declaring its **blocking edges**.",
-          "to": "**Yes** \u2192 optionally use **`/to-spec`** to capture the thread as Markdown, then **`/implement-spec`** from that spec or the agreed conversation. Use **`/to-tickets`** only if the user explicitly wants ticket tracking."
-        },
-        {
-          "from": "It reads the tickets as a **task graph**",
-          "to": "It derives work dependencies from the spec or plan"
-        },
-        {
-          "from": "**`/setup-matt-pocock-skills`**: run before your first engineering flow to configure the issue tracker, triage labels, and doc layout the other skills assume. Custom issue trackers also work.",
-          "to": "**`/setup-matt-pocock-skills`**: use only when explicitly choosing tracker-based workflows that need configuration. Ordinary implementation and review need no tickets, labels or tracker setup."
-        },
-        {
-          "from": "Then work the tickets one of two ways:",
-          "to": "If ticket tracking was explicitly chosen, work the tickets one of two ways:"
-        }
+        "documentation-paths"
       ]
     },
     {
@@ -178,22 +159,7 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths",
-        "tickets-optional"
-      ],
-      "replacements": [
-        {
-          "from": "The issue tracker should have been provided to you. If `docs/agents/issue-tracker.md` is missing, tell the user to run `/setup-matt-pocock-skills`.",
-          "to": "Review against the agreed request or a supplied Markdown spec. Tracker configuration is needed only when the user explicitly supplies tracked issues; its absence does not block review."
-        },
-        {
-          "from": "Look for the originating spec, in this order:",
-          "to": "Use the agreed conversation or acceptance criteria when available. Otherwise look for the originating spec in these places:"
-        },
-        {
-          "from": "A spec file under `docs/`, `specs/`, or `.scratch/`",
-          "to": "A spec file under `documentation/`, `specs/`, or `.scratch/`"
-        }
+        "documentation-paths"
       ]
     },
     {
@@ -271,38 +237,7 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths",
-        "tickets-optional"
-      ],
-      "replacements": [
-        {
-          "from": "description: \"Implement the result of /to-spec and /to-tickets in code.\"",
-          "to": "description: \"Implement an agreed spec, conversation or Markdown plan; tickets are optional.\""
-        },
-        {
-          "from": "You have been provided a spec. This spec should have tickets associated with it, describing how to implement the spec.\n\nThe issue tracker should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.\n\nThe goal is the entire spec implemented on a single **integration branch**, with every ticket resolved the way the issue tracker closes work.\n\nThe tickets are not a list of steps. They are a **task graph** with blocking relationships between them. This means there is always a **frontier** of tickets which are ready to be grabbed.\n\n",
-          "to": "Use the agreed conversation, a Markdown spec or an existing plan as the implementation scope. Tickets and issue-tracker setup are optional, used only when explicitly requested or already supplied for this work.\n\nImplement the scope on one integration branch. Derive a small internal work plan from the requirements and dependencies; no ticket files, issue IDs, labels or tracker are required. Parallelize independent work only when the client supports it.\n\n"
-        },
-        {
-          "from": "Read the spec and tickets to understand the task graph.",
-          "to": "Read the agreed scope and derive the work dependencies. Use existing tickets only if the user chose that workflow."
-        },
-        {
-          "from": "Create the integration branch. If the issue tracker closes work through PRs, or the user asks for one, open a draft PR after the first merge in step 5 (a branch with no commits ahead of main can't open one), marked as closing the spec and tickets.",
-          "to": "Create the integration branch. If the user asks for a PR, open a draft after the first implementation commit or merge. Reference the agreed scope; add issue-closing references only when explicitly tracking issues."
-        },
-        {
-          "from": "Otherwise, resolve each ticket the way the issue tracker closes work, and report the integration branch.",
-          "to": "Report the integration branch and completed requirements. Resolve tracked issues only when that workflow was explicitly requested."
-        },
-        {
-          "from": "tickets",
-          "to": "work items"
-        },
-        {
-          "from": "ticket",
-          "to": "work item"
-        }
+        "documentation-paths"
       ]
     },
     {
@@ -406,30 +341,7 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths",
-        "tickets-optional"
-      ],
-      "replacements": [
-        {
-          "from": "description: \"Turn the current conversation into a spec and publish it to the project issue tracker: no interview, just synthesis of what you've already discussed.\"",
-          "to": "description: \"Turn the agreed conversation into a Markdown spec; tracker publication is optional.\""
-        },
-        {
-          "from": "The issue tracker and triage label vocabulary should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.",
-          "to": "Save the spec as Markdown using the project's existing documentation convention. No ticket or tracker setup is required. Use tracker configuration only if the user explicitly asks to publish there."
-        },
-        {
-          "from": "Write the spec using the template below, then publish it to the project issue tracker. Apply the `ready-for-agent` triage label - no need for additional triage.",
-          "to": "Write a proportionate spec using the outline below and save it under the existing documentation convention, defaulting to `documentation/plans/`. Publish to a tracker or apply labels only if explicitly requested."
-        },
-        {
-          "from": "A LONG, numbered list of user stories.",
-          "to": "A concise, numbered list of relevant user stories."
-        },
-        {
-          "from": "This list of user stories should be extremely extensive and cover all aspects of the feature.",
-          "to": "Cover the agreed acceptance criteria without expanding the requested scope."
-        }
+        "documentation-paths"
       ]
     },
     {

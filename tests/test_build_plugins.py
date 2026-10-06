@@ -43,15 +43,13 @@ class InstallationTests(unittest.TestCase):
             self.assertEqual((output / 'test/skills/example/agents/openai.yaml').read_text(),
                              'policy:\n  allow_implicit_invocation: false\n')
             # Build adapted output without changing the pinned source or native metadata.
-            source['adaptations'] = ['workflow-framing', 'documentation-paths', 'tickets-optional']
-            source['replacements'] = [{'from': 'See references/guide.md', 'to': 'Use the agreed request or references/guide.md'}]
+            source['adaptations'] = ['workflow-framing', 'documentation-paths']
             (package / 'WORKFLOW.md').write_text('Project workflow guidance')
             (root / 'upstream.lock.json').write_text(json.dumps({'sources': [source]}))
             adapted = root / 'adapted'
             installer.build(root, ['test'], adapted, root / 'cache')
             skill_text = (adapted / 'test/skills/example/SKILL.md').read_text()
             self.assertIn('../../WORKFLOW.md', skill_text)
-            self.assertIn('Use the agreed request', skill_text)
             self.assertIn('documentation/engineering/config.md', skill_text)
             self.assertIn('documentation/decisions/adr/', skill_text)
             self.assertIn('disable-model-invocation: true', skill_text)
@@ -62,11 +60,6 @@ class InstallationTests(unittest.TestCase):
             notices = json.loads((adapted / 'test/skills/example/UPSTREAM.json').read_text())
             self.assertEqual(notices['adaptations'], source['adaptations'])
 
-            source['replacements'] = [{'from': 'Missing upstream requirement', 'to': 'Replacement'}]
-            (root / 'upstream.lock.json').write_text(json.dumps({'sources': [source]}))
-            with self.assertRaisesRegex(ValueError, 'no longer matches'):
-                installer.build(root, ['test'], root / 'mismatched', root / 'cache')
-            self.assertFalse((root / 'mismatched').exists())
             with self.assertRaises(ValueError):
                 installer.build(root, ['test'], output, root / 'cache')
             source['tree'] = '0' * 40
