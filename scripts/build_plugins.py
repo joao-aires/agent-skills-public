@@ -60,10 +60,15 @@ def adapt_skill(target, source):
     adaptations = source.get('adaptations', [])
     if not adaptations:
         return
-    if set(adaptations) - {'workflow-framing', 'documentation-paths'}:
+    if set(adaptations) - {'workflow-framing', 'documentation-paths', 'tickets-optional'}:
         raise ValueError('Unknown upstream adaptation')
     for document in target.rglob('*.md'):
         text = document.read_text()
+        if document == target / 'SKILL.md' and 'tickets-optional' in adaptations:
+            for replacement in source['replacements']:
+                if replacement['from'] not in text:
+                    raise ValueError('Upstream adaptation no longer matches: ' + source['path'])
+                text = text.replace(replacement['from'], replacement['to'])
         if 'documentation-paths' in adaptations:
             text = text.replace('docs/agents/', 'documentation/engineering/').replace('docs/adr/', 'documentation/decisions/adr/')
         if document.name == 'SKILL.md' and document.parent == target and 'workflow-framing' in adaptations:
