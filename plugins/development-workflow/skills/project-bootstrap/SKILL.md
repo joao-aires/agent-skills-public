@@ -1,17 +1,17 @@
 ---
 name: project-bootstrap
-description: "Bootstrap or adopt the standard applications/ and documentation/ layout, scoped AGENTS.md instructions, project profile, documentation templates, and structural checks for new application projects."
+description: Guide the structure and first implementation of a new application, or organize an existing repository, without imposing a starter template.
 ---
 
-# Project bootstrap
+# Organize an application
 
-1. Read the root and scoped AGENTS.md files, existing code, package manifests, and documentation. Preserve established project choices unless the user asks for migration.
-2. For a new project, use the bundled scaffold, rather than recreating conventions from memory:
-   `python3 scripts/scaffold.py /absolute/project/path --ai none`
-   Choose `--ai adk` or `--ai langchain` only when needed; add `--mcp` only for an actual MCP use case. Paths in this instruction are relative to this skill directory. The scaffold writes conventions and documentation, not runnable application code.
-3. Read `references/project-contract.md`. Fill `project-profile.json` with actual package versions, verification commands, deployment choices, and selected upstream skill sources. Use `unresolved` rather than inventing decisions.
-4. Install the workflow, backend, and frontend plugins as the full-stack profile; add ai-development when needed. Profiles are this repository's distribution convention, not portable plugin dependencies. Consult https://github.com/joao-aires/agent-skills-public/blob/main/documentation/upstream-sources.md and the stack plugins' bundled references to acquire relevant official skills; installation is a separate client operation.
-5. Read and fill the PRD and initial architecture before implementing the smallest end-to-end slice. Record provisional choices as provisional; do not invent requirements.
-6. Copy this skill's `scripts/check_project.py` to `applications/tooling/check_project.py` in a new project (the scaffold does this). Run it after creating or adopting the project.
-7. Configure CI using real verification commands once runnable code exists. Root `.github/workflows/` contains GitHub workflow entrypoints; keep implementation scripts with each application.
-8. Report the chosen profile, scaffolded conventions, installed versus merely referenced skills, unresolved decisions, and checks actually run. Never claim an empty scaffold is an application.
+- Start with the user's problem, a small useful outcome and clear non-goals. Build a working vertical slice early; add architecture as the product needs it.
+- Put application code, migrations, tests, dependencies, application-specific CI/CD and scoped AGENTS.md under `applications/`. Use `api/` and `web/` when those boundaries make sense. Keep provider-required workflow entrypoints where the provider expects them.
+- Put product and engineering knowledge under `documentation/`. Use the documentation skill for a lean structure; create documents when there is something useful to record.
+- Keep root AGENTS.md short: project purpose, stack, commands and shared conventions. Put local exceptions beside the code. State that documentation must stay synchronized with implementation and decisions.
+- Prefer Python/FastAPI/PostgreSQL and Next.js/shadcn for new full-stack projects. Add AI or MCP only for a concrete need. Adapt existing applications deliberately rather than rewriting them to match a preferred layout.
+- Use only the skills relevant to the current task. Reuse available upstream expertise and compatible installed UI/UX guidance; do not assume a linked skill is installed or copy private skills into this repository.
+- Capture recurring corrections as a brief scoped instruction or a useful check. Keep instructions specific to this project, without duplicating general programming knowledge.
+- Make local startup and verification straightforward. Choose compatible dependencies, commit lockfiles and record consequential tradeoffs. Avoid speculative services, layers and abstractions.
+
+Treat these as defaults. Let product requirements and existing decisions determine the implementation.

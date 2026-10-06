@@ -1,20 +1,24 @@
 ---
 name: maintain-documentation
-description: "Create or update application PRDs, ADRs, roadmaps, plans, C4 architecture, data models, schemas, decision logs, runbooks, and requirements traceability when implementation or decisions change."
+description: Organize application documentation and keep PRDs, architecture, data contracts, plans, decisions and operational guidance aligned with code.
 ---
 
-# Maintain application documentation
+# Keep documentation useful
 
-Read `references/documentation-contract.md`. Use the project's canonical `documentation/` tree; avoid creating parallel sources of truth.
+Use `documentation/` with a short index and these areas as needed:
 
-Before changing code, identify affected requirements, architecture, contracts, persistence, UX, and operations. Read their current documents. Apply explicit user scope without adding speculative features.
+| Area | Useful content |
+| --- | --- |
+| `product/` | PRD: problem, users, outcomes, scope, acceptance criteria; roadmap |
+| `architecture/` | Overview, C4 context/containers, data model, schemas and contracts |
+| `decisions/` | Short ADRs and a decision log linking consequential choices |
+| `plans/` | Current implementation plans, risks and open questions |
+| `ux/` | Shared design principles, tokens and interaction patterns |
+| `operations/` | Setup, deployment, configuration, runbook and recovery |
+| `verification/` | Important user journeys, testing approach and known limitations |
 
-For every meaningful change, update affected documents in the same change. Record an ADR for a consequential architectural choice; use the decision log for smaller decisions. Link accepted ADRs from the log rather than copying them. Supersede old ADRs; do not rewrite their historical reasoning.
+Start with the documents that answer real questions. Use C4 for boundaries, arc42 as an optional architecture outline and MADR as a lightweight ADR format; do not create empty sections to satisfy a checklist.
 
-Distinguish current implementation, approved future work, proposals, and unresolved questions. Keep the roadmap outcome-focused and plans task-focused. Give requirements stable IDs and link them to implementation and verification evidence.
+Put a clear instruction in AGENTS.md: update affected documentation with application changes and decisions. Behavior changes affect the PRD; boundary changes affect architecture; persistence changes affect the data model; operational changes affect the runbook. Generate schemas from code when practical. Record meaningful decisions, and supersede historical ADRs rather than rewriting them.
 
-Generate OpenAPI, JSON Schema, and database schema snapshots from the implementation when possible. Never edit generated schemas manually. Put generators and their commands in the application; check generated diffs in CI. Describe ownership, constraints, and relationships in the data model.
-
-Use arc42 for architecture narrative, C4 context/container diagrams by default, and component/runtime/deployment diagrams when they add information. Store text diagram sources in Git. Interactive HTML diagrams may supplement these sources.
-
-Before completion, inspect code/doc consistency and broken local links. A touched document is not proof of semantic consistency. Explain material limitations and missing evidence; never invent passing validation.
+Keep one authoritative place for each fact. Distinguish implemented behavior, plans and assumptions. Prefer concise explanations of intent and tradeoffs over inventories of files. Review whether the docs still describe the application accurately.

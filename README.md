@@ -1,68 +1,42 @@
 # Agent Plugins
 
-Reusable portable plugins for business strategy, visual communication, and consistent application development. Work in progress.
+Activity-oriented bundles of skills for consistent application development, business strategy and visual communication. Packages use [Agent Plugins 1.0.0](https://agent-plugins.org/specification): `plugin.json` and `skills/<name>/SKILL.md`, with optional `mcp.json` when a server is useful.
 
-Packages follow [Agent Plugins 1.0.0](https://agent-plugins.org/specification). Each standalone package has plugin.json, skills/, and optional mcp.json. Existing skill names and complete resources are preserved.
+## Bundles
 
-## Packages
+| Plugin | Guidance | Upstream expertise included when built |
+| --- | --- | --- |
+| `development-workflow` | Project structure, documentation, E2E, delivery | Playwright, GitHub Actions hardening, Superpowers debugging/verification, Sentry review, Trail of Bits testing/review |
+| `python-backend` | Python, uv, FastAPI/Uvicorn, SQLAlchemy/Alembic, PostgreSQL, optional FastMCP | Trail of Bits modern-python; Anthropic MCP builder |
+| `web-frontend` | Next.js, shadcn, consistent UI/UX, accessibility and performance | Official shadcn; Vercel React practices and composition |
+| `ai-development` | Framework choice, Gemini LLM/audio experiments, evaluation and tool boundaries | Official Google ADK and LangChain/LangGraph skills |
+| `business-strategy` | Existing strategy and opportunity-analysis skills | Original resources preserved |
+| `visual-communication` | Existing architecture-diagram and presentation skills | Original resources preserved |
 
-| Plugin directory | Skills |
-| --- | --- |
-| plugins/business-strategy | business-strategy v2.2, business-opportunity-analysis compatibility |
-| plugins/visual-communication | architecture-diagraming, presentation-building |
-| plugins/development-workflow | project-bootstrap, maintain-documentation, maintain-agent-harness, test-end-to-end, deliver-reliable-changes, verify-delivery |
-| plugins/python-backend | build-python-backend |
-| plugins/web-frontend | build-consistent-frontend |
-| plugins/ai-development | build-evaluated-ai |
-| plugins/ai-adk / ai-langchain | Optional locked official AI framework skills |
-| plugins/security-quality / mcp-development | Optional locked review/testing and MCP builder skills |
-
-The [full-stack profile](profiles/full-stack.json) selects workflow, backend and frontend; AI, strategy and visuals are optional. Profiles are repository conventions, not standard dependency manifests.
+For a full-stack application, use workflow + backend + frontend; add AI when needed. Load task-relevant skills rather than every skill at once. The new local skills are concise principles: the agent chooses implementation details from the product, existing code and accepted decisions. Upstream guidance contributes expertise without expanding the requested scope or overriding those decisions. Use compatible installed UI/UX skills locally.
 
 ## Use
 
-Build packages with `python scripts/install_profile.py --destination /tmp/development-plugins`, then install the resulting plugin directories through your compatible client's documented flow. There is no universal plugin installation command in this standard. Load the three full-stack plugins together and add AI only when needed.
-
-Create conventions in a new/empty project:
+Install a local-only bundle directly from `plugins/<name>` through your client's supported plugin route. To include upstream skills as well:
 
 ```bash
-python3 plugins/development-workflow/skills/project-bootstrap/scripts/scaffold.py /path/to/new-project --ai adk --mcp
+python -m pip install -r requirements-validation.txt
+python scripts/build_plugins.py --destination /tmp/development-plugins
 ```
 
-Omit --ai/--mcp for a normal application. This creates governance and documentation, not runnable application code. Fill the PRD, choose compatible dependencies, implement the first end-to-end slice and configure real verification commands.
+This builds the three full-stack bundles. To choose other bundles, repeat `--plugin`, for example `--plugin ai-development`. Install the resulting directories through your client. The helper only packages skills: it clones pinned sources, copies their complete resources and preserves licenses. It does not install application dependencies, create projects or configure the client. Existing destinations are never overwritten.
 
-Legacy skills-only fallback:
+[Upstream catalogue](documentation/upstream-sources.md) · [Exact source pins](upstream.lock.json)
+
+MCPs are optional: shadcn for component/registry work, Playwright for browser exploration, and a project's FastMCP server when application tools are needed. Configure them for the actual application and client. No servers or hooks are enabled automatically. Hooks are client-specific extensions; add one only for a concrete recurring need. Skills alone are valid plugins.
+
+## Compatibility and maintenance
+
+The original skills moved from `skills/` into their activity bundles without changing their content. Existing skills-only users can still run `./scripts/sync-skills.sh sync` (`status` and `remove` are also supported). This links local skills only; it does not acquire upstream content or configure MCPs.
 
 ```bash
-./scripts/sync-skills.sh sync
-./scripts/sync-skills.sh status
-./scripts/sync-skills.sh remove
+python scripts/validate_plugins.py
+python -m unittest discover -s tests -v
 ```
 
-The script discovers plugins/*/skills/*, repairs owned legacy links and preserves unrelated links. It does not install manifests/MCP. Old root skills/ paths moved to plugins/<package>/skills/<skill>/; update manually configured paths. The legacy business opportunity skill retains its fallback and sibling routing.
-
-## Design and checks
-
-- [Design and migration](documentation/plugin-design.md)
-- [Holistic full-stack standard](documentation/full-stack-standard.md)
-- [Official and community sources](documentation/upstream-sources.md)
-
-```bash
-python3 -m pip install -r requirements-validation.txt
-python3 scripts/validate_plugins.py
-python3 -m unittest discover -s tests -v
-```
-
-Validation covers official manifest schemas, skill metadata, package containment, profile references and scaffold regressions. Structural checks do not establish application correctness or semantic documentation freshness.
-
-Selected upstream skill content is acquired into self-contained built packages. Sources absent from upstream.lock.json remain references. No MCP server is automatically launched; configure optional project integrations with the actual application path.
-
-## Contributing
-
-Keep skills concise and packages self-contained. Use references/templates/scripts for repeated work. Keep docs and evaluations aligned with behavior. Review/pin upstream content and preserve attribution before redistribution. MIT; upstream sources retain their licenses.
-
-## Reproducible upstream packages
-
-The profile builder acquires selected upstream skill directories at locked commits and packages their references and notices inside plugin boundaries. See [installation](documentation/installation.md), [workflow map](documentation/workflow-map.md), and `upstream.lock.json`. Earlier reference-only catalogue descriptions apply only to sources absent from that lock. No MCP runtime is automatically installed.
-
-The [requirements ledger](documentation/requirements.md) tracks every initial requirement and the evidence still needed. Use `scripts/inventory_skills.py` to inspect installed skill metadata without redistributing private content.
+Keep new guidance concise and project-independent. Local material is MIT; acquired upstream skills retain their own terms. Private installed skills are never redistributed. Native client discovery depends on the client; package validation is not an application test.

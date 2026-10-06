@@ -1,11 +1,8 @@
 # Repository instructions
 
-This repository distributes portable Agent Plugins v1.0.0. Read documentation/plugin-design.md before restructuring it.
-
-- Canonical plugin packages live in plugins/<name>/ with plugin.json and skills/<name>/SKILL.md; optional mcp.json belongs at that package root.
-- Preserve existing skill names and full references/assets/evals during migration.
-- Keep each plugin self-contained: no skill reference or symlink may escape its plugin root. Profiles do not imply portable runtime dependency resolution.
-- Keep README, profiles, source catalogue, templates, docs, and validators consistent with changes. Mark unimplemented behavior accurately.
-- Research and pin third-party sources before vendoring; preserve license and attribution. Never copy user-private installed skills into this public repository.
-- Validate manifests against bundled official schemas and run the scaffold regression suite before delivery.
-- Do not embed credentials, assume upstream skills are installed, or claim AI validation based only on mocks.
+- Keep plugins as activity-oriented bundles with `plugin.json` and `skills/<name>/SKILL.md`.
+- Write new development skills as concise Markdown principles. Leave implementation choices to the agent and project; avoid templates, scaffolds, generated applications and mandatory process machinery.
+- Preserve the original strategy/visual skills and their resources during migration.
+- Keep packages self-contained. Acquire upstream resources at reviewed pins with their licenses; never redistribute private installed skills.
+- Keep README, source catalogue and source pins aligned. Add MCPs or client hooks only for a concrete need, with explicit setup.
+- Validate plugin metadata/containment and the packaging helper. Do not claim client behavior or application tests from package checks.

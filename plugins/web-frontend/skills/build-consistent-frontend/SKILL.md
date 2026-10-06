@@ -1,22 +1,15 @@
 ---
 name: build-consistent-frontend
-description: "Build or review Next.js and shadcn/ui applications with TypeScript, existing design tokens, Vercel performance practices, accessibility, responsive behavior, and stable UI/UX conventions."
+description: Build or review Next.js and shadcn interfaces with consistent UI/UX, accessible interactions and sensible performance defaults.
 ---
 
-# Consistent frontend
+# Build a consistent frontend
 
-Read `references/frontend-contract.md`, local AGENTS.md, `components.json`, the design-system document, existing components, and the package lock before coding.
-
-Use Next.js App Router, TypeScript, shadcn/ui, and the configured Tailwind/base/icon libraries. Prefer server components; make client components only where interaction or browser state requires them. Keep provider secrets on the server. Use the FastAPI backend for business logic; Next.js routes may handle frontend session/BFF concerns without duplicating the domain layer.
-
-Load the official shadcn skill for composition and registry operations; use its MCP server when available and correctly scoped to the application's components.json. Load version-matched Next.js agent documentation and relevant Vercel React/composition guidance. Consult upstream sources listed in this plugin's references; do not claim a reference is installed.
-
-Apply Vercel web-design-guidelines for UX review. If UI/UX Pro Max is installed, constrain it to the existing tokens, components, and approved visual direction. Verify availability rather than assuming installation. Treat Anthropic frontend-design as an explicit exploration option, not the default during consistency cleanup. Preserve user-installed design guidance that is compatible with project decisions.
-
-Reuse existing components and semantic tokens. Do not introduce new fonts, palettes, spacing scales, navigation patterns, animation styles, or UI kits without a documented reason. Establish one design-system contract for a new project before repeating screens.
-
-Cover loading, empty, error, success, and permission states. Verify mobile and desktop layouts, keyboard navigation, focus, labels, contrast, reduced motion, and validation messages. Use accessible primitives rather than recreating controls.
-
-Prevent waterfalls and unnecessary client JavaScript; use framework images/fonts and deliberate caching and invalidation. Measure relevant performance rather than claiming optimization from style changes.
-
-Review rendered screens and affected user journeys. Update UX documentation and API client contracts when behavior changes.
+- Prefer Next.js App Router, TypeScript, shadcn/ui and the project's configured styling libraries for new applications. Use official shadcn and Vercel skills for implementation details when available.
+- Read the existing components, tokens and design direction first. Reuse them across screens; avoid new palettes, fonts, spacing scales or navigation patterns without a product reason.
+- Apply compatible UI/UX skills already installed in the working client. Keep private guidance local. Use design exploration deliberately rather than redesigning established screens while fixing them.
+- Establish a coherent visual direction early in a new project. Favor clear hierarchy, familiar interactions and a small reusable component vocabulary.
+- Handle loading, empty, error, success and permission states. Consider mobile/desktop layouts, labels, keyboard access, focus, contrast and validation feedback.
+- Prefer server rendering where appropriate; use client components for interaction. Keep secrets server-side, avoid request waterfalls and excessive client JavaScript, and make caching decisions explicit.
+- Inspect rendered screens and test important journeys. Measure performance when it matters instead of claiming improvement from code style alone.
+- Use shadcn MCP optionally for registry/component work, configured against the actual application. Keep domain logic in the backend and keep UI/API contracts aligned.

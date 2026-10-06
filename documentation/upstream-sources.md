@@ -1,48 +1,31 @@
-# Upstream source catalogue
+# Upstream skills
 
-Reviewed 2026-10-05. Selected components are now acquired by `scripts/install_profile.py` using immutable commits and Git tree identities in `upstream.lock.json`. See [installation](installation.md) for packages, notices and runtime limits. Sources absent from the lock remain reference-only.
+The packaging helper copies these selected skill directories at the reviewed commit/tree pins in `upstream.lock.json`, with their complete resources and notices. Source checkouts contain our local guidance; built bundles also contain these upstream skills. Installation does not launch tools or install application frameworks. Select the relevant skill for the task.
 
-| Area | Source | Qualification |
+| Bundle | Source | Selected skills |
 | --- | --- | --- |
-| React performance, composition, UX review | https://github.com/vercel-labs/agent-skills | First-party Vercel: React practices, composition, web-design-guidelines |
-| Next.js | https://github.com/vercel/next.js/tree/canary/skills | Current source; match stable chosen framework release, do not adopt canary as an application dependency |
-| shadcn skill | https://ui.shadcn.com/docs/skills | Official; reads actual project configuration |
-| shadcn MCP | https://ui.shadcn.com/docs/mcp | Official; configure application path/components.json |
-| UI/UX Pro Max | https://github.com/nextlevelbuilder/ui-ux-pro-max-skill | Community; constrain to established tokens and patterns |
-| Visual exploration | https://github.com/anthropics/skills/tree/main/skills/frontend-design | First-party Anthropic; optional, avoid style drift during cleanup |
-| ADK | https://github.com/google/adk-python/tree/main/.agents/skills | First-party agent-builder/architecture skills; review transitive resources |
-| LangChain/LangGraph | https://github.com/langchain-ai/langchain-skills | First-party fundamentals/persistence/evaluation; override provider defaults with Gemini |
-| Backend template | https://github.com/fastapi/full-stack-fastapi-template | Official reference; SQLModel/Vite defaults differ from requested SQLAlchemy/Next.js |
-| FastAPI/Uvicorn/uv | https://fastapi.tiangolo.com/ ; https://www.uvicorn.org/ ; https://docs.astral.sh/uv/ | Official runtime/reference documentation |
-| SQLAlchemy/Alembic/PostgreSQL | https://docs.sqlalchemy.org/en/20/ ; https://alembic.sqlalchemy.org/en/latest/ ; https://www.postgresql.org/docs/ | Official persistence documentation |
-| FastMCP | https://gofastmcp.com/llms.txt | Official index; no unified backend skill asserted |
-| Gemini | https://ai.google.dev/gemini-api/docs/audio ; https://ai.google.dev/gemini-api/docs/pricing ; https://ai.google.dev/gemini-api/docs/rate-limits | Verify selected LLM/audio model and free-tier quota |
-| Architecture/ADRs | https://arc42.org/overview/ ; https://c4model.com/diagrams ; https://adr.github.io/madr/ | Recognised structures adapted into lean local templates |
+| web-frontend | [Vercel](https://github.com/vercel-labs/agent-skills) | React best practices, composition patterns |
+| web-frontend | [shadcn](https://github.com/shadcn-ui/ui/tree/main/skills/shadcn) | Official shadcn |
+| development-workflow | [Microsoft Playwright](https://github.com/microsoft/playwright-cli) | playwright-cli |
+| development-workflow | [GitHub awesome-copilot](https://github.com/github/awesome-copilot/tree/main/skills/github-actions-hardening) | GitHub Actions hardening |
+| development-workflow | [Superpowers](https://github.com/obra/superpowers) | systematic-debugging, verification-before-completion |
+| development-workflow | [Sentry](https://github.com/getsentry/skills/tree/main/skills/code-review) | code-review |
+| development-workflow | [Trail of Bits](https://github.com/trailofbits/skills) | property-based-testing, differential-review |
+| python-backend | [Trail of Bits](https://github.com/trailofbits/skills/tree/main/plugins/modern-python) | modern-python |
+| python-backend | [Anthropic](https://github.com/anthropics/skills/tree/main/skills/mcp-builder) | mcp-builder |
+| ai-development | [Google ADK](https://github.com/google/adk-python/tree/main/.agents/skills) | adk-agent-builder, adk-architecture |
+| ai-development | [LangChain](https://github.com/langchain-ai/langchain-skills) | langchain-fundamentals, langchain-dependencies, langgraph-fundamentals, langgraph-persistence |
 
-Record source commit/release, selected skills, license, scripts/network behavior and actual install route in project-profile.json. The standard is not a universal dependency installer. Do not redistribute private skills.
+These sources are selected for provenance and fit, not a universal popularity ranking. Use the AI skills for the chosen framework, and security/property-based reviews where useful; having a skill available does not make its workflow mandatory for every change. Keep the local stack and accepted design decisions authoritative.
 
-Official documented skills CLI examples: `pnpm dlx skills add shadcn/ui`; `npx skills add vercel-labs/agent-skills`; `npx skills add vercel/next.js`. These are upstream alternatives. This repository uses its pinned builder rather than these floating commands.
+Trail of Bits guidance is CC-BY-SA-4.0; other selected sources are MIT or Apache-2.0 as recorded at their exact pins. Built bundles carry mixed-license notices. Source pinning does not freeze live documentation or commands embedded in upstream guidance.
 
-## Wider development workflow sources
+## Additional references
 
-These recommendations are based on first-party provenance, applicability and inspectable workflow—not a claim of universal popularity or benchmark superiority. Selected rows are acquired into built packages; the source checkout retains recipes rather than vendored trees.
-
-| Source / component | Provenance | Priority / fit | Integration limits |
-| --- | --- | --- | --- |
-| https://github.com/microsoft/playwright-cli | Microsoft/Playwright maintainers | Core browser exploration, test authoring and failure investigation | Use committed Playwright Test suites for CI; CLI exploration alone is not an E2E gate |
-| https://playwright.dev/docs/test-agents | Official Playwright planner/generator/healer definitions | Core E2E authoring | Agents are client definitions, not all SKILL.md; healer must preserve accepted assertions |
-| https://github.com/anthropics/skills/tree/main/skills/webapp-testing | Anthropic | Alternative helper for local browser work | Avoid overlapping orchestration if Playwright tooling already covers the task |
-| https://github.com/trailofbits/skills/tree/main/plugins/modern-python | Trail of Bits | Core Python tooling: uv/Ruff/pytest | Exact backend conventions remain local |
-| https://github.com/obra/superpowers/tree/main/skills/systematic-debugging | Superpowers community | Core failure diagnosis | Selectively load; local user instructions and accepted scope apply |
-| https://github.com/obra/superpowers/tree/main/skills/verification-before-completion | Superpowers community | Core evidence-based completion | Keep relevant verification fresh; avoid redundant reruns when nothing changed |
-| https://github.com/github/awesome-copilot/tree/main/skills/github-actions-hardening | GitHub-hosted community | Pipeline authoring/review | Portable skill; review exact references/version |
-| https://github.com/github/awesome-copilot/blob/main/instructions/github-actions-ci-cd-best-practices.instructions.md | GitHub-hosted community | Pipeline design | Instruction file, not a portable skill on its own |
-| https://github.com/getsentry/skills/tree/main/skills/code-review | Sentry engineering | Conditional targeted code review | Adapt Sentry-specific conventions; Sentry service is not a mandatory app dependency |
-| https://github.com/trailofbits/skills/tree/main/plugins/property-based-testing | Trail of Bits | Conditional domain invariants/calculations/state | High value for financial/model-heavy apps, not blanket coverage bureaucracy |
-| https://github.com/trailofbits/skills/tree/main/plugins/insecure-defaults | Trail of Bits | Conditional security-sensitive changes | Audit depth/resource use may be inappropriate for trivial changes |
-| https://github.com/trailofbits/skills/tree/main/plugins/differential-review | Trail of Bits | Conditional security review of significant diffs | Select narrowly; not a replacement for auth/integration tests |
-| https://github.com/anthropics/skills/tree/main/skills/mcp-builder | Anthropic | MCP tool/API authoring | Maintain requested FastMCP/Python direction and deterministic policy boundaries |
-| https://github.com/anthropics/skills/tree/main/skills/doc-coauthoring | Anthropic | Substantive PRD/spec/decision drafting and reader clarity | Do not force collaborative interview steps on routine synchronization |
-| https://agents.md/ | Open format reference | Core scoped repository instructions | Not a skill or enforcement engine |
-
-Trail of Bits publishes CC-BY-SA-4.0 guidance. Linking to it does not relicense this repository; acquired components preserve their applicable notices/terms. Check all other sources' licenses at the exact pinned version too.
+- [Next.js agent guidance](https://github.com/vercel/next.js/tree/canary/skills): use documentation matching the application's chosen release.
+- [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) and [Anthropic frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design): optional design guidance, constrained by existing tokens and direction. Reuse installed skills without copying private content.
+- [Vercel web-design-guidelines](https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines): reference only; the reviewed source did not declare a redistribution license and fetched floating guidance.
+- [FastAPI](https://fastapi.tiangolo.com/), [Uvicorn](https://www.uvicorn.org/), [uv](https://docs.astral.sh/uv/), [SQLAlchemy](https://docs.sqlalchemy.org/en/20/), [Alembic](https://alembic.sqlalchemy.org/), [PostgreSQL](https://www.postgresql.org/docs/) and [FastMCP](https://gofastmcp.com/): first-party implementation documentation; no unified official skill for this entire backend stack is claimed.
+- [Gemini audio](https://ai.google.dev/gemini-api/docs/audio), [pricing](https://ai.google.dev/gemini-api/docs/pricing) and [quotas](https://ai.google.dev/gemini-api/docs/rate-limits): verify the actual model and account before live tests.
+- [C4](https://c4model.com/), [arc42](https://arc42.org/overview/), [MADR](https://adr.github.io/madr/) and [AGENTS.md](https://agents.md/): lightweight structures for project knowledge and scoped instructions.
+- [shadcn MCP](https://ui.shadcn.com/docs/mcp) and [Playwright MCP](https://github.com/microsoft/playwright-mcp): optional live tools configured in the chosen client. Hooks use [client-specific extensions](https://agent-plugins.org/specification#8-client-extensions), not a portable hooks field.

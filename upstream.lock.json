@@ -74,7 +74,7 @@
       "license_path": "LICENSE"
     },
     {
-      "plugin": "security-quality",
+      "plugin": "development-workflow",
       "repository": "https://github.com/trailofbits/skills.git",
       "commit": "82fe8226252622fa807643bdca1710901198553a",
       "path": "plugins/property-based-testing/skills/property-based-testing",
@@ -83,7 +83,7 @@
       "license_path": "LICENSE"
     },
     {
-      "plugin": "security-quality",
+      "plugin": "development-workflow",
       "repository": "https://github.com/trailofbits/skills.git",
       "commit": "82fe8226252622fa807643bdca1710901198553a",
       "path": "plugins/differential-review/skills/differential-review",
@@ -92,7 +92,7 @@
       "license_path": "LICENSE"
     },
     {
-      "plugin": "security-quality",
+      "plugin": "development-workflow",
       "repository": "https://github.com/getsentry/skills.git",
       "commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
       "path": "skills/code-review",
@@ -101,7 +101,7 @@
       "license_path": "LICENSE"
     },
     {
-      "plugin": "mcp-development",
+      "plugin": "python-backend",
       "repository": "https://github.com/anthropics/skills.git",
       "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
       "path": "skills/mcp-builder",
@@ -110,7 +110,7 @@
       "license_path": "skills/mcp-builder/LICENSE.txt"
     },
     {
-      "plugin": "ai-adk",
+      "plugin": "ai-development",
       "repository": "https://github.com/google/adk-python.git",
       "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
       "path": ".agents/skills/adk-agent-builder",
@@ -119,7 +119,7 @@
       "license_path": "LICENSE"
     },
     {
-      "plugin": "ai-adk",
+      "plugin": "ai-development",
       "repository": "https://github.com/google/adk-python.git",
       "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
       "path": ".agents/skills/adk-architecture",
@@ -128,7 +128,7 @@
       "license_path": "LICENSE"
     },
     {
-      "plugin": "ai-langchain",
+      "plugin": "ai-development",
       "repository": "https://github.com/langchain-ai/langchain-skills.git",
       "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
       "path": "config/skills/langchain-fundamentals",
@@ -137,7 +137,7 @@
       "license_path": "LICENSE"
     },
     {
-      "plugin": "ai-langchain",
+      "plugin": "ai-development",
       "repository": "https://github.com/langchain-ai/langchain-skills.git",
       "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
       "path": "config/skills/langgraph-fundamentals",
@@ -146,7 +146,7 @@
       "license_path": "LICENSE"
     },
     {
-      "plugin": "ai-langchain",
+      "plugin": "ai-development",
       "repository": "https://github.com/langchain-ai/langchain-skills.git",
       "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
       "path": "config/skills/langgraph-persistence",
@@ -155,7 +155,7 @@
       "license_path": "LICENSE"
     },
     {
-      "plugin": "ai-langchain",
+      "plugin": "ai-development",
       "repository": "https://github.com/langchain-ai/langchain-skills.git",
       "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
       "path": "config/skills/langchain-dependencies",

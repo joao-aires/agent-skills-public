@@ -14,18 +14,19 @@ ROOT = Path(__file__).resolve().parents[1]
 
 
 def git(repo, *args):
-    return subprocess.check_output(['git', '-C', str(repo), *args])
+    return subprocess.check_output(['git', '-C', str(repo), *args], stderr=subprocess.DEVNULL)
 
 
 def acquire(source, cache):
     key = hashlib.sha256(source['repository'].encode()).hexdigest()[:20]
     repo = cache / key
     if not repo.exists():
-        subprocess.run(['git', 'clone', '--no-checkout', source['repository'], str(repo)], check=True)
+        subprocess.run(['git', 'init', '--bare', '-q', str(repo)], check=True)
+        subprocess.run(['git', '-C', str(repo), 'remote', 'add', 'origin', source['repository']], check=True)
     try:
         git(repo, 'cat-file', '-e', source['commit'] + '^{commit}')
     except subprocess.CalledProcessError:
-        subprocess.run(['git', '-C', str(repo), 'fetch', 'origin', source['commit']], check=True)
+        subprocess.run(['git', '-C', str(repo), 'fetch', '--depth=1', 'origin', source['commit']], check=True)
     actual = git(repo, 'rev-parse', source['commit'] + ':' + source['path']).decode().strip()
     if actual != source['tree']:
         raise ValueError('Upstream tree mismatch: ' + source['path'])
@@ -55,7 +56,7 @@ def extract_skill(archive, source_path, destination):
                 raise ValueError('Upstream links/devices are not portable: ' + member.name)
 
 
-def build(root, selected, destination, cache, skills_only=False):
+def build(root, selected, destination, cache):
     if destination.exists():
         raise ValueError('Destination must not exist; existing installations are never overwritten')
     lock = json.loads((root / 'upstream.lock.json').read_text())
@@ -115,32 +116,18 @@ def build(root, selected, destination, cache, skills_only=False):
                 metadata = yaml.safe_load(skill.read_text().split("---", 2)[1])
                 if metadata.get("name") != skill.parent.name or not isinstance(metadata.get("description"), str) or len(metadata["description"]) > 1024:
                     raise ValueError("Invalid built skill metadata: " + str(skill))
-        if skills_only:
-            flat = Path(temp) / 'skills'
-            flat.mkdir()
-            for skill in output.glob('*/skills/*'):
-                if (flat / skill.name).exists():
-                    raise ValueError('Global skill collision: ' + skill.name)
-                shutil.copytree(skill, flat / skill.name)
-            shutil.copytree(flat, destination)
-        else:
-            shutil.copytree(output, destination)
+        shutil.copytree(output, destination)
     return acquired
 
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--profile', default='full-stack')
-    parser.add_argument('--include', action='append', default=[], help='Additional plugin name, repeatable')
+    parser.add_argument('--plugin', action='append', help='Plugin to bundle, repeatable; default: workflow, backend, frontend')
     parser.add_argument('--destination', type=Path, required=True)
     parser.add_argument('--cache', type=Path, default=Path.home() / '.cache' / 'agent-skills-public')
-    parser.add_argument('--skills-only', action='store_true', help='Build a flat project .agents/skills directory; no MCP installation')
     args = parser.parse_args()
-    profiles = {p.stem: p for p in (ROOT / 'profiles').glob('*.json')}
-    if args.profile not in profiles:
-        parser.error('Unknown profile')
-    selected = list(dict.fromkeys(json.loads(profiles[args.profile].read_text())['plugins'] + args.include))
-    acquired = build(ROOT, selected, args.destination.resolve(), args.cache.resolve(), args.skills_only)
+    selected = list(dict.fromkeys(args.plugin or ['development-workflow', 'python-backend', 'web-frontend']))
+    acquired = build(ROOT, selected, args.destination.resolve(), args.cache.resolve())
     print(f'Built {len(selected)} plugins with {len(acquired)} upstream skills at {args.destination}')
 
 

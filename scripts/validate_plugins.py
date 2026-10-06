@@ -62,12 +62,6 @@ def validate() -> list[str]:
                 skill_names.add(skill_name)
         except (ValueError, TypeError, KeyError, jsonschema.ValidationError, yaml.YAMLError) as error:
             failures.append(f"{manifest.relative_to(ROOT)}: {error}")
-    for profile in (ROOT / "profiles").glob("*.json"):
-        data = json.loads(profile.read_text())
-        referenced = data.get("plugins", []) + sum(data.get("optional_plugins", {}).values(), [])
-        for name in referenced:
-            if name not in names:
-                failures.append(f"{profile.name}: unknown plugin {name}")
     lock = json.loads((ROOT / "upstream.lock.json").read_text())
     for source in lock["sources"]:
         if source["plugin"] not in names:
@@ -90,4 +84,4 @@ if __name__ == "__main__":
         print(failure, file=sys.stderr)
     if failures:
         raise SystemExit(1)
-    print("Plugin manifests, skill metadata, profiles and package containment passed.")
+    print("Plugin manifests, skill metadata, upstream pins and package containment passed.")

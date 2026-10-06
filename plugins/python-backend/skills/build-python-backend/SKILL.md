@@ -1,22 +1,16 @@
 ---
 name: build-python-backend
-description: "Implement or review Python FastAPI APIs with Uvicorn, SQLAlchemy, Alembic, PostgreSQL, and optional FastMCP using repository conventions and official stack references."
+description: Guide Python backend development with FastAPI, Uvicorn, SQLAlchemy, Alembic, PostgreSQL and optional FastMCP.
 ---
 
-# Python backend
+# Build a Python backend
 
-Read `references/backend-contract.md` and the local application AGENTS.md. Respect project-profile.json; use official version-matched documentation for APIs and existing project tools for commands.
+- Prefer Python with uv, FastAPI/Uvicorn, Pydantic, SQLAlchemy and Alembic over PostgreSQL for new applications. Use compatible maintained versions and lock dependencies; preserve an existing stack unless a change is justified.
+- Keep routes focused on HTTP concerns and organize code around the domain. Share business logic across HTTP, AI and MCP adapters where useful, without imposing layers on simple features.
+- Make database session and transaction ownership clear. Be deliberate about sync/async code; avoid blocking work inside async handlers.
+- Validate inputs and enforce authorization at the resource boundary. Keep secrets in configuration, avoid sensitive logs and use bounded external calls.
+- Review migrations for data, constraints, indexes and deployment compatibility. Verify relevant persistence behavior against PostgreSQL and keep OpenAPI/data-model documentation current.
+- Add FastMCP only when tools are needed. Expose narrow, typed capabilities with explicit authorization, reuse application logic and choose transport for the actual client/deployment needs.
+- Use focused tests for domain behavior and integration tests for contracts, migrations and authorization. Use available modern-python guidance and first-party stack documentation for implementation details.
 
-Use Python with uv for environments and a committed uv.lock. Use FastAPI and Uvicorn, Pydantic request/response schemas, SQLAlchemy 2-style models and queries, Alembic migrations, and PostgreSQL. Do not substitute SQLite, SQLModel, or a different web framework without an explicit project decision.
-
-Organize by domain with thin HTTP routes, application services, persistence models, and adapters. Avoid mandatory layers that do not add value. Keep business logic independent of HTTP, MCP, and AI frameworks. Use dependency injection for database sessions and external services. Define transaction boundaries at the use-case level; do not share sessions across concurrent requests/tasks. Choose sync or async consistently based on dependencies; do not mix blocking database work into async handlers.
-
-Use typed configuration, environment-derived secrets, structured logs, request IDs, health/readiness endpoints, and bounded timeouts. Validate authorization at resource boundaries; configure explicit CORS origins. Do not log tokens, raw audio, or private prompt contents.
-
-Review generated Alembic migrations, including data backfills, locks, constraints, indexes, and rollback or forward-recovery strategy. Check migration from an empty database and the previous supported schema with PostgreSQL. Use expand/contract changes for deployments that require compatibility.
-
-When MCP is needed, use FastMCP with narrow typed tools, explicit authorization, timeouts, and service-layer reuse. Expose chosen capabilities; do not automatically expose every API endpoint or raw database access. Verify the installed FastMCP transport and auth API in official docs. Use stdio for local integrations and Streamable HTTP for remote integrations as appropriate.
-
-Test use-case behavior, request validation, authorization, persistence, and changed external adapters. Keep OpenAPI and data model documentation in sync.
-
-For integration tests use migrated isolated PostgreSQL and actual application authorization. Generate OpenAPI and a version-aligned typed frontend client; check contract drift. Keep durable side effects idempotent and retry-bounded when they exist. Use explicit units and decimal arithmetic for monetary calculations, and property-based tests for important domain invariants where useful. These are capability-specific additions, not a requirement to add money, tenancy or background jobs to every application.
+Choose the simplest structure that makes the application easy to change and operate.
