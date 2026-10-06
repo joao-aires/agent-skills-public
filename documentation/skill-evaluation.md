@@ -1,6 +1,6 @@
 # Local skill evaluation
 
-The original seven local development skills were revised using the skill-creator process: concrete tasks, clear trigger descriptions, context-dependent decision rules, short examples and observable completion criteria. Each remains a single Markdown guide of roughly 430–550 words. A subsequent eighth skill, `contribute-with-git`, adds feature worktrees, Conventional Commits and PR contribution guidance. No application template, generation framework or mandatory tracker was added.
+The original seven local development skills were revised using the skill-creator process: concrete tasks, clear trigger descriptions, context-dependent decision rules, short examples and observable completion criteria. Each remains a single Markdown guide of roughly 430–550 words. A subsequent eighth skill, `contribute-code`, adds feature worktrees, Conventional Commits and PR contribution guidance. No application template, generation framework or mandatory tracker was added.
 
 ## Independent task walkthroughs
 
@@ -17,7 +17,7 @@ These responses demonstrated useful interpretation across all seven skills, incl
 
 ## Git contribution checks
 
-Two fresh agents exercised `contribute-with-git` with task-local facts:
+Two fresh agents exercised `contribute-code` with task-local facts:
 
 - **Local execution:** a disposable repository had a `main` branch, a local bare remote and an unrelated uncommitted README edit. The agent implemented an optional case-insensitive sorting feature in a new worktree, updated related docs/checks, ran the checks, created `feat: add optional case-insensitive name sorting` and pushed the feature branch. Independent inspection confirmed the remote SHA, clean feature worktree, unchanged original branch and preserved user edit. No issue scope was invented. A concise PR body was prepared; no live GitHub PR was claimed for a local-only remote.
 - **Fork/PR planning:** supplied state contained an existing worktree and PR, different fork/upstream remotes, component-scope conventions and issue `OPS-12`. The agent reused the feature workspace/PR, chose `feat(export)` with an issue reference in the body, selected the correct upstream target/base and fork head, and disclosed untested worker recovery. It kept the description concise without requiring a diagram. No actions were executed in this plan-only case.

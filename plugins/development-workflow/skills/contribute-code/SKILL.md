@@ -1,11 +1,11 @@
 ---
-name: contribute-with-git
+name: contribute-code
 description: Develop a feature in an isolated Git worktree, make Conventional Commits and publish a concise pull request to the correct repository. Apply by default when starting feature work, continuing a feature branch, committing changes or preparing a PR; respect plan-only requests and existing contribution conventions.
 ---
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
 
-# Contribute with Git
+# Contribute Code
 
 ## Establish the target and feature workspace
 

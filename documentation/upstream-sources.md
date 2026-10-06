@@ -23,7 +23,7 @@ Trail of Bits guidance is CC-BY-SA-4.0; other selected sources are MIT or Apache
 
 ## Additional references
 
-- [Git worktrees](https://git-scm.com/docs/git-worktree), [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and [GitHub CLI PR creation](https://cli.github.com/manual/gh_pr_create): contribution mechanics used by the local `contribute-with-git` skill; no additional MCP server is required.
+- [Git worktrees](https://git-scm.com/docs/git-worktree), [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and [GitHub CLI PR creation](https://cli.github.com/manual/gh_pr_create): contribution mechanics used by the local `contribute-code` skill; no additional MCP server is required.
 - [Next.js agent guidance](https://github.com/vercel/next.js/tree/canary/skills): use documentation matching the application's chosen release.
 - [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) and [Anthropic frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design): optional design guidance, constrained by existing tokens and direction. Reuse installed skills without copying private content.
 - [Vercel web-design-guidelines](https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines): reference only; the reviewed source did not declare a redistribution license and fetched floating guidance.
