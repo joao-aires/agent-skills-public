@@ -1,7 +1,6 @@
 ---
 name: project-bootstrap
 description: Organize a new or existing application around a useful first slice, scoped AGENTS.md instructions, documentation and verification. Use only when the user explicitly asks to start or organize a project.
-disable-model-invocation: true
 ---
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.

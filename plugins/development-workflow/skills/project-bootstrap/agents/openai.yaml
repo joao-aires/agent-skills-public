@@ -1,6 +1,0 @@
-interface:
-  display_name: "Organize an Application"
-  short_description: "Guide repository structure and the first useful slice"
-  default_prompt: "Use $project-bootstrap to organize this application."
-policy:
-  allow_implicit_invocation: false

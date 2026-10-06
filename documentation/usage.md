@@ -64,7 +64,7 @@ flowchart TD
 
 **Agent-invoked** skills support work already requested. Examples include our backend/frontend/AI guidance, documentation, E2E, delivery and `contribute-code` skills, plus upstream debugging, TDD and review guidance. These can also be requested manually.
 
-Native invocation controls are preserved, including `disable-model-invocation` and Codex metadata where supplied. They are client-specific; package checks do not establish runtime behavior in every client. Ask for a skill by name if automatic selection misses it.
+Local skills rely on standard name/description metadata and Markdown guidance, not client-specific configuration files. The explicit-request boundary is an instruction to the agent, not a universal runtime enforcement mechanism. Upstream resources retain supplied client metadata; using our local guidance does not require it. Ask for a skill by name if automatic selection misses it.
 
 ## Example requests
 

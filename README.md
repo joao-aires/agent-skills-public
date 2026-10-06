@@ -39,7 +39,7 @@ Our `project-bootstrap` starts only on an explicit request. The seven other loca
 
 Matt's released engineering and productivity skills join `development-workflow`, including `implement`, `implement-spec`, their testing/review dependencies, and setup. Preserve his user/agent distinction: user-invoked orchestration is a deliberate choice; agent-invoked guidance is task-matched. See the concise [workflow map](plugins/development-workflow/WORKFLOW.md) for available activities, documentation paths and setup boundaries. No workflow is mandatory for every change. Implementation and review work directly from your request or a Markdown spec/plan; tickets and trackers are optional, including for `implement-spec`.
 
-Native `disable-model-invocation` frontmatter and Codex `agents/openai.yaml` are preserved; our user-invoked project skill supplies both. These are client-specific controls, not a universal Agent Plugins invocation mechanism. Clients without support must rely on the documented explicit-request boundary. Packaging verifies metadata, not runtime discovery in every client.
+Local skills use standard name/description frontmatter and Markdown instructions, with no Codex-specific metadata. User/agent invocation intent is expressed in the descriptions and workflow guidance; actual selection depends on the client. Upstream resources retain their supplied metadata, but our guidance does not depend on it. Packaging verifies metadata, not runtime discovery in every client.
 
 ## Quick start
 
