@@ -47,24 +47,6 @@
       "license_path": "LICENSE"
     },
     {
-      "plugin": "development-workflow",
-      "repository": "https://github.com/obra/superpowers.git",
-      "commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
-      "path": "skills/systematic-debugging",
-      "tree": "9a48dfda84bf339cba4b03fd803ba0dca2e158e3",
-      "license": "MIT",
-      "license_path": "LICENSE"
-    },
-    {
-      "plugin": "development-workflow",
-      "repository": "https://github.com/obra/superpowers.git",
-      "commit": "8ca22dba9a94f28898bbce59f2537ff4d87c747d",
-      "path": "skills/verification-before-completion",
-      "tree": "a4cb0b69aaefeab540947a7f1642bdaad810e37a",
-      "license": "MIT",
-      "license_path": "LICENSE"
-    },
-    {
       "plugin": "python-backend",
       "repository": "https://github.com/trailofbits/skills.git",
       "commit": "82fe8226252622fa807643bdca1710901198553a",
@@ -89,15 +71,6 @@
       "path": "plugins/differential-review/skills/differential-review",
       "tree": "09ff02c96f84ad4b98184bcd5efae5b218caa910",
       "license": "CC-BY-SA-4.0",
-      "license_path": "LICENSE"
-    },
-    {
-      "plugin": "development-workflow",
-      "repository": "https://github.com/getsentry/skills.git",
-      "commit": "d18b7aa8ba878354e5c348310230e652f7690f9c",
-      "path": "skills/code-review",
-      "tree": "b7760b1d61900ceaa93362ef677c55f01523ef05",
-      "license": "Apache-2.0",
       "license_path": "LICENSE"
     },
     {
@@ -162,6 +135,357 @@
       "tree": "ebdb8abc2c1ee9cea5da98f08043ce01e55a2b43",
       "license": "MIT",
       "license_path": "LICENSE"
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/ask-matt",
+      "tree": "da068f2392e1144469cbc602ffff96ef47881a88",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/code-review",
+      "tree": "d8e341cee7980127dddda05159bedf25dc853615",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/codebase-design",
+      "tree": "07ba1cd60efc12d0d3a083005c1d9651cf15e39a",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/diagnosing-bugs",
+      "tree": "de4236cf34757c4e9ea7afe78d46c023213ff254",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/domain-modeling",
+      "tree": "ea30ee454ba264543dbe40737973b1a5afb9f0e6",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/grill-with-docs",
+      "tree": "eedaf2562c83155115e9c649fa3ecaac2e10e81d",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/implement",
+      "tree": "f07d230f645fc9ac390cf13a450bbff12ad791a3",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/implement-spec",
+      "tree": "0cfefc751d0cb64f0c948ffcb17e13b94e778f08",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/improve-codebase-architecture",
+      "tree": "39bd9cc130f7dfcc4e3ea0b3613f6ebed0d0ad2b",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/pr",
+      "tree": "00b896d811adffad747c7ca30078d909d60c7f93",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/prototype",
+      "tree": "e41d92e171f074a2b6887d8f6faca4a15c83d1ca",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/research",
+      "tree": "0a6796c5667e95ed2301ba7381c123b4acb2ae1a",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/retro",
+      "tree": "335c1862a43da9d629abafdb79ca0c0de118be08",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/setup-matt-pocock-skills",
+      "tree": "b1568cde855a189b16e5d7dd8a0fa4c3f156bc2e",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/tdd",
+      "tree": "bf1bf5ffcd63aa8abce830f2955a853c121fb463",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/to-spec",
+      "tree": "136b9651747cfccbfbb7c50a6b0dfb757e7547d2",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/to-tickets",
+      "tree": "b32c94e5a51c24ee9c41fcb7fe9ea9fff9af6369",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/triage",
+      "tree": "4cb951d62ecccaed601cdc5f9a1b7b3d8a799635",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/wayfinder",
+      "tree": "8ec0462658381bd1606d3f9db14ffc67df6a2a43",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/engineering/wizard",
+      "tree": "0a163daf092c6f361158ca9627e81f2cb5230574",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/productivity/grill-me",
+      "tree": "3df14e2d3a89459bf300614be9247e3ce74798f8",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/productivity/grilling",
+      "tree": "f0732035b8b1b60ae39454e4191caef32fa91903",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/productivity/handoff",
+      "tree": "2242e8f05424b8c2ae94194a90d97b88d16108ec",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/productivity/teach",
+      "tree": "2ab11f2f51f3c29771edb5d4258d807a49462491",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/productivity/to-questionnaire",
+      "tree": "46dfbeeba12a9e52eef446676f42e7551023d9a9",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/productivity/wait-what",
+      "tree": "c8b050e6b8c711be1a9008ceacb2126914f0763e",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/mattpocock/skills.git",
+      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+      "path": "skills/productivity/writing-for-agents",
+      "tree": "ad2925850efb8973a72d2e666f7a975f9a2d4a9b",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "documentation-paths"
+      ]
     }
   ]
 }

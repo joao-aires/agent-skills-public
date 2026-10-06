@@ -56,6 +56,22 @@ def extract_skill(archive, source_path, destination):
                 raise ValueError('Upstream links/devices are not portable: ' + member.name)
 
 
+def adapt_skill(target, source):
+    adaptations = source.get('adaptations', [])
+    if not adaptations:
+        return
+    if set(adaptations) - {'workflow-framing', 'documentation-paths'}:
+        raise ValueError('Unknown upstream adaptation')
+    for document in target.rglob('*.md'):
+        text = document.read_text()
+        if 'documentation-paths' in adaptations:
+            text = text.replace('docs/agents/', 'documentation/engineering/').replace('docs/adr/', 'documentation/decisions/adr/')
+        if document.name == 'SKILL.md' and document.parent == target and 'workflow-framing' in adaptations:
+            parts = text.split('---', 2)
+            text = '---' + parts[1] + '---\n\nRead [workflow framing](../../WORKFLOW.md) before applying this skill.\n' + parts[2]
+        document.write_text(text)
+
+
 def build(root, selected, destination, cache):
     if destination.exists():
         raise ValueError('Destination must not exist; existing installations are never overwritten')
@@ -90,6 +106,7 @@ def build(root, selected, destination, cache):
                     raise ValueError('Skill collision: ' + name)
                 target.parent.mkdir(exist_ok=True)
                 shutil.copytree(unpacked, target)
+                adapt_skill(target, source)
                 notice = dict(source, installed_skill=name)
                 (target / 'UPSTREAM.json').write_text(json.dumps(notice, indent=2) + '\n')
                 if source['license_path']:

@@ -6,15 +6,16 @@ The packaging helper copies these selected skill directories at the reviewed com
 | --- | --- | --- |
 | web-frontend | [Vercel](https://github.com/vercel-labs/agent-skills) | React best practices, composition patterns |
 | web-frontend | [shadcn](https://github.com/shadcn-ui/ui/tree/main/skills/shadcn) | Official shadcn |
+| development-workflow | [Matt Pocock](https://github.com/mattpocock/skills) | Released engineering + productivity skills, including their complete local resources and invocation metadata |
 | development-workflow | [Microsoft Playwright](https://github.com/microsoft/playwright-cli) | playwright-cli |
 | development-workflow | [GitHub awesome-copilot](https://github.com/github/awesome-copilot/tree/main/skills/github-actions-hardening) | GitHub Actions hardening |
-| development-workflow | [Superpowers](https://github.com/obra/superpowers) | systematic-debugging, verification-before-completion |
-| development-workflow | [Sentry](https://github.com/getsentry/skills/tree/main/skills/code-review) | code-review |
 | development-workflow | [Trail of Bits](https://github.com/trailofbits/skills) | property-based-testing, differential-review |
 | python-backend | [Trail of Bits](https://github.com/trailofbits/skills/tree/main/plugins/modern-python) | modern-python |
 | python-backend | [Anthropic](https://github.com/anthropics/skills/tree/main/skills/mcp-builder) | mcp-builder |
 | ai-development | [Google ADK](https://github.com/google/adk-python/tree/main/.agents/skills) | adk-agent-builder, adk-architecture |
 | ai-development | [LangChain](https://github.com/langchain-ai/langchain-skills) | langchain-fundamentals, langchain-dependencies, langgraph-fundamentals, langgraph-persistence |
+
+Matt's debugging/review skills replace the overlapping Superpowers/Sentry selections. All released engineering/productivity directories are pinned together so internal skill calls remain available; miscellaneous, deprecated and in-progress skills are excluded. Built Matt Markdown gets a pointer to the local workflow guide plus `docs/agents/` → `documentation/engineering/` and `docs/adr/` → `documentation/decisions/adr/` substitutions. Acquisition notices record these adaptations; existing project paths remain authoritative. No scripts or setup are executed during packaging.
 
 These sources are selected for provenance and fit, not a universal popularity ranking. Use the AI skills for the chosen framework, and security/property-based reviews where useful; having a skill available does not make its workflow mandatory for every change. Keep the local stack and accepted design decisions authoritative.
 

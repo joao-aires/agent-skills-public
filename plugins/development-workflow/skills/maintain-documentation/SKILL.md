@@ -3,6 +3,9 @@ name: maintain-documentation
 description: Organize application documentation and keep PRDs, architecture, data contracts, plans, decisions and operational guidance aligned with code.
 ---
 
+Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
+
+
 # Keep documentation useful
 
 Use `documentation/` with a short index and these areas as needed:

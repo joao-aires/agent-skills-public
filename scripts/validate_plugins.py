@@ -59,6 +59,15 @@ def validate() -> list[str]:
                 description = frontmatter.get("description")
                 if not isinstance(description, str) or not description.strip() or len(description) > 1024:
                     raise ValueError(f"Invalid skill description: {skill}")
+                manual = frontmatter.get("disable-model-invocation", False)
+                if not isinstance(manual, bool):
+                    raise ValueError(f"Invalid invocation flag: {skill}")
+                client_metadata = skill.parent / "agents/openai.yaml"
+                if client_metadata.exists():
+                    settings = yaml.safe_load(client_metadata.read_text())
+                    implicit = settings.get("policy", {}).get("allow_implicit_invocation", True)
+                    if not isinstance(implicit, bool) or (manual and implicit):
+                        raise ValueError(f"Conflicting invocation metadata: {skill}")
                 skill_names.add(skill_name)
         except (ValueError, TypeError, KeyError, jsonschema.ValidationError, yaml.YAMLError) as error:
             failures.append(f"{manifest.relative_to(ROOT)}: {error}")

@@ -1,7 +1,11 @@
 ---
 name: project-bootstrap
-description: Guide the structure and first implementation of a new application, or organize an existing repository, without imposing a starter template.
+description: Guide the structure and first implementation of a new application, or organize an existing repository, Use when the user explicitly asks to start or organize a project.
+disable-model-invocation: true
 ---
+
+Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
+
 
 # Organize an application
 

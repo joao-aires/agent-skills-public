@@ -3,6 +3,9 @@ name: test-end-to-end
 description: Plan, write or debug end-to-end tests for important application journeys, including real integration, persistence and authorization behavior.
 ---
 
+Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
+
+
 # Test what users depend on
 
 - Use Playwright for important browser journeys. Start with the main useful flow, then add failure cases that matter to the product.

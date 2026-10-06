@@ -6,7 +6,7 @@ Activity-oriented bundles of skills for consistent application development, busi
 
 | Plugin | Guidance | Upstream expertise included when built |
 | --- | --- | --- |
-| `development-workflow` | Project structure, documentation, E2E, delivery | Playwright, GitHub Actions hardening, Superpowers debugging/verification, Sentry review, Trail of Bits testing/review |
+| `development-workflow` | Project structure, documentation, E2E, delivery | Matt Pocock engineering/productivity skills, Playwright, GitHub Actions hardening, Trail of Bits testing/review |
 | `python-backend` | Python, uv, FastAPI/Uvicorn, SQLAlchemy/Alembic, PostgreSQL, optional FastMCP | Trail of Bits modern-python; Anthropic MCP builder |
 | `web-frontend` | Next.js, shadcn, consistent UI/UX, accessibility and performance | Official shadcn; Vercel React practices and composition |
 | `ai-development` | Framework choice, Gemini LLM/audio experiments, evaluation and tool boundaries | Official Google ADK and LangChain/LangGraph skills |
@@ -14,6 +14,14 @@ Activity-oriented bundles of skills for consistent application development, busi
 | `visual-communication` | Existing architecture-diagram and presentation skills | Original resources preserved |
 
 For a full-stack application, use workflow + backend + frontend; add AI when needed. Load task-relevant skills rather than every skill at once. The new local skills are concise principles: the agent chooses implementation details from the product, existing code and accepted decisions. Upstream guidance contributes expertise without expanding the requested scope or overriding those decisions. Use compatible installed UI/UX skills locally.
+
+## Invocation and workflow selection
+
+Our `project-bootstrap` starts only on an explicit request. The six other local development skills are agent-invoked when relevant and can also be invoked manually. Automatic selection helps perform the requested work without expanding its scope.
+
+Matt's released engineering and productivity skills join `development-workflow`, including `implement`, `implement-spec`, their testing/review dependencies, and setup. Preserve his user/agent distinction: user-invoked orchestration is a deliberate choice; agent-invoked guidance is task-matched. See the concise [workflow map](plugins/development-workflow/WORKFLOW.md) for available activities, documentation paths and setup boundaries. No workflow is mandatory for every change.
+
+Native `disable-model-invocation` frontmatter and Codex `agents/openai.yaml` are preserved; our user-invoked project skill supplies both. These are client-specific controls, not a universal Agent Plugins invocation mechanism. Clients without support must rely on the documented explicit-request boundary. Packaging verifies metadata, not runtime discovery in every client.
 
 ## Use
 

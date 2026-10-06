@@ -3,6 +3,9 @@ name: deliver-reliable-changes
 description: Implement, review and deliver application changes with focused verification, practical CI/CD and clear operational considerations.
 ---
 
+Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
+
+
 # Deliver useful changes
 
 - Read the relevant project instructions and existing patterns. Keep the change focused on the requested outcome and preserve accepted architecture and design decisions.
