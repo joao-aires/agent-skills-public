@@ -8,7 +8,7 @@ Local guidance sets project defaults; upstream skills supply techniques. Read th
 
 | Task | Skills available |
 | --- | --- |
-| Establish or maintain project foundations | Local `maintain-project-foundations`: full setup/reorganization on request; focused upkeep when the requested change affects conventions |
+| Establish or maintain project foundations | Local `project-conventions`: full setup/reorganization on request; focused upkeep when the requested change affects conventions |
 | Apply project conventions | Local documentation, E2E and delivery skills (agent-invoked); backend/frontend/AI guidance in the corresponding bundles |
 | Clarify an idea | `grill-me`, `grill-with-docs`, `to-questionnaire` (user); `grilling`, `domain-modeling` support the requested session |
 | Investigate or explore | `research`, `prototype`, `codebase-design` (agent, when relevant) |

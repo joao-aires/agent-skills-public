@@ -44,7 +44,7 @@ Links are in the table so they remain usable in GitHub and clients that render d
 
 | Scope / phase | Relevant local guidance | Directly relevant bundled upstream expertise |
 | --- | --- | --- |
-| Outside the cycle: project foundations | [maintain-project-foundations](plugins/development-workflow/skills/maintain-project-foundations/SKILL.md); [build-delivery-pipelines](plugins/development-workflow/skills/build-delivery-pipelines/SKILL.md) | [github-actions-hardening](https://github.com/github/awesome-copilot/tree/143a3d976b3c1603cc8932984d5e1f28501cb5fc/skills/github-actions-hardening) for the delivery capability |
+| Outside the cycle: project foundations | [project-conventions](plugins/development-workflow/skills/project-conventions/SKILL.md); [build-delivery-pipelines](plugins/development-workflow/skills/build-delivery-pipelines/SKILL.md) | [github-actions-hardening](https://github.com/github/awesome-copilot/tree/143a3d976b3c1603cc8932984d5e1f28501cb5fc/skills/github-actions-hardening) for the delivery capability |
 | Before: product discovery | [business-strategy](plugins/business-strategy/skills/business-strategy/SKILL.md) | Research and clarification are available across the lifecycle, below |
 | 1. Planning | Agree scope, constraints and the next useful increment | [to-spec](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/to-spec) when a separate spec is useful |
 | 2. Requirements analysis | Clarify requirements and observable acceptance criteria | [grill-with-docs](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/grill-with-docs) for requested requirements clarification |
@@ -73,7 +73,7 @@ Backup/restore, disaster recovery, capacity and cost are covered by focused prin
 
 ## Invocation and workflow selection
 
-Our `maintain-project-foundations` begins full project setup or reorganization only on an explicit request; agents apply it to focused upkeep when the requested change affects project conventions. Other local development and operations guidance is task-matched and can also be invoked manually. `contribute-code` applies by default to feature development and Git/PR work: use a feature worktree, Conventional Commits, optional issue references and concise PR descriptions. Automatic selection helps perform the requested work without expanding its scope.
+Our `project-conventions` begins full project setup or reorganization only on an explicit request; agents apply it to focused upkeep when the requested change affects project conventions. Other local development and operations guidance is task-matched and can also be invoked manually. `contribute-code` applies by default to feature development and Git/PR work: use a feature worktree, Conventional Commits, optional issue references and concise PR descriptions. Automatic selection helps perform the requested work without expanding its scope.
 
 Matt's released engineering and productivity skills join `development-workflow`, including `implement`, `implement-spec`, their testing/review dependencies, and setup. Preserve his user/agent distinction: user-invoked orchestration is a deliberate choice; agent-invoked guidance is task-matched. See the concise [workflow map](plugins/development-workflow/WORKFLOW.md) for available activities, documentation paths and setup boundaries. No workflow is mandatory for every change. Implementation and review work directly from your request or a Markdown spec/plan; tickets and trackers are optional, including for `implement-spec`.
 
@@ -94,7 +94,7 @@ This produces `built-plugins/development-workflow`, `built-plugins/python-backen
 
 For example, once those plugins are available:
 
-> Use maintain-project-foundations to start a small Next.js/shadcn and FastAPI/PostgreSQL application for saving named searches. Apply the installed workflow, backend and frontend guidance. Build one useful vertical slice, keep documentation current, and test saving and reopening a search. Use this conversation as the scope; no tickets or tracker.
+> Use project-conventions to start a small Next.js/shadcn and FastAPI/PostgreSQL application for saving named searches. Apply the installed workflow, backend and frontend guidance. Build one useful vertical slice, keep documentation current, and test saving and reopening a search. Use this conversation as the scope; no tickets or tracker.
 
 For an existing application:
 
@@ -132,7 +132,7 @@ After updating your checkout to the plugin version, choose the route matching yo
 - **Copied or linked manually:** update the source paths above and replace the complete skill directory, including resources. Preserve your custom edits and check for duplicate installations. The helper does not update copied directories or links from another checkout.
 - **Moving to plugins:** install the relevant individual plugin directories through your client's supported route. Use the [build instructions](#quick-start) for bundles containing upstream skills. Retire duplicate old installations after verifying the new ones; packaging alone does not install plugins or configure MCPs.
 
-If you tried an earlier version of this PR, `project-bootstrap` is now `maintain-project-foundations`. Update saved prompt references and replace the old installed entry; a legacy helper link to that renamed skill needs manual cleanup after checking its target. No application repository migration or new tracker is required.
+If you tried an earlier version of this PR, `project-bootstrap` and its interim name `maintain-project-foundations` are now `project-conventions`. Update saved prompt references and replace the old installed entry; a legacy helper link to that renamed skill needs manual cleanup after checking its target. No application repository migration or new tracker is required.
 
 ## Maintenance
 

@@ -62,7 +62,7 @@ flowchart TD
     M --> V
 ```
 
-**User-invoked** skills begin distinct activities on an explicit request. Examples include a full setup/reorganization with `maintain-project-foundations`, `grill-me`, `to-spec`, `implement`, `implement-spec` and `retro`. A plain-language request can express that intent; exact command syntax and discovery depend on the client.
+**User-invoked** skills begin distinct activities on an explicit request. Examples include a full setup/reorganization with `project-conventions`, `grill-me`, `to-spec`, `implement`, `implement-spec` and `retro`. A plain-language request can express that intent; exact command syntax and discovery depend on the client.
 
 **Agent-invoked** skills support work already requested. Examples include our backend/frontend/AI guidance, documentation, E2E, delivery and `contribute-code` skills, plus upstream debugging, TDD and review guidance. These can also be requested manually.
 
@@ -74,7 +74,7 @@ The following prompts assume the named skills are installed. Use the client's su
 
 ### Start a project
 
-> Use maintain-project-foundations to organize a small appointment application with Next.js/shadcn and FastAPI/PostgreSQL. Start with creating and viewing an appointment. Apply the backend and frontend guidance, keep code under applications/ and knowledge under documentation/, and add concise AGENTS.md instructions. Build and test the first useful slice before adding more architecture.
+> Use project-conventions to organize a small appointment application with Next.js/shadcn and FastAPI/PostgreSQL. Start with creating and viewing an appointment. Apply the backend and frontend guidance, keep code under applications/ and knowledge under documentation/, and add concise AGENTS.md instructions. Build and test the first useful slice before adding more architecture.
 
 Expected approach: select the relevant skills, choose a proportionate structure, implement a useful flow and record actual decisions. No template generator or mandatory planning ceremony is involved.
 
@@ -168,6 +168,6 @@ Detailed observability/incident/SLO and load/failure-testing workflows will be i
 
 ## Maintaining project foundations
 
-> Add a background worker to this existing application. Use maintain-project-foundations for the affected startup/configuration and scoped instructions; update the worker's checks and delivery commands using the specialist guidance. Preserve the existing layout and stack. No repository-wide reorganization or new planning ceremony.
+> Add a background worker to this existing application. Use project-conventions for the affected startup/configuration and scoped instructions; update the worker's checks and delivery commands using the specialist guidance. Preserve the existing layout and stack. No repository-wide reorganization or new planning ceremony.
 
 For users of the old `skills/` layout, see the [README migration note](../README.md#migrating-from-the-previous-skills-layout).

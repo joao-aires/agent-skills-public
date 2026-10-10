@@ -7,8 +7,8 @@
 <text x="40" y="48" font-size="26" font-weight="700" fill="#15233b">From product evidence to software — and back</text>
 <text x="40" y="78" font-size="15" fill="#526580">Representative skill entry points · Choose only what the task needs</text>
 <rect x="340" y="110" width="740" height="175" rx="18" fill="#e8eef9" stroke="#9aaecb"/>
-<text x="710" y="145" text-anchor="middle" font-size="20" font-weight="700" fill="#15233b">Project foundations — establish and maintain</text>
-<text x="710" y="175" text-anchor="middle" font-size="15" fill="#354966">maintain-project-foundations</text>
+<text x="710" y="145" text-anchor="middle" font-size="20" font-weight="700" fill="#15233b">Project conventions — establish and maintain</text>
+<text x="710" y="175" text-anchor="middle" font-size="15" fill="#354966">project-conventions</text>
 <text x="710" y="205" text-anchor="middle" font-size="15" fill="#354966">build-delivery-pipelines · github-actions-hardening</text>
 <text x="710" y="237" text-anchor="middle" font-size="14" fill="#526580">Structure · stack constraints · AGENTS.md · local setup · CI/CD</text>
 <text x="710" y="263" text-anchor="middle" font-size="13" fill="#526580">Maintain when relevant; full setup or reorganization on request</text>

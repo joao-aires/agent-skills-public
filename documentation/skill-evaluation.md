@@ -58,7 +58,7 @@ These checks establish packaging and useful interpretation of supplied cases. Th
 
 ## Project foundations and migration refinement
 
-`project-bootstrap` was renamed to `maintain-project-foundations` and broadened to focused upkeep of repository conventions. Full setup/reorganization remains explicitly requested; routine feature work applies existing conventions and updates only affected foundations. Usage examples and workflow selection reflect that boundary.
+`project-bootstrap` was renamed to `project-conventions` and broadened to focused upkeep of repository conventions. Full setup/reorganization remains explicitly requested; routine feature work applies existing conventions and updates only affected foundations. Usage examples and workflow selection reflect that boundary.
 
 The diagram now places foundations outside the repeating cycle and research/explicit clarification in a full-width band across discovery, development and feedback. The README migration note distinguishes same-checkout managed links, manually copied/linked skills and plugin installation, including the four unchanged original skill paths and the renamed early-PR skill.
 
