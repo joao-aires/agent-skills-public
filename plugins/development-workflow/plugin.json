@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "development-workflow",
+  "version": "0.9.1",
+  "description": "Project foundations and conventions, synchronized documentation, E2E, Git contributions, CI/CD and security/privacy by design.",
+  "author": {
+    "name": "João Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "MIT"
+}

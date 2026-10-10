@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ai-development",
+  "version": "0.5.0",
+  "description": "Google ADK or LangChain/LangGraph, Gemini testing, audio transcription, and agent evaluation.",
+  "author": {
+    "name": "João Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "MIT"
+}

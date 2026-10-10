@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "web-frontend",
+  "version": "0.5.0",
+  "description": "Next.js, TypeScript, shadcn/ui, Vercel practices, and consistent UI/UX governance.",
+  "author": {
+    "name": "João Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "MIT"
+}

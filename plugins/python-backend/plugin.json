@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "python-backend",
+  "version": "0.6.0",
+  "description": "Python, FastAPI, Uvicorn, SQLAlchemy, Alembic, PostgreSQL, and optional FastMCP conventions.",
+  "author": {
+    "name": "João Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "MIT"
+}

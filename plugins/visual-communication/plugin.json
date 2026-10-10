@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "visual-communication",
+  "version": "0.1.0",
+  "description": "HTML architecture diagrams and presentations.",
+  "author": {
+    "name": "João Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "MIT"
+}
