@@ -55,3 +55,11 @@ Two fresh task walkthroughs received only the relevant skills and scenario facts
 All seven plugin bundles built successfully with 44 pinned upstream skills, including complete AKS references and the Trail of Bits dependency-auditor scripts/lockfile. Repository metadata/containment checks and all three helper regression tests passed. Local Markdown links and whitespace checks passed; the SVG was rendered and visually inspected for legibility and lifecycle direction.
 
 These checks establish packaging and useful interpretation of supplied cases. They do not demonstrate a deployed application, restore rehearsal, measured cloud savings, live analytics integration or complete security/privacy assessment. Observability, incident/SLO/monitoring and load/failure-testing workflows await the user's operating instructions.
+
+## Project foundations and migration refinement
+
+`project-bootstrap` was renamed to `maintain-project-foundations` and broadened to focused upkeep of repository conventions. Full setup/reorganization remains explicitly requested; routine feature work applies existing conventions and updates only affected foundations. Usage examples and workflow selection reflect that boundary.
+
+The diagram now places foundations outside the repeating cycle and research/explicit clarification in a full-width band across discovery, development and feedback. The README migration note distinguishes same-checkout managed links, manually copied/linked skills and plugin installation, including the four unchanged original skill paths and the renamed early-PR skill.
+
+Creator metadata validation, repository checks and the three existing helper tests passed. The sync regression verifies repair of a broken old-layout link and preservation of an unrelated link in an isolated home directory; it does not modify the user's installation. Local links were checked and the revised SVG was rendered and inspected. No new application-runtime evidence is claimed for this refinement.

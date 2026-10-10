@@ -8,7 +8,7 @@ Local guidance sets project defaults; upstream skills supply techniques. Read th
 
 | Task | Skills available |
 | --- | --- |
-| Organize a project | Local `project-bootstrap` (user-invoked) |
+| Establish or maintain project foundations | Local `maintain-project-foundations`: full setup/reorganization on request; focused upkeep when the requested change affects conventions |
 | Apply project conventions | Local documentation, E2E and delivery skills (agent-invoked); backend/frontend/AI guidance in the corresponding bundles |
 | Clarify an idea | `grill-me`, `grill-with-docs`, `to-questionnaire` (user); `grilling`, `domain-modeling` support the requested session |
 | Investigate or explore | `research`, `prototype`, `codebase-design` (agent, when relevant) |
@@ -23,6 +23,8 @@ Local guidance sets project defaults; upstream skills supply techniques. Read th
 | Improve the environment | `improve-codebase-architecture`, `retro` (user); `writing-for-agents` (agent) |
 | Navigate, hand off or learn | `ask-matt`, `handoff`, `wait-what`, `teach` (user) |
 | Configure tools or tracker | `setup-matt-pocock-skills`, `triage` (user); `wizard` helps with requested human-only setup steps |
+
+Research and clarification can support any phase or surrounding product activity. `research` is task-matched; `grill-me` remains an explicitly requested interaction, not an automatic questioning step. Project foundations and delivery pipelines are established once and maintained when relevant, while the SDLC repeatedly uses those capabilities.
 
 ## Project fit
 

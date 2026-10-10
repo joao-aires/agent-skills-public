@@ -38,23 +38,26 @@ Local development skills include decision rules, examples and proportionate comp
 
 The lifecycle below uses the [common seven-phase breakdown](https://www.ibm.com/think/topics/sdlc): **planning, requirements analysis, design, implementation, testing, deployment and maintenance**. Phase names and grouping vary between models; this separates planning from requirements analysis. Product discovery establishes what is worth building; feedback evaluates the live product and informs the next cycle. Both also happen during development. The diagram separates their scope rather than imposing handoff gates or a waterfall process.
 
-![Product discovery, seven-phase SDLC cycle and product feedback, with representative skill names](documentation/images/sdlc-cycle.svg)
+![Project foundations, discovery, seven-phase SDLC cycle, product feedback and skills across the lifecycle](documentation/images/sdlc-cycle.svg)
 
 Links are in the table so they remain usable in GitHub and clients that render diagrams as images. The names in the diagram are representative entry points, not a checklist. Supporting helpers, Git contributions, documentation and security are not invented SDLC phases.
 
 | Scope / phase | Relevant local guidance | Directly relevant bundled upstream expertise |
 | --- | --- | --- |
-| Before: product discovery | [business-strategy](plugins/business-strategy/skills/business-strategy/SKILL.md) | [research](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/research); [grill-me](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grill-me) for requested clarification |
-| 1. Planning | [project-bootstrap](plugins/development-workflow/skills/project-bootstrap/SKILL.md) | [to-spec](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/to-spec) when a separate spec is useful |
-| 2. Requirements analysis | [project-bootstrap](plugins/development-workflow/skills/project-bootstrap/SKILL.md) — observable acceptance criteria | [grill-with-docs](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/grill-with-docs) for requested requirements clarification |
+| Outside the cycle: project foundations | [maintain-project-foundations](plugins/development-workflow/skills/maintain-project-foundations/SKILL.md); [build-delivery-pipelines](plugins/development-workflow/skills/build-delivery-pipelines/SKILL.md) | [github-actions-hardening](https://github.com/github/awesome-copilot/tree/143a3d976b3c1603cc8932984d5e1f28501cb5fc/skills/github-actions-hardening) for the delivery capability |
+| Before: product discovery | [business-strategy](plugins/business-strategy/skills/business-strategy/SKILL.md) | Research and clarification are available across the lifecycle, below |
+| 1. Planning | Agree scope, constraints and the next useful increment | [to-spec](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/to-spec) when a separate spec is useful |
+| 2. Requirements analysis | Clarify requirements and observable acceptance criteria | [grill-with-docs](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/grill-with-docs) for requested requirements clarification |
 | 3. Design | [build-python-backend](plugins/python-backend/skills/build-python-backend/SKILL.md); [build-consistent-frontend](plugins/web-frontend/skills/build-consistent-frontend/SKILL.md); [design-secure-features](plugins/development-workflow/skills/design-secure-features/SKILL.md) | [domain-modeling](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/domain-modeling); [vercel-composition-patterns](https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/composition-patterns) for React architecture |
 | 4. Implementation | [build-python-backend](plugins/python-backend/skills/build-python-backend/SKILL.md); [build-consistent-frontend](plugins/web-frontend/skills/build-consistent-frontend/SKILL.md); [build-evaluated-ai](plugins/ai-development/skills/build-evaluated-ai/SKILL.md) when AI is needed | [implement](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/implement) / [implement-spec](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/implement-spec) when explicitly choosing those workflows; [modern-python](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/modern-python/skills/modern-python); [shadcn](https://github.com/shadcn-ui/ui/tree/6b600cf1ff42f8a746747ea587e52af3ee224643/skills/shadcn) |
 | 5. Testing | [test-end-to-end](plugins/development-workflow/skills/test-end-to-end/SKILL.md); [deliver-reliable-changes](plugins/development-workflow/skills/deliver-reliable-changes/SKILL.md) | [tdd](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/tdd); [playwright-cli](https://github.com/microsoft/playwright-cli/tree/b85c7a736bb473bf55b584e54a09ffa698d6d871/skills/playwright-cli) for browser journeys |
-| 6. Deployment | [build-delivery-pipelines](plugins/development-workflow/skills/build-delivery-pipelines/SKILL.md) — promotion, verification, rollback / roll-forward | [github-actions-hardening](https://github.com/github/awesome-copilot/tree/143a3d976b3c1603cc8932984d5e1f28501cb5fc/skills/github-actions-hardening) for GitHub Actions security |
+| 6. Deployment | [build-delivery-pipelines](plugins/development-workflow/skills/build-delivery-pipelines/SKILL.md) — promotion, verification, rollback / roll-forward | [github-actions-hardening](https://github.com/github/awesome-copilot/tree/143a3d976b3c1603cc8932984d5e1f28501cb5fc/skills/github-actions-hardening) supports the maintained delivery capability |
 | 7. Maintenance | [protect-and-restore-data](plugins/application-operations/skills/protect-and-restore-data/SKILL.md); [plan-application-capacity](plugins/application-operations/skills/plan-application-capacity/SKILL.md); [optimize-application-cost](plugins/application-operations/skills/optimize-application-cost/SKILL.md) | [diagnosing-bugs](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/diagnosing-bugs) for diagnosis; [aks-cost-optimization](https://github.com/Azure/AKS-Skills/tree/20bf35201a79b324d2ca3e00e5c82020ff362024/skills/aks-cost-optimization) **only for AKS** |
 | Beyond delivery: product feedback | [learn-from-product-feedback](plugins/business-strategy/skills/learn-from-product-feedback/SKILL.md) | No analytics vendor required; optional Amplitude reference in the skill |
 
-**Across the cycle:** [maintain-documentation](plugins/development-workflow/skills/maintain-documentation/SKILL.md) keeps project knowledge aligned; [contribute-code](plugins/development-workflow/skills/contribute-code/SKILL.md) supplies the default worktree/commit/PR flow; [design-secure-features](plugins/development-workflow/skills/design-secure-features/SKILL.md) revisits data and authority risks. Security review and dependency auditing use relevant Trail of Bits expertise rather than masquerading as full security/privacy coverage. Capacity, cost and recovery constraints inform design as well as maintenance. CI/CD supports implementation and testing as well as deployment.
+Project foundations sit outside the repeating cycle: establish structure, stack constraints, instructions, local setup and delivery capabilities for a new project, then maintain the affected parts as it evolves. The entry arrow into Planning is not a required setup gate for every change. CI/CD is a maintained capability used during implementation, testing and deployment.
+
+**Across discovery, development and feedback:** [research](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/research) and [grill-me](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grill-me) can support any relevant phase. `grill-me` still starts only on an explicit request; placing it here does not authorize automatic interrogation. [maintain-documentation](plugins/development-workflow/skills/maintain-documentation/SKILL.md) keeps project knowledge aligned; [contribute-code](plugins/development-workflow/skills/contribute-code/SKILL.md) supplies the default worktree/commit/PR flow; [design-secure-features](plugins/development-workflow/skills/design-secure-features/SKILL.md) revisits data and authority risks. Security review and dependency auditing use relevant Trail of Bits expertise rather than masquerading as full security/privacy coverage. Capacity, cost and recovery constraints inform design as well as maintenance. CI/CD supports implementation and testing as well as deployment.
 
 The mapping deliberately omits general helpers and stack tools whose relevance depends on the specific task. See the [upstream catalogue](documentation/upstream-sources.md) and [workflow selection](plugins/development-workflow/WORKFLOW.md) for the wider inventory. Tickets remain optional.
 
@@ -70,7 +73,7 @@ Backup/restore, disaster recovery, capacity and cost are covered by focused prin
 
 ## Invocation and workflow selection
 
-Our `project-bootstrap` starts only on an explicit request. The other local development and operations skills are agent-invoked when relevant and can also be invoked manually. `contribute-code` applies by default to feature development and Git/PR work: use a feature worktree, Conventional Commits, optional issue references and concise PR descriptions. Automatic selection helps perform the requested work without expanding its scope.
+Our `maintain-project-foundations` begins full project setup or reorganization only on an explicit request; agents apply it to focused upkeep when the requested change affects project conventions. Other local development and operations guidance is task-matched and can also be invoked manually. `contribute-code` applies by default to feature development and Git/PR work: use a feature worktree, Conventional Commits, optional issue references and concise PR descriptions. Automatic selection helps perform the requested work without expanding its scope.
 
 Matt's released engineering and productivity skills join `development-workflow`, including `implement`, `implement-spec`, their testing/review dependencies, and setup. Preserve his user/agent distinction: user-invoked orchestration is a deliberate choice; agent-invoked guidance is task-matched. See the concise [workflow map](plugins/development-workflow/WORKFLOW.md) for available activities, documentation paths and setup boundaries. No workflow is mandatory for every change. Implementation and review work directly from your request or a Markdown spec/plan; tickets and trackers are optional, including for `implement-spec`.
 
@@ -91,7 +94,7 @@ This produces `built-plugins/development-workflow`, `built-plugins/python-backen
 
 For example, once those plugins are available:
 
-> Use project-bootstrap to start a small Next.js/shadcn and FastAPI/PostgreSQL application for saving named searches. Apply the installed workflow, backend and frontend guidance. Build one useful vertical slice, keep documentation current, and test saving and reopening a search. Use this conversation as the scope; no tickets or tracker.
+> Use maintain-project-foundations to start a small Next.js/shadcn and FastAPI/PostgreSQL application for saving named searches. Apply the installed workflow, backend and frontend guidance. Build one useful vertical slice, keep documentation current, and test saving and reopening a search. Use this conversation as the scope; no tickets or tracker.
 
 For an existing application:
 
@@ -112,9 +115,26 @@ The helper clones the sources listed in [upstream.lock.json](upstream.lock.json)
 
 MCPs are optional: shadcn for component/registry work, Playwright for browser exploration, and a project's FastMCP server when application tools are needed. Configure them for the actual application and client. No servers or hooks are enabled automatically. Hooks are client-specific extensions; add one only for a concrete recurring need. Skills alone are valid plugins.
 
-## Compatibility and maintenance
+## Migrating from the previous skills layout
 
-The original skills moved from `skills/` into their activity bundles without changing their content. Existing skills-only users can still run `./scripts/sync-skills.sh sync` (`status` and `remove` are also supported). This links local skills only; it does not acquire upstream content or configure MCPs.
+The original four skills retain their names, content and resources. Their locations changed:
+
+| Previous directory | New directory |
+| --- | --- |
+| `skills/business-strategy/` | [plugins/business-strategy/skills/business-strategy/](plugins/business-strategy/skills/business-strategy/) |
+| `skills/business-opportunity-analysis/` | [plugins/business-strategy/skills/business-opportunity-analysis/](plugins/business-strategy/skills/business-opportunity-analysis/) |
+| `skills/architecture-diagraming/` | [plugins/visual-communication/skills/architecture-diagraming/](plugins/visual-communication/skills/architecture-diagraming/) |
+| `skills/presentation-building/` | [plugins/visual-communication/skills/presentation-building/](plugins/visual-communication/skills/presentation-building/) |
+
+After updating your checkout to the plugin version, choose the route matching your installation:
+
+- **Linked with our helper:** run `./scripts/sync-skills.sh status`, then `./scripts/sync-skills.sh sync`. This repairs links to the old `skills/` paths in `~/.agents/skills` from this same checkout, including broken links. It preserves unrelated files/links and adds the available local skills. To select one skill, use `./scripts/sync-skills.sh sync business-strategy`. Keep the checkout in place; this route links local skills only.
+- **Copied or linked manually:** update the source paths above and replace the complete skill directory, including resources. Preserve your custom edits and check for duplicate installations. The helper does not update copied directories or links from another checkout.
+- **Moving to plugins:** install the relevant individual plugin directories through your client's supported route. Use the [build instructions](#quick-start) for bundles containing upstream skills. Retire duplicate old installations after verifying the new ones; packaging alone does not install plugins or configure MCPs.
+
+If you tried an earlier version of this PR, `project-bootstrap` is now `maintain-project-foundations`. Update saved prompt references and replace the old installed entry; a legacy helper link to that renamed skill needs manual cleanup after checking its target. No application repository migration or new tracker is required.
+
+## Maintenance
 
 ```bash
 python scripts/validate_plugins.py

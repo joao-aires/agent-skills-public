@@ -1,16 +1,16 @@
 ---
-name: project-bootstrap
-description: Organize a new or existing application around a useful first slice, scoped AGENTS.md instructions, documentation and verification. Use only when the user explicitly asks to start or organize a project.
+name: maintain-project-foundations
+description: Establish or maintain an application repository's structure, stack constraints, scoped AGENTS.md, local setup and delivery conventions. Use when explicitly asked to start, organize or review a project, or when the requested change affects those foundations; keep ordinary feature work within existing conventions.
 ---
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
 
 
-# Organize an application
+# Maintain project foundations
 
-## Choose the first outcome
+## Match the requested change
 
-Read the request, existing code and accepted decisions before choosing structure. State the smallest useful user journey and its observable acceptance criteria; carry forward answers already agreed. Resolve ambiguity that changes the product or data boundary, and make reversible implementation choices without another planning ceremony. Use the conversation as scope unless a separate spec is useful; require no tickets or tracker.
+Read the request, existing code and accepted decisions before choosing structure. For a new project, establish a useful first slice. For an existing application, identify which foundation the requested change actually affects and update only that part; do not repeat setup or start a repository-wide reorganization during ordinary feature work. State the smallest useful user journey and its observable acceptance criteria; carry forward answers already agreed. Resolve ambiguity that changes the product or data boundary, and make reversible implementation choices without another planning ceremony. Use the conversation as scope unless a separate spec is useful; require no tickets or tracker.
 
 Prefer Python/FastAPI/PostgreSQL and Next.js/shadcn for new full-stack projects. Add AI or MCP for a concrete capability. Preserve an existing stack and layout unless changing them solves an agreed problem.
 
@@ -28,7 +28,13 @@ Use the relevant backend/frontend/AI skills and installed upstream expertise; do
 
 Use `design-secure-features` for changed data flows and authority boundaries. Identify critical latency/concurrency constraints, durable state and meaningful recovery needs early; choose simple hosting that meets them. Bring capacity, cost and data-recovery guidance into design when relevant rather than treating them as production afterthoughts. Use `build-delivery-pipelines` when creating CI/CD. Do not introduce platforms or complete operations frameworks merely because their skills are available.
 
-## Build and prove a vertical slice
+## Keep foundations aligned as the project evolves
+
+Treat repository structure, dependency/runtime choices, configuration contracts, scoped instructions and delivery commands as maintained project decisions. Update affected commands, lockfiles and authoritative documentation alongside a relevant change. Resolve conflicting instructions at their proper scope; avoid copying the same rules into every component. Use `maintain-documentation` for knowledge upkeep and `build-delivery-pipelines` plus installed GitHub Actions hardening for delivery mechanics; this skill coordinates the project conventions rather than duplicating specialist guidance.
+
+Start a full setup or structural review only when requested. Apply existing conventions during feature work, and suggest a broader change when a concrete problem warrants it rather than silently migrating the application.
+
+## Prove the affected capability
 
 For a saved-search application, start with saving a named filter and reopening it through the UI, API and database. Include ownership enforcement if users have private data. Defer sharing, recommendation agents and a generic workflow engine until requested. Prefer a real useful flow over disconnected mock screens and endpoints.
 
