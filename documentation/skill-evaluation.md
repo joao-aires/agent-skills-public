@@ -2,6 +2,28 @@
 
 The original seven local development skills were revised using the skill-creator process: concrete tasks, clear trigger descriptions, context-dependent decision rules, short examples and observable completion criteria. Each remains a single Markdown guide of roughly 430–550 words. A subsequent eighth skill, `contribute-code`, adds feature worktrees, Conventional Commits and PR contribution guidance. No application template, generation framework or mandatory tracker was added.
 
+## Adversarial review follow-up
+
+On 2026-10-10, the review's five findings were addressed: standard string metadata for upstream PR credits, inline differential adversarial review, persistence-neutral E2E criteria for existing applications, the missing operations license notice, and readable CI with full-SHA action pins, weekly Dependabot updates and a job timeout. The contribution skill now explicitly confines remote publication to the requested or established scope.
+
+The seven helper regression tests pass, including rejection of malformed optional frontmatter in source/shared validation and final build validation, attribution-preserving adaptation, and removal of unsupported agent dispatch. All seven bundles built with the same 44 upstream pins; all 62 local/upstream skills passed the shared metadata checks. Every package includes its local license notice.
+
+An actual installation/discovery smoke test used GitHub Copilot CLI 1.0.95 in a separate `COPILOT_HOME`, without changing the user's client settings or starting an authenticated model session. Each built directory was installed using `copilot plugin install <absolute-directory>`. `copilot plugin list --json` reported all seven plugins enabled; `copilot skill list --json` exposed all expected plugin-sourced skills:
+
+| Plugin | Discovered skills |
+| --- | --- |
+| development-workflow | 39 |
+| python-backend | 3 |
+| web-frontend | 4 |
+| ai-development | 7 |
+| application-operations | 4 |
+| business-strategy | 3 |
+| visual-communication | 2 |
+
+Every supplied package file was compared with its installed copy and preserved byte-for-byte, including workflow framing, upstream references, scripts, invocation metadata and license/source notices. The installer warns that direct local/repository installs are deprecated. Reinstalling the workflow bundle from a new build path in the first test configuration dropped the frontend entry from its inventory. A fresh configuration reproduced successful installation/discovery of all seven final bundles. Session-local loading with seven repeated `--plugin-dir` arguments also exposed all 62 skills without persistent installation. Usage guidance records the reinstallation limitation, recommends session-local loading for rebuilt bundles and provides the documented VS Code local-registration route.
+
+This establishes real CLI installation, inventory discovery and supporting-file preservation. It does not establish model selection, enforcement of invocation boundaries, live tool execution or application quality. The VS Code example follows its official documentation and was not executed in this environment.
+
 ## Independent task walkthroughs
 
 Four fresh agents received the revised skills and task-local requests without the preceding design discussion or expected answers. Requests were plan-only and prohibited file changes, service execution, publishing and implementation-agent launches.

@@ -10,6 +10,11 @@ import subprocess
 import tarfile
 import tempfile
 
+try:
+    from skill_metadata import validate_skill_metadata
+except ModuleNotFoundError:
+    from scripts.skill_metadata import validate_skill_metadata
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -60,10 +65,32 @@ def adapt_skill(target, source):
     adaptations = source.get('adaptations', [])
     if not adaptations:
         return
-    if set(adaptations) - {'workflow-framing', 'documentation-paths'}:
+    if set(adaptations) - {'workflow-framing', 'documentation-paths', 'string-metadata', 'inline-adversarial-review'}:
         raise ValueError('Unknown upstream adaptation')
     for document in target.rglob('*.md'):
         text = document.read_text()
+        if document.name == 'SKILL.md' and document.parent == target:
+            if 'string-metadata' in adaptations:
+                import yaml
+                parts = text.split('---', 2)
+                metadata = yaml.safe_load(parts[1])
+                metadata['metadata'] = {
+                    key: value if isinstance(value, str) else json.dumps(value, ensure_ascii=False)
+                    for key, value in metadata.get('metadata', {}).items()
+                }
+                text = '---\n' + yaml.safe_dump(metadata, sort_keys=False, allow_unicode=True) + '---' + parts[2]
+            if 'inline-adversarial-review' in adaptations:
+                import re
+                text = text.replace(
+                    '│  └─ Or delegate to: differential-review:adversarial-modeler agent\n'
+                    '│     (Autonomous attacker modeling with concrete exploit scenarios)\n', '')
+                text, count = re.subn(
+                    r'## Agents\n.*?(?=\n---\n)',
+                    '## Adversarial analysis\n\n'
+                    'Use [the adversarial methodology](adversarial.md) directly for high-risk changes. '
+                    'This portable bundle does not register a named subagent.\n', text, flags=re.DOTALL)
+                if count != 1 or 'adversarial-modeler' in text:
+                    raise ValueError('Unexpected differential-review agent instructions')
         if 'documentation-paths' in adaptations:
             text = text.replace('docs/agents/', 'documentation/engineering/').replace('docs/adr/', 'documentation/decisions/adr/')
         if document.name == 'SKILL.md' and document.parent == target and 'workflow-framing' in adaptations:
@@ -125,14 +152,11 @@ def build(root, selected, destination, cache):
                 manifest['license'] = 'LicenseRef-Mixed'
                 (package / 'plugin.json').write_text(json.dumps(manifest, indent=2) + '\n')
         import jsonschema
-        import yaml
         for package in output.iterdir():
             jsonschema.validate(json.loads((package / "plugin.json").read_text()),
                                 json.loads((root / "schemas/plugin.schema.json").read_text()))
             for skill in package.glob("skills/*/SKILL.md"):
-                metadata = yaml.safe_load(skill.read_text().split("---", 2)[1])
-                if metadata.get("name") != skill.parent.name or not isinstance(metadata.get("description"), str) or len(metadata["description"]) > 1024:
-                    raise ValueError("Invalid built skill metadata: " + str(skill))
+                validate_skill_metadata(skill)
         shutil.copytree(output, destination)
     return acquired
 

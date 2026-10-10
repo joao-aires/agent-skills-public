@@ -47,6 +47,33 @@ The builder needs Git, the Python packages in `requirements-validation.txt`, and
 
 The legacy `./scripts/sync-skills.sh sync` route links local skills only. It does not install complete plugins or fetch upstream content; preserve the linked repository and its supporting files. Use `status` to inspect links and `remove` to remove links managed by the helper.
 
+### Client setup and discovery checks
+
+**VS Code:** use a version supporting Agent Plugins, with Copilot available. Register the individual built directories through `chat.pluginLocations` in user settings, as shown in the [README](../README.md#quick-start). Open the target application workspace and check the Configure Skills menu for `project-conventions`, `test-end-to-end` and the selected backend/frontend skills. For direct upstream use, verify `pr` and `differential-review` are also available. The directories must remain accessible; registering the build's parent directory is not the same as registering each plugin. See [official local-plugin setup](https://code.visualstudio.com/docs/agent-customization/agent-plugins#use-local-plugins).
+
+**Copilot CLI:** version 1.0.95 was exercised with the commands below, using a separate configuration directory for the smoke test. From the repository root, after the default build:
+
+```bash
+copilot plugin install ./built-plugins/development-workflow
+copilot plugin install ./built-plugins/python-backend
+copilot plugin install ./built-plugins/web-frontend
+copilot plugin list --json
+copilot skill list --json
+```
+
+Check that the three plugins are enabled and that their plugin-sourced skills are listed. Copilot CLI 1.0.95 warns that direct installs, including local paths, are deprecated; our reinstallation check also lost an unrelated plugin from the inventory. Prefer session-local loading for rebuilt bundles. From the application workspace:
+
+```bash
+copilot \
+  --plugin-dir /absolute/path/built-plugins/development-workflow \
+  --plugin-dir /absolute/path/built-plugins/python-backend \
+  --plugin-dir /absolute/path/built-plugins/web-frontend
+```
+
+Append `skill list --json` to inspect discovery without starting a model session. Repeated `--plugin-dir` loading was also exercised successfully with all seven bundles. Consult [the current CLI reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) before installing with a newer release; no marketplace framework is required by this repository.
+
+Discovery does not prove model behavior. In an authenticated session, request a plan-only change to an existing application using a different database and no tracker: the agent should preserve that stack, propose relevant evidence and avoid publishing. Explicitly invoke `differential-review` on a small supplied diff and confirm it reads the included inline methodology instead of dispatching an unregistered agent. Check that direct upstream invocation reads `WORKFLOW.md`. These behavioral checks remain separate from the executed installation/resource smoke test recorded in [skill evaluation](skill-evaluation.md#adversarial-review-follow-up).
+
 ## What triggers a skill?
 
 ```mermaid

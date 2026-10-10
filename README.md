@@ -90,7 +90,22 @@ python -m pip install -r requirements-validation.txt
 python scripts/build_plugins.py --destination ./built-plugins
 ```
 
-This produces `built-plugins/development-workflow`, `built-plugins/python-backend` and `built-plugins/web-frontend`. Install those individual directories through your client's supported plugin route, then open the application repository in that client. Packaging is separate from client installation; no universal client install command is supplied here. The activation command above is for a POSIX shell.
+This produces `built-plugins/development-workflow`, `built-plugins/python-backend` and `built-plugins/web-frontend`. Install those individual directories through your client's supported plugin route, then open the application repository in that client. Packaging is separate from client installation. The activation command above is for a POSIX shell.
+
+For example, in a VS Code version supporting Agent Plugins, merge these entries into your user `settings.json`, replacing `/absolute/path` with the build location:
+
+```json
+{
+  "chat.plugins.enabled": true,
+  "chat.pluginLocations": {
+    "/absolute/path/built-plugins/development-workflow": true,
+    "/absolute/path/built-plugins/python-backend": true,
+    "/absolute/path/built-plugins/web-frontend": true
+  }
+}
+```
+
+Open the application workspace and check that its Chat customization menu exposes the intended skills. Keep each complete plugin directory in place. See [client setup and discovery checks](documentation/usage.md#client-setup-and-discovery-checks) for official references and the tested Copilot CLI route.
 
 For example, once those plugins are available:
 

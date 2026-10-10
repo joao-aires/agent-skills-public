@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "application-operations",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Guidance for application backup and disaster recovery, capacity and cost across Kubernetes and managed services, with optional AKS expertise.",
   "author": {
     "name": "João Aires"

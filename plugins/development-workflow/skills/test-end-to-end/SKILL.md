@@ -12,7 +12,7 @@ Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation bo
 
 Read acceptance criteria and existing tests. Select the main affected journey and meaningful failure cases; allocate focused logic and combinatorial edge cases to unit/integration tests. Use Playwright for browser behavior. Select available `playwright-cli` expertise for exploration and debugging; keep repeatable tests in the application. An MCP server is optional.
 
-For a full-stack claim, exercise the real frontend, API and migrated PostgreSQL database. Keep external providers replaceable with controlled fixtures in routine CI; report that boundary. A mock API or browser-only demo proves a narrower claim and must be named as such.
+For a full-stack claim, exercise the real frontend, API and the application's actual persistence layer, with migrations applied where applicable. Use PostgreSQL when that is the selected stack; preserve an existing database choice. Keep external providers replaceable with controlled fixtures in routine CI; report that boundary. A mock API or browser-only demo proves a narrower claim and must be named as such.
 
 ## Make outcomes observable
 

@@ -36,7 +36,7 @@ Review the diff, run relevant checks and stage only intended paths. Make coheren
 
 ## Publish to the intended remote
 
-Push the feature branch to the correct remote, then create or update its PR against the inspected target/base. Prefer Git and `gh` CLI; use GitHub MCP tools when CLI authentication or capabilities are unavailable. Preserve content, modes and base when publishing through APIs; verify the resulting commit and branch. Use expected-head checks where supported and never blindly force-push shared history.
+When publication is within the user's requested scope or established contribution preferences, push the feature branch to the correct remote, then create or update its PR against the inspected target/base. Do not infer publication authorization solely from this skill being selected. When publication is outside scope, finish the authorized local work and report its state without pushing or opening a PR. Prefer Git and `gh` CLI; use GitHub MCP tools when CLI authentication or capabilities are unavailable. Preserve content, modes and base when publishing through APIs; verify the resulting commit and branch. Use expected-head checks where supported and never blindly force-push shared history.
 
 With verified example targets and a prepared Markdown body file:
 

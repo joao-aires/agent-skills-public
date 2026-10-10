@@ -71,7 +71,10 @@
       "path": "plugins/differential-review/skills/differential-review",
       "tree": "09ff02c96f84ad4b98184bcd5efae5b218caa910",
       "license": "CC-BY-SA-4.0",
-      "license_path": "LICENSE"
+      "license_path": "LICENSE",
+      "adaptations": [
+        "inline-adversarial-review"
+      ]
     },
     {
       "plugin": "python-backend",
@@ -263,7 +266,8 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
+        "documentation-paths",
+        "string-metadata"
       ]
     },
     {

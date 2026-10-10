@@ -8,6 +8,11 @@ import sys
 import jsonschema
 import yaml
 
+try:
+    from skill_metadata import validate_skill_metadata
+except ModuleNotFoundError:
+    from scripts.skill_metadata import validate_skill_metadata
+
 ROOT = Path(__file__).resolve().parents[1]
 
 
@@ -44,24 +49,11 @@ def validate() -> list[str]:
                             raise ValueError(f"Escaping MCP {field}: {name}")
             skill_names = set()
             for skill in sorted((package / "skills").glob("*/SKILL.md")):
-                text = skill.read_text()
-                parts = text.split("---", 2)
-                if len(parts) != 3 or parts[0].strip():
-                    raise ValueError(f"Missing frontmatter: {skill}")
-                frontmatter = yaml.safe_load(parts[1])
-                if not isinstance(frontmatter, dict):
-                    raise ValueError(f"Invalid frontmatter: {skill}")
-                skill_name = frontmatter.get("name", "")
-                if not isinstance(skill_name, str) or not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", skill_name) or len(skill_name) > 64:
-                    raise ValueError(f"Invalid skill name: {skill}")
-                if skill_name != skill.parent.name or skill_name in skill_names:
+                frontmatter = validate_skill_metadata(skill)
+                skill_name = frontmatter['name']
+                if skill_name in skill_names:
                     raise ValueError(f"Skill folder/name mismatch or duplicate: {skill}")
-                description = frontmatter.get("description")
-                if not isinstance(description, str) or not description.strip() or len(description) > 1024:
-                    raise ValueError(f"Invalid skill description: {skill}")
                 manual = frontmatter.get("disable-model-invocation", False)
-                if not isinstance(manual, bool):
-                    raise ValueError(f"Invalid invocation flag: {skill}")
                 client_metadata = skill.parent / "agents/openai.yaml"
                 if client_metadata.exists():
                     settings = yaml.safe_load(client_metadata.read_text())
