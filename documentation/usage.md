@@ -1,6 +1,6 @@
 # Using the plugins
 
-Choose bundles from the [README](../README.md#choose-your-plugins), load them in your client and work in the target application repository. You can request a skill by name; the agent also selects task-relevant guidance. Start with the full-stack trio and add AI, operations, strategy or visual communication as needed.
+Choose bundles from the [README](../README.md#choose-your-plugins), load them in your client and open the application repository. Ask for a skill by name or let the agent select guidance for the task. Start with the full-stack trio; add AI, operations, strategy or visual communication when needed.
 
 ## Build and load
 
@@ -22,7 +22,7 @@ Explicit `--plugin` arguments replace the default selection. Other bundle names 
 | `plugins/<name>` | Local guidance and supporting resources |
 | `built-plugins/<name>` | Local guidance plus complete pinned upstream skills and license/source notices |
 
-Load individual plugin directories, keeping their resources and supporting files together. The builder verifies source pins and packages resources; it does not execute upstream scripts, install application dependencies or configure your client.
+Load each plugin directory with its resources and supporting files intact. The builder checks source pins and copies the resources. Application dependencies and client setup are separate; packaging does not execute upstream scripts.
 
 ### Client setup and discovery checks
 
@@ -54,46 +54,48 @@ Open the application workspace and check Configure Skills. This route follows [o
 
 ## Skills you invoke
 
-Use these to start a deliberate activity, following the user/agent distinction in Matt Pocock's skills. Plain-language requests work where the client supports them; exact slash-command syntax varies. No interview, spec or orchestration workflow is required for a routine change.
+Request these skills to start a distinct activity, following Matt Pocock's user/agent distinction. Use plain language where the client supports it; slash-command syntax varies. Routine changes can go straight to implementation.
 
 | Activity | Skill | Example request |
 | --- | --- | --- |
-| Start or reorganize a project | `project-conventions` | “Set up a booking app with our frontend/backend conventions. Build creating and reopening a booking first.” |
-| Clarify requirements | `grill-me`, `grill-with-docs`, `to-questionnaire` | “Help me resolve the important unknowns in this feature before implementation.” |
-| Write a plan | `to-spec` | “Write a concise plan with acceptance criteria and risks. This turn is plan-only.” |
-| Implement agreed scope | `implement`, `implement-spec` | “Implement the behavior agreed here; no tickets. Verify ownership and persistence.” |
-| Revisit architecture or process | `improve-codebase-architecture`, `retro` | “Review this application's architecture and propose focused improvements.” |
-| Learn or hand off | `ask-matt`, `teach`, `wait-what`, `handoff` | “Explain this design decision” or “prepare a handoff of the current work.” |
-| Configure an optional tracker workflow | `setup-matt-pocock-skills`, `triage`, `to-tickets` | “Configure our chosen tracker” or “turn this plan into tickets.” Only when requested. |
+| Start or reorganize a project | `project-conventions` | "Set up a booking app with my frontend/backend conventions. Build creating and reopening a booking first." |
+| Clarify requirements | `grill-me`, `grill-with-docs`, `to-questionnaire` | "Help me resolve the important unknowns in this feature before implementation." |
+| Write a plan | `to-spec` | "Write a concise plan with acceptance criteria and risks. This turn is plan-only." |
+| Implement agreed scope | `implement`, `implement-spec` | "Implement the behavior agreed here; no tickets. Verify ownership and persistence." |
+| Revisit architecture or process | `improve-codebase-architecture`, `retro` | "Review this application's architecture and propose focused improvements." |
+| Learn or hand off | `ask-matt`, `teach`, `wait-what`, `handoff` | "Explain this design decision" or "prepare a handoff of the current work." |
+| Configure an optional tracker workflow | `setup-matt-pocock-skills`, `triage`, `to-tickets` | "Configure my chosen tracker" or "turn this plan into tickets." Only when requested. |
 
 Tickets remain optional, including for `implement-spec`: the [workflow guide](../plugins/development-workflow/WORKFLOW.md#project-fit) makes the conversation or a Markdown spec valid scope. Setup is not a prerequisite for ordinary development.
 
 ## Skills agents use during your work
 
-These guide work already requested. Agents select them when relevant; you can also name them explicitly if selection misses one. Availability does not authorize extra activities or publication.
+Agents use these skills to carry out your request. You can also ask for one by name. Installing a skill gives no permission to publish or start unrelated work.
 
 | Work | Relevant skills | Example request |
 | --- | --- | --- |
-| Frontend | `frontend-conventions`, shadcn, Tailwind and Vercel expertise | “Follow this screenshot's navigation and density. Keep our brand/components; check mobile, keyboard and failure states.” |
-| Backend / MCP | `backend-conventions`, modern-python, mcp-builder | “Add tenant-owned saved searches and restart-safe exports, preserving OIDC; verify transactions and recovery.” |
-| AI / transcription | `build-evaluated-ai`, chosen ADK or LangChain skills | “Add Portuguese transcription; start with a direct adapter if sufficient. Verify model/data terms and separate fixtures from live evaluation.” |
-| Testing / review | `test-end-to-end`, `deliver-reliable-changes`, `tdd`, `code-review` and relevant security specialists | “Verify this journey against real persistence and review the change against agreed behavior.” |
-| Debugging / research | `diagnosing-bugs`, `research`, `prototype`, `codebase-design` | “Reproduce disappearing searches, trace the cause and add a regression check.” |
-| Git / pull requests | `contribute-code`, upstream `pr` | “Develop this feature in a worktree, use Conventional Commits, and open a concise PR in this repository. Do not merge.” |
-| Docs / foundations | `maintain-documentation`, focused `project-conventions` upkeep, `writing-for-agents` | “Add a worker and update only affected startup commands, scoped instructions and documentation.” |
-| Delivery / security | `build-delivery-pipelines`, `design-secure-features` | “Review promotion, rollback, migration compatibility and changed authority boundaries; do not deploy.” |
-| Recovery / capacity / cost | `protect-and-restore-data`, `plan-application-capacity`, `optimize-application-cost` | “Review restore verification and estimate capacity/EUR costs in our actual region. Separate measurements from assumptions.” |
-| Product / business | `learn-from-product-feedback`, `business-strategy`, `business-opportunity-analysis` | “Assess this idea or these anonymized support notes; identify evidence, uncertainty and the next useful decision.” |
-| Visual communication | `architecture-diagraming`, `presentation-building` | “Explain the implemented system visually, marking planned components.” |
+| Frontend | `frontend-conventions`, shadcn, Tailwind and Vercel expertise | "Follow this screenshot's navigation and density. Keep my brand/components; check mobile, keyboard and failure states." |
+| Backend / MCP | `backend-conventions`, modern-python, mcp-builder | "Add tenant-owned saved searches and restart-safe exports, preserving OIDC; verify transactions and recovery." |
+| AI / transcription | `build-evaluated-ai`, chosen ADK or LangChain skills | "Add Portuguese transcription; start with a direct adapter if sufficient. Verify model/data terms and separate fixtures from live evaluation." |
+| Testing / review | `test-end-to-end`, `deliver-reliable-changes`, `tdd`, `code-review` and relevant security specialists | "Verify this journey against real persistence and review the change against agreed behavior." |
+| Debugging / research | `diagnosing-bugs`, `research`, `prototype`, `codebase-design` | "Reproduce disappearing searches, trace the cause and add a regression check." |
+| Git / pull requests | `contribute-code`, upstream `pr` | "Develop this feature in a worktree, use Conventional Commits, and open a concise PR in this repository. Do not merge." |
+| Docs / foundations | `maintain-documentation`, focused `project-conventions` upkeep, `writing-for-agents`, `humanizer` | "Add a worker and update only affected startup commands, scoped instructions and documentation." |
+| Delivery / security | `build-delivery-pipelines`, `design-secure-features` | "Review promotion, rollback, migration compatibility and changed authority boundaries; do not deploy." |
+| Recovery / capacity / cost | `protect-and-restore-data`, `plan-application-capacity`, `optimize-application-cost` | "Review restore verification and estimate capacity/EUR costs in my actual region. Separate measurements from assumptions." |
+| Product / business | `learn-from-product-feedback`, `business-strategy`, `business-opportunity-analysis` | "Assess this idea or these anonymized support notes; identify evidence, uncertainty and the next useful decision." |
+| Visual communication | `architecture-diagraming`, `presentation-building` | "Explain the implemented system visually, marking planned components." |
 
-The local strategy/visual skills can also start a standalone activity when requested. This grouping describes intended usage, not a portable runtime access control. Upstream invocation metadata remains intact.
+You can also request strategy or visual work as a standalone activity. These groups describe how to use the skills; enforcement depends on the client. Upstream invocation metadata remains intact.
 
-For new projects, the conventions prefer `applications/` for implementation and `documentation/` for knowledge, with concise scoped `AGENTS.md` instructions. Existing layouts and accepted choices are preserved. References can be screenshots, URLs, repositories, schemas or architecture notes; only relevant decisions need recording.
+Use `humanizer` when drafting or editing prose in any phase. Keep the author's voice and preserve facts, code, metadata and link targets. Example: "Use humanizer to edit this PR description without changing its technical claims."
+
+For new projects, I prefer `applications/` for implementation and `documentation/` for knowledge, with short scoped `AGENTS.md` instructions. Keep existing layouts and accepted choices. Screenshots, URLs, repositories, schemas and architecture notes can supply references; record the decisions that affect the project.
 
 ## Optional tools and verification
 
 MCP servers provide live tools: shadcn registries, browser automation or the application's standalone FastMCP interface. Configure them only for the actual client and application. A Playwright skill does not install Playwright MCP, and browser tests can use the project's normal runner. No MCP servers or hooks are enabled by these bundles.
 
-Ask for the checks actually performed and their boundaries: rendered UI, real persistence, ownership denial, mocked providers and separate live AI quality evidence as applicable. Package checks do not prove application quality. Detailed coverage and pending operations workflows are in the [SDLC map](sdlc.md).
+Ask which checks ran and what they cover: rendered UI, real persistence, ownership denial, mocked providers and live AI quality, as applicable. Package validation alone says nothing about the application's quality. Detailed coverage and pending operations workflows are in the [SDLC map](sdlc.md).
 
 For legacy skill-only links or renamed skills, use the [migration guide](migration.md).

@@ -41,6 +41,29 @@ class InstallationTests(unittest.TestCase):
             self.assertTrue(result.endswith(original.split('---', 2)[2]))
             self.assertEqual((skill / 'reference.md').read_text(), 'Original resource')
 
+    def test_root_skill_acquisition_preserves_resources_and_checks_tree(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            upstream = root / 'upstream'
+            upstream.mkdir()
+            subprocess.run(['git', 'init', '-q', str(upstream)], check=True)
+            (upstream / 'SKILL.md').write_text('---\nname: root-skill\ndescription: Root fixture\n---\nRead references/guide.md\n')
+            (upstream / 'references').mkdir()
+            (upstream / 'references/guide.md').write_text('Complete reference')
+            subprocess.run(['git', '-C', str(upstream), 'add', '.'], check=True)
+            subprocess.run(['git', '-C', str(upstream), '-c', 'user.name=Test', '-c', 'user.email=test@example.com', 'commit', '-qm', 'Fixture'], check=True)
+            commit = installer.git(upstream, 'rev-parse', 'HEAD').decode().strip()
+            tree = installer.git(upstream, 'rev-parse', 'HEAD^{tree}').decode().strip()
+            source = dict(repository=str(upstream), commit=commit, tree=tree, path='.')
+            _, archive = installer.acquire(source, root / 'cache')
+            output = root / 'skill'
+            installer.extract_skill(archive, '.', output)
+            self.assertTrue((output / 'SKILL.md').exists())
+            self.assertEqual((output / 'references/guide.md').read_text(), 'Complete reference')
+            source['tree'] = '0' * 40
+            with self.assertRaisesRegex(ValueError, 'tree mismatch'):
+                installer.acquire(source, root / 'cache')
+
     def test_pinned_build_references_notices_and_no_overwrite(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

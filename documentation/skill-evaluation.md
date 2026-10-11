@@ -1,6 +1,6 @@
 # Evaluation evidence and limits
 
-This page summarizes checks recorded during the plugin refactor and conventions work through 2026-10-11. It is evidence about packaging, discovery and interpretation of guidance, not certification of applications built with it. Earlier revisions and detailed notes remain in Git history.
+Checks through 2026-10-11 cover packaging, client discovery and how agents interpreted the guidance. They do not establish the quality of applications built with the plugins. Git history contains the earlier revisions and detailed notes.
 
 ## Package checks
 
@@ -29,7 +29,7 @@ VS Code setup follows its official documentation and was not executed here. Disc
 
 ## Independent task exercises
 
-Fresh agents received skills and task-local facts without expected answers or the preceding design discussion. Except for the local Git exercise below, these were plan-only: no application implementation, deployment, provider calls or outreach.
+Fresh agents received the skills and facts for each task, without expected answers or the prior design discussion. Only the local Git exercise executed changes. The other exercises produced plans, with no implementation, deployment, provider calls or outreach.
 
 | Scenario | Observed interpretation |
 | --- | --- |
@@ -51,6 +51,12 @@ A separate fork/PR planning exercise reused an existing worktree and PR, selecte
 
 ## What remains unproven
 
-These checks do not establish a working full-stack application, model quality, deployment/restore success, measured savings, legal compliance or general reliability. The desired 90–95% avoidance of reference browsing is a design goal, not a measured result. Detailed observability/incident/SLO and load/failure-testing guidance remains pending.
+Application implementation, model quality, deployment, restoration, savings and legal compliance still need their own evidence. I have not measured the target of avoiding reference browsing in 90 to 95% of routine uses. Detailed observability/incident/SLO and load/failure-testing guidance remains pending.
 
 Improve guidance from actual application outcomes: inspect the implemented journey, run relevant tests, review rendered UI and docs, then capture observed deviations in the appropriate skill or project check.
+
+## Humanizer and personal voice
+
+Humanizer was installed in the working agent environment and applied to the README, documentation pages and workflow prose. The edit preserves technical claims, commands, code, metadata and existing link targets. Repository-author references now use "I" and "my"; business/team quotations retain their speakers' voice.
+
+Its MIT source is pinned at `225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8`, with complete resources and a workflow pointer in built bundles. Ten helper tests passed, including root-skill acquisition and rejection of a mismatched tree. All seven bundles built with 46 upstream skills (64 skills total), and Copilot CLI discovered Humanizer in the workflow plugin. The revised lifecycle image was rendered and inspected. These checks cover packaging and availability; prose quality was reviewed manually, without an AI-detection score.

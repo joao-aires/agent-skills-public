@@ -535,6 +535,18 @@
       "adaptations": [
         "frontend-framing"
       ]
+    },
+    {
+      "plugin": "development-workflow",
+      "repository": "https://github.com/blader/humanizer.git",
+      "commit": "225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8",
+      "path": ".",
+      "tree": "8ed37b6d1d98a0bbdb599d0399a4a2185eb8fa03",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing"
+      ]
     }
   ]
 }

@@ -1,14 +1,14 @@
 # Agent Plugins
 
-Bundles of Markdown skills for building applications, operating them and exploring product ideas. Local skills capture our conventions; selected upstream skills provide specialist techniques. They use the [Agent Plugins standard](https://agent-plugins.org/specification): `plugin.json` plus `skills/<name>/SKILL.md`.
+I use these Markdown skill bundles to build and operate applications and explore product ideas. The local skills capture my conventions; upstream skills add specialist techniques. Each bundle follows the [Agent Plugins standard](https://agent-plugins.org/specification): `plugin.json` plus `skills/<name>/SKILL.md`.
 
-**For a full-stack application, start with `development-workflow`, `python-backend` and `web-frontend`.** Add other bundles when the task needs them.
+For a full-stack application, start with `development-workflow`, `python-backend` and `web-frontend`. Add other bundles as needed.
 
 ## Choose your plugins
 
 | Plugin | What it contributes | Included upstream expertise |
 | --- | --- | --- |
-| [development-workflow](plugins/development-workflow/) | Project conventions, documentation, Git/PRs, testing, CI/CD and security | Matt Pocock, Playwright, GitHub Actions hardening, Trail of Bits |
+| [development-workflow](plugins/development-workflow/) | Project conventions, documentation, Git/PRs, testing, CI/CD and security | Matt Pocock, Humanizer, Playwright, GitHub Actions hardening, Trail of Bits |
 | [python-backend](plugins/python-backend/) | FastAPI, SQLAlchemy/Alembic, PostgreSQL and optional standalone FastMCP | Modern Python, MCP builder |
 | [web-frontend](plugins/web-frontend/) | Next.js, Tailwind v4, shadcn, consistent UI/UX and accessibility | Official shadcn, Tailwind design system, Vercel React/composition |
 | [ai-development](plugins/ai-development/) | Model/framework choice, transcription, evaluation and tool boundaries | Google ADK, LangChain/LangGraph |
@@ -27,11 +27,11 @@ python -m pip install -r requirements-validation.txt
 python scripts/build_plugins.py --destination ./built-plugins
 ```
 
-This builds the three full-stack plugins, including their pinned upstream skills. Load each directory in your client, then work in the target application repository. See [installation and example prompts](documentation/usage.md) for client commands and additional bundles. The activation command above is for a POSIX shell.
+The command builds the three full-stack plugins with pinned upstream skills. Load each plugin directory in your client and open the application repository. See [installation and example prompts](documentation/usage.md) for client commands and additional bundles. The activation command above is for a POSIX shell.
 
 > Use project-conventions, frontend-conventions and backend-conventions to build a saved-search application. Implement saving and reopening a search, verify ownership and persistence, and keep affected documentation current. Use this conversation as scope; no tracker is needed.
 
-`frontend-conventions` and `backend-conventions` also accept screenshots, URLs, reference repositories and architecture notes. They establish defaults for new projects and follow accepted choices in existing ones.
+`frontend-conventions` and `backend-conventions` also accept screenshots, URLs, reference repositories and architecture notes. Use their defaults for new projects and preserve accepted choices in existing ones.
 
 ## How guidance works
 
@@ -40,7 +40,7 @@ This builds the three full-stack plugins, including their pinned upstream skills
 
 See [user-invoked activities](documentation/usage.md#skills-you-invoke) and [agent-used guidance](documentation/usage.md#skills-agents-use-during-your-work) for examples. Actual discovery and invocation depend on the client.
 
-Project instructions and accepted decisions govern implementation choices. Upstream expertise supplies compatible techniques. Tickets are optional, and there are no application templates. MCPs expose optional live tools; none are configured automatically, and these bundles contain no hooks.
+Follow project instructions and accepted decisions when using upstream techniques. Tickets are optional. The bundles provide skills without application templates, configured MCP servers or hooks; add live tools when a task needs them.
 
 ## SDLC coverage
 
@@ -55,7 +55,7 @@ The cycle covers planning, requirements analysis, design, implementation, testin
 - [Upstream catalogue](documentation/upstream-sources.md): included skills, licenses and adaptations.
 - [Research notes](documentation/conventions-research.md) and [evaluation evidence](documentation/skill-evaluation.md): provenance and validation limits.
 
-**Updating an older installation?** The original four skills moved under `plugins/`; the development entry points are now `project-conventions`, `frontend-conventions` and `backend-conventions`. See [migration instructions](documentation/migration.md) before replacing old copies or links.
+Updating an older installation? The original four skills moved under `plugins/`; the development entry points are now `project-conventions`, `frontend-conventions` and `backend-conventions`. See [migration instructions](documentation/migration.md) before replacing old copies or links.
 
 ## Contributing
 

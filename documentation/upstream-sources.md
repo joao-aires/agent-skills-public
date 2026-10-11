@@ -8,6 +8,7 @@ Built plugins include the sources below at the commit/tree pins in [upstream.loc
 | web-frontend | [shadcn](https://github.com/shadcn-ui/ui/tree/main/skills/shadcn) | Official shadcn |
 | web-frontend | [Wshobson](https://github.com/wshobson/agents/tree/46891e7e60da0e52baf1050b7b6391b64e84c6d9/plugins/frontend-mobile-development/skills/tailwind-design-system) | Tailwind design system (v4; preserve existing project versions) |
 | development-workflow | [Matt Pocock](https://github.com/mattpocock/skills) | Released engineering + productivity skills, including their complete local resources and invocation metadata |
+| development-workflow | [Humanizer](https://github.com/blader/humanizer) | humanizer: edit prose across the lifecycle |
 | development-workflow | [Microsoft Playwright](https://github.com/microsoft/playwright-cli) | playwright-cli |
 | development-workflow | [GitHub awesome-copilot](https://github.com/github/awesome-copilot/tree/main/skills/github-actions-hardening) | GitHub Actions hardening |
 | development-workflow | [Trail of Bits](https://github.com/trailofbits/skills) | property-based-testing, differential-review, supply-chain-risk-auditor |
@@ -17,15 +18,15 @@ Built plugins include the sources below at the commit/tree pins in [upstream.loc
 | ai-development | [Google ADK](https://github.com/google/adk-python/tree/main/.agents/skills) | adk-agent-builder, adk-architecture |
 | ai-development | [LangChain](https://github.com/langchain-ai/langchain-skills) | langchain-fundamentals, langchain-dependencies, langgraph-fundamentals, langgraph-persistence |
 
-## How they fit our conventions
+## How they fit my conventions
 
-- Local guidance and accepted project choices govern implementation. Frontend sources receive a `frontend-conventions` pointer; backend sources receive a `backend-conventions` pointer, including Python/standalone FastMCP preference and the SDK distinction.
+- Follow local guidance and accepted project choices. Frontend sources receive a `frontend-conventions` pointer; backend sources receive a `backend-conventions` pointer, including Python/standalone FastMCP preference and the SDK distinction.
 - Matt's released engineering/productivity skills are acquired as a complete dependency group; deprecated, experimental and miscellaneous skills are excluded. They retain their invocation metadata and receive a pointer to [workflow framing](../plugins/development-workflow/WORKFLOW.md). Tickets are optional; setup runs only on request.
 - Matt's built documentation paths map `docs/agents/` to `documentation/engineering/` and `docs/adr/` to `documentation/decisions/adr/`. Existing project paths remain authoritative. PR attribution is preserved as standard string metadata.
 - `differential-review` uses its included adversarial methodology rather than dispatching an unavailable registered agent. `supply-chain-risk-auditor` retains its scripts/lockfile; its pinned parser does not cover pnpm/yarn, so missing coverage is not a clean audit.
 - AKS cost guidance applies only to Azure AKS. General operations skills select the actual cloud/service and its current first-party documentation; they do not import an operator runtime or assume one platform.
 
-Adaptations are recorded in the lockfile and built notices. Packaging checks hashes and copies resources without executing scripts. Embedded live documentation and commands are not frozen by source pinning. Trail of Bits skills are CC-BY-SA-4.0; other included sources are MIT or Apache-2.0 as recorded at their pins. Built bundles carry mixed-license notices; private installed material is not redistributed.
+The lockfile and built notices record adaptations. Packaging checks hashes and copies resources without running scripts. Pinning the source leaves embedded live documentation and commands free to change. Trail of Bits skills are CC-BY-SA-4.0; other included sources are MIT or Apache-2.0 as recorded at their pins. Built bundles carry mixed-license notices; private installed material is not redistributed.
 
 ## Additional references
 
@@ -40,6 +41,6 @@ Adaptations are recorded in the lockfile and built notices. Packaging checks has
 
 ## Reference-only selections
 
-[Amplitude analyze-feedback](https://github.com/amplitude/builder-skills/tree/51838c2d85560466d1bbc174ea0e645bb9c44ea9/analytics-skills/skills/analyze-feedback) depends on Amplitude MCP and had no explicit redistribution license at the reviewed pin. It is not acquired or configured; our feedback guide works with existing evidence. Vercel web-design-guidelines is also reference-only for its undeclared redistribution license and floating guideline fetch.
+[Amplitude analyze-feedback](https://github.com/amplitude/builder-skills/tree/51838c2d85560466d1bbc174ea0e645bb9c44ea9/analytics-skills/skills/analyze-feedback) depends on Amplitude MCP and had no explicit redistribution license at the reviewed pin. It is not acquired or configured; my feedback guide works with existing evidence. Vercel web-design-guidelines is also reference-only for its undeclared redistribution license and floating guideline fetch.
 
 The operations skills link to PostgreSQL, Kubernetes, CloudNativePG, Velero and cloud-provider docs for contextual implementation. Security guidance uses OWASP and applicable authoritative privacy rules; it does not establish compliance. The [SDLC mapping](sdlc.md) follows a seven-phase split; different models may group planning and analysis together.

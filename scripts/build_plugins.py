@@ -32,10 +32,11 @@ def acquire(source, cache):
         git(repo, 'cat-file', '-e', source['commit'] + '^{commit}')
     except subprocess.CalledProcessError:
         subprocess.run(['git', '-C', str(repo), 'fetch', '--depth=1', 'origin', source['commit']], check=True)
-    actual = git(repo, 'rev-parse', source['commit'] + ':' + source['path']).decode().strip()
+    revision = source['commit'] + '^{tree}' if source['path'] == '.' else source['commit'] + ':' + source['path']
+    actual = git(repo, 'rev-parse', revision).decode().strip()
     if actual != source['tree']:
         raise ValueError('Upstream tree mismatch: ' + source['path'])
-    archive = git(repo, 'archive', source['commit'], source['path'])
+    archive = git(repo, 'archive', source['commit']) if source['path'] == '.' else git(repo, 'archive', source['commit'], source['path'])
     return repo, archive
 
 

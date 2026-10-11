@@ -45,3 +45,5 @@ Generate schemas from code when practical and link them rather than maintaining 
 ## Check completion
 
 Read affected docs against the actual change. Check commands, paths, links, boundary diagrams and acceptance criteria for drift. Summarize which knowledge changed, why, and any unresolved discrepancy. If no document is affected, say so briefly; avoid manufacturing documentation work. Prefer explanations of intent and tradeoffs over inventories of code files.
+
+Use installed `humanizer` to edit human-readable prose when useful. Preserve the author's voice and technical meaning, including factual caveats; leave code, commands, paths, metadata and link targets intact.

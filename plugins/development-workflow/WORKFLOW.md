@@ -1,6 +1,6 @@
 # Choose a skill for the task
 
-Local guidance sets project defaults; upstream skills supply techniques. Read the project's AGENTS.md and accepted decisions, then select the skills relevant to the requested work. Having a skill available does not require running its workflow.
+Read the project's AGENTS.md and accepted decisions, then choose skills for the requested work. Local guidance sets defaults; upstream skills supply compatible techniques. Run a workflow when the task calls for it.
 
 ## Invocation
 
@@ -22,7 +22,7 @@ Local guidance sets project defaults; upstream skills supply techniques. Read th
 
 | Work already requested | Skills |
 | --- | --- |
-| Project upkeep, docs and instructions | Local `project-conventions` for affected foundations; `maintain-documentation`, `writing-for-agents` |
+| Project upkeep, docs and instructions | Local `project-conventions` for affected foundations; `maintain-documentation`, `writing-for-agents`, `humanizer` |
 | Stack conventions | Backend/frontend/AI guidance in the corresponding bundles |
 | Clarification support | `grilling`, `domain-modeling` during the requested session |
 | Investigation and exploration | `research`, `prototype`, `codebase-design` |
@@ -34,7 +34,9 @@ Local guidance sets project defaults; upstream skills supply techniques. Read th
 | Product feedback | `learn-from-product-feedback` in `business-strategy` for requested analysis |
 | Human-only setup steps | `wizard` during requested setup |
 
-Research and clarification can support any phase or surrounding product activity. `research` is task-matched; `grill-me` remains an explicitly requested interaction, not an automatic questioning step. Project foundations and delivery pipelines are established once and maintained when relevant, while the SDLC repeatedly uses those capabilities.
+Research, clarification and prose editing can support any phase or surrounding product activity. `research` is task-matched; `grill-me` remains an explicitly requested interaction, not an automatic questioning step. Project foundations and delivery pipelines are established once and maintained when relevant, while the SDLC repeatedly uses those capabilities.
+
+Use `humanizer` for human-readable docs and PR prose when editing is part of the task. Preserve the author's voice, supported claims, commands, code, metadata and link targets. Keep technical caveats that change what the reader should do; add no invented opinions or facts.
 
 ## Project fit
 
