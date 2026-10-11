@@ -1,95 +1,56 @@
-# Local skill evaluation
+# Evaluation evidence and limits
 
-The original seven local development skills were revised using the skill-creator process: concrete tasks, clear trigger descriptions, context-dependent decision rules, short examples and observable completion criteria. Each remains a single Markdown guide of roughly 430–550 words. A subsequent eighth skill, `contribute-code`, adds feature worktrees, Conventional Commits and PR contribution guidance. No application template, generation framework or mandatory tracker was added.
+This page summarizes checks recorded during the plugin refactor and conventions work through 2026-10-11. It is evidence about packaging, discovery and interpretation of guidance, not certification of applications built with it. Earlier revisions and detailed notes remain in Git history.
 
-## Adversarial review follow-up
+## Package checks
 
-On 2026-10-10, the review's five findings were addressed: standard string metadata for upstream PR credits, inline differential adversarial review, persistence-neutral E2E criteria for existing applications, the missing operations license notice, and readable CI with full-SHA action pins, weekly Dependabot updates and a job timeout. The contribution skill now explicitly confines remote publication to the requested or established scope.
+The latest conventions revision passed nine helper regression tests, metadata/containment validation, both skill-creator checks and local-link/whitespace checks. All seven bundles built with 45 pinned upstream skills (63 skills total); the final frontend/backend framing changes were followed by a rebuild of those two bundles.
 
-The seven helper regression tests pass, including rejection of malformed optional frontmatter in source/shared validation and final build validation, attribution-preserving adaptation, and removal of unsupported agent dispatch. All seven bundles built with the same 44 upstream pins; all 62 local/upstream skills passed the shared metadata checks. Every package includes its local license notice.
+Regression coverage includes attribution-preserving metadata conversion, complete pinned acquisition/resources/notices, rejection of malformed metadata, workflow/frontend/backend framing, portable inline adversarial review, refusal to overwrite a build destination, and managed-link repair without replacing unrelated paths. Upstream scripts are not executed during packaging.
 
-An actual installation/discovery smoke test used GitHub Copilot CLI 1.0.95 in a separate `COPILOT_HOME`, without changing the user's client settings or starting an authenticated model session. Each built directory was installed using `copilot plugin install <absolute-directory>`. `copilot plugin list --json` reported all seven plugins enabled; `copilot skill list --json` exposed all expected plugin-sourced skills:
-
-| Plugin | Discovered skills |
-| --- | --- |
-| development-workflow | 39 |
-| python-backend | 3 |
-| web-frontend | 4 |
-| ai-development | 7 |
-| application-operations | 4 |
-| business-strategy | 3 |
-| visual-communication | 2 |
-
-Every supplied package file was compared with its installed copy and preserved byte-for-byte, including workflow framing, upstream references, scripts, invocation metadata and license/source notices. The installer warns that direct local/repository installs are deprecated. Reinstalling the workflow bundle from a new build path in the first test configuration dropped the frontend entry from its inventory. A fresh configuration reproduced successful installation/discovery of all seven final bundles. Session-local loading with seven repeated `--plugin-dir` arguments also exposed all 62 skills without persistent installation. Usage guidance records the reinstallation limitation, recommends session-local loading for rebuilt bundles and provides the documented VS Code local-registration route.
-
-This establishes real CLI installation, inventory discovery and supporting-file preservation. It does not establish model selection, enforcement of invocation boundaries, live tool execution or application quality. The VS Code example follows its official documentation and was not executed in this environment.
-
-## Independent task walkthroughs
-
-Four fresh agents received the revised skills and task-local requests without the preceding design discussion or expected answers. Requests were plan-only and prohibited file changes, service execution, publishing and implementation-agent launches.
-
-| Case and supplied facts | Skills exercised | Observed response |
-| --- | --- | --- |
-| Start a private physiotherapist appointment/notes application; agreed stack, no sharing/AI/payments, no tracker; request first slice, repository decisions, root AGENTS.md example and completion evidence | Bootstrap, documentation, delivery, E2E, backend, frontend | Proposed one persisted journey, scoped instructions, lean docs and practical CI; required ownership, reload and browser evidence; kept deferred features and tracker setup out of scope |
-| Review a saved-search proposal: caller-supplied owner, two commits, ID-only delete, new non-null column without backfill, mocked browser save; existing `docs/` convention | Backend, E2E, documentation, delivery | Identified ownership, atomicity and migration issues; requested real PostgreSQL/browser evidence; preserved `docs/` and rejected a mandatory ticket; distinguished review findings from executed checks |
-| Repair mobile toolbar and deletion in an existing neutral shadcn design; clickable div, optimistic removal without failure handling; proposed replacement library and redesign | Frontend, E2E, delivery | Reused existing tokens/components, proposed semantic actions and recoverable deletion, scoped client interaction and mobile/keyboard checks; rejected screenshot-only accessibility/performance claims |
-| Plan Portuguese uploaded-audio transcription with no credentials/consented recordings or quality thresholds; proposed dual frameworks, endless retries, model-selected patient ID and mocked accuracy claim | AI, documentation, delivery | Selected a direct adapter, deterministic authorization and bounded retries; separated fixture checks from live quality; named missing criteria and blocked live evaluation without claiming readiness |
-
-These responses demonstrated useful interpretation across all seven skills, including evidence boundaries, existing decisions and proportionate scope. They are not a numerical quality benchmark or proof of general reliability.
-
-## Git contribution checks
-
-Two fresh agents exercised `contribute-code` with task-local facts:
-
-- **Local execution:** a disposable repository had a `main` branch, a local bare remote and an unrelated uncommitted README edit. The agent implemented an optional case-insensitive sorting feature in a new worktree, updated related docs/checks, ran the checks, created `feat: add optional case-insensitive name sorting` and pushed the feature branch. Independent inspection confirmed the remote SHA, clean feature worktree, unchanged original branch and preserved user edit. No issue scope was invented. A concise PR body was prepared; no live GitHub PR was claimed for a local-only remote.
-- **Fork/PR planning:** supplied state contained an existing worktree and PR, different fork/upstream remotes, component-scope conventions and issue `OPS-12`. The agent reused the feature workspace/PR, chose `feat(export)` with an issue reference in the body, selected the correct upstream target/base and fork head, and disclosed untested worker recovery. It kept the description concise without requiring a diagram. No actions were executed in this plan-only case.
-
-The new skill passes creator validation, repository checks and actual packaging with its trigger description and workflow guidance. These checks cover local Git behavior and interpretation of PR instructions; they do not independently establish live GitHub CLI/MCP behavior in every client.
-
-## Structural checks
-
-Run the repository checks after edits:
+Run the maintained checks with:
 
 ```bash
 python scripts/validate_plugins.py
 python -m unittest discover -s tests -v
 ```
 
-The creator's `quick_validate.py` checks names and standard frontmatter. The original eight local development skills use only name/description frontmatter and Markdown instructions; local client-specific metadata files have been removed. The repository validator can still check optional invocation metadata supplied by upstream resources. Client selection remains separate from structural validation.
+The SDLC SVG was rendered and inspected during its layout revisions. Subsequent changes replaced skill labels without altering geometry.
 
-## Limits and further iteration
+## Client discovery
 
-The original four walkthroughs did not implement an application, run a browser/database or call a model. They establish that independent agents can apply the guidance in plans and supplied-artifact reviews. The later Git check executed a small helper feature and local push, not a full-stack application or live GitHub publication. Package checks establish metadata and packaging integrity, not runtime discovery in every client.
+GitHub Copilot CLI 1.0.95 was exercised in isolated configuration directories without modifying the user's settings or starting an authenticated model session.
 
-Further confidence must come from actual application work: inspect an implemented first slice and an existing-code change, run their relevant tests, and review the rendered UI and documentation. Record observed deviations and strengthen the relevant decision rule or project check. Preserve successful implementation choices; avoid adding process solely to make a checklist longer.
+- Before the Tailwind addition, direct installation and repeated session-local `--plugin-dir` loading exposed all seven bundles and 62 skills. Installed package files matched their sources byte-for-byte, including resources, invocation metadata and licenses.
+- After the convention rename/Tailwind addition, session-local mounts exposed five frontend and three backend skills, including both new names.
+- Direct-install reinstallation dropped an unrelated inventory entry in one configuration. A fresh installation succeeded; usage guidance prefers session-local loading for rebuilt bundles.
 
-## Delivery, operations, security and feedback additions
+VS Code setup follows its official documentation and was not executed here. Discovery does not establish automatic skill selection, instruction enforcement or live tool behavior in every client.
 
-Six focused Markdown guides add CI/CD, security/privacy, data recovery, capacity, cost and product feedback. They use standard name/description frontmatter, contextual decisions and evidence boundaries; no client metadata or application templates. All six passed creator metadata validation. Existing bootstrap/backend guidance now brings security, recovery, cost, bounded concurrency and latency into architecture decisions.
+## Independent task exercises
 
-Two fresh task walkthroughs received only the relevant skills and scenario facts, without the preceding discussion or expected answers. Both were plan-only: no file changes, service access, purchases, deployment or outreach.
+Fresh agents received skills and task-local facts without expected answers or the preceding design discussion. Except for the local Git exercise below, these were plan-only: no application implementation, deployment, provider calls or outreach.
 
-| Case and supplied facts | Observed response |
+| Scenario | Observed interpretation |
 | --- | --- |
-| FastAPI on EKS/RDS with S3 uploads; separate environment builds, mutable image tag, destructive column drop, enabled but untested backups | Chose one immutable artifact for promotion, held the destructive drop in favor of staged compatibility, separated application recovery from data restore, proposed readable workflow/job/step names and an isolated restore with measured RPO/RTO and side effects disabled; did not claim recoverability |
-| GKE with 4 replicas × 4 workers × pool 20, database maximum 200, a short 5% CPU snapshot, peak tail-latency growth, 20 registered users/5 savers/2 reopeners, 8 naming mentions from 2 accounts, private sharing request | Identified a potential 320-connection ceiling before rollout, rejected blind rightsizing/commitments from a short snapshot, kept AKS commands out of GKE advice, deduplicated feedback and qualified cohort denominators, proposed a small usability decision and server-side sharing/revocation checks; used no new platform or outreach |
+| New private appointments application | One persisted slice, scoped instructions, useful docs and practical CI; deferred unrelated features and tracker setup. |
+| Unsafe saved-search proposal | Identified ownership, partial-commit and migration issues; distinguished real persistence evidence from mocked browser behavior. |
+| Existing shadcn mobile/deletion defect | Reused tokens/components and proposed semantic controls, recovery behavior and relevant keyboard/mobile checks. |
+| Portuguese audio transcription | Chose a direct adapter, deterministic authorization and bounded retries; separated fixture checks from live quality and named missing evaluation inputs. |
+| EKS/RDS/S3 delivery and recovery | Proposed immutable promotion, staged schema compatibility and isolated restoration; separated code rollback from data recovery. |
+| GKE capacity, feedback and sharing | Identified a possible 320-connection budget against a 200 limit, rejected snapshot-based rightsizing, qualified feedback counts and kept AKS guidance out of GKE. |
+| New dashboard / existing Vite booking site | Applied appropriate shells while preserving existing Tailwind v3, branding and framework choices. |
+| Tenant API with exports / local SQLite AI app | Proposed authority, atomicity, durability and failure checks while preserving contextual persistence and deployment. |
+| New MCP interface with existing mypy/pre-commit | Selected standalone FastMCP, preserved tooling and distinguished SDK examples from standalone auth/Context/lifecycle APIs. |
 
-All seven plugin bundles built successfully with 44 pinned upstream skills, including complete AKS references and the Trail of Bits dependency-auditor scripts/lockfile. Repository metadata/containment checks and all three helper regression tests passed. Local Markdown links and whitespace checks passed; the SVG was rendered and visually inspected for legibility and lifecycle direction.
+## Git contribution checks
 
-These checks establish packaging and useful interpretation of supplied cases. They do not demonstrate a deployed application, restore rehearsal, measured cloud savings, live analytics integration or complete security/privacy assessment. Observability, incident/SLO/monitoring and load/failure-testing workflows await the user's operating instructions.
+An agent implemented a small sorting feature in a disposable repository with a bare local remote and an unrelated user edit. Independent inspection confirmed a new feature worktree, passing focused checks, a Conventional Commit, a pushed branch and preservation of the original branch/user edit. It prepared a concise PR body without claiming a live GitHub PR.
 
-## Project foundations and migration refinement
+A separate fork/PR planning exercise reused an existing worktree and PR, selected the correct upstream target and fork head, respected component scopes and an existing issue reference, and disclosed untested recovery. No remote action was executed in that planning case.
 
-`project-bootstrap` was renamed to `project-conventions` and broadened to focused upkeep of repository conventions. Full setup/reorganization remains explicitly requested; routine feature work applies existing conventions and updates only affected foundations. Usage examples and workflow selection reflect that boundary.
+## What remains unproven
 
-The diagram now places foundations outside the repeating cycle and research/explicit clarification in a full-width band across discovery, development and feedback. The README migration note distinguishes same-checkout managed links, manually copied/linked skills and plugin installation, including the four unchanged original skill paths and the renamed early-PR skill.
+These checks do not establish a working full-stack application, model quality, deployment/restore success, measured savings, legal compliance or general reliability. The desired 90–95% avoidance of reference browsing is a design goal, not a measured result. Detailed observability/incident/SLO and load/failure-testing guidance remains pending.
 
-Creator metadata validation, repository checks and the three existing helper tests passed. The sync regression verifies repair of a broken old-layout link and preservation of an unrelated link in an isolated home directory; it does not modify the user's installation. Local links were checked and the revised SVG was rendered and inspected. No new application-runtime evidence is claimed for this refinement.
-
-## Frontend/backend conventions follow-up (2026-10-11)
-
-The two stack entry points were renamed to `frontend-conventions` and `backend-conventions` and expanded to roughly 1,000–1,150 words each. Everyday decisions remain inline; each has one optional sources/exception reference. Four fresh-context, plan-only exercises used the skill and a task without implementation hints: a new support dashboard, an existing React/Vite/Tailwind v3 booking site, a tenant-isolated API with durable exports/webhooks, and a local synchronous SQLite app with optional Gemini summaries. Outputs retained contextual stack/design choices and proposed relevant state, authorization, transaction and recovery checks. No application was built or exercised; these checks assess guidance interpretation, not software quality or a measured reference-lookup rate.
-
-Eight helper tests and both skill-creator metadata checks passed. All seven bundles built with 45 pinned upstream skills (63 local/upstream skills total). GitHub Copilot CLI 1.0.95, using isolated session-local `--plugin-dir` mounts, discovered the five frontend and three backend skills with their new names. This proves discovery in that client only, not automatic invocation or compliance. Local documentation links and whitespace checks passed.
-
-The follow-up aligns new-project defaults with Tailwind v4 and prefers standalone Python FastMCP, with acquisition framing for both backend upstream skills. Nine helper tests, skill metadata checks and a rebuild of both affected bundles passed. A fresh plan-only MCP exercise selected `fastmcp`, preserved mypy/pre-commit, and distinguished SDK examples from standalone auth/Context/lifecycle APIs; it did not implement or validate a live MCP server.
+Improve guidance from actual application outcomes: inspect the implemented journey, run relevant tests, review rendered UI and docs, then capture observed deviations in the appropriate skill or project check.

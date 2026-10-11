@@ -6,23 +6,33 @@ Local guidance sets project defaults; upstream skills supply techniques. Read th
 
 **Agent-invoked** guidance helps execute an existing request and remains manually invocable. **User-invoked** skills start a distinct activity only when explicitly requested. A request in plain language can count where the client supports it; slash-command syntax is client-specific. Routers suggest user-invoked skills rather than starting them.
 
-| Task | Skills available |
+### User-invoked activities
+
+| Activity | Skills |
 | --- | --- |
-| Establish or maintain project foundations | Local `project-conventions`: full setup/reorganization on request; focused upkeep when the requested change affects conventions |
-| Apply project conventions | Local documentation, E2E and delivery skills (agent-invoked); backend/frontend/AI guidance in the corresponding bundles |
-| Clarify an idea | `grill-me`, `grill-with-docs`, `to-questionnaire` (user); `grilling`, `domain-modeling` support the requested session |
-| Investigate or explore | `research`, `prototype`, `codebase-design` (agent, when relevant) |
-| Plan substantial work | `to-spec`, `to-tickets`, `wayfinder` (user) |
-| Execute agreed work | `implement`, `implement-spec` (user); `tdd` and `code-review` support execution |
-| Develop and publish a contribution | Local `contribute-code` (agent): feature worktree, Conventional Commits and concise PR; upstream `pr` supports preparation |
-| Build delivery infrastructure | Local `build-delivery-pipelines` (agent); GitHub Actions hardening supports detailed review |
-| Design data and authority boundaries | Local `design-secure-features` (agent); security diff/dependency specialists when relevant |
-| Plan recovery, capacity or cost | Local skills in `application-operations` (agent); AKS specialist only on AKS |
-| Evaluate product outcomes | Local `learn-from-product-feedback` in `business-strategy` (agent for requested analysis) |
-| Debug and review | `diagnosing-bugs`, `code-review`, `pr` (agent); use security/property-based specialists when warranted |
-| Improve the environment | `improve-codebase-architecture`, `retro` (user); `writing-for-agents` (agent) |
-| Navigate, hand off or learn | `ask-matt`, `handoff`, `wait-what`, `teach` (user) |
-| Configure tools or tracker | `setup-matt-pocock-skills`, `triage` (user); `wizard` helps with requested human-only setup steps |
+| Full project setup/reorganization | Local `project-conventions` |
+| Clarify an idea | `grill-me`, `grill-with-docs`, `to-questionnaire` |
+| Plan substantial work | `to-spec`, `to-tickets`, `wayfinder` |
+| Execute agreed work | `implement`, `implement-spec` |
+| Revisit architecture/process | `improve-codebase-architecture`, `retro` |
+| Navigate, hand off or learn | `ask-matt`, `handoff`, `wait-what`, `teach` |
+| Configure optional tools/tracker | `setup-matt-pocock-skills`, `triage` |
+
+### Agent-invoked guidance
+
+| Work already requested | Skills |
+| --- | --- |
+| Project upkeep, docs and instructions | Local `project-conventions` for affected foundations; `maintain-documentation`, `writing-for-agents` |
+| Stack conventions | Backend/frontend/AI guidance in the corresponding bundles |
+| Clarification support | `grilling`, `domain-modeling` during the requested session |
+| Investigation and exploration | `research`, `prototype`, `codebase-design` |
+| Implementation, testing and review | `deliver-reliable-changes`, `test-end-to-end`, `tdd`, `code-review`; relevant security/property-based specialists |
+| Debugging | `diagnosing-bugs` |
+| Git contributions | Local `contribute-code`; upstream `pr` for preparation |
+| Delivery and security | `build-delivery-pipelines`, GitHub Actions hardening, `design-secure-features`, dependency/security specialists |
+| Recovery, capacity and cost | Local `application-operations` skills; AKS specialist only on AKS |
+| Product feedback | `learn-from-product-feedback` in `business-strategy` for requested analysis |
+| Human-only setup steps | `wizard` during requested setup |
 
 Research and clarification can support any phase or surrounding product activity. `research` is task-matched; `grill-me` remains an explicitly requested interaction, not an automatic questioning step. Project foundations and delivery pipelines are established once and maintained when relevant, while the SDLC repeatedly uses those capabilities.
 

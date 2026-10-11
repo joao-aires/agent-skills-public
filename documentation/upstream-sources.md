@@ -1,6 +1,6 @@
 # Upstream skills
 
-The packaging helper copies these selected skill directories at the reviewed commit/tree pins in `upstream.lock.json`, with their complete resources and notices. Source checkouts contain our local guidance; built bundles also contain these upstream skills. Installation does not launch tools or install application frameworks. Select the relevant skill for the task.
+Built plugins include the sources below at the commit/tree pins in [upstream.lock.json](../upstream.lock.json), with complete resources and license notices. Local-only checkouts do not contain acquired upstream skills. Sources are selected for provenance and fit; see [conventions research](conventions-research.md) for adoption evidence and exclusions.
 
 | Bundle | Source | Selected skills |
 | --- | --- | --- |
@@ -17,13 +17,15 @@ The packaging helper copies these selected skill directories at the reviewed com
 | ai-development | [Google ADK](https://github.com/google/adk-python/tree/main/.agents/skills) | adk-agent-builder, adk-architecture |
 | ai-development | [LangChain](https://github.com/langchain-ai/langchain-skills) | langchain-fundamentals, langchain-dependencies, langgraph-fundamentals, langgraph-persistence |
 
-Matt's debugging/review skills replace the overlapping Superpowers/Sentry selections. All released engineering/productivity directories are pinned together so internal skill calls remain available; miscellaneous, deprecated and in-progress skills are excluded. Built Matt Markdown gets a pointer to the local workflow guide plus `docs/agents/` → `documentation/engineering/` and `docs/adr/` → `documentation/decisions/adr/` substitutions. Ticket preferences are defined in the plugin workflow guide, which takes precedence over upstream ticket prerequisites; upstream ticket instructions are not patched. Acquisition notices record these adaptations; existing project paths remain authoritative. No scripts or setup are executed during packaging.
+## How they fit our conventions
 
-Two targeted portability adaptations are also recorded in the lockfile and built notices. Matt's `pr` credits are serialized as a string under `metadata`, preserving all attribution while satisfying Agent Skills' string-value requirement. Trail of Bits `differential-review` uses its included `adversarial.md` directly; references to an upstream registered agent outside the acquired skill directory are removed. Native invocation controls remain intact. Source and built skills share validation of standard frontmatter fields, including optional metadata, compatibility and tool declarations.
+- Local guidance and accepted project choices govern implementation. Frontend sources receive a `frontend-conventions` pointer; backend sources receive a `backend-conventions` pointer, including Python/standalone FastMCP preference and the SDK distinction.
+- Matt's released engineering/productivity skills are acquired as a complete dependency group; deprecated, experimental and miscellaneous skills are excluded. They retain their invocation metadata and receive a pointer to [workflow framing](../plugins/development-workflow/WORKFLOW.md). Tickets are optional; setup runs only on request.
+- Matt's built documentation paths map `docs/agents/` to `documentation/engineering/` and `docs/adr/` to `documentation/decisions/adr/`. Existing project paths remain authoritative. PR attribution is preserved as standard string metadata.
+- `differential-review` uses its included adversarial methodology rather than dispatching an unavailable registered agent. `supply-chain-risk-auditor` retains its scripts/lockfile; its pinned parser does not cover pnpm/yarn, so missing coverage is not a clean audit.
+- AKS cost guidance applies only to Azure AKS. General operations skills select the actual cloud/service and its current first-party documentation; they do not import an operator runtime or assume one platform.
 
-These sources are selected for provenance and fit, not a universal popularity ranking. Use the AI skills for the chosen framework, and security/property-based reviews where useful; having a skill available does not make its workflow mandatory for every change. Keep the local stack and accepted design decisions authoritative.
-
-Trail of Bits guidance is CC-BY-SA-4.0; other selected sources are MIT or Apache-2.0 as recorded at their exact pins. Built bundles carry mixed-license notices. Source pinning does not freeze live documentation or commands embedded in upstream guidance.
+Adaptations are recorded in the lockfile and built notices. Packaging checks hashes and copies resources without executing scripts. Embedded live documentation and commands are not frozen by source pinning. Trail of Bits skills are CC-BY-SA-4.0; other included sources are MIT or Apache-2.0 as recorded at their pins. Built bundles carry mixed-license notices; private installed material is not redistributed.
 
 ## Additional references
 
@@ -36,17 +38,8 @@ Trail of Bits guidance is CC-BY-SA-4.0; other selected sources are MIT or Apache
 - [C4](https://c4model.com/), [arc42](https://arc42.org/overview/), [MADR](https://adr.github.io/madr/) and [AGENTS.md](https://agents.md/): lightweight structures for project knowledge and scoped instructions.
 - [shadcn MCP](https://ui.shadcn.com/docs/mcp) and [Playwright MCP](https://github.com/microsoft/playwright-mcp): optional live tools configured in the chosen client. Hooks use [client-specific extensions](https://agent-plugins.org/specification#8-client-extensions), not a portable hooks field.
 
-## Reviewed additions and platform references
+## Reference-only selections
 
-- **Bundled:** Trail of Bits `supply-chain-risk-auditor` at the existing reviewed pin, including collector/render scripts and their locked dependencies. It measures supported dependency ecosystems; pnpm/yarn lockfiles are not parsed at this pin. Do not interpret missing coverage as a clean audit. Scripts are not executed during packaging.
-- **Bundled:** Microsoft's `aks-cost-optimization` at `20bf35201a79b324d2ca3e00e5c82020ff362024`, MIT. Complete reference files are included. This is AKS-specific; local capacity/cost guidance requires validating its suggested ratios/defaults and commands against workload evidence and current provider guidance. Other router suggestions do not cause the unrelated AKS troubleshooting/cluster-setup skills to be installed or invoked.
-- **Reference only:** [Amplitude analyze-feedback](https://github.com/amplitude/builder-skills/tree/51838c2d85560466d1bbc174ea0e645bb9c44ea9/analytics-skills/skills/analyze-feedback). First-party product feedback synthesis tied to Amplitude MCP tools. No explicit redistribution license was found at this reviewed commit; it is not acquired, installed or configured by our helper. Our local feedback guide works with existing evidence without requiring that vendor.
-- **Not imported:** [GKE Labs kube-agents](https://github.com/gke-labs/kube-agents) is a broader operator harness; [Qovery skills](https://github.com/Qovery/qovery-skills) are platform-specific. These were considered, but do not justify adding an entire runtime or a platform assumption to general application guidance. First-party provenance is not a claim of community adoption or universal suitability.
+[Amplitude analyze-feedback](https://github.com/amplitude/builder-skills/tree/51838c2d85560466d1bbc174ea0e645bb9c44ea9/analytics-skills/skills/analyze-feedback) depends on Amplitude MCP and had no explicit redistribution license at the reviewed pin. It is not acquired or configured; our feedback guide works with existing evidence. Vercel web-design-guidelines is also reference-only for its undeclared redistribution license and floating guideline fetch.
 
-The new operational skills carry their own links to current PostgreSQL, Kubernetes, CloudNativePG, Velero, AWS, Google Cloud and Azure documentation. These are live technical references, not bundled upstream skills; select the actual service/version and verify capabilities before generating infrastructure or recovery commands. No universal cross-cloud backup, capacity or cost skill is claimed.
-
-The lifecycle uses [IBM's seven-phase split](https://www.ibm.com/think/topics/sdlc) (planning and requirements analysis separate); [AWS's SDLC explanation](https://aws.amazon.com/what-is/sdlc/) groups planning and analysis together. Models differ in grouping, not in making Git, documentation or skill setup separate lifecycle phases. Security design uses [OWASP threat modeling](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html); privacy decisions should refer to the applicable authoritative rules, including the [GDPR text](https://eur-lex.europa.eu/eli/reg/2016/679/oj) for EU personal data.
-
-Frontend sources also receive `frontend-framing`: a pointer to the local `frontend-conventions` and an explicit preservation rule for accepted design/framework/Tailwind versions. The added MIT `tailwind-design-system` is v4-specific. See [research and selection limits](conventions-research.md); acquisition still pins full commits and trees and retains complete resources/license notices.
-
-Backend sources receive `backend-framing`: accepted project constraints govern tooling choices, Python/standalone FastMCP is preferred for new MCP interfaces, and SDK-based examples must be adapted against the installed standalone APIs. Original examples and resources are retained; migration of existing tooling/servers is not implicit.
+The operations skills link to PostgreSQL, Kubernetes, CloudNativePG, Velero and cloud-provider docs for contextual implementation. Security guidance uses OWASP and applicable authoritative privacy rules; it does not establish compliance. The [SDLC mapping](sdlc.md) follows a seven-phase split; different models may group planning and analysis together.
