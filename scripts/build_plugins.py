@@ -66,11 +66,40 @@ def adapt_skill(target, source):
     adaptations = source.get('adaptations', [])
     if not adaptations:
         return
-    if set(adaptations) - {'workflow-framing', 'documentation-paths', 'string-metadata', 'inline-adversarial-review', 'frontend-framing', 'backend-framing'}:
+    if set(adaptations) - {'workflow-framing', 'documentation-paths', 'string-metadata', 'inline-adversarial-review', 'frontend-framing', 'backend-framing', 'ai-framing', 'usage-labels', 'tracker-neutral'}:
         raise ValueError('Unknown upstream adaptation')
     for document in target.rglob('*.md'):
         text = document.read_text()
+        if 'documentation-paths' in adaptations:
+            text = text.replace('docs/agents/', 'documentation/engineering/').replace('docs/adr/', 'documentation/decisions/adr/')
         if document.name == 'SKILL.md' and document.parent == target:
+            if 'usage-labels' in adaptations or 'tracker-neutral' in adaptations:
+                import yaml
+                parts = text.split('---', 2)
+                metadata = yaml.safe_load(parts[1])
+                if 'usage-labels' in adaptations:
+                    labels = source['labels']
+                    if labels.get('scope') not in {'generic', 'stack-specific'} or labels.get('invocation') not in {'user', 'agent', 'both'} or any(not isinstance(value, str) for value in labels.values()):
+                        raise ValueError('Invalid usage labels')
+                    metadata.setdefault('metadata', {}).update(labels)
+                if 'tracker-neutral' in adaptations:
+                    replacements = {
+                        'The issue tracker should have been provided to you. If `documentation/engineering/issue-tracker.md` is missing, tell the user to run `/setup-matt-pocock-skills`.': 'Use the agreed request, a local spec or an existing configured tracker as scope. No tracker setup is required.',
+                        'The issue tracker should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.': 'Use the agreed request, a local spec or an existing configured tracker as scope. No tracker setup is required.',
+                        'The issue tracker and triage label vocabulary should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.': 'Use the agreed request and project documentation convention. Publish to a tracker only when explicitly requested.',
+                    }
+                    body = parts[2]
+                    count = 0
+                    for old, new in replacements.items():
+                        if old in body:
+                            body = body.replace(old, new)
+                            count += 1
+                    if count != 1:
+                        raise ValueError('Unexpected tracker prerequisite')
+                    if metadata['name'] == 'implement-spec':
+                        metadata['description'] = 'Implement an agreed spec as dependency-ordered work on an integration branch.'
+                    parts[2] = body
+                text = '---\n' + yaml.safe_dump(metadata, sort_keys=False, allow_unicode=True) + '---' + parts[2]
             if 'string-metadata' in adaptations:
                 import yaml
                 parts = text.split('---', 2)
@@ -92,8 +121,6 @@ def adapt_skill(target, source):
                     'This portable bundle does not register a named subagent.\n', text, flags=re.DOTALL)
                 if count != 1 or 'adversarial-modeler' in text:
                     raise ValueError('Unexpected differential-review agent instructions')
-        if 'documentation-paths' in adaptations:
-            text = text.replace('docs/agents/', 'documentation/engineering/').replace('docs/adr/', 'documentation/decisions/adr/')
         if document.name == 'SKILL.md' and document.parent == target and 'workflow-framing' in adaptations:
             parts = text.split('---', 2)
             text = '---' + parts[1] + '---\n\nRead [workflow framing](../../WORKFLOW.md) before applying this skill.\n' + parts[2]
@@ -103,6 +130,9 @@ def adapt_skill(target, source):
         if document.name == 'SKILL.md' and document.parent == target and 'backend-framing' in adaptations:
             parts = text.split('---', 2)
             text = '---' + parts[1] + '---\n\nRead [backend conventions](../backend-conventions/SKILL.md) before applying this skill. Accepted project constraints take precedence over upstream tooling/language suggestions. Prefer Python and standalone fastmcp (`from fastmcp import FastMCP`) for new MCP interfaces; MCP SDK examples require adaptation to the installed standalone API. Do not migrate existing tooling or servers unless requested.\n' + parts[2]
+        if document.name == 'SKILL.md' and document.parent == target and 'ai-framing' in adaptations:
+            parts = text.split('---', 2)
+            text = '---' + parts[1] + '---\n\nRead [AI and MCP guidance](../build-evaluated-ai/SKILL.md) before applying this skill. For new MCP servers prefer Python and standalone fastmcp (`from fastmcp import FastMCP`); adapt MCP SDK examples to the installed standalone API. MCP-only work needs protocol/authorization tests, not an LLM or model-quality evaluation. Preserve accepted project choices.\n' + parts[2]
         document.write_text(text)
 
 

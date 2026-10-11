@@ -1,6 +1,11 @@
 ---
 name: deliver-reliable-changes
-description: Implement, review and prepare application changes for delivery with focused verification, practical CI/CD and operational evidence. Use for feature implementation, bug fixes, PR preparation, pipeline changes and deployment readiness.
+description: Implement, review and prepare application changes for delivery with focused
+  verification, practical CI/CD and operational evidence. Use for feature implementation,
+  bug fixes, PR preparation, pipeline changes and deployment readiness.
+metadata:
+  scope: generic
+  invocation: both
 ---
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.

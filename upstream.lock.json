@@ -10,8 +10,14 @@
       "license": "MIT (skill frontmatter)",
       "license_path": null,
       "adaptations": [
-        "frontend-framing"
-      ]
+        "frontend-framing",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "React, Next.js, Tailwind, shadcn"
+      }
     },
     {
       "plugin": "web-frontend",
@@ -22,8 +28,14 @@
       "license": "MIT (skill frontmatter)",
       "license_path": null,
       "adaptations": [
-        "frontend-framing"
-      ]
+        "frontend-framing",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "React, Next.js, Tailwind, shadcn"
+      }
     },
     {
       "plugin": "web-frontend",
@@ -34,8 +46,14 @@
       "license": "MIT",
       "license_path": "LICENSE.md",
       "adaptations": [
-        "frontend-framing"
-      ]
+        "frontend-framing",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "React, Next.js, Tailwind, shadcn"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -44,7 +62,15 @@
       "path": "skills/playwright-cli",
       "tree": "6b746b43751be277378e0ee04fe0db69f24da045",
       "license": "Apache-2.0",
-      "license_path": "LICENSE"
+      "license_path": "LICENSE",
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "Playwright CLI"
+      },
+      "adaptations": [
+        "usage-labels"
+      ]
     },
     {
       "plugin": "development-workflow",
@@ -53,7 +79,15 @@
       "path": "skills/github-actions-hardening",
       "tree": "25d75a622f5f8c034be5b25bf6585850d6f7fcd7",
       "license": "MIT",
-      "license_path": "LICENSE"
+      "license_path": "LICENSE",
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "GitHub Actions"
+      },
+      "adaptations": [
+        "usage-labels"
+      ]
     },
     {
       "plugin": "python-backend",
@@ -64,8 +98,14 @@
       "license": "CC-BY-SA-4.0",
       "license_path": "LICENSE",
       "adaptations": [
-        "backend-framing"
-      ]
+        "backend-framing",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "Python"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -74,7 +114,14 @@
       "path": "plugins/property-based-testing/skills/property-based-testing",
       "tree": "cf5e77d684180c80a2f3aa228c53d04b1fa1ba77",
       "license": "CC-BY-SA-4.0",
-      "license_path": "LICENSE"
+      "license_path": "LICENSE",
+      "labels": {
+        "scope": "generic",
+        "invocation": "agent"
+      },
+      "adaptations": [
+        "usage-labels"
+      ]
     },
     {
       "plugin": "development-workflow",
@@ -85,11 +132,16 @@
       "license": "CC-BY-SA-4.0",
       "license_path": "LICENSE",
       "adaptations": [
-        "inline-adversarial-review"
-      ]
+        "inline-adversarial-review",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "agent"
+      }
     },
     {
-      "plugin": "python-backend",
+      "plugin": "ai-development",
       "repository": "https://github.com/anthropics/skills.git",
       "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
       "path": "skills/mcp-builder",
@@ -97,8 +149,14 @@
       "license": "Apache-2.0",
       "license_path": "skills/mcp-builder/LICENSE.txt",
       "adaptations": [
-        "backend-framing"
-      ]
+        "ai-framing",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "Python, standalone FastMCP, MCP"
+      }
     },
     {
       "plugin": "ai-development",
@@ -107,7 +165,15 @@
       "path": ".agents/skills/adk-agent-builder",
       "tree": "c5fab86ae823f33b275d9c095a3693ba48a2260d",
       "license": "Apache-2.0",
-      "license_path": "LICENSE"
+      "license_path": "LICENSE",
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "Google ADK"
+      },
+      "adaptations": [
+        "usage-labels"
+      ]
     },
     {
       "plugin": "ai-development",
@@ -116,7 +182,15 @@
       "path": ".agents/skills/adk-architecture",
       "tree": "f062f6120ab85242bafbe09188c08388fd94631a",
       "license": "Apache-2.0",
-      "license_path": "LICENSE"
+      "license_path": "LICENSE",
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "Google ADK"
+      },
+      "adaptations": [
+        "usage-labels"
+      ]
     },
     {
       "plugin": "ai-development",
@@ -125,7 +199,15 @@
       "path": "config/skills/langchain-fundamentals",
       "tree": "64d425535583b9bd96a434be24986bca192e45f6",
       "license": "MIT",
-      "license_path": "LICENSE"
+      "license_path": "LICENSE",
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "LangChain"
+      },
+      "adaptations": [
+        "usage-labels"
+      ]
     },
     {
       "plugin": "ai-development",
@@ -134,7 +216,15 @@
       "path": "config/skills/langgraph-fundamentals",
       "tree": "480d57e3f5d3f0ac2d98108592a2d185f61cc2ec",
       "license": "MIT",
-      "license_path": "LICENSE"
+      "license_path": "LICENSE",
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "LangGraph"
+      },
+      "adaptations": [
+        "usage-labels"
+      ]
     },
     {
       "plugin": "ai-development",
@@ -143,7 +233,15 @@
       "path": "config/skills/langgraph-persistence",
       "tree": "78329e3bc968c16282b186a265e04eaa01ca8fbd",
       "license": "MIT",
-      "license_path": "LICENSE"
+      "license_path": "LICENSE",
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "LangGraph"
+      },
+      "adaptations": [
+        "usage-labels"
+      ]
     },
     {
       "plugin": "ai-development",
@@ -152,19 +250,14 @@
       "path": "config/skills/langchain-dependencies",
       "tree": "ebdb8abc2c1ee9cea5da98f08043ce01e55a2b43",
       "license": "MIT",
-      "license_path": "LICENSE"
-    },
-    {
-      "plugin": "development-workflow",
-      "repository": "https://github.com/mattpocock/skills.git",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "path": "skills/engineering/ask-matt",
-      "tree": "da068f2392e1144469cbc602ffff96ef47881a88",
-      "license": "MIT",
       "license_path": "LICENSE",
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "LangChain, LangGraph"
+      },
       "adaptations": [
-        "workflow-framing",
-        "documentation-paths"
+        "usage-labels"
       ]
     },
     {
@@ -177,8 +270,14 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels",
+        "tracker-neutral"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "agent"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -190,8 +289,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "agent"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -203,8 +307,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "agent"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -216,8 +325,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "agent"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -229,8 +343,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "user"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -242,8 +361,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "user"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -255,8 +379,14 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels",
+        "tracker-neutral"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "user"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -268,22 +398,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
-    },
-    {
-      "plugin": "development-workflow",
-      "repository": "https://github.com/mattpocock/skills.git",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "path": "skills/engineering/pr",
-      "tree": "00b896d811adffad747c7ca30078d909d60c7f93",
-      "license": "MIT",
-      "license_path": "LICENSE",
-      "adaptations": [
-        "workflow-framing",
         "documentation-paths",
-        "string-metadata"
-      ]
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "user"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -295,8 +416,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "agent"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -308,8 +434,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "agent"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -321,21 +452,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
-    },
-    {
-      "plugin": "development-workflow",
-      "repository": "https://github.com/mattpocock/skills.git",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "path": "skills/engineering/setup-matt-pocock-skills",
-      "tree": "b1568cde855a189b16e5d7dd8a0fa4c3f156bc2e",
-      "license": "MIT",
-      "license_path": "LICENSE",
-      "adaptations": [
-        "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "user"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -347,8 +470,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "agent"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -360,60 +488,14 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
-    },
-    {
-      "plugin": "development-workflow",
-      "repository": "https://github.com/mattpocock/skills.git",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "path": "skills/engineering/to-tickets",
-      "tree": "b32c94e5a51c24ee9c41fcb7fe9ea9fff9af6369",
-      "license": "MIT",
-      "license_path": "LICENSE",
-      "adaptations": [
-        "workflow-framing",
-        "documentation-paths"
-      ]
-    },
-    {
-      "plugin": "development-workflow",
-      "repository": "https://github.com/mattpocock/skills.git",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "path": "skills/engineering/triage",
-      "tree": "4cb951d62ecccaed601cdc5f9a1b7b3d8a799635",
-      "license": "MIT",
-      "license_path": "LICENSE",
-      "adaptations": [
-        "workflow-framing",
-        "documentation-paths"
-      ]
-    },
-    {
-      "plugin": "development-workflow",
-      "repository": "https://github.com/mattpocock/skills.git",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "path": "skills/engineering/wayfinder",
-      "tree": "8ec0462658381bd1606d3f9db14ffc67df6a2a43",
-      "license": "MIT",
-      "license_path": "LICENSE",
-      "adaptations": [
-        "workflow-framing",
-        "documentation-paths"
-      ]
-    },
-    {
-      "plugin": "development-workflow",
-      "repository": "https://github.com/mattpocock/skills.git",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "path": "skills/engineering/wizard",
-      "tree": "0a163daf092c6f361158ca9627e81f2cb5230574",
-      "license": "MIT",
-      "license_path": "LICENSE",
-      "adaptations": [
-        "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels",
+        "tracker-neutral"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "user"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -425,8 +507,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "user"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -438,8 +525,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "agent"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -451,21 +543,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
-    },
-    {
-      "plugin": "development-workflow",
-      "repository": "https://github.com/mattpocock/skills.git",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "path": "skills/productivity/teach",
-      "tree": "2ab11f2f51f3c29771edb5d4258d807a49462491",
-      "license": "MIT",
-      "license_path": "LICENSE",
-      "adaptations": [
-        "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "user"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -477,21 +561,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
-    },
-    {
-      "plugin": "development-workflow",
-      "repository": "https://github.com/mattpocock/skills.git",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "path": "skills/productivity/wait-what",
-      "tree": "c8b050e6b8c711be1a9008ceacb2126914f0763e",
-      "license": "MIT",
-      "license_path": "LICENSE",
-      "adaptations": [
-        "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "user"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -503,8 +579,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "documentation-paths"
-      ]
+        "documentation-paths",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "agent"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -513,7 +594,15 @@
       "path": "plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor",
       "tree": "954cc68e05e24a2a14447b60d1e8946b53323b1b",
       "license": "CC-BY-SA-4.0",
-      "license_path": "LICENSE"
+      "license_path": "LICENSE",
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "Supported dependency lockfile ecosystems"
+      },
+      "adaptations": [
+        "usage-labels"
+      ]
     },
     {
       "plugin": "application-operations",
@@ -522,7 +611,15 @@
       "path": "skills/aks-cost-optimization",
       "tree": "23b00af7a0919279d80cc9a776ff728cee2c6efa",
       "license": "MIT",
-      "license_path": "LICENSE"
+      "license_path": "LICENSE",
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "Azure AKS"
+      },
+      "adaptations": [
+        "usage-labels"
+      ]
     },
     {
       "plugin": "web-frontend",
@@ -533,8 +630,14 @@
       "license": "MIT",
       "license_path": "LICENSE",
       "adaptations": [
-        "frontend-framing"
-      ]
+        "frontend-framing",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "stack-specific",
+        "invocation": "agent",
+        "stack": "React, Next.js, Tailwind, shadcn"
+      }
     },
     {
       "plugin": "development-workflow",
@@ -545,8 +648,13 @@
       "license": "MIT",
       "license_path": "LICENSE",
       "adaptations": [
-        "workflow-framing"
-      ]
+        "workflow-framing",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "agent"
+      }
     }
   ]
 }

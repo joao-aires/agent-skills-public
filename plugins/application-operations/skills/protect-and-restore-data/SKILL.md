@@ -1,6 +1,12 @@
 ---
 name: protect-and-restore-data
-description: Plan, implement or review database backups, restore verification and application disaster recovery. Apply when persistence, deployment topology, migrations or recovery requirements change; use the actual database, Kubernetes operator and cloud provider guidance.
+description: Plan, implement or review database backups, restore verification and
+  application disaster recovery. Apply when persistence, deployment topology, migrations
+  or recovery requirements change; use the actual database, Kubernetes operator and
+  cloud provider guidance.
+metadata:
+  scope: generic
+  invocation: both
 ---
 
 # Protect and restore application data

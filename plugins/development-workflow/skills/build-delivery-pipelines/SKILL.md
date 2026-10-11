@@ -1,6 +1,12 @@
 ---
 name: build-delivery-pipelines
-description: Create or review CI/CD, Dockerfiles and GitHub Actions for application verification, artifact promotion, deployment and rollback or roll-forward. Apply when delivery infrastructure changes, within the requested repository and environment scope.
+description: Create or review CI/CD, Dockerfiles and GitHub Actions for application
+  verification, artifact promotion, deployment and rollback or roll-forward. Apply
+  when delivery infrastructure changes, within the requested repository and environment
+  scope.
+metadata:
+  scope: generic
+  invocation: both
 ---
 
 # Build delivery pipelines

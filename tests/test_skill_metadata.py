@@ -23,6 +23,9 @@ class SkillMetadataTests(unittest.TestCase):
         cases = [
             {'metadata': {'credits': {'author': 'Author'}}},
             {'metadata': {'version': 1}},
+            {'metadata': {'scope': 'anything'}},
+            {'metadata': {'invocation': 'auto-magic'}},
+            {'metadata': {'scope': 'stack-specific'}},
             {'metadata': ['author']},
             {'allowed-tools': ['Read', 'Bash']},
             {'license': ['MIT']},

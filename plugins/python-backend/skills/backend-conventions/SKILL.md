@@ -1,6 +1,13 @@
 ---
 name: backend-conventions
-description: Build, extend or review Python/FastAPI systems with SQLAlchemy, Alembic, contextual persistence, auth, API contracts, jobs and optional AI/FastMCP. Use for backend architecture, endpoints, migrations, transactions, integrations and verification; accept reference systems and preserve established project constraints.
+description: Build, extend or review Python/FastAPI systems with SQLAlchemy, Alembic,
+  contextual persistence, auth, API contracts, jobs and optional AI/FastMCP. Use for
+  backend architecture, endpoints, migrations, transactions, integrations and verification;
+  accept reference systems and preserve established project constraints.
+metadata:
+  scope: stack-specific
+  invocation: both
+  stack: Python, FastAPI, SQLAlchemy, Alembic, PostgreSQL
 ---
 
 # Backend conventions
@@ -48,7 +55,7 @@ Set explicit timeouts, payload limits and cancellation behavior. Retry with boun
 
 For AI, begin with a direct provider adapter if sufficient; use LangChain/LangGraph or Google ADK when orchestration requires it, without installing both by default. Pair with `build-evaluated-ai` when available. Enforce authorization outside prompts, validate structured outputs, constrain tool authority and bound tokens, audio size/duration, time and retries. Gemini can support experiments, but verify current model availability, quotas and pricing rather than assuming every LLM/STT path is free. Separate deterministic fixtures from live-provider evaluations and include failure/fallback behavior.
 
-Prefer Python with the standalone `fastmcp` package where an MCP interface is needed: install with `uv add fastmcp`, import `from fastmcp import FastMCP`, and pin a tested compatible version for production. Use typed narrow tools, authenticated transport and the same application authorization/business services. The MCP SDK's `from mcp.server.fastmcp import FastMCP` is a different implementation/API surface: do not mix its examples, imports, Context or auth/transport options with standalone FastMCP. Use version-matched standalone docs to adapt upstream examples; inspect lifecycle, auth and transport behavior rather than blindly changing imports. The MCP builder's TypeScript recommendation does not override this Python preference. Preserve an existing SDK-based server until a migration is in scope. Do not expose unrestricted database or shell access as a convenience tool.
+For an MCP interface, add the AI plugin and use its standalone FastMCP guidance plus `mcp-builder`. Reuse authorized application services and transaction boundaries; an MCP adapter must not bypass them.
 
 ## Verify observable behavior
 
@@ -56,4 +63,4 @@ Test domain behavior, API contracts, cross-user/tenant denial, transaction rollb
 
 Use the development workflow's relevant E2E/security/delivery guidance and operations skills for recovery/capacity/cost needs. Keep secrets and sensitive data out of logs, while retaining useful correlation diagnostics. Report actual checks and remaining gaps without treating a passing suite as production readiness.
 
-Routine decisions are inline here. Use bundled modern-python/MCP-builder skills and the AI plugin's official framework skills for specialist work. Consult [sources and exceptions](references/sources-and-exceptions.md) for unfamiliar auth, driver, migration or platform details; verify current APIs when versions matter.
+Routine decisions are inline here. Use bundled modern-python for Python tooling and the AI plugin's MCP/framework skills when those interfaces are needed. Consult [sources and exceptions](references/sources-and-exceptions.md) for unfamiliar auth, driver, migration or platform details; verify current APIs when versions matter.

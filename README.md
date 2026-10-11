@@ -2,16 +2,16 @@
 
 I use these Markdown skill bundles to build and operate applications and explore product ideas. The local skills capture my conventions; upstream skills add specialist techniques. Each bundle follows the [Agent Plugins standard](https://agent-plugins.org/specification): `plugin.json` plus `skills/<name>/SKILL.md`.
 
-For a full-stack application, start with `development-workflow`, `python-backend` and `web-frontend`. Add other bundles as needed.
+For a full-stack application, start with `development-workflow`, `python-backend` and `web-frontend`. Add `ai-development` for AI features or MCP interfaces; add other bundles as needed.
 
 ## Choose your plugins
 
 | Plugin | What it contributes | Included upstream expertise |
 | --- | --- | --- |
 | [development-workflow](plugins/development-workflow/) | Project conventions, documentation, Git/PRs, testing, CI/CD and security | Matt Pocock, Humanizer, Playwright, GitHub Actions hardening, Trail of Bits |
-| [python-backend](plugins/python-backend/) | FastAPI, SQLAlchemy/Alembic, PostgreSQL and optional standalone FastMCP | Modern Python, MCP builder |
+| [python-backend](plugins/python-backend/) | FastAPI, SQLAlchemy/Alembic, PostgreSQL | Modern Python |
 | [web-frontend](plugins/web-frontend/) | Next.js, Tailwind v4, shadcn, consistent UI/UX and accessibility | Official shadcn, Tailwind design system, Vercel React/composition |
-| [ai-development](plugins/ai-development/) | Model/framework choice, transcription, evaluation and tool boundaries | Google ADK, LangChain/LangGraph |
+| [ai-development](plugins/ai-development/) | AI features, agents, MCP interfaces and evaluation | Google ADK, LangChain/LangGraph, MCP builder |
 | [application-operations](plugins/application-operations/) | Recovery, capacity and cost | AKS cost optimization, for Azure AKS only |
 | [business-strategy](plugins/business-strategy/) | Strategy, opportunity analysis and product feedback | Original skills and resources |
 | [visual-communication](plugins/visual-communication/) | Architecture diagrams and presentations | Original skills and resources |
@@ -38,7 +38,7 @@ The command builds the three full-stack plugins with pinned upstream skills. Loa
 - **Skills you invoke:** start a deliberate activity, such as `grill-me`, `to-spec`, `implement-spec` or a full project setup.
 - **Skills agents use:** guide requested work, such as frontend/backend conventions, testing, documentation and Git contributions. You can also ask for them by name.
 
-See [user-invoked activities](documentation/usage.md#skills-you-invoke) and [agent-used guidance](documentation/usage.md#skills-agents-use-during-your-work) for examples. Actual discovery and invocation depend on the client.
+Skills also carry generic/stack-specific applicability labels. See [user-invoked activities](documentation/usage.md#skills-you-invoke) and [agent-used guidance](documentation/usage.md#skills-agents-use-during-your-work) for examples. Actual discovery and invocation depend on the client.
 
 Follow project instructions and accepted decisions when using upstream techniques. Tickets are optional. The bundles provide skills without application templates, configured MCP servers or hooks; add live tools when a task needs them.
 

@@ -1,6 +1,12 @@
 ---
 name: learn-from-product-feedback
-description: Analyze user feedback and product usage to evaluate outcomes, identify problems and inform the next product decision. Use when reviewing a shipped feature, investigating adoption/usability or prioritizing evidence; do not start surveys, contact users or install analytics without a request.
+description: Analyze user feedback and product usage to evaluate outcomes, identify
+  problems and inform the next product decision. Use when reviewing a shipped feature,
+  investigating adoption/usability or prioritizing evidence; do not start surveys,
+  contact users or install analytics without a request.
+metadata:
+  scope: generic
+  invocation: both
 ---
 
 # Learn from product feedback

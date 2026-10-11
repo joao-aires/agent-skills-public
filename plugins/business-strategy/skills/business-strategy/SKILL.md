@@ -1,8 +1,17 @@
 ---
 name: business-strategy
-description: "Develop, evaluate, compare, and continuously update business and product strategy from first principles. Use for startup ideas, business plans, market entry, wedge/beachhead selection, positioning, competitive analysis, economic power and value capture, market structure, customer behavior and culture, future-market scenarios, TAM/SAM/SOM, pricing, go-to-market, monetization, open-source commercialization, unit economics, moats, strategic control points, revenue scenarios, valuation, named strategy frameworks, or when the user wants to determine what a product or company should become. Treat the user's initial concept as a hypothesis, not the strategy."
+description: Develop, evaluate, compare, and continuously update business and product
+  strategy from first principles. Use for startup ideas, business plans, market entry,
+  wedge/beachhead selection, positioning, competitive analysis, economic power and
+  value capture, market structure, customer behavior and culture, future-market scenarios,
+  TAM/SAM/SOM, pricing, go-to-market, monetization, open-source commercialization,
+  unit economics, moats, strategic control points, revenue scenarios, valuation, named
+  strategy frameworks, or when the user wants to determine what a product or company
+  should become. Treat the user's initial concept as a hypothesis, not the strategy.
 metadata:
-  version: "2.2"
+  version: '2.2'
+  scope: generic
+  invocation: user
 ---
 
 # Business Strategy

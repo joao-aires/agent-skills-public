@@ -1,6 +1,13 @@
 ---
 name: frontend-conventions
-description: Build, extend or review React/Next.js interfaces using opinionated shadcn/Tailwind conventions and supplied visual references. Use for dashboards, customer applications, storefronts, content sites, navigation, styling, forms and frontend architecture; preserve accepted project choices during ordinary feature work.
+description: Build, extend or review React/Next.js interfaces using opinionated shadcn/Tailwind
+  conventions and supplied visual references. Use for dashboards, customer applications,
+  storefronts, content sites, navigation, styling, forms and frontend architecture;
+  preserve accepted project choices during ordinary feature work.
+metadata:
+  scope: stack-specific
+  invocation: both
+  stack: React, Next.js, Tailwind, shadcn
 ---
 
 # Frontend conventions

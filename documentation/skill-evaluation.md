@@ -4,7 +4,7 @@ Checks through 2026-10-11 cover packaging, client discovery and how agents inter
 
 ## Package checks
 
-The latest conventions revision passed nine helper regression tests, metadata/containment validation, both skill-creator checks and local-link/whitespace checks. All seven bundles built with 45 pinned upstream skills (63 skills total); the final frontend/backend framing changes were followed by a rebuild of those two bundles.
+The conventions revision before curation passed nine helper regression tests, metadata/containment validation, both skill-creator checks and local-link/whitespace checks. All seven bundles built with 45 pinned upstream skills (63 skills total); the final frontend/backend framing changes were followed by a rebuild of those two bundles.
 
 Regression coverage includes attribution-preserving metadata conversion, complete pinned acquisition/resources/notices, rejection of malformed metadata, workflow/frontend/backend framing, portable inline adversarial review, refusal to overwrite a build destination, and managed-link repair without replacing unrelated paths. Upstream scripts are not executed during packaging.
 
@@ -60,3 +60,9 @@ Improve guidance from actual application outcomes: inspect the implemented journ
 Humanizer was installed in the working agent environment and applied to the README, documentation pages and workflow prose. The edit preserves technical claims, commands, code, metadata and existing link targets. Repository-author references now use "I" and "my"; business/team quotations retain their speakers' voice.
 
 Its MIT source is pinned at `225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8`, with complete resources and a workflow pointer in built bundles. Ten helper tests passed, including root-skill acquisition and rejection of a mismatched tree. All seven bundles built with 46 upstream skills (64 skills total), and Copilot CLI discovered Humanizer in the workflow plugin. The revised lifecycle image was rendered and inspected. These checks cover packaging and availability; prose quality was reviewed manually, without an AI-detection score.
+
+## Usage labels and upstream curation
+
+A review of all 27 imported Matt skills retained 18 and removed nine workflows that duplicate local guidance or assume a router, tracker or separate workspace. Standard string metadata now labels each local/acquired skill's generic or stack-specific scope and preferred invocation, without changing native upstream invocation controls. MCP builder moved to the AI plugin; MCP-only work remains independent of model selection/evaluation.
+
+Thirteen helper tests passed, including metadata-label integrity, removal of stale setup calls and self-contained AI framing. Seven bundles built with 37 upstream skills (55 skills total). Copilot CLI discovered all 55 plugin-sourced skills, with no excluded entries and MCP builder in the AI bundle. Independent plan-only exercises handled MCP without model dependencies and spec implementation without a tracker or parallel agents. Neither exercise implemented or ran an application.

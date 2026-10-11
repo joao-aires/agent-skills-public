@@ -1,6 +1,12 @@
 ---
 name: design-secure-features
-description: Design, implement or review features with security and privacy built into data flows, authorization and integrations. Apply to changes involving identities, user data, external inputs, dependencies or new trust boundaries; revisit protections as the application evolves.
+description: Design, implement or review features with security and privacy built
+  into data flows, authorization and integrations. Apply to changes involving identities,
+  user data, external inputs, dependencies or new trust boundaries; revisit protections
+  as the application evolves.
+metadata:
+  scope: generic
+  invocation: both
 ---
 
 # Design secure features

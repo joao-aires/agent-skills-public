@@ -1,6 +1,12 @@
 ---
 name: optimize-application-cost
-description: Estimate or improve application infrastructure and service cost, including Kubernetes, managed databases, storage, networking and AI providers. Apply to cost tradeoffs, budget reviews or architecture choices using regional pricing, measured usage and reliability constraints.
+description: Estimate or improve application infrastructure and service cost, including
+  Kubernetes, managed databases, storage, networking and AI providers. Apply to cost
+  tradeoffs, budget reviews or architecture choices using regional pricing, measured
+  usage and reliability constraints.
+metadata:
+  scope: generic
+  invocation: both
 ---
 
 # Optimize application cost

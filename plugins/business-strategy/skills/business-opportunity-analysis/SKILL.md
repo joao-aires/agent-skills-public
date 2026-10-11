@@ -1,9 +1,15 @@
 ---
 name: business-opportunity-analysis
-description: "Deprecated legacy compatibility skill. Use only when explicitly invoked as business-opportunity-analysis or when the newer business-strategy skill is unavailable. Provides a self-contained fallback for TAM/SAM/SOM, pricing, GTM, revenue scenarios, OSS commercialization, unit economics, moats, and valuation. Prefer business-strategy for all new strategy work."
+description: Deprecated legacy compatibility skill. Use only when explicitly invoked
+  as business-opportunity-analysis or when the newer business-strategy skill is unavailable.
+  Provides a self-contained fallback for TAM/SAM/SOM, pricing, GTM, revenue scenarios,
+  OSS commercialization, unit economics, moats, and valuation. Prefer business-strategy
+  for all new strategy work.
 metadata:
-  version: "2.0-compat"
-  deprecated: "true"
+  version: 2.0-compat
+  deprecated: 'true'
+  scope: generic
+  invocation: user
 ---
 
 # Business Opportunity Analysis — Legacy Compatibility

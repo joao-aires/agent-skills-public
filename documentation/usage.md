@@ -1,6 +1,90 @@
 # Using the plugins
 
-Choose bundles from the [README](../README.md#choose-your-plugins), load them in your client and open the application repository. Ask for a skill by name or let the agent select guidance for the task. Start with the full-stack trio; add AI, operations, strategy or visual communication when needed.
+Choose plugins for the work, then select skills for the task. A **local** skill captures my conventions. An **upstream** skill supplies a specialist technique from another project.
+
+## Generic or stack-specific?
+
+Skills carry standard string labels under `metadata`: `scope`, `invocation`, and `stack` where applicable. These describe intended use; clients may not display the labels or enforce invocation behavior.
+
+| Scope | Meaning | Examples |
+| --- | --- | --- |
+| Generic | Applies across application stacks. It may still need Git, a browser or another tool. | Project conventions, strategy, requirements, documentation, code review, Humanizer, recovery/capacity/cost principles |
+| Stack-specific | Requires matching technology or platform APIs. Check the installed versions and supported coverage. | Next.js/shadcn/Tailwind, FastAPI/SQLAlchemy, Playwright, ADK/LangChain, FastMCP, GitHub Actions, AKS cost optimization |
+
+For example, `frontend-conventions` has `scope: stack-specific`, `stack: React, Next.js, Tailwind, shadcn`, and `invocation: both`. `project-conventions` is generic and also supports both forms of use. Scope is independent of who invokes the skill and where it came from.
+
+## Skills you invoke
+
+Ask for an outcome or name the skill explicitly. Local skills can start the activities below directly. **User** means an explicit activity; **both** means it can also guide related work already requested. Routine changes do not require a planning workflow.
+
+| Activity | Skill | Source | Scope / invocation |
+| --- | --- | --- | --- |
+| Start or review project foundations | `project-conventions` | Local | Generic / both; full setup or reorganization requires a request |
+| Evaluate a product or business direction | `business-strategy` | Local | Generic / user |
+| Analyze product feedback | `learn-from-product-feedback` | Local | Generic / both |
+| Explain architecture visually | `architecture-diagraming` | Local | Generic / user |
+| Create a presentation | `presentation-building` | Local | Generic / user |
+| Review feature security and privacy | `design-secure-features` | Local | Generic / both |
+| Design or review delivery pipelines | `build-delivery-pipelines` | Local | Generic / both |
+| Review backup, restore and disaster recovery | `protect-and-restore-data` | Local | Generic / both |
+| Plan capacity | `plan-application-capacity` | Local | Generic / both |
+| Assess costs | `optimize-application-cost` | Local | Generic / both |
+| Evaluate an AI feature | `build-evaluated-ai` | Local | Stack-specific / both |
+| Plan or run browser journeys | `test-end-to-end` | Local | Playwright-specific / both |
+| Clarify requirements | `grill-me`, `grill-with-docs`, `to-questionnaire` | Upstream: Matt | Generic / user |
+| Write an agreed spec | `to-spec` | Upstream: Matt | Generic / user |
+| Implement agreed scope | `implement`, `implement-spec` | Upstream: Matt | Generic / user |
+| Explore codebase architecture | `improve-codebase-architecture` | Upstream: Matt | Generic / user |
+| Learn from a coding session | `retro` | Upstream: Matt | Generic / user |
+| Hand work to another session | `handoff` | Upstream: Matt | Generic / user |
+
+Examples:
+
+> Use business-strategy to compare these two product ideas, then learn-from-product-feedback to assess the support notes. Separate evidence from assumptions.
+
+> Use protect-and-restore-data to review recovery for my PostgreSQL application on its actual hosting platform. Identify RPO/RTO assumptions and isolated restore checks; do not deploy from this review.
+
+> Use implement-spec for the scope agreed here. No tracker. Use the relevant frontend/backend conventions, verify the affected behavior, and report actual checks.
+
+`business-opportunity-analysis` remains a legacy compatibility entry point; use `business-strategy` for new work. The [review of Matt's skills](upstream-review.md) explains which 18 are retained and why nine were removed. Tracker setup, ticket creation and a separate teaching workspace are not bundled prerequisites.
+
+## Skills agents use during your work
+
+Agents select these when needed to carry out the request. You can also name local guidance explicitly. An upstream skill marked **agent** supplies support rather than starting an unrequested interview or orchestration workflow. Native client invocation controls remain intact.
+
+| Area | Local guidance | Upstream specialists |
+| --- | --- | --- |
+| Project foundations | `project-conventions` for affected structure, commands and constraints | None required |
+| Documentation | `maintain-documentation` | `writing-for-agents` for agent instructions |
+| Prose editing | Follow the document's author and technical claims | `humanizer` |
+| Frontend development | `frontend-conventions` | Official shadcn, Tailwind design system, Vercel React/composition |
+| Backend development | `backend-conventions` | `modern-python` |
+| AI development | `build-evaluated-ai` (local, not an upstream skill) | Chosen Google ADK or LangChain/LangGraph skills |
+| MCP interfaces | MCP section of `build-evaluated-ai`; reuse authorized application services | `mcp-builder`, in `ai-development`; prefer standalone Python FastMCP |
+| Testing | `deliver-reliable-changes`, `test-end-to-end` for browser journeys | `tdd`, `property-based-testing`, `playwright-cli` |
+| Code review | Requested behavior and project standards | `code-review`; `differential-review` for security-sensitive diffs |
+| Debugging | Preserve the affected scope and regression evidence | `diagnosing-bugs` |
+| Research | Record decision-changing findings where the project keeps them | `research` |
+| Architecture and domain design | Relevant frontend/backend conventions | `codebase-design`, `domain-modeling`, `prototype` when exploration is requested |
+| Git contributions | `contribute-code` | No separate PR template required |
+| Delivery | `build-delivery-pipelines` | `github-actions-hardening` for GitHub Actions |
+| Security and privacy | `design-secure-features` | `differential-review`, `supply-chain-risk-auditor` within supported coverage |
+| Data recovery | `protect-and-restore-data` | Current platform/database references |
+| Capacity | `plan-application-capacity` | Current platform references |
+| Cost | `optimize-application-cost` | `aks-cost-optimization` only for Azure AKS |
+| Product feedback | `learn-from-product-feedback` | Existing evidence; no analytics vendor required |
+
+Examples:
+
+> Add saved-search deletion. Use backend-conventions for ownership and transactions, frontend-conventions for the interaction, test-end-to-end for the persisted journey, and contribute-code for the feature worktree and concise PR. No tracker; do not merge.
+
+> Edit this PR description with humanizer. Keep the facts, commands and links intact and use my singular voice.
+
+For new projects, I prefer `applications/` for implementation and `documentation/` for knowledge, with short scoped `AGENTS.md` instructions. Keep existing layouts and accepted choices. Screenshots, reference repositories, schemas and architecture notes can supply context.
+
+## AI and MCP plugin selection
+
+`ai-development` contains model/agent guidance and MCP implementation expertise. An MCP-only server does not require an LLM, transcription, an agent framework or model-quality evaluation. Test its protocol, contracts, authority and lifecycle. For AI features, select the framework actually needed and separate application fixtures from live model evaluation.
 
 ## Build and load
 
@@ -52,50 +136,8 @@ For **VS Code** versions supporting Agent Plugins, merge the individual paths in
 
 Open the application workspace and check Configure Skills. This route follows [official documentation](https://code.visualstudio.com/docs/agent-customization/agent-plugins#use-local-plugins); it was not exercised here. For other clients, use their documented route. Discovery confirms availability, not model compliance.
 
-## Skills you invoke
-
-Request these skills to start a distinct activity, following Matt Pocock's user/agent distinction. Use plain language where the client supports it; slash-command syntax varies. Routine changes can go straight to implementation.
-
-| Activity | Skill | Example request |
-| --- | --- | --- |
-| Start or reorganize a project | `project-conventions` | "Set up a booking app with my frontend/backend conventions. Build creating and reopening a booking first." |
-| Clarify requirements | `grill-me`, `grill-with-docs`, `to-questionnaire` | "Help me resolve the important unknowns in this feature before implementation." |
-| Write a plan | `to-spec` | "Write a concise plan with acceptance criteria and risks. This turn is plan-only." |
-| Implement agreed scope | `implement`, `implement-spec` | "Implement the behavior agreed here; no tickets. Verify ownership and persistence." |
-| Revisit architecture or process | `improve-codebase-architecture`, `retro` | "Review this application's architecture and propose focused improvements." |
-| Learn or hand off | `ask-matt`, `teach`, `wait-what`, `handoff` | "Explain this design decision" or "prepare a handoff of the current work." |
-| Configure an optional tracker workflow | `setup-matt-pocock-skills`, `triage`, `to-tickets` | "Configure my chosen tracker" or "turn this plan into tickets." Only when requested. |
-
-Tickets remain optional, including for `implement-spec`: the [workflow guide](../plugins/development-workflow/WORKFLOW.md#project-fit) makes the conversation or a Markdown spec valid scope. Setup is not a prerequisite for ordinary development.
-
-## Skills agents use during your work
-
-Agents use these skills to carry out your request. You can also ask for one by name. Installing a skill gives no permission to publish or start unrelated work.
-
-| Work | Relevant skills | Example request |
-| --- | --- | --- |
-| Frontend | `frontend-conventions`, shadcn, Tailwind and Vercel expertise | "Follow this screenshot's navigation and density. Keep my brand/components; check mobile, keyboard and failure states." |
-| Backend / MCP | `backend-conventions`, modern-python, mcp-builder | "Add tenant-owned saved searches and restart-safe exports, preserving OIDC; verify transactions and recovery." |
-| AI / transcription | `build-evaluated-ai`, chosen ADK or LangChain skills | "Add Portuguese transcription; start with a direct adapter if sufficient. Verify model/data terms and separate fixtures from live evaluation." |
-| Testing / review | `test-end-to-end`, `deliver-reliable-changes`, `tdd`, `code-review` and relevant security specialists | "Verify this journey against real persistence and review the change against agreed behavior." |
-| Debugging / research | `diagnosing-bugs`, `research`, `prototype`, `codebase-design` | "Reproduce disappearing searches, trace the cause and add a regression check." |
-| Git / pull requests | `contribute-code`, upstream `pr` | "Develop this feature in a worktree, use Conventional Commits, and open a concise PR in this repository. Do not merge." |
-| Docs / foundations | `maintain-documentation`, focused `project-conventions` upkeep, `writing-for-agents`, `humanizer` | "Add a worker and update only affected startup commands, scoped instructions and documentation." |
-| Delivery / security | `build-delivery-pipelines`, `design-secure-features` | "Review promotion, rollback, migration compatibility and changed authority boundaries; do not deploy." |
-| Recovery / capacity / cost | `protect-and-restore-data`, `plan-application-capacity`, `optimize-application-cost` | "Review restore verification and estimate capacity/EUR costs in my actual region. Separate measurements from assumptions." |
-| Product / business | `learn-from-product-feedback`, `business-strategy`, `business-opportunity-analysis` | "Assess this idea or these anonymized support notes; identify evidence, uncertainty and the next useful decision." |
-| Visual communication | `architecture-diagraming`, `presentation-building` | "Explain the implemented system visually, marking planned components." |
-
-You can also request strategy or visual work as a standalone activity. These groups describe how to use the skills; enforcement depends on the client. Upstream invocation metadata remains intact.
-
-Use `humanizer` when drafting or editing prose in any phase. Keep the author's voice and preserve facts, code, metadata and link targets. Example: "Use humanizer to edit this PR description without changing its technical claims."
-
-For new projects, I prefer `applications/` for implementation and `documentation/` for knowledge, with short scoped `AGENTS.md` instructions. Keep existing layouts and accepted choices. Screenshots, URLs, repositories, schemas and architecture notes can supply references; record the decisions that affect the project.
-
 ## Optional tools and verification
 
-MCP servers provide live tools: shadcn registries, browser automation or the application's standalone FastMCP interface. Configure them only for the actual client and application. A Playwright skill does not install Playwright MCP, and browser tests can use the project's normal runner. No MCP servers or hooks are enabled by these bundles.
+MCP servers expose tools; skills explain how to use or build them. Configure servers for the actual client and application. The Playwright skill does not install Playwright MCP, and the MCP builder does not create a running server during plugin installation. These bundles configure no servers or hooks.
 
-Ask which checks ran and what they cover: rendered UI, real persistence, ownership denial, mocked providers and live AI quality, as applicable. Package validation alone says nothing about the application's quality. Detailed coverage and pending operations workflows are in the [SDLC map](sdlc.md).
-
-For legacy skill-only links or renamed skills, use the [migration guide](migration.md).
+Ask which checks ran and what they cover: rendered UI, real persistence, ownership denial, mocked providers and live AI quality, as applicable. Package validation alone says nothing about the application's quality. See the [SDLC map](sdlc.md) for coverage and the [migration guide](migration.md) for older installations.

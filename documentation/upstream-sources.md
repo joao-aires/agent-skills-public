@@ -7,26 +7,26 @@ Built plugins include the sources below at the commit/tree pins in [upstream.loc
 | web-frontend | [Vercel](https://github.com/vercel-labs/agent-skills) | React best practices, composition patterns |
 | web-frontend | [shadcn](https://github.com/shadcn-ui/ui/tree/main/skills/shadcn) | Official shadcn |
 | web-frontend | [Wshobson](https://github.com/wshobson/agents/tree/46891e7e60da0e52baf1050b7b6391b64e84c6d9/plugins/frontend-mobile-development/skills/tailwind-design-system) | Tailwind design system (v4; preserve existing project versions) |
-| development-workflow | [Matt Pocock](https://github.com/mattpocock/skills) | Released engineering + productivity skills, including their complete local resources and invocation metadata |
+| development-workflow | [Matt Pocock](https://github.com/mattpocock/skills) | 18 curated engineering/productivity skills; [selection review](upstream-review.md) |
 | development-workflow | [Humanizer](https://github.com/blader/humanizer) | humanizer: edit prose across the lifecycle |
 | development-workflow | [Microsoft Playwright](https://github.com/microsoft/playwright-cli) | playwright-cli |
 | development-workflow | [GitHub awesome-copilot](https://github.com/github/awesome-copilot/tree/main/skills/github-actions-hardening) | GitHub Actions hardening |
 | development-workflow | [Trail of Bits](https://github.com/trailofbits/skills) | property-based-testing, differential-review, supply-chain-risk-auditor |
 | application-operations | [Microsoft Azure AKS-Skills](https://github.com/Azure/AKS-Skills/tree/20bf35201a79b324d2ca3e00e5c82020ff362024/skills/aks-cost-optimization) | aks-cost-optimization with its six references; applies only to AKS |
 | python-backend | [Trail of Bits](https://github.com/trailofbits/skills/tree/main/plugins/modern-python) | modern-python |
-| python-backend | [Anthropic](https://github.com/anthropics/skills/tree/main/skills/mcp-builder) | mcp-builder |
+| ai-development | [Anthropic](https://github.com/anthropics/skills/tree/main/skills/mcp-builder) | mcp-builder |
 | ai-development | [Google ADK](https://github.com/google/adk-python/tree/main/.agents/skills) | adk-agent-builder, adk-architecture |
 | ai-development | [LangChain](https://github.com/langchain-ai/langchain-skills) | langchain-fundamentals, langchain-dependencies, langgraph-fundamentals, langgraph-persistence |
 
 ## How they fit my conventions
 
-- Follow local guidance and accepted project choices. Frontend sources receive a `frontend-conventions` pointer; backend sources receive a `backend-conventions` pointer, including Python/standalone FastMCP preference and the SDK distinction.
-- Matt's released engineering/productivity skills are acquired as a complete dependency group; deprecated, experimental and miscellaneous skills are excluded. They retain their invocation metadata and receive a pointer to [workflow framing](../plugins/development-workflow/WORKFLOW.md). Tickets are optional; setup runs only on request.
-- Matt's built documentation paths map `docs/agents/` to `documentation/engineering/` and `docs/adr/` to `documentation/decisions/adr/`. Existing project paths remain authoritative. PR attribution is preserved as standard string metadata.
+- Follow local guidance and accepted project choices. Frontend sources receive a `frontend-conventions` pointer; Python tooling receives a `backend-conventions` pointer. MCP builder receives AI/MCP framing, including Python/standalone FastMCP preference and the SDK distinction.
+- The curated Matt set retains the dependencies of its interview, implementation, design and retrospective skills. Router, tracker and unrelated workspace workflows are excluded; see the selection review. They retain their invocation metadata and receive a pointer to [workflow framing](../plugins/development-workflow/WORKFLOW.md). Tickets are optional; setup runs only on request.
+- Matt's built documentation paths map `docs/agents/` to `documentation/engineering/` and `docs/adr/` to `documentation/decisions/adr/`. Existing project paths remain authoritative. Three retained skills have stale setup prerequisites removed; tracker operations remain explicitly requested.
 - `differential-review` uses its included adversarial methodology rather than dispatching an unavailable registered agent. `supply-chain-risk-auditor` retains its scripts/lockfile; its pinned parser does not cover pnpm/yarn, so missing coverage is not a clean audit.
 - AKS cost guidance applies only to Azure AKS. General operations skills select the actual cloud/service and its current first-party documentation; they do not import an operator runtime or assume one platform.
 
-The lockfile and built notices record adaptations. Packaging checks hashes and copies resources without running scripts. Pinning the source leaves embedded live documentation and commands free to change. Trail of Bits skills are CC-BY-SA-4.0; other included sources are MIT or Apache-2.0 as recorded at their pins. Built bundles carry mixed-license notices; private installed material is not redistributed.
+The lockfile and built notices record adaptations and usage labels. Standard `metadata.scope`, `metadata.stack` and `metadata.invocation` describe applicability and preferred use without changing native controls. Packaging checks hashes and copies resources without running scripts. Pinning the source leaves embedded live documentation and commands free to change. Trail of Bits skills are CC-BY-SA-4.0; other included sources are MIT or Apache-2.0 as recorded at their pins. Built bundles carry mixed-license notices; private installed material is not redistributed.
 
 ## Additional references
 

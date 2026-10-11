@@ -1,8 +1,20 @@
 ---
 name: architecture-diagraming
-description: "Build responsive, theme-aware HTML architecture diagrams using CSS grid/flexbox and CSS variables. Use when the user asks to: create a system architecture diagram, map out microservices, visualize cloud infrastructure, draw a sequence diagram, model data flows, build a deployment diagram, create a state machine visualization, design a pipeline or DevOps flow, map network topology, show integration between systems, create any kind of technical diagram or visual system map. This skill should be used any time the user wants to visualize how software components, services, infrastructure, or data relate to each other — even if they don't explicitly say 'architecture diagram'. Covers structural diagrams (system, application, cloud, network, deployment), behavioral diagrams (sequence, data flow, state, pipeline), and operational diagrams (resilience, availability)."
+description: 'Build responsive, theme-aware HTML architecture diagrams using CSS grid/flexbox
+  and CSS variables. Use when the user asks to: create a system architecture diagram,
+  map out microservices, visualize cloud infrastructure, draw a sequence diagram,
+  model data flows, build a deployment diagram, create a state machine visualization,
+  design a pipeline or DevOps flow, map network topology, show integration between
+  systems, create any kind of technical diagram or visual system map. This skill should
+  be used any time the user wants to visualize how software components, services,
+  infrastructure, or data relate to each other — even if they don''t explicitly say
+  ''architecture diagram''. Covers structural diagrams (system, application, cloud,
+  network, deployment), behavioral diagrams (sequence, data flow, state, pipeline),
+  and operational diagrams (resilience, availability).'
 metadata:
-  version: "2.0"
+  version: '2.0'
+  scope: generic
+  invocation: user
 ---
 
 # Architecture Mapper

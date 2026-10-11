@@ -1,9 +1,18 @@
 ---
 name: build-evaluated-ai
-description: Build or review LLM, agent and speech-to-text features with clear evaluation and tool boundaries. Use for framework/model selection, prompts, structured output, Gemini experiments, ADK or LangChain/LangGraph workflows, transcription and AI regression checks.
+description: Build or review AI features and MCP interfaces with evaluation and authority
+  boundaries. Use for model/framework selection, prompts, structured output, Gemini,
+  ADK or LangChain/LangGraph, optional transcription, standalone FastMCP tools and
+  protocol verification.
+metadata:
+  scope: stack-specific
+  invocation: both
+  stack: Gemini, Google ADK, LangChain, LangGraph, FastMCP
 ---
 
 # Build evaluated AI features
+
+For MCP-only work, use the MCP section below; no LLM, agent framework or model-quality evaluation is required.
 
 ## Choose the smallest useful AI boundary
 
@@ -39,3 +48,9 @@ For Portuguese uploaded-audio transcription, include the product's dialects, rec
 ## Report completion and limits
 
 Version evaluation examples and prompts when they affect behavior. Report what is implemented, deterministic checks run, live evidence gathered and unresolved gaps. Compare against the stated criteria; do not declare quality verified when live evaluation is blocked. Use the workflow bundle for documentation/E2E/delivery when available and update operational notes for quotas, limits and failure handling.
+
+## Build MCP interfaces
+
+Use installed `mcp-builder` for protocol implementation. Prefer Python and standalone `fastmcp` (`uv add fastmcp`, `from fastmcp import FastMCP`) with a tested compatible version pinned for production. Its API differs from the MCP SDK's `mcp.server.fastmcp`; adapt Context, lifecycle, auth and transport examples against version-matched standalone documentation. Preserve an existing server until migration is in scope.
+
+Expose narrow typed tools over authorized application services. Verify discovery, contracts, missing/invalid credentials, resource ownership, side-effect policy, failure handling and transport/lifespan cleanup. MCP tooling can support AI applications without making the server itself an AI system.

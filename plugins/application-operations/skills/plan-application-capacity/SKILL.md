@@ -1,6 +1,12 @@
 ---
 name: plan-application-capacity
-description: Design or review application capacity, concurrency and scaling for Kubernetes or another hosting platform. Apply to growth, saturation, resource sizing, latency bottlenecks and architecture changes using measured demand and current platform-specific guidance.
+description: Design or review application capacity, concurrency and scaling for Kubernetes
+  or another hosting platform. Apply to growth, saturation, resource sizing, latency
+  bottlenecks and architecture changes using measured demand and current platform-specific
+  guidance.
+metadata:
+  scope: generic
+  invocation: both
 ---
 
 # Plan application capacity

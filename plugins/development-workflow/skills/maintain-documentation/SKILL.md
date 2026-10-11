@@ -1,6 +1,12 @@
 ---
 name: maintain-documentation
-description: Organize application knowledge and update affected PRDs, architecture, schemas, plans, decisions and runbooks when implementation or accepted decisions change. Use during planning, feature changes, migrations, deployment changes or documentation reviews.
+description: Organize application knowledge and update affected PRDs, architecture,
+  schemas, plans, decisions and runbooks when implementation or accepted decisions
+  change. Use during planning, feature changes, migrations, deployment changes or
+  documentation reviews.
+metadata:
+  scope: generic
+  invocation: both
 ---
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.

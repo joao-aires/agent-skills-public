@@ -64,6 +64,50 @@ class InstallationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'tree mismatch'):
                 installer.acquire(source, root / 'cache')
 
+    def test_usage_labels_preserve_native_controls_and_attribution(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / 'example'
+            skill.mkdir()
+            path = skill / 'SKILL.md'
+            path.write_text('---\nname: example\ndescription: Example\ndisable-model-invocation: true\nmetadata:\n  author: Original Author\n---\nOriginal body\n')
+            installer.adapt_skill(skill, {'adaptations': ['usage-labels'], 'labels': {'scope': 'generic', 'invocation': 'user'}})
+            result = path.read_text()
+            data = yaml.safe_load(result.split('---', 2)[1])
+            self.assertTrue(data['disable-model-invocation'])
+            self.assertEqual(data['metadata']['author'], 'Original Author')
+            self.assertEqual(data['metadata']['scope'], 'generic')
+            self.assertTrue(result.endswith('\nOriginal body\n'))
+            with self.assertRaisesRegex(ValueError, 'Invalid usage labels'):
+                installer.adapt_skill(skill, {'adaptations': ['usage-labels'], 'labels': {'scope': 'universal', 'invocation': 'user'}})
+
+    def test_tracker_neutral_adaptation_and_upstream_drift_guard(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / 'implement-spec'
+            skill.mkdir()
+            path = skill / 'SKILL.md'
+            path.write_text('---\nname: implement-spec\ndescription: Implement /to-tickets\ndisable-model-invocation: true\n---\nThe issue tracker should have been provided to you. If not, tell the user to run `/setup-matt-pocock-skills`.\nUnchanged implementation steps.\n')
+            installer.adapt_skill(skill, {'adaptations': ['tracker-neutral']})
+            result = path.read_text()
+            self.assertNotIn('setup-matt-pocock-skills', result)
+            self.assertNotIn('/to-tickets', result)
+            self.assertIn('Unchanged implementation steps.', result)
+            self.assertTrue(yaml.safe_load(result.split('---', 2)[1])['disable-model-invocation'])
+            with self.assertRaisesRegex(ValueError, 'Unexpected tracker prerequisite'):
+                installer.adapt_skill(skill, {'adaptations': ['tracker-neutral']})
+
+    def test_ai_framing_points_within_ai_bundle(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / 'mcp-builder'
+            skill.mkdir()
+            path = skill / 'SKILL.md'
+            path.write_text('---\nname: mcp-builder\ndescription: Example\n---\nOriginal SDK guidance\n')
+            installer.adapt_skill(skill, {'adaptations': ['ai-framing']})
+            result = path.read_text()
+            self.assertIn('../build-evaluated-ai/SKILL.md', result)
+            self.assertIn('not an LLM', result)
+            self.assertNotIn('../backend-conventions', result)
+            self.assertTrue(result.endswith('\nOriginal SDK guidance\n'))
+
     def test_pinned_build_references_notices_and_no_overwrite(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

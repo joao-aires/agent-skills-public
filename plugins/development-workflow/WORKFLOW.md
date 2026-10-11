@@ -1,52 +1,29 @@
 # Choose a skill for the task
 
-Read the project's AGENTS.md and accepted decisions, then choose skills for the requested work. Local guidance sets defaults; upstream skills supply compatible techniques. Run a workflow when the task calls for it.
+Read the project's AGENTS.md and accepted decisions, then choose skills for the requested work. Local guidance sets defaults; upstream skills supply compatible techniques. The [usage guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/usage.md) lists activities, sources and generic/stack-specific labels.
 
 ## Invocation
 
-**Agent-invoked** guidance helps execute an existing request and remains manually invocable. **User-invoked** skills start a distinct activity only when explicitly requested. A request in plain language can count where the client supports it; slash-command syntax is client-specific. Routers suggest user-invoked skills rather than starting them.
+User-invoked activities begin on request. Agent-invoked guidance supports work already requested. Local skills marked `both` can do either; their descriptions still define scope. For example, `project-conventions` starts full setup/reorganization only on request and guides focused upkeep during ordinary work. A plain-language request can express intent; client command syntax and enforcement vary.
 
-### User-invoked activities
+Local activities include strategy, feedback analysis, architecture diagrams, presentations, security reviews, delivery design, recovery, capacity and cost planning. They can be requested directly. Frontend/backend/AI guidance, documentation, testing and contributions also support related work automatically.
 
-| Activity | Skills |
-| --- | --- |
-| Full project setup/reorganization | Local `project-conventions` |
-| Clarify an idea | `grill-me`, `grill-with-docs`, `to-questionnaire` |
-| Plan substantial work | `to-spec`, `to-tickets`, `wayfinder` |
-| Execute agreed work | `implement`, `implement-spec` |
-| Revisit architecture/process | `improve-codebase-architecture`, `retro` |
-| Navigate, hand off or learn | `ask-matt`, `handoff`, `wait-what`, `teach` |
-| Configure optional tools/tracker | `setup-matt-pocock-skills`, `triage` |
-
-### Agent-invoked guidance
-
-| Work already requested | Skills |
-| --- | --- |
-| Project upkeep, docs and instructions | Local `project-conventions` for affected foundations; `maintain-documentation`, `writing-for-agents`, `humanizer` |
-| Stack conventions | Backend/frontend/AI guidance in the corresponding bundles |
-| Clarification support | `grilling`, `domain-modeling` during the requested session |
-| Investigation and exploration | `research`, `prototype`, `codebase-design` |
-| Implementation, testing and review | `deliver-reliable-changes`, `test-end-to-end`, `tdd`, `code-review`; relevant security/property-based specialists |
-| Debugging | `diagnosing-bugs` |
-| Git contributions | Local `contribute-code`; upstream `pr` for preparation |
-| Delivery and security | `build-delivery-pipelines`, GitHub Actions hardening, `design-secure-features`, dependency/security specialists |
-| Recovery, capacity and cost | Local `application-operations` skills; AKS specialist only on AKS |
-| Product feedback | `learn-from-product-feedback` in `business-strategy` for requested analysis |
-| Human-only setup steps | `wizard` during requested setup |
-
-Research, clarification and prose editing can support any phase or surrounding product activity. `research` is task-matched; `grill-me` remains an explicitly requested interaction, not an automatic questioning step. Project foundations and delivery pipelines are established once and maintained when relevant, while the SDLC repeatedly uses those capabilities.
-
-Use `humanizer` for human-readable docs and PR prose when editing is part of the task. Preserve the author's voice, supported claims, commands, code, metadata and link targets. Keep technical caveats that change what the reader should do; add no invented opinions or facts.
+Retained upstream user activities are `grill-me`, `grill-with-docs`, `to-questionnaire`, `to-spec`, `implement`, `implement-spec`, `improve-codebase-architecture`, `retro` and `handoff`. Supporting techniques are `grilling`, `domain-modeling`, `codebase-design`, `research`, `prototype`, `tdd`, `code-review`, `diagnosing-bugs` and `writing-for-agents`. `humanizer` edits prose across the lifecycle.
 
 ## Project fit
 
-- Let scope and existing project decisions determine depth. Routine changes can go straight to implementation; specs, tickets, interviews and parallel orchestration are choices for work that benefits from them.
-- Tickets and issue trackers are optional. Use the agreed conversation, Markdown spec or plan as the scope. When a bundled skill requires tickets or tracker setup, apply it using that scope instead. Create or update tickets only when explicitly requested. This plugin guidance takes precedence over upstream ticket prerequisites.
-- `implement` relies on `tdd` and `code-review`; parallel `implement-spec` execution needs subagent/worktree support. Check capabilities before choosing a workflow. If a client lacks them, report the limitation and use a simpler supported approach rather than claiming orchestration ran.
-- Retain existing answers and authorization. Resolve material ambiguity; do not repeat an upstream confirmation step when the user already settled the decision.
-- Apply `contribute-code` by default for feature development and Git/PR work. Create a feature worktree from the intended repository/base, or reuse the workspace already serving that objective; keep implementation, tests and docs there. Use it as the integration worktree for `implement`/`implement-spec`. Prefer CLI operations with MCP fallback; use optional issue references and concise PR explanations. These local contribution rules frame upstream implementation/PR skills without requiring tickets or another orchestration layer.
-- In new projects, keep persistent knowledge under `documentation/`. Built Matt skills use `documentation/engineering/` for tracker/domain configuration and `documentation/decisions/adr/` for ADRs. Existing documented paths take precedence; preserve one authoritative glossary, which may remain at the root.
-- Invoke setup only when choosing tracker-based workflows and configuration is needed. Local files are an option; no external tracker is mandatory. Packaging never runs setup, creates tickets, sends messages, commits application work or enables integrations.
-- Authorization remains part of the application and client. Upstream instructions do not grant permission to publish, merge, send messages or access services beyond the user's requested scope.
+- Let scope and existing decisions determine depth. Routine changes can go straight to implementation; interviews, specs and parallel orchestration are choices. Keep specs proportionate to the feature instead of producing an exhaustive story catalogue.
+- Tickets and trackers are optional. Use the agreed conversation, Markdown spec or plan as scope. Treat the work graph in `implement-spec` as dependency-ordered slices; this can stay in a local plan without creating tickets. Use tracker operations only when explicitly requested and already configured. No upstream setup skill is required.
+- `implement` uses `tdd` where appropriate and finishes with `code-review`. `implement-spec` needs supported subagents/worktrees for parallel execution; use a simpler supported approach otherwise. Research and review can run inline if the client cannot delegate. Do not claim unavailable orchestration ran.
+- Retain existing answers and authorization. Ask about unresolved product/authority decisions; choose reversible implementation details without repeated confirmation. Routine test boundaries already established by the project/request need no fresh approval.
+- Apply `contribute-code` for feature development and Git/PR work. Use the worktree already serving the objective or create one from the intended base. Keep implementation, tests and docs together. Its concise PR conventions govern descriptions; add a diagram only when useful. No separate upstream PR template is bundled.
+- Preserve project domain vocabulary, even when a design technique uses its own terms. Prototype artifacts and generated visual reports serve the requested exploration, not a mandatory workflow. A prototype's in-memory demo does not prove application persistence; record useful findings without requiring an issue.
+- In new projects, keep knowledge under `documentation/`; preserve existing documented paths. Create glossary/ADR files only when useful. Built references map `docs/agents/` to `documentation/engineering/` and `docs/adr/` to `documentation/decisions/adr/`.
+- Use `humanizer` for prose edits and `writing-for-agents` for instruction structure. Preserve the author's voice, supported claims, commands, metadata and link targets. For questionnaire work, draft the requested document; sending it needs explicit authorization.
+- Upstream guidance grants no additional permission to publish, merge, deploy, send messages or access services. Packaging copies resources without running setup or integrations.
 
-Matt's released engineering/productivity skills are acquired with all resources and native invocation metadata. Their Markdown receives a pointer to this guide and the two documentation-path substitutions; `pr` credit values are normalized to standard string metadata. Differential security review uses its included inline adversarial methodology rather than an unregistered upstream agent. Ticket preferences live in this guide; upstream ticket instructions are preserved and interpreted using the project-fit rules above. Deprecated, experimental and miscellaneous tool-specific skills are excluded.
+## Metadata and upstream adaptations
+
+`metadata.scope` distinguishes `generic` from `stack-specific`; `metadata.stack` names relevant technologies. `metadata.invocation` records preferred `user`, `agent` or `both` usage. These are standard string metadata labels, not a custom execution engine. Native upstream invocation controls remain intact.
+
+The bundle retains 18 reviewed Matt skills with their dependency resources. It excludes the router, tracker workflows, teaching workspace, clarification shortcut, scripted setup wizard and overlapping PR template; see [the review](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/upstream-review.md). Packaging adds this workflow pointer and labels, adjusts the two documentation paths, and removes stale setup prerequisites from three retained skills. Inline differential review uses its included methodology instead of an unavailable named agent.

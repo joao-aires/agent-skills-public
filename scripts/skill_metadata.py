@@ -22,6 +22,14 @@ def validate_skill_metadata(skill):
     for field in ('license', 'allowed-tools'):
         if field in metadata and not isinstance(metadata[field], str):
             raise ValueError(f'Invalid skill {field}: {skill}')
+    labels = metadata.get('metadata', {})
+    if isinstance(labels, dict):
+        if 'scope' in labels and labels['scope'] not in {'generic', 'stack-specific'}:
+            raise ValueError(f'Invalid skill scope: {skill}')
+        if labels.get('scope') == 'stack-specific' and (not isinstance(labels.get('stack'), str) or not labels['stack'].strip()):
+            raise ValueError(f'Missing skill stack label: {skill}')
+        if 'invocation' in labels and labels['invocation'] not in {'user', 'agent', 'both'}:
+            raise ValueError(f'Invalid skill invocation label: {skill}')
     if 'compatibility' in metadata:
         value = metadata['compatibility']
         if not isinstance(value, str) or not value.strip() or len(value) > 500:

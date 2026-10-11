@@ -1,6 +1,12 @@
 ---
 name: project-conventions
-description: Establish or maintain an application repository's structure, stack constraints, scoped AGENTS.md, local setup and delivery conventions. Use when explicitly asked to start, organize or review a project, or when the requested change affects those foundations; keep ordinary feature work within existing conventions.
+description: Establish or maintain an application repository's structure, stack constraints,
+  scoped AGENTS.md, local setup and delivery conventions. Use when explicitly asked
+  to start, organize or review a project, or when the requested change affects those
+  foundations; keep ordinary feature work within existing conventions.
+metadata:
+  scope: generic
+  invocation: both
 ---
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.

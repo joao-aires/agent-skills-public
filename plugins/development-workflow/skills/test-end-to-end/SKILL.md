@@ -1,6 +1,13 @@
 ---
 name: test-end-to-end
-description: Plan, write, run or debug Playwright end-to-end tests for important user journeys. Use for changes spanning UI/API/database behavior, persistence, authentication, authorization or critical browser interactions, and to investigate failing journey tests.
+description: Plan, write, run or debug Playwright end-to-end tests for important user
+  journeys. Use for changes spanning UI/API/database behavior, persistence, authentication,
+  authorization or critical browser interactions, and to investigate failing journey
+  tests.
+metadata:
+  scope: stack-specific
+  invocation: both
+  stack: Playwright
 ---
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
