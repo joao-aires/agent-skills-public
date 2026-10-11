@@ -46,7 +46,7 @@ Examples:
 
 > Use implement-spec for the scope agreed here. No tracker. Use the relevant frontend/backend conventions, verify the affected behavior, and report actual checks.
 
-`business-opportunity-analysis` remains a legacy compatibility entry point; use `business-strategy` for new work. The [review of Matt's skills](upstream-review.md) explains which 18 are retained and why nine were removed. Tracker setup, ticket creation and a separate teaching workspace are not bundled prerequisites.
+`business-opportunity-analysis` remains a legacy compatibility entry point; use `business-strategy` for new work. The [review of Matt's skills](maintainer-reference.md#matt-pocock-selection) explains which 18 are retained and why nine were removed. Tracker setup, ticket creation and a separate teaching workspace are not bundled prerequisites.
 
 ## Skills agents use during your work
 

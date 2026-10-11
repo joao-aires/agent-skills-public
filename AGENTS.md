@@ -9,3 +9,5 @@
 - Preserve upstream invocation controls and complete dependency groups. Agent-invoked guidance stays within the requested scope; user-invoked orchestration begins only on an explicit request. Record adaptations in source notices.
 
 - Write repository prose in my singular voice (João), using "I" and "my" when describing my choices. Keep examples in their actual author's voice. Use Humanizer for prose edits; preserve technical meaning, caveats, commands and link targets.
+
+- Organize repository docs by reader need: usage, SDLC coverage, migration and a maintainer reference. Put source-selection and validation details in that reference instead of adding a separate report for each change.

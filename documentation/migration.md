@@ -23,4 +23,4 @@ The frontend/backend entry points are now `frontend-conventions` and `backend-co
 
 ## Curated upstream set and MCP placement
 
-MCP builder now belongs to `ai-development`; add that plugin for MCP work, even when no LLM is needed. The workflow bundle retains 18 of Matt's skills and excludes nine from its earlier broad import; see [the review](upstream-review.md). Rebuild and replace the affected bundles as usual. Remove excluded skill copies only after inspecting their origin; unrelated installations are unchanged.
+MCP builder now belongs to `ai-development`; add that plugin for MCP work, even when no LLM is needed. The workflow bundle retains 18 of Matt's skills and excludes nine from its earlier broad import; see [the review](maintainer-reference.md#matt-pocock-selection). Rebuild and replace the affected bundles as usual. Remove excluded skill copies only after inspecting their origin; unrelated installations are unchanged.

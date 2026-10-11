@@ -48,12 +48,16 @@ Follow project instructions and accepted decisions when using upstream technique
 
 The cycle covers planning, requirements analysis, design, implementation, testing, deployment and maintenance. Discovery and product feedback inform it; project foundations and cross-cutting guidance support it. See the [linked skill mapping and coverage gaps](documentation/sdlc.md).
 
-## More detail
+## Documentation
 
-- [Usage](documentation/usage.md): loading plugins, invocation and example requests.
-- [Workflow selection](plugins/development-workflow/WORKFLOW.md): choosing engineering activities.
-- [Upstream catalogue](documentation/upstream-sources.md): included skills, licenses and adaptations.
-- [Research notes](documentation/conventions-research.md) and [evaluation evidence](documentation/skill-evaluation.md): provenance and validation limits.
+| Document | Use it for |
+| --- | --- |
+| [Usage](documentation/usage.md) | Choose skills, load plugins and follow example requests |
+| [SDLC coverage](documentation/sdlc.md) | Find skills by lifecycle phase and see coverage gaps |
+| [Migration](documentation/migration.md) | Update old paths, names and installations |
+| [Maintainer reference](documentation/maintainer-reference.md) | Sources, selection decisions, licenses, acquisition and validation |
+
+The plugin's [workflow guide](plugins/development-workflow/WORKFLOW.md) supplies the project-fit rules agents apply; it is part of the installed bundle.
 
 Updating an older installation? The original four skills moved under `plugins/`; the development entry points are now `project-conventions`, `frontend-conventions` and `backend-conventions`. See [migration instructions](documentation/migration.md) before replacing old copies or links.
 
