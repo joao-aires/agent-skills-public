@@ -25,6 +25,22 @@ class InstallationTests(unittest.TestCase):
             self.assertIn('not authorization to migrate or redesign', result)
             self.assertTrue(result.endswith(original.split('---', 2)[2]))
 
+    def test_backend_framing_preserves_metadata_resources_and_examples(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / 'mcp-builder'
+            skill.mkdir()
+            original = '---\nname: mcp-builder\ndescription: Example\nuser-invocable: false\n---\n# Original\nfrom mcp.server.fastmcp import FastMCP\n'
+            (skill / 'SKILL.md').write_text(original)
+            (skill / 'reference.md').write_text('Original resource')
+            installer.adapt_skill(skill, {'adaptations': ['backend-framing']})
+            result = (skill / 'SKILL.md').read_text()
+            self.assertEqual(yaml.safe_load(result.split('---', 2)[1]), yaml.safe_load(original.split('---', 2)[1]))
+            self.assertIn('../backend-conventions/SKILL.md', result)
+            self.assertIn('from fastmcp import FastMCP', result)
+            self.assertIn('Do not migrate existing tooling', result)
+            self.assertTrue(result.endswith(original.split('---', 2)[2]))
+            self.assertEqual((skill / 'reference.md').read_text(), 'Original resource')
+
     def test_pinned_build_references_notices_and_no_overwrite(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

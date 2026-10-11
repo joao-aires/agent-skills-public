@@ -62,7 +62,10 @@
       "path": "plugins/modern-python/skills/modern-python",
       "tree": "e84fa2b3a076b4333e4cc6187510f2b180eed427",
       "license": "CC-BY-SA-4.0",
-      "license_path": "LICENSE"
+      "license_path": "LICENSE",
+      "adaptations": [
+        "backend-framing"
+      ]
     },
     {
       "plugin": "development-workflow",
@@ -92,7 +95,10 @@
       "path": "skills/mcp-builder",
       "tree": "b866bcfb57b780c10b587c7b543e871a91661ce0",
       "license": "Apache-2.0",
-      "license_path": "skills/mcp-builder/LICENSE.txt"
+      "license_path": "skills/mcp-builder/LICENSE.txt",
+      "adaptations": [
+        "backend-framing"
+      ]
     },
     {
       "plugin": "ai-development",

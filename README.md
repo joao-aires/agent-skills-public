@@ -23,8 +23,8 @@ Installing a plugin makes skills available; it does not require running every sk
 | Plugin | Guidance | Upstream expertise included when built |
 | --- | --- | --- |
 | `development-workflow` | Project structure, documentation, E2E, Git contributions, CI/CD and security/privacy | Matt Pocock engineering/productivity skills, Playwright, GitHub Actions hardening, Trail of Bits testing/review and dependency risk |
-| `python-backend` | Python, uv, FastAPI/Uvicorn, SQLAlchemy/Alembic, PostgreSQL, optional FastMCP | Trail of Bits modern-python; Anthropic MCP builder |
-| `web-frontend` | Next.js, shadcn, consistent UI/UX, accessibility and performance | Official shadcn; Tailwind design system; Vercel React practices and composition |
+| `python-backend` | Python, uv, FastAPI/Uvicorn, SQLAlchemy/Alembic, PostgreSQL, optional standalone FastMCP | Trail of Bits modern-python; Anthropic MCP builder |
+| `web-frontend` | Next.js, Tailwind v4, shadcn, consistent UI/UX, accessibility and performance | Official shadcn; Tailwind design system; Vercel React practices and composition |
 | `ai-development` | Framework choice, Gemini LLM/audio experiments, evaluation and tool boundaries | Official Google ADK and LangChain/LangGraph skills |
 | `business-strategy` | Strategy, opportunity analysis and product feedback | Original resources preserved; vendor-specific analytics are references |
 | `application-operations` | Backup/restore and DR, capacity/concurrency and cost | Microsoft AKS cost optimization, only for AKS |
@@ -36,7 +36,7 @@ Local development skills include decision rules, examples and proportionate comp
 
 ## Stack and reference conventions
 
-[`frontend-conventions`](plugins/web-frontend/skills/frontend-conventions/SKILL.md) supplies React/Next.js, shadcn/Tailwind, navigation, visual tokens, interaction and data-flow defaults. [`backend-conventions`](plugins/python-backend/skills/backend-conventions/SKILL.md) supplies FastAPI, SQLAlchemy/Alembic, contextual databases, identity, API contracts, transactions, jobs and optional AI/MCP boundaries. Both accept screenshots, URLs, repositories, schemas or architecture notes, preserve established choices, and record accepted deviations without requiring a profile template. Common decisions are inline; deeper references are optional. See [source selection and limits](documentation/conventions-research.md).
+[`frontend-conventions`](plugins/web-frontend/skills/frontend-conventions/SKILL.md) supplies React/Next.js, shadcn/Tailwind v4, navigation, visual tokens, interaction and data-flow defaults. [`backend-conventions`](plugins/python-backend/skills/backend-conventions/SKILL.md) supplies FastAPI, SQLAlchemy/Alembic, contextual databases, identity, API contracts, transactions, jobs and optional AI/MCP boundaries. Both accept screenshots, URLs, repositories, schemas or architecture notes, preserve established choices, and record accepted deviations without requiring a profile template. Common decisions are inline; deeper references are optional. New MCP interfaces prefer Python and the standalone `fastmcp` package, distinct from the MCP SDK's embedded FastMCP. Upstream techniques defer to accepted project conventions; tooling changes and existing-project migrations remain scoped to the request. See [source selection and limits](documentation/conventions-research.md).
 
 Example: “Use frontend-conventions and backend-conventions for this customer portal. Follow the attached navigation reference, keep our existing Tailwind v3 and OIDC provider, and implement saved searches with real persistence and tenant isolation. Use the AI bundle only if this feature needs it.”
 

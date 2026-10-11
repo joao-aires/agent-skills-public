@@ -9,7 +9,7 @@ description: Build, extend or review Python/FastAPI systems with SQLAlchemy, Ale
 
 Read the request, `AGENTS.md`, architecture and existing code. Accept reference repositories, API examples, schemas, architecture decisions or platform constraints. Extract applicable boundaries and behaviors rather than copying an entire system. Preserve accepted choices; record meaningful deviations in existing architecture/project notes without requiring a new profile format.
 
-For new services, prefer a supported Python, uv with a committed lockfile, FastAPI/Uvicorn, Pydantic v2 and settings, SQLAlchemy 2, Alembic, PostgreSQL, Ruff, pytest and HTTPX. Match installed APIs and dependency versions. Use async end-to-end where suitable drivers and concurrency needs justify it; an intentional synchronous stack is valid. Do not run blocking I/O inside async handlers or mistake async/thread pools for a CPU scaling strategy.
+For new services, prefer a supported Python, uv with a committed lockfile, FastAPI/Uvicorn, Pydantic v2 and settings, SQLAlchemy 2, Alembic, PostgreSQL, Ruff, pytest and HTTPX. Match installed APIs and dependency versions. Upstream tooling suggestions are defaults for compatible new projects, not permission to replace an existing type checker, hook runner, package manager or application layout. Use async end-to-end where suitable drivers and concurrency needs justify it; an intentional synchronous stack is valid. Do not run blocking I/O inside async handlers or mistake async/thread pools for a CPU scaling strategy.
 
 | System type | Starting approach |
 | --- | --- |
@@ -48,7 +48,7 @@ Set explicit timeouts, payload limits and cancellation behavior. Retry with boun
 
 For AI, begin with a direct provider adapter if sufficient; use LangChain/LangGraph or Google ADK when orchestration requires it, without installing both by default. Pair with `build-evaluated-ai` when available. Enforce authorization outside prompts, validate structured outputs, constrain tool authority and bound tokens, audio size/duration, time and retries. Gemini can support experiments, but verify current model availability, quotas and pricing rather than assuming every LLM/STT path is free. Separate deterministic fixtures from live-provider evaluations and include failure/fallback behavior.
 
-Use FastMCP where an MCP interface is needed: typed narrow tools, authenticated transport and the same application authorization/business services. Do not expose unrestricted database or shell access as a convenience tool.
+Prefer Python with the standalone `fastmcp` package where an MCP interface is needed: install with `uv add fastmcp`, import `from fastmcp import FastMCP`, and pin a tested compatible version for production. Use typed narrow tools, authenticated transport and the same application authorization/business services. The MCP SDK's `from mcp.server.fastmcp import FastMCP` is a different implementation/API surface: do not mix its examples, imports, Context or auth/transport options with standalone FastMCP. Use version-matched standalone docs to adapt upstream examples; inspect lifecycle, auth and transport behavior rather than blindly changing imports. The MCP builder's TypeScript recommendation does not override this Python preference. Preserve an existing SDK-based server until a migration is in scope. Do not expose unrestricted database or shell access as a convenience tool.
 
 ## Verify observable behavior
 

@@ -65,7 +65,7 @@ def adapt_skill(target, source):
     adaptations = source.get('adaptations', [])
     if not adaptations:
         return
-    if set(adaptations) - {'workflow-framing', 'documentation-paths', 'string-metadata', 'inline-adversarial-review', 'frontend-framing'}:
+    if set(adaptations) - {'workflow-framing', 'documentation-paths', 'string-metadata', 'inline-adversarial-review', 'frontend-framing', 'backend-framing'}:
         raise ValueError('Unknown upstream adaptation')
     for document in target.rglob('*.md'):
         text = document.read_text()
@@ -99,6 +99,9 @@ def adapt_skill(target, source):
         if document.name == 'SKILL.md' and document.parent == target and 'frontend-framing' in adaptations:
             parts = text.split('---', 2)
             text = '---' + parts[1] + '---\n\nRead [frontend conventions](../frontend-conventions/SKILL.md) for project defaults before applying this skill. The accepted design and installed framework/Tailwind versions take precedence; this is not authorization to migrate or redesign.\n' + parts[2]
+        if document.name == 'SKILL.md' and document.parent == target and 'backend-framing' in adaptations:
+            parts = text.split('---', 2)
+            text = '---' + parts[1] + '---\n\nRead [backend conventions](../backend-conventions/SKILL.md) before applying this skill. Accepted project constraints take precedence over upstream tooling/language suggestions. Prefer Python and standalone fastmcp (`from fastmcp import FastMCP`) for new MCP interfaces; MCP SDK examples require adaptation to the installed standalone API. Do not migrate existing tooling or servers unless requested.\n' + parts[2]
         document.write_text(text)
 
 
