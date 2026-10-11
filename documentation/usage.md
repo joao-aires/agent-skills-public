@@ -101,9 +101,17 @@ The following prompts assume the named skills are installed. Use the client's su
 
 ### Start a project
 
-> Use project-conventions to organize a small appointment application with Next.js/shadcn and FastAPI/PostgreSQL. Start with creating and viewing an appointment. Apply the backend and frontend guidance, keep code under applications/ and knowledge under documentation/, and add concise AGENTS.md instructions. Build and test the first useful slice before adding more architecture.
+> Use project-conventions to organize a small appointment application with Next.js/shadcn and FastAPI/PostgreSQL. Start with creating and viewing an appointment. Use backend-conventions and frontend-conventions, keep code under applications/ and knowledge under documentation/, and add concise AGENTS.md instructions. Build and test the first useful slice before adding more architecture.
 
 Expected approach: select the relevant skills, choose a proportionate structure, implement a useful flow and record actual decisions. No template generator or mandatory planning ceremony is involved.
+
+### Use references for different application types
+
+> Use frontend-conventions for this customer booking site. Keep React/Vite, Tailwind v3, our green brand and top navigation. Treat the supplied screenshot as inspiration for density and typography, and reuse existing components. Add booking search/cancellation with mobile, error and keyboard states; do not introduce an admin sidebar.
+
+> Use backend-conventions for saved searches and durable exports in our FastAPI/SQLAlchemy/PostgreSQL application. Keep the existing OIDC provider, enforce tenant ownership, and plan migrations, atomic persistence, restart recovery and webhook idempotency. Add the AI plugin only when AI is in scope.
+
+Supply URLs, screenshots, design files, repositories, API contracts or architecture notes as available. The agent extracts relevant decisions and records accepted deviations in existing project knowledge. Different product types can use different reference profiles without adding a template framework. New applications use the inline defaults; existing ones preserve their accepted choices.
 
 ### Implement from this conversation, without tickets
 

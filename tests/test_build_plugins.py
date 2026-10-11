@@ -12,6 +12,19 @@ spec.loader.exec_module(installer)
 
 
 class InstallationTests(unittest.TestCase):
+    def test_frontend_framing_preserves_metadata_and_body(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / 'tailwind-design-system'
+            skill.mkdir()
+            original = '---\nname: tailwind-design-system\ndescription: Example\ndisable-model-invocation: true\n---\n# Version-specific guidance\nKeep original content.\n'
+            (skill / 'SKILL.md').write_text(original)
+            installer.adapt_skill(skill, {'adaptations': ['frontend-framing']})
+            result = (skill / 'SKILL.md').read_text()
+            self.assertEqual(yaml.safe_load(result.split('---', 2)[1]), yaml.safe_load(original.split('---', 2)[1]))
+            self.assertIn('../frontend-conventions/SKILL.md', result)
+            self.assertIn('not authorization to migrate or redesign', result)
+            self.assertTrue(result.endswith(original.split('---', 2)[2]))
+
     def test_pinned_build_references_notices_and_no_overwrite(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

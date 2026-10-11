@@ -8,7 +8,10 @@
       "path": "skills/composition-patterns",
       "tree": "bf90d0a4b83ea054653350f9c67f6de235d3a368",
       "license": "MIT (skill frontmatter)",
-      "license_path": null
+      "license_path": null,
+      "adaptations": [
+        "frontend-framing"
+      ]
     },
     {
       "plugin": "web-frontend",
@@ -17,7 +20,10 @@
       "path": "skills/react-best-practices",
       "tree": "343db72180d05814949fef7d46be96b5c6ee86b3",
       "license": "MIT (skill frontmatter)",
-      "license_path": null
+      "license_path": null,
+      "adaptations": [
+        "frontend-framing"
+      ]
     },
     {
       "plugin": "web-frontend",
@@ -26,7 +32,10 @@
       "path": "skills/shadcn",
       "tree": "b5791523e07794a4deb201e78eab3f3adbd022c0",
       "license": "MIT",
-      "license_path": "LICENSE.md"
+      "license_path": "LICENSE.md",
+      "adaptations": [
+        "frontend-framing"
+      ]
     },
     {
       "plugin": "development-workflow",
@@ -508,6 +517,18 @@
       "tree": "23b00af7a0919279d80cc9a776ff728cee2c6efa",
       "license": "MIT",
       "license_path": "LICENSE"
+    },
+    {
+      "plugin": "web-frontend",
+      "repository": "https://github.com/wshobson/agents.git",
+      "commit": "46891e7e60da0e52baf1050b7b6391b64e84c6d9",
+      "path": "plugins/frontend-mobile-development/skills/tailwind-design-system",
+      "tree": "9bafb7de1588c90d88f224950b098731973a8254",
+      "license": "MIT",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "frontend-framing"
+      ]
     }
   ]
 }

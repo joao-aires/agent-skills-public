@@ -6,6 +6,7 @@ The packaging helper copies these selected skill directories at the reviewed com
 | --- | --- | --- |
 | web-frontend | [Vercel](https://github.com/vercel-labs/agent-skills) | React best practices, composition patterns |
 | web-frontend | [shadcn](https://github.com/shadcn-ui/ui/tree/main/skills/shadcn) | Official shadcn |
+| web-frontend | [Wshobson](https://github.com/wshobson/agents/tree/46891e7e60da0e52baf1050b7b6391b64e84c6d9/plugins/frontend-mobile-development/skills/tailwind-design-system) | Tailwind design system (v4; preserve existing project versions) |
 | development-workflow | [Matt Pocock](https://github.com/mattpocock/skills) | Released engineering + productivity skills, including their complete local resources and invocation metadata |
 | development-workflow | [Microsoft Playwright](https://github.com/microsoft/playwright-cli) | playwright-cli |
 | development-workflow | [GitHub awesome-copilot](https://github.com/github/awesome-copilot/tree/main/skills/github-actions-hardening) | GitHub Actions hardening |
@@ -45,3 +46,5 @@ Trail of Bits guidance is CC-BY-SA-4.0; other selected sources are MIT or Apache
 The new operational skills carry their own links to current PostgreSQL, Kubernetes, CloudNativePG, Velero, AWS, Google Cloud and Azure documentation. These are live technical references, not bundled upstream skills; select the actual service/version and verify capabilities before generating infrastructure or recovery commands. No universal cross-cloud backup, capacity or cost skill is claimed.
 
 The lifecycle uses [IBM's seven-phase split](https://www.ibm.com/think/topics/sdlc) (planning and requirements analysis separate); [AWS's SDLC explanation](https://aws.amazon.com/what-is/sdlc/) groups planning and analysis together. Models differ in grouping, not in making Git, documentation or skill setup separate lifecycle phases. Security design uses [OWASP threat modeling](https://cheatsheetseries.owasp.org/cheatsheets/Threat_Modeling_Cheat_Sheet.html); privacy decisions should refer to the applicable authoritative rules, including the [GDPR text](https://eur-lex.europa.eu/eli/reg/2016/679/oj) for EU personal data.
+
+Frontend sources also receive `frontend-framing`: a pointer to the local `frontend-conventions` and an explicit preservation rule for accepted design/framework/Tailwind versions. The added MIT `tailwind-design-system` is v4-specific. See [research and selection limits](conventions-research.md); acquisition still pins full commits and trees and retains complete resources/license notices.

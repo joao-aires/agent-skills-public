@@ -1,0 +1,15 @@
+# Sources and exceptions
+
+Use the main skill for routine work. These primary references resolve details that depend on versions, identity providers, drivers or platforms.
+
+| Need | Source and interpretation |
+| --- | --- |
+| FastAPI structure, contracts and practical integration | [Official full-stack template](https://github.com/fastapi/full-stack-fastapi-template), [FastAPI docs](https://fastapi.tiangolo.com/) and [community production practices](https://github.com/zhanymkanov/fastapi-best-practices). The template uses SQLModel and a Vite frontend: adapt useful practices without replacing our SQLAlchemy/Next.js choices. Community async preferences are contextual, not a universal mandate. |
+| Sessions, async drivers and transactions | [SQLAlchemy asyncio](https://docs.sqlalchemy.org/en/20/orm/extensions/asyncio.html) and [session basics](https://docs.sqlalchemy.org/en/20/orm/session_basics.html). An AsyncSession is mutable transaction state, one per concurrent task; choose sync/async deliberately. |
+| Schema evolution | [Alembic autogeneration limitations](https://alembic.sqlalchemy.org/en/latest/autogenerate.html) and [PostgreSQL constraints](https://www.postgresql.org/docs/current/ddl-constraints.html). Generated migrations need review; constraints enforce concurrent invariants. |
+| Identity and browser security | [FastAPI password/JWT example](https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/), [OWASP cheat sheets](https://cheatsheetseries.owasp.org/) and the chosen provider's official docs. Tutorial token issuance is not a complete identity platform; verify recovery, revocation, OIDC, CSRF and tenant rules for the actual client. |
+| Background work | [FastAPI BackgroundTasks](https://fastapi.tiangolo.com/tutorial/background-tasks/) and the chosen worker's docs. Critical work needs durable delivery and recovery, not an in-process task. |
+| AI, tools and speech | [Google ADK docs](https://google.github.io/adk-docs/), [LangChain docs](https://docs.langchain.com/), [Gemini audio](https://ai.google.dev/gemini-api/docs/audio), [Gemini pricing](https://ai.google.dev/gemini-api/docs/pricing), and the bundled AI plugin's official skills. Verify current model/quota/region/support; free-tier availability is not guaranteed. |
+| MCP | [FastMCP docs](https://gofastmcp.com/) and bundled `mcp-builder`. Match transport/auth APIs to installed versions and reuse application authorization. |
+
+For another backend profile, extract deployment boundary, contracts, persistence/transaction model, identity/authorization, concurrency/durability and external integrations from supplied references. Record accepted constraints; prefer the simplest design meeting them. Use provider-specific official guidance for managed databases, queues, encryption or deployment rather than assuming Kubernetes or one cloud.

@@ -21,7 +21,7 @@ class SyncTests(unittest.TestCase):
             legacy.symlink_to(ROOT / "skills/business-strategy")
             unrelated_source = home / "other"
             unrelated_source.mkdir()
-            unrelated = target / "build-python-backend"
+            unrelated = target / "backend-conventions"
             unrelated.symlink_to(unrelated_source)
             with patch.object(Path, "home", return_value=home), patch("sys.argv", ["sync_skills.py", "sync"]):
                 SYNC.main()
