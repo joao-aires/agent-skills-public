@@ -38,3 +38,5 @@ Isolate users and data per test or worker and use an explicit test database. App
 Match local and CI configuration. Capture failure traces/screenshots and useful service logs. Reproduce a flaky failure and diagnose state, timing or environment before changing waits; do not weaken assertions or inflate retries to hide it. Keep a small critical journey set fast enough to run routinely.
 
 Report commands, environment, journeys and actual results, plus mocked boundaries and important gaps. If the browser/database environment is unavailable, supply the tests or plan and say execution is blocked; do not claim full-stack verification. Expand coverage when changed risk warrants it rather than duplicating every unit test in the browser.
+
+For suite upkeep, follow deliver-reliable-changes: temporary flaky-test quarantine has accountable repair and explicit coverage implications. Preserve useful traces and fixture ownership, and remove redundant browser checks only when the affected journey remains established at an appropriate boundary.

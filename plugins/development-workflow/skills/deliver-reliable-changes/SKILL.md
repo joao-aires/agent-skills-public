@@ -59,3 +59,11 @@ For a migration that removes data, assess old/new application compatibility and 
 Review the diff for scope, correctness and avoidable complexity; resolve material findings. Keep affected docs synchronized and capture repeated mistakes as a concise instruction or check. Explain behavior changed, rationale, commands/results and remaining limitations in the PR or completion report. Distinguish implemented, verified, deployed and planned work. Publish or merge only within the requested authorization; a delivery skill is not permission to deploy.
 
 Use `test-application-performance` for changed latency, throughput or concurrency claims: k6 locally, on a CI-started application, and on an identified non-production deployment. Select proportionate profiles; basic smoke checks do not prove production capacity.
+
+## Maintain trustworthy checks and retire behavior deliberately
+
+Keep unit/integration/contract/browser suites aligned with their claims. Diagnose flaky failures from state, timing and environment evidence. A necessary quarantine is an explicit temporary coverage gap with owner, reason, replacement evidence and review/repair condition; never quietly mark a required check green or leave an indefinite skip. Improve isolated fixtures and feedback time, and remove redundant tests only after equivalent meaningful coverage is established. Avoid a universal coverage percentage or duplicating every test in Playwright.
+
+For deprecation/removal, identify users and consumers from code/configuration plus appropriate usage evidence; absence from sampled telemetry is not proof of no use. Preserve supported contracts while migrating callers and draining queued/scheduled work. Define the owner, compatibility period/exit criteria and fallback; use the project's communication workflow, with sending only when authorized. Resolve data retention/export/recovery needs before destruction. Remove related flags, credentials/grants, jobs/routes, infrastructure and documentation only after dependencies and retention obligations are addressed. Verify intended behavior and resource state; record residual obligations and untested steps without requiring a new retirement registry.
+
+Use `test-application-resilience` for relevant failure/recovery claims. Do not replace a performance suite with faults or trigger live experiments during routine feature work.

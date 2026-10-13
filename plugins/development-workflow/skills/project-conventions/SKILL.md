@@ -53,3 +53,9 @@ Start a full setup or structural review only when requested. Apply existing conv
 For a saved-search application, start with saving a named filter and reopening it through the UI, API and database. Include ownership enforcement if users have private data. Defer sharing, recommendation agents and a generic workflow engine until requested. Prefer a real useful flow over disconnected mock screens and endpoints.
 
 Finish by showing how to start the application, what journey works, which checks ran and what remains incomplete. Verify the applicable startup, migration and browser/API path; distinguish mocked providers from real integrations. Keep first-slice knowledge and decisions current. Do not describe a scaffold or a successful build alone as a working application.
+
+## Maintain configuration and supported dependencies
+
+Treat application settings and flags as behavioral interfaces. Use typed/validated inputs, explicit precedence and a small set of useful defaults; reject invalid required settings/combinations without silently weakening authority. Distinguish build, startup and dynamic settings. Track the effective non-secret configuration revision and source of truth; inspect authorized effective values without dumping secrets or personal data. Configuration-only changes need proportionate tests and recovery just as code changes do.
+
+Maintain the supported runtime/dependency set and update process alongside lockfiles. Routine upgrades need release-note/deprecation review, coherent coupled versions, meaningful tests and a recovery route even without a vulnerability. Keep changes focused; major upgrades are deliberate migrations, not silent modernization. Use vulnerability-management for security-driven priority when available. Flag unsupported/EOL choices with evidence rather than replacing them unasked.

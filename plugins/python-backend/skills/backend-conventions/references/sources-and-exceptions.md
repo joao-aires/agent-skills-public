@@ -20,3 +20,8 @@ For another backend profile, extract deployment boundary, contracts, persistence
 - [Alembic runtime](https://alembic.sqlalchemy.org/en/latest/api/runtime.html) covers migration execution and autocommit boundaries. Some DDL requires special transaction handling; do not force every operation into one transaction or prescribe an unsafe universal downgrade.
 - [Transactional outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) illustrates atomic domain/delivery intent and duplicate handling. Use the principle with the actual database and broker; the reference does not require AWS infrastructure. Provider idempotency, lease and acknowledgment behavior must come from that provider's documentation.
 - [FastAPI deployment concepts](https://fastapi.tiangolo.com/deployment/concepts/) and [SQLAlchemy pooling](https://docs.sqlalchemy.org/en/20/core/pooling.html) explain process/resource and connection lifecycle concerns. Validate worker counts, per-process resources and drain behavior against the project's actual hosting strategy.
+
+
+## Interface compatibility
+
+[Pact concepts](https://docs.pact.io/) distinguishes integration/consumer expectations from provider schema validation and supports HTTP/message contracts. Use it selectively where independent consumers justify it. OpenAPI diffs and generated clients catch structural changes; representative behavior tests must still establish errors, permissions, defaults and event semantics. Preserve existing integration tooling.

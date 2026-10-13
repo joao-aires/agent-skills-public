@@ -52,3 +52,11 @@ Use `reliability-design` for journey and alert contracts and `observability-oper
 Optional deeper guidance: [branch to production](references/branch-to-production.md) and [workflow implementation](references/workflow-implementation.md).
 
 For performance workflows, use `test-application-performance`: start the application and its dependencies on the runner for bounded regression checks, and run k6 against an identified deployed non-production environment for target-specific load checks. Preserve thresholds, failure status, result artifacts and cleanup; bind credentials and concurrency to the actual environment.
+
+## Deliver configuration and flag changes
+
+Validate settings and affected target combinations, inspect the complete effective diff and preserve code/config/artifact traceability. Distinguish desired configuration from applied state; verify the actual revision and affected outcome after application. Retain a usable compatible recovery target, accounting for rotated credentials and changed schemas rather than blindly restoring stale values. Use the existing configuration/GitOps mechanism; no new central service is required.
+
+Feature flags need a purpose, owner, intended audience, default/evaluation-failure behavior, tested relevant states and a removal condition. Flags control exposure, not authorization. Use bounded staged exposure and a kill/recovery path when risk warrants it; do not create an untested matrix of every flag combination. After an emergency override, reconcile source and effective state so later deployments do not restore an unintended setting.
+
+For routine runtime/library/base-image upgrades, review supported versions and release notes, keep coupled versions coherent, regenerate lockfiles with the project's tools, verify affected behavior and publish a new tested artifact. Automation can propose updates; passing installation or a vulnerability scan alone does not establish compatibility. Follow accepted release/recovery conventions without imposing universal automatic merges.

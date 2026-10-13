@@ -57,3 +57,5 @@ Check which workloads opt in, which controller owns replicas/suspension, and whi
 Record measured value, timestamp/window, policy comparison, result, action, owner, and due date. Carry forward unresolved exceptions without losing their original date. Automate stable read-only checks where useful and link the deeper runbook for remediation.
 
 Report completed checks, unknowns, material exceptions, changes made, and next review. A housekeeping review is complete when its findings are accountable; deeper remediation can remain explicitly tracked.
+
+For retired features/services, coordinate consumer migration, remaining jobs/data, access revocation and resource/documentation cleanup with deliver-reliable-changes. Age or naming alone is not evidence that a live dependency can be removed. Routine supported-version reviews can identify upgrade work separately from vulnerability deadlines.

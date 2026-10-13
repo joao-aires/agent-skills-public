@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "development-workflow",
-  "version": "0.13.0",
-  "description": "Project conventions, documentation, E2E and k6 performance checks, Git contributions, CI/CD and security/privacy by design.",
+  "version": "0.14.0",
+  "description": "Project conventions, documentation, E2E, k6 performance and controlled resilience checks, Git contributions, CI/CD and security/privacy by design.",
   "author": {
     "name": "João Aires"
   },

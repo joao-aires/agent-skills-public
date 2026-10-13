@@ -8,7 +8,7 @@ For a full-stack application, start with `development-workflow`, `python-backend
 
 | Plugin | What it contributes | Included upstream expertise |
 | --- | --- | --- |
-| [development-workflow](plugins/development-workflow/) | Project conventions, system mapping, shell automation, documentation, Git/PRs, E2E/k6 testing, CI/CD and security | Matt Pocock, Humanizer, Playwright, GitHub Actions hardening, Trail of Bits |
+| [development-workflow](plugins/development-workflow/) | Project conventions, system mapping, shell automation, documentation, Git/PRs, E2E, k6 and resilience testing, CI/CD and security | Matt Pocock, Humanizer, Playwright, GitHub Actions hardening, Trail of Bits |
 | [python-backend](plugins/python-backend/) | FastAPI, SQLAlchemy/Alembic, PostgreSQL, durable work and Python automation | Modern Python |
 | [web-frontend](plugins/web-frontend/) | Next.js, Tailwind v4, shadcn, consistent UI/UX and accessibility | Official shadcn, Tailwind design system, Vercel React/composition |
 | [ai-development](plugins/ai-development/) | AI features, agents, MCP interfaces and evaluation | Google ADK, LangChain/LangGraph, MCP builder |

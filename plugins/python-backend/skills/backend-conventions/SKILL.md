@@ -92,3 +92,9 @@ Test domain behavior, API contracts, cross-user/tenant denial, transaction rollb
 Use the development workflow's relevant E2E/security/delivery guidance and operations skills for recovery/capacity/cost needs. Keep secrets and sensitive data out of logs, while retaining useful correlation diagnostics. Report actual checks and remaining gaps without treating a passing suite as production readiness.
 
 Routine decisions are inline here. Use bundled modern-python for Python tooling and the AI plugin's MCP/framework skills when those interfaces are needed. Consult [sources and exceptions](references/sources-and-exceptions.md) for unfamiliar auth, driver, migration or platform details; verify current APIs when versions matter.
+
+## Preserve API and event consumers
+
+For changed interfaces, identify actual consumers and supported versions: browser clients, jobs, webhooks, MCP tools and event readers. Compare schemas and behavior, including omitted/null fields, enum values, status/error semantics, authorization, ordering/pagination and event meaning. A type-compatible change can still break a consumer; even an added field may break a strict reader. Keep stable operation/event identities and regenerate affected typed clients deliberately.
+
+Use provider validation against OpenAPI plus representative consumer/producer examples and behavior checks. For independently deployed consumers, use consumer-driven contracts when useful; Pact is optional. Fixtures must represent supported real usage and remain aligned with provider verification. Test relevant old/new combinations and retained queued events where applicable. Document intentional breaks and migration/deprecation scope before removing support; do not require a broker or contract-testing platform for a single application.

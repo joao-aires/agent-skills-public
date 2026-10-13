@@ -41,6 +41,7 @@ Ask for an outcome or name the skill explicitly. Local skills can start the acti
 | Plan capacity | `plan-application-capacity` | Local | Generic / both |
 | Assess costs | `optimize-application-cost` | Local | Generic / both |
 | Evaluate an AI feature | `build-evaluated-ai` | Local | Stack-specific / both |
+| Verify controlled failures and recovery | `test-application-resilience` | Local | Generic / both; deployed faults need target/action scope |
 | Plan or run k6 performance checks | `test-application-performance` | Local | k6-specific / both |
 | Plan or run browser journeys | `test-end-to-end` | Local | Playwright-specific / both |
 | Clarify requirements | `grill-me`, `grill-with-docs`, `to-questionnaire` | Upstream: Matt | Generic / user |
@@ -74,6 +75,7 @@ Agents select these when needed to carry out the request. You can also name loca
 | AI development | `build-evaluated-ai` (local, not an upstream skill) | Chosen Google ADK or LangChain/LangGraph skills |
 | MCP interfaces | MCP section of `build-evaluated-ai`; reuse authorized application services | `mcp-builder`, in `ai-development`; prefer standalone Python FastMCP |
 | Testing | `deliver-reliable-changes`, `test-end-to-end` for browser journeys | `tdd`, `property-based-testing`, `playwright-cli` |
+| Failure testing | `test-application-resilience` for scoped fixtures and controlled experiments | Project-native test tools; optional isolated fault proxy |
 | Performance testing | `test-application-performance` for local, CI-runner and deployed non-production k6 checks | Official k6 references; no cloud account required |
 | Code review | Requested behavior and project standards | `code-review`; `differential-review` for security-sensitive diffs |
 | Debugging | Preserve the affected scope and regression evidence | `diagnosing-bugs` |
@@ -138,6 +140,16 @@ The explorer's JSON contract serves that artifact only. It is not a repository a
 `test-application-performance` guides local runs, a workflow that starts the application/database/workers on the CI runner and executes k6 there, and a separate workflow against a deployed non-production environment. Scenarios are reused with explicit profiles/targets. Runner checks catch bounded regressions; deployed checks verify the actual environment. The agent creates the application-specific scripts/workflows in the target repository when requested; this plugin does not contain a generated application or ready-to-deploy pipeline.
 
 > Add a k6 suite for this application's critical API journey. Provide a local command, a CI runner job that starts and migrates an isolated application stack, and a manually triggered non-production job. Define workload/threshold assumptions, preserve failing exit codes and collect results even on failure. Do not execute against a deployed environment yet.
+
+### Compatibility, configuration and maintenance
+
+Backend conventions cover behavioral API/event compatibility as well as schema shape, with consumer-driven contracts optional for independent consumers. Project conventions and delivery pipelines cover typed settings, effective configuration revisions, flags and supported-version upgrades. Deliver-reliable-changes governs test-suite upkeep and deliberate deprecation/removal. These are focused parts of ordinary work, not separate compulsory workflows.
+
+> Verify that a slow provider produces a bounded failure without blocking unrelated reads. Use test-application-resilience with owned local fixtures and explicit recovery checks. Do not inject faults into shared staging or send real notifications.
+
+> Review this configuration-only release and list-endpoint change. Preserve supported consumers, inspect the effective target configuration and flag states, and report the relevant verification/recovery evidence. Do not silently accept a flaky required check or remove old callers without evidence.
+
+Choose additional domain practices from actual requirements: tenant quotas/deprovisioning for SaaS, financial reconciliation for money movement, index freshness/rebuilds for search, broader localization/accessibility for relevant audiences, and provider-specific state/drift handling for cloud infrastructure. The general bundles do not impose these architectures or replace the application's domain decisions.
 
 ## AI and MCP plugin selection
 
