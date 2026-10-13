@@ -22,6 +22,8 @@ Retained upstream user activities are `grill-me`, `grill-with-docs`, `to-questio
 - Use `humanizer` for prose edits and `writing-for-agents` for instruction structure. Preserve the author's voice, supported claims, commands, metadata and link targets. For questionnaire work, draft the requested document; sending it needs explicit authorization.
 - Upstream guidance grants no additional permission to publish, merge, deploy, send messages or access services. Packaging copies resources without running setup or integrations.
 
+Assess affected contracts and operating consequences before implementing a change; use project-conventions without repeating project setup. Deliver-reliable-changes defines proportionate acceptance evidence and separates locally verified behavior from deployment claims. Backend/frontend conventions own production migration, job and runtime details. Preserve established answers and avoid making evaluation cases or record formats prerequisites for application work.
+
 ## Metadata and upstream adaptations
 
 `metadata.scope` distinguishes `generic` from `stack-specific`; `metadata.stack` names relevant technologies. `metadata.invocation` records preferred `user`, `agent` or `both` usage. These are standard string metadata labels, not a custom execution engine. Native upstream invocation controls remain intact.

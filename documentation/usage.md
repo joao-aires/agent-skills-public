@@ -109,6 +109,16 @@ Examples:
 
 For new projects, I prefer `applications/` for implementation and `documentation/` for knowledge, with short scoped `AGENTS.md` instructions. Keep existing layouts and accepted choices. Screenshots, reference repositories, schemas and architecture notes can supply context.
 
+## New and existing applications
+
+For a new application, `project-conventions` establishes a first useful journey and the commands/constraints needed to develop it. For an existing application, first discover its authoritative instructions, contracts, identity model and operating context; then inspect only the paths affected by the requested change. Preserve accepted layout, tools and UI. A full project review begins on request, while routine change assessment can stay inline.
+
+`deliver-reliable-changes` connects acceptance criteria to evidence: implemented, behavior verified, ready for deployment and verified after deployment. These describe what was demonstrated, not additional approval stages. A local build cannot establish a persisted journey or a successful deployment. Keep verification proportionate to the change and report unavailable checks.
+
+> Add read-only sharing to this existing application. Preserve its layout and UI. Use project-conventions to identify affected ownership/contracts, backend-conventions for grants and compatibility, frontend-conventions for the interaction, and deliver-reliable-changes for acceptance evidence. Verify private defaults and cross-user denial. Prepare a PR; do not deploy or merge.
+
+Backend conventions cover populated-schema evolution, resumable backfills, durable acceptance, duplicate delivery and partial-effect recovery. Frontend/backend deployment guidance covers actual production entrypoints, process/connection budgets and Next.js configuration/cache/rollout boundaries. Platform-specific details stay in their references; a small synchronous feature does not require a queue or shared cache.
+
 ## Operations and architecture examples
 
 Add `application-operations` when operating a service or changing its reliability and recovery contracts. Its [selection guide](../plugins/application-operations/OPERATIONS.md) distinguishes policy, signals, response and follow-up. These are local skills adapted from the supplied portable collection, not newly acquired upstream packages. Match stack-specific skills to the actual runtime.

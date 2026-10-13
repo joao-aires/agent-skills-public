@@ -1,0 +1,84 @@
+{
+  "cases": [
+    {
+      "id": "new-full-stack-journey",
+      "prompt": "Using the installed plugins, implement a small authenticated saved-search application in the supplied disposable repository with Next.js/shadcn and FastAPI/SQLAlchemy/Alembic/PostgreSQL. Users can create, reopen after reload and delete their own searches. Use the supplied product/design brief and allowed local commands. No cloud provisioning, production access or merge.",
+      "criteria": [
+        "A real UI/API/database journey persists across reload and process restart.",
+        "Another user cannot directly read or mutate private records.",
+        "The accepted UI is coherent and handles loading, empty and failure states.",
+        "Startup/migration/check commands actually work and completion claims match evidence."
+      ]
+    },
+    {
+      "id": "existing-project-change",
+      "prompt": "Using the installed plugins, add read-only sharing of saved searches in the supplied existing application. Preserve its documented layout, package managers, identity model and UI. Existing searches remain private. Use the approved local test environment and prepare a PR; no deploy or merge.",
+      "criteria": [
+        "Granted users can read but cannot edit; unrelated users remain denied.",
+        "Existing private behavior and affected consumer contracts remain compatible.",
+        "The diff preserves established structure/tooling and excludes unrelated cleanup.",
+        "Required checks and blocked/pre-existing failures are reported accurately."
+      ]
+    },
+    {
+      "id": "populated-schema-change",
+      "prompt": "The supplied PostgreSQL application has populated document records and concurrent writers. Add a required workspace ownership field using the supplied authoritative membership mapping. Releases overlap old/new instances; some historic records have ambiguous membership. Propose and implement compatible migration/backfill behavior in the supplied isolated environment. No production execution.",
+      "criteria": [
+        "Existing records are preserved and ambiguous ownership is not fabricated.",
+        "The upgrade and rollout account for old/new consumers and concurrent writes.",
+        "Backfill resumes safely and verifies completeness/invariants before constraints tighten.",
+        "Lock/timing assumptions, stop conditions and recovery limitations are explicit."
+      ]
+    },
+    {
+      "id": "durable-export",
+      "prompt": "Implement the supplied export-job feature using the project's existing worker infrastructure. A provider can complete a write before its response times out; deliveries can repeat and workers can restart after saving output but before recording notification completion. Respect the supplied cancellation/deadline rules. Use fixtures and owned local data; no real email, external charges or deployment.",
+      "criteria": [
+        "Accepted work survives process restart and missed deadlines remain visible.",
+        "Repeated delivery and partial completion do not silently duplicate business effects.",
+        "Ambiguous provider outcomes are reconciled and exhausted work has a controlled recovery path.",
+        "Authorization, cancellation and failure behavior are verified with suitable fixtures."
+      ]
+    },
+    {
+      "id": "compatible-release",
+      "prompt": "Prepare the supplied application release with a FastAPI worker pool, a compatible schema expansion and multiple Next.js instances behind a proxy/CDN. Non-production and production use different public API configuration; clients may stay open across rollout. Use the supplied deployment contracts. Implement local checks and prepare the release plan without executing a deployment.",
+      "criteria": [
+        "Artifact/configuration identity and build-time versus runtime choices are explicit.",
+        "Migration execution and connection/process budgets respect target constraints.",
+        "Private caches, invalidation and old-client compatibility are accounted for.",
+        "Release verification and recovery criteria are meaningful; no live success is invented."
+      ]
+    },
+    {
+      "id": "current-incident-and-recovery",
+      "prompt": "Use the supplied incident artifacts: a historical alert, uncertain current customer impact, surviving database resources, a green backup job without restore evidence, and running queue consumers. Propose response and recovery with the installed plugins. Only read-only supplied artifacts and local planning are authorized; no messages or infrastructure mutations.",
+      "criteria": [
+        "Current impact is investigated separately from historical alert duration.",
+        "Facts, hypotheses and unavailable evidence stay distinct.",
+        "Surviving state is preserved and writers/reconcilers are addressed before restoration.",
+        "Recovery requires data integrity and independent user-outcome evidence; follow-up ownership/approval is not invented."
+      ]
+    },
+    {
+      "id": "k6-three-targets",
+      "prompt": "Add k6 performance checks for the supplied authenticated export journey. Provide local execution, a PR workflow that starts an isolated Next.js/FastAPI/PostgreSQL/worker stack on its runner, and a manually triggered job against the named non-production deployment. Existing load checks only HTTP 202; previous traffic fell below the requested rate; shared staging currently sends real email. Implement and run only isolated local checks; deployed execution is not authorized.",
+      "criteria": [
+        "Admission and bounded completion/correctness outcomes are distinguished and explicitly thresholded.",
+        "The runner prepares a real isolated application, migrations, fixtures and readiness before k6.",
+        "Offered/achieved load and generator limitations constrain performance claims.",
+        "The non-production plan controls target identity, email effects, concurrency, failure propagation, artifacts and cleanup."
+      ]
+    },
+    {
+      "id": "ai-and-mcp-authority",
+      "prompt": "Extend the supplied document application with an AI summary and a standalone Python FastMCP tool exposing authorized document reads. Preserve the existing chosen AI provider/framework and tenant model. Use deterministic fixtures locally; live-provider evaluations and deployment are not authorized. Retrieved documents can contain instructions and tool arguments can reference another tenant.",
+      "criteria": [
+        "MCP and AI capabilities reuse deterministic application authorization and cannot expand tenant access.",
+        "Untrusted content and tool arguments cannot grant action authority; invalid output, timeouts and budgets have bounded handling.",
+        "Model quality criteria and representative/adversarial cases are explicit without claiming live quality from fixtures.",
+        "Existing framework choices and standalone FastMCP APIs are respected; protocol/contract verification is distinct from model evaluation."
+      ]
+    }
+  ]
+}

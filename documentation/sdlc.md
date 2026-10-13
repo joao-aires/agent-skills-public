@@ -4,6 +4,8 @@ I use the [common seven-phase breakdown](https://www.ibm.com/think/topics/sdlc):
 
 ![Project foundations, discovery, seven-phase SDLC cycle, product feedback and skills across the lifecycle](images/sdlc-cycle.svg)
 
+Change assessment and completion evidence connect these phases: `project-conventions` preserves the application context, and `deliver-reliable-changes` distinguishes implementation, verified behavior, deployment readiness and post-deployment verification. The depth follows the changed risk.
+
 Choose the skills that help with the current task. Research, clarification and writing support every phase. Project foundations sit outside the repeating cycle and change as the application evolves.
 
 | Scope / phase | Relevant local guidance | Directly relevant bundled upstream expertise |

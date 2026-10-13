@@ -31,6 +31,10 @@ Build once and promote the same immutable artifact/digest through environments. 
 
 Every delivery path should have a usable rollback or roll-forward route: retain the previous artifact/configuration, identify compatibility constraints, and expose a clear recovery input or job. Review schema compatibility before rollout; use expand/migrate/contract when needed. Rolling back application code does not undo data changes. Prefer a compatible forward fix when reversal would lose data; point to the application's data-recovery runbook when restoration is necessary. Verify the recovery mechanics in a safe environment and keep them current with migrations and infrastructure changes. Do not claim production recovery from a YAML review alone.
 
+## Check stack-specific rollout consequences
+
+Use backend/frontend conventions for process lifecycles, connection budgets, production entrypoints and cache/configuration behavior. Coordinate compatible schema changes and resumable backfills with releases; do not run long data work independently in every replica startup. Verify async completion and stale client/cache paths where those affect the journey. A reverted image does not reverse data writes or undo delivered events. Preserve the deployed revision, migration/backfill state and recovery preconditions in the project's existing records.
+
 ## Protect the pipeline
 
 Use installed `github-actions-hardening` for detailed review. Keep permissions minimal, pin third-party actions to reviewed full commit SHAs with update automation, prefer OIDC to long-lived cloud keys, and treat PR content as untrusted. Separate untrusted validation from privileged publishing/deployment. Do not execute fork code with production credentials. Bound job duration and distinguish caches from deployable artifacts.

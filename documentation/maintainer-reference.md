@@ -152,6 +152,16 @@ python -m unittest discover -s tests -v
 
 Also check changed Markdown links/anchors, inspect meaningful generated diagrams, and exercise changed guidance on a realistic task. Match validation to the claim: an application journey needs application tests; a metadata check proves metadata only.
 
+### Evaluate engineering behavior
+
+[Development workflow cases](../evals/development-workflows.json) contains eight reusable task prompts with evaluator-only acceptance criteria. They cover a new full-stack journey, an existing-project feature, a populated-schema change, a durable export, a compatible release current incident/recovery, k6 execution across three targets and AI/MCP authority. The cases exercise outcomes and judgment; they do not require one exact architecture or produce an application scaffold.
+
+For a planning check, provide the case's raw task/context, selected skill paths and explicit local-only scope to a fresh agent. For an execution trial, supply a representative disposable application or isolated checkout, accepted product/platform context and working local commands. Establish target/action boundaries before execution. Provide every material product requirement and authority constraint in the task context. Keep evaluator checks and previous diagnoses separate from the acting agent; assess outcomes afterward without hiding product requirements or leaking an intended implementation. Cases are maintained here and are not installed as an application workflow or run by default in CI.
+
+Inspect the diff and actual checks. Automate observable assertions such as persistence across restart, unauthorized access denial, resumed backfills and duplicate-effect handling when the supplied application supports them. Review scope, maintainability, visual consistency, evidence accuracy and unnecessary complexity separately. Do not grade by phrases repeated from a skill or impose a fixed passing percentage without a justified rubric.
+
+Record the case/prompt revision, application/skill revisions, client/model configuration, supplied context, actual commands/results, artifacts and user corrections. Keep sensitive data out and distinguish guidance failures from missing tools or environment access. Count corrective interventions and characterize them instead of inventing token/time savings. Planning success is not execution success. Record blockers and any unexecuted cases; repair guidance from demonstrated failures, then rerun the affected case independently.
+
 ### Recorded evidence and limits
 
 Checks recorded through 2026-10-12 include 13 helper tests, metadata/containment and Markdown link checks, and builds of all seven plugins with 37 upstream skills (55 total). Tests cover pinned acquisition, root-level skills, resource/license preservation, adaptations, labels, stale setup removal, overwrite protection and managed-link repair.
@@ -166,10 +176,12 @@ The 2026-10-13 operations/explorer integration passed 14 repository tests, plugi
 
 Fresh exercises covered async exports with stuck work and missing telemetry, recovery with a surviving datastore and active writers, and an evidence-backed repository explorer. They retained unknown outcomes, separated historical alerts from current impact, preserved existing data, and distinguished local evidence from a baseline Git revision. These were plans and synthetic artifacts, without live service access. The older creator validator accepted the 14 new Markdown guidance skills; its allowed-field list omits the explorer's standard `compatibility` field, which the repository validator checked instead.
 
-These checks establish packaging, discovery and interpretation of supplied cases. They do not establish application quality, live model quality, deployment/restore success, savings, legal compliance or universal client enforcement. Reference-lookup avoidance of 90 to 95% remains an unmeasured design goal. Detailed load/failure-testing operating instructions remain pending; the supplied operations guidance now covers observability, incident response and SLIs/SLOs.
+These checks establish packaging, discovery and interpretation of supplied cases. They do not establish application quality, live model quality, deployment/restore success, savings, legal compliance or universal client enforcement. Reference-lookup avoidance of 90 to 95% remains an unmeasured design goal. Detailed fault-injection operating instructions remain pending; the supplied operations guidance now covers observability, incident response and SLIs/SLOs.
 
 ## k6 performance guidance
 
 `test-application-performance` adds local k6, application-on-runner and deployed non-production execution modes to development-workflow. It uses official k6 references and inline decisions for workload models, correctness thresholds, offered/achieved load, safe targets, failure propagation, fixtures and cleanup. Application scripts and workflows are authored in the target repository; no scaffold, cloud service or operator is bundled. Detailed fault injection remains separate.
 
 Validation for this addition: 14 repository tests, skill-creator and plugin validation, changed documentation/skill links, and a rebuilt workflow bundle with complete local resources passed. A fresh planning exercise covered an async export, missed offered load, isolated runner services and staging email effects. The collection now has 34 local plus 37 pinned upstream skills. No application k6 run or deployed-environment test was executed in this skills repository.
+
+The production-guidance refinement passed 14 repository tests, plugin/creator validation, changed relative-link checks and rebuild/resource-parity checks for workflow, backend and frontend bundles. Two fresh planning exercises covered populated ownership migration with partial export effects and an existing-project sharing/release scenario. Eight reusable evaluation cases are defined; full application trials have not run.

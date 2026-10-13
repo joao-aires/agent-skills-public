@@ -20,6 +20,14 @@ Read the request, existing code and accepted decisions before choosing structure
 
 Prefer Python/FastAPI/PostgreSQL and Next.js/shadcn for new full-stack projects. Add AI or MCP for a concrete capability. Preserve an existing stack and layout unless changing them solves an agreed problem.
 
+## Adopt an existing project and assess the change
+
+For initial adoption, discover authoritative startup/test/build/migration commands, architecture and consumers, identity/tenant rules, deployment targets, critical journeys and operating constraints. Reuse existing instructions and evidence; add only missing useful pointers. Installing the plugins grants no authority to restructure or modernize the application.
+
+During a feature or fix, trace the affected paths and identify changed contracts, stored data, permissions, integrations, configuration and delivery consequences. Preserve useful legacy knowledge. Investigate contradictory code/docs and surface uncertainty that changes the outcome or risk; routine local choices can proceed. Keep this assessment inline for ordinary changes and record consequential decisions in the project's existing notes. Unrelated legacy debt remains separate unless it prevents the requested behavior.
+
+For shared saved searches, inspect existing ownership and all affected reads/writes before adding access grants. Preserve private defaults and define recipient permissions from the agreed scope; hiding UI controls does not enforce them. Select focused verification using `deliver-reliable-changes`, rather than invoking every installed skill.
+
 ## Establish a small, navigable repository
 
 - Put code, migrations, tests, dependencies, application configuration and scoped AGENTS.md under `applications/`. Separate `api/` and `web/` when they represent actual boundaries. Keep provider-required CI entrypoints in their required locations.

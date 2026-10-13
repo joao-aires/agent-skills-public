@@ -21,6 +21,19 @@ Use `contribute-code` for feature worktree isolation, Conventional Commits and p
 
 For a failure, establish a reproduction and inspect relevant logs/state before patching. Use `diagnosing-bugs` for investigation, `tdd` for behavior/regression checks and `code-review` for review when installed and relevant. Use differential/security or property-based specialists for risks that benefit from them; do not launch every available workflow. Fix the cause and preserve assertions that exposed it.
 
+## Agree completion from the requested behavior
+
+Before implementation, connect the intended outcome to the affected contracts and acceptance evidence. Reuse answers already agreed. For ordinary changes this can stay in the conversation; no required template, ticket or separate document. State material assumptions and identify which checks can be run in the available environment. Select depth from the actual risk, not every checklist in the bundle.
+
+| Claim | Required evidence |
+| --- | --- |
+| Implemented | Relevant code/configuration exists; missing behavior is identified. |
+| Behavior verified | Affected acceptance and failure/authorization cases were exercised, with the persistence/provider boundary stated. |
+| Ready for deployment | Applicable checks pass; configuration, compatibility, migration and recovery consequences are addressed. Outstanding material gates remain blockers. |
+| Verified after deployment | The intended revision is served and the affected journey works in the named target. Local tests cannot establish this state. |
+
+For sharing a private resource, verify durable grants, intended recipient rights, denial for unrelated users and unchanged private defaults. A copy edit needs appropriate rendered verification; it does not require unrelated database/recovery work. Keep pre-existing failures distinct from regressions and respect existing required gates. Completion states are evidence descriptions, not additional permission or mandatory sequential ceremonies.
+
 ## Match verification to the change
 
 | Change | Evidence to seek |

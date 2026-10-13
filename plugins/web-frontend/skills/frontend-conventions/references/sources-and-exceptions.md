@@ -11,3 +11,7 @@ The main skill supplies everyday decisions. Open these only for a specific unans
 | Operational product examples | [Dub](https://github.com/dubinc/dub), [Supabase Studio](https://github.com/supabase/supabase/tree/master/apps/studio) and [Cal.diy](https://github.com/calcom/cal.diy). Observe navigation, reusable primitives and state handling; their routing, versions and business domains differ. |
 
 A supplied reference can define another frontend profile: identify its audience, shell, navigation, density, tokens, component behavior and responsive/accessibility expectations, then record only the accepted decisions. Do not replace an existing profile without a request. A public marketing page does not establish a private dashboard's behavior.
+
+## Production hosting and configuration
+
+Use [Next.js self-hosting](https://nextjs.org/docs/app/guides/self-hosting) for version-matched cache coordination, rollout skew, Server Actions and proxy behavior; managed hosting may supply some of these mechanisms. Use [environment-variable guidance](https://nextjs.org/docs/app/guides/environment-variables) to distinguish values embedded during build from server runtime configuration. A build ID alone does not implement all deployment routing/cache requirements. Review private data and generated output at every caching boundary.
