@@ -36,3 +36,5 @@ Use [Kubernetes resource guidance](https://kubernetes.io/docs/concepts/configura
 Record assumptions, demand range, sizing/scaling choices, dependencies and the evidence needed to revisit them. Verify changed configuration and focused performance behavior in a safe environment; compare before/after under comparable conditions. State what is estimated versus demonstrated.
 
 Use the project's approved load/failure-testing instructions when available. Use `reliability-design` for accepted journey latency/reliability objectives and `observability-operations` for trustworthy measurements when available. Use `kubernetes-resource-engineering` for manifest mechanics and `infra-jvm-optimization` only for JVM workloads. This skill does not prescribe a new load-test tool or chaos regimen. Keep affected architecture and operating notes current as the application changes.
+
+When k6 guidance is installed, use `test-application-performance` for local, CI-runner and deployed non-production workload evidence. Size and observe the generator separately; runner contention and unachieved offered load constrain conclusions.

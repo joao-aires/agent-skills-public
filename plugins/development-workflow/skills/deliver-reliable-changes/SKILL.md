@@ -44,3 +44,5 @@ For a migration that removes data, assess old/new application compatibility and 
 ## Close with evidence
 
 Review the diff for scope, correctness and avoidable complexity; resolve material findings. Keep affected docs synchronized and capture repeated mistakes as a concise instruction or check. Explain behavior changed, rationale, commands/results and remaining limitations in the PR or completion report. Distinguish implemented, verified, deployed and planned work. Publish or merge only within the requested authorization; a delivery skill is not permission to deploy.
+
+Use `test-application-performance` for changed latency, throughput or concurrency claims: k6 locally, on a CI-started application, and on an identified non-production deployment. Select proportionate profiles; basic smoke checks do not prove production capacity.

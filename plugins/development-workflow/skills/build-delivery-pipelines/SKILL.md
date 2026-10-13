@@ -46,3 +46,5 @@ A release rerun reconciles existing tags, artifacts and deployment state before 
 Use `reliability-design` for journey and alert contracts and `observability-operations` for signal readiness when those skills are available. Keep release verification meaningful without requiring a new monitoring vendor.
 
 Optional deeper guidance: [branch to production](references/branch-to-production.md) and [workflow implementation](references/workflow-implementation.md).
+
+For performance workflows, use `test-application-performance`: start the application and its dependencies on the runner for bounded regression checks, and run k6 against an identified deployed non-production environment for target-specific load checks. Preserve thresholds, failure status, result artifacts and cleanup; bind credentials and concurrency to the actual environment.

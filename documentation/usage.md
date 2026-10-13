@@ -41,6 +41,7 @@ Ask for an outcome or name the skill explicitly. Local skills can start the acti
 | Plan capacity | `plan-application-capacity` | Local | Generic / both |
 | Assess costs | `optimize-application-cost` | Local | Generic / both |
 | Evaluate an AI feature | `build-evaluated-ai` | Local | Stack-specific / both |
+| Plan or run k6 performance checks | `test-application-performance` | Local | k6-specific / both |
 | Plan or run browser journeys | `test-end-to-end` | Local | Playwright-specific / both |
 | Clarify requirements | `grill-me`, `grill-with-docs`, `to-questionnaire` | Upstream: Matt | Generic / user |
 | Write an agreed spec | `to-spec` | Upstream: Matt | Generic / user |
@@ -73,6 +74,7 @@ Agents select these when needed to carry out the request. You can also name loca
 | AI development | `build-evaluated-ai` (local, not an upstream skill) | Chosen Google ADK or LangChain/LangGraph skills |
 | MCP interfaces | MCP section of `build-evaluated-ai`; reuse authorized application services | `mcp-builder`, in `ai-development`; prefer standalone Python FastMCP |
 | Testing | `deliver-reliable-changes`, `test-end-to-end` for browser journeys | `tdd`, `property-based-testing`, `playwright-cli` |
+| Performance testing | `test-application-performance` for local, CI-runner and deployed non-production k6 checks | Official k6 references; no cloud account required |
 | Code review | Requested behavior and project standards | `code-review`; `differential-review` for security-sensitive diffs |
 | Debugging | Preserve the affected scope and regression evidence | `diagnosing-bugs` |
 | Research | Record decision-changing findings where the project keeps them | `research` |
@@ -120,6 +122,12 @@ Add `application-operations` when operating a service or changing its reliabilit
 > Review these Kubernetes manifests with kubernetes-resource-engineering and plan-application-capacity. This service runs Python: do not apply JVM settings. Report proposed changes and checks; do not deploy.
 
 The explorer's JSON contract serves that artifact only. It is not a repository architecture schema. Read-only inventories and static diagrams can use system-mapping or architecture-diagraming without the renderer.
+
+### k6 execution modes
+
+`test-application-performance` guides local runs, a workflow that starts the application/database/workers on the CI runner and executes k6 there, and a separate workflow against a deployed non-production environment. Scenarios are reused with explicit profiles/targets. Runner checks catch bounded regressions; deployed checks verify the actual environment. The agent creates the application-specific scripts/workflows in the target repository when requested; this plugin does not contain a generated application or ready-to-deploy pipeline.
+
+> Add a k6 suite for this application's critical API journey. Provide a local command, a CI runner job that starts and migrates an isolated application stack, and a manually triggered non-production job. Define workload/threshold assumptions, preserve failing exit codes and collect results even on failure. Do not execute against a deployed environment yet.
 
 ## AI and MCP plugin selection
 
