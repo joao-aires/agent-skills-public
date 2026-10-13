@@ -45,3 +45,13 @@ Consult current version-specific guidance before writing commands or provisionin
 | Azure PostgreSQL | [Backup and restore](https://learn.microsoft.com/en-us/azure/postgresql/backup-restore/concepts-backup-restore) |
 
 For another platform, search its first-party documentation and record relevant restrictions. Do not transplant commands or guarantees across providers.
+
+## Operate and recover from partial failure
+
+Audit job failures, newest usable recovery point, coverage, access/key availability, retention behavior and the latest integrity-tested restoration. Carry unresolved findings forward with their original dates. Green backup jobs alone do not meet recovery objectives.
+
+Before rebuilding, inventory surviving resources; an old bootstrap procedure is not authority to delete a surviving datastore. Define ordered infrastructure, identities, storage, data and application recovery with idempotent preconditions. For in-place recovery, isolate writers, consumers and scheduled jobs and control reconcilers before restoring. Recheck the exact destination and recovery point; validate schema, relationships, invariants and representative data before resuming writers or cutover. Account for queued/in-flight work, duplicate external effects and reconciliation ownership.
+
+Record actual RPO/RTO, residual loss, temporary controls and return to normal backups. Rehearsal, in-place restoration and traffic cutover have different consequences; use the authority already granted for the task and target. With no execution access, deliver a plan and mark live checks outstanding. `incident-response` coordinates an outage; this skill owns restoration and data-integrity proof.
+
+Optional deeper guidance: [application recovery](references/application-recovery.md) and [recovery evidence](references/recovery-record.md). Adapt record fields to existing runbooks instead of creating a parallel register.

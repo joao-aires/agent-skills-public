@@ -8,13 +8,13 @@ For a full-stack application, start with `development-workflow`, `python-backend
 
 | Plugin | What it contributes | Included upstream expertise |
 | --- | --- | --- |
-| [development-workflow](plugins/development-workflow/) | Project conventions, documentation, Git/PRs, testing, CI/CD and security | Matt Pocock, Humanizer, Playwright, GitHub Actions hardening, Trail of Bits |
-| [python-backend](plugins/python-backend/) | FastAPI, SQLAlchemy/Alembic, PostgreSQL | Modern Python |
+| [development-workflow](plugins/development-workflow/) | Project conventions, system mapping, shell automation, documentation, Git/PRs, testing, CI/CD and security | Matt Pocock, Humanizer, Playwright, GitHub Actions hardening, Trail of Bits |
+| [python-backend](plugins/python-backend/) | FastAPI, SQLAlchemy/Alembic, PostgreSQL and Python automation | Modern Python |
 | [web-frontend](plugins/web-frontend/) | Next.js, Tailwind v4, shadcn, consistent UI/UX and accessibility | Official shadcn, Tailwind design system, Vercel React/composition |
 | [ai-development](plugins/ai-development/) | AI features, agents, MCP interfaces and evaluation | Google ADK, LangChain/LangGraph, MCP builder |
-| [application-operations](plugins/application-operations/) | Recovery, capacity and cost | AKS cost optimization, for Azure AKS only |
+| [application-operations](plugins/application-operations/) | Reliability, observability, incidents and learning, recovery, security upkeep, capacity and cost | AKS cost optimization, for Azure AKS only |
 | [business-strategy](plugins/business-strategy/) | Strategy, opportunity analysis and product feedback | Original skills and resources |
-| [visual-communication](plugins/visual-communication/) | Architecture diagrams and presentations | Original skills and resources |
+| [visual-communication](plugins/visual-communication/) | Architecture diagrams, interactive system-flow explorers and presentations | Original skills and resources |
 
 ## Quick start
 

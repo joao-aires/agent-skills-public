@@ -9,7 +9,7 @@ Skills carry standard string labels under `metadata`: `scope`, `invocation`, and
 | Scope | Meaning | Examples |
 | --- | --- | --- |
 | Generic | Applies across application stacks. It may still need Git, a browser or another tool. | Project conventions, strategy, requirements, documentation, code review, Humanizer, recovery/capacity/cost principles |
-| Stack-specific | Requires matching technology or platform APIs. Check the installed versions and supported coverage. | Next.js/shadcn/Tailwind, FastAPI/SQLAlchemy, Playwright, ADK/LangChain, FastMCP, GitHub Actions, AKS cost optimization |
+| Stack-specific | Requires matching technology or platform APIs. Check the installed versions and supported coverage. | Next.js/shadcn/Tailwind, FastAPI/SQLAlchemy, Playwright, ADK/LangChain, FastMCP, Bash, Python automation, Kubernetes resources, JVM tuning, GitHub Actions, AKS cost optimization |
 
 For example, `frontend-conventions` has `scope: stack-specific`, `stack: React, Next.js, Tailwind, shadcn`, and `invocation: both`. `project-conventions` is generic and also supports both forms of use. Scope is independent of who invokes the skill and where it came from.
 
@@ -27,6 +27,17 @@ Ask for an outcome or name the skill explicitly. Local skills can start the acti
 | Review feature security and privacy | `design-secure-features` | Local | Generic / both |
 | Design or review delivery pipelines | `build-delivery-pipelines` | Local | Generic / both |
 | Review backup, restore and disaster recovery | `protect-and-restore-data` | Local | Generic / both |
+| Map services and critical journeys from evidence | `system-mapping` | Local | Generic / both |
+| Build an interactive architecture walkthrough | `system-flow-explorer` | Local | Generic / user |
+| Define journey SLIs/SLOs and alerts | `reliability-design` | Local | Generic / both |
+| Review or implement instrumentation | `observability-operations` | Local | Generic / both |
+| Respond to an active incident | `incident-response` | Local | Generic / both; target actions need task authority |
+| Write or review an operational runbook | `runbook-engineering` | Local | Generic / both |
+| Facilitate or draft an incident review | `postmortem-facilitation` | Local | Generic / both; interviews only on request |
+| Verify postmortem actions in deployed behavior | `postmortem-followup` | Local | Generic / both |
+| Review deployed vulnerability remediation | `vulnerability-management` | Local | Generic / both |
+| Review credentials and rotation | `credential-lifecycle` | Local | Generic / both |
+| Review recurring operational upkeep | `operational-housekeeping` | Local | Generic / both; no scheduler installed |
 | Plan capacity | `plan-application-capacity` | Local | Generic / both |
 | Assess costs | `optimize-application-cost` | Local | Generic / both |
 | Evaluate an AI feature | `build-evaluated-ai` | Local | Stack-specific / both |
@@ -72,6 +83,20 @@ Agents select these when needed to carry out the request. You can also name loca
 | Data recovery | `protect-and-restore-data` | Current platform/database references |
 | Capacity | `plan-application-capacity` | Current platform references |
 | Cost | `optimize-application-cost` | `aks-cost-optimization` only for Azure AKS |
+| System discovery | `system-mapping` for evidence, topology and journeys | No particular platform required |
+| Interactive architecture | `system-flow-explorer` on request; evidence-backed HTML and JSON | Bundled offline renderer; optional existing Playwright for browser checks |
+| Shell automation | `bash-engineering` | Bash-specific; no new task framework required |
+| Python automation | `python-automation-engineering` for CLI/API jobs | `modern-python` where useful; separate from FastAPI service conventions |
+| Reliability | `reliability-design` for outcomes, SLIs/SLOs, budgets and alerts | Current first-party references; optional Datadog/Terraform example |
+| Observability | `observability-operations` for signal contracts and pipeline verification | Use the project's libraries/collectors |
+| Incident response | `incident-response` for current impact and independently verified recovery | Existing authorized tools and service evidence |
+| Runbooks | `runbook-engineering` for branching diagnostics, actions and verification | The service's actual procedures |
+| Incident learning | `postmortem-facilitation`, `postmortem-followup` | Evidence-led review and deployed completion checks |
+| Vulnerability remediation | `vulnerability-management` | Existing scanners, vendor advisories and deployed artifact evidence |
+| Credentials | `credential-lifecycle` | Actual identity provider/store; never expose secret values |
+| Kubernetes resources | `kubernetes-resource-engineering` | Current cluster/operator/Helm/Kustomize documentation |
+| JVM performance | `infra-jvm-optimization` only for Java/JVM workloads | Installed runtime and platform guidance |
+| Operational upkeep | `operational-housekeeping` | Reuse project records; targeted reviews remain targeted |
 | Product feedback | `learn-from-product-feedback` | Existing evidence; no analytics vendor required |
 
 Examples:
@@ -81,6 +106,20 @@ Examples:
 > Edit this PR description with humanizer. Keep the facts, commands and links intact and use my singular voice.
 
 For new projects, I prefer `applications/` for implementation and `documentation/` for knowledge, with short scoped `AGENTS.md` instructions. Keep existing layouts and accepted choices. Screenshots, reference repositories, schemas and architecture notes can supply context.
+
+## Operations and architecture examples
+
+Add `application-operations` when operating a service or changing its reliability and recovery contracts. Its [selection guide](../plugins/application-operations/OPERATIONS.md) distinguishes policy, signals, response and follow-up. These are local skills adapted from the supplied portable collection, not newly acquired upstream packages. Match stack-specific skills to the actual runtime.
+
+> Map the checkout journey with system-mapping, define its completion and latency indicators with reliability-design, and instrument the accepted contract with observability-operations. Use existing tooling and mark assumptions and unverified signals.
+
+> Investigate this active incident with incident-response. Preserve the current action boundaries; distinguish mitigation from verified customer recovery. Draft a postmortem after stabilization without starting an interview or publishing it.
+
+> Use system-flow-explorer to build an offline walkthrough of this API's success and failure paths. Cite repository evidence, distinguish proposed parts, and deliver the HTML and source JSON. Do not change the application.
+
+> Review these Kubernetes manifests with kubernetes-resource-engineering and plan-application-capacity. This service runs Python: do not apply JVM settings. Report proposed changes and checks; do not deploy.
+
+The explorer's JSON contract serves that artifact only. It is not a repository architecture schema. Read-only inventories and static diagrams can use system-mapping or architecture-diagraming without the renderer.
 
 ## AI and MCP plugin selection
 

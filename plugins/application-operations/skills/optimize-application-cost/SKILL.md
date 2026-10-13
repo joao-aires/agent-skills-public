@@ -40,3 +40,5 @@ Use the relevant service's documentation for non-Kubernetes hosts, databases and
 ## Verify the benefit
 
 For each proposed change, state the cost driver, expected savings range, evidence, risk, recovery path and effort. Apply changes within the authorized scope through the project's configuration/CI/CD flow. Compare comparable billing/usage periods and normalize for demand; distinguish projected savings from verified reductions. Update assumptions and decisions after material traffic or architecture changes.
+
+For recurring evidence reviews use `operational-housekeeping`; for signal retention/cardinality use `observability-operations`. Cost changes must retain agreed reliability and recovery constraints.

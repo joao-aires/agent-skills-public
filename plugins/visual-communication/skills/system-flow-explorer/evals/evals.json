@@ -1,0 +1,29 @@
+{
+  "skill_name": "system-flow-explorer",
+  "evals": [
+    {
+      "id": 1,
+      "name": "repository-evidence",
+      "prompt": "Analyze evals/files/sample_service.py as a tiny repository. Visualize the reader's successful lookup and missing-document outcomes. Trace the actual POST route, in-process catalog call, projection and response. Do not add an LLM or a durable database. Include path/line citations, distinguish illustrative bodies from observed traffic, and show context/container/component depth without losing client interactions. Produce a canonical JSON model and standalone explorer HTML.",
+      "expected_output": "Two evidence-backed user scenarios, actual lookup URL, local catalog call, documented 404 path, no invented persistence or model service.",
+      "files": ["evals/files/sample_service.py"],
+      "expectations": ["The successful and missing-document scenarios trace the actual /documents/lookup route and 404 behavior.", "No model provider or durable database is claimed as implemented.", "Implemented nodes/messages cite relevant source lines and illustrative bodies are labeled.", "Every outer message survives component expansion and internal calls map to a parent."]
+    },
+    {
+      "id": 2,
+      "name": "proposed-design",
+      "prompt": "Brainstorm a reader-facing document explanation feature from evals/files/proposal.md. This is a proposal, not repository discovery. Show the lookup then optional explanation, an in-process adapter calling an external model provider, conceptual prompts and tool examples, and correlated responses. The explanation route is proposed; provider URL is undecided. Keep useful deterministic content on failure. Produce canonical JSON and one standalone HTML with sequence and C4 views and independent architecture depth controls. Explain why schema validity alone does not prove grounded prose.",
+      "expected_output": "Proposed feature with external provider boundary, unresolved provider URL, cited design intent, conceptual prompt/tool examples, and explicit grounding caveat.",
+      "files": ["evals/files/proposal.md"],
+      "expectations": ["The model provider is external to the application runtime and the adapter is inside it.", "POST /documents/explain is proposed and the provider endpoint URL is null/unresolved.", "Prompt/tool examples are conceptual and factual support is separate from shape validation.", "Tabs are user scenarios, not architecture depths or runtime-only flows."]
+    },
+    {
+      "id": 3,
+      "name": "refinement-invariance",
+      "prompt": "Refine assets/minimal.json by adding a proposed internal explanation validation component in the Lookup API and a local validation substep under modelResult. Preserve all existing IDs, root payloads, root ordering and scenarios. Retain every interaction with the client, reader, and external model provider at component depth. Internal substeps must use parent.child numbers. Selection of the added child must map to modelResult when collapsed and restore on expansion. Render one standalone HTML and return the updated canonical JSON.",
+      "expected_output": "Additive refinement with stable IDs/roots, correctly contained proposed validator, child-parent selection invariance, and external interactions preserved.",
+      "files": ["assets/minimal.json"],
+      "expectations": ["All original IDs, root payloads and per-scenario root order are preserved.", "The new validator is a proposed API component and its local child maps to modelResult.", "Component expansion retains every root and external provider interaction.", "Browser selection maps child to parent and restores the child on re-expansion."]
+    }
+  ]
+}

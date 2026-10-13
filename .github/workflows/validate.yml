@@ -22,3 +22,5 @@ jobs:
         run: python scripts/validate_plugins.py
       - name: Run packaging regression tests
         run: python -m unittest discover -s tests -v
+      - name: Check system flow explorer
+        run: python plugins/visual-communication/skills/system-flow-explorer/scripts/smoke_test.py

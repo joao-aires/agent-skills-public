@@ -149,7 +149,8 @@ def build(root, selected, destination, cache):
             package = root / 'plugins' / name
             if not package.is_dir() or name != package.name or '/' in name or '..' in name:
                 raise ValueError('Unknown plugin: ' + name)
-            shutil.copytree(package, output / name)
+            shutil.copytree(package, output / name,
+                            ignore=shutil.ignore_patterns('__pycache__', '*.pyc', '*.pyo'))
         acquired = []
         for source in lock['sources']:
             if source['plugin'] not in selected:

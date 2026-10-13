@@ -34,3 +34,5 @@ Use installed `differential-review` for security-sensitive changes and `supply-c
 Translate concrete risks into focused checks: cross-user/tenant requests, invalid or hostile inputs, missing configuration, privileged operations and accidental sensitive logging. Put sustainable dependency/secret checks in CI when warranted, record actual findings and remediation, and define when accepted risks will be revisited. Reassess on new integrations, changed exposure/data use and relevant advisories rather than continuously running an invented background audit.
 
 Keep affected architecture, data-flow, retention and decision notes synchronized with the change. Report what was checked, what improved and what remains uncertain; do not label an application secure or compliant solely because scans pass.
+
+When the operations bundle is available, use `credential-lifecycle` for identity issuance/rotation/revocation and `vulnerability-management` for findings through deployed remediation. Keep telemetry redaction and collection access aligned with privacy requirements using `observability-operations`. These are targeted follow-ups, not prerequisites for every edit.

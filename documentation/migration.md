@@ -24,3 +24,9 @@ The frontend/backend entry points are now `frontend-conventions` and `backend-co
 ## Curated upstream set and MCP placement
 
 MCP builder now belongs to `ai-development`; add that plugin for MCP work, even when no LLM is needed. The workflow bundle retains 18 of Matt's skills and excludes nine from its earlier broad import; see [the review](maintainer-reference.md#matt-pocock-selection). Rebuild and replace the affected bundles as usual. Remove excluded skill copies only after inspecting their origin; unrelated installations are unchanged.
+
+## Operations guidance and interactive architecture
+
+The portable operations collection is now integrated by activity: general system mapping and Bash work in `development-workflow`, Python automation in `python-backend`, and service operations in `application-operations`. Backup and release material enrich the existing `protect-and-restore-data` and `build-delivery-pipelines` entry points. If importing the standalone collection previously, update `backup-recovery` and `cicd-release-management` references to those canonical names and inspect duplicate copies before removal. The source-notes companion and factory framework are not bundled.
+
+`system-flow-explorer` belongs to `visual-communication`, including its renderer, model example and tests. Rebuild and replace the selected bundles with resources intact. The default three-plugin build does not include operations or visual communication; select those explicitly. No monitoring service, credentials, scheduler or browser dependency is installed by this update.

@@ -36,3 +36,13 @@ Every delivery path should have a usable rollback or roll-forward route: retain 
 Use installed `github-actions-hardening` for detailed review. Keep permissions minimal, pin third-party actions to reviewed full commit SHAs with update automation, prefer OIDC to long-lived cloud keys, and treat PR content as untrusted. Separate untrusted validation from privileged publishing/deployment. Do not execute fork code with production credentials. Bound job duration and distinguish caches from deployable artifacts.
 
 Report which checks and recovery paths were actually exercised, target environments and remaining gaps. Consult current [GitHub security guidance](https://docs.github.com/en/actions/reference/security/secure-use) and [Docker build guidance](https://docs.docker.com/build/building/best-practices/) for the project's versions and platform.
+
+## Branching, releases and partial completion
+
+Distinguish branching, release and deployment contracts. Choose trunk-based or release branches from isolation and supported-version needs; team size alone does not require Gitflow. Preserve the established model unless migration is requested. Define version/tag uniqueness, candidate provenance, feature-flag retirement and hotfix propagation to every required development/support line.
+
+A release rerun reconciles existing tags, artifacts and deployment state before resuming; it never overwrites an immutable identity or repeats an ambiguous mutation blindly. Serialize writers without cancelling active release/migration jobs. If metadata changes the artifact, validate the new identity. Verify the running and served revision, cached paths, critical user outcomes and async completion; a successful release job is not customer verification. Record configured, locally checked, built, released, deployed and outcome-verified states separately.
+
+Use `reliability-design` for journey and alert contracts and `observability-operations` for signal readiness when those skills are available. Keep release verification meaningful without requiring a new monitoring vendor.
+
+Optional deeper guidance: [branch to production](references/branch-to-production.md) and [workflow implementation](references/workflow-implementation.md).

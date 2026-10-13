@@ -122,6 +122,21 @@ Retained dependencies are included with their resources. Three acquired skills h
 
 Removing a skill from this bundle does not judge its upstream quality. The excluded skills can fit different activities; I am keeping this collection focused on the application workflows described here.
 
+## Supplied operations and explorer skills
+
+I integrated the portable `operations-skills` archive into the existing activity bundles. The independently authored portable guidance cites public primary sources; the separate source-notes companion was excluded. No private inventories, incident identities or original internal skills are packaged. These are local guidance under this repository's license, not another upstream source in the lockfile.
+
+| Destination | Added or enriched guidance |
+| --- | --- |
+| development-workflow | Added system-mapping and bash-engineering; merged cicd-release-management into build-delivery-pipelines |
+| python-backend | Added python-automation-engineering for operational CLI/API tooling |
+| application-operations | Added reliability-design, observability-operations, incident-response, runbook-engineering, postmortem-facilitation, postmortem-followup, kubernetes-resource-engineering, infra-jvm-optimization, vulnerability-management, credential-lifecycle and operational-housekeeping; merged backup-recovery into protect-and-restore-data |
+| visual-communication | Added the separately supplied system-flow-explorer with its HTML renderer, strict JSON validator, examples and checks |
+
+The integration retains substantive references while putting common decisions in entry points. It adds scope/invocation labels, canonical skill-name handoffs and explicit JVM boundaries. The factory framework and fixed schedules were not imported. Repeated reviews reuse existing records and stable finding identities; no tracker or schema framework is required. Interactive postmortem interviews and architecture explorers start only on request. Static system discovery stays separate from the explorer's artifact model.
+
+Reference checks used the [Google SRE alerting chapter](https://sre.google/workbook/alerting-on-slos/), [Kubernetes HPA walkthrough](https://kubernetes.io/docs/tasks/run-application/horizontal-pod-autoscale-walkthrough/), [OpenTelemetry log model](https://opentelemetry.io/docs/specs/otel/logs/data-model/) and [NIST patch-management guidance](https://csrc.nist.gov/pubs/sp/800/40/r4/final). Provider commands and behavior still require current installed-version checks. Examples and numerical thresholds remain conditional, not universal defaults.
+
 ## Maintaining the collection
 
 Keep each plugin under `plugins/<name>` with its manifest and complete skill resources. Keep usage, scope/invocation labels, the SDLC map and source notices consistent when skills change. Standard labels describe intended use; preserve native upstream invocation controls.
@@ -147,4 +162,8 @@ Fresh, mostly plan-only exercises covered project setup, unsafe ownership/transa
 
 Humanizer was installed in the working environment and applied to repository prose. The lifecycle image was rendered and inspected. Earlier detailed traces and revision-specific results remain in Git history.
 
-These checks establish packaging, discovery and interpretation of supplied cases. They do not establish application quality, live model quality, deployment/restore success, savings, legal compliance or universal client enforcement. Reference-lookup avoidance of 90 to 95% remains an unmeasured design goal. Detailed observability/incident/SLO and load/failure-testing instructions remain pending.
+The 2026-10-13 operations/explorer integration passed 14 repository tests, plugin metadata/containment checks, source/local-package relative-link checks and an all-seven-plugin build: 33 local plus 37 upstream skills, 70 total. Copilot CLI discovered all 70 plugin skills. Built local resources matched source bytes and excluded Python runtime caches. Explorer smoke tests passed three cases and rendered both the supplied example and a fresh repository-case model. Browser checks could not launch because Chromium was absent; no browser check passed. The lifecycle SVG was rendered and inspected.
+
+Fresh exercises covered async exports with stuck work and missing telemetry, recovery with a surviving datastore and active writers, and an evidence-backed repository explorer. They retained unknown outcomes, separated historical alerts from current impact, preserved existing data, and distinguished local evidence from a baseline Git revision. These were plans and synthetic artifacts, without live service access. The older creator validator accepted the 14 new Markdown guidance skills; its allowed-field list omits the explorer's standard `compatibility` field, which the repository validator checked instead.
+
+These checks establish packaging, discovery and interpretation of supplied cases. They do not establish application quality, live model quality, deployment/restore success, savings, legal compliance or universal client enforcement. Reference-lookup avoidance of 90 to 95% remains an unmeasured design goal. Detailed load/failure-testing operating instructions remain pending; the supplied operations guidance now covers observability, incident response and SLIs/SLOs.

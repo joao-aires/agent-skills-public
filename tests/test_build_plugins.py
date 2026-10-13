@@ -206,3 +206,24 @@ class InstallationTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'allowed-tools'):
                 installer.build(root, ['example'], output, root / 'cache')
             self.assertFalse(output.exists())
+
+    def test_local_script_resources_exclude_runtime_bytecode(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            skill = root / 'plugins/example/skills/example'
+            skill.mkdir(parents=True)
+            (skill.parent.parent / 'plugin.json').write_text('{"name":"example"}')
+            (skill / 'SKILL.md').write_text('---\nname: example\ndescription: Example\n---\nGuide\n')
+            scripts = skill / 'scripts'
+            scripts.mkdir()
+            (scripts / 'render.py').write_text('print("example")\n')
+            (scripts / '__pycache__').mkdir()
+            (scripts / '__pycache__/render.cpython-313.pyc').write_bytes(b'local cache')
+            (root / 'schemas').mkdir()
+            (root / 'schemas/plugin.schema.json').write_text('{}')
+            (root / 'upstream.lock.json').write_text('{"sources":[]}')
+            output = root / 'output'
+            installer.build(root, ['example'], output, root / 'cache')
+            installed = output / 'example/skills/example/scripts'
+            self.assertEqual((installed / 'render.py').read_text(), 'print("example")\n')
+            self.assertFalse((installed / '__pycache__').exists())

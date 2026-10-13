@@ -6,7 +6,7 @@ Read the project's AGENTS.md and accepted decisions, then choose skills for the 
 
 User-invoked activities begin on request. Agent-invoked guidance supports work already requested. Local skills marked `both` can do either; their descriptions still define scope. For example, `project-conventions` starts full setup/reorganization only on request and guides focused upkeep during ordinary work. A plain-language request can express intent; client command syntax and enforcement vary.
 
-Local activities include strategy, feedback analysis, architecture diagrams, presentations, security reviews, delivery design, recovery, capacity and cost planning. They can be requested directly. Frontend/backend/AI guidance, documentation, testing and contributions also support related work automatically.
+Local activities include system mapping, interactive architecture exploration, reliability and observability reviews, incident response and learning, runbooks, credential and vulnerability reviews, operational upkeep, strategy, feedback analysis, architecture diagrams, presentations, security reviews, delivery design, recovery, capacity and cost planning. They can be requested directly. Frontend/backend/AI guidance, documentation, testing and contributions also support related work automatically.
 
 Retained upstream user activities are `grill-me`, `grill-with-docs`, `to-questionnaire`, `to-spec`, `implement`, `implement-spec`, `improve-codebase-architecture`, `retro` and `handoff`. Supporting techniques are `grilling`, `domain-modeling`, `codebase-design`, `research`, `prototype`, `tdd`, `code-review`, `diagnosing-bugs` and `writing-for-agents`. `humanizer` edits prose across the lifecycle.
 
