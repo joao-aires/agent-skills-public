@@ -37,4 +37,4 @@ Discover targets -> render -> schema validation -> policy audit -> semantic/beha
 
 For bundled code actions, build/test with the declared lockfile and ensure published bundles match source. Align local builder, action runtime and supported runner platforms. A validation helper must include untracked/deleted/generated changes relevant to the artifact; looking only for modified tracked files can miss drift.
 
-Use `build-delivery-pipelines` for pipeline/release design. This skill owns shell behavior and the shell/host boundary, not the full delivery lifecycle.
+Use `delivery-pipelines` for pipeline/release design. This skill owns shell behavior and the shell/host boundary, not the full delivery lifecycle.

@@ -1,5 +1,5 @@
 ---
-name: maintain-documentation
+name: documentation-conventions
 description: Organize application knowledge and update affected PRDs, architecture,
   schemas, plans, decisions and runbooks when implementation or accepted decisions
   change. Use during planning, feature changes, migrations, deployment changes or

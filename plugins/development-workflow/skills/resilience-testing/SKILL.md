@@ -1,5 +1,5 @@
 ---
-name: test-application-resilience
+name: resilience-testing
 description: Design, implement, run or review controlled failure tests for application
   journeys, dependency outages, delays, worker loss and resource exhaustion. Use to
   verify bounded failure handling and recovery in an authorized isolated or non-production
@@ -13,7 +13,7 @@ user-invocable: false
 
 # Test application resilience
 
-Verify the promised user outcome when a relevant dependency or component fails, then verify recovery. Use existing test tools and the smallest boundary that answers the question. Keep tests beside the affected application; no chaos service, MCP or Kubernetes operator is required. Use `test-application-performance` for demand/load claims and combine load with a fault only when that interaction is the intended experiment.
+Verify the promised user outcome when a relevant dependency or component fails, then verify recovery. Use existing test tools and the smallest boundary that answers the question. Keep tests beside the affected application; no chaos service, MCP or Kubernetes operator is required. Use `performance-testing` for demand/load claims and combine load with a fault only when that interaction is the intended experiment.
 
 ## Define the hypothesis and boundary
 
@@ -47,6 +47,6 @@ Verify the actual journey returns, accepted work is accounted for, queues drain 
 
 ## Keep automation and evidence honest
 
-Run stable fixture/isolated checks in relevant CI jobs; pin dependencies, preserve failing exit status and retain sanitized logs/results on failure. Deployed experiments use explicit/manual or project-approved triggers and concurrency controls for the target. No background schedule is installed here. Use `build-delivery-pipelines` for job conventions and environment security.
+Run stable fixture/isolated checks in relevant CI jobs; pin dependencies, preserve failing exit status and retain sanitized logs/results on failure. Deployed experiments use explicit/manual or project-approved triggers and concurrency controls for the target. No background schedule is installed here. Use `delivery-pipelines` for job conventions and environment security.
 
 Report hypothesis, code/config revision, baseline, injected/confirmed fault, intended and observed outcomes, timing, stop/cleanup/recovery evidence and remaining uncertainty. A plan, a simulation, an executed isolated test and a verified deployed experiment are distinct states. Turn demonstrated failures into regression checks or runbook changes; broaden experiments only when new risk justifies them. See [failure experiments](references/failure-experiments.md) for optional tools and deeper cases.

@@ -1,5 +1,5 @@
 ---
-name: test-application-performance
+name: performance-testing
 description: Design, implement, run or review k6 load and performance checks for application
   journeys locally, against an application started on a CI runner, or against a deployed
   non-production environment. Use for latency, concurrency, throughput, saturation
@@ -40,7 +40,7 @@ Reuse scenario behavior across targets with explicit target/profile configuratio
 
 ## Integrate with readable CI/CD
 
-Use `build-delivery-pipelines` for workflow conventions and security. Prefer `performance-<application>.yml` displayed as `Performance / <Application>` with jobs `load-runner` and `load-nonprod`; adapt a clear existing convention. Use steps such as `Start application`, `Apply migrations`, `Seed test data`, `Wait for readiness`, `Run k6`, `Upload performance results` and `Stop application`.
+Use `delivery-pipelines` for workflow conventions and security. Prefer `performance-<application>.yml` displayed as `Performance / <Application>` with jobs `load-runner` and `load-nonprod`; adapt a clear existing convention. Use steps such as `Start application`, `Apply migrations`, `Seed test data`, `Wait for readiness`, `Run k6`, `Upload performance results` and `Stop application`.
 
 Run small runner checks on relevant PR changes where stable and affordable. Put deployed-target checks after deployment or behind explicit/manual or project-approved scheduled triggers; installing this skill does not create a schedule. Bind the target/profile to the environment, serialize shared-environment tests and prevent untrusted PR code from receiving environment credentials. Pin k6 and any setup actions/images to reviewed versions/SHAs/digests.
 
@@ -54,4 +54,4 @@ Compare equivalent revisions, resources, datasets, cache state, profiles and gen
 
 Report script/profile revision, target/deployed revision, workload, thresholds, measured outcomes, fixture/live boundaries and cleanup/recovery evidence. Separate authored scripts, locally executed tests, runner checks and deployed-target checks; state blocked execution. Consult [k6 details and CI decisions](references/k6-and-ci.md) for specific unanswered questions.
 
-Use `test-application-resilience` for controlled dependency/component faults and recovery evidence. Combining a load profile with a fault is a separate scoped experiment; a throughput result alone does not establish outage resilience.
+Use `resilience-testing` for controlled dependency/component faults and recovery evidence. Combining a load profile with a fault is a separate scoped experiment; a throughput result alone does not establish outage resilience.

@@ -139,6 +139,26 @@
         "PR body cannot override trusted eligibility policy.",
         "Failed tests/migration ambiguity remain blocked pending evidence; repeated work reconciles existing state."
       ]
+    },
+    {
+      "id": "application-evaluation-loop",
+      "prompt": "Use test and the supporting journey guidance to prepare an evaluation approach for an existing Electron client and its FastAPI/PostgreSQL service. Accepted behavior requires failed edits to keep input and saved edits to survive restart. Supplied evidence includes a passing browser viewport check, a changed dialog screenshot baseline auto-approved by the implementer, and a successful HTTP response without a persistence check. Only supplied-artifact analysis and a local plan are authorized; no application or device is available.",
+      "criteria": [
+        "Evidence is evaluated against accepted behavior without claiming actual execution.",
+        "Native client and OS integration limits remain separate from responsive web coverage.",
+        "Visual baseline acceptance is investigated, with behavioral/persistence assertions retained.",
+        "The result defines incremental repair/recheck and bounded completion/blocker criteria."
+      ]
+    },
+    {
+      "id": "portable-local-observability",
+      "prompt": "Use project-conventions, observability-operations and build-evaluated-ai to design a new Next.js/FastAPI/PostgreSQL worker application local setup. There are two concurrent feature worktrees. Jobs make Gemini calls and send email. The developer wants local unified telemetry and might use Datadog in production. Resources are limited; no deployment, live model call, email send, Docker execution or installation is authorized. Provide a concise implementation/verification plan from this context.",
+      "criteria": [
+        "Compose isolates project names, published ports, owned data and controlled external effects; readiness includes required initialization.",
+        "Application instrumentation remains OTel/OTLP based with backend-specific routing/credentials separated.",
+        "The plan verifies signal generation and selected-backend receipt without claiming every destination was tested.",
+        "Observability footprint and optional AI evaluation services are proportional; execution telemetry is distinct from model quality."
+      ]
     }
   ]
 }

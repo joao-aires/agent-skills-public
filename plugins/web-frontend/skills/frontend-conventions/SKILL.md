@@ -24,7 +24,7 @@ Keep the accepted conventions and meaningful deviations in the existing design n
 
 ## Design behavior and account for every affected surface
 
-Use [design-interactions](../design-interactions/SKILL.md) before meaningful new or changed UX. Define goals, flows, information/actions and state transitions in concise text; add wireframes/mockups only where they settle spatial/visual uncertainty. Resolve consequential choices and state reversible assumptions before coding; reuse agreed direction without another approval ceremony. Do not invent UX independently as each page is implemented.
+Use [interaction-design](../interaction-design/SKILL.md) before meaningful new or changed UX. Define goals, flows, information/actions and state transitions in concise text; add wireframes/mockups only where they settle spatial/visual uncertainty. Resolve consequential choices and state reversible assumptions before coding; reuse agreed direction without another approval ceremony. Do not invent UX independently as each page is implemented.
 
 For global changes inventory all affected routes, menus/submenus, dialogs/drawers, shared primitives and role/mobile variants. Establish a reusable interaction pattern on representative surfaces, propagate it through shared implementations, then reconcile the coverage list. Verify callers and conditional/alternate entry points, not only the shared component or one screenshot. Report skipped/blocked surfaces and incomplete rollout explicitly; a partial UI update is not a completed global redesign.
 
@@ -68,7 +68,7 @@ Test the production build/start path, configuration and representative authentic
 
 For multi-instance Next.js, assess cache scope, shared invalidation, session handling, Server Action key consistency and client/server version skew for the installed release and hosting mode. Preserve identity/tenant isolation across application and CDN caches. A mutation invalidating one instance does not establish fleet-wide freshness. Reuse one validated build per deployment; keep old clients/assets compatible through the rollout and account for state lost on reload. Apply shared caches or platform features only when needed, not as a default Redis requirement.
 
-Verify through the actual proxy/CDN path when relevant: deep links, authenticated mutations, refreshed data after changes and rolling-deployment behavior. Use the platform's supported cache/skew mechanisms and [sources and exceptions](references/sources-and-exceptions.md) for details. Connect configuration and rollout decisions to `build-delivery-pipelines`; report local versus deployed evidence separately.
+Verify through the actual proxy/CDN path when relevant: deep links, authenticated mutations, refreshed data after changes and rolling-deployment behavior. Use the platform's supported cache/skew mechanisms and [sources and exceptions](references/sources-and-exceptions.md) for details. Connect configuration and rollout decisions to `delivery-pipelines`; report local versus deployed evidence separately.
 
 ## Verify and use specialist guidance proportionately
 

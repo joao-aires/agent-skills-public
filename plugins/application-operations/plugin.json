@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "application-operations",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "description": "Application reliability, observability, incident response and learning, recovery, credentials, vulnerability remediation, Kubernetes resources, capacity and cost.",
   "author": {
     "name": "João Aires"

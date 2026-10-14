@@ -1,5 +1,5 @@
 ---
-name: contribute-code
+name: git-contributions
 description: Develop a feature in an isolated Git worktree, make Conventional Commits
   and publish a concise pull request to the correct repository. Apply by default when
   starting feature work, continuing a feature branch, committing changes or preparing
@@ -13,7 +13,7 @@ user-invocable: false
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
 
-# Contribute Code
+# Git contributions
 
 ## Establish the target and feature workspace
 

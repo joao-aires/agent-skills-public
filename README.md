@@ -73,3 +73,6 @@ python -m unittest discover -s tests -v
 ```
 
 Local material is MIT; upstream resources retain their own licenses. See [AGENTS.md](AGENTS.md) for repository instructions.
+
+
+During implementation, the [usage guide](documentation/usage.md#evaluate-during-implementation) connects acceptance, real application evaluation and telemetry in a repair/recheck loop. Local project guidance defaults to Compose for containerizable services and optional observability, with vendor-neutral OpenTelemetry instrumentation and a replaceable backend. [Migration notes](documentation/migration.md#local-skill-naming) list the local skill renames; upstream names are unchanged.

@@ -33,20 +33,30 @@ For shared saved searches, inspect existing ownership and all affected reads/wri
 ## Establish a small, navigable repository
 
 - Put code, migrations, tests, dependencies, application configuration and scoped AGENTS.md under `applications/`. Separate `api/` and `web/` when they represent actual boundaries. Keep provider-required CI entrypoints in their required locations.
-- Put product and engineering knowledge under `documentation/`; use `maintain-documentation` to create only useful documents.
+- Put product and engineering knowledge under `documentation/`; use `documentation-conventions` to create only useful documents.
 - Keep root AGENTS.md focused on purpose, stack, startup/test commands, shared conventions and the requirement to synchronize affected docs with code and decisions. Put component-specific commands and exceptions beside that component. Link authoritative information instead of duplicating it.
 - Record compatible dependencies and lockfiles, required configuration and a safe local setup. Make it possible to start and verify the first slice without guessing secrets or commands.
 - Add boundaries, services and infrastructure when a concrete requirement justifies them. Prefer domain-oriented code over layers with no present responsibility.
 
 Use the relevant backend/frontend/AI skills and installed upstream expertise; do not assume a reference is installed. Preserve compatible installed UI/UX guidance without redistributing private material. Capture repeated corrections as a short scoped instruction or an executable check, rather than accumulating generic rules.
 
+## Provide a reproducible local environment
+
+For new containerizable services, default to Docker Compose for the frontend/API/workers and their actual dependencies: database, Redis/Valkey, queues, object storage or local email capture only where needed. Preserve a working existing setup unless changing it is in scope. Keep app-specific Compose/configuration beside application/development infrastructure and root entry commands as useful; do not move provider-required files or impose a template. Host-native hot reload can use the same dependencies when documented.
+
+Provide one documented startup path, migrations, representative non-sensitive seed data, actual service/application readiness, shutdown and safe reset commands. Readiness must include required initialization; container start order alone is insufficient. Isolate Compose project names, ports, credentials and data per feature worktree/test run. Use explicit test stores/owned fixtures, persistent volumes for development data, pinned compatible images and bounded resources. Never reset an unspecified or shared database; destructive volume removal must be an explicit scoped action.
+
+Offer observability through a documented profile or companion Compose stack, with OpenTelemetry collection and a replaceable backend. Prefer SigNoz for a new unified local view after checking supported self-hosted components and available resources; keep an accepted backend. Add Langfuse only for a concrete AI dataset/experiment/evaluation workflow. Avoid running duplicate full telemetry stacks by default. Select a current supported vendor installation, not a copied stale Compose manifest. Document how the app and backend stacks connect, which services/profiles are required for each check and how agents query diagnostics. Observability should be easy to start without making every fast test depend on it.
+
+Desktop/mobile clients and simulators normally run on their supported host and connect to Compose services through documented addresses; container-only backend checks do not establish native-client behavior. Keep external side effects controlled with local sinks/fixtures. Make opt-in real-provider boundaries explicit; do not silently use production credentials or real email/payment effects. Use delivery-pipelines for CI reuse and observability-operations when available for detailed portable instrumentation; these defaults are sufficient when that plugin is absent. Consult [local environment references](references/local-environment.md) for setup details.
+
 ## Include operating constraints in design
 
-Use `design-secure-features` for changed data flows and authority boundaries. Identify critical latency/concurrency constraints, durable state and meaningful recovery needs early; choose simple hosting that meets them. Bring capacity, cost and data-recovery guidance into design when relevant rather than treating them as production afterthoughts. Use `build-delivery-pipelines` when creating CI/CD. Do not introduce platforms or complete operations frameworks merely because their skills are available.
+Use `security-and-privacy-design` for changed data flows and authority boundaries. Identify critical latency/concurrency constraints, durable state and meaningful recovery needs early; choose simple hosting that meets them. Bring capacity, cost and data-recovery guidance into design when relevant rather than treating them as production afterthoughts. Use `delivery-pipelines` when creating CI/CD. Do not introduce platforms or complete operations frameworks merely because their skills are available.
 
 ## Keep foundations aligned as the project evolves
 
-Treat repository structure, dependency/runtime choices, configuration contracts, scoped instructions and delivery commands as maintained project decisions. Update affected commands, lockfiles and authoritative documentation alongside a relevant change. Resolve conflicting instructions at their proper scope; avoid copying the same rules into every component. Use `maintain-documentation` for knowledge upkeep and `build-delivery-pipelines` plus installed GitHub Actions hardening for delivery mechanics; this skill coordinates the project conventions rather than duplicating specialist guidance.
+Treat repository structure, dependency/runtime choices, configuration contracts, scoped instructions and delivery commands as maintained project decisions. Update affected commands, lockfiles and authoritative documentation alongside a relevant change. Resolve conflicting instructions at their proper scope; avoid copying the same rules into every component. Use `documentation-conventions` for knowledge upkeep and `delivery-pipelines` plus installed GitHub Actions hardening for delivery mechanics; this skill coordinates the project conventions rather than duplicating specialist guidance.
 
 Start a full setup or structural review only when requested. Apply existing conventions during feature work, and suggest a broader change when a concrete problem warrants it rather than silently migrating the application.
 

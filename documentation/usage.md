@@ -56,7 +56,7 @@ The agent inspects existing evidence, asks decision-changing questions and carri
 
 ## Define UX before changing screens
 
-Use `design` for design work alone, or `develop`/`improve` when implementation should follow. The web bundle's `design-interactions` skill guides meaningful UI work automatically alongside frontend-conventions.
+Use `design` for design work alone, or `develop`/`improve` when implementation should follow. The web bundle's `interaction-design` skill guides meaningful UI work automatically alongside frontend-conventions.
 
 1. Inventory the affected routes, menus/submenus, dialogs/drawers and role/mobile variants, including shared components and overrides.
 2. Define goals, actions, navigation and relevant loading/empty/validation/error/permission/cancel states in text. Add wireframes/wireflows or mockups when they settle layout/visual decisions; do not require all formats.
@@ -71,6 +71,57 @@ Use `design` for design work alone, or `develop`/`improve` when implementation s
 
 Backend work follows the same principle: establish actor authority, contracts, invariants, state/failure and compatibility before implementation, then account for every affected endpoint/job/tool.
 
+## Evaluate during implementation
+
+`develop` and the implementation guidance use a feedback loop: define observable scenarios, implement a useful increment, run affected checks, operate the real application, inspect diagnostic evidence, then repair and recheck. Broader regression and complete surface coverage precede completion. `test` can run the same evaluation independently.
+
+```mermaid
+flowchart TD
+    A["Intent and acceptance"] --> B["Interaction and contract design"]
+    B --> C["Implement increment"]
+    C --> D["Checks and application exploration"]
+    D --> E["Results, state and telemetry"]
+    E --> F{"Outcome established?"}
+    F -->|Defect| C
+    F -->|Design uncertainty| B
+    F -->|Yes| G["Verified result and remaining gaps"]
+```
+
+Use complementary evidence: logic/integration checks for rules and authority, component states for shared behavior, a small critical journey suite, visual/accessibility checks and bounded agent exploration. Keep accepted visual baselines and expected outcomes independent of generated results. Automated accessibility or model judgments do not replace appropriate human evaluation. A repeated unexplained failure is a blocker to diagnose, not a reason to weaken checks or retry indefinitely.
+
+| Application | Driver starting point | Important limits |
+| --- | --- | --- |
+| Web | Playwright scripts and browser exploration | Semantic locators, isolated data and observable outcomes; screenshots alone do not prove behavior |
+| Electron | Compatible Playwright Electron automation (experimental) | Renderer checks do not establish native dialogs, installation or updates |
+| Native desktop | Platform-native tooling or maintained Appium driver | Test the named supported OS and packaged application; inspect driver limitations |
+| Android/iOS | Maestro, Appium or platform-native tooling | Use the actual emulator/device; check lifecycle/permissions/offline behavior where relevant |
+
+The [journey-testing guidance](../plugins/development-workflow/skills/journey-testing/SKILL.md) explains selection and evidence. A responsive web check is not a native-mobile check. Driver selection does not install every platform or device tool.
+
+```text
+Use test to evaluate creating and reopening a client plan, including failed-save recovery, permissions and desktop/mobile navigation. Operate the running application, verify persistence, inspect relevant telemetry and report unverified surfaces.
+```
+
+For AI changes, keep versioned cases/scorers in the application and compare quality, failures, latency and usage. Routine deterministic fixtures do not prove live model quality. Live calls require configured credentials and established execution scope; optional Langfuse experiments complement portable application-side evaluation.
+
+## Run services and observability locally
+
+For a new containerizable stack, project-conventions defaults to Docker Compose for application services and actual dependencies, with migrations, representative seed data and readiness checks. Document startup, checks, shutdown and safe reset; isolate project names, ports and test data per worktree/run. Preserve an existing working environment unless changing it is requested. Desktop clients and mobile simulators normally run on the host against those services.
+
+Offer observability through an easy-to-start profile or companion stack. Prefer a resource-appropriate self-hosted SigNoz installation for a new unified local view; retain an accepted alternative. Add Langfuse when AI datasets/experiments justify its dependencies. No Compose scaffold or vendor service is bundled here: the agent authors and verifies the target application's configuration.
+
+```mermaid
+flowchart TD
+    A["Application OTel instrumentation"] --> B["OTLP and Collector"]
+    B --> C["SigNoz"]
+    B --> D["Datadog"]
+    B --> E["Metrics, logs and trace backends"]
+```
+
+Keep instrumentation vendor-neutral: OTel APIs/compatible libraries, standard conventions and configuration-driven export. Collector routing/credentials and backend queries/dashboards stay separate from business code. Prometheus handles metrics; a Grafana stack also needs log/trace data sources. OTLP portability does not guarantee identical proprietary features or portable dashboards. Verify actual generation and ingestion with a representative success/error journey. Provide queryable diagnostics for agents as well as dashboards for people, with sensitive data excluded.
+
+See [project-conventions](../plugins/development-workflow/skills/project-conventions/SKILL.md), [observability-operations](../plugins/application-operations/skills/observability-operations/SKILL.md) and [build-evaluated-ai](../plugins/ai-development/skills/build-evaluated-ai/SKILL.md). Fast checks need not start the entire telemetry stack; checks that depend on diagnostic ingestion should enable and verify it.
+
 ## Operations and specialized activities
 
 Add the relevant bundle and request the skill directly by its installed name. These remain independently useful:
@@ -82,7 +133,7 @@ Add the relevant bundle and request the skill directly by its installed name. Th
 | Recovery/capacity/cost/upkeep | application-operations: protect-and-restore-data, plan-application-capacity, optimize-application-cost, operational-housekeeping |
 | Security maintenance | dependencies/harden plus operations vulnerability-management and credential-lifecycle |
 | Strategy and feedback | business-strategy: business-strategy, learn-from-product-feedback |
-| Architecture walkthroughs/presentations | visual-communication: architecture-diagraming, system-flow-explorer, presentation-building |
+| Architecture walkthroughs/presentations | visual-communication: architecture-diagramming, system-flow-explorer, presentation-building |
 
 For example, ask incident-response to investigate the current impact using existing action boundaries, or protect-and-restore-data to review isolated PostgreSQL restoration without deploying. An interview, incident publication, live restore or message requires its activity to be in scope. Business-opportunity-analysis remains a legacy compatibility entry; use business-strategy for new work.
 
@@ -106,6 +157,8 @@ A tracker transition or untrusted PR body does not grant authority. Unattended t
 
 ## Generic or stack-specific? Task or support?
 
+Local names distinguish short task activities (`develop`, `test`, `review`) from supporting topics (`interaction-design`, `journey-testing`, `frontend-conventions`). Established operations names remain recognizable. Names use lowercase kebab-case; qualification should disambiguate rather than repeat the plugin. `workflow-help` and `dependencies` are deliberate readable exceptions to verb-led task names. Preserve upstream names and native controls. See [migration](migration.md#local-skill-naming) for renamed local skills.
+
 String metadata labels describe intended use: `scope` is generic/stack-specific, `stack` names matching technologies, `role` is task/support, and `invocation` is user/agent/both. Roles describe purpose, not permission. A trusted automation can explicitly invoke a user-labeled task. Native controls and client behavior determine discovery; labels alone do not enforce it.
 
 New task entry points are user-invocable and explicit-only. Most local supporting guidance is hidden from supporting clients' slash menus but remains relevant model context. Packaging hides upstream support entries only when upstream has no explicit visibility setting; native controls/resources are preserved and adaptations recorded. Optional fields/visibility vary by client; do not infer model compliance or enforcement from discovery. Supporting skills can still be named in an explicit plain-language request where supported.
@@ -117,22 +170,22 @@ Agents select these when needed to carry out the request. You can also name loca
 | Area | Local guidance | Upstream specialists |
 | --- | --- | --- |
 | Project foundations | `project-conventions` for affected structure, commands and constraints | None required |
-| Documentation | `maintain-documentation` | `writing-for-agents` for agent instructions |
+| Documentation | `documentation-conventions` | `writing-for-agents` for agent instructions |
 | Prose editing | Follow the document's author and technical claims | `humanizer` |
-| Frontend development | `frontend-conventions`, `design-interactions` for prior UX design and full-surface coverage | Official shadcn, Tailwind design system, Vercel React/composition |
+| Frontend development | `frontend-conventions`, `interaction-design` for prior UX design and full-surface coverage | Official shadcn, Tailwind design system, Vercel React/composition |
 | Backend development | `backend-conventions` | `modern-python` |
 | AI development | `build-evaluated-ai` (local, not an upstream skill) | Chosen Google ADK or LangChain/LangGraph skills |
 | MCP interfaces | MCP section of `build-evaluated-ai`; reuse authorized application services | `mcp-builder`, in `ai-development`; prefer standalone Python FastMCP |
-| Testing | `deliver-reliable-changes`, `test-end-to-end` for browser journeys | `tdd`, `property-based-testing`, `playwright-cli` |
-| Failure testing | `test-application-resilience` for scoped fixtures and controlled experiments | Project-native test tools; optional isolated fault proxy |
-| Performance testing | `test-application-performance` for local, CI-runner and deployed non-production k6 checks | Official k6 references; no cloud account required |
+| Testing | `deliver-reliable-changes`, `journey-testing` for web/desktop/mobile journeys | `tdd`, `property-based-testing`, `playwright-cli` |
+| Failure testing | `resilience-testing` for scoped fixtures and controlled experiments | Project-native test tools; optional isolated fault proxy |
+| Performance testing | `performance-testing` for local, CI-runner and deployed non-production k6 checks | Official k6 references; no cloud account required |
 | Code review | Requested behavior and project standards | `code-review`; `differential-review` for security-sensitive diffs |
 | Debugging | Preserve the affected scope and regression evidence | `diagnosing-bugs` |
 | Research | Record decision-changing findings where the project keeps them | `research` |
 | Architecture and domain design | Relevant frontend/backend conventions | `codebase-design`, `domain-modeling`, `prototype` when exploration is requested |
-| Git contributions | `contribute-code` | No separate PR template required |
-| Delivery | `build-delivery-pipelines` | `github-actions-hardening` for GitHub Actions |
-| Security and privacy | `design-secure-features` | `differential-review`, `supply-chain-risk-auditor` within supported coverage |
+| Git contributions | `git-contributions` | No separate PR template required |
+| Delivery | `delivery-pipelines` | `github-actions-hardening` for GitHub Actions |
+| Security and privacy | `security-and-privacy-design` | `differential-review`, `supply-chain-risk-auditor` within supported coverage |
 | Data recovery | `protect-and-restore-data` | Current platform/database references |
 | Capacity | `plan-application-capacity` | Current platform references |
 | Cost | `optimize-application-cost` | `aks-cost-optimization` only for Azure AKS |
@@ -154,7 +207,7 @@ Agents select these when needed to carry out the request. You can also name loca
 
 Examples:
 
-> Add saved-search deletion. Use backend-conventions for ownership and transactions, frontend-conventions for the interaction, test-end-to-end for the persisted journey, and contribute-code for the feature worktree and concise PR. No tracker; do not merge.
+> Add saved-search deletion. Use backend-conventions for ownership and transactions, frontend-conventions for the interaction, journey-testing for the persisted journey, and git-contributions for the feature worktree and concise PR. No tracker; do not merge.
 
 > Edit this PR description with humanizer. Keep the facts, commands and links intact and use my singular voice.
 

@@ -1,5 +1,5 @@
 ---
-name: build-delivery-pipelines
+name: delivery-pipelines
 description: Create or review CI/CD, Dockerfiles and GitHub Actions for application
   verification, artifact promotion, deployment and rollback or roll-forward. Apply
   when delivery infrastructure changes, within the requested repository and environment
@@ -53,7 +53,7 @@ Use `reliability-design` for journey and alert contracts and `observability-oper
 
 Optional deeper guidance: [branch to production](references/branch-to-production.md) and [workflow implementation](references/workflow-implementation.md).
 
-For performance workflows, use `test-application-performance`: start the application and its dependencies on the runner for bounded regression checks, and run k6 against an identified deployed non-production environment for target-specific load checks. Preserve thresholds, failure status, result artifacts and cleanup; bind credentials and concurrency to the actual environment.
+For performance workflows, use `performance-testing`: start the application and its dependencies on the runner for bounded regression checks, and run k6 against an identified deployed non-production environment for target-specific load checks. Preserve thresholds, failure status, result artifacts and cleanup; bind credentials and concurrency to the actual environment.
 
 ## Deliver configuration and flag changes
 
@@ -62,3 +62,6 @@ Validate settings and affected target combinations, inspect the complete effecti
 Feature flags need a purpose, owner, intended audience, default/evaluation-failure behavior, tested relevant states and a removal condition. Flags control exposure, not authorization. Use bounded staged exposure and a kill/recovery path when risk warrants it; do not create an untested matrix of every flag combination. After an emergency override, reconcile source and effective state so later deployments do not restore an unintended setting.
 
 For routine runtime/library/base-image upgrades, review supported versions and release notes, keep coupled versions coherent, regenerate lockfiles with the project's tools, verify affected behavior and publish a new tested artifact. Automation can propose updates; passing installation or a vulnerability scan alone does not establish compatibility. Follow accepted release/recovery conventions without imposing universal automatic merges.
+
+
+For application-on-runner checks, reuse the supported Compose services/configuration with isolated project/data/ports and explicit migrations, seed and readiness. Preserve failure exit status while collecting test screenshots/traces, service logs and correlated diagnostic evidence; clean up owned resources even on failure. Keep fast deterministic checks routine and heavier platform, visual, load/fault and real-model evaluations at appropriate risk-based milestones. Use appropriate native runners/devices for desktop/mobile checks. A Compose backend run does not prove native-client behavior; missing platform coverage stays visible.

@@ -1,5 +1,5 @@
 ---
-name: design-interactions
+name: interaction-design
 description: Define and verify frontend user journeys, navigation, menus, dialogs,
   forms and shared interaction patterns before meaningful UI implementation. Use for
   new UX, cross-screen redesigns, global component changes or inconsistent behavior;
@@ -39,8 +39,11 @@ Apply the change to every in-scope surface in the coverage list. An unfinished b
 
 ## Verify the experience and coverage
 
-Inspect actual desktop/mobile surfaces and critical interactions against the specified behavior, not only screenshots of one representative page. Exercise keyboard/focus, errors, validation and permission differences; use test-end-to-end and relevant browser tools when available. Capture useful visual evidence and checks for repeated patterns, but do not duplicate every logic test in the browser. A shared component test does not prove every caller uses it correctly.
+Inspect actual desktop/mobile surfaces and critical interactions against the specified behavior, not only screenshots of one representative page. Exercise keyboard/focus, errors, validation and permission differences; use journey-testing and relevant browser tools when available. Capture useful visual evidence and checks for repeated patterns, but do not duplicate every logic test in the browser. A shared component test does not prove every caller uses it correctly.
 
 For a request changing all menus/dialogs, account for each surface: implemented and observed/checked, unchanged with a reason, explicitly out of scope, or blocked/unverified. Report unresolved coverage and material deviations. Do not label global consistency verified when only one route or the build was checked. Keep the accepted interaction patterns and affected docs/tests aligned; later features should reuse this design instead of improvising again.
 
 For contract boundaries coordinate backend authority, invariants, validation and state transitions before implementation. The UI must reflect actual constraints rather than inventing permissions or success states. Consult [interaction references](references/interaction-references.md) for deeper patterns/accessibility; no external reference is required for ordinary decisions above.
+
+
+Derive evaluation scenarios from the agreed interactions before implementation. Use component states to inspect shared patterns and route/device journeys to establish actual integration. Compare rendered surfaces against accepted references; investigate visual differences without automatically approving new baselines. Agent exploration can expose usability issues beyond scripts, but subjective/model judgments need evidence and appropriate human calibration. Feed concrete discrepancies into the repair/recheck loop, preserving the intended behavior and recording incomplete coverage.

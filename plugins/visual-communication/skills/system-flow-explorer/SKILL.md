@@ -20,7 +20,7 @@ compatibility: Python 3.10+ standard library for validation and rendering. Optio
 
 Produce one self-contained HTML file backed by a canonical JSON model. Use the bundled renderer rather than generating scenario-specific JavaScript. Deliver the source JSON alongside the HTML for refinement.
 
-Use this when an interactive architecture artifact is requested. For an evidence inventory or topology review without an explorer, use `system-mapping` when available; for a compact static diagram, use `architecture-diagraming`. Reuse their evidence rather than repeat discovery. The renderer is an optional documentation artifact, not application scaffolding.
+Use this when an interactive architecture artifact is requested. For an evidence inventory or topology review without an explorer, use `system-mapping` when available; for a compact static diagram, use `architecture-diagramming`. Reuse their evidence rather than repeat discovery. The renderer is an optional documentation artifact, not application scaffolding.
 
 ## Workflow
 

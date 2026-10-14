@@ -39,7 +39,7 @@ The lockfile and built notices record adaptations and usage labels. Standard `me
 
 ### Additional references
 
-- [Git worktrees](https://git-scm.com/docs/git-worktree), [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and [GitHub CLI PR creation](https://cli.github.com/manual/gh_pr_create): contribution mechanics used by the local `contribute-code` skill; no additional MCP server is required.
+- [Git worktrees](https://git-scm.com/docs/git-worktree), [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) and [GitHub CLI PR creation](https://cli.github.com/manual/gh_pr_create): contribution mechanics used by the local `git-contributions` skill; no additional MCP server is required.
 - [Next.js agent guidance](https://github.com/vercel/next.js/tree/canary/skills): use documentation matching the application's chosen release.
 - [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) and [Anthropic frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design): optional design guidance, constrained by existing tokens and direction. Reuse installed skills without copying private content.
 - [Vercel web-design-guidelines](https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines): reference only; the reviewed source did not declare a redistribution license and fetched floating guidance.
@@ -128,7 +128,7 @@ I integrated the portable `operations-skills` archive into the existing activity
 
 | Destination | Added or enriched guidance |
 | --- | --- |
-| development-workflow | Added system-mapping and bash-engineering; merged cicd-release-management into build-delivery-pipelines |
+| development-workflow | Added system-mapping and bash-engineering; merged cicd-release-management into delivery-pipelines |
 | python-backend | Added python-automation-engineering for operational CLI/API tooling |
 | application-operations | Added reliability-design, observability-operations, incident-response, runbook-engineering, postmortem-facilitation, postmortem-followup, kubernetes-resource-engineering, infra-jvm-optimization, vulnerability-management, credential-lifecycle and operational-housekeeping; merged backup-recovery into protect-and-restore-data |
 | visual-communication | Added the separately supplied system-flow-explorer with its HTML renderer, strict JSON validator, examples and checks |
@@ -154,7 +154,7 @@ Also check changed Markdown links/anchors, inspect meaningful generated diagrams
 
 ### Evaluate engineering behavior
 
-[Development workflow cases](../evals/development-workflows.json) contains fourteen reusable task prompts with evaluator-only acceptance criteria. They cover a new full-stack journey, an existing-project feature, a populated-schema change, a durable export, a compatible release, current incident/recovery, k6 execution across three targets, AI/MCP authority, controlled faults, configuration/contracts routine upgrades/retirement, rough-idea decisions, global UI design and unattended dependency policy. The cases exercise outcomes and judgment; they do not require one exact architecture or produce an application scaffold.
+[Development workflow cases](../evals/development-workflows.json) contains sixteen reusable task prompts with evaluator-only acceptance criteria. They cover a new full-stack journey, an existing-project feature, a populated-schema change, a durable export, a compatible release, current incident/recovery, k6 execution across three targets, AI/MCP authority, controlled faults, configuration/contracts, routine upgrades/retirement, rough-idea decisions, global UI design, unattended dependency policy, platform evaluation and portable local telemetry. The cases exercise outcomes and judgment; they do not require one exact architecture or produce an application scaffold.
 
 For a planning check, provide the case's raw task/context, selected skill paths and explicit local-only scope to a fresh agent. For an execution trial, supply a representative disposable application or isolated checkout, accepted product/platform context and working local commands. Establish target/action boundaries before execution. Provide every material product requirement and authority constraint in the task context. Keep evaluator checks and previous diagnoses separate from the acting agent; assess outcomes afterward without hiding product requirements or leaking an intended implementation. Cases are maintained here and are not installed as an application workflow or run by default in CI.
 
@@ -180,7 +180,7 @@ These checks establish packaging, discovery and interpretation of supplied cases
 
 ## k6 performance guidance
 
-`test-application-performance` adds local k6, application-on-runner and deployed non-production execution modes to development-workflow. It uses official k6 references and inline decisions for workload models, correctness thresholds, offered/achieved load, safe targets, failure propagation, fixtures and cleanup. Application scripts and workflows are authored in the target repository; no scaffold, cloud service or operator is bundled. Fault-injection behavior is covered by test-application-resilience; specific platform tools remain optional.
+`performance-testing` adds local k6, application-on-runner and deployed non-production execution modes to development-workflow. It uses official k6 references and inline decisions for workload models, correctness thresholds, offered/achieved load, safe targets, failure propagation, fixtures and cleanup. Application scripts and workflows are authored in the target repository; no scaffold, cloud service or operator is bundled. Fault-injection behavior is covered by resilience-testing; specific platform tools remain optional.
 
 Validation for this addition: 14 repository tests, skill-creator and plugin validation, changed documentation/skill links, and a rebuilt workflow bundle with complete local resources passed. A fresh planning exercise covered an async export, missed offered load, isolated runner services and staging email effects. The collection now has 34 local plus 37 pinned upstream skills. No application k6 run or deployed-environment test was executed in this skills repository.
 
@@ -188,7 +188,7 @@ The production-guidance refinement passed 14 repository tests, plugin/creator va
 
 ## Engineering maintenance and controlled failures
 
-`test-application-resilience` adds outcome-led local/isolated/non-production failure guidance with explicit observation, fault confirmation, stop and cleanup/recovery boundaries. References cover chaos principles, pytest and optional Toxiproxy; no tool or live action is configured. Common decisions are inline, and existing skills cover compatibility, effective configuration/flags, suite health, proactive upgrades and deprecation/removal. Pact is reference-only and optional; no contract broker is required.
+`resilience-testing` adds outcome-led local/isolated/non-production failure guidance with explicit observation, fault confirmation, stop and cleanup/recovery boundaries. References cover chaos principles, pytest and optional Toxiproxy; no tool or live action is configured. Common decisions are inline, and existing skills cover compatibility, effective configuration/flags, suite health, proactive upgrades and deprecation/removal. Pact is reference-only and optional; no contract broker is required.
 
 The evaluation catalogue now includes controlled-failure, contract/configuration and upgrade/retirement cases. Domain-specific practices remain contextual, rather than adding mandatory SaaS, payments or search architecture. The collection has 35 local plus 37 pinned upstream skills across the same seven plugins.
 
@@ -201,6 +201,23 @@ The collection now has 48 local and 37 pinned upstream skills across seven plugi
 
 `metadata.role` labels task/support purpose. New tasks use native explicit-only controls. Most local supporting guidance sets `user-invocable: false` while remaining model-available. The recorded `support-visibility` adaptation sets that field upstream only when absent, preserving explicit upstream visibility and model controls. `implementation-entrypoint` adds tracker-neutral framing and a task description to the retained implement skill; its original body, resources and native controls remain intact. Pins, dependency groups and licenses are unchanged. Descriptive metadata is not a permission mechanism.
 
-`design-interactions` defines behavior before meaningful UI implementation and reconciles all affected routes, menus, dialogs and mobile/role variants. Frontend and reliable-change guidance reinforce that coverage; backend guidance similarly defines actor authority, invariants and contracts before code. A design need not use every artifact format or wait for approval on ordinary reversible details.
+`interaction-design` defines behavior before meaningful UI implementation and reconciles all affected routes, menus, dialogs and mobile/role variants. Frontend and reliable-change guidance reinforce that coverage; backend guidance similarly defines actor authority, invariants and contracts before code. A design need not use every artifact format or wait for approval on ordinary reversible details.
 
 Validation on 2026-10-14 passed 16 repository tests and plugin metadata/containment checks. All seven plugins built with 85 skills; Copilot CLI 1.0.95 discovered all 85 through isolated session-local mounts. Local packaged resources matched source bytes, and 154 relative Markdown links resolved. Discovery does not prove slash-menu filtering or task execution. Tests cover preservation of native controls/resources during visibility adaptation and the retained upstream implement body. The SDLC image was rendered and inspected. Fresh planning exercises covered rough-idea blockers, all supplied navigation/dialog variants with failure/focus behavior, and dependency eligibility against changed heads, untrusted PR text and failed checks. These exercises did not change an application or execute live merges, loads or deployments. Fourteen reusable cases are defined; full application trials remain pending. The older creator validator does not recognize the native visibility fields; repository validation checks their types instead.
+
+
+## Evaluation, local environments and names
+
+Local task names describe short requested activities; supporting names describe disciplines/topics. Preserve established operational terminology and upstream names rather than enforcing a universal grammar. The [migration table](migration.md#local-skill-naming) records nine renames and installation cleanup; no duplicate aliases are shipped. Folder/frontmatter names and maintained references move together. Plugin versions advance where packaged content or referenced names change.
+
+Journey-testing now covers driver selection for web, Electron, native desktop and Android/iOS plus complementary component/state, visual/accessibility and agent exploration. Deliver-reliable-changes owns scenario-led implementation feedback; tasks and the recorded implementation-entrypoint upstream adaptation point to that loop. Expected outcomes and accepted baselines must not be changed just to pass. Platform setup and real application trials remain distinct from package validation.
+
+Project-conventions defines a Compose-based startup/isolation/readiness/reset contract and optional observability profile/companion stack. Observability-operations specifies OTel instrumentation, OTLP and configuration-driven Collector routing with backend-specific mappings separate from application logic. SigNoz is a replaceable local preference, not an application dependency; Prometheus covers metrics and Grafana deployments need log/trace storage. Langfuse is optional for AI experiment workflows; application-side cases/scorers remain independently runnable.
+
+Source selection used primary Docker, OpenTelemetry, Playwright, Maestro, Appium, Storybook, W3C, SigNoz, Datadog, Prometheus/Grafana and Langfuse documentation linked from the affected skills. SigNoz's public repository/release activity and [support policy](https://signoz.io/support/) support evaluating it locally; community support is best-effort. Popularity does not prove operational reliability. Installation instructions and self-hosted/cloud features need version-specific checks rather than a frozen vendor scaffold.
+
+
+The evaluation catalogue contains 16 reusable cases. Fresh planning exercises for this revision assessed an Electron edit/restart journey with insufficient persistence and visual-baseline evidence, and a two-worktree AI/worker environment with local telemetry and optional Langfuse. They separated responsive web evidence from native coverage, retained failed-save and durable-state criteria, isolated worktree state, kept instrumentation independent of backend choice and left actual execution unverified. No application, Compose stack, model call or device test was executed by these planning exercises.
+
+
+Validation for the evaluation/naming revision passed 16 repository tests, metadata/containment checks, 168 relative Markdown links and all-seven-plugin builds with local-resource byte parity. Copilot CLI 1.0.95 discovered all 85 final plugin skills without old-name duplicates. Original architecture references remain byte-identical at their renamed location. The SDLC SVG was rendered and inspected. Source pins, upstream names, resources and native controls are unchanged; the existing recorded implementation-entrypoint framing now also points to incremental verification. These checks establish packaging/discovery and interpretation of supplied planning cases, not application execution, backend ingestion, AI quality, device coverage or universal client behavior.

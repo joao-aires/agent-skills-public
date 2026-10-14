@@ -1,5 +1,5 @@
 ---
-name: architecture-diagraming
+name: architecture-diagramming
 description: 'Build responsive, theme-aware HTML architecture diagrams using CSS grid/flexbox
   and CSS variables. Use when the user asks to: create a system architecture diagram,
   map out microservices, visualize cloud infrastructure, draw a sequence diagram,

@@ -85,7 +85,7 @@ def adapt_skill(target, source):
                         raise ValueError('Implementation framing requires implement')
                     metadata.setdefault('user-invocable', True)
                     metadata['description'] = 'Implement agreed work from a conversation, local spec or optional tracker, with repository conventions, design readiness, verification and contribution flow.'
-                    parts[2] = '\n\nRead [task guidance](../../TASKS.md) for scope, unattended blockers, design readiness and feature-worktree contributions. Use the agreed request without requiring tickets; commit to the objective\'s feature branch, preserving unrelated work. Significant UI interactions and backend behavior contracts must be established before implementation.\n' + parts[2]
+                    parts[2] = '\n\nRead [task guidance](../../TASKS.md) for scope, unattended blockers, design readiness and feature-worktree contributions. Use the agreed request without requiring tickets; commit to the objective\'s feature branch, preserving unrelated work. Significant UI interactions and backend behavior contracts must be established before implementation. Use deliver-reliable-changes for scenario-led verification after meaningful increments: run affected checks/journeys, inspect telemetry/state, repair and recheck without weakening acceptance.\n' + parts[2]
                 text = '---\n' + yaml.safe_dump(metadata, sort_keys=False, allow_unicode=True) + '---' + parts[2]
             if 'usage-labels' in adaptations or 'tracker-neutral' in adaptations:
                 import yaml

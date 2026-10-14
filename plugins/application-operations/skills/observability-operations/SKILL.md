@@ -6,7 +6,7 @@ description: Implement, audit and maintain application/infrastructure logs, metr
 metadata:
   scope: generic
   invocation: both
-  version: '2.0'
+  version: '2.1'
   role: task
 ---
 
@@ -23,6 +23,24 @@ Make the application's behavior observable with trustworthy, affordable and prot
 Identify actual service/environment/version tags, instrumentation libraries, runtime/collector configuration, export protocol, logs/metrics generation stages, sampling, access and retention. Declaration in a manifest does not prove collection works. Mark live checks outstanding when access is absent.
 
 Consult [references/signal-contract.md](references/signal-contract.md) for deeper implementation details when needed.
+
+## Keep instrumentation independent of the backend
+
+For new instrumentation use OpenTelemetry APIs/SDKs and compatible framework/database/HTTP libraries, OTLP export and standard semantic conventions where applicable. Keep business spans/metrics in application code, SDK/export initialization at the application boundary, and backend endpoints/credentials/routing in configuration or Collector exporters. Prefer supported `OTEL_*` settings; validate SDK support and effective configuration. Preserve an existing stack unless migration is authorized; do not run competing SDKs/providers that create duplicate spans.
+
+Give telemetry consistent service, environment and application revision identity using adopted resource conventions. Add bounded domain outcome attributes and propagate supported context across API, queue/worker and tool boundaries. Track trace/run IDs in diagnostic records, not unbounded metric labels. Use version-matched GenAI conventions for model/tool spans and record relevant model/prompt version, latency, outcome and usage. Review evolving semantic conventions and third-party instrumentation compatibility rather than assuming every framework emits the same fields.
+
+Use a Collector to receive, batch, redact/filter and route telemetry to the selected backend. SigNoz is the preferred replaceable local backend for new projects needing one application/AI view; Datadog or Grafana deployments can use compatible exporters/pipelines. Prometheus receives metrics, not logs/traces; Grafana needs appropriate data sources such as Loki/Tempo. Check units, histogram/temporality translation, resource promotion and backend capabilities. Exporting OTLP does not make dashboards, queries, alerts, profiling, browser session replay or proprietary APM features portable. Keep backend-specific configuration separate and document its mappings.
+
+For browser/mobile/desktop telemetry use suitable supported SDKs and a controlled ingestion boundary with appropriate rate limits, network/CORS configuration and source redaction. Never ship privileged backend credentials or sensitive payloads to a client. Collector redaction is secondary to preventing capture. Telemetry failure must not break the user journey: bound buffers/retries, expose drops and verify degraded-export behavior.
+
+## Connect local telemetry to evaluation
+
+Use the project's Compose profile/companion stack with explicit connectivity, readiness and resource/retention bounds. Do not install every backend. Expose supported read/query APIs or CLI for agents as well as dashboards for people; an MCP is optional and its availability must be verified. Keep query access scoped and correlate scenario/run, revision and environment with the relevant trace and logs. Capture sanitized diagnostic artifacts for failed checks; do not claim ingestion from a container being healthy.
+
+Exercise a representative successful journey and a controlled error through actual services. Check expected span relationships across request/worker/tool boundaries, durations/units/outcomes, log correlation and sensitive-data exclusion. Assert generated telemetry at an inspectable OTLP/test-export boundary and verify receipt/query in the selected backend when available. This separates an application instrumentation defect from a routing/backend failure; document unverified destinations instead of claiming compatibility with every backend. For a backend switch test ingestion and affected translations/queries explicitly.
+
+AI execution telemetry explains latency, failures, tool use and usage; it does not prove answer quality. Keep evaluation cases, expected outcomes and deterministic scoring/version identity portable in the application. Add a specialist like Langfuse for an actual dataset/experiment workflow, with an adapter publishing results and no required Langfuse dependency in domain logic. Avoid duplicate instrumentation/exports and identify which pipeline owns each signal. Use [portable telemetry references](references/portable-telemetry.md) for backend/version-specific setup.
 
 ## Implement signals
 
