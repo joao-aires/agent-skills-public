@@ -1,5 +1,22 @@
 # Portable telemetry references
 
+## Instrumentation and routing
+
+```mermaid
+flowchart TD
+    A["Application: OTel APIs and instrumentation"] --> B["OTLP: logs, metrics and traces"]
+    B --> C["Collector: process and route"]
+    C --> D["Unified backend: SigNoz or Datadog"]
+    C --> E["Metrics: Prometheus-compatible storage"]
+    C --> F["Logs: Loki; traces: Tempo"]
+    E --> G["Grafana queries data sources"]
+    F --> G
+```
+
+Backend routes are alternatives, or an explicitly configured fan-out. Application instrumentation stays independent of exporter credentials/routing. A Grafana deployment needs the relevant storage backends; Grafana itself is not telemetry storage. Test generation and actual target ingestion separately. Queries, dashboards and proprietary features still need backend-specific work. Read/query APIs or CLI let agents inspect correlated evidence; an MCP is optional.
+
+## Setup references
+
 - [OpenTelemetry Collector](https://opentelemetry.io/docs/collector/): receivers, processors and exporters at the deployment boundary.
 - [OTLP exporter settings](https://opentelemetry.io/docs/specs/otel/configuration/sdk-environment-variables/): verify support in the selected SDK and runtime.
 - [Semantic conventions](https://opentelemetry.io/docs/specs/semconv/): HTTP, database, messaging, resource and GenAI naming; inspect stability/version before adopting changes.

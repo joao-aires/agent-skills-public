@@ -1,5 +1,23 @@
 # Journey evaluation references
 
+## Implementation feedback
+
+```mermaid
+flowchart TD
+    A["Intent and acceptance"] --> B["Interaction and contract design"]
+    B --> C["Implement increment"]
+    C --> D["Checks and application exploration"]
+    D --> E["Results, state and telemetry"]
+    E --> F{"Outcome established?"}
+    F -->|Defect| C
+    F -->|Design uncertainty| B
+    F -->|Yes| G["Verified result and remaining gaps"]
+```
+
+Use the main skill's platform/evidence rules alongside deliver-reliable-changes. Run affected checks during meaningful increments and broader regression before completion. Keep intended outcomes and reviewed baselines stable; report missing capability or repeated unexplained failures. Versioned AI quality cases complement deterministic application handling.
+
+## Driver and method references
+
 Use version-matched setup instructions for the selected platform; no driver, hosted visual service or device farm is required by this collection.
 
 - [Playwright best practices](https://playwright.dev/docs/best-practices): semantic locators, isolated data and observable-state assertions.

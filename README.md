@@ -1,78 +1,110 @@
 # Agent Plugins
 
-I use these Markdown skill bundles to build and operate applications and explore product ideas. The local skills capture my conventions; upstream skills add specialist techniques. Each bundle follows the [Agent Plugins standard](https://agent-plugins.org/specification): `plugin.json` plus `skills/<name>/SKILL.md`.
+I use these skill bundles to build and operate applications and explore product ideas. My local skills capture conventions; bundled upstream skills add specialist techniques. Plugins follow the [Agent Plugins standard](https://agent-plugins.org/specification).
 
-For a full-stack application, start with `development-workflow`, `python-backend` and `web-frontend`. Add `ai-development` for AI features or MCP interfaces; add other bundles as needed.
-
-Start with `develop` for a rough idea through implementation, or choose `refine`, `design`, `implement`, `test` or `review` for a specific activity. Use `workflow-help` for the available menu and examples. The [usage guide](documentation/usage.md) maps tasks to the SDLC and explains end-to-end work, design-first UX and unattended execution. Command names may be plugin-qualified by your client.
+Start with **development-workflow**, **python-backend** and **web-frontend** for a full-stack application. You request an activity such as `develop`, `test` or `review`; the agent uses relevant supporting skills within that work. Tickets are optional, and existing project decisions take precedence.
 
 ## Choose your plugins
 
-| Plugin | What it contributes | Included upstream expertise |
-| --- | --- | --- |
-| [development-workflow](plugins/development-workflow/) | Project conventions, system mapping, shell automation, documentation, Git/PRs, E2E, k6 and resilience testing, CI/CD and security | Matt Pocock, Humanizer, Playwright, GitHub Actions hardening, Trail of Bits |
-| [python-backend](plugins/python-backend/) | FastAPI, SQLAlchemy/Alembic, PostgreSQL, durable work and Python automation | Modern Python |
-| [web-frontend](plugins/web-frontend/) | Next.js, Tailwind v4, shadcn, design-first interaction/surface coverage, consistent UI/UX and accessibility | Official shadcn, Tailwind design system, Vercel React/composition |
-| [ai-development](plugins/ai-development/) | AI features, agents, MCP interfaces and evaluation | Google ADK, LangChain/LangGraph, MCP builder |
-| [application-operations](plugins/application-operations/) | Reliability, observability, incidents and learning, recovery, security upkeep, capacity and cost | AKS cost optimization, for Azure AKS only |
-| [business-strategy](plugins/business-strategy/) | Strategy, opportunity analysis and product feedback | Original skills and resources |
-| [visual-communication](plugins/visual-communication/) | Architecture diagrams, interactive system-flow explorers and presentations | Original skills and resources |
+| Plugin | Use it for |
+| --- | --- |
+| [development-workflow](plugins/development-workflow/) | Development activities, project conventions, testing, Git/PRs, delivery and security |
+| [python-backend](plugins/python-backend/) | Python, FastAPI, SQLAlchemy, Alembic and PostgreSQL |
+| [web-frontend](plugins/web-frontend/) | Next.js, shadcn, Tailwind and consistent UI/UX |
+| [ai-development](plugins/ai-development/) | AI features, agents, evaluations and MCP interfaces |
+| [application-operations](plugins/application-operations/) | Reliability, observability, incidents, recovery, capacity and cost |
+| [business-strategy](plugins/business-strategy/) | Product ideas, strategy and feedback |
+| [visual-communication](plugins/visual-communication/) | Architecture diagrams, interactive explorers and presentations |
 
 ## Quick start
 
-From this repository, with Python and Git available:
+### 1. Build the bundles
+
+With Git and Python 3.10+ available, run in a POSIX shell:
 
 ```bash
+git clone https://github.com/joao-aires/agent-skills-public.git
+cd agent-skills-public
 python -m venv .venv
 source .venv/bin/activate
 python -m pip install -r requirements-validation.txt
 python scripts/build_plugins.py --destination ./built-plugins
+export AGENT_PLUGINS_DIR="$(pwd)/built-plugins"
 ```
 
-The command builds the three full-stack plugins with pinned upstream skills. Load each plugin directory in your client and open the application repository. See [installation and example prompts](documentation/usage.md) for client commands and additional bundles. The activation command above is for a POSIX shell.
+If you already have a checkout, start there instead of cloning again. The builder acquires pinned upstream skills and their resources for the three full-stack plugins. The destination must be new. [Additional bundles and rebuilds](documentation/usage.md#build-and-load) use the same builder.
 
-> Use project-conventions, frontend-conventions and backend-conventions to build a saved-search application. Implement saving and reopening a search, verify ownership and persistence, and keep affected documentation current. Use this conversation as scope; no tracker is needed.
+### 2. Load them in your client
 
-`frontend-conventions` and `backend-conventions` also accept screenshots, URLs, reference repositories and architecture notes. Use their defaults for new projects and preserve accepted choices in existing ones.
+Open the target application repository or an empty project workspace, rather than developing inside this skills repository.
 
-## How guidance works
+<details>
+<summary>Copilot CLI</summary>
 
-- **Skills you invoke:** start a deliberate activity, such as `grill-me`, `to-spec`, `implement-spec` or a full project setup.
-- **Skills agents use:** guide requested work, such as frontend/backend conventions, testing, documentation and Git contributions. You can also ask for them by name.
+From the application workspace, in the same terminal:
 
-Skills also carry generic/stack-specific applicability labels. See [user-invoked activities](documentation/usage.md#skills-you-invoke) and [agent-used guidance](documentation/usage.md#skills-agents-use-during-your-work) for examples. Actual discovery and invocation depend on the client.
+```bash
+copilot \
+  --plugin-dir "$AGENT_PLUGINS_DIR/development-workflow" \
+  --plugin-dir "$AGENT_PLUGINS_DIR/python-backend" \
+  --plugin-dir "$AGENT_PLUGINS_DIR/web-frontend"
+```
 
-Follow project instructions and accepted decisions when using upstream techniques. Tickets are optional. The bundles provide skills without application templates, configured MCP servers or hooks; add live tools when a task needs them.
+Append `skill list --json` to inspect discovery without starting a model session. In another terminal, set `AGENT_PLUGINS_DIR` to the absolute build directory first. Session-local loading was checked with CLI 1.0.95; see the [CLI reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) for your version.
+
+</details>
+
+<details>
+<summary>VS Code</summary>
+
+For versions supporting Agent Plugins, merge the individual absolute paths into user settings:
+
+```json
+{
+  "chat.plugins.enabled": true,
+  "chat.pluginLocations": {
+    "/absolute/path/built-plugins/development-workflow": true,
+    "/absolute/path/built-plugins/python-backend": true,
+    "/absolute/path/built-plugins/web-frontend": true
+  }
+}
+```
+
+Open the application workspace and inspect Configure Skills. This route follows [VS Code documentation](https://code.visualstudio.com/docs/agent-customization/agent-plugins#use-local-plugins); it has not been exercised here.
+
+</details>
+
+For another client, use its documented plugin-loading route. Keep each plugin directory and its resources intact. Discovery establishes availability, not that an agent will follow every instruction. Updating an old installation? Read [migration](documentation/migration.md) first.
+
+### 3. Make a first request
+
+Choose the activity explicitly through the client's skill picker or supported invocation syntax. In VS Code, for example: `/development-workflow:develop`. Plain requests below work where explicit skill selection by name is supported.
+
+| Starting point | Example request |
+| --- | --- |
+| New idea | Use develop to build a saved-search application. Ask about important decisions, state reversible assumptions and implement a useful first slice. Prepare a PR. |
+| Existing application | Use develop to add read-only sharing to saved searches. Preserve the existing architecture, UI and private defaults. |
+| Assess current work | Use test to verify the changed journey, then review the diff against the agreed behavior. |
+
+The agent should clarify consequential unknowns, define relevant behavior before coding, verify the result and report evidence or gaps. It proceeds within the requested scope; merge and deployment are separate actions. Use `workflow-help` when unsure where to start.
 
 ## SDLC coverage
 
 ![Project foundations, discovery, seven-phase SDLC cycle, product feedback and cross-cutting skills](documentation/images/sdlc-cycle.svg)
 
-The cycle covers planning, requirements analysis, design, implementation, testing, deployment and maintenance. Discovery and product feedback inform it; project foundations and cross-cutting guidance support it. See the [linked skill mapping and coverage gaps](documentation/sdlc.md).
+Enter where the work needs it; the cycle is not a mandatory sequence. Project foundations support development, and learning feeds later changes. [Choose an activity](documentation/usage.md#skills-you-invoke) or explore the [linked skill map](documentation/sdlc.md).
 
 ## Documentation
 
-| Document | Use it for |
+| Guide | Question it answers |
 | --- | --- |
-| [Usage](documentation/usage.md) | Choose skills, load plugins and follow example requests |
-| [SDLC coverage](documentation/sdlc.md) | Find skills by lifecycle phase and see coverage gaps |
-| [Migration](documentation/migration.md) | Update old paths, names and installations |
-| [Maintainer reference](documentation/maintainer-reference.md) | Sources, selection decisions, licenses, acquisition and validation |
+| [Usage](documentation/usage.md) | What should I invoke, provide and expect? |
+| [SDLC coverage](documentation/sdlc.md) | Which skills support each phase and area? |
+| [Migration](documentation/migration.md) | How do I update an existing installation? |
+| [Maintainer reference](documentation/maintainer-reference.md) | Where do sources come from, and how is the collection maintained? |
 
-The plugin's [workflow guide](plugins/development-workflow/WORKFLOW.md) supplies the project-fit rules agents apply; it is part of the installed bundle.
-
-Updating an older installation? The original four skills moved under `plugins/`; the development entry points are now `project-conventions`, `frontend-conventions` and `backend-conventions`. See [migration instructions](documentation/migration.md) before replacing old copies or links.
+The bundles contain guidance and resources, without generated applications, configured MCP servers or hooks. Client tools and application dependencies are configured separately.
 
 ## Contributing
 
-Keep guidance concise and project-independent. After changes, run:
-
-```bash
-python scripts/validate_plugins.py
-python -m unittest discover -s tests -v
-```
-
-Local material is MIT; upstream resources retain their own licenses. See [AGENTS.md](AGENTS.md) for repository instructions.
-
-
-During implementation, the [usage guide](documentation/usage.md#evaluate-during-implementation) connects acceptance, real application evaluation and telemetry in a repair/recheck loop. Local project guidance defaults to Compose for containerizable services and optional observability, with vendor-neutral OpenTelemetry instrumentation and a replaceable backend. [Migration notes](documentation/migration.md#local-skill-naming) list the local skill renames; upstream names are unchanged.
+Keep guidance concise and project-independent. Run `python scripts/validate_plugins.py` and `python -m unittest discover -s tests -v` after changes. Local material is MIT; upstream resources retain their own licenses. See [AGENTS.md](AGENTS.md) and the [maintainer checks](documentation/maintainer-reference.md#maintaining-the-collection).
