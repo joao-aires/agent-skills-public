@@ -1,10 +1,13 @@
 ---
 name: observability-operations
-description: "Implement, audit and maintain application/infrastructure logs, metrics, traces, client telemetry and collection pipelines during setup, feature work or recurring instrumentation improvements."
+description: Implement, audit and maintain application/infrastructure logs, metrics,
+  traces, client telemetry and collection pipelines during setup, feature work or
+  recurring instrumentation improvements.
 metadata:
   scope: generic
   invocation: both
-  version: "2.0"
+  version: '2.0'
+  role: task
 ---
 
 # Observability implementation and operations

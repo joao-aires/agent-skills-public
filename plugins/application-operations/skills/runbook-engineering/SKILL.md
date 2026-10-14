@@ -1,10 +1,13 @@
 ---
 name: runbook-engineering
-description: "Create, rewrite, exercise and audit operational runbooks for alerts, recovery or planned procedures with evidenced diagnostic branches, scoped actions, verification and reachable escalation."
+description: Create, rewrite, exercise and audit operational runbooks for alerts,
+  recovery or planned procedures with evidenced diagnostic branches, scoped actions,
+  verification and reachable escalation.
 metadata:
   scope: generic
   invocation: both
-  version: "1.0"
+  version: '1.0'
+  role: task
 ---
 
 # Runbook engineering

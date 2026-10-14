@@ -1,11 +1,14 @@
 ---
 name: kubernetes-resource-engineering
-description: "Design, generate, review and maintain Kubernetes application/infrastructure resources, Helm charts and Kustomize overlays with secure defaults, reliable lifecycle, controller ownership and rendered validation."
+description: Design, generate, review and maintain Kubernetes application/infrastructure
+  resources, Helm charts and Kustomize overlays with secure defaults, reliable lifecycle,
+  controller ownership and rendered validation.
 metadata:
   scope: stack-specific
   invocation: both
   stack: Kubernetes, Helm, Kustomize
-  version: "1.0"
+  version: '1.0'
+  role: task
 ---
 
 # Kubernetes resource engineering

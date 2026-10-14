@@ -8,6 +8,8 @@ metadata:
   scope: stack-specific
   invocation: both
   stack: React, Next.js, Tailwind, shadcn
+  role: support
+user-invocable: false
 ---
 
 # Frontend conventions
@@ -19,6 +21,12 @@ Read the request, `AGENTS.md`, existing components and accepted design decisions
 Accept screenshots, URLs, design files, an existing application, tokens or a short brief. Extract the intended audience, page types, navigation, density, typography, colors and interaction patterns. Separate authoritative requirements from inspiration; do not copy a reference product's assets, backend scale or dependency list. Describe inaccessible references as gaps rather than claiming to have inspected them. Resolve consequential conflicts once; make reasonable reversible choices for minor details.
 
 Keep the accepted conventions and meaningful deviations in the existing design note or `AGENTS.md` link. No mandatory profile format or document per change. Different frontend types can have different profiles while sharing tokens and primitives. Establish a representative screen for a new visual direction, then reuse it. Ordinary feature work follows the accepted design without reopening the whole aesthetic.
+
+## Design behavior and account for every affected surface
+
+Use [design-interactions](../design-interactions/SKILL.md) before meaningful new or changed UX. Define goals, flows, information/actions and state transitions in concise text; add wireframes/mockups only where they settle spatial/visual uncertainty. Resolve consequential choices and state reversible assumptions before coding; reuse agreed direction without another approval ceremony. Do not invent UX independently as each page is implemented.
+
+For global changes inventory all affected routes, menus/submenus, dialogs/drawers, shared primitives and role/mobile variants. Establish a reusable interaction pattern on representative surfaces, propagate it through shared implementations, then reconcile the coverage list. Verify callers and conditional/alternate entry points, not only the shared component or one screenshot. Report skipped/blocked surfaces and incomplete rollout explicitly; a partial UI update is not a completed global redesign.
 
 ## Choose the shell for the product
 

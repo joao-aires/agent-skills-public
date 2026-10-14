@@ -7,6 +7,8 @@ description: Create or review CI/CD, Dockerfiles and GitHub Actions for applicat
 metadata:
   scope: generic
   invocation: both
+  role: support
+user-invocable: false
 ---
 
 # Build delivery pipelines

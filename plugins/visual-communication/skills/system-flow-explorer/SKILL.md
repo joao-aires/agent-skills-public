@@ -1,10 +1,19 @@
 ---
 name: system-flow-explorer
-description: Build an explorable, standalone HTML architecture and message-flow explorer from repository evidence or a proposed design. Use when users want to explore a service or repository's architecture, capabilities, dataflow, request lifecycle, sequence messages, or C4 context/container/component views; also use for brainstorming and refining proposed system designs with these views. Keep user scenarios, diagram views, and architecture depth separate. Not for unrelated UI design, generic charts, or application feature implementation.
+description: Build an explorable, standalone HTML architecture and message-flow explorer
+  from repository evidence or a proposed design. Use when users want to explore a
+  service or repository's architecture, capabilities, dataflow, request lifecycle,
+  sequence messages, or C4 context/container/component views; also use for brainstorming
+  and refining proposed system designs with these views. Keep user scenarios, diagram
+  views, and architecture depth separate. Not for unrelated UI design, generic charts,
+  or application feature implementation.
 metadata:
   scope: generic
   invocation: user
-compatibility: Python 3.10+ standard library for validation and rendering. Optional browser verification uses an existing Playwright installation; delivered HTML needs no dependencies or server.
+  role: task
+compatibility: Python 3.10+ standard library for validation and rendering. Optional
+  browser verification uses an existing Playwright installation; delivered HTML needs
+  no dependencies or server.
 ---
 
 # System flow explorer

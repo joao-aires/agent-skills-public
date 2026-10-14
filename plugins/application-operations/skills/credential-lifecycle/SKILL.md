@@ -1,10 +1,13 @@
 ---
 name: credential-lifecycle
-description: "Inventory, issue, rotate, revoke, and retire operational secrets, API keys, deploy keys, service-account credentials, and certificates, including response to leaked credentials."
+description: Inventory, issue, rotate, revoke, and retire operational secrets, API
+  keys, deploy keys, service-account credentials, and certificates, including response
+  to leaked credentials.
 metadata:
   scope: generic
   invocation: both
-  version: "2.0"
+  version: '2.0'
+  role: task
 ---
 
 # Credential lifecycle

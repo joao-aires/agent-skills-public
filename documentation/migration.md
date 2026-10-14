@@ -32,3 +32,9 @@ The portable operations collection is now integrated by activity: general system
 `system-flow-explorer` belongs to `visual-communication`, including its renderer, model example and tests. Rebuild and replace the selected bundles with resources intact. The default three-plugin build does not include operations or visual communication; select those explicitly. No monitoring service, credentials, scheduler or browser dependency is installed by this update.
 
 The workflow bundle also adds `test-application-resilience`. Rebuild and replace it with supporting references intact. This exposes guidance for controlled failure tests; it does not install an injector, schedule chaos experiments or authorize deployed faults. Existing skill names remain unchanged.
+
+## Task entry points and design-first work
+
+Rebuild/replace workflow and relevant stack bundles to obtain the task menu and interaction-design guidance. Existing specialist names remain unchanged. Most local supporting skills now use `user-invocable: false` to reduce picker clutter in supporting clients; request the task or name supporting guidance in plain language where supported. Upstream explicit controls remain intact. No automatic rename/alias for `/help`, `/test` or other client commands is installed.
+
+`implement` remains the pinned upstream entry point with local task framing; no duplicate local implement skill is added. `develop` handles rough-idea-to-implementation work, while `refine`, `design` and other tasks handle focused stages. Design-interactions is bundled with web-frontend and guides meaningful UI changes before implementation, without requiring an approval per screen. Automation triggers and permissions remain configured in the host.

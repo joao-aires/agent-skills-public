@@ -7,6 +7,7 @@ description: Plan, implement or review database backups, restore verification an
 metadata:
   scope: generic
   invocation: both
+  role: task
 ---
 
 # Protect and restore application data

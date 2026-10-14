@@ -7,6 +7,7 @@ description: Estimate or improve application infrastructure and service cost, in
 metadata:
   scope: generic
   invocation: both
+  role: task
 ---
 
 # Optimize application cost

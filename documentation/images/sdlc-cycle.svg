@@ -8,7 +8,7 @@
 <text x="40" y="78" font-size="15" fill="#526580">Representative skill entry points · Choose only what the task needs</text>
 <rect x="340" y="110" width="740" height="175" rx="18" fill="#e8eef9" stroke="#9aaecb"/>
 <text x="710" y="145" text-anchor="middle" font-size="20" font-weight="700" fill="#15233b">Project conventions — establish and maintain</text>
-<text x="710" y="175" text-anchor="middle" font-size="15" fill="#354966">project-conventions</text>
+<text x="710" y="175" text-anchor="middle" font-size="15" fill="#354966">/setup · project-conventions</text>
 <text x="710" y="205" text-anchor="middle" font-size="15" fill="#354966">build-delivery-pipelines · github-actions-hardening</text>
 <text x="710" y="237" text-anchor="middle" font-size="14" fill="#526580">Structure · stack constraints · AGENTS.md · local setup · CI/CD</text>
 <text x="710" y="263" text-anchor="middle" font-size="13" fill="#526580">Maintain when relevant; full setup or reorganization on request</text>
@@ -31,35 +31,35 @@
 <path d="M 590.8 287.4 Q 599.1 279.8 610.3 278.0" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
 <text x="710" y="495" text-anchor="middle" font-size="22" font-weight="700" fill="#15233b">Iterate on evidence</text>
 <text x="710" y="525" text-anchor="middle" font-size="14" fill="#526580">Testing and review can return to code</text>
-<text x="710" y="549" text-anchor="middle" font-size="14" fill="#526580">Enter at the relevant phase</text>
+<text x="710" y="549" text-anchor="middle" font-size="14" fill="#526580">/develop spans the useful cycle</text>
 <rect x="605.0" y="182.0" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
 <text x="710.0" y="202.0" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">1. Planning</text>
-<text x="710.0" y="226.0" text-anchor="middle" font-size="13" fill="#354966">to-spec when useful</text>
+<text x="710.0" y="226.0" text-anchor="middle" font-size="13" fill="#354966">/plan</text>
 <rect x="823.9" y="287.4" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
 <text x="928.9" y="307.4" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">2. Requirements analysis</text>
-<text x="928.9" y="331.4" text-anchor="middle" font-size="13" fill="#354966">grill-with-docs</text>
+<text x="928.9" y="331.4" text-anchor="middle" font-size="13" fill="#354966">/refine</text>
 <rect x="878.0" y="524.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
 <text x="983.0" y="544.3" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">3. Design</text>
-<text x="983.0" y="568.3" text-anchor="middle" font-size="13" fill="#354966">frontend-conventions</text>
-<text x="983.0" y="588.3" text-anchor="middle" font-size="13" fill="#354966">design-secure-features</text>
-<text x="983.0" y="608.3" text-anchor="middle" font-size="13" fill="#354966">system-mapping</text>
+<text x="983.0" y="568.3" text-anchor="middle" font-size="13" fill="#354966">/design</text>
+<text x="983.0" y="588.3" text-anchor="middle" font-size="13" fill="#354966">design-interactions</text>
+<text x="983.0" y="608.3" text-anchor="middle" font-size="13" fill="#354966">frontend/backend contracts</text>
 <rect x="726.5" y="714.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
 <text x="831.5" y="734.3" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">4. Implementation</text>
-<text x="831.5" y="758.3" text-anchor="middle" font-size="13" fill="#354966">backend-conventions</text>
-<text x="831.5" y="778.3" text-anchor="middle" font-size="13" fill="#354966">implement / implement-spec</text>
+<text x="831.5" y="758.3" text-anchor="middle" font-size="13" fill="#354966">/implement</text>
+<text x="831.5" y="778.3" text-anchor="middle" font-size="13" fill="#354966">supporting conventions</text>
 <rect x="483.5" y="714.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
 <text x="588.5" y="734.3" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">5. Testing</text>
-<text x="588.5" y="758.3" text-anchor="middle" font-size="13" fill="#354966">test-end-to-end</text>
-<text x="588.5" y="778.3" text-anchor="middle" font-size="13" fill="#354966">test-application-performance</text>
-<text x="588.5" y="798.3" text-anchor="middle" font-size="13" fill="#354966">test-application-resilience</text>
+<text x="588.5" y="758.3" text-anchor="middle" font-size="13" fill="#354966">/test</text>
+<text x="588.5" y="778.3" text-anchor="middle" font-size="13" fill="#354966">E2E · k6 · controlled failures</text>
+<text x="588.5" y="798.3" text-anchor="middle" font-size="13" fill="#354966">verification and feedback</text>
 <rect x="332.0" y="524.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
 <text x="437.0" y="544.3" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">6. Deployment</text>
-<text x="437.0" y="568.3" text-anchor="middle" font-size="13" fill="#354966">Promote · verify · recover</text>
+<text x="437.0" y="568.3" text-anchor="middle" font-size="13" fill="#354966">/release · verify · recover</text>
 <rect x="386.1" y="287.4" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
 <text x="491.1" y="307.4" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">7. Maintenance</text>
-<text x="491.1" y="331.4" text-anchor="middle" font-size="13" fill="#354966">protect-and-restore-data</text>
+<text x="491.1" y="331.4" text-anchor="middle" font-size="13" fill="#354966">/improve · /dependencies</text>
 <text x="491.1" y="351.4" text-anchor="middle" font-size="13" fill="#354966">incident-response</text>
-<text x="491.1" y="371.4" text-anchor="middle" font-size="13" fill="#354966">postmortem-followup</text>
+<text x="491.1" y="371.4" text-anchor="middle" font-size="13" fill="#354966">recovery and learning</text>
 <rect x="35" y="416" width="210" height="110" rx="12" fill="white" stroke="#9aaecb"/>
 <text x="140.0" y="444" text-anchor="middle" font-size="15" fill="#15233b" font-weight="700">Choose a useful problem</text>
 <text x="140.0" y="470" text-anchor="middle" font-size="13" fill="#15233b" font-weight="400">business-strategy</text>
@@ -79,8 +79,8 @@
 <text x="490" y="304" font-size="13" fill="#526580">New project entry</text>
 <rect x="20" y="1180" width="1400" height="170" rx="18" fill="#f0edf9" stroke="#c4bddb"/>
 <text x="720" y="1214" text-anchor="middle" font-size="19" font-weight="700" fill="#15233b">Across discovery, development and feedback</text>
-<text x="720" y="1243" text-anchor="middle" font-size="16" fill="#354966">research · grill-me on explicit request · humanizer</text>
-<text x="720" y="1272" text-anchor="middle" font-size="15" fill="#354966">maintain-documentation · contribute-code · design-secure-features</text>
-<text x="720" y="1301" text-anchor="middle" font-size="14" fill="#526580">Capacity and cost constraints · existing project conventions</text>
+<text x="720" y="1243" text-anchor="middle" font-size="16" fill="#354966">/workflow-help · /review · /harden</text>
+<text x="720" y="1272" text-anchor="middle" font-size="15" fill="#354966">research · explicit clarification · humanizer · documentation · Git</text>
+<text x="720" y="1301" text-anchor="middle" font-size="14" fill="#526580">Security and project conventions · capacity and cost constraints</text>
 <text x="720" y="1330" text-anchor="middle" font-size="15" fill="#354966">reliability-design · observability-operations</text>
 </g></svg>

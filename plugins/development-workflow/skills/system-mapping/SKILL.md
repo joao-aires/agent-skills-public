@@ -1,10 +1,14 @@
 ---
 name: system-mapping
-description: "Discover and document an application's services, dependencies, deployment topology and user/request/data journeys from repository, documentation and runtime evidence for setup, feature analysis or recurring architecture updates."
+description: Discover and document an application's services, dependencies, deployment
+  topology and user/request/data journeys from repository, documentation and runtime
+  evidence for setup, feature analysis or recurring architecture updates.
 metadata:
   scope: generic
   invocation: both
-  version: "1.0"
+  version: '1.0'
+  role: support
+user-invocable: false
 ---
 
 # System mapping

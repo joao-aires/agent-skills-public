@@ -12,6 +12,40 @@ spec.loader.exec_module(installer)
 
 
 class InstallationTests(unittest.TestCase):
+    def test_support_visibility_preserves_explicit_native_controls(self):
+        for explicit in (None, True, False):
+            with self.subTest(explicit=explicit), tempfile.TemporaryDirectory() as tmp:
+                skill = Path(tmp) / 'example'
+                skill.mkdir()
+                metadata = {'name': 'example', 'description': 'Example',
+                            'disable-model-invocation': True, 'metadata': {'author': 'Upstream'}}
+                if explicit is not None:
+                    metadata['user-invocable'] = explicit
+                (skill / 'SKILL.md').write_text('---\n' + yaml.safe_dump(metadata) + '---\nOriginal body\n')
+                (skill / 'resource.txt').write_text('Original resource')
+                installer.adapt_skill(skill, {'adaptations': ['support-visibility']})
+                text = (skill / 'SKILL.md').read_text()
+                result = yaml.safe_load(text.split('---', 2)[1])
+                self.assertEqual(result['user-invocable'], explicit if explicit is not None else False)
+                self.assertTrue(result['disable-model-invocation'])
+                self.assertEqual(result['metadata']['author'], 'Upstream')
+                self.assertTrue(text.endswith('\nOriginal body\n'))
+                self.assertEqual((skill / 'resource.txt').read_text(), 'Original resource')
+
+    def test_implementation_entrypoint_retains_upstream_body_and_control(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / 'implement'
+            skill.mkdir()
+            (skill / 'SKILL.md').write_text('---\nname: implement\ndescription: Original\ndisable-model-invocation: true\n---\nOriginal implementation workflow\n')
+            installer.adapt_skill(skill, {'adaptations': ['implementation-entrypoint']})
+            text = (skill / 'SKILL.md').read_text()
+            metadata = yaml.safe_load(text.split('---', 2)[1])
+            self.assertEqual(metadata['name'], 'implement')
+            self.assertTrue(metadata['user-invocable'])
+            self.assertTrue(metadata['disable-model-invocation'])
+            self.assertIn('../../TASKS.md', text)
+            self.assertTrue(text.endswith('\nOriginal implementation workflow\n'))
+
     def test_frontend_framing_preserves_metadata_and_body(self):
         with tempfile.TemporaryDirectory() as tmp:
             skill = Path(tmp) / 'tailwind-design-system'

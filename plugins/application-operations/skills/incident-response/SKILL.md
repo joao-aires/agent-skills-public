@@ -1,10 +1,13 @@
 ---
 name: incident-response
-description: "Coordinate and investigate active service incidents using impact-led triage, reversible stabilization, causal evidence, escalation, communication and independent recovery verification across any application stack."
+description: Coordinate and investigate active service incidents using impact-led
+  triage, reversible stabilization, causal evidence, escalation, communication and
+  independent recovery verification across any application stack.
 metadata:
   scope: generic
   invocation: both
-  version: "1.0"
+  version: '1.0'
+  role: task
 ---
 
 # Incident response

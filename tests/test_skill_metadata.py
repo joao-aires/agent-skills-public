@@ -25,6 +25,7 @@ class SkillMetadataTests(unittest.TestCase):
             {'metadata': {'version': 1}},
             {'metadata': {'scope': 'anything'}},
             {'metadata': {'invocation': 'auto-magic'}},
+            {'metadata': {'role': 'dispatcher'}},
             {'metadata': {'scope': 'stack-specific'}},
             {'metadata': ['author']},
             {'allowed-tools': ['Read', 'Bash']},
@@ -32,6 +33,7 @@ class SkillMetadataTests(unittest.TestCase):
             {'compatibility': ''},
             {'compatibility': 'x' * 501},
             {'disable-model-invocation': 'true'},
+            {'user-invocable': 'false'},
         ]
         with tempfile.TemporaryDirectory() as tmp:
             skill = Path(tmp) / 'example'

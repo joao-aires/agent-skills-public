@@ -1,10 +1,15 @@
 ---
 name: test-application-performance
-description: Design, implement, run or review k6 load and performance checks for application journeys locally, against an application started on a CI runner, or against a deployed non-production environment. Use for latency, concurrency, throughput, saturation and performance regressions; preserve target authority and existing tooling.
+description: Design, implement, run or review k6 load and performance checks for application
+  journeys locally, against an application started on a CI runner, or against a deployed
+  non-production environment. Use for latency, concurrency, throughput, saturation
+  and performance regressions; preserve target authority and existing tooling.
 metadata:
   scope: stack-specific
   invocation: both
   stack: Grafana k6
+  role: support
+user-invocable: false
 ---
 
 # Test application performance

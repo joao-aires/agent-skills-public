@@ -1,11 +1,14 @@
 ---
 name: infra-jvm-optimization
-description: "Measure and improve application/infrastructure resource efficiency, JVM memory and GC, startup/shutdown, autoscaling, scheduling and resilience during setup, feature changes or recurring optimization reviews."
+description: Measure and improve application/infrastructure resource efficiency, JVM
+  memory and GC, startup/shutdown, autoscaling, scheduling and resilience during setup,
+  feature changes or recurring optimization reviews.
 metadata:
   scope: stack-specific
   invocation: both
   stack: Java, JVM, Kubernetes
-  version: "1.0"
+  version: '1.0'
+  role: task
 ---
 
 # Infrastructure and JVM optimization

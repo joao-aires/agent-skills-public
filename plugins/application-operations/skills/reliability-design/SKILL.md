@@ -1,10 +1,13 @@
 ---
 name: reliability-design
-description: "Analyze user journeys and system dependencies to define, implement, and review SLIs, SLOs, error budgets, dashboards and actionable monitoring for new systems, features or recurring reliability reviews."
+description: Analyze user journeys and system dependencies to define, implement, and
+  review SLIs, SLOs, error budgets, dashboards and actionable monitoring for new systems,
+  features or recurring reliability reviews.
 metadata:
   scope: generic
   invocation: both
-  version: "1.0"
+  version: '1.0'
+  role: task
 ---
 
 # Reliability design

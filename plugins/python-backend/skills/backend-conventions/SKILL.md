@@ -8,6 +8,8 @@ metadata:
   scope: stack-specific
   invocation: both
   stack: Python, FastAPI, SQLAlchemy, Alembic, PostgreSQL
+  role: support
+user-invocable: false
 ---
 
 # Backend conventions
@@ -24,6 +26,10 @@ For new services, prefer a supported Python, uv with a committed lockfile, FastA
 | Durable background work | Worker/queue when work must survive process loss; define status, retries, cancellation and recovery according to the task. |
 | Event-driven integration | Idempotent consumers and explicit delivery assumptions; use an outbox when database changes and delivery intent must be atomic. Do not promise exactly-once delivery. |
 | AI or MCP interface | Narrow authorized adapters over application services; introduce a framework only for capabilities the system needs. |
+
+## Define behavior before implementation
+
+For meaningful new behavior or cross-cutting changes, establish the actor/use case, observable input/output, ownership/permissions, invariants and state transitions before writing handlers/models. Include validation/error semantics, transactions, idempotency, async cancellation/recovery and compatibility where affected. Use concise text, examples or a state/sequence view in existing context; no compulsory design document for routine fixes. Resolve consequential product/authority choices and make explicit reversible assumptions. Inventory affected endpoints, jobs, tools and consumers for global changes, reuse coherent domain behavior and reconcile implementation/tests against every affected entry point. A route-by-route patch without common behavior is not a complete cross-cutting change.
 
 ## Organize behavior and contracts
 

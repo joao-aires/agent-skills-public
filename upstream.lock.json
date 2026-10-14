@@ -11,12 +11,14 @@
       "license_path": null,
       "adaptations": [
         "frontend-framing",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "React, Next.js, Tailwind, shadcn"
+        "stack": "React, Next.js, Tailwind, shadcn",
+        "role": "support"
       }
     },
     {
@@ -29,12 +31,14 @@
       "license_path": null,
       "adaptations": [
         "frontend-framing",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "React, Next.js, Tailwind, shadcn"
+        "stack": "React, Next.js, Tailwind, shadcn",
+        "role": "support"
       }
     },
     {
@@ -47,12 +51,14 @@
       "license_path": "LICENSE.md",
       "adaptations": [
         "frontend-framing",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "React, Next.js, Tailwind, shadcn"
+        "stack": "React, Next.js, Tailwind, shadcn",
+        "role": "support"
       }
     },
     {
@@ -66,10 +72,12 @@
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "Playwright CLI"
+        "stack": "Playwright CLI",
+        "role": "support"
       },
       "adaptations": [
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ]
     },
     {
@@ -83,10 +91,12 @@
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "GitHub Actions"
+        "stack": "GitHub Actions",
+        "role": "support"
       },
       "adaptations": [
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ]
     },
     {
@@ -99,12 +109,14 @@
       "license_path": "LICENSE",
       "adaptations": [
         "backend-framing",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "Python"
+        "stack": "Python",
+        "role": "support"
       }
     },
     {
@@ -117,10 +129,12 @@
       "license_path": "LICENSE",
       "labels": {
         "scope": "generic",
-        "invocation": "agent"
+        "invocation": "agent",
+        "role": "support"
       },
       "adaptations": [
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ]
     },
     {
@@ -133,11 +147,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "inline-adversarial-review",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "agent"
+        "invocation": "agent",
+        "role": "support"
       }
     },
     {
@@ -150,12 +166,14 @@
       "license_path": "skills/mcp-builder/LICENSE.txt",
       "adaptations": [
         "ai-framing",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "Python, standalone FastMCP, MCP"
+        "stack": "Python, standalone FastMCP, MCP",
+        "role": "support"
       }
     },
     {
@@ -169,10 +187,12 @@
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "Google ADK"
+        "stack": "Google ADK",
+        "role": "support"
       },
       "adaptations": [
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ]
     },
     {
@@ -186,10 +206,12 @@
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "Google ADK"
+        "stack": "Google ADK",
+        "role": "support"
       },
       "adaptations": [
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ]
     },
     {
@@ -203,10 +225,12 @@
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "LangChain"
+        "stack": "LangChain",
+        "role": "support"
       },
       "adaptations": [
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ]
     },
     {
@@ -220,10 +244,12 @@
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "LangGraph"
+        "stack": "LangGraph",
+        "role": "support"
       },
       "adaptations": [
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ]
     },
     {
@@ -237,10 +263,12 @@
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "LangGraph"
+        "stack": "LangGraph",
+        "role": "support"
       },
       "adaptations": [
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ]
     },
     {
@@ -254,10 +282,12 @@
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "LangChain, LangGraph"
+        "stack": "LangChain, LangGraph",
+        "role": "support"
       },
       "adaptations": [
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ]
     },
     {
@@ -272,11 +302,13 @@
         "workflow-framing",
         "documentation-paths",
         "usage-labels",
-        "tracker-neutral"
+        "tracker-neutral",
+        "support-visibility"
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "agent"
+        "invocation": "agent",
+        "role": "support"
       }
     },
     {
@@ -290,11 +322,13 @@
       "adaptations": [
         "workflow-framing",
         "documentation-paths",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "agent"
+        "invocation": "agent",
+        "role": "support"
       }
     },
     {
@@ -308,11 +342,13 @@
       "adaptations": [
         "workflow-framing",
         "documentation-paths",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "agent"
+        "invocation": "agent",
+        "role": "support"
       }
     },
     {
@@ -326,11 +362,13 @@
       "adaptations": [
         "workflow-framing",
         "documentation-paths",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "agent"
+        "invocation": "agent",
+        "role": "support"
       }
     },
     {
@@ -348,7 +386,8 @@
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "user"
+        "invocation": "user",
+        "role": "task"
       }
     },
     {
@@ -362,11 +401,13 @@
       "adaptations": [
         "workflow-framing",
         "documentation-paths",
-        "usage-labels"
+        "usage-labels",
+        "implementation-entrypoint"
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "user"
+        "invocation": "user",
+        "role": "task"
       }
     },
     {
@@ -385,7 +426,8 @@
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "user"
+        "invocation": "user",
+        "role": "task"
       }
     },
     {
@@ -403,7 +445,8 @@
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "user"
+        "invocation": "user",
+        "role": "task"
       }
     },
     {
@@ -417,11 +460,13 @@
       "adaptations": [
         "workflow-framing",
         "documentation-paths",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "agent"
+        "invocation": "agent",
+        "role": "support"
       }
     },
     {
@@ -435,11 +480,13 @@
       "adaptations": [
         "workflow-framing",
         "documentation-paths",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "agent"
+        "invocation": "agent",
+        "role": "support"
       }
     },
     {
@@ -457,7 +504,8 @@
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "user"
+        "invocation": "user",
+        "role": "task"
       }
     },
     {
@@ -471,11 +519,13 @@
       "adaptations": [
         "workflow-framing",
         "documentation-paths",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "agent"
+        "invocation": "agent",
+        "role": "support"
       }
     },
     {
@@ -494,7 +544,8 @@
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "user"
+        "invocation": "user",
+        "role": "task"
       }
     },
     {
@@ -512,7 +563,8 @@
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "user"
+        "invocation": "user",
+        "role": "task"
       }
     },
     {
@@ -526,11 +578,13 @@
       "adaptations": [
         "workflow-framing",
         "documentation-paths",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "agent"
+        "invocation": "agent",
+        "role": "support"
       }
     },
     {
@@ -548,7 +602,8 @@
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "user"
+        "invocation": "user",
+        "role": "task"
       }
     },
     {
@@ -566,7 +621,8 @@
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "user"
+        "invocation": "user",
+        "role": "task"
       }
     },
     {
@@ -580,11 +636,13 @@
       "adaptations": [
         "workflow-framing",
         "documentation-paths",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "agent"
+        "invocation": "agent",
+        "role": "support"
       }
     },
     {
@@ -598,10 +656,12 @@
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "Supported dependency lockfile ecosystems"
+        "stack": "Supported dependency lockfile ecosystems",
+        "role": "support"
       },
       "adaptations": [
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ]
     },
     {
@@ -615,10 +675,12 @@
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "Azure AKS"
+        "stack": "Azure AKS",
+        "role": "support"
       },
       "adaptations": [
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ]
     },
     {
@@ -631,12 +693,14 @@
       "license_path": "LICENSE",
       "adaptations": [
         "frontend-framing",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "stack-specific",
         "invocation": "agent",
-        "stack": "React, Next.js, Tailwind, shadcn"
+        "stack": "React, Next.js, Tailwind, shadcn",
+        "role": "support"
       }
     },
     {
@@ -649,11 +713,13 @@
       "license_path": "LICENSE",
       "adaptations": [
         "workflow-framing",
-        "usage-labels"
+        "usage-labels",
+        "support-visibility"
       ],
       "labels": {
         "scope": "generic",
-        "invocation": "agent"
+        "invocation": "agent",
+        "role": "support"
       }
     }
   ]

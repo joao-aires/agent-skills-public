@@ -1,10 +1,13 @@
 ---
 name: postmortem-followup
-description: "Review incident histories and postmortems to derive, prioritize, implement and verify learning actions, track overdue or ineffective fixes, and identify recurring failure patterns across incidents."
+description: Review incident histories and postmortems to derive, prioritize, implement
+  and verify learning actions, track overdue or ineffective fixes, and identify recurring
+  failure patterns across incidents.
 metadata:
   scope: generic
   invocation: both
-  version: "1.1"
+  version: '1.1'
+  role: task
 ---
 
 # Postmortem follow-up

@@ -12,6 +12,7 @@ metadata:
   version: '2.2'
   scope: generic
   invocation: user
+  role: task
 ---
 
 # Business Strategy

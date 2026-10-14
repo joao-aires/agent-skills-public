@@ -8,6 +8,8 @@ metadata:
   scope: stack-specific
   invocation: both
   stack: Playwright
+  role: support
+user-invocable: false
 ---
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.

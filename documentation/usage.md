@@ -1,65 +1,114 @@
 # Using the plugins
 
-Choose plugins for the work, then select skills for the task. A **local** skill captures my conventions. An **upstream** skill supplies a specialist technique from another project.
+Start with a task and an outcome. Task entry points choose the relevant supporting guidance; you do not need to memorize every backend, frontend, testing or operations skill. For a rough idea that should become working software, start with `develop`. For one phase, choose from the lifecycle below.
 
-## Generic or stack-specific?
+![Choose tasks by SDLC phase, with develop spanning the cycle and supporting skills across it](images/sdlc-cycle.svg)
 
-Skills carry standard string labels under `metadata`: `scope`, `invocation`, and `stack` where applicable. These describe intended use; clients may not display the labels or enforce invocation behavior.
-
-| Scope | Meaning | Examples |
-| --- | --- | --- |
-| Generic | Applies across application stacks. It may still need Git, a browser or another tool. | Project conventions, strategy, requirements, documentation, code review, Humanizer, recovery/capacity/cost principles |
-| Stack-specific | Requires matching technology or platform APIs. Check the installed versions and supported coverage. | Next.js/shadcn/Tailwind, FastAPI/SQLAlchemy, Playwright, ADK/LangChain, FastMCP, Bash, Python automation, Kubernetes resources, JVM tuning, GitHub Actions, AKS cost optimization |
-
-For example, `frontend-conventions` has `scope: stack-specific`, `stack: React, Next.js, Tailwind, shadcn`, and `invocation: both`. `project-conventions` is generic and also supports both forms of use. Scope is independent of who invokes the skill and where it came from.
+The cycle is a map, not a required sequence. Enter where useful, return to design/code when verification exposes a problem, and use [the detailed SDLC map](sdlc.md) for supporting expertise.
 
 ## Skills you invoke
 
-Ask for an outcome or name the skill explicitly. Local skills can start the activities below directly. **User** means an explicit activity; **both** means it can also guide related work already requested. Routine changes do not require a planning workflow.
+The short `/name` notation below describes an activity, not a universal alias. In VS Code, plugin skills use names such as `/development-workflow:test`; other clients expose their own skill picker/names. Check the actual inventory. Plain requests such as “Use test for the current changes” are a fallback in clients supporting explicit skills. `/workflow-help` is this toolkit's help; it does not replace the client's built-in `/help`.
 
-| Activity | Skill | Source | Scope / invocation |
-| --- | --- | --- | --- |
-| Start or review project foundations | `project-conventions` | Local | Generic / both; full setup or reorganization requires a request |
-| Evaluate a product or business direction | `business-strategy` | Local | Generic / user |
-| Analyze product feedback | `learn-from-product-feedback` | Local | Generic / both |
-| Explain architecture visually | `architecture-diagraming` | Local | Generic / user |
-| Create a presentation | `presentation-building` | Local | Generic / user |
-| Review feature security and privacy | `design-secure-features` | Local | Generic / both |
-| Design or review delivery pipelines | `build-delivery-pipelines` | Local | Generic / both |
-| Review backup, restore and disaster recovery | `protect-and-restore-data` | Local | Generic / both |
-| Map services and critical journeys from evidence | `system-mapping` | Local | Generic / both |
-| Build an interactive architecture walkthrough | `system-flow-explorer` | Local | Generic / user |
-| Define journey SLIs/SLOs and alerts | `reliability-design` | Local | Generic / both |
-| Review or implement instrumentation | `observability-operations` | Local | Generic / both |
-| Respond to an active incident | `incident-response` | Local | Generic / both; target actions need task authority |
-| Write or review an operational runbook | `runbook-engineering` | Local | Generic / both |
-| Facilitate or draft an incident review | `postmortem-facilitation` | Local | Generic / both; interviews only on request |
-| Verify postmortem actions in deployed behavior | `postmortem-followup` | Local | Generic / both |
-| Review deployed vulnerability remediation | `vulnerability-management` | Local | Generic / both |
-| Review credentials and rotation | `credential-lifecycle` | Local | Generic / both |
-| Review recurring operational upkeep | `operational-housekeeping` | Local | Generic / both; no scheduler installed |
-| Plan capacity | `plan-application-capacity` | Local | Generic / both |
-| Assess costs | `optimize-application-cost` | Local | Generic / both |
-| Evaluate an AI feature | `build-evaluated-ai` | Local | Stack-specific / both |
-| Verify controlled failures and recovery | `test-application-resilience` | Local | Generic / both; deployed faults need target/action scope |
-| Plan or run k6 performance checks | `test-application-performance` | Local | k6-specific / both |
-| Plan or run browser journeys | `test-end-to-end` | Local | Playwright-specific / both |
-| Clarify requirements | `grill-me`, `grill-with-docs`, `to-questionnaire` | Upstream: Matt | Generic / user |
-| Write an agreed spec | `to-spec` | Upstream: Matt | Generic / user |
-| Implement agreed scope | `implement`, `implement-spec` | Upstream: Matt | Generic / user |
-| Explore codebase architecture | `improve-codebase-architecture` | Upstream: Matt | Generic / user |
-| Learn from a coding session | `retro` | Upstream: Matt | Generic / user |
-| Hand work to another session | `handoff` | Upstream: Matt | Generic / user |
+| Where you are | Task | What happens |
+| --- | --- | --- |
+| Not sure what to use | `workflow-help` | Read-only help, available capabilities, examples and next activity |
+| Rough idea to a working result | `develop` | Clarification, design, implementation, tests and review in one engagement |
+| Starting/adopting a project | `setup` | Establish useful context, commands and scoped foundations |
+| Requirements need definition | `refine` | Repository-aware work package or specific decision blockers |
+| Scope agreed; sequencing needed | `plan` | Bounded implementation steps and verification |
+| UX/contracts/architecture undecided | `design` | Text/visual behavior design before implementation |
+| Defined work ready to build | `implement` | Implement and verify through the feature contribution flow |
+| Need behavior evidence | `test` | Select/run appropriate checks and add requested missing coverage |
+| PR or diff ready for assessment | `review` | Findings against intended behavior/standards plus relevant checks |
+| Want architecture/performance/UX improvement | `improve` | Prioritized discovery, or focused work for a specified objective |
+| Security/privacy weakness | `harden` | Scoped assessment/fixes and remaining risks |
+| Dependency updates or vulnerability PRs | `dependencies` | Release-note/compatibility/CI review and allowed remediation |
+| Preparing or executing delivery | `release` | Readiness by default; execute only a named authorized action/target |
 
-Examples:
+`implement` is the retained pinned upstream skill with local task framing; the other entries above are local. A source-only checkout lacks acquired upstream skills until built. Advanced explicit skills such as `implement-spec`, `grill-me`, `to-spec`, `retro` and `handoff` remain available with their native controls. They are choices, not prerequisites. Interviews and tracker publication are not implicit parts of ordinary work.
 
-> Use business-strategy to compare these two product ideas, then learn-from-product-feedback to assess the support notes. Separate evidence from assumptions.
+Examples (VS Code's documented plugin-qualified notation; adapt through your client's picker):
 
-> Use protect-and-restore-data to review recovery for my PostgreSQL application on its actual hosting platform. Identify RPO/RTO assumptions and isolated restore checks; do not deploy from this review.
+```text
+/development-workflow:refine Add read-only sharing to saved searches
+/development-workflow:test the current change, including the persisted journey
+/development-workflow:review PR #42 against its agreed behavior
+/development-workflow:improve architecture in the reporting module
+/development-workflow:workflow-help I am changing an existing application's navigation
+```
 
-> Use implement-spec for the scope agreed here. No tracker. Use the relevant frontend/backend conventions, verify the affected behavior, and report actual checks.
+Bare `improve` returns a short opportunity list; a specific improvement objective can authorize bounded implementation. `review` assesses by default and does not edit source/post/merge. `test` does not authorize deployed load or faults. `dependencies` merges only under an explicit eligible-update policy with current head/checks/protections. `release` without a named execution scope prepares rather than deploys.
 
-`business-opportunity-analysis` remains a legacy compatibility entry point; use `business-strategy` for new work. The [review of Matt's skills](maintainer-reference.md#matt-pocock-selection) explains which 18 are retained and why nine were removed. Tracker setup, ticket creation and a separate teaching workspace are not bundled prerequisites.
+## One end-to-end request
+
+Use `develop` for an application, feature, refactor or improvement that begins as a rough idea:
+
+```text
+/development-workflow:develop Build a nutritionist/client progress application from this brief. Ask about important product and UX choices, state reversible assumptions, and implement a useful first slice. Prepare a PR; do not merge or deploy.
+
+/development-workflow:develop Improve saved-search sharing in this existing application. Preserve its UI and identity model, define the interactions first, then implement and verify them.
+```
+
+The agent inspects existing evidence, asks decision-changing questions and carries accepted answers forward. It makes ordinary reversible choices without constant confirmation. Meaningful UX/backend behavior is defined before dependent code. Then it implements, tests, reviews and reports actual completion evidence within the request. “One-shot” means one end-to-end engagement, with appropriate questions; it does not mean zero interaction or guaranteed production quality. No full planning/design ceremony is needed for a tiny change.
+
+`refine` stops at actionable work/unknowns, `design` stops at a design, and `implement` starts from defined work. `develop` owns the full engagement and uses supporting guidance directly; it does not bypass explicit-only skill controls to invoke other task workflows automatically. A task can finish partial/blocked when a material decision or execution capability is missing.
+
+## Define UX before changing screens
+
+Use `design` for design work alone, or `develop`/`improve` when implementation should follow. The web bundle's `design-interactions` skill guides meaningful UI work automatically alongside frontend-conventions.
+
+1. Inventory the affected routes, menus/submenus, dialogs/drawers and role/mobile variants, including shared components and overrides.
+2. Define goals, actions, navigation and relevant loading/empty/validation/error/permission/cancel states in text. Add wireframes/wireflows or mockups when they settle layout/visual decisions; do not require all formats.
+3. Resolve consequential questions, reuse accepted patterns and state reversible assumptions. Establish a representative pattern, then propagate it through shared components.
+4. Reconcile every in-scope surface against implementation and observed behavior. Report unfinished or unverified surfaces; one screenshot or a shared-component build cannot establish global consistency.
+
+```text
+/development-workflow:design Unify navigation, nested menus and edit dialogs across this application. Inventory all affected surfaces, specify interaction/state behavior and show wireframes where useful. Do not implement yet.
+
+/development-workflow:improve Apply the agreed global navigation/dialog design across every in-scope surface. Verify desktop/mobile, role variants and focus/cancel/error behavior; report any unfinished coverage.
+```
+
+Backend work follows the same principle: establish actor authority, contracts, invariants, state/failure and compatibility before implementation, then account for every affected endpoint/job/tool.
+
+## Operations and specialized activities
+
+Add the relevant bundle and request the skill directly by its installed name. These remain independently useful:
+
+| Need | Bundle / entry points |
+| --- | --- |
+| Incident, runbook and learning | application-operations: incident-response, runbook-engineering, postmortem-facilitation, postmortem-followup |
+| Reliability/signals | application-operations: reliability-design, observability-operations |
+| Recovery/capacity/cost/upkeep | application-operations: protect-and-restore-data, plan-application-capacity, optimize-application-cost, operational-housekeeping |
+| Security maintenance | dependencies/harden plus operations vulnerability-management and credential-lifecycle |
+| Strategy and feedback | business-strategy: business-strategy, learn-from-product-feedback |
+| Architecture walkthroughs/presentations | visual-communication: architecture-diagraming, system-flow-explorer, presentation-building |
+
+For example, ask incident-response to investigate the current impact using existing action boundaries, or protect-and-restore-data to review isolated PostgreSQL restoration without deploying. An interview, incident publication, live restore or message requires its activity to be in scope. Business-opportunity-analysis remains a legacy compatibility entry; use business-strategy for new work.
+
+## Scheduled and event-triggered tasks
+
+The same task can start from a trusted automation prompt. The host configures cron/webhooks, credentials, permissions, concurrency and result delivery; these plugins do not install that infrastructure or a schedule.
+
+| Trigger | Task and expected result |
+| --- | --- |
+| Ticket enters refinement | refine the supplied context; return actionable work or decision blockers |
+| Agreed work becomes ready | implement the conversation/spec/optional tracker item |
+| PR becomes ready for review | review the exact base/head and required behavior/checks |
+| Scheduled update maintenance | dependencies under an explicit patch/PR/merge policy |
+| Scheduled architecture/performance assessment | improve to return evidence-backed opportunities; create work records only if authorized |
+
+Supply repository/ref or PR, objective/context, interactive/unattended mode, allowed actions and result destination in ordinary instructions. Example:
+
+> Use dependencies in unattended mode for update PRs in owner/repository. Review release notes, conflicts and relevant tests. Repair and merge only policy-eligible patch updates whose exact current head passes required checks/reviews and has no unresolved findings; leave other updates open with reasons. Reuse existing work and return per-PR results. Do not deploy.
+
+A tracker transition or untrusted PR body does not grant authority. Unattended tasks return precise missing decisions instead of asking an absent person or inventing requirements. Reruns reconcile partial effects and existing records; changed PR heads require new verification. The host/repository enforces privileged-action policy—skill prose alone does not provide a secure auto-merge mechanism.
+
+## Generic or stack-specific? Task or support?
+
+String metadata labels describe intended use: `scope` is generic/stack-specific, `stack` names matching technologies, `role` is task/support, and `invocation` is user/agent/both. Roles describe purpose, not permission. A trusted automation can explicitly invoke a user-labeled task. Native controls and client behavior determine discovery; labels alone do not enforce it.
+
+New task entry points are user-invocable and explicit-only. Most local supporting guidance is hidden from supporting clients' slash menus but remains relevant model context. Packaging hides upstream support entries only when upstream has no explicit visibility setting; native controls/resources are preserved and adaptations recorded. Optional fields/visibility vary by client; do not infer model compliance or enforcement from discovery. Supporting skills can still be named in an explicit plain-language request where supported.
 
 ## Skills agents use during your work
 
@@ -70,7 +119,7 @@ Agents select these when needed to carry out the request. You can also name loca
 | Project foundations | `project-conventions` for affected structure, commands and constraints | None required |
 | Documentation | `maintain-documentation` | `writing-for-agents` for agent instructions |
 | Prose editing | Follow the document's author and technical claims | `humanizer` |
-| Frontend development | `frontend-conventions` | Official shadcn, Tailwind design system, Vercel React/composition |
+| Frontend development | `frontend-conventions`, `design-interactions` for prior UX design and full-surface coverage | Official shadcn, Tailwind design system, Vercel React/composition |
 | Backend development | `backend-conventions` | `modern-python` |
 | AI development | `build-evaluated-ai` (local, not an upstream skill) | Chosen Google ADK or LangChain/LangGraph skills |
 | MCP interfaces | MCP section of `build-evaluated-ai`; reuse authorized application services | `mcp-builder`, in `ai-development`; prefer standalone Python FastMCP |
@@ -110,46 +159,6 @@ Examples:
 > Edit this PR description with humanizer. Keep the facts, commands and links intact and use my singular voice.
 
 For new projects, I prefer `applications/` for implementation and `documentation/` for knowledge, with short scoped `AGENTS.md` instructions. Keep existing layouts and accepted choices. Screenshots, reference repositories, schemas and architecture notes can supply context.
-
-## New and existing applications
-
-For a new application, `project-conventions` establishes a first useful journey and the commands/constraints needed to develop it. For an existing application, first discover its authoritative instructions, contracts, identity model and operating context; then inspect only the paths affected by the requested change. Preserve accepted layout, tools and UI. A full project review begins on request, while routine change assessment can stay inline.
-
-`deliver-reliable-changes` connects acceptance criteria to evidence: implemented, behavior verified, ready for deployment and verified after deployment. These describe what was demonstrated, not additional approval stages. A local build cannot establish a persisted journey or a successful deployment. Keep verification proportionate to the change and report unavailable checks.
-
-> Add read-only sharing to this existing application. Preserve its layout and UI. Use project-conventions to identify affected ownership/contracts, backend-conventions for grants and compatibility, frontend-conventions for the interaction, and deliver-reliable-changes for acceptance evidence. Verify private defaults and cross-user denial. Prepare a PR; do not deploy or merge.
-
-Backend conventions cover populated-schema evolution, resumable backfills, durable acceptance, duplicate delivery and partial-effect recovery. Frontend/backend deployment guidance covers actual production entrypoints, process/connection budgets and Next.js configuration/cache/rollout boundaries. Platform-specific details stay in their references; a small synchronous feature does not require a queue or shared cache.
-
-## Operations and architecture examples
-
-Add `application-operations` when operating a service or changing its reliability and recovery contracts. Its [selection guide](../plugins/application-operations/OPERATIONS.md) distinguishes policy, signals, response and follow-up. These are local skills adapted from the supplied portable collection, not newly acquired upstream packages. Match stack-specific skills to the actual runtime.
-
-> Map the checkout journey with system-mapping, define its completion and latency indicators with reliability-design, and instrument the accepted contract with observability-operations. Use existing tooling and mark assumptions and unverified signals.
-
-> Investigate this active incident with incident-response. Preserve the current action boundaries; distinguish mitigation from verified customer recovery. Draft a postmortem after stabilization without starting an interview or publishing it.
-
-> Use system-flow-explorer to build an offline walkthrough of this API's success and failure paths. Cite repository evidence, distinguish proposed parts, and deliver the HTML and source JSON. Do not change the application.
-
-> Review these Kubernetes manifests with kubernetes-resource-engineering and plan-application-capacity. This service runs Python: do not apply JVM settings. Report proposed changes and checks; do not deploy.
-
-The explorer's JSON contract serves that artifact only. It is not a repository architecture schema. Read-only inventories and static diagrams can use system-mapping or architecture-diagraming without the renderer.
-
-### k6 execution modes
-
-`test-application-performance` guides local runs, a workflow that starts the application/database/workers on the CI runner and executes k6 there, and a separate workflow against a deployed non-production environment. Scenarios are reused with explicit profiles/targets. Runner checks catch bounded regressions; deployed checks verify the actual environment. The agent creates the application-specific scripts/workflows in the target repository when requested; this plugin does not contain a generated application or ready-to-deploy pipeline.
-
-> Add a k6 suite for this application's critical API journey. Provide a local command, a CI runner job that starts and migrates an isolated application stack, and a manually triggered non-production job. Define workload/threshold assumptions, preserve failing exit codes and collect results even on failure. Do not execute against a deployed environment yet.
-
-### Compatibility, configuration and maintenance
-
-Backend conventions cover behavioral API/event compatibility as well as schema shape, with consumer-driven contracts optional for independent consumers. Project conventions and delivery pipelines cover typed settings, effective configuration revisions, flags and supported-version upgrades. Deliver-reliable-changes governs test-suite upkeep and deliberate deprecation/removal. These are focused parts of ordinary work, not separate compulsory workflows.
-
-> Verify that a slow provider produces a bounded failure without blocking unrelated reads. Use test-application-resilience with owned local fixtures and explicit recovery checks. Do not inject faults into shared staging or send real notifications.
-
-> Review this configuration-only release and list-endpoint change. Preserve supported consumers, inspect the effective target configuration and flag states, and report the relevant verification/recovery evidence. Do not silently accept a flaky required check or remove old callers without evidence.
-
-Choose additional domain practices from actual requirements: tenant quotas/deprovisioning for SaaS, financial reconciliation for money movement, index freshness/rebuilds for search, broader localization/accessibility for relevant audiences, and provider-specific state/drift handling for cloud infrastructure. The general bundles do not impose these architectures or replace the application's domain decisions.
 
 ## AI and MCP plugin selection
 

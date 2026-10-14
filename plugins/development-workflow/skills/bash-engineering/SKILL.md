@@ -1,11 +1,15 @@
 ---
 name: bash-engineering
-description: "Create, refactor and audit reliable Bash CLI utilities, build/operations scripts and CI action entrypoints with safe argument handling, explicit failure semantics, portability, testable side effects and useful documentation."
+description: Create, refactor and audit reliable Bash CLI utilities, build/operations
+  scripts and CI action entrypoints with safe argument handling, explicit failure
+  semantics, portability, testable side effects and useful documentation.
 metadata:
   scope: stack-specific
   invocation: both
   stack: Bash
-  version: "1.0"
+  version: '1.0'
+  role: support
+user-invocable: false
 ---
 
 # Bash engineering

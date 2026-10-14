@@ -6,6 +6,8 @@ description: Implement, review and prepare application changes for delivery with
 metadata:
   scope: generic
   invocation: both
+  role: support
+user-invocable: false
 ---
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
@@ -67,3 +69,5 @@ Keep unit/integration/contract/browser suites aligned with their claims. Diagnos
 For deprecation/removal, identify users and consumers from code/configuration plus appropriate usage evidence; absence from sampled telemetry is not proof of no use. Preserve supported contracts while migrating callers and draining queued/scheduled work. Define the owner, compatibility period/exit criteria and fallback; use the project's communication workflow, with sending only when authorized. Resolve data retention/export/recovery needs before destruction. Remove related flags, credentials/grants, jobs/routes, infrastructure and documentation only after dependencies and retention obligations are addressed. Verify intended behavior and resource state; record residual obligations and untested steps without requiring a new retirement registry.
 
 Use `test-application-resilience` for relevant failure/recovery claims. Do not replace a performance suite with faults or trigger live experiments during routine feature work.
+
+For substantial UI changes require a defined interaction direction and affected-surface coverage before implementation, then use design-interactions when available to verify the complete scope. For backend changes establish behavior/contracts first and reconcile every affected endpoint/job/tool. Fixing a representative example does not establish a completed global change.

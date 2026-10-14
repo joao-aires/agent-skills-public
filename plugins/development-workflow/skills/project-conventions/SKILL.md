@@ -7,6 +7,8 @@ description: Establish or maintain an application repository's structure, stack 
 metadata:
   scope: generic
   invocation: both
+  role: support
+user-invocable: false
 ---
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.

@@ -15,6 +15,7 @@ metadata:
   version: '2.0'
   scope: generic
   invocation: user
+  role: task
 ---
 
 # Architecture Mapper

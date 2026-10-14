@@ -10,6 +10,7 @@ metadata:
   deprecated: 'true'
   scope: generic
   invocation: user
+  role: task
 ---
 
 # Business Opportunity Analysis — Legacy Compatibility

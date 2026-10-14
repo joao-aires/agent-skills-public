@@ -1,11 +1,15 @@
 ---
 name: python-automation-engineering
-description: "Design, implement, review and maintain useful Python operational automations and reporting tools with ergonomic CLIs, typed boundaries, reproducible projects, complete API collection, resumable mutations and verified outcomes."
+description: Design, implement, review and maintain useful Python operational automations
+  and reporting tools with ergonomic CLIs, typed boundaries, reproducible projects,
+  complete API collection, resumable mutations and verified outcomes.
 metadata:
   scope: stack-specific
   invocation: both
   stack: Python
-  version: "1.0"
+  version: '1.0'
+  role: support
+user-invocable: false
 ---
 
 # Python automation engineering

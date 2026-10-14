@@ -1,10 +1,13 @@
 ---
 name: postmortem-facilitation
-description: "Reconstruct incident history, conduct a focused blameless evidence-led interview and generate or review a postmortem with causal analysis, uncertainty, impact and measurable learning actions."
+description: Reconstruct incident history, conduct a focused blameless evidence-led
+  interview and generate or review a postmortem with causal analysis, uncertainty,
+  impact and measurable learning actions.
 metadata:
   scope: generic
   invocation: both
-  version: "1.1"
+  version: '1.1'
+  role: task
 ---
 
 # Postmortem facilitation

@@ -11,6 +11,7 @@ metadata:
   version: '1.0'
   scope: generic
   invocation: user
+  role: task
 ---
 
 # Presentation Builder

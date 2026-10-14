@@ -7,6 +7,7 @@ description: Design or review application capacity, concurrency and scaling for 
 metadata:
   scope: generic
   invocation: both
+  role: task
 ---
 
 # Plan application capacity

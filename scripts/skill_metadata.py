@@ -30,6 +30,8 @@ def validate_skill_metadata(skill):
             raise ValueError(f'Missing skill stack label: {skill}')
         if 'invocation' in labels and labels['invocation'] not in {'user', 'agent', 'both'}:
             raise ValueError(f'Invalid skill invocation label: {skill}')
+        if 'role' in labels and labels['role'] not in {'task', 'support'}:
+            raise ValueError(f'Invalid skill role: {skill}')
     if 'compatibility' in metadata:
         value = metadata['compatibility']
         if not isinstance(value, str) or not value.strip() or len(value) > 500:
@@ -40,4 +42,6 @@ def validate_skill_metadata(skill):
             raise ValueError(f'Skill metadata must map strings to strings: {skill}')
     if not isinstance(metadata.get('disable-model-invocation', False), bool):
         raise ValueError(f'Invalid invocation flag: {skill}')
+    if not isinstance(metadata.get('user-invocable', True), bool):
+        raise ValueError(f'Invalid user-invocable flag: {skill}')
     return metadata

@@ -1,10 +1,13 @@
 ---
 name: operational-housekeeping
-description: "Plan and run recurring operational reviews of capacity, artifact retention, backup activity, dependency queues, expiring access, scheduled environments, and runbook ownership."
+description: Plan and run recurring operational reviews of capacity, artifact retention,
+  backup activity, dependency queues, expiring access, scheduled environments, and
+  runbook ownership.
 metadata:
   scope: generic
   invocation: both
-  version: "2.0"
+  version: '2.0'
+  role: task
 ---
 
 # Operational housekeeping

@@ -7,6 +7,8 @@ description: Design, implement or review features with security and privacy buil
 metadata:
   scope: generic
   invocation: both
+  role: support
+user-invocable: false
 ---
 
 # Design secure features

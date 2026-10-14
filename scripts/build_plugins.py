@@ -66,13 +66,27 @@ def adapt_skill(target, source):
     adaptations = source.get('adaptations', [])
     if not adaptations:
         return
-    if set(adaptations) - {'workflow-framing', 'documentation-paths', 'string-metadata', 'inline-adversarial-review', 'frontend-framing', 'backend-framing', 'ai-framing', 'usage-labels', 'tracker-neutral'}:
+    if set(adaptations) - {'workflow-framing', 'documentation-paths', 'string-metadata', 'inline-adversarial-review', 'frontend-framing', 'backend-framing', 'ai-framing', 'usage-labels', 'tracker-neutral', 'support-visibility', 'implementation-entrypoint'}:
         raise ValueError('Unknown upstream adaptation')
     for document in target.rglob('*.md'):
         text = document.read_text()
         if 'documentation-paths' in adaptations:
             text = text.replace('docs/agents/', 'documentation/engineering/').replace('docs/adr/', 'documentation/decisions/adr/')
         if document.name == 'SKILL.md' and document.parent == target:
+            if 'support-visibility' in adaptations or 'implementation-entrypoint' in adaptations:
+                import yaml
+                parts = text.split('---', 2)
+                metadata = yaml.safe_load(parts[1])
+                if 'support-visibility' in adaptations:
+                    # Preserve explicit upstream controls, including an explicit true.
+                    metadata.setdefault('user-invocable', False)
+                if 'implementation-entrypoint' in adaptations:
+                    if metadata.get('name') != 'implement':
+                        raise ValueError('Implementation framing requires implement')
+                    metadata.setdefault('user-invocable', True)
+                    metadata['description'] = 'Implement agreed work from a conversation, local spec or optional tracker, with repository conventions, design readiness, verification and contribution flow.'
+                    parts[2] = '\n\nRead [task guidance](../../TASKS.md) for scope, unattended blockers, design readiness and feature-worktree contributions. Use the agreed request without requiring tickets; commit to the objective\'s feature branch, preserving unrelated work. Significant UI interactions and backend behavior contracts must be established before implementation.\n' + parts[2]
+                text = '---\n' + yaml.safe_dump(metadata, sort_keys=False, allow_unicode=True) + '---' + parts[2]
             if 'usage-labels' in adaptations or 'tracker-neutral' in adaptations:
                 import yaml
                 parts = text.split('---', 2)

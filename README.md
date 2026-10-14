@@ -4,13 +4,15 @@ I use these Markdown skill bundles to build and operate applications and explore
 
 For a full-stack application, start with `development-workflow`, `python-backend` and `web-frontend`. Add `ai-development` for AI features or MCP interfaces; add other bundles as needed.
 
+Start with `develop` for a rough idea through implementation, or choose `refine`, `design`, `implement`, `test` or `review` for a specific activity. Use `workflow-help` for the available menu and examples. The [usage guide](documentation/usage.md) maps tasks to the SDLC and explains end-to-end work, design-first UX and unattended execution. Command names may be plugin-qualified by your client.
+
 ## Choose your plugins
 
 | Plugin | What it contributes | Included upstream expertise |
 | --- | --- | --- |
 | [development-workflow](plugins/development-workflow/) | Project conventions, system mapping, shell automation, documentation, Git/PRs, E2E, k6 and resilience testing, CI/CD and security | Matt Pocock, Humanizer, Playwright, GitHub Actions hardening, Trail of Bits |
 | [python-backend](plugins/python-backend/) | FastAPI, SQLAlchemy/Alembic, PostgreSQL, durable work and Python automation | Modern Python |
-| [web-frontend](plugins/web-frontend/) | Next.js, Tailwind v4, shadcn, consistent UI/UX and accessibility | Official shadcn, Tailwind design system, Vercel React/composition |
+| [web-frontend](plugins/web-frontend/) | Next.js, Tailwind v4, shadcn, design-first interaction/surface coverage, consistent UI/UX and accessibility | Official shadcn, Tailwind design system, Vercel React/composition |
 | [ai-development](plugins/ai-development/) | AI features, agents, MCP interfaces and evaluation | Google ADK, LangChain/LangGraph, MCP builder |
 | [application-operations](plugins/application-operations/) | Reliability, observability, incidents and learning, recovery, security upkeep, capacity and cost | AKS cost optimization, for Azure AKS only |
 | [business-strategy](plugins/business-strategy/) | Strategy, opportunity analysis and product feedback | Original skills and resources |

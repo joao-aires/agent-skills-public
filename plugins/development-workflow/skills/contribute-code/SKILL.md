@@ -7,6 +7,8 @@ description: Develop a feature in an isolated Git worktree, make Conventional Co
 metadata:
   scope: generic
   invocation: both
+  role: support
+user-invocable: false
 ---
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.

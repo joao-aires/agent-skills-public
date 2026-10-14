@@ -7,6 +7,7 @@ description: Analyze user feedback and product usage to evaluate outcomes, ident
 metadata:
   scope: generic
   invocation: both
+  role: task
 ---
 
 # Learn from product feedback

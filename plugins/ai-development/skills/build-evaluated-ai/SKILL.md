@@ -8,6 +8,8 @@ metadata:
   scope: stack-specific
   invocation: both
   stack: Gemini, Google ADK, LangChain, LangGraph, FastMCP
+  role: support
+user-invocable: false
 ---
 
 # Build evaluated AI features

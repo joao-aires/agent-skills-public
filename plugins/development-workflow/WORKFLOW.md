@@ -2,6 +2,8 @@
 
 Read the project's AGENTS.md and accepted decisions, then choose skills for the requested work. Local guidance sets defaults; upstream skills supply compatible techniques. The [usage guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/usage.md) lists activities, sources and generic/stack-specific labels.
 
+Read [task guidance](TASKS.md) for the task menu, end-to-end develop flow and interactive/unattended execution. Explicit-only tasks are not automatic substeps; supporting guidance supplies methods within the authorized objective.
+
 ## Invocation
 
 User-invoked activities begin on request. Agent-invoked guidance supports work already requested. Local skills marked `both` can do either; their descriptions still define scope. For example, `project-conventions` starts full setup/reorganization only on request and guides focused upkeep during ordinary work. A plain-language request can express intent; client command syntax and enforcement vary.
