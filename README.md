@@ -66,7 +66,7 @@ agy plugin install "$AGENT_PLUGINS_DIR/web-frontend"
 agy plugin list --json
 ```
 
-Installation and all 56 skills were checked with `agy` 1.3.5. Authenticate through the client's sign-in flow before model work. Generation trials are [planned separately](documentation/maintainer-reference.md#generation-trials); installation does not establish execution behavior.
+Installation and all 56 skills were checked with `agy` 1.3.5. Authenticate through the client's sign-in flow before model work. The [generation-trial specification](documentation/maintainer-reference.md#generation-trials) is harness-independent; `agy` is my local runner choice. Installation does not establish execution behavior.
 
 </details>
 

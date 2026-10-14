@@ -163,7 +163,7 @@
   ],
   "generation_trials": [
     {
-      "id": "agy-new-application",
+      "id": "new-application",
       "phases": [
         {
           "task": "setup",
@@ -183,7 +183,7 @@
       ]
     },
     {
-      "id": "agy-existing-open-source",
+      "id": "existing-open-source",
       "repository": "https://github.com/fastapi/sqlmodel",
       "revision": "85fca80c98826ec439b543192ac0dbfec4d1e305",
       "phases": [
@@ -204,7 +204,7 @@
       ]
     },
     {
-      "id": "agy-small-change-routing",
+      "id": "small-change-routing",
       "phases": [
         {
           "task": "implement",
