@@ -8,7 +8,7 @@ jobs:
   validate:
     name: Validate plugin packages
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - name: Check out repository
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
@@ -22,5 +22,16 @@ jobs:
         run: python scripts/validate_plugins.py
       - name: Run packaging regression tests
         run: python -m unittest discover -s tests -v
+      - name: Check documentation links and skill names
+        run: python scripts/check_collection.py
+      - name: Build every pinned plugin
+        run: >-
+          python scripts/build_plugins.py
+          --plugin development-workflow --plugin python-backend --plugin web-frontend
+          --plugin ai-development --plugin application-operations
+          --plugin business-strategy --plugin visual-communication
+          --destination "$RUNNER_TEMP/built-plugins"
+      - name: Check complete inventory and local resources
+        run: python scripts/check_collection.py --built "$RUNNER_TEMP/built-plugins"
       - name: Check system flow explorer
         run: python plugins/visual-communication/skills/system-flow-explorer/scripts/smoke_test.py

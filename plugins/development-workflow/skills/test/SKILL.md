@@ -1,7 +1,7 @@
 ---
 name: test
 description: Select, add where needed and run checks for the current change or named
-  journey, component or application. Use for unit/integration/contract/browser verification
+  journey, component or application. Use for unit/integration/contract/web/desktop/mobile verification
   and relevant performance/resilience checks within the authorized target scope.
 user-invocable: true
 disable-model-invocation: true
@@ -13,9 +13,8 @@ metadata:
 
 # Test
 
-Read [task guidance](../../TASKS.md). Resolve the target from the supplied scope/current change and project instructions. Use deliver-reliable-changes to select meaningful checks and existing required suites. Add missing coverage for requested behavior where needed; do not silently alter production behavior, weaken assertions or inflate retries to pass.
+Read [task guidance](../../TASKS.md). Read [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for evidence and suite health, [journey-testing](../journey-testing/SKILL.md) for changed user journeys. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
 
-Use actual persistence/authorization contracts for full-stack claims, journey-testing for browser journeys, performance-testing for load and resilience-testing for relevant bounded failures. A bare test request does not authorize deployed load or fault injection. Execute supported checks, diagnose failures and distinguish application defects, fixture/environment issues and unexecuted checks. Return results, artifacts, actual boundaries and next action; a green build alone does not establish behavior.
+Resolve the target from the supplied scope/current change and project instructions. Use deliver-reliable-changes to select meaningful checks and existing required suites. Add missing coverage for requested behavior where needed; do not silently alter production behavior, weaken assertions or inflate retries to pass.
 
-
-Use deliver-reliable-changes for a scenario-led feedback loop: establish expected outcomes before code, run affected checks and real-platform journey evaluation after meaningful increments, inspect telemetry/state, repair discrepancies and recheck. Broaden regression coverage before completion. Keep accepted criteria and baselines independent of the generated result, and report repeated failures or unavailable execution as blockers instead of inventing success.
+Use actual persistence/authorization contracts for full-stack claims, journey-testing for web/desktop/mobile journeys, performance-testing for load and resilience-testing for relevant bounded failures. A bare test request does not authorize deployed load or fault injection. Execute supported checks, diagnose failures and distinguish application defects, fixture/environment issues and unexecuted checks. Return results, artifacts, actual boundaries and next action; a green build alone does not establish behavior.

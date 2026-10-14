@@ -55,6 +55,22 @@ Append `skill list --json` to inspect discovery without starting a model session
 </details>
 
 <details>
+<summary>Antigravity CLI (agy)</summary>
+
+Install the complete built bundles, then inspect discovery:
+
+```bash
+agy plugin install "$AGENT_PLUGINS_DIR/development-workflow"
+agy plugin install "$AGENT_PLUGINS_DIR/python-backend"
+agy plugin install "$AGENT_PLUGINS_DIR/web-frontend"
+agy plugin list --json
+```
+
+Installation and all 56 skills were checked with `agy` 1.3.5. Authenticate through the client's sign-in flow before model work. Generation trials are [planned separately](documentation/maintainer-reference.md#generation-trials); installation does not establish execution behavior.
+
+</details>
+
+<details>
 <summary>VS Code</summary>
 
 For versions supporting Agent Plugins, merge the individual absolute paths into user settings:
@@ -107,4 +123,4 @@ The bundles contain guidance and resources, without generated applications, conf
 
 ## Contributing
 
-Keep guidance concise and project-independent. Run `python scripts/validate_plugins.py` and `python -m unittest discover -s tests -v` after changes. Local material is MIT; upstream resources retain their own licenses. See [AGENTS.md](AGENTS.md) and the [maintainer checks](documentation/maintainer-reference.md#maintaining-the-collection).
+Keep guidance concise and project-independent. Run `python scripts/validate_plugins.py`, `python scripts/check_collection.py` and `python -m unittest discover -s tests -v` after changes. Local material is MIT; upstream resources retain their own licenses. See [AGENTS.md](AGENTS.md) and the [maintainer checks](documentation/maintainer-reference.md#maintaining-the-collection).

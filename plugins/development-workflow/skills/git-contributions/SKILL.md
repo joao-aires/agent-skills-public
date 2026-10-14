@@ -19,7 +19,7 @@ Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation bo
 
 Identify the target repository from the supplied workspace. Read its AGENTS.md and contribution conventions; inspect status, remotes, base branch and existing worktrees. Use the intended base, not an arbitrary currently checked-out branch. Confirm unclear repository/base choices before dependent actions; preserve unrelated local changes.
 
-For a new feature, fetch the intended remote when available and create a named branch in a separate worktree. Place it beside the repository or in the workspace's designated worktree area. Use that worktree for all code, tests, migrations, docs and CI changes belonging to the objective. Keep unrelated changes out of the feature.
+Use one separate worktree per feature objective, including its tests/docs/configuration; reuse it throughout that objective. For a new feature, fetch the intended remote when available and create a named branch in a separate worktree. Place it beside the repository or in the workspace's designated worktree area. Use that worktree for all code, tests, migrations, docs and CI changes belonging to the objective. Keep unrelated changes out of the feature.
 
 Adapt these example paths, branch and base to the inspected repository:
 
@@ -33,6 +33,10 @@ git -C /workspace/application worktree add -b feat/saved-searches \
 ```
 
 Continue in an existing worktree for the same objective rather than creating another branch or PR on every turn. If `implement`/`implement-spec` orchestrates work, use the feature workspace as the integration worktree; base any parallel worktrees on its integration branch. Do not create conflicting orchestration. If worktrees are unavailable, state the limitation and use an agreed supported isolation approach without claiming a worktree exists. Never force-remove another agent's worktree or reset/stash the user's edits to make setup convenient.
+
+## Verify before committing
+
+Use the repository's documented quality commands and hook runner. Run affected lint/format/type checks while editing and fast staged checks before a commit; CI must independently repeat required checks. For setup decisions use [project-conventions](../project-conventions/SKILL.md#establish-focused-quality-checks). Verify hook installation for the actual worktree and preserve hooksPath/partial staging. Inspect formatter edits, restage intended hunks only, redact secret-scan output and resolve failures without silently bypassing the checks.
 
 ## Commit the objective clearly
 

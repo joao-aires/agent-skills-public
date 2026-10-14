@@ -6,6 +6,7 @@ Source selection, acquisition rules and validation evidence for this repository.
 - [Source selection](#source-selection): reference applications and compatibility decisions.
 - [Matt Pocock selection](#matt-pocock-selection): each retained or excluded skill.
 - [Maintaining the collection](#maintaining-the-collection): update and validation checks.
+- [Generation trials](#generation-trials): executable workflow evaluation with `agy`.
 
 ## Upstream catalogue
 
@@ -160,10 +161,11 @@ For an upstream update, review source/license changes, update full commit/tree p
 
 ```bash
 python scripts/validate_plugins.py
+python scripts/check_collection.py
 python -m unittest discover -s tests -v
 ```
 
-Also check changed Markdown links/anchors, render meaningful diagrams and verify packaged local-resource parity. Preserve upstream names, native controls, dependency groups and notices. The older creator validator omits some native optional fields; repository validation checks those types. A package check proves packaging, not application behavior.
+CI also builds all seven bundles from their pins and runs `scripts/check_collection.py --built <destination>` to check complete skill inventories, source notices, local-resource byte parity and duplicate names. The source check covers maintained entry points and reader guides, relative links/headings and obsolete names from the migration table; it does not fetch external URLs or parse every example in preserved resources. Render meaningful diagram changes separately. Preserve upstream names, native controls, dependency groups and notices. The older creator validator omits some native optional fields; repository validation checks those types. A package check proves packaging, not application behavior.
 
 ### Evaluate engineering behavior
 
@@ -173,12 +175,40 @@ For planning checks, give a fresh agent raw task/context, selected skills and ex
 
 Record task/application/skill revisions, client/model configuration, supplied context, actual commands/results and corrective interventions. Keep sensitive data out. Distinguish guidance failures from missing capabilities and planning success from execution success. Repair demonstrated failures and rerun the affected case independently. Cases do not scaffold an application or run automatically in CI.
 
+### Generation trials
+
+The `generation_trials` section in [the evaluation cases](../evals/development-workflows.json) contains raw phase prompts and separate evaluator criteria. These are manual application trials, not another scaffold or agent runtime.
+
+| Trial | Acting phases | Evidence to collect |
+| --- | --- | --- |
+| New saved-search application | setup, agreed answers, develop | Actual startup/migrations, private persisted journeys, rendered UI, checks, feature worktree and local commit |
+| Existing SQLModel library | improve, approve one scoped finding, implement | Reproduction/baseline, focused implementation, repository checks, preserved tools/contracts and local commit |
+| Small documentation change | implement | Proportionate support selection and verification without full application ceremony |
+
+Run these in disposable repositories with no production credentials or remotes accepting writes. Build the required bundles, validate each with `agy plugin validate <bundle>`, install using the client's local plugin route, and inspect `agy plugin list --json`. Preserve complete bundles and relative resources. Confirm authentication and permitted shell/file/browser tools before starting; package validation alone does not establish discovery or execution.
+
+Pass only the selected raw phase prompt to the acting agent, together with the repository, installed guidance and product context. Keep evaluation criteria and previous diagnoses outside its accessible trial directory. After setup, answer consequential questions and save the accepted answers as ordinary project context. After the OSS assessment, approve one evidence-backed change before implementation; no valid finding means select another bounded task, not invent a defect. Keep phase continuity in the same conversation and begin independent reruns from a fresh checkout/context.
+
+For a headless phase, use `agy -p '<phase prompt>' --output-format stream-json --print-timeout 20m` from the target repository and capture stdout/stderr outside it. The timeout is a run limit, not evidence of failure or success. Use the installed client's documented conversation continuation option for subsequent phases. Inspect tool events, soft denials, diffs and actual commands: exit zero alone is insufficient. Grant only the disposable trial's required capabilities; do not solve denied commands by disabling permissions globally. Never put sign-in codes or credentials in the prompts or traces.
+
+Before execution, record repository and built-guidance revisions, CLI/model/version, installed inventory, tool availability and allowed actions. Independently record baseline behavior and acceptance checks. Retain redacted traces, actually read skill paths, commands/results, final diff/commit, runtime evidence, interventions and resource/time usage when reported. Separate a model/tool limitation from bad instructions. Require working behavior and accurate reporting; a single trial is not a quality guarantee.
+
+First run the complete bundles. Then repeat the same briefs against the same application baseline, model, tools and permissions with pristine upstream skills and their native dependency groups, without local adapters or dangling local guidance links. If their native prerequisites require unavailable external setup, record that limitation instead of changing invocation controls or inventing a tracker. Keep ordinary product context and safety boundaries identical; state that the baseline omits local conventions. Rerun demonstrated failures after a focused repair. Compare behavior, unnecessary work, missed guidance, repeated reading and available token/latency measurements; do not infer dependency value from word count alone.
+
+### Reduce repetition from observed use
+
+Each rule has an owner: TASKS for request/automation scope, WORKFLOW for upstream project fit, project-conventions for repository foundations, git-contributions for contribution mechanics, deliver-reliable-changes for completion evidence, and specialist skills for their methods. Task entry points link those owners with relevance conditions. Optional bundles are resolved from actual inventory; there is no new dependency registry or automatic invocation of explicit-only tasks.
+
+I removed the copied completion paragraph from develop/test and linked the existing owner. Keep a short safety boundary beside a live action when losing it would change authority. After the trials, inspect which guidance was actually loaded, which duplicate text affected behavior, and whether a pointer was missed. Consolidate one repeated rule at a time, then rerun the affected full and small-change trials before removing further text. Preserve upstream bodies/resources and record any adapter change. This avoids a speculative rewrite of the whole collection.
+
 ### Recorded evidence and limits
 
-The collection contains seven plugins, 48 local skills and 37 pinned upstream skills. The documentation revision passed 16 repository tests, metadata/containment checks, 251 relative link/heading checks, all-seven-plugin builds and local-resource byte parity. Copilot CLI 1.0.95 previously discovered all 85 skills through isolated session-local mounts without old-name duplicates. The README three-plugin loading/discovery route was rechecked with 56 plugin skills, including every advertised task/convention entry point. The unchanged SDLC SVG had been rendered and inspected; original architecture references remained byte-identical after renaming. Earlier revision-specific records remain in Git history.
+The collection contains seven plugins, 48 local skills and 37 pinned upstream skills. The generation follow-up passed 18 repository tests, metadata/containment checks, 223 maintained relative link/heading checks, all-seven-plugin builds and local-resource byte parity. CI now runs those collection checks alongside the explorer smoke checks. The checker covers a narrower explicit maintained-document set than the earlier manual resource-link review. Copilot CLI 1.0.95 previously discovered all 85 skills through isolated session-local mounts without old-name duplicates. The README three-plugin loading/discovery route was rechecked with 56 plugin skills, including every advertised task/convention entry point. The unchanged SDLC SVG had been rendered and inspected; original architecture references remained byte-identical after renaming. Earlier revision-specific records remain in Git history.
 
 Fresh planning exercises covered project scope, migrations/authority, durable effects, releases/recovery, k6/fault boundaries, global UI interactions, unattended dependency policy, Electron evidence and two-worktree AI/telemetry setup. A separate disposable Git exercise executed a feature, tests, Conventional Commit and local-remote push while preserving unrelated edits; it did not publish a live GitHub PR. Explorer smoke checks exercised supplied/fresh models and HTML rendering. Browser verification was blocked by missing Chromium.
 
 Direct Copilot installation was tried earlier, but CLI 1.0.95 warned that route was deprecated and a reinstall dropped an unrelated inventory entry; the README therefore uses session-local loading. VS Code configuration follows official documentation and has not been exercised. Discovery does not establish menu filtering, model compliance or universal client enforcement.
+
+For the generation follow-up, I installed `agy` 1.3.5, then validated and installed the three default built packages through its local plugin route. Its inventory lists all 56 skills (47 workflow, three backend and six frontend), with complete package resources; workflow version is 0.17.0. This establishes installation/discovery, not model compliance. A minimal headless probe required a new Google sign-in and exited without generating a response; the host's existing session was unavailable here. The pinned SQLModel checkout is prepared, but neither application-generation trial has run. Docker is also unavailable in this environment, so Compose execution remains blocked independently of sign-in.
 
 No full application trial, Compose stack, telemetry ingestion, native-device run, live AI quality evaluation, application load/fault test or live deployment/restore was established by these repository checks. Reference-lookup avoidance of 90 to 95% remains an unmeasured design goal. Source decisions and package tests do not establish compliance, savings or production quality. Specialist tool selection and current provider/platform documentation remain contextual; the relevant skill owns those details.

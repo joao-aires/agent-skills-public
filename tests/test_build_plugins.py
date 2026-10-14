@@ -44,6 +44,8 @@ class InstallationTests(unittest.TestCase):
             self.assertTrue(metadata['user-invocable'])
             self.assertTrue(metadata['disable-model-invocation'])
             self.assertIn('../../TASKS.md', text)
+            self.assertIn('../git-contributions/SKILL.md', text)
+            self.assertIn('../deliver-reliable-changes/SKILL.md', text)
             self.assertTrue(text.endswith('\nOriginal implementation workflow\n'))
 
     def test_frontend_framing_preserves_metadata_and_body(self):

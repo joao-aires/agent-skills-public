@@ -81,3 +81,12 @@ For deprecation/removal, identify users and consumers from code/configuration pl
 Use `resilience-testing` for relevant failure/recovery claims. Do not replace a performance suite with faults or trigger live experiments during routine feature work.
 
 For substantial UI changes require a defined interaction direction and affected-surface coverage before implementation, then use interaction-design when available to verify the complete scope. For backend changes establish behavior/contracts first and reconcile every affected endpoint/job/tool. Fixing a representative example does not establish a completed global change.
+
+
+## Recognize sufficient evidence
+
+For an edit flow, "the build passed and Save returned 200" leaves persistence and failure behavior unverified. Useful evidence is "edited as user A; values survived reload; a rejected save retained the draft; user B could not mutate A's record", with actual commands/artifacts and any mocked boundary stated. Do not report this example as a result unless it was executed.
+
+A useful UI finding names the surface and reproduction: "On Billing at narrow width, open Edit, submit an invalid amount, then close: focus moves to the document instead of the invoking row action; keyboard navigation loses its place." Link evidence and the shared/overridden pattern affected, rather than rating the whole UI from one screenshot.
+
+For a design assumption, "reuse the accepted sidebar and tokens" can be reversible. "All workspace users can read client records" changes authority and needs an accepted product decision. For a migration, HTTP success alone cannot prove a backfill completed or preserved ambiguous records; verify stored invariants at the actual database boundary.

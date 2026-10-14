@@ -65,3 +65,6 @@ For routine runtime/library/base-image upgrades, review supported versions and r
 
 
 For application-on-runner checks, reuse the supported Compose services/configuration with isolated project/data/ports and explicit migrations, seed and readiness. Preserve failure exit status while collecting test screenshots/traces, service logs and correlated diagnostic evidence; clean up owned resources even on failure. Keep fast deterministic checks routine and heavier platform, visual, load/fault and real-model evaluations at appropriate risk-based milestones. Use appropriate native runners/devices for desktop/mobile checks. A Compose backend run does not prove native-client behavior; missing platform coverage stays visible.
+
+
+For language/configuration/secret checks use the project's individual pinned tools and commands, selected by project-conventions. Keep local/hook and CI semantics aligned; CI checks the intended diff/full tree independently of developer hooks. YAML syntax checks do not replace actionlint's workflow checks, and staged Gitleaks checks do not establish clean history. Capture redacted useful failures and preserve nonzero exits. Do not add Super-Linter as a blanket dependency.

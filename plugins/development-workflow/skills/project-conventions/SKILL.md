@@ -40,6 +40,14 @@ For shared saved searches, inspect existing ownership and all affected reads/wri
 
 Use the relevant backend/frontend/AI skills and installed upstream expertise; do not assume a reference is installed. Preserve compatible installed UI/UX guidance without redistributing private material. Capture repeated corrections as a short scoped instruction or an executable check, rather than accumulating generic rules.
 
+## Establish focused quality checks
+
+For new projects configure the checks relevant to the actual files: Python Ruff lint/format and a compatible type checker; JS/TS ESLint and the project's formatter/type checker; YAML yamllint, GitHub Actions actionlint, shell ShellCheck, and Gitleaks secret detection where applicable. Preserve accepted tools in existing projects rather than installing a second equivalent stack. Keep tool versions/configuration reproducible and avoid an all-in-one Super-Linter dependency.
+
+Use prek for a new local Git-hook runner when suitable; retain working pre-commit, Lefthook or other accepted setups. Pre-commit hooks run on the staged change; pre-push can run broader checks. These are local feedback mechanisms, distinct from server-side pre-receive hooks. CI repeats required checks over an explicit change range or full tree and is authoritative because local hooks can be absent or bypassed. A clean staged scan is not a clean history scan.
+
+Document exact install/run commands, file ownership, exclusions and when to run each check in scoped AGENTS.md. Run affected lint/format/type checks during implementation, fast staged checks before commits and required broader checks before PR readiness. Keep slow integration/platform/load checks outside every commit. Handle partially staged files carefully: inspect formatter edits and restage only the intended hunks. Do not hide findings, dump detected secrets into artifacts, rewrite history, replace global hooks or bypass checks to obtain a green result. Inspect hooksPath and worktree behavior; install/verify repository-local shims without overwriting unrelated configuration. See [quality-check references](references/quality-checks.md).
+
 ## Provide a reproducible local environment
 
 For new containerizable services, default to Docker Compose for the frontend/API/workers and their actual dependencies: database, Redis/Valkey, queues, object storage or local email capture only where needed. Preserve a working existing setup unless changing it is in scope. Keep app-specific Compose/configuration beside application/development infrastructure and root entry commands as useful; do not move provider-required files or impose a template. Host-native hot reload can use the same dependencies when documented.

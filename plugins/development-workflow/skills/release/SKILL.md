@@ -14,6 +14,8 @@ metadata:
 
 # Release
 
-Read [task guidance](../../TASKS.md). Resolve the objective: prepare/readiness review or an authorized publish/deploy/recover action against an identified target. Use delivery-pipelines and relevant stack/operations guidance for immutable artifact identity, actual configuration, schema/data/consumer compatibility, test gates and recovery. Preserve established authorization without repeated ceremony; an unspecified target/action stays a blocker to execution.
+Read [task guidance](../../TASKS.md). Read [delivery-pipelines](../delivery-pipelines/SKILL.md) for readiness, promotion and recovery. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+
+Resolve the objective: prepare/readiness review or an authorized publish/deploy/recover action against an identified target. Use delivery-pipelines and relevant stack/operations guidance for immutable artifact identity, actual configuration, schema/data/consumer compatibility, test gates and recovery. Preserve established authorization without repeated ceremony; an unspecified target/action stays a blocker to execution.
 
 Prepare a concise release assessment by default. For an authorized execution, use the established CLI/MCP/pipeline, serialize mutations as required and record actual effects. Verify served revision, critical journeys and async/cache paths rather than treating a successful job as customer success. Report prepared, locally checked, released, deployed and target-verified states separately. Do not automatically merge, deploy production or restore data from a generic release request.

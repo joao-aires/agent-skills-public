@@ -13,4 +13,6 @@ metadata:
 
 # Plan
 
-Read [task guidance](../../TASKS.md). Establish the agreed outcome and evidence; refine material gaps before assuming scope. Inspect affected architecture/contracts and use relevant conventions to choose small dependency-ordered increments. Include UI/behavior design before implementation where interactions change, migration/consumer compatibility, focused tests and delivery/recovery consequences. Reuse existing plans and commands. Return the executable next steps, assumptions and blockers; do not require a tracker, a document per slice or parallel agents. Planning alone does not implement or deploy the work.
+Read [task guidance](../../TASKS.md). Read [project-conventions](../project-conventions/SKILL.md) for existing constraints, [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for acceptance and verification. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+
+Establish the agreed outcome and evidence; refine material gaps before assuming scope. Inspect affected architecture/contracts and use relevant conventions to choose small dependency-ordered increments. Include UI/behavior design before implementation where interactions change, migration/consumer compatibility, focused tests and delivery/recovery consequences. Reuse existing plans and commands. Return the executable next steps, assumptions and blockers; do not require a tracker, a document per slice or parallel agents. Planning alone does not implement or deploy the work.

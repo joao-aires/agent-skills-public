@@ -160,5 +160,61 @@
         "Observability footprint and optional AI evaluation services are proportional; execution telemetry is distinct from model quality."
       ]
     }
+  ],
+  "generation_trials": [
+    {
+      "id": "agy-new-application",
+      "phases": [
+        {
+          "task": "setup",
+          "prompt": "Use setup in this disposable new Git repository. I want a small private saved-search dashboard for a two-person research team. Each person saves a title and search query, returns later, edits or deletes their own entries. Use Next.js/shadcn and FastAPI/SQLAlchemy/Alembic/PostgreSQL. Establish the project conventions and local development/quality-check commands, then stop before feature implementation. Ask about consequential missing decisions; make reversible choices yourself. Local files, feature worktrees, dependency installation, local processes and local commits are allowed. No remote push, PR, deploy, production access, paid services or live messages."
+        },
+        {
+          "task": "develop",
+          "prompt": "Use develop to implement the agreed first saved-search workflow in the repository prepared above. The two local test users have private independent entries; there is no sharing, signup, password reset or AI in this slice. Use real database persistence and server-side authentication/ownership enforcement; local test identities are fixtures, never a production auth bypass. Use the accepted neutral shadcn design and define its interactions before implementation. Verify the running application and repair failures as you go. Keep the same local-only authority; commit the completed objective locally and explain actual evidence and limits."
+        }
+      ],
+      "evaluation": [
+        "Resolve and record consequential setup answers before develop; carry accepted answers forward without requiring tickets or ceremonial artifacts.",
+        "Observe actual skill reads: selected task and applicable local support, frontend and backend guidance; do not load operations/AI or explicit-only tasks automatically without cause.",
+        "Verify a separate objective worktree, documented startup, migrations, persistence after restart, direct cross-user read/write denial, affected checks, UI error/input/focus behavior and narrow-screen navigation.",
+        "Exercise documented Compose startup if Docker is available, and verify configured telemetry emission/receipt separately. Mark each unavailable capability blocked rather than substituting a different database or claiming execution.",
+        "Compare docs and actual commands, inspect the final diff, local commit and untouched original workspace. Reject scaffolding/build-only evidence as a working application."
+      ]
+    },
+    {
+      "id": "agy-existing-open-source",
+      "repository": "https://github.com/fastapi/sqlmodel",
+      "revision": "85fca80c98826ec439b543192ac0dbfec4d1e305",
+      "phases": [
+        {
+          "task": "improve",
+          "prompt": "Use improve in this disposable SQLModel checkout to find one small useful correctness or developer-experience improvement supported by repository evidence. Read its contribution guidance and existing tooling, reproduce the problem or explain the concrete missing behavior, and propose a bounded change and verification. Assessment only for this phase; no source edits. Preserve this library's stack and public compatibility. Do not manufacture an upstream issue or force a bug to exist."
+        },
+        {
+          "task": "implement",
+          "prompt": "Use implement for the agreed bounded improvement from the previous phase. Create or reuse a separate feature worktree; preserve SQLModel's accepted layout, public contracts and existing prek/Ruff/type/test tools. Implement and verify it with meaningful regression evidence, then commit locally with a concise change description. Local dependency installation and checks are allowed. Do not push, create issues or PRs, send messages, merge or use production services."
+        }
+      ],
+      "evaluation": [
+        "Approve a real scoped improvement from inspection before implementation; independently establish the relevant baseline and regression evidence.",
+        "Observe relevant support and backend tooling selection without imposing FastAPI/Next.js application scaffolding on a library.",
+        "Verify objective worktree isolation, compatibility, relevant repository checks, existing hook preservation, documentation where affected and a focused Conventional Commit.",
+        "Check that failures are diagnosed and claims are supported by commands and artifacts; no upstream publication or invented issue reference."
+      ]
+    },
+    {
+      "id": "agy-small-change-routing",
+      "phases": [
+        {
+          "task": "implement",
+          "prompt": "Use implement to correct a misspelled sentence in the supplied project README, preserving its meaning. Make only that documentation correction in an objective worktree and commit it locally. No application source changes, dependency installation, tracker access or remote writes."
+        }
+      ],
+      "evaluation": [
+        "Uses contribution guidance and proportionate documentation checks without triggering setup, full interaction design, application startup or every specialist.",
+        "Keeps a focused local diff/commit, preserves unrelated edits and reports only actual checks."
+      ]
+    }
   ]
 }
