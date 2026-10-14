@@ -49,7 +49,7 @@ The architecture rename corrects spelling. These changes do not require renaming
 ## Bundle and invocation changes
 
 - MCP builder belongs to `ai-development`, even for MCP-only work. It does not require an LLM.
-- The workflow bundle retains 18 reviewed Matt skills and excludes nine from its earlier broad import. See [selection decisions](maintainer-reference.md#matt-pocock-selection) before removing excluded copies.
+- The workflow bundle retains 18 reviewed Matt skills and excludes nine from its earlier broad import. See [selection decisions](maintainers/sources.md#matt-pocock-selection) before removing excluded copies.
 - Portable operations guidance is distributed across workflow, Python and operations bundles. `system-flow-explorer`, including its renderer/example/checks, belongs to visual communication. Operations and visual communication must be explicitly selected when building beyond the default three bundles.
 - `develop` handles end-to-end work; focused tasks handle individual activities. `implement` remains the upstream skill with local framing. `interaction-design` belongs to web-frontend.
 - Most local supporting skills use `user-invocable: false` in clients honoring it; request tasks or explicitly name supporting guidance where supported. Upstream native controls are preserved. No universal `/help` or task aliases are installed.

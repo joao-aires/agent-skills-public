@@ -24,7 +24,7 @@ Use the client's skill picker or supported explicit invocation. VS Code uses nam
 
 `refine` and `design` stop at their respective outcomes. `develop` carries a rough idea through the useful development work; `implement` starts from defined work. Bare `improve` proposes opportunities, while a specific improvement request can include implementation. `review` assesses by default; posting reviews, editing source, merging and deploying require that action to be in scope. A routine test request does not authorize deployed load or faults.
 
-`implement` comes from the pinned upstream set with local framing. Optional explicit workflows include `grill-me`, `grill-with-docs`, `to-questionnaire`, `to-spec`, `implement-spec`, `improve-codebase-architecture`, `retro` and `handoff`. Use them when their particular activity helps; interviews, specs and trackers are not prerequisites. [Upstream selection](maintainer-reference.md#matt-pocock-selection) explains their fit and dependencies.
+`implement` comes from the pinned upstream set with local framing. Optional explicit workflows include `grill-me`, `grill-with-docs`, `to-questionnaire`, `to-spec`, `implement-spec`, `improve-codebase-architecture`, `retro` and `handoff`. Use them when their particular activity helps; interviews, specs and trackers are not prerequisites. [Upstream selection](maintainers/sources.md#matt-pocock-selection) explains their fit and dependencies.
 
 ## One end-to-end request
 

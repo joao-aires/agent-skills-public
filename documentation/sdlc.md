@@ -105,10 +105,10 @@ Generic means reusable across stacks; stack-specific means select it only for ma
 
 </details>
 
-For the complete acquired set, licenses and precise source pins, use the [upstream catalogue](maintainer-reference.md#upstream-catalogue) and [lockfile](../upstream.lock.json). Kubernetes, JVM and AKS skills apply only to those platforms. Reference-only techniques are not necessarily installed.
+For the complete acquired set, licenses and precise source pins, use the [upstream catalogue](maintainers/sources.md#upstream-catalogue) and [lockfile](../upstream.lock.json). Kubernetes, JVM and AKS skills apply only to those platforms. Reference-only techniques are not necessarily installed.
 
 ## Coverage and limits
 
-The skills describe ways of working across the lifecycle; installing them does not establish application correctness, production readiness or compliance. Tooling, credentials, devices and platform-specific procedures must exist in the target environment. Package and discovery checks are recorded separately from application evidence in the [maintainer reference](maintainer-reference.md#recorded-evidence-and-limits).
+The skills describe ways of working across the lifecycle; installing them does not establish application correctness, production readiness or compliance. Tooling, credentials, devices and platform-specific procedures must exist in the target environment. Package and discovery checks are recorded separately from application evidence in the [maintainer reference](maintainers/evaluations.md#recorded-evidence-and-limits).
 
 Specialist methods and diagrams live with their skills: [change evaluation](../plugins/development-workflow/skills/deliver-reliable-changes/SKILL.md), [journey testing](../plugins/development-workflow/skills/journey-testing/SKILL.md), [performance](../plugins/development-workflow/skills/performance-testing/SKILL.md), [resilience](../plugins/development-workflow/skills/resilience-testing/SKILL.md) and [observability](../plugins/application-operations/skills/observability-operations/SKILL.md).

@@ -1,0 +1,109 @@
+# Sources and compatibility
+
+[Maintainer guide](../maintainer-reference.md) · [Catalogue](#upstream-catalogue) · [Adaptations](#adaptations) · [Matt selection](#matt-pocock-selection) · [Application references](#application-references)
+
+## Upstream catalogue
+
+The [lockfile](../../upstream.lock.json) owns exact commit/tree pins, licenses and adaptations. Built bundles include complete acquired skills and notices; source-only checkouts do not. I select sources for provenance, maintenance, licensing and fit with these workflows. Popularity is supporting evidence, not proof of correctness.
+
+| Bundle | Source | Selected skills |
+| --- | --- | --- |
+| web-frontend | [Vercel](https://github.com/vercel-labs/agent-skills) | React best practices, composition patterns |
+| web-frontend | [shadcn](https://github.com/shadcn-ui/ui/tree/main/skills/shadcn) | Official shadcn |
+| web-frontend | [Wshobson](https://github.com/wshobson/agents/tree/46891e7e60da0e52baf1050b7b6391b64e84c6d9/plugins/frontend-mobile-development/skills/tailwind-design-system) | Tailwind design system (v4; preserve existing project versions) |
+| development-workflow | [Matt Pocock](https://github.com/mattpocock/skills) | 18 curated engineering/productivity skills; [selection review](#matt-pocock-selection) |
+| development-workflow | [Humanizer](https://github.com/blader/humanizer) | humanizer: edit prose across the lifecycle |
+| development-workflow | [Microsoft Playwright](https://github.com/microsoft/playwright-cli) | playwright-cli |
+| development-workflow | [GitHub awesome-copilot](https://github.com/github/awesome-copilot/tree/main/skills/github-actions-hardening) | GitHub Actions hardening |
+| development-workflow | [Trail of Bits](https://github.com/trailofbits/skills) | property-based-testing, differential-review, supply-chain-risk-auditor |
+| application-operations | [Microsoft Azure AKS-Skills](https://github.com/Azure/AKS-Skills/tree/20bf35201a79b324d2ca3e00e5c82020ff362024/skills/aks-cost-optimization) | aks-cost-optimization with its six references; applies only to AKS |
+| python-backend | [Trail of Bits](https://github.com/trailofbits/skills/tree/main/plugins/modern-python) | modern-python |
+| ai-development | [Anthropic](https://github.com/anthropics/skills/tree/main/skills/mcp-builder) | mcp-builder |
+| ai-development | [Google ADK](https://github.com/google/adk-python/tree/main/.agents/skills) | adk-agent-builder, adk-architecture |
+| ai-development | [LangChain](https://github.com/langchain-ai/langchain-skills) | langchain-fundamentals, langchain-dependencies, langgraph-fundamentals, langgraph-persistence |
+
+## Adaptations
+
+| Area | Packaged behavior or limitation |
+| --- | --- |
+| Frontend and Python | Pointers to local conventions; accepted project choices take precedence. Tailwind v4 is the new-project default; existing versions need no automatic migration. shadcn guidance applies to compatible installed primitives. |
+| MCP and AI | Local framing prefers Python/standalone FastMCP for new servers and distinguishes it from MCP SDK examples. Existing choices remain authoritative; MCP-only work needs no LLM evaluation. |
+| Matt workflows | Preserve dependency groups, resources and native controls. Add [workflow framing](../../plugins/development-workflow/WORKFLOW.md); tickets remain optional and setup is explicit. Map `docs/agents/` to `documentation/engineering/` and `docs/adr/` to `documentation/decisions/adr/`, respecting existing paths. |
+| Targeted Matt changes | Remove stale setup prerequisites from three skills; give implement-spec a tracker-neutral description. Implement receives pointers to task, contribution and verification guidance without replacing its body. |
+| Review and supply chain | differential-review uses its included method without an unavailable registered agent. The pinned supply-chain parser does not cover pnpm/yarn; missing coverage is not a clean audit. |
+| AKS cost | Azure AKS only, with its six references. Other platforms use contextual first-party guidance. |
+| Visibility and labels | Preserve explicit upstream controls; set support visibility only when absent. Scope/stack/role/invocation labels describe use, not permissions. |
+
+Acquisition verifies tree pins and copies resources without executing upstream scripts. Built `UPSTREAM.json`, `UPSTREAM-NOTICES.json` and license files record provenance. Trail of Bits material is CC-BY-SA-4.0; other acquired sources are MIT or Apache-2.0 as recorded at their pins. Bundles have mixed-license notices. Embedded live links/commands can still change despite source pinning. Private installed content is never redistributed.
+
+## Matt Pocock selection
+
+I reviewed the 27 previously bundled skills at [the pinned revision](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d) and retained 18, including their dependencies. Exclusions keep this bundle focused; they do not judge upstream quality.
+
+| Skill | Decision | Reason or constraint |
+| --- | --- | --- |
+| ask-matt | Remove | Routes only Matt's catalogue and assumes his full flow; the plugin usage guide covers the wider collection. |
+| setup-matt-pocock-skills | Remove | Configures trackers, labels and domain files, not plugin installation. Project conventions already cover relevant setup. |
+| triage | Remove | Depends on a tracker state machine and labels; outside this bundle's default workflow. |
+| to-tickets | Remove | Publishes a tracker-specific task graph; local specs/plans provide scope without tickets. |
+| wayfinder | Remove | Requires a map of decision tickets and a large tracker workflow. |
+| teach | Remove | Turns the application directory into a separate learning workspace with lessons, resources and learning records. |
+| wait-what | Remove | A conversational clarification shortcut; ordinary instructions can request a clearer explanation. |
+| wizard | Remove | Generates a scripted human provisioning procedure; adds machinery beyond the default contribution workflow. |
+| pr | Remove | Its mandatory visual/evidence/merge-danger template overlaps and conflicts with the concise local contribution guide. |
+| grill-me | Keep | Explicit interview without persistent domain docs; calls grilling. |
+| grill-with-docs | Keep | Explicit interview with glossary/decisions; calls grilling and domain-modeling. |
+| grilling | Keep | Shared interview primitive, only within requested clarification. |
+| domain-modeling | Keep | Sharpens domain language and records consequential decisions. |
+| to-questionnaire | Keep | Drafts stakeholder questions when facts are held elsewhere; does not authorize sending them. |
+| to-spec | Keep, adapt | Synthesizes agreed scope; remove stale setup prerequisite and use local docs unless tracker publication is requested. |
+| implement | Keep | Focused execution using TDD where appropriate and code review. |
+| implement-spec | Keep, adapt | Dependency-ordered implementation; use local plan slices, supported worktrees/subagents and no tracker prerequisite. |
+| tdd | Keep | Behavior-focused testing; apply proportionately at established test boundaries. |
+| code-review | Keep, adapt | Separates standards from requested behavior; no tracker setup needed to review conversation/spec scope. |
+| diagnosing-bugs | Keep | Reproduction, hypothesis tests, regression evidence and cleanup. |
+| research | Keep | Primary-source research; delegation is optional when unsupported. |
+| prototype | Keep | Resolves an explicit design uncertainty; prototype branches/artifacts remain scoped to that exploration. |
+| codebase-design | Keep | Module/interface design technique; project vocabulary takes precedence over its terminology preferences. |
+| improve-codebase-architecture | Keep | Explicit architectural exploration using codebase-design, grilling and domain-modeling. |
+| retro | Keep | Improves the agent environment after a requested session review; calls writing-for-agents. |
+| handoff | Keep | Portable context for another session, avoiding duplication and redacting secrets. |
+| writing-for-agents | Keep | Instruction structure, pointers and progressive disclosure; complements Humanizer's prose editing. |
+
+## Application references
+
+The review on 2026-10-11 covered manifests, official template code and published guidance, not complete architecture audits. No application code, assets or unlicensed skill content was copied. Historical popularity counts are omitted; reviewed revisions remain below.
+
+| Source | Reviewed revision | Evidence and limits |
+| --- | --- | --- |
+| [Dub](https://github.com/dubinc/dub) | `bc7eeb882ead4652ed375545db81bb79b72137e8` | Next.js/React, Tailwind v3, Radix, table/form primitives. Evidence that mature applications need not migrate to v4 to follow coherent conventions. |
+| [Cal.diy](https://github.com/calcom/cal.diy) (~48.9k stars; redirect from cal.com) | `54343aa685ae8f33159d2f485ec4a57bad5c574a` | Next.js, Tailwind v4 and reusable UI packages. Reference only; do not transplant scheduling-specific architecture. |
+| [Supabase Studio](https://github.com/supabase/supabase/tree/master/apps/studio) | `8617532ae1a41571d5d557cd24c6f5f2565d9230` | Tailwind/Radix, tables/forms and multiple framework paths. Repository adoption does not measure Studio usage; not a prescription for its backend scale. |
+| [FastAPI full-stack template](https://github.com/fastapi/full-stack-fastapi-template) | `7257e606cb94eada1dca40173e2b7f99dd549bc6` | First-party auth, sessions and full-stack integration. Uses SQLModel and Vite; my SQLAlchemy/Next.js defaults remain explicit. |
+| [FastAPI best practices](https://github.com/zhanymkanov/fastapi-best-practices) | `5e00aa6095521f0d00e4eec2ef0afa44cd566af4` | Domain organization, blocking/async distinctions and production cautions. Community reference, not a package; no redistribution license assumed. |
+
+Implementation details and exceptions live beside [frontend conventions](../../plugins/web-frontend/skills/frontend-conventions/references/sources-and-exceptions.md) and [backend conventions](../../plugins/python-backend/skills/backend-conventions/references/sources-and-exceptions.md). First-party stack documentation supplies backend details; no unified official FastAPI/SQLAlchemy/Alembic skill is claimed. The target of avoiding reference lookup in 90 to 95% of routine uses remains unmeasured.
+
+## Reference-only and excluded sources
+
+| Source | Decision |
+| --- | --- |
+| [Vercel web-design-guidelines](https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines) | Reference only: no declared redistribution license at review and a floating guideline fetch. |
+| [Amplitude analyze-feedback](https://github.com/amplitude/builder-skills/tree/51838c2d85560466d1bbc174ea0e645bb9c44ea9/analytics-skills/skills/analyze-feedback) | Reference only: Amplitude MCP dependency and no explicit redistribution license at the reviewed pin. No MCP is configured; the local feedback skill works with existing evidence. |
+| Jezweb tailwind-v4-shadcn | Not acquired: directory absent at reviewed repository HEAD `1260fa7439b36b18dbf16648ccc7fb44783f6c23`; published setup was Vite-specific. |
+| [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill), [Anthropic frontend-design](https://github.com/anthropics/skills/tree/main/skills/frontend-design) | Optional installed expertise, constrained by accepted UI direction. No private material is copied. |
+
+Optional [shadcn MCP](https://ui.shadcn.com/docs/mcp) and [Playwright MCP](https://github.com/microsoft/playwright-mcp) require client setup. Hooks use [client extensions](https://agent-plugins.org/specification#8-client-extensions), not a portable hooks field. SigNoz is a replaceable local OTel preference; its [community support is best-effort](https://signoz.io/support/). Provider versions, resources and edition limits require contextual checks; operating/security guidance does not establish compliance.
+
+## Supplied operations and explorer skills
+
+The supplied portable operations archive contributes local guidance under this repository's license. Its separate source-notes companion, private inventories, incident identities, internal skills, factory runtime and fixed schedules are excluded. Public primary references remain with the skills.
+
+| Bundle | Integration |
+| --- | --- |
+| development-workflow | system-mapping and bash-engineering; delivery guidance merged into delivery-pipelines |
+| python-backend | python-automation-engineering |
+| application-operations | Reliability, telemetry, incident/runbook/postmortem, Kubernetes/JVM, vulnerabilities, credentials and housekeeping guidance; backup/recovery merged into protect-and-restore-data |
+| visual-communication | Separately supplied system-flow-explorer, including renderer, validator, examples and checks |
+
+Platform boundaries and invocation labels remain explicit. Interactive postmortems and architecture explorers start only on request; static system discovery stays separate from the explorer artifact model. Numerical examples are contextual. The [SDLC map](../sdlc.md) owns the current coverage catalogue.

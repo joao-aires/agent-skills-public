@@ -27,6 +27,11 @@ class CollectionTests(unittest.TestCase):
             self.assertEqual(len(errors), 2)
             self.assertTrue(any("missing heading" in error for error in errors))
             self.assertTrue(any("obsolete skill" in error for error in errors))
+            nested = root / "documentation/maintainers"
+            nested.mkdir()
+            (nested / "sources.md").write_text("[Missing](absent.md)\n")
+            errors, _ = collection.check_links(root)
+            self.assertTrue(any("maintainers/sources.md: missing absent.md" in error for error in errors))
 
     def test_missing_resource_and_extra_skill_fail(self):
         with tempfile.TemporaryDirectory() as tmp:

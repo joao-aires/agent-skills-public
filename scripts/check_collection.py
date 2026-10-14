@@ -43,7 +43,7 @@ def anchors(text):
 
 def maintained_documents(root):
     return sorted({root / "README.md", root / "AGENTS.md",
-                   *root.glob("documentation/*.md"), *root.glob("plugins/*/*.md"),
+                   *(root / "documentation").rglob("*.md"), *root.glob("plugins/*/*.md"),
                    *root.glob("plugins/*/skills/*/SKILL.md")})
 
 

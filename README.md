@@ -66,7 +66,7 @@ agy plugin install "$AGENT_PLUGINS_DIR/web-frontend"
 agy plugin list --json
 ```
 
-Installation and all 56 skills were checked with `agy` 1.3.5. Authenticate through the client's sign-in flow before model work. The [generation-trial specification](documentation/maintainer-reference.md#generation-trials) is harness-independent; `agy` is my local runner choice. Installation does not establish execution behavior.
+Installation and all 56 skills were checked with `agy` 1.3.5. Authenticate through the client's sign-in flow before model work. The [generation-trial specification](documentation/maintainers/evaluations.md#generation-trials) is harness-independent; `agy` is my local runner choice. Installation does not establish execution behavior.
 
 </details>
 
@@ -117,7 +117,7 @@ Enter where the work needs it; the cycle is not a mandatory sequence. Project fo
 | [Usage](documentation/usage.md) | What should I invoke, provide and expect? |
 | [SDLC coverage](documentation/sdlc.md) | Which skills support each phase and area? |
 | [Migration](documentation/migration.md) | How do I update an existing installation? |
-| [Maintainer reference](documentation/maintainer-reference.md) | Where do sources come from, and how is the collection maintained? |
+| [Maintainer reference](documentation/maintainer-reference.md) | How do I change, validate and evaluate the collection? |
 
 The bundles contain guidance and resources, without generated applications, configured MCP servers or hooks. Client tools and application dependencies are configured separately.
 
