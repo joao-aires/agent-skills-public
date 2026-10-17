@@ -18,9 +18,13 @@ Read the complete affected flow, adjacent states and existing terminology/voice.
 
 If unclear behavior changes the meaning, investigate code/contracts or ask the unresolved product question. Preserve the consequence of consent, payment, security, sharing and deletion. Do not make a sensitive action sound harmless or imply success before the authoritative system confirms it. A copy task cannot silently redesign permissions or recovery behavior.
 
+Match the recommended default to the authoritative state. Queue acceptance is not evidence that processing started or completed; use queued/pending language until the corresponding transition is confirmed. A precise alternative does not repair a misleading preferred recommendation. Keep any proposed notification or download path separate from behavior established by the contract.
+
 ## Make the next step understandable
 
 Use specific action labels, stable object names and descriptive destinations. Consequential confirmations should name the action and affected object rather than rely on Yes/No. Visible field labels carry the identity; placeholders can supply examples. Explain requirements before input when useful.
+
+Review a consequential confirmation as a complete message: title, explanation and actions together must identify the affected object and material consequence, including irreversibility when established. A clearer action verb alone cannot supply a missing consequence. Preserve placeholders and provide complete localized replacements for any proposed explanatory text.
 
 Distinguish validation, connection failure, permission denial and a system error. Explain the affected outcome and a recovery action that really exists; retain the user's input where the product supports retry. Distinguish first use, no matching results, loading, partial data and unavailable content. Keep tone appropriate to the stakes and the accepted brand; clarity does not require every product to have the same voice.
 

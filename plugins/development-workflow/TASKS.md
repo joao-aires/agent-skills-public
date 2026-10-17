@@ -4,6 +4,8 @@
 
 These task skills start on an explicit request from a person or a trusted configured automation. Supporting skills supply conventions/methods during that work. Task metadata uses role: task; supporting guidance uses role: support. These are descriptive labels. Native user-invocable and disable-model-invocation controls are client-dependent, not authorization or a scheduler. Explicit-only tasks are not automatically loaded as substeps: an end-to-end task can perform the work directly using supporting skills without bypassing those controls.
 
+When the user explicitly selects an activity such as design, resolve and read its entry point through the available inventory before choosing its supporting methods. If the client cannot load it, report that limit and use available project guidance. Loading a supporting skill alone does not prove the selected activity ran; ordinary automatically selected support does not require invoking an explicit-only task.
+
 | Task | Use when | Default result |
 | --- | --- | --- |
 | setup | New project foundations or existing-project adoption | Working context/commands and scoped foundations |

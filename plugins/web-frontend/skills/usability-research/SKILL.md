@@ -18,9 +18,13 @@ Establish what decision the research should inform, which users/tasks matter and
 
 Choose a method suited to the uncertainty and available access: task-based observation for completion/recovery, or an explicitly scoped concept/wording question when that is the real objective. Explain meaningful limitations. Propose participant characteristics, recruitment approach, session length and sample rationale as a plan; never present a proposed sample as recruited participants or turn a small convenience sample into a population claim.
 
+Justify a proposed sample through the decision, participant variation and study limits. Do not attach a fixed percentage of discoverable problems to a participant count without an applicable source, model assumptions and uncertainty. When those are unavailable, state the qualitative learning aim without a coverage percentage.
+
 ## Prepare tasks and observations
 
 Create realistic scenarios around participant goals, without naming the control to press or hinting at the expected answer. For each task define an observable end state, what to watch for and neutral follow-up probes. Include meaningful failure/recovery or return-use scenarios when relevant. Scale the guide to the decision and flow; do not prescribe a fixed task count.
+
+For recovery questions, observe naturally occurring errors during a normal goal task, or have the moderator prepare a failed/interrupted prototype state before the participant resumes their original goal. Keep that setup out of participant wording: do not tell them which input to omit, which error to trigger or which field to fix. Labelling a coached attempt as an intentional exercise does not make it a neutral recovery task. A separately requested instructional/comprehension exercise needs its own purpose and cannot substitute for the study's recovery question.
 
 A moderator guide should introduce the purpose, explain that the experience is being tested, invite think-aloud where suitable and avoid leading or teaching during the task. Separate task completion, assistance, errors/hesitation and post-task interpretation. Ratings need a stated question and scale, not an invented success threshold. Check that tasks are achievable in the prototype and map back to the research questions.
 

@@ -28,6 +28,10 @@ Retained upstream user activities are `grill-me`, `grill-with-docs`, `to-questio
 
 Assess affected contracts and operating consequences before implementing a change; use project-conventions without repeating project setup. Deliver-reliable-changes defines proportionate acceptance evidence and separates locally verified behavior from deployment claims. Backend/frontend conventions own production migration, job and runtime details. Preserve established answers and avoid making evaluation cases or record formats prerequisites for application work.
 
+Honor the supplied output boundary for agent-authored scripts, screenshots and reports, including during read-only assessment. Put them in the permitted destination rather than choosing a client scratch directory implicitly. Distinguish unavoidable client-managed caches/session state from files the agent chooses to write; a host-imposed destination conflict is a limitation to disclose, not permission to broaden the boundary.
+
+For integration capability checks, use supported server/tool inventory, public client documentation and the named disposable resource. Missing authentication or tools is a boundary to report; it does not authorize searching client profiles, other conversations, credential stores or unrelated logs. Read diagnostics only within the specifically permitted scope.
+
 ## Resolve consequential findings
 
 Apply this throughout product definition, architecture, implementation, testing, release and operation. Assess the actual changed boundaries and dependencies proportionately; a small edit does not trigger an exhaustive audit. Use relevant specialists to investigate licensing/usage, security/privacy, reliability/recovery, cost, compatibility, accessibility and other material constraints. New evidence can reopen an earlier decision.
