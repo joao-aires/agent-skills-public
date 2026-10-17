@@ -45,7 +45,7 @@ Separate two kinds of evidence:
 - **Deterministic application checks:** fixtures for contracts, authorization, invalid output, retries, limits and failure presentation. Run these routinely in CI; mocks prove application handling, not model quality.
 - **Live quality evaluations:** explicit calls with representative inputs, recording model/prompt version, quality results, latency, usage/cost where available and sample size. Keep credentials/data and execution within the authorized scope. Inspect errors rather than inferring quality from a few attractive examples.
 
-For Portuguese uploaded-audio transcription, include the product's dialects, recording conditions, noise and silence. Assess transcription errors and preservation of important domain terms; report word error rate when suitable, alongside task usefulness. A fixture transcript cannot establish live transcription quality, and uploaded-file success cannot establish real-time behavior.
+For speech, evaluate the product's languages/dialects, recording conditions and important domain terms. Match the method to the capability: uploaded-file transcription and streaming/interruption require different evidence. Use [evaluation references](references/evaluation-references.md) for speech-specific measures when relevant.
 
 ## Close the evaluation loop
 
@@ -73,4 +73,4 @@ Consider AG-UI for typed agent/user interaction events, streaming messages/state
 
 Read [interaction protocols](references/interaction-protocols.md) when selecting or implementing them. Verify installed SDK, framework adapter, transport and renderer compatibility against a pinned protocol version; do not mix A2UI message families across versions. Validate allowed components/actions, bindings and resource/tenant scope in deterministic code. Generated UI is untrusted data and cannot execute arbitrary scripts or authorize a mutation. Test malformed/unknown components, unauthorized actions, stream interruption, reconnect/cancellation, stale events and real rendered user interactions. Separate fixture-driven protocol/renderer evidence from live model output quality.
 
-For a shared canvas, preserve human edits through object identity/versioning, scoped patches, undo and explicit conflict handling. Ground spatial references in supplied selection/canvas snapshots. Voice interruption and attachment to an existing ACP harness session are distinct capability contracts; a text fixture or a new mock agent session cannot establish either. Research the actual harness's session/permission capabilities before claiming attachment or write access.
+For collaborative/spatial or existing-session products, use the corresponding branches in interaction-protocols: verify state ownership, concurrency and supported session/permission contracts independently of generated UI quality. A fixture establishes only its simulated boundary.

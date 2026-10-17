@@ -81,6 +81,16 @@ A third subagent reviewed the raw brief and eight rendered artifacts without rea
 
 The design and review trials are partial adaptations at the design stage, not passes for the full design-to-implementation-handoff case. No application repository, existing Storybook, implementation, native runtime or persistence journey was supplied or tested. I kept private file links, account identifiers and raw tool records outside the public repository. No account changes, publication or paid upgrade occurred.
 
+## Guidance refactor validation
+
+The collection-wide guidance refactor is based on the focused findings above and an instruction-structure review across the local inventory, with upstream scope/adaptation screening. Earlier behavioral passes apply to their recorded revisions. Consolidating or relocating a rule does not inherit those passes automatically.
+
+Keep the existing 38 cases, 12 trials and nine-flow definitions intact, including scope, contrast applicability/recommendation checks, neutral research, truthful copy, license decisions, native/Storybook boundaries and real protocol interoperability. Package checks establish structure and resource preservation only. Rerun affected cases through the refactored guidance before treating behavior as reverified.
+
+Local validation passed plugin metadata/containment, 287 maintained links, eight additional relative links in changed/new references, all 28 repository unit tests, the complete seven-plugin build with 92-skill resource parity, and five explorer smoke checks. All 55 local names, invocation controls and metadata remain intact; upstream pins/adaptations and existing evaluation definitions are unchanged. The two original visual guide bodies were retained with relative links rebased. Independent Standards and Spec reviews found no actionable issue; those reviews do not establish runtime or model behavior.
+
+Use unfamiliar products as well as the saved-search/Fieldnote regressions when testing generalization: a localized appointment cancellation flow with an asynchronous refund, a dense laboratory sample editor with ambiguous acknowledgement, a kiosk with a constrained native runtime, or an operations recovery plan where a restore succeeds but dependent work remains paused. Give actors raw constraints without previous diagnoses. Judge decision quality, scope, evidence and preserved outcomes rather than particular words, file names or a smaller token count. These are proposed transfer trials, not executed results or new prerequisites for application work.
+
 ## Generation trials
 
 The specification is harness-independent: interactive or automated execution, supported plugin/skill loading, explicit selection or plain-language requests, and conversation continuation or factual handoffs. Preserve resources and native controls; record unsupported capabilities. No particular CLI, slash syntax or trace format is required.

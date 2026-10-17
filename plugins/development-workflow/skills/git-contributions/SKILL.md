@@ -11,63 +11,34 @@ metadata:
 user-invocable: false
 ---
 
-Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
+Read [workflow framing](../../WORKFLOW.md) for scope and invocation boundaries.
 
-# Git contributions
+# Make reviewable contributions
 
-## Establish the target and feature workspace
+Keep each objective isolated, verify the affected behavior and publish a clear contribution when the request authorizes it.
 
-Identify the target repository from the supplied workspace. Read its AGENTS.md and contribution conventions; inspect status, remotes, base branch and existing worktrees. Use the intended base, not an arbitrary currently checked-out branch. Confirm unclear repository/base choices before dependent actions; preserve unrelated local changes.
+## Establish the target and workspace
 
-Use one separate worktree per feature objective, including its tests/docs/configuration; reuse it throughout that objective. For a new feature, fetch the intended remote when available and create a named branch in a separate worktree. Place it beside the repository or in the workspace's designated worktree area. Use that worktree for all code, tests, migrations, docs and CI changes belonging to the objective. Keep unrelated changes out of the feature.
+Inspect the intended repository, contribution instructions, status, remotes, base and worktrees before writes. Resolve ambiguity that changes the target; preserve unrelated edits. Use one separate named feature worktree per objective, reusing it for implementation, tests, docs and follow-up fixes. Create it from the intended base after fetching when available; verify actual edit/test paths are inside it. Initialize an empty repository only as needed to enable that isolation.
 
-Before writing objective files, verify the working directory and every edit/test path resolve inside the selected feature worktree. Reading this skill or naming a branch does not establish isolation. For a completely empty repository, create a minimal baseline commit if needed to enable worktrees, then create the objective worktree before foundation/feature writes. Carry its path into follow-up phases and keep the base checkout untouched except for that initialization.
+Keep the base checkout untouched by objective changes. Parallel execution, when supported and authorized, uses the objective integration branch and coordinated worktrees. If worktree isolation is unavailable, disclose the limitation and use an agreed alternative without claiming isolation exists.
 
-Adapt these example paths, branch and base to the inspected repository:
+## Verify and commit
 
-```bash
-git -C /workspace/application status --short
-git -C /workspace/application remote -v
-git -C /workspace/application worktree list
-git -C /workspace/application fetch origin
-git -C /workspace/application worktree add -b feat/saved-searches \
-  /workspace/application-worktrees/saved-searches origin/main
-```
+Use documented quality commands and the existing hook runner; [project conventions](../project-conventions/SKILL.md#establish-focused-quality-checks) owns tool setup. Verify hooks in this worktree, preserving hooksPath and partial staging. Inspect formatter edits, stage intended changes, redact scan output and resolve relevant failures. CI independently repeats required checks.
 
-Continue in an existing worktree for the same objective rather than creating another branch or PR on every turn. If `implement`/`implement-spec` orchestrates work, use the feature workspace as the integration worktree; base any parallel worktrees on its integration branch. Do not create conflicting orchestration. If worktrees are unavailable, state the limitation and use an agreed supported isolation approach without claiming a worktree exists. Never force-remove another agent's worktree or reset/stash the user's edits to make setup convenient.
+Review the diff and make coherent Conventional Commits: `type(scope): concise subject`, with an optional repository-supported scope. Mark actual breaking changes. Use a supplied issue reference in the repository's preferred location; absent one, omit it. Keep the contribution useful without requiring a tracker.
 
-## Verify before committing
+Actually commit when the requested contribution flow includes it. Inspect the staged diff for accidental files and secrets; retain unrelated work. Report local and remote state accurately.
 
-Use the repository's documented quality commands and hook runner. Run affected lint/format/type checks while editing and fast staged checks before a commit; CI must independently repeat required checks. For setup decisions use [project-conventions](../project-conventions/SKILL.md#establish-focused-quality-checks). Verify hook installation for the actual worktree and preserve hooksPath/partial staging. Inspect formatter edits, restage intended hunks only, redact secret-scan output and resolve failures without silently bypassing the checks.
+## Publish the verified revision
 
-## Commit the objective clearly
+Inspect the intended remote/base and existing PR before publishing. Within established authorization, push the objective branch and create or update its PR; otherwise return the completed local result. Prefer Git and `gh`, with supported repository tools as an alternative. Preserve file modes and branch identity, check expected heads when available and reconcile shared history before rewriting it.
 
-Use Conventional Commits: `type(scope): concise subject`, with optional scope. Choose `feat`, `fix`, `docs`, `test`, `refactor`, `ci` or another repository-supported type; describe the change in plain language. Mark actual breaking changes according to the convention, not ordinary implementation changes.
+For multiline descriptions, use a body file or structured tool argument. Follow fork/head conventions and repository draft/readiness rules. Commit/push authority remains separate from merging or deploying.
 
-Use a supplied issue/tracker reference where applicable and compatible with repository conventions. If the repository uses component scopes, retain those and put the issue in a footer/body. Otherwise an agreed issue ID can be the scope, for example `feat(APP-42): save named searches`. With no associated issue, omit the issue scope: `feat: save named searches`. Never invent an ID or require tracker setup. If association is unclear, ask once whether an existing issue should be referenced while continuing independent work; absent an answer, omit the issue reference. Do not ask again when the user already said there is no tracker.
+## Explain the result to a reviewer
 
-Review the diff, run relevant checks and stage only intended paths. Make coherent commits containing related implementation, tests and documentation. Check the staged diff for accidental files and secrets; preserve unrelated work. Use `git` CLI when available and authorized repository tools otherwise. Actually create commits within the requested contribution flow, rather than returning suggested commands. Report blockers accurately and do not claim a remote commit from a local-only result.
+Lead with the concrete problem and resulting behavior for someone outside the conversation. Explain why the change is needed, how it works where that aids review, and the actual validation and remaining limits. Follow the repository template; scale structure to complexity. Include risks/migrations only when material, and a diagram only when it clarifies a changed relationship.
 
-## Publish to the intended remote
-
-When publication is within the user's requested scope or established contribution preferences, push the feature branch to the correct remote, then create or update its PR against the inspected target/base. Do not infer publication authorization solely from this skill being selected. When publication is outside scope, finish the authorized local work and report its state without pushing or opening a PR. Prefer Git and `gh` CLI; use GitHub MCP tools when CLI authentication or capabilities are unavailable. Preserve content, modes and base when publishing through APIs; verify the resulting commit and branch. Use expected-head checks where supported and never blindly force-push shared history.
-
-With verified example targets and a prepared Markdown body file:
-
-```bash
-git -C /workspace/application-worktrees/saved-searches push -u origin feat/saved-searches
-gh pr create --repo owner/application --base main --head feat/saved-searches \
-  --title 'feat: save named searches' --body-file /workspace/pr-description.md
-```
-
-For a fork, specify the correct head owner and target repository. Look for an existing PR first; update it rather than duplicating it. Follow repository draft/readiness conventions. Commit/push/PR instructions do not authorize merging or deploying; honor the user's scope, including plan-only requests.
-
-## Write for a reviewer
-
-Lead with the problem and resulting behavior: what this accomplishes, why it was needed and who or what is affected. Use intuitive language, a concrete before/after example when helpful, and only implementation details needed to assess the change. Follow the repository's PR template without padding. Keep simple changes to a short paragraph plus validation; add risks, migrations or compatibility notes when material.
-
-Use a small Mermaid diagram only when a changed boundary, sequence or dependency is easier to understand visually. Do not add a diagram to every PR. Rewrite the title/body around the final diff, not conversation history. Put exact multiline text in a body file for CLI calls or a structured MCP argument; avoid fragile shell interpolation. Link issues accurately; use closing keywords only when appropriate for the completed work.
-
-Example: “Saved filters disappeared after reload. Users can now save, reopen and delete their own named searches; the API enforces ownership so another user cannot read or delete them. Validation: PostgreSQL/API authorization tests and the save–reload–delete browser journey pass.”
-
-Review the final diff and relevant CI; report the PR URL, actual checks and remaining gaps. Distinguish local, pushed, reviewed and merged states. Keep the worktree available for review fixes; remove it only when the work is finished and its changes are safely preserved.
+Keep title and description about the final diff; remove abandoned approaches and conversational history unless they explain a relevant tradeoff. Use accurate issue links and closing keywords. Verify the published head, diff and required checks, and report the PR link and actual state. Keep the worktree available for review fixes until its work is safely preserved and no longer needed.

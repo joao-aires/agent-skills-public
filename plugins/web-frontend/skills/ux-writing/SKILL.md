@@ -10,28 +10,24 @@ metadata:
 
 # Write interface copy for the actual task
 
-Use the requested scope and mode: review proposes changes without editing; rewrite or implementation applies the authorized copy changes; harmonization aligns recurring terms within the named surfaces. Supporting an existing design/development task does not authorize a broader rebrand. Use [interaction design](../interaction-design/SKILL.md) for the underlying flow and [interface quality](../interface-quality/SKILL.md) for rendered fit.
+Make the action, current state and consequences understandable in the product's voice. Review proposes changes; rewrite/implementation applies authorized changes; harmonization aligns terms within the named scope. Use [interaction design](../interaction-design/SKILL.md) for behavior and [interface quality](../interface-quality/SKILL.md) for rendered fit.
 
-## Understand the action before the sentence
+## Ground language in behavior
 
-Read the complete affected flow, adjacent states and existing terminology/voice. Identify who is reading, what they are trying to do, what the system actually permits, the stakes and the next available action. Distinguish user-facing text from sample data, annotations and internal names. Reuse accepted vocabulary; do not invent personas, research, features, prices, policies, guarantees or response times to fill a mockup.
+Read the whole affected flow, adjacent states and established vocabulary. Identify the reader's goal, what the system permits and knows, the stakes and the available next action. Separate UI text from sample data and annotations. Resolve technical facts from contracts/code; ask about unresolved product decisions that change meaning.
 
-If unclear behavior changes the meaning, investigate code/contracts or ask the unresolved product question. Preserve the consequence of consent, payment, security, sharing and deletion. Do not make a sensitive action sound harmless or imply success before the authoritative system confirms it. A copy task cannot silently redesign permissions or recovery behavior.
+Match every recommended message, including the preferred default, to authoritative state and supported behavior. Distinguish an acknowledged request, work in progress and confirmed outcome. Recovery, notification, timing and download promises require a real contract. Preserve material consequences of consent, payment, security, sharing and deletion; a copy change cannot redefine permissions or recovery.
 
-Match the recommended default to the authoritative state. Queue acceptance is not evidence that processing started or completed; use queued/pending language until the corresponding transition is confirmed. A precise alternative does not repair a misleading preferred recommendation. Keep any proposed notification or download path separate from behavior established by the contract.
+## Make decisions and recovery clear
 
-## Make the next step understandable
+Use specific actions, stable object names, descriptive destinations and persistent field labels. Review consequential confirmations as complete messages: title, explanation and actions together identify the affected object, action and material consequence, including irreversibility when established. Supply complete localized replacements with their placeholders intact.
 
-Use specific action labels, stable object names and descriptive destinations. Consequential confirmations should name the action and affected object rather than rely on Yes/No. Visible field labels carry the identity; placeholders can supply examples. Explain requirements before input when useful.
+Distinguish validation, connectivity, denied authority and system failure. Explain the affected outcome and an available recovery action; preserve input where retry is supported. Give first use, no matches, loading, partial and unavailable data meanings suited to the task. Clarity should preserve the accepted brand voice.
 
-Review a consequential confirmation as a complete message: title, explanation and actions together must identify the affected object and material consequence, including irreversibility when established. A clearer action verb alone cannot supply a missing consequence. Preserve placeholders and provide complete localized replacements for any proposed explanatory text.
+Preserve interpolation, escaping, numeric meaning, pluralization, locale conventions and accessible names. Use complete localizable messages. If clarity requires an interaction change, surface that decision within the agreed design scope.
 
-Distinguish validation, connection failure, permission denial and a system error. Explain the affected outcome and a recovery action that really exists; retain the user's input where the product supports retry. Distinguish first use, no matching results, loading, partial data and unavailable content. Keep tone appropriate to the stakes and the accepted brand; clarity does not require every product to have the same voice.
+## Verify the complete recommendation
 
-Preserve interpolation placeholders, escaping, numeric meaning, pluralization, locale conventions and accessibility names. Use complete localizable messages rather than concatenated fragments. Do not shorten a phrase until it loses the information needed to act; fix an interaction problem through the agreed design scope rather than camouflage it with polished text.
+For review, give the location/state, current and proposed complete text, reason and assumptions. Group systemic terminology issues once. For authorized edits, preserve intended bindings/structure and compare the affected flow, dynamic states, accessible labels and realistic narrow/locale wrapping. Use code/runtime evidence where available to check semantic accuracy.
 
-## Verify meaning, consistency and fit
-
-For review, give the exact location/state, current and proposed complete text, reason and any assumption. Group systemic terminology issues once. For authorized edits, change only the intended strings/bindings, compare the whole affected flow and verify realistic wrapping, truncation and relevant narrow/locale variants. Preserve component structure and tokens unless layout work is also requested.
-
-Where code is available, check that copy matches actual pending/saved/failed states and that visible and accessible labels remain coherent. Preserve dynamic-message contracts and relevant existing checks. Report which static or runtime surfaces were inspected and any unverified localization or user comprehension. A clearer sentence or an agent review is not evidence of a completed usability study.
+Report inspected surfaces and unresolved meaning, localization or comprehension gaps. A clearer sentence or agent critique does not establish participant usability findings.

@@ -19,7 +19,7 @@ Use this with frontend-conventions for the actual stack/design direction. It def
 
 Read the request, accepted UX/product decisions, references and existing components/routes. Inspect the rendered application when available and distinguish observed behavior from code assumptions. Map user roles, tasks and entry/exit points before choosing widgets. Preserve established branding, density, navigation and business language unless changing them is the request.
 
-For global work, inventory affected menus/submenus, routes, tabs, forms, dialogs/drawers, tables, mobile variants and role/feature-conditional views. Trace shared primitives and route-level overrides; a component search alone does not prove all actual surfaces are covered. Keep a concise coverage list in existing notes/plan with surface, intended pattern/behavior, relevant states, implementation and verification status. Mark unknown/inaccessible surfaces and exclusions explicitly. Do not quietly reduce “all menus and dialogs” to the first page visited.
+For a cross-cutting change, trace shared primitives, caller overrides and alternate/conditional entry points. Keep a concise coverage record of the affected surfaces, meaningful states, intended shared behavior and verification status in existing notes. Derive its scope from the request and actual application, including relevant roles/platforms.
 
 ## Specify the interaction before coding
 
@@ -35,17 +35,13 @@ Ask only unresolved high-impact design/product questions. State reversible visua
 
 Select representative complex and simple surfaces, including a dialog/mobile or role variant when relevant. Establish the shared implementation against the behavioral design before propagation. Reuse the project's primitives, tokens and composed components; fix a shared pattern centrally when appropriate rather than patching pages with divergent overrides. Preserve legitimate variants with explicit reasons.
 
-Apply the change to every in-scope surface in the coverage list. An unfinished batch remains partial; do not silently defer inconvenient menus/dialogs. Reconcile the list after implementation and search for old patterns, alternate entry points, portals, route overrides and conditional rendering that can escape the main component. Treat an unexplained exception as a finding to resolve, not another ad hoc design.
+Reconcile each in-scope surface after propagation: implemented and checked, intentionally unchanged, excluded by accepted scope, or blocked/unverified. Inspect callers, portals and conditional paths as well as shared definitions. Report the remaining scope as partial until it is accounted for.
 
-## Verify the experience and coverage
+## Verify the experience
 
-Inspect actual desktop/mobile surfaces and critical interactions against the specified behavior, not only screenshots of one representative page. Exercise keyboard/focus, errors, validation and permission differences; use journey-testing and relevant browser tools when available. Capture useful visual evidence and checks for repeated patterns, but do not duplicate every logic test in the browser. A shared component test does not prove every caller uses it correctly.
-
-For a request changing all menus/dialogs, account for each surface: implemented and observed/checked, unchanged with a reason, explicitly out of scope, or blocked/unverified. Report unresolved coverage and material deviations. Do not label global consistency verified when only one route or the build was checked. Keep the accepted interaction patterns and affected docs/tests aligned; later features should reuse this design instead of improvising again.
+Exercise actual target layouts and critical interactions against the design, using journey-testing and supported platform tools. Component states establish shared behavior; route/device journeys establish integration. Compare rendered results with accepted references and investigate differences before changing baselines. Preserve the intended behavior while repairing discrepancies through deliver-reliable-changes.
 
 For contract boundaries coordinate backend authority, invariants, validation and state transitions before implementation. The UI must reflect actual constraints rather than inventing permissions or success states. Consult [interaction references](references/interaction-references.md) for deeper patterns/accessibility; no external reference is required for ordinary decisions above.
 
-
-Derive evaluation scenarios from the agreed interactions before implementation. Use component states to inspect shared patterns and route/device journeys to establish actual integration. Compare rendered surfaces against accepted references; investigate visual differences without automatically approving new baselines. Agent exploration can expose usability issues beyond scripts, but subjective/model judgments need evidence and appropriate human calibration. Feed concrete discrepancies into the repair/recheck loop, preserving the intended behavior and recording incomplete coverage.
 
 Use [interface quality](../interface-quality/SKILL.md) to assess the rendered direction, [UX writing](../ux-writing/SKILL.md) for task language and [usability research](../usability-research/SKILL.md) for requested study planning or supplied participant evidence. Responsive adaptation follows actual content/platform constraints, accepted tokens and meaningful viewport/zoom/locale tests; a single generated phone frame does not establish native or responsive-range coverage.

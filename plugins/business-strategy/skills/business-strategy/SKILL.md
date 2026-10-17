@@ -90,18 +90,9 @@ Do not turn a simple revenue or pricing question into a full strategy engagement
 
 ## Persistent Strategy State
 
-For substantive strategy work with a writable workspace, always maintain two durable artifacts:
+For substantive ongoing strategy work, preserve a durable current thesis and the history of consequential decisions. Reuse the project's authoritative records when they serve these roles; keep decision-relevant evidence, assumptions, alternatives, economics, tests and review triggers with the thesis rather than creating parallel registers.
 
-- `strategy-state.md` — the current source of truth, including thesis, market, evidence, assumptions, alternatives, economics, risks, experiments, and recommendation;
-- `decision-log.md` — the history of material strategic choices, thesis mutations, rejected alternatives, and what would reopen them.
-
-If they do not exist, create them from `assets/strategy-state-template.md` and `assets/decision-log-template.md` before substantive analysis. If they exist, read them before re-analyzing.
-
-Update `strategy-state.md` whenever new evidence, assumptions, options, economics, risks, or conclusions materially change. Update `decision-log.md` whenever a material strategic decision is made, reversed, or reopened.
-
-Do **not** create separate evidence-ledger, assumption-register, or wedge-scorecard files. Keep decision-relevant evidence and assumptions compactly inside `strategy-state.md`; compare wedges or alternatives inline when needed and persist only the current alternatives/conclusion.
-
-If no writable workspace exists, maintain the same state conceptually in the conversation.
+The names `strategy-state.md` and `decision-log.md` below denote those roles. If no suitable records exist, use those filenames and the templates in `assets/` as starting points. Adapt structure to the decision; a bounded question can remain in the conversation. Read existing state before re-analysis, update the thesis when evidence changes and record material choices, reversals and reopening conditions in the decision history. If no writable workspace exists, maintain the same distinctions in the conversation.
 
 # Six Fundamental Strategy Questions
 

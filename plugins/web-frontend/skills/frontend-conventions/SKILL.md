@@ -26,7 +26,7 @@ Keep the accepted conventions and meaningful deviations in the existing design n
 
 Use [interaction-design](../interaction-design/SKILL.md) before meaningful new or changed UX. Define goals, flows, information/actions and state transitions in concise text; add wireframes/mockups only where they settle spatial/visual uncertainty. Resolve consequential choices and state reversible assumptions before coding; reuse agreed direction without another approval ceremony. Do not invent UX independently as each page is implemented.
 
-For global changes inventory all affected routes, menus/submenus, dialogs/drawers, shared primitives and role/mobile variants. Establish a reusable interaction pattern on representative surfaces, propagate it through shared implementations, then reconcile the coverage list. Verify callers and conditional/alternate entry points, not only the shared component or one screenshot. Report skipped/blocked surfaces and incomplete rollout explicitly; a partial UI update is not a completed global redesign.
+For cross-cutting work, interaction-design owns the affected-surface inventory, representative pattern and final reconciliation. Propagate shared implementations and verify actual callers/variants; preserve intentional differences and report incomplete coverage.
 
 ## Choose the shell for the product
 
@@ -36,7 +36,7 @@ For global changes inventory all affected routes, menus/submenus, dialogs/drawer
 | Customer task application | Simple top navigation or a compact sidebar according to destination count. Prioritize the user's next action; use progressive disclosure and multi-step flows only when they reduce complexity. |
 | Storefront or content site | Public header, relevant search/categories, readable product or reading layouts, and a useful footer. Optimize mobile browsing and checkout where applicable rather than inheriting an admin shell. |
 
-Across types, place the page title and useful context on the left, its main action on the right, and filters above the content. Breadcrumbs express meaningful ancestry; tabs switch sibling views. Navigable destinations have URLs and working back/deep-link behavior. Public pages need meaningful titles/metadata and indexing appropriate to the product; private application data must not become indexable or leak into public metadata. Hide unavailable destinations only for usability; authorization remains a server responsibility.
+Choose title/action placement, navigation depth and secondary controls from the main task, content and accepted profile. Use breadcrumbs for meaningful ancestry, tabs for sibling views and URLs/back behavior for navigable destinations. Public metadata/indexing should serve discovery while preserving private-data boundaries. Hidden controls affect usability, not server authorization.
 
 ## Make a coherent visual system
 
@@ -66,9 +66,7 @@ Avoid request waterfalls, oversized client bundles and avoidable layout shifts. 
 
 Test the production build/start path, configuration and representative authenticated journey; development-server success is narrower evidence. Identify build-time and runtime settings. `NEXT_PUBLIC_*` values are public and compiled into the client build; changing deployment environment variables does not rewrite that bundle. Prefer an explicit runtime configuration boundary when one artifact must serve different environments, exposing only safe values. If a build must differ, give it a new identity and validate it.
 
-For multi-instance Next.js, assess cache scope, shared invalidation, session handling, Server Action key consistency and client/server version skew for the installed release and hosting mode. Preserve identity/tenant isolation across application and CDN caches. A mutation invalidating one instance does not establish fleet-wide freshness. Reuse one validated build per deployment; keep old clients/assets compatible through the rollout and account for state lost on reload. Apply shared caches or platform features only when needed, not as a default Redis requirement.
-
-Verify through the actual proxy/CDN path when relevant: deep links, authenticated mutations, refreshed data after changes and rolling-deployment behavior. Use the platform's supported cache/skew mechanisms and [sources and exceptions](references/sources-and-exceptions.md) for details. Connect configuration and rollout decisions to `delivery-pipelines`; report local versus deployed evidence separately.
+When deploying multiple instances or changing hosting, read [production hosting and configuration](references/sources-and-exceptions.md#production-hosting-and-configuration) for cache scope/invalidation, identity isolation, version skew and proxy behavior. Verify the actual served path and affected outcome; local startup cannot establish fleet-wide behavior. Delivery-pipelines owns promotion and recovery mechanics.
 
 ## Verify and use specialist guidance proportionately
 
