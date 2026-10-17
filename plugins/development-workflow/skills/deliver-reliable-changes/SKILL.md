@@ -10,93 +10,60 @@ metadata:
 user-invocable: false
 ---
 
-Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
+Read [workflow framing](../../WORKFLOW.md) for scope and invocation boundaries.
 
+# Deliver changes with evidence
 
-# Deliver useful changes
+Connect the requested outcome to observable acceptance, implement useful increments and verify the affected capability at its real boundary. Choose depth from changed risk and existing project requirements.
 
-## Preserve scope and diagnose first
+## Establish the claim before implementation
 
-Read project instructions, accepted decisions and nearby code. Connect the requested outcome to concrete acceptance criteria; preserve existing architecture and UI direction. Keep unrelated cleanup separate. Use the conversation or plan as scope without requiring tickets.
+Read accepted decisions, instructions and affected contracts. Preserve the existing architecture and UI direction unless changing them is the objective. Reuse agreed answers and the project's plan; a conversation can be sufficient scope. Use [Git contributions](../git-contributions/SKILL.md) for the objective worktree and contribution flow.
 
-Use `git-contributions` for feature worktree isolation, Conventional Commits and publication to the intended remote. Keep checks and documentation in that feature workspace; reuse it for follow-up work on the same objective.
+For a defect, reproduce the relevant failure before repairing it. Use diagnosing-bugs, tdd or specialist review where their method fits. Identify the state, authority, consumer and operating boundaries affected by the change. For substantial UI work, establish interaction direction and surface coverage with interaction-design; for backend work establish shared behavior before propagating it across entry points.
 
-For a failure, establish a reproduction and inspect relevant logs/state before patching. Use `diagnosing-bugs` for investigation, `tdd` for behavior/regression checks and `code-review` for review when installed and relevant. Use differential/security or property-based specialists for risks that benefit from them; do not launch every available workflow. Fix the cause and preserve assertions that exposed it.
+Define observable scenarios and expected outcomes before dependent implementation. Keep material criteria stable; a changed requirement needs a justified decision rather than an adjusted expectation to make a failing run pass. Keep consequential assumptions and unavailable capabilities explicit.
 
-## Agree completion from the requested behavior
+## Match evidence to the claim
 
-Before implementation, connect the intended outcome to the affected contracts and acceptance evidence. Reuse answers already agreed. For ordinary changes this can stay in the conversation; no required template, ticket or separate document. State material assumptions and identify which checks can be run in the available environment. Select depth from the actual risk, not every checklist in the bundle.
-
-| Claim | Required evidence |
+| Claim | Sufficient kind of evidence |
 | --- | --- |
 | Implemented | Relevant code/configuration exists; missing behavior is identified. |
-| Behavior verified | Affected acceptance and failure/authorization cases were exercised, with the persistence/provider boundary stated. |
-| Ready for deployment | Applicable checks pass; configuration, compatibility, migration and recovery consequences are addressed. Outstanding material gates remain blockers. |
-| Verified after deployment | The intended revision is served and the affected journey works in the named target. Local tests cannot establish this state. |
+| Behavior verified | Affected acceptance, failure and authority cases ran at the stated persistence/provider/platform boundary. |
+| Ready for deployment | Required checks pass and applicable configuration, compatibility, migration and recovery consequences are resolved. |
+| Verified after deployment | The intended revision is served and the affected journey works in the named target. |
 
-For sharing a private resource, verify durable grants, intended recipient rights, denial for unrelated users and unchanged private defaults. A copy edit needs appropriate rendered verification; it does not require unrelated database/recovery work. Keep pre-existing failures distinct from regressions and respect existing required gates. Completion states are evidence descriptions, not additional permission or mandatory sequential ceremonies.
+These describe evidence, not additional approval ceremonies. A build, screenshot, successful transport response or runner narrative establishes only its own boundary. Use independent observable outcomes for important effects, including persistence and denied access. Verify proposed corrections as well as the current defect; distinguish a measured result from a hypothesis or unexecuted check.
 
-## Match verification to the change
-
-| Change | Evidence to seek |
+| Changed concern | Verification owner |
 | --- | --- |
-| Domain logic or bug fix | Focused behavior/regression tests |
-| API, auth or persistence | Integration tests with real contracts, authorization and PostgreSQL where relevant |
-| User journey or UI | Affected platform journey, component/state checks and rendered interaction/visual evaluation |
-| Dependencies or configuration | Applicable build, startup and configuration checks |
-| Migration or deployment | Migration/compatibility check and a practical recovery approach |
+| Domain logic | Focused behavior/regression tests at useful public interfaces |
+| API, stored state or authority | Real contract/persistence integration and allowed/denied outcomes |
+| UI or user journey | [Journey testing](../journey-testing/SKILL.md), implemented component states, rendered review and actual target-platform operation |
+| Dependencies/configuration/runtime | Relevant lint/type/schema/build and actual startup/configuration checks |
+| Delivery or data migration | [Delivery pipelines](../delivery-pipelines/SKILL.md), compatibility and recoverability |
+| Latency/load or controlled failures | [Performance testing](../performance-testing/SKILL.md) or [resilience testing](../resilience-testing/SKILL.md), selected by the claim |
 
-Run applicable lint, type and build checks plus behavior tests. Use `journey-testing` for full-stack claims and `documentation-conventions` for affected knowledge. A passing build is not evidence that the user journey works. Report blocked checks, pre-existing failures and mocked boundaries explicitly; do not imply they passed.
+## Implement, test, inspect and repair
 
-## Evaluate each useful increment
+Keep meaningful regression tests with the feature as behavior is implemented. After each useful increment, run affected fast checks, exercise the changed path using the services it needs and inspect relevant diagnostics/state. Diagnose discrepancies, repair the shared cause and recheck before dependent work. Manual exploration complements committed tests. Add coverage for an observed failure at the smallest boundary that captures its cause.
 
-Before dependent implementation, connect accepted behavior and interaction/contracts to a small scenario set with observable expected outcomes. Reuse the project's test/evaluation records; no new schema or ticket is required. Keep material criteria stable through the run and resolve a consequential mismatch with the agreed intent instead of silently weakening the criterion.
+Use isolated test data/stores and controlled providers. Journey-testing owns fixture identity, driver and platform details. Mocks demonstrate application handling; live integrations and native clients require their own evidence. Keep expensive load/fault/live-model checks at risk-appropriate milestones, rather than repeating every suite after each edit.
 
-After each meaningful increment: run fast affected logic/integration checks, start the required local services, exercise the changed journey, inspect relevant logs/traces/state and compare with the expected behavior/design. Fix a demonstrated discrepancy and rerun affected checks. Before completion run broader required regression and surface/platform coverage. Select expensive load/fault/live-model checks by changed risk and established authority, not after every keystroke. Mocks, screenshots and green CI each prove narrower boundaries.
+Before completion, reconcile all in-scope surfaces/consumers and run required broader regression. Exercise affected documented entrypoints and production build/start paths, with locked tools and real generated artifacts. Keep client, service and container configuration consistent. A failed required command or missing driver leaves the corresponding claim partial even when other tests pass.
 
-Use journey-testing for repeatable critical flows plus bounded exploratory operation and visual/accessibility evaluation. Keep independent assertions for important persistence/authority outcomes; don't accept the implementing agent's self-rating as proof. Record revision, scenario/data/environment and actual artifacts/results sufficiently to reproduce a failure. Never update expected outputs, visual baselines or judge rubrics merely to obtain green results. Changes to intended behavior need a justified decision and affected checks.
+Stop when acceptance is established or a precise blocker remains. Repeated failure without new evidence calls for diagnosis, not indefinite retries. Distinguish product defects, fixture/environment problems, stochastic evaluation and missing capabilities. Human decisions resolve unresolved product/taste questions; agent self-rating cannot supply that acceptance.
 
-Stop when acceptance is established with relevant evidence, or report precise blocked/partial results. When repair stops producing new evidence or repeats the same failure, diagnose the cause or escalate the blocker rather than retry indefinitely. Distinguish product defects, environment/fixture problems, nondeterministic evaluator results and unavailable tools. Add a focused regression check for a discovered defect at the most useful boundary. Human evaluation resolves unresolved product/experience judgments; do not fabricate it.
+## Carry delivery consequences forward
 
-## Keep delivery practical
+Keep local and CI checks aligned, permissions/secrets protected and dependencies reproducible. Use delivery-pipelines for artifact, configuration, promotion and recovery mechanics. Choose operational depth from the affected journey: resource authority, bounded calls/retries, diagnosable failure and recovery come before adding a monitoring platform.
 
-Keep local and CI checks aligned, dependencies reproducible and pipelines focused on useful feedback. Use minimal permissions, protected secrets and reviewed dependency/action versions; use the bundled GitHub Actions hardening skill for pipeline changes. Respect provider-required workflow paths. Add deployment automation when the target is known, without inventing an infrastructure platform for an unspecified target.
+For changed critical journeys, keep accepted outcome/latency definitions, observation boundaries and signal/runbook links aligned. Distinguish admission, durable effects, acknowledgement and completion so retries preserve the business invariant. Use reliability-design and observability-operations when installed; report unmeasured operational targets as such. Data-destructive migrations need compatibility and recovery evidence beyond application rollback.
 
-Check resource authorization, configuration and sensitive-data handling at their application boundaries. Bound external calls and retries; account for duplicate side effects before retrying. Make failures diagnosable through useful logs and basic health signals. Add deeper monitoring, load testing and backup/restore checks when operational needs warrant them.
+## Maintain trustworthy coverage and close
 
-For a migration that removes data, assess old/new application compatibility and recovery before delivery. Reverting application code alone may not restore lost data. Record the consequential tradeoff; keep destructive/live actions within the user's authorization.
+Diagnose flaky checks before changing waits or retries. Any necessary quarantine records owner, reason, replacement evidence and repair/review condition as an explicit coverage gap. Remove redundant tests only after equivalent useful coverage exists. Choose tests by behavior and risk rather than a universal coverage percentage.
 
-For a changed critical journey, check the operational outcome/latency definitions and collection boundary as well as behaviour tests. Keep eligible attempts, confirmed effects, failed acknowledgements and retries distinguishable; a reply failure after a commit must not trigger a second write. Update affected SLI/SLO status, telemetry gaps and alert/runbook links. Live service evidence is required before declaring a target met; do not build a monitoring stack for a change that does not need one.
+Review scope, correctness and avoidable complexity; resolve material findings. Keep affected knowledge current through documentation-conventions. For deprecation/removal, read [retiring behavior](references/retiring-behavior.md) before removing consumers, data or operating resources.
 
-## Close with evidence
-
-Execute the documented application entry point and production build, not only imported component or route tests. Confirm the declared tools are installed through the locked dependency path, generated runtime artifacts exist and startup addresses agree across client, service and container configuration. A missing browser entry file, unavailable declared linter or failed command blocks the corresponding claim even when unit tests pass. A runner SUCCESS flag or a completion narrative cannot override failed or unfinished checks.
-
-Review the diff for scope, correctness and avoidable complexity; resolve material findings. Keep affected docs synchronized and capture repeated mistakes as a concise instruction or check. Explain behavior changed, rationale, commands/results and remaining limitations in the PR or completion report. Distinguish implemented, verified, deployed and planned work. Publish or merge only within the requested authorization; a delivery skill is not permission to deploy.
-
-Use `performance-testing` for changed latency, throughput or concurrency claims: k6 locally, on a CI-started application, and on an identified non-production deployment. Select proportionate profiles; basic smoke checks do not prove production capacity.
-
-## Maintain trustworthy checks and retire behavior deliberately
-
-Keep unit/integration/contract/browser suites aligned with their claims. Diagnose flaky failures from state, timing and environment evidence. A necessary quarantine is an explicit temporary coverage gap with owner, reason, replacement evidence and review/repair condition; never quietly mark a required check green or leave an indefinite skip. Improve isolated fixtures and feedback time, and remove redundant tests only after equivalent meaningful coverage is established. Avoid a universal coverage percentage or duplicating every test in Playwright.
-
-For deprecation/removal, identify users and consumers from code/configuration plus appropriate usage evidence; absence from sampled telemetry is not proof of no use. Preserve supported contracts while migrating callers and draining queued/scheduled work. Define the owner, compatibility period/exit criteria and fallback; use the project's communication workflow, with sending only when authorized. Resolve data retention/export/recovery needs before destruction. Remove related flags, credentials/grants, jobs/routes, infrastructure and documentation only after dependencies and retention obligations are addressed. Verify intended behavior and resource state; record residual obligations and untested steps without requiring a new retirement registry.
-
-Use `resilience-testing` for relevant failure/recovery claims. Do not replace a performance suite with faults or trigger live experiments during routine feature work.
-
-For substantial UI changes require a defined interaction direction and affected-surface coverage before implementation, then use interaction-design when available to verify the complete scope. For backend changes establish behavior/contracts first and reconcile every affected endpoint/job/tool. Fixing a representative example does not establish a completed global change.
-
-
-## Recognize sufficient evidence
-
-For an edit flow, "the build passed and Save returned 200" leaves persistence and failure behavior unverified. Useful evidence is "edited as user A; values survived reload; a rejected save retained the draft; user B could not mutate A's record", with actual commands/artifacts and any mocked boundary stated. Do not report this example as a result unless it was executed.
-
-A useful UI finding names the surface and reproduction: "On Billing at narrow width, open Edit, submit an invalid amount, then close: focus moves to the document instead of the invoking row action; keyboard navigation loses its place." Link evidence and the shared/overridden pattern affected, rather than rating the whole UI from one screenshot.
-
-For a design assumption, "reuse the accepted sidebar and tokens" can be reversible. "All workspace users can read client records" changes authority and needs an accepted product decision. For a migration, HTTP success alone cannot prove a backfill completed or preserved ambiguous records; verify stored invariants at the actual database boundary.
-
-## Keep executable verification with the feature
-
-For application features, commit meaningful regression tests in the objective worktree as behavior is implemented: domain logic where useful, API/database authorization and persistence, frontend state/interaction checks and a small critical platform journey. Manual exploration complements those tests. A setup health check or CI build cannot establish feature coverage. First define observable scenarios, implement a bounded increment, run the affected tests, inspect failures and repair/recheck before dependent work; reconcile broader acceptance before completion.
-
-Use explicit isolated test databases and controlled external providers. Synthetic fixture identities default to disabled, require explicit local/test opt-in and must be rejected in production configuration; test all three states. For dialog changes test focus containment, dismissal/trigger restoration and input retention after failed saves using actual accessible primitives. Preserve the assertions and test/evidence artifacts that demonstrate the behavior. If a required driver or platform is unavailable, add runnable coverage where feasible and report the missing execution precisely; do not declare the feature fully verified or silently drop the test boundary.
+Report changed behavior, rationale, actual checks/artifacts and remaining limits, with revision/environment sufficient to reproduce material findings. Preserve useful regression evidence. Distinguish planned, implemented, verified and deployed states, and publish or execute remote actions only within established authority.

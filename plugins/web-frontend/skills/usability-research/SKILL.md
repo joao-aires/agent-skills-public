@@ -10,30 +10,24 @@ metadata:
 
 # Investigate usability with observable tasks
 
-Use directly for a requested study/analysis or to address a material unresolved user question during authorized product/design work. A routine UI edit does not require a study. [Interaction design](../interaction-design/SKILL.md) owns the proposed flow; [interface quality](../interface-quality/SKILL.md) supplies heuristic inspection, which is a different evidence source.
+Choose research to resolve a user question or inform a decision. Use for requested study preparation or supplied observations; routine UI work can use [interface quality](../interface-quality/SKILL.md) without a study. [Interaction design](../interaction-design/SKILL.md) owns the proposed flow.
 
-## Frame the question and study boundary
+## Frame the decision and method
 
-Establish what decision the research should inform, which users/tasks matter and which flow or supplied frames are in scope. Inspect the intended experience and known constraints. Ask only missing facts that change the study; otherwise label reasonable planning assumptions. If no selection is available, use a supplied frame link, flow or local prototype rather than pretending a Figma selection exists.
+Inspect the intended experience, known constraints and supplied flow, frame or prototype. Identify the decision, relevant users/tasks and uncertainty. Use available context; ask only for facts that change the study and label planning assumptions.
 
-Choose a method suited to the uncertainty and available access: task-based observation for completion/recovery, or an explicitly scoped concept/wording question when that is the real objective. Explain meaningful limitations. Propose participant characteristics, recruitment approach, session length and sample rationale as a plan; never present a proposed sample as recruited participants or turn a small convenience sample into a population claim.
+Choose a method that can answer the question: task observation for completion/recovery, or a scoped concept/wording inquiry when appropriate. Justify participant variation, recruitment, session length and sample through the decision and access limits. Quantitative coverage or population claims need an applicable source/model, assumptions and uncertainty; otherwise state the qualitative learning aim. A proposed sample remains a plan until recruitment occurs.
 
-Justify a proposed sample through the decision, participant variation and study limits. Do not attach a fixed percentage of discoverable problems to a participant count without an applicable source, model assumptions and uncertainty. When those are unavailable, state the qualitative learning aim without a coverage percentage.
+## Observe without coaching
 
-## Prepare tasks and observations
+Give participants realistic goals and observable end states while leaving them to discover the interaction. Separate moderator setup, participant instructions and neutral follow-up probes. Recovery tasks can start from naturally occurring failures or a moderator-prepared failed state; instructions should preserve the original goal without teaching an invalid attempt or its correction. Instructional/comprehension exercises answer a different question and need their own interpretation.
 
-Create realistic scenarios around participant goals, without naming the control to press or hinting at the expected answer. For each task define an observable end state, what to watch for and neutral follow-up probes. Include meaningful failure/recovery or return-use scenarios when relevant. Scale the guide to the decision and flow; do not prescribe a fixed task count.
+Prepare a concise moderator guide with purpose, think-aloud invitation, observations and neutral probes. Distinguish independent completion, assistance, errors/hesitation and subsequent interpretation. Check task feasibility in the prototype and trace tasks to research questions. Ratings require a stated question/scale and an interpretation justified by the method.
 
-For recovery questions, observe naturally occurring errors during a normal goal task, or have the moderator prepare a failed/interrupted prototype state before the participant resumes their original goal. Keep that setup out of participant wording: do not tell them which input to omit, which error to trigger or which field to fix. Labelling a coached attempt as an intentional exercise does not make it a neutral recovery task. A separately requested instructional/comprehension exercise needs its own purpose and cannot substitute for the study's recovery question.
+Use synthetic data where possible. Recruitment, contact, recording, private-data collection, publication and canvas writes require their own authorized scope and consent arrangements. A local guide or conversation can be sufficient output.
 
-A moderator guide should introduce the purpose, explain that the experience is being tested, invite think-aloud where suitable and avoid leading or teaching during the task. Separate task completion, assistance, errors/hesitation and post-task interpretation. Ratings need a stated question and scale, not an invented success threshold. Check that tasks are achievable in the prototype and map back to the research questions.
+## Synthesize the evidence supplied
 
-Use synthetic data where possible. Recording, recruitment, participant contact, private-data collection and external publication require their own authorized scope and appropriate consent handling. Do not contact anyone or write annotations into a shared design merely because a research plan was requested. Deliver in the existing project note or conversation; Figma guide frames are optional when the user has authorized canvas writes and tools support them.
+Separate observed behavior, participant statements, interpretation and proposed changes. Link findings to actual tasks/sessions/artifacts, protect identities, group repeated causes and preserve contradictory cases. Counts and quotes require supplied evidence.
 
-## Analyze the evidence actually supplied
-
-Keep observed behavior, participant statements, researcher interpretation and proposed design changes distinct. Link findings to the relevant task/session and artifact, redact identities where appropriate and group repeated causes. Preserve contradictory or unsuccessful cases. Report how many observations support a finding only when that count is available; no invented quotes, sessions, metrics or research conclusions.
-
-Explain participant/prototype limitations and prioritize effects on the intended task. Propose a repair and a useful follow-up test for important uncertainty. Reuse the actual accepted product constraints; evidence can reopen a decision but does not itself authorize changing it.
-
-Return a proposed study/guide or an evidence-backed synthesis, with assumptions and gaps. Agent exploration, simulated personas, static critique and automated accessibility checks cannot substitute for real participant observations. If no sessions occurred, say the study is prepared and unexecuted. Carry actual findings into requirements/design and verify implemented repairs through the existing test loop.
+Explain sample/prototype limitations and prioritize effects on the intended task. Recommend a bounded repair or next test and carry accepted findings into requirements/design. Return the study as prepared and unexecuted when no sessions occurred. Static critique, automated checks, agent exploration and simulated personas are different evidence sources; distinguish them from participant research and verify implemented repairs through the existing test loop.

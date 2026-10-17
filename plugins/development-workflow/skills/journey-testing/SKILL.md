@@ -51,8 +51,6 @@ For a modal, verify keyboard opening, initial focus, Tab/Shift+Tab containment, 
 - Exercise the real authentication path in dedicated auth coverage; reuse authenticated sessions where appropriate for other journeys. Never bypass the behavior the test claims to establish.
 - Inspect affected mobile/desktop layouts and keyboard/focus behavior. Include relevant loading, empty, error, validation and permission states; do not rely only on screenshots.
 
-For saved searches, create a named filter as user A, reopen it after reload and assert the restored values, delete it and confirm it remains absent. Use user B to attempt direct read/delete of A's resource; confirm denial and unchanged data. Keep narrower API tests for additional authorization permutations.
-
 ## Keep tests trustworthy
 
 Isolate users and data per test or worker and use an explicit test database. Apply migrations, establish service readiness and clean up only owned test data; do not reset an unspecified database. Use semantic locators and observable-state waits instead of fixed sleeps. Keep real credentials out of committed fixtures and traces. Synthetic test identities require explicit local/test opt-in and production rejection, with regression checks for those configuration boundaries.
@@ -64,8 +62,8 @@ Report commands, environment, journeys and actual results, plus mocked boundarie
 For suite upkeep, follow deliver-reliable-changes: temporary flaky-test quarantine has accountable repair and explicit coverage implications. Preserve useful traces and fixture ownership, and remove redundant browser checks only when the affected journey remains established at an appropriate boundary.
 
 
-## Feed implementation with evidence
+## Carry results into implementation
 
-Before coding, define the affected scenarios, expected outcomes, relevant surface/state coverage and observable checks. After each meaningful increment run fast affected checks, exercise the changed journey and inspect diagnostics; use deliver-reliable-changes for the repair/recheck loop. Before completion reconcile all in-scope surfaces and run broader required regression checks. Do not run every expensive platform/suite after each edit or let an agent silently change acceptance criteria to fit its output.
+Use deliver-reliable-changes for scenario selection and the implement/test/inspect/repair loop. This skill supplies platform and outcome evidence, including actual callers of shared components. Reconcile observed results with accepted interactions and visual references; investigate differences before changing a baseline. Preserve incomplete coverage and unresolved human judgments in the result.
 
 For deeper driver setup and evaluation methods use [journey references](references/journey-references.md). Core decisions above should suffice for ordinary work.

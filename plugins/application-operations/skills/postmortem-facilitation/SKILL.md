@@ -33,7 +33,7 @@ Consult [references/facilitation-guide.md](references/facilitation-guide.md) for
 7. Draft the review in the local format with impact, timeline, analysis, what worked, gaps, unknowns and actions. Mark owner/reviewer confirmation pending where needed.
 8. Review for factual accuracy, psychological safety, useful depth and testable prevention. Hand approved work to `postmortem-followup` or return the register directly.
 
-For proxy/security or detection-gap incidents, consult the [worked review case] when useful(references/proxy-security-review.md). Reconcile inconsistent clocks and distinguish confirmed impact from plausible shared-consumer exposure. A claim that an issue is “not detectable” needs a measurement-boundary analysis, not unquestioned acceptance.
+For proxy/security or detection-gap incidents, consult the [worked review case](references/proxy-security-review.md) when useful. Reconcile inconsistent clocks and distinguish confirmed impact from plausible shared-consumer exposure. A claim that an issue is “not detectable” needs a measurement-boundary analysis, not unquestioned acceptance.
 
 ## Stop condition and output
 

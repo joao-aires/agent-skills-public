@@ -29,22 +29,20 @@ For desktop/mobile distinguish native shell and client responsibilities from Pyt
 
 ## Verify consequential technical claims
 
-For a protocol, SDK, renderer, license or existing-session integration, check the exact supported version and capabilities in current primary sources. Separate observed support, a proposed adapter and an unavailable capability. Pin one coherent contract; do not call alternatives such as A2UI 0.9.1/1.0 a single pin. Mark custom event names or transports as application extensions and test their boundaries rather than presenting them as standard protocol messages. Existing-session reuse needs the selected harness/adapter's supported session identity, load/resume and permission behavior; ACP compliance alone does not guarantee attachment to arbitrary active sessions. A detailed diagram or confident prose cannot replace a bounded capability/contract check.
+For a critical dependency or integration, verify a coherent version, required capabilities, interoperability, operating limits and usage terms against current primary sources. Distinguish demonstrated support, vendor claims, proposed adapters and unavailable behavior. Test uncertain contract boundaries with a bounded authorized spike before committing dependent work. Examples, starter kits and protocol labels establish only the capabilities/terms they actually cover; verify the component and intended use separately.
+
+Use supported interfaces and the named disposable target for capability checks, following [integration discovery boundaries](../../WORKFLOW.md#working-boundaries). A proposed adapter or demo cannot establish access to an existing runtime/session. Carry unresolved support into the alternatives comparison.
 
 ## Resolve consequential dependency constraints
 
-Use the shared [consequential finding policy](../../WORKFLOW.md#resolve-consequential-findings) for the decision and dependent-work boundary; the checks here supply architecture evidence. The same policy applies when security, reliability, cost or other findings arise later.
+Use the shared [consequential finding policy](../../WORKFLOW.md#resolve-consequential-findings) to decide when a finding requires the user and which work depends on it. Architecture evidence should connect actual licensing/distribution terms, security/privacy, reliability, cost and platform support to intended personal, internal or commercial use. Keep these checks proportionate to the critical dependency and changed boundary.
 
-Before committing to a critical SDK/platform, verify the actual component's current license and production/distribution terms from primary sources; an MIT starter/example does not establish the SDK's terms. Connect restrictions, cost, keys, telemetry, redistribution and hosting to the intended personal/internal/commercial use. Personal use, open-source distribution and commercial use are not interchangeable permissions. Do not accept terms or buy a license merely to unblock implementation.
-
-If the terms conflict with accepted constraints, stop dependent implementation and present a supported comparison. If intended use or willingness to accept a material cost/restriction is unknown, ask the concrete decision before proceeding. A development trial or discretionary hobby license cannot establish production suitability. Once the user rejects the dependency, reopen the affected architecture and preserve required capabilities; do not silently relabel the product or keep building on the rejected choice. Continue independent work and label any permitted evaluation spike precisely.
+Where a fact or restriction changes an accepted constraint, present supported alternatives and the concrete decision. Continue independent work while dependent work waits. Preserve the required user capability when reopening architecture; a different technical solution can satisfy it without silently changing the product or accepting new terms/costs. Label evaluation spikes separately from production commitments.
 
 ## Carry the design into delivery
 
 Keep the consequential decisions in the project's existing architecture note or ADRs, with links to evidence and acceptance. Carry them into the implementation plan, interactions, setup, tests and release process. Avoid duplicating the same architecture across documents. Validate uncertain choices with a bounded spike or contract test before committing dependent work; label prototype behavior and untested claims.
 
 Return a recommended/proposed design, meaningful alternatives, material questions and a useful next increment. Design-only authority does not permit feature edits or deployment. Reassess the affected decision when new evidence arrives; do not force a complete redesign for each feature.
-
-Investigate harness attachment through documented interfaces and a dedicated authorized trial session. Do not search global conversation stores or credential profiles to discover capabilities. If a separate runtime cannot access the chosen existing session, record that limit and compare supported alternatives before promising attachment.
 
 For substantive architecture explanations or current/target views, use [architecture documentation](../architecture-documentation/SKILL.md). System-design owns the design choices; architecture-documentation explains their structure, runtime, interface and evidence boundaries, without claiming a proposed design is implemented.

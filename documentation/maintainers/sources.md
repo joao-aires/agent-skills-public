@@ -4,6 +4,8 @@
 
 ## Upstream catalogue
 
+For the collection-wide instruction review and retained objectives, see [guidance structure review](#guidance-structure-review).
+
 The [lockfile](../../upstream.lock.json) owns exact commit/tree pins, licenses and adaptations. Built bundles include complete acquired skills and notices; source-only checkouts do not. I select sources for provenance, maintenance, licensing and fit with these workflows. Popularity is supporting evidence, not proof of correctness.
 
 | Bundle | Source | Selected skills |
@@ -143,3 +145,20 @@ The Community candidates above remain references. The MIT better-interface repos
 I use documentation-writing for authoring quality and architecture-documentation for useful structural, runtime, interface and deployment explanations. Documentation-conventions owns authoritative records and upkeep; system-design owns design choices. These are original local skills; no upstream resources or invocation controls are imported.
 
 The earlier PR #8 source review compared [Anthropic doc-coauthoring](https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/doc-coauthoring/SKILL.md) and [GitHub documentation-writer](https://github.com/github/awesome-copilot/blob/8bc0f5715b2ddc7901a62fddf144ded30d56de8b/skills/documentation-writer/SKILL.md). Context gathering, reader questions, accuracy and terminology fit; mandatory collaboration/outline approvals do not fit routine authorized upkeep. No new popularity or source review is claimed by this integration. Diátaxis and Google technical writing inform the authoring method; C4, arc42 and OpenAPI inform architecture coverage. References remain with the skills and do not establish complete standards conformance.
+
+## Guidance structure review
+
+I reviewed the 55 local skill entry points and screened the 37 pinned upstream entry points and their adaptations for scope, instruction hierarchy and project fit. This review is about agent guidance; it does not revalidate every upstream API example, reference, tool or operational procedure. The pinned sources and native invocation controls remain unchanged.
+
+| Area | Decision |
+| --- | --- |
+| Workflow activities | Keep short activity entry points. Develop, Design and Setup now point to the owners of verification, specialist methods and foundations rather than repeat their checklists. Other activity entries remain focused on their distinct outcomes. |
+| Shared engineering support | Consolidate the acceptance/test/inspect/repair loop in deliver-reliable-changes and worktree/commit/PR mechanics in git-contributions. Keep foundation artifacts explicit in project-conventions. Journey-testing owns platform, fixture and component evidence. Preserve detailed performance, resilience, security and documentation methods where they change decisions. |
+| Architecture and stacks | System-design derives dependency suitability from intended use, constraints and supported contracts. Move production migration and multi-instance hosting detail behind relevant triggers; keep transaction, authorization and compatibility invariants visible. AI-specific speech and collaboration details stay in their domain references. |
+| UI/UX | Center interface review on applicability, evidence and verified recommendations. Keep measurement detail/tooling in its reference. Copy follows authoritative behavior and complete consequences; research protects neutral observation and justified inference. Interaction-design owns affected-surface reconciliation. |
+| Strategy | Retain the original strategy model, references, templates and compatibility fallback. Reuse suitable existing thesis/decision records instead of creating parallel files solely to match default filenames. Product-feedback guidance already connects evidence to a bounded decision. |
+| Visual artifacts | Retain the complete original HTML implementation guides and resources behind short brief-driven entry points. Their visual profiles are starting choices for the requested artifact. Keep the explorer's schema/renderer contract: its specificity protects an executable interface. |
+| Operations | Retain domain-specific methods and invariants for incident response, recovery, credential rotation, reliability, observability, capacity/cost, Kubernetes, JVM work and vulnerability management. Their detail protects consequential operations. Correct a broken postmortem reference. |
+| Upstream specialists | Preserve reviewed sources, licenses and dependency resources. Version-specific API examples remain specialist material. Local framing preserves accepted project choices; explicit upstream workflows retain their controls and are not automatically invoked to reproduce their whole ceremony. |
+
+The refactor preserves new-project onboarding/checks/tests/containers/CI/artifact/release foundations, TypeScript/Tauri and conditional mobile choices, contextual visual direction, Storybook plus real-platform testing, architecture/usage-term decisions, AI/protocol/authority boundaries and evidence-based completion. Concrete regressions remain in the evaluation definitions and calculator tests; preserving those outcomes does not require preserving every warning sentence. [Evaluation evidence](evaluations.md#guidance-refactor-validation) distinguishes package checks from behavior still needing a fresh run.

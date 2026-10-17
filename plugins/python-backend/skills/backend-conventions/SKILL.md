@@ -45,7 +45,7 @@ Reuse the established identity provider or maintained library. For new externall
 
 Validate token signature with an explicit algorithm allowlist, trusted issuer/key source, audience and expiry; define session/token revocation as required. If local passwords are needed, use Argon2 through a maintained implementation such as pwdlib, verification/recovery and abuse controls. PyJWT handles tokens, not the whole identity lifecycle.
 
-Derive identity and verified tenant membership from authentication. Enforce ownership/permissions on reads, lists, writes, jobs, exports and tool calls. Never trust caller-supplied owner/tenant fields alone. Sharing a filter or parent resource must not implicitly grant access to underlying records the recipient cannot otherwise read. Apply a consistent 403/404 policy without leaking resource existence. Prompts, hidden UI controls and object IDs do not grant authority.
+Derive identity and verified tenant membership from authentication. Enforce ownership/permissions on reads, lists, writes, jobs, exports and tool calls. Never trust caller-supplied owner/tenant fields alone. Evaluate authority at each resource boundary; access to a parent or saved view need not grant access to the records it references. Apply a consistent 403/404 policy without leaking resource existence. Prompts, hidden UI controls and object IDs do not grant authority.
 
 ## Make persistence and migrations intentional
 
@@ -57,13 +57,9 @@ Enforce uniqueness and invariants with database constraints. Handle races throug
 
 ## Evolve production data safely
 
-Inspect existing data, volume, active writers, API/event consumers and overlapping application versions before changing schema. Review Alembic output manually, especially renames, defaults, indexes and destructive changes. Apply migrations once through a controlled delivery job; application replicas must not race them.
+Review generated migrations against existing data, consumers, active writers and overlapping application versions. The operation owns compatibility and invariants; database constraints must be satisfied by defensible data rather than fabricated mappings. Run migrations once through controlled delivery, separate from replica startup.
 
-Use expand, compatible deployment, bounded backfill, verification and later contract removal when live compatibility requires it. For a new required ownership field, introduce a compatible representation, populate existing rows from defensible mappings, report ambiguous rows, then enforce the invariant. Never fabricate ownership to satisfy a constraint. Remove old fields/paths only after their consumers and rollback needs are resolved.
-
-Assess lock acquisition, scans/rewrites, disk/WAL growth and replication lag for the actual PostgreSQL version and operation. Bound lock waits and backfill rate/transactions; define stop conditions. Choose concurrent indexes or staged constraint validation when supported and justified, checking transaction restrictions and failed-operation cleanup. Make backfills resumable and idempotent, preserving concurrent edits with suitable conditions; review samples, totals and business invariants before enforcing constraints.
-
-Exercise upgrades from the previous schema with representative populated data and compatible old/new code where relevant. A tiny local database does not establish large-table timing or lock safety. Separate application rollback, data repair and backup restoration; document irreversible steps and recovery evidence. Keep schema/operating notes current and live execution within task authority. See [sources and exceptions](references/sources-and-exceptions.md) for platform-specific details.
+For production schema changes/backfills, read [production data evolution](references/production-data-evolution.md). Establish compatible stages, bounded/resumable execution, independent data verification and a usable recovery route before dependent deployment. Application rollback, data repair and backup restoration have different consequences.
 
 ## Bound integrations and concurrency
 

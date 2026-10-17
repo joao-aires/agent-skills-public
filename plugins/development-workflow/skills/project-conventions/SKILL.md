@@ -28,9 +28,7 @@ For initial adoption, discover authoritative startup/test/build/migration comman
 
 During a feature or fix, trace the affected paths and identify changed contracts, stored data, permissions, integrations, configuration and delivery consequences. Preserve useful legacy knowledge. Investigate contradictory code/docs and surface uncertainty that changes the outcome or risk; routine local choices can proceed. Keep this assessment inline for ordinary changes and record consequential decisions in the project's existing notes. Unrelated legacy debt remains separate unless it prevents the requested behavior.
 
-For shared saved searches, inspect existing ownership and all affected reads/writes before adding access grants. Preserve private defaults and define recipient permissions from the agreed scope; hiding UI controls does not enforce them. Select focused verification using `deliver-reliable-changes`, rather than invoking every installed skill.
-
-Before setup or feature writes, use [git-contributions](../git-contributions/SKILL.md) to create/reuse the separate objective worktree and verify the actual edit/command paths. Initialize an empty repository only as needed to enable that worktree. Keep the base checkout untouched by objective files.
+Select verification through [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) and establish the objective workspace through [Git contributions](../git-contributions/SKILL.md) before foundation/feature writes. Those skills own the verification loop and worktree mechanics.
 
 ## Establish a small, navigable repository
 
@@ -59,11 +57,9 @@ Use delivery-pipelines for implementation and registry defaults. Demonstrate a c
 
 ## Establish focused quality checks
 
-For new projects configure the checks relevant to the actual files: Python Ruff lint/format and a compatible type checker; JS/TS ESLint and the project's formatter/type checker; YAML yamllint, GitHub Actions actionlint, shell ShellCheck, and Gitleaks secret detection where applicable. Preserve accepted tools in existing projects rather than installing a second equivalent stack. Keep tool versions/configuration reproducible and avoid an all-in-one Super-Linter dependency.
+Choose reproducible code, configuration and secret checks for the files and risks present; preserve accepted tools in existing projects. Use [quality-check references](references/quality-checks.md) for tool defaults, staged/full-tree scope and hook setup. Configure individual focused tools rather than a blanket Super-Linter dependency.
 
-Use prek for a new local Git-hook runner when suitable; retain working pre-commit, Lefthook or other accepted setups. Pre-commit hooks run on the staged change; pre-push can run broader checks. These are local feedback mechanisms, distinct from server-side pre-receive hooks. CI repeats required checks over an explicit change range or full tree and is authoritative because local hooks can be absent or bypassed. A clean staged scan is not a clean history scan.
-
-Document exact install/run commands, file ownership, exclusions and when to run each check in scoped AGENTS.md. Run affected lint/format/type checks during implementation, fast staged checks before commits and required broader checks before PR readiness. Keep slow integration/platform/load checks outside every commit. Handle partially staged files carefully: inspect formatter edits and restage only the intended hunks. Do not hide findings, dump detected secrets into artifacts, rewrite history, replace global hooks or bypass checks to obtain a green result. Inspect hooksPath and worktree behavior; install/verify repository-local shims without overwriting unrelated configuration. See [quality-check references](references/quality-checks.md).
+Local hooks provide fast feedback on intended staged changes; CI independently enforces required checks over its declared scope. Keep expensive platform/integration checks outside every commit. Document exact commands, ownership and exceptions, and verify the setup in the actual worktree. Git contributions owns safe staging and commit-time verification.
 
 ## Provide a reproducible local environment
 
@@ -71,9 +67,9 @@ For new containerizable services, default to Docker Compose for the frontend/API
 
 Provide one documented startup path, migrations, representative non-sensitive seed data, actual service/application readiness, shutdown and safe reset commands. Readiness must include required initialization; container start order alone is insufficient. Isolate Compose project names, ports, credentials and data per feature worktree/test run. Use explicit test stores/owned fixtures, persistent volumes for development data, pinned compatible images and bounded resources. Never reset an unspecified or shared database; destructive volume removal must be an explicit scoped action.
 
-Offer observability through a documented profile or companion Compose stack, with OpenTelemetry collection and a replaceable backend. Prefer SigNoz for a new unified local view after checking supported self-hosted components and available resources; keep an accepted backend. Add Langfuse only for a concrete AI dataset/experiment/evaluation workflow. Avoid running duplicate full telemetry stacks by default. Select a current supported vendor installation, not a copied stale Compose manifest. Document how the app and backend stacks connect, which services/profiles are required for each check and how agents query diagnostics. Observability should be easy to start without making every fast test depend on it.
+Make diagnostics available through an optional Compose profile or companion stack, with OpenTelemetry and a replaceable backend. Prefer SigNoz for a new unified local view when its supported footprint fits; use Langfuse for a concrete AI evaluation workflow. Preserve an accepted backend and avoid competing full stacks. Read [local environment references](references/local-environment.md) when implementing profiles, connectivity or backend setup; use observability-operations for deeper signal contracts when installed.
 
-Desktop/mobile clients and simulators normally run on their supported host and connect to Compose services through documented addresses; container-only backend checks do not establish native-client behavior. Keep external side effects controlled with local sinks/fixtures. Make opt-in real-provider boundaries explicit; do not silently use production credentials or real email/payment effects. Use delivery-pipelines for CI reuse and observability-operations when available for detailed portable instrumentation; these defaults are sufficient when that plugin is absent. Consult [local environment references](references/local-environment.md) for setup details.
+Native clients/simulators run on their supported host with documented service addresses. Control external effects through fixtures or explicitly opted-in sandboxes. Backend containers establish service behavior; actual native clients require their own checks through journey-testing.
 
 ## Include operating constraints in design
 
@@ -89,9 +85,7 @@ Start a full setup or structural review only when requested. Apply existing conv
 
 ## Prove the affected capability
 
-For a saved-search application, start with saving a named filter and reopening it through the UI, API and database. Include ownership enforcement if users have private data. Defer sharing, recommendation agents and a generic workflow engine until requested. Prefer a real useful flow over disconnected mock screens and endpoints.
-
-Finish by showing how to start the application, what journey works, which checks ran and what remains incomplete. Verify the applicable startup, migration and browser/API path; distinguish mocked providers from real integrations. Keep first-slice knowledge and decisions current. Do not describe a scaffold or a successful build alone as a working application.
+Verify the first slice through its real entrypoint, user-visible outcome and persistent/authority boundaries. Use the agreed scope to defer unrelated capabilities. Demonstrate startup/migration and affected platform/API paths, with fixture/live boundaries explicit. A scaffold or successful build establishes a narrower result than a working application. Keep commands and first-slice knowledge current and report missing checks through deliver-reliable-changes.
 
 ## Maintain configuration and supported dependencies
 

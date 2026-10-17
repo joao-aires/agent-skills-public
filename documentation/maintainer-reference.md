@@ -56,3 +56,9 @@ Labels do not enforce permissions. Task entries use native explicit-only control
 | Domain methods and exceptions | Relevant specialist skill |
 
 Link the owner instead of copying its rules. Optional guidance is selected from actual inventory and relevance; it does not require a dependency engine. Consolidate further only after [behavior trials](maintainers/evaluations.md#compare-and-simplify) show what agents actually read or miss.
+
+When revising a skill, start from the decision it helps make and the evidence that marks completion. Keep the principle, its applicability and the required outcome together. State the desired behavior directly; reserve strict sequences for dependencies and operational invariants that require them. Use Matt's pinned `writing-for-agents` for instruction hierarchy and pruning.
+
+Give each rule one owning location within a bundle. Keep material needed on every relevant path in the entry point; link conditional technical detail with a clear trigger. Independently installable bundles may need small overlapping defaults to remain useful on their own. Preserve resources and invocation controls when adapting upstream guidance.
+
+An observed failure should improve a general decision rule, a navigation pointer, a deterministic tool or an evaluation. Keep its concrete reproduction in the evaluation rather than adding another prohibition to every skill. Check that the revision preserves the intended outcome, safeguards, explicit user preferences and completion evidence. Compare both old regressions and unfamiliar scenarios; shorter text alone is not evidence of better behavior.
