@@ -30,7 +30,7 @@ For a saved-search feature, ask whether users can save and later reuse a search.
 
 Separate observations from interpretations and hypotheses. Prioritize by severity, relevance to the intended users, evidence and cost of learning/fixing; do not invent numeric scoring where it adds no clarity. Explain conflicting evidence and uncertainty. A feature request may reveal a problem better solved another way.
 
-Recommend a bounded response with an observable outcome and a way to assess it later. Bring accepted work into requirements/planning, using the conversation or Markdown when sufficient; no ticket requirement. Keep the roadmap, assumptions and decision log aligned without turning every comment into backlog work. Close the loop by checking the outcome after the change; contact/report back to users only when requested.
+Recommend a bounded response with an observable outcome and a way to assess it later. Bring accepted work into requirements/planning, using the conversation or Markdown when sufficient; no ticket requirement. Use [product management](../product-management/SKILL.md) for product reprioritization and the next useful slice; refinement owns detailed engineering requirements. Keep the roadmap, assumptions and decision log aligned without turning every comment into backlog work. Close the loop by checking the outcome after the change; contact/report back to users only when requested.
 
 ## Keep collection respectful and optional
 

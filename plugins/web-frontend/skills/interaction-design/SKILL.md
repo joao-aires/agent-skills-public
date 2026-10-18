@@ -13,7 +13,7 @@ metadata:
 
 # Design interactions before implementation
 
-Use this with frontend-conventions for the actual stack/design direction. It defines behavior and coverage; frontend-conventions owns product-derived visual direction, tokens and rendered visual review. Both are needed for a new interface. Apply it automatically to relevant requested work; users do not need to remember the skill name. A typo, a tiny token adjustment or unchanged interaction needs proportionate reasoning, not a fresh full design document.
+Use this with [visual design](../visual-design/SKILL.md) for product-derived visual direction, tokens and representative rendered review. This skill owns behavior and coverage; technical conventions own implementation for the selected stack. Use both disciplines for a new interface. Apply it automatically to relevant requested work; users do not need to remember the skill name. A typo, a tiny token adjustment or unchanged interaction needs proportionate reasoning, not a fresh full design document.
 
 ## Discover the full affected experience
 

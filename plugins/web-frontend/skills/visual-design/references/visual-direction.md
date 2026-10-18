@@ -24,14 +24,6 @@ Compare the rendered target application with the reference after implementation,
 
 References: [Figma design context and agent responsibilities](https://developers.figma.com/docs/figma-mcp-server/mcp-vs-agent/), [Storybook design integrations](https://storybook.js.org/docs/sharing/design-integrations), [Storybook testing](https://storybook.js.org/docs/writing-tests). Choose integrations according to current access, privacy and publishing requirements; linked tools are not mandatory dependencies.
 
-## Implement through the chosen system
-
-For a new React DOM app, including a Tauri webview, use compatible Tailwind and actual shadcn primitives as the default. Record a justified exception. Preserve the selected component API/preset, semantic CSS-variable theme pairs and a coherent Tailwind theme mapping. Theme typography, spacing, radii and states as a system; compose product-specific layouts rather than replacing primitives with handwritten lookalikes or scattering literal overrides. Preserve accepted existing libraries.
-
-For React Native use native components and supported styling/theming tools, carrying over design intent and appropriate semantic tokens. Do not install web shadcn widgets to satisfy this preference. Native navigation, keyboard, safe areas and accessibility remain platform-specific.
-
-Follow current version-matched [shadcn theming](https://ui.shadcn.com/docs/theming) and [Tailwind theme guidance](https://tailwindcss.com/docs/theme); use the bundled upstream skills for unfamiliar implementation details. Do not mix documentation generations or layer a competing token system over the selected preset.
-
 ## Render one useful slice, then propagate
 
 Build and inspect a representative real screen with realistic content before rolling out the pattern. Include a difficult state or interaction, not just an attractive empty shell. Compare hierarchy, readability, density, alignment, component consistency and product character with the direction. Repair and re-render when the result misses it. Keep concrete screenshots/findings so the next iteration can be compared.

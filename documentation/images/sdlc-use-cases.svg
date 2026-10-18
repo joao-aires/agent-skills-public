@@ -10,7 +10,7 @@
 <text x="66" y="183" font-size="24" fill="#172c41" font-weight="700" text-anchor="start" >A new product</text>
 <text x="66" y="220" font-size="20" fill="#52667a" font-weight="400" text-anchor="start" >develop</text>
 <rect x="380" y="170" width="267" height="60" rx="9" fill="#eaf1f8" stroke="#eaf1f8"/>
-<text x="513.5" y="207" font-size="20" fill="#315f91" font-weight="550" text-anchor="middle" >Refine the product</text>
+<text x="513.5" y="207" font-size="20" fill="#315f91" font-weight="550" text-anchor="middle" >Shape product direction</text>
 <path d="M649 200 H662" stroke="#315f91" stroke-width="2" marker-end="url(#arrow)"/>
 <rect x="668" y="170" width="267" height="60" rx="9" fill="#eaf1f8" stroke="#eaf1f8"/>
 <text x="801.5" y="207" font-size="20" fill="#315f91" font-weight="550" text-anchor="middle" >Design the system &amp; UX</text>

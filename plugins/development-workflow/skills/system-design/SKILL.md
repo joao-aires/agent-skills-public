@@ -39,6 +39,8 @@ Use the shared [consequential finding policy](../../WORKFLOW.md#resolve-conseque
 
 Where a fact or restriction changes an accepted constraint, present supported alternatives and the concrete decision. Continue independent work while dependent work waits. Preserve the required user capability when reopening architecture; a different technical solution can satisfy it without silently changing the product or accepting new terms/costs. Label evaluation spikes separately from production commitments.
 
+Use [backend design](../backend-design/SKILL.md) for service state, authority and consumer contracts inside the chosen boundaries. Use installed interaction-design and visual-design for experience decisions, and build-evaluated-ai for AI/protocol authority and evaluation. Select technical guidance from the accepted stack and actual inventory; an architecture method does not choose a framework by implication.
+
 ## Carry the design into delivery
 
 Keep the consequential decisions in the project's existing architecture note or ADRs, with links to evidence and acceptance. Carry them into the implementation plan, interactions, setup, tests and release process. Avoid duplicating the same architecture across documents. Validate uncertain choices with a bounded spike or contract test before committing dependent work; label prototype behavior and untested claims.

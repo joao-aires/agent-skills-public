@@ -1,16 +1,16 @@
 # Start a new application from the intended outcome
 
-Use this when develop starts from a new application idea. For an existing feature, resume at the affected decisions and preserve accepted work. Scale the depth: a personal tool needs a short purpose/constraints assessment, not a fabricated startup business plan. A commercial opportunity with material uncertainty warrants business-strategy when installed; use its supporting guidance directly without automatically invoking explicit-only tasks.
+Use this when develop starts from a new application idea. For an existing feature, resume at the affected decisions and preserve accepted work. Scale the depth: a personal tool needs a short purpose/constraints assessment, not a fabricated startup business plan. Use installed product-management when the problem, useful scope or priorities need shaping; use business-strategy for unresolved commercial direction or viability. Keep these decisions separate from engineering requirements and implementation sequencing; supporting methods do not automatically invoke explicit-only tasks.
 
 ## Establish enough evidence before dependent work
 
 | Stage | Useful result before proceeding |
 | --- | --- |
 | Purpose and business context | Intended user, problem, current workaround, personal/internal/commercial use, desired outcome and important cost/distribution constraints. Separate evidence from demand/revenue hypotheses. |
-| Product definition | Bounded first useful experience, main jobs/journeys, scope/non-goals and a success signal. Preserve accepted decisions; propose unaccepted choices explicitly. |
+| Product definition | Use product-management when available for the decision: bounded first useful experience, main jobs/journeys, scope/non-goals and a success signal. Preserve accepted decisions; propose unaccepted choices explicitly. |
 | Requirements | Observable acceptance, realistic content, identity/ownership, failure states, supported platforms, relevant quality attributes and operating constraints. A concise brief/PRD is sufficient. |
 | Feasibility and system design | Compare plausible options; verify consequential licensing, pricing, platform/protocol and integration claims. Resolve architecture-changing blockers before dependent scaffolding. Use system-design. |
-| UX and visual design | Task flows, hierarchy, states and contextual visual direction; inspect a representative real screen or proportionate prototype using frontend-conventions and interaction-design. Carry the requirements into the design. |
+| UX and visual design | Task flows, hierarchy, states and contextual visual direction; inspect a representative real screen or proportionate prototype using visual-design and interaction-design, then the selected stack conventions. Carry the requirements into the design. |
 | Implementation plan and foundations | Small dependency-ordered increments with tests, chosen commands, complete applicable setup, CI/artifacts and release/recovery consequences. Reconcile the plan after design decisions. |
 | Implementation, verification and repair | Commit meaningful tests with increments; run component/API and actual platform journeys, accessibility and rendered visual review. Preserve/reproduce findings and repair/recheck rather than lowering acceptance. |
 | Delivery and learning | Review completion against the original outcomes; distinguish implemented/verified/blocked/released. Prepare delivery foundations, execute remote actions only when authorized, and feed observed product results into the next iteration. |

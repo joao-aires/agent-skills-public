@@ -12,6 +12,12 @@ Existing applications can keep their layout, accepted stack and tracker choices.
 
 For the legacy skills-only helper, run `./scripts/sync-skills.sh status`, then `./scripts/sync-skills.sh sync`. It repairs unchanged-name links from this checkout's old `skills/` paths in `~/.agents/skills`, including broken links, while preserving unrelated paths. It adds available local skills only. Keep the checkout in place. The helper does not migrate renamed basenames or update copied directories/other checkouts; inspect and clean up those old entries manually.
 
+## Product and method ownership
+
+Rebuild affected complete bundles. Existing activity names and upstream controls are unchanged. Product-management is added to business-strategy; visual-design is added to web-frontend; backend-design is added to development-workflow. AI-development keeps build-evaluated-ai for provider-independent contracts/evaluation and adds ai-conventions for technical defaults.
+
+The visual-direction reference moves from frontend-conventions to visual-design; update private links into that resource. React, Python and AI conventions retain their accepted technical defaults while reusable methods have distinct owners. No application stack migration, account connection or replacement of established product decisions is implied. Optional methods are selected from the actual client inventory.
+
 ## Original directory layout
 
 The original skills moved into activity plugins with their resources intact:

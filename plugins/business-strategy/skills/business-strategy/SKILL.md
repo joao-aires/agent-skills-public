@@ -28,6 +28,8 @@ The objective is to determine:
 - why the advantage can persist;
 - what evidence should cause the strategy to change.
 
+For product scope, prioritization, first useful slices and success measures within an accepted strategy, use [product management](../product-management/SKILL.md). This skill retains business direction, competitive position, economics and value-capture decisions. Product evidence can reopen strategy without making every feature a new strategy engagement.
+
 ## Core Principles
 
 ### 1. The initial idea is a hypothesis

@@ -4,6 +4,23 @@ Use the [SDLC overview](../README.md#sdlc-coverage) to orient yourself and the [
 
 The circular overview names SDLC phases and their outcomes. Labels marked **Entry** identify user-facing skills; plugins are installation bundles, and supporting disciplines are linked below. A skill may support more than one phase. `plan` is detailed implementation planning after the relevant requirements and design decisions.
 
+## User-facing entry points
+
+| Need or phase | Entry point |
+| --- | --- |
+| Business direction | business-strategy |
+| Product discovery, priorities and success | product-management |
+| Requirements and scope | refine |
+| System, experience or contract design | design; focused visual-design or backend-design when installed |
+| Implementation sequencing | plan |
+| Implementation | implement; develop for the broader engagement |
+| Verification and assessment | test; review across phases |
+| Delivery | release |
+| Maintenance and learning | improve, dependencies, relevant operations; learn-from-product-feedback |
+| Foundations or choosing an activity | setup / workflow-help |
+
+Some disciplines are directly selectable and also support requested work. Entry points may span phases; they do not imply a mandatory invocation chain.
+
 ## Different starting points
 
 ![Six representative paths for a new product, existing feature, bug, assessment, operations or specialist question, with contextual methods and bounded outcomes](images/sdlc-use-cases.svg)
@@ -16,7 +33,7 @@ Implementation and verification form a repeated loop inside the broader SDLC. Pr
 
 ## Before and around the cycle
 
-- Product discovery: [business-strategy](../plugins/business-strategy/skills/business-strategy/SKILL.md) helps choose a useful problem.
+- Product discovery and direction: [product-management](../plugins/business-strategy/skills/product-management/SKILL.md) owns user problems, priorities, useful scope and success signals. [Business strategy](../plugins/business-strategy/skills/business-strategy/SKILL.md) owns business direction, competitive position and value capture. These decisions begin before development and evolve with evidence.
 - Project foundations: `setup` uses [project-conventions](../plugins/development-workflow/skills/project-conventions/SKILL.md) and relevant [delivery-pipelines](../plugins/development-workflow/skills/delivery-pipelines/SKILL.md) guidance. Establish them after sufficient product and architecture decisions for a new project, then maintain affected parts as it evolves.
 - Product feedback: [learn-from-product-feedback](../plugins/business-strategy/skills/learn-from-product-feedback/SKILL.md) examines delivered value and feeds discovery and future work. Incident learning addresses reliability and is a separate feedback source.
 
@@ -26,11 +43,11 @@ Product discovery and refinement establish the outcome. System design makes arch
 
 ### 1. Planning
 
-Establish the goals, feasibility, constraints and rough scope needed to decide whether and how to proceed. Product discovery supplies evidence for this decision. Revisit the initial plan as requirements and design become clearer; detailed implementation planning follows the decisions it depends on.
+Establish the goals, feasibility, constraints and rough scope needed to decide whether and how to proceed. Product-management supplies product priorities and evidence for this decision; business-strategy supports unresolved business choices. Revisit the initial plan as requirements and design become clearer; detailed implementation planning follows the decisions it depends on.
 
 ### 2. Requirements analysis
 
-Start with [refine](../plugins/development-workflow/skills/refine/SKILL.md). Establish actor authority, scope, observable acceptance and material unknowns. Business strategy supports the product decision when requested.
+Start with [refine](../plugins/development-workflow/skills/refine/SKILL.md). Establish actor authority, scope, observable acceptance and material unknowns. Reuse accepted product direction; product-management supports unresolved product priorities without replacing engineering requirements.
 
 ### 3. Design
 
@@ -40,7 +57,7 @@ Use [design](../plugins/development-workflow/skills/design/SKILL.md) with [syste
 
 #### Interaction, visual and contract design
 
-Use [design](../plugins/development-workflow/skills/design/SKILL.md), [frontend-conventions](../plugins/web-frontend/skills/frontend-conventions/SKILL.md), [interaction-design](../plugins/web-frontend/skills/interaction-design/SKILL.md) and relevant backend/native/AI guidance. Derive contextual visual direction and define surfaces, behavior, authority and failure contracts from the requirements before dependent implementation.
+Use [design](../plugins/development-workflow/skills/design/SKILL.md), [visual-design](../plugins/web-frontend/skills/visual-design/SKILL.md), [interaction-design](../plugins/web-frontend/skills/interaction-design/SKILL.md) and [backend-design](../plugins/development-workflow/skills/backend-design/SKILL.md), then relevant technical guidance. Derive contextual visual direction and define surfaces, behavior, authority and failure contracts from the requirements before dependent implementation.
 
 #### Implementation planning and foundations
 
@@ -64,7 +81,7 @@ Start with improve/dependencies or the requested operations activity. Use releva
 
 ## UI/UX methods across activities
 
-[Interface quality](../plugins/web-frontend/skills/interface-quality/SKILL.md) assesses and refines the intended experience; [UX writing](../plugins/web-frontend/skills/ux-writing/SKILL.md) connects language to real actions and states; [usability research](../plugins/web-frontend/skills/usability-research/SKILL.md) prepares studies or analyzes supplied observations. They are both directly requestable and model-available support for relevant design, development, improvement and review. Existing frontend/interaction guidance retains direction, stack and flow ownership; journey-testing retains executable verification. No study or design tool is compulsory for every UI change.
+[Interface quality](../plugins/web-frontend/skills/interface-quality/SKILL.md) assesses and refines the intended experience; [UX writing](../plugins/web-frontend/skills/ux-writing/SKILL.md) connects language to real actions and states; [usability research](../plugins/web-frontend/skills/usability-research/SKILL.md) prepares studies or analyzes supplied observations. They are both directly requestable and model-available support for relevant design, development, improvement and review. Visual-design owns direction, interaction-design owns flows and technical conventions own the selected implementation; journey-testing retains executable verification. No study or design tool is compulsory for every UI change.
 
 ## Across phases
 
@@ -83,14 +100,16 @@ Generic means reusable across stacks; stack-specific means select it only for ma
 
 | Area | Local applicability | Local guidance | Upstream techniques or contextual tools |
 | --- | --- | --- | --- |
+| Product direction | Generic | [product-management](../plugins/business-strategy/skills/product-management/SKILL.md) | Existing research and feedback; no tracker required |
+| Business strategy | Generic | [business-strategy](../plugins/business-strategy/skills/business-strategy/SKILL.md) | Preserved strategy references |
 | Project foundations | Generic | [project-conventions](../plugins/development-workflow/skills/project-conventions/SKILL.md) for affected structure, commands and constraints | None required |
 | Documentation | Generic | [documentation-conventions](../plugins/development-workflow/skills/documentation-conventions/SKILL.md) | [writing-for-agents](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/writing-for-agents) for agent instructions |
 | Prose editing | No local skill | Follow the document's author and technical claims | [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) |
-| Frontend development | Generic + stack-specific | [frontend-conventions](../plugins/web-frontend/skills/frontend-conventions/SKILL.md), [interaction-design](../plugins/web-frontend/skills/interaction-design/SKILL.md) for prior UX design and full-surface coverage | Official shadcn, Tailwind design system, Vercel React/composition |
+| Frontend development | Generic + stack-specific | [frontend-conventions](../plugins/web-frontend/skills/frontend-conventions/SKILL.md), [visual-design](../plugins/web-frontend/skills/visual-design/SKILL.md), [interaction-design](../plugins/web-frontend/skills/interaction-design/SKILL.md) for prior UX design and full-surface coverage | Official shadcn, Tailwind design system, Vercel React/composition |
 | Desktop and mobile clients | Stack-specific | [native-client-development](../plugins/web-frontend/skills/native-client-development/SKILL.md) for TypeScript/Tauri and informed iOS/Android choices | Current Tauri/Expo/React Native/platform documentation |
-| Backend development | Stack-specific | [backend-conventions](../plugins/python-backend/skills/backend-conventions/SKILL.md) | [modern-python](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/modern-python/skills/modern-python) |
-| AI development | Stack-specific | [build-evaluated-ai](../plugins/ai-development/skills/build-evaluated-ai/SKILL.md) (local, not an upstream skill) | Chosen Google ADK or LangChain/LangGraph skills |
-| MCP interfaces | Stack-specific | MCP section of [build-evaluated-ai](../plugins/ai-development/skills/build-evaluated-ai/SKILL.md); reuse authorized application services | [mcp-builder](https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/mcp-builder), in `ai-development`; prefer standalone Python FastMCP |
+| Backend development | Generic + stack-specific | [backend-design](../plugins/development-workflow/skills/backend-design/SKILL.md), [backend-conventions](../plugins/python-backend/skills/backend-conventions/SKILL.md) | [modern-python](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/modern-python/skills/modern-python) |
+| AI development | Generic + stack-specific | [build-evaluated-ai](../plugins/ai-development/skills/build-evaluated-ai/SKILL.md), [ai-conventions](../plugins/ai-development/skills/ai-conventions/SKILL.md) (local, not an upstream skill) | Chosen Google ADK or LangChain/LangGraph skills |
+| MCP interfaces | Generic + stack-specific | MCP section of [build-evaluated-ai](../plugins/ai-development/skills/build-evaluated-ai/SKILL.md), [ai-conventions](../plugins/ai-development/skills/ai-conventions/SKILL.md); reuse authorized application services | [mcp-builder](https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/mcp-builder), in `ai-development`; prefer standalone Python FastMCP |
 | Testing | Generic | [deliver-reliable-changes](../plugins/development-workflow/skills/deliver-reliable-changes/SKILL.md), [journey-testing](../plugins/development-workflow/skills/journey-testing/SKILL.md) for web/desktop/mobile journeys | [tdd](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/tdd), [property-based-testing](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/property-based-testing/skills/property-based-testing), [playwright-cli](https://github.com/microsoft/playwright-cli/tree/b85c7a736bb473bf55b584e54a09ffa698d6d871/skills/playwright-cli) |
 | Failure testing | Generic | [resilience-testing](../plugins/development-workflow/skills/resilience-testing/SKILL.md) for scoped fixtures and controlled experiments | Project-native test tools; optional isolated fault proxy |
 | Performance testing | Stack-specific | [performance-testing](../plugins/development-workflow/skills/performance-testing/SKILL.md) for local, CI-runner and deployed non-production k6 checks | Official k6 references; no cloud account required |

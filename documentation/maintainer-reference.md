@@ -42,7 +42,23 @@ Use lowercase kebab-case: short activities for tasks (`develop`, `test`, `review
 | `role` | `task` entry point or `support` guidance |
 | `invocation` | Preferred `user`, `agent` or `both` usage |
 
-Labels do not enforce permissions. Task entries use native explicit-only controls; most local support is model-available with `user-invocable: false`. The three UI/UX discipline skills are also directly selectable with `user-invocable: true`, using the same body for people and agents. Preserve upstream controls and record client limitations. [TASKS.md](../plugins/development-workflow/TASKS.md) owns execution scope; [WORKFLOW.md](../plugins/development-workflow/WORKFLOW.md) owns upstream project fit and consequential-finding decisions across phases.
+Labels do not enforce permissions. Task entries use native explicit-only controls; most local support is model-available with `user-invocable: false`. Product-management, visual-design, backend-design and the existing UI/UX discipline skills are also directly selectable with `user-invocable: true`, using the same body for people and agents. Preserve upstream controls and record client limitations. [TASKS.md](../plugins/development-workflow/TASKS.md) owns execution scope; [WORKFLOW.md](../plugins/development-workflow/WORKFLOW.md) owns upstream project fit and consequential-finding decisions across phases.
+
+## Capability architecture
+
+| Responsibility | Owner |
+| --- | --- |
+| Engagement, stopping point and requested execution | Activity entry point and TASKS.md |
+| Product priorities, useful scope and success signal | product-management; business-strategy owns business direction |
+| Architecture / service behavior | system-design / backend-design |
+| Visual direction / interaction behavior / critique | visual-design / interaction-design / interface-quality |
+| AI task, authority and evaluation / provider implementation | build-evaluated-ai / ai-conventions |
+| Framework APIs, configuration and platform mechanics | Matching technical conventions and upstream specialists |
+| Scope, consequential decisions and completion evidence | Shared workflow and the existing verification owner |
+
+Role (task/support), applicability (generic/stack-specific) and invocation are independent dimensions. Plugins package useful capabilities and may contain multiple dimensions. Methods and adapters can use conditional references; a separate skill is justified by a coherent independently useful decision, not by a requirement to split every paragraph. Navigation uses descriptions and explicit conditional pointers rather than a global router or custom metadata engine.
+
+Select only relevant expertise, reuse accepted decisions and preserve existing stack choices. Independently installed bundles keep essential defaults without assuming other plugins exist. See [architecture decisions and product-source review](maintainers/sources.md#product-and-capability-architecture) for the rationale and boundaries.
 
 ## Keep guidance focused
 

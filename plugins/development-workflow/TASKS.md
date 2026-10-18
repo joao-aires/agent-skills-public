@@ -32,7 +32,7 @@ Read project instructions, current changes and accepted decisions. Use the suppl
 
 For a new application, develop owns the end-to-end outcomes in [new-application flow](skills/develop/references/new-application-flow.md); setup alone covers technical foundations and cannot establish the full lifecycle. Reuse accepted decisions, resolve material feasibility/licensing constraints and keep missing outcomes visible.
 
-After product refinement use system-design for consequential architecture; carry the decisions into plans for new products and boundary-changing features. For substantive UI work, including Tauri webviews, use frontend-conventions for contextual visual direction and interaction-design from web-frontend when installed: map affected routes/dialogs/shared patterns, establish interaction behavior before implementation and verify scope coverage afterward. Backend work similarly defines actor authority, invariants, state/failure and public contracts before code. Ordinary copy/minor token edits need proportionate checks, not a full design ceremony. Use frontend/backend/AI and operations specialists only when applicable/available; no task requires loading every skill.
+After product refinement use system-design for consequential architecture; carry the decisions into plans for new products and boundary-changing features. For substantive UI work, including Tauri webviews, use visual-design for contextual visual direction, matching technical conventions for implementation, and interaction-design from web-frontend when installed: map affected routes/dialogs/shared patterns, establish interaction behavior before implementation and verify scope coverage afterward. Backend work similarly defines actor authority, invariants, state/failure and public contracts before code. Ordinary copy/minor token edits need proportionate checks, not a full design ceremony. Use frontend/backend/AI and operations specialists only when applicable/available; no task requires loading every skill.
 
 Use git-contributions for feature isolation, commits and concise PRs. An implementation objective uses its existing feature worktree or creates one; keep source/tests/docs together and preserve unrelated edits. Explicit implement includes creating the requested code, checks and commits within that flow, not only suggesting commands. If writing/refactoring is not requested, return findings/design instead. No task grants permission to send messages, publish reviews, create tracker records, merge, deploy or perform live mutations beyond the established request/policy.
 
@@ -51,17 +51,20 @@ Command syntax varies. VS Code documents plugin-qualified skill names such as /d
 
 ## Select supporting guidance
 
-Read the linked local guidance in the selected task. For implementation, use [git-contributions](skills/git-contributions/SKILL.md) for a separate feature worktree and [deliver-reliable-changes](skills/deliver-reliable-changes/SKILL.md) for the verification loop and completion evidence. For assessment/design only, keep the workspace read-only within its request. Do not automatically invoke other explicit-only task entry points.
+Choose the activity from the requested outcome and stopping point. Select reusable disciplines from the unresolved decision or changed concern, then technical guidance from the accepted stack and observed inventory. Reuse established product/design decisions for defined work; a routine repair does not reopen discovery. Skill descriptions and the conditional pointers below supply navigation, not a dependency engine.
 
-| Changed concern | Additional guidance when installed |
-| --- | --- |
-| System/service/client boundaries or consequential architecture | system-design; architecture-documentation for evidence-backed current/target views; codebase-design/domain-modeling when relevant |
-| Product/engineering documentation | documentation-conventions for ownership/upkeep; documentation-writing for authoring and reader review |
-| Desktop or iOS/Android client | native-client-development and interaction-design |
-| Frontend interactions or layout | frontend-conventions and interaction-design; interface-quality for meaningful craft review/design, ux-writing for task copy |
-| Usability study or supplied participant observations | usability-research; distinguish study preparation, heuristic critique and actual research |
-| API, stored data or durable work | backend-conventions |
-| Model/agent or MCP behavior | build-evaluated-ai and the chosen framework/protocol specialist |
-| Signals, recovery, capacity or operating behavior | The relevant application-operations skill |
+| Changed concern | Reusable method when available | Technical guidance only when applicable |
+| --- | --- | --- |
+| Product problem, priorities, useful slice or success signal unresolved | product-management; business-strategy for competitive direction/value capture; learn-from-product-feedback for observed outcomes | Existing research/analytics tools only when authorized and useful |
+| System/service/client boundaries or consequential architecture | system-design; architecture-documentation for evidence-backed views; codebase-design/domain-modeling when relevant | Accepted platform/provider conventions |
+| Service authority, stored state, durable work or consumer contract | [backend-design](skills/backend-design/SKILL.md) | backend-conventions for Python/FastAPI; the accepted stack's equivalent otherwise |
+| New visual direction, tokens or significant redesign | visual-design | frontend-conventions for compatible React/Next.js/shadcn/Tailwind; native-client-development for Tauri/mobile |
+| Changed interactions, navigation, dialogs or shared patterns | interaction-design; interface-quality for craft critique; ux-writing for task language | The accepted client framework's real primitives and drivers |
+| Usability study or supplied participant observations | usability-research; distinguish planning, critique and actual research | Available research tools, without assuming participants exist |
+| Model-mediated behavior, tool interfaces or generated UI | build-evaluated-ai for task/authority/evaluation; system-design for architectural boundaries | ai-conventions and the chosen framework/protocol specialist |
+| Product/engineering documentation | documentation-writing; architecture-documentation; documentation-conventions for upkeep | Existing formats/tooling |
+| Signals, recovery, capacity or operating behavior | Relevant application-operations discipline | Matching runtime/platform specialist |
 
-Resolve optional guidance through the client's actual inventory rather than guessing another plugin's filesystem path. Missing optional expertise does not block unrelated work; use available project instructions and evidence, and report any decision/check that really depends on a missing capability. A tiny change does not need every specialist. Full implementation/verification remains governed by the user's scope and the linked owners, not by the catalogue alone.
+Read the selected method when its condition applies. Carry its decision and completion evidence into implementation; loading a file alone does not establish the work. For implementation use [git-contributions](skills/git-contributions/SKILL.md) for the objective worktree and [deliver-reliable-changes](skills/deliver-reliable-changes/SKILL.md) for verification. Assessment/design-only requests end at their scoped result; do not invoke other explicit-only tasks automatically.
+
+Resolve optional guidance through the actual inventory rather than another plugin's filesystem path. Missing expertise does not select a different stack or block unrelated work. Use available project guidance to establish required outcomes, identify a real unresolved capability/decision and report the limit. Independently installed technical bundles keep concise essential defaults and can use their relevant methods without requiring every bundle. Do not install missing plugins or external tools merely because a pointer names them.

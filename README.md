@@ -2,7 +2,7 @@
 
 I use these skill bundles to build and operate applications and explore product ideas. My local skills capture conventions; bundled upstream skills add specialist techniques. Plugins follow the [Agent Plugins standard](https://agent-plugins.org/specification).
 
-Start with **development-workflow**, **python-backend** and **web-frontend** for a full-stack application. You request an activity such as `develop`, `test` or `review`; the agent uses relevant supporting skills within that work. Tickets are optional, and existing project decisions take precedence.
+Start with **development-workflow**, **python-backend** and **web-frontend** for a full-stack application. You request an activity such as `develop`, `test` or `review`; the agent uses relevant supporting skills within that work. Add **business-strategy** for product discovery/priorities and business direction. Tickets are optional, and existing project decisions take precedence.
 
 ## Choose your plugins
 
@@ -13,7 +13,7 @@ Start with **development-workflow**, **python-backend** and **web-frontend** for
 | [web-frontend](plugins/web-frontend/) | Web UI/UX, interface quality, UX writing, usability research, Next.js/shadcn, TypeScript/Tauri desktop and iOS/Android clients |
 | [ai-development](plugins/ai-development/) | AI features, agents, evaluations and MCP interfaces |
 | [application-operations](plugins/application-operations/) | Reliability, observability, incidents, recovery, capacity and cost |
-| [business-strategy](plugins/business-strategy/) | Product ideas, strategy and feedback |
+| [business-strategy](plugins/business-strategy/) | Business strategy, product discovery/priorities and feedback |
 | [visual-communication](plugins/visual-communication/) | Architecture diagrams, interactive explorers and presentations |
 
 ## Quick start
@@ -66,7 +66,7 @@ agy plugin install "$AGENT_PLUGINS_DIR/web-frontend"
 agy plugin list --json
 ```
 
-Installation and all 56 skills were checked with `agy` 1.3.5. Authenticate through the client's sign-in flow before model work. The [generation-trial specification](documentation/maintainers/evaluations.md#generation-trials) is harness-independent; `agy` is my local runner choice. Installation does not establish execution behavior.
+An earlier installation with 56 skills was checked with `agy` 1.3.5. Authenticate through the client's sign-in flow before model work. The [generation-trial specification](documentation/maintainers/evaluations.md#generation-trials) is harness-independent; `agy` is my local runner choice. Installation does not establish execution behavior.
 
 </details>
 
@@ -103,6 +103,10 @@ Choose the activity explicitly through the client's skill picker or supported in
 | Assess current work | Use test to verify the changed journey, then review the diff against the agreed behavior. |
 
 The agent should clarify consequential unknowns, define relevant behavior before coding, verify the result and report evidence or gaps. It proceeds within the requested scope; merge and deployment are separate actions. Use `workflow-help` when unsure where to start.
+
+## How the guidance fits together
+
+Request an activity such as develop, design or review. The agent selects relevant disciplines, including product-management, system-design, visual-design and backend-design, then applies the accepted stack's conventions. Product direction starts before development and evolves with feedback. A defined change reuses accepted context. Plugins package these capabilities; they are not sequential process layers. See [ownership and composition](documentation/maintainer-reference.md#capability-architecture) for the boundaries.
 
 ## SDLC coverage
 

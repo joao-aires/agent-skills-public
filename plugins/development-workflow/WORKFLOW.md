@@ -12,6 +12,14 @@ Local activities include system mapping, interactive architecture exploration, r
 
 Retained upstream user activities are `grill-me`, `grill-with-docs`, `to-questionnaire`, `to-spec`, `implement`, `implement-spec`, `improve-codebase-architecture`, `retro` and `handoff`. Supporting techniques are `grilling`, `domain-modeling`, `codebase-design`, `research`, `prototype`, `tdd`, `code-review`, `diagnosing-bugs` and `writing-for-agents`. `humanizer` edits prose across the lifecycle.
 
+## Compose activities, methods and technical guidance
+
+Activities own the requested engagement and stopping point. Reusable disciplines own decisions and evidence independent of a framework. Technical conventions apply those decisions to the accepted stack. Select only relevant guidance through TASKS.md and the observed inventory; a plugin is a delivery bundle and may contain more than one kind of expertise.
+
+Product-management owns product priorities, useful scope and success signals; refine owns actionable requirements, system-design owns architecture and plan owns implementation sequencing. Visual-design owns direction, interaction-design owns behavior/coverage and backend-design owns service contracts. Build-evaluated-ai owns AI/protocol authority and evaluation; ai-conventions owns provider/framework implementation. Shared decision policy below applies across these boundaries.
+
+A method may compare technologies when the choice is unresolved, but loading it does not accept a stack or replace existing project choices. Reuse sufficient accepted context and stop at the requested outcome. Workflow-help recommends a next activity without executing it; develop coordinates only an explicitly requested end-to-end engagement. No new global router, scheduler or dependency resolver is supplied.
+
 ## Project fit
 
 - Let scope and existing decisions determine depth. Routine changes can go straight to implementation; interviews, specs and parallel orchestration are choices. Keep specs proportionate to the feature instead of producing an exhaustive story catalogue.
@@ -26,7 +34,7 @@ Retained upstream user activities are `grill-me`, `grill-with-docs`, `to-questio
 - Use `humanizer` for prose edits and `writing-for-agents` for instruction structure. Preserve the author's voice, supported claims, commands, metadata and link targets. For questionnaire work, draft the requested document; sending it needs explicit authorization.
 - Upstream guidance grants no additional permission to publish, merge, deploy, send messages or access services. Packaging copies resources without running setup or integrations.
 
-Assess affected contracts and operating consequences before implementing a change; use project-conventions without repeating project setup. Deliver-reliable-changes defines proportionate acceptance evidence and separates locally verified behavior from deployment claims. Backend/frontend conventions own production migration, job and runtime details. Preserve established answers and avoid making evaluation cases or record formats prerequisites for application work.
+Assess affected contracts and operating consequences before implementing a change; use project-conventions without repeating project setup. Deliver-reliable-changes defines proportionate acceptance evidence and separates locally verified behavior from deployment claims. Backend-design owns service behavior and contracts; visual-design owns interface direction. Technical conventions own the selected framework, persistence, configuration and runtime details. Preserve established answers and avoid making evaluation cases or record formats prerequisites for application work.
 
 ## Working boundaries
 

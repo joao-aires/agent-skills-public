@@ -53,7 +53,7 @@ Next run fresh-desktop-from-product-idea from an empty repository without old co
 
 Keep Figma declaration/discovery/OAuth/read/write, protocol/renderer, named-session and voice/provider checks independently gated. Missing Figma tools allow useful supplied/local review but do not satisfy a live read/write claim. Never connect an account, upload private product artifacts or publish Storybook merely to pass a test without that action being authorized.
 
-Most definitions remain unexecuted; the focused observations below identify the cases actually run. The current collection has 55 local plus 37 pinned upstream skills. Historical 87- and 90-skill results retain their original revisions and scope.
+Most definitions remain unexecuted; the focused observations below identify the cases actually run. The architecture follow-up contains 59 local plus 37 pinned upstream skills; the focused runs below used the earlier 55-local inventory. Historical 87- and 90-skill results retain their original revisions and scope.
 
 ## Focused UI/UX observations
 
@@ -96,6 +96,10 @@ Keep the existing 38 cases, 12 trials and nine-flow definitions intact, includin
 Initial snapshot validation passed plugin metadata/containment, 287 maintained links, eight additional relative links in changed/new references, all 28 repository unit tests, the complete seven-plugin build with 92-skill resource parity, and five explorer smoke checks. All 55 local names, invocation controls and metadata remain intact; upstream pins/adaptations and existing evaluation definitions are unchanged. The original visual guides and resources were retained, with links rebased. The final writing pass clarifies that their visual profiles are adaptable defaults. Independent Standards and Spec reviews found no actionable issue; those reviews do not establish runtime or model behavior.
 
 Use unfamiliar products as well as the saved-search/Fieldnote regressions when testing generalization: a localized appointment cancellation flow with an asynchronous refund, a dense laboratory sample editor with ambiguous acknowledgement, a kiosk with a constrained native runtime, or an operations recovery plan where a restore succeeds but dependent work remains paused. Give actors raw constraints without previous diagnoses. Judge decision quality, scope, evidence and preserved outcomes rather than particular words, file names or a smaller token count. These are proposed transfer trials, not executed results or new prerequisites for application work.
+
+## Architecture implementation boundary
+
+Product-management, generic visual/backend methods, the AI method/adapter separation and conditional navigation are implemented as a follow-up to the merged writing refactor. This work stops before the planned architecture evaluation stage at my request. No new behavioral cases or application generation trials were executed, and existing scenario definitions remain unchanged. Repository checks establish metadata, links, packaging and resource consistency only; routing, cross-stack transfer and product outcomes remain for the next evaluation stage.
 
 ## Generation trials
 

@@ -12,7 +12,7 @@ metadata:
 
 Assess whether the interface helps its intended users complete the task with clear hierarchy, dependable interaction and a coherent visual character. Preserve accepted product choices, including deliberate density and unusual styling. Distinguish an evidenced usability/accessibility problem from an aesthetic preference.
 
-Use directly for a requested critique or as support during substantial design and authorized repair. Review remains read-only; fixes and shared-design annotations follow the requested scope. For a new direction, use [frontend conventions](../frontend-conventions/SKILL.md); for behavior use [interaction design](../interaction-design/SKILL.md).
+Use directly for a requested critique or as support during substantial design and authorized repair. Review remains read-only; fixes and shared-design annotations follow the requested scope. For a new direction, use [visual design](../visual-design/SKILL.md); for behavior use [interaction design](../interaction-design/SKILL.md).
 
 ## Establish the intended experience
 

@@ -18,9 +18,7 @@ user-invocable: false
 
 Read the request, `AGENTS.md`, existing components and accepted design decisions. For a new web application, prefer Next.js App Router, TypeScript, Tailwind v4 and shadcn/ui. For desktop or iOS/Android also use [native-client-development](../native-client-development/SKILL.md). A Tauri React/Vite DOM interface still follows this visual/interaction process and the compatible Tailwind/shadcn conventions; only web SSR defaults are inapplicable. React Native uses native components, not DOM primitives. Preserve an established React/Vite or other frontend unless a migration is requested. Use the project's package manager, locked versions and component primitives; do not mix Tailwind v3/v4 or Radix/Base UI APIs casually. For new Next.js projects, use `@tailwindcss/postcss`, `@import "tailwindcss"` and CSS-first semantic tokens via `@theme`/`@theme inline`; follow the selected shadcn preset rather than creating a competing token system.
 
-Accept screenshots, URLs, design files, an existing application, tokens or a short brief. Extract the intended audience, page types, navigation, density, typography, colors and interaction patterns. Separate authoritative requirements from inspiration; do not copy a reference product's assets, backend scale or dependency list. Describe inaccessible references as gaps rather than claiming to have inspected them. Resolve consequential conflicts once; make reasonable reversible choices for minor details.
-
-Keep the accepted conventions and meaningful deviations in the existing design note or `AGENTS.md` link. No mandatory profile format or document per change. Different frontend types can have different profiles while sharing tokens and primitives. Establish a representative screen for a new visual direction, then reuse it. Ordinary feature work follows the accepted design without reopening the whole aesthetic.
+Use [visual design](../visual-design/SKILL.md) for product-derived direction, accepted references and semantic token intent, and [interaction design](../interaction-design/SKILL.md) for behavior. These generic methods apply beyond React; this skill owns the compatible React/Next.js implementation. Record meaningful stack deviations in the existing project note.
 
 ## Design behavior and account for every affected surface
 
@@ -28,23 +26,11 @@ Use [interaction-design](../interaction-design/SKILL.md) before meaningful new o
 
 For cross-cutting work, interaction-design owns the affected-surface inventory, representative pattern and final reconciliation. Propagate shared implementations and verify actual callers/variants; preserve intentional differences and report incomplete coverage.
 
-## Choose the shell for the product
+## Implement the accepted visual system
 
-| Interface | Default structure |
-| --- | --- |
-| Operational dashboard | Persistent left sidebar: workspace/product identity at the top, labeled navigation groups, account/help near the bottom. Use page tabs for secondary destinations and at most one nested menu level; mobile navigation becomes a drawer. |
-| Customer task application | Simple top navigation or a compact sidebar according to destination count. Prioritize the user's next action; use progressive disclosure and multi-step flows only when they reduce complexity. |
-| Storefront or content site | Public header, relevant search/categories, readable product or reading layouts, and a useful footer. Optimize mobile browsing and checkout where applicable rather than inheriting an admin shell. |
+Map the accepted visual direction to semantic CSS variables and compatible Tailwind theme pairs. Reuse reviewed shadcn primitives/blocks, shared variants and the project's class-merging convention. Preserve the selected preset rather than layering a competing token system over it. Use consistent component semantics for surfaces, text, emphasis and status; preserve deliberate density and platform variants.
 
-Choose title/action placement, navigation depth and secondary controls from the main task, content and accepted profile. Use breadcrumbs for meaningful ancestry, tabs for sibling views and URLs/back behavior for navigable destinations. Public metadata/indexing should serve discovery while preserving private-data boundaries. Hidden controls affect usability, not server authorization.
-
-## Make a coherent visual system
-
-Derive the visual direction from the product brief/PRD, audience, tasks, content and working environment. Missing brand assets are not a reason to ship the same neutral-and-blue dashboard for every product. Read [visual direction and review](references/visual-direction.md) for a new application, substantial redesign or unspecified aesthetic. Establish a concise direction and a rendered representative screen before propagating the design; connect typography, palette, composition, density, materials and motion to the product. Preserve an accepted system for ordinary changes. A component library is an implementation foundation, not the product's art direction.
-
-Express choices as semantic tokens for surfaces, text, borders, emphasis and status; avoid scattered literal colors and magic sizes. Supply dark mode when required by the product or established system. Check contrast and respect reduced motion. Apply upstream component rules only to compatible installed APIs; do not introduce newer form primitives or refactor accepted patterns merely to satisfy an upstream example. Use reviewed shadcn components/blocks, shared variants and the project's class-merging convention. Keep one vocabulary for buttons, fields, headers and empty states. Avoid decorative gradients, gratuitous cards and different styling for each page.
-
-Use tables for operational comparison and cards for distinct items. Metrics need a real decision, units and a time window; never invent data to make a dashboard look populated. Missing data is an explicit state. Preserve the selected design profile when choosing between equally valid layouts.
+Compose the product's layouts from those primitives. Add dark mode when required by the product or established system. Use upstream shadcn/Tailwind guidance for unfamiliar compatible APIs; visual-design owns typography, composition and product character. A component library supplies implementation primitives, not the product direction.
 
 ## Make interactions dependable
 
@@ -76,4 +62,4 @@ These defaults cover routine work without reference browsing. Use bundled shadcn
 
 For API changes, verify actual client behavior against supported provider contracts, including errors, optional fields and pagination. Generated types do not prove semantic compatibility. Keep old open browser sessions in the supported-consumer set during rollout and route planned breaks through backend/delivery guidance.
 
-For meaningful visual critique or refinement, use [interface quality](../interface-quality/SKILL.md); it owns evidence and prioritization while these conventions own product-derived direction, stack and tokens. Use [UX writing](../ux-writing/SKILL.md) for material task language. Use [usability research](../usability-research/SKILL.md) for a requested study or real unresolved user question, rather than requiring research for routine frontend work.
+For meaningful visual critique or refinement, use [interface quality](../interface-quality/SKILL.md); it owns critique evidence and prioritization; visual-design owns product-derived direction and these conventions implement it in the selected stack. Use [UX writing](../ux-writing/SKILL.md) for material task language. Use [usability research](../usability-research/SKILL.md) for a requested study or real unresolved user question, rather than requiring research for routine frontend work.

@@ -1,13 +1,9 @@
 ---
 name: build-evaluated-ai
-description: Build or review AI features and MCP interfaces with evaluation and authority
-  boundaries. Use for model/framework selection, prompts, structured output, Gemini,
-  ADK or LangChain/LangGraph, optional transcription, standalone FastMCP tools and
-  protocol verification.
+description: Define and verify AI feature and MCP contracts, authority, failure handling and quality evidence independently of a provider. Use for model-mediated behavior, tool interfaces, generated UI and protocol evaluation; choose technical conventions only for the accepted implementation.
 metadata:
-  scope: stack-specific
+  scope: generic
   invocation: both
-  stack: Gemini, Google ADK, LangChain, LangGraph, FastMCP
   role: support
 user-invocable: false
 ---
@@ -20,15 +16,7 @@ For MCP-only work, use the MCP section below; no LLM, agent framework or model-q
 
 Define the product task, input/output contract and observable success before choosing an agent framework. Preserve agreed scope and existing architecture.
 
-| Need | Starting point |
-| --- | --- |
-| One generation, extraction or transcription call | Direct model SDK behind an application adapter |
-| Useful agent orchestration or integrations | Google ADK or LangChain, according to the project |
-| Explicit stateful branching or resumable workflows | Consider LangGraph when those requirements justify it |
-
-Avoid introducing both framework families by default. Use installed ADK agent-builder/architecture or LangChain/LangGraph fundamentals, dependencies and persistence skills for the chosen framework. Keep domain logic and data access testable without the model.
-
-Prefer Gemini for low-cost LLM and transcription experiments. Verify current capabilities, free-tier eligibility, quota, pricing and relevant data-handling terms for the chosen model/account before live use; do not assume every request is free. Keep model/provider settings and credentials in configuration, outside prompts. Distinguish uploaded-audio transcription from a streaming voice application.
+Choose the smallest boundary that can satisfy the accepted behavior: a direct call may be sufficient, while orchestration or durable state needs explicit justification. Use [AI conventions](../ai-conventions/SKILL.md) when selecting or integrating a provider, framework, Python MCP implementation or observability tool. Preserve the accepted stack and keep domain behavior testable without a model.
 
 ## Keep correctness outside the model
 
@@ -53,9 +41,7 @@ Keep representative inputs, expected outcomes/rubrics, dataset revision and dete
 
 After meaningful AI changes run deterministic handling checks, then authorized live quality comparisons when relevant. Record code/model/prompt/tool configuration and dataset/evaluator versions, sample size, per-case failures, latency and usage alongside quality. Repeat stochastic cases sufficiently for the decision and report variability; one favorable generation or aggregate score cannot hide failed authority/task constraints. Calibrate model judges against accepted human examples, include human review for unresolved subjective judgments and keep deterministic invariants outside the judge. Do not silently change expected outputs, thresholds or rubrics to pass. Mocks establish application behavior only.
 
-Use OpenTelemetry-compatible model/tool instrumentation and configurable OTLP routing where supported, without adding vendor calls to business logic. Coordinate SDK ownership to avoid duplicate spans. Execution telemetry must distinguish logical task completion from one successful model call; protect prompt/input/output data at source. Use observability-operations when installed for deeper pipeline guidance, but retain these portable defaults independently.
-
-Use Langfuse only when its datasets/experiments/prompt workflow is useful; publish through an integration boundary and retain runnable application-side cases/scorers. SigNoz can provide a unified execution view without replacing quality evaluation. Match edition/version support and service footprint to the project. Evaluation should remain runnable without a dashboard; missing provider access leaves live quality unverified. Consult [evaluation references](references/evaluation-references.md) for deeper setup.
+Keep evaluation runnable without a dashboard. Instrument logical task and tool outcomes where useful, protect sensitive data and use ai-conventions for concrete SDK/observability integration. Missing provider access leaves live quality unverified. Consult [evaluation references](references/evaluation-references.md) for deeper methods.
 
 ## Report completion and limits
 
@@ -63,7 +49,7 @@ Version evaluation examples and prompts when they affect behavior. Report what i
 
 ## Build MCP interfaces
 
-Use installed `mcp-builder` for protocol implementation. Prefer Python and standalone `fastmcp` (`uv add fastmcp`, `from fastmcp import FastMCP`) with a tested compatible version pinned for production. Its API differs from the MCP SDK's `mcp.server.fastmcp`; adapt Context, lifecycle, auth and transport examples against version-matched standalone documentation. Preserve an existing server until migration is in scope.
+Use ai-conventions and the selected version-matched protocol specialist for implementation. A protocol interface does not imply a model or framework choice.
 
 Expose narrow typed tools over authorized application services. Verify discovery, contracts, missing/invalid credentials, resource ownership, side-effect policy, failure handling and transport/lifespan cleanup. MCP tooling can support AI applications without making the server itself an AI system.
 

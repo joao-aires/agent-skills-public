@@ -26,6 +26,14 @@ Use the client's skill picker or supported explicit invocation. VS Code uses nam
 
 `implement` comes from the pinned upstream set with local framing. Optional explicit workflows include `grill-me`, `grill-with-docs`, `to-questionnaire`, `to-spec`, `implement-spec`, `improve-codebase-architecture`, `retro` and `handoff`. Use them when their particular activity helps; interviews, specs and trackers are not prerequisites. [Upstream selection](maintainers/sources.md#matt-pocock-selection) explains their fit and dependencies.
 
+## Product decisions and specialist methods
+
+Install business-strategy for product-management as well as business direction and product feedback. Ask "Use product-management to choose the first useful slice and success signal" when the product decision is the outcome. Ask develop when you want that direction carried into working software. Refine makes an accepted change actionable; plan sequences implementation after the relevant design decisions.
+
+The web-frontend bundle provides stack-independent visual-design alongside interaction and interface methods. Development-workflow provides backend-design for service behavior across stacks. AI-development separates build-evaluated-ai's task/authority/evaluation method from ai-conventions' provider/framework defaults. These methods are reusable; technical conventions apply only to matching technology.
+
+For an existing accepted product, start with the affected work. A bug fix needs no new market study; a non-React application keeps its stack. Workflow-help recommends relevant activities without executing them, and missing optional guidance remains an explicit capability boundary rather than a reason to install or migrate automatically.
+
 ## One end-to-end request
 
 ```text
@@ -118,7 +126,7 @@ python scripts/build_plugins.py \
 
 Explicit `--plugin` arguments replace the default selection; other bundle names work the same way. Build into a new destination, then replace the affected client installation with resources intact. Source `plugins/<name>` directories contain local guidance; built directories also contain acquired upstream skills and notices. Application dependencies and live tools are separate. See [migration](migration.md) before replacing old copies or links.
 
-For a new product, refine its business/product outcome, use system-design to compare architecture/platform choices, then plan and design the useful increment. Revisit the architecture decision for boundary-changing features. New setup includes authored READMEs, configuration checks, runnable tests, app containers, GitHub Actions and release/deployment procedures; unavailable target/platform execution stays explicit. Use native-client-development for TypeScript/Tauri desktop and informed iOS/Android choices, and build-evaluated-ai for AG-UI/A2UI integration when appropriate.
+For a new product, use product-management when direction or priorities are unresolved, refine observable requirements, design the system and experience, then plan implementation of the useful increment. Revisit the architecture decision for boundary-changing features. New setup includes authored READMEs, configuration checks, runnable tests, app containers, GitHub Actions and release/deployment procedures; unavailable target/platform execution stays explicit. Use native-client-development for TypeScript/Tauri desktop and informed iOS/Android choices, and build-evaluated-ai for AG-UI/A2UI integration when appropriate.
 
 ## Optional Figma connection
 
@@ -134,7 +142,7 @@ The web-frontend bundle provides [interface-quality](../plugins/web-frontend/ski
 
 Ask for a scoped result: "Review this dialog without changing it", "Improve and apply the error messages in this flow", or "Prepare a usability study for onboarding". A bare review/improvement assessment stays read-only. A specified repair can include implementation and rechecking. A research guide is a plan until actual observations exist. Ordinary UI development needs no compulsory study or Figma connection.
 
-Frontend conventions own product direction and stack; interaction-design owns flows and affected surfaces; interface-quality owns craft inspection and component/token audits; ux-writing owns task copy; usability-research owns studies and evidence synthesis. Existing test/journey guidance verifies implementation and Storybook states where adopted.
+Visual-design owns product direction and semantic token intent; frontend conventions implement it for the selected React stack; interaction-design owns flows and affected surfaces; interface-quality owns craft inspection and component/token audits; ux-writing owns task copy; usability-research owns studies and evidence synthesis. Existing test/journey guidance verifies implementation and Storybook states where adopted.
 
 ## Explain and maintain project knowledge
 
