@@ -4,6 +4,10 @@ Use the [SDLC overview](../README.md#sdlc-coverage) to orient yourself and the [
 
 The circular overview names SDLC phases and their outcomes. Separate labels marked **Skill** identify user-facing skills; each card first explains its purpose in plain language. Plugins are installation bundles, and supporting disciplines are linked below. A skill may support more than one phase. `plan` is detailed implementation planning after the relevant requirements and design decisions.
 
+The top panel is the **project baseline**: accepted decisions, working conventions and reproducible foundations. Read it as input to relevant work and update it when decisions change. It is maintained project context, not an extra phase before discovery.
+
+The lower panel separates **shared methods** from **technical expertise for the accepted stack**. Shared methods contribute across discovery, development and feedback. Stack guidance informs feasibility and requirements and applies through design, implementation, testing, delivery and maintenance; it is not confined to coding. Rails point into the three parts of the flow to show this support. Labels marked Guidance name supporting skills and Records name project inputs. The groups are representative, not a checklist to load in full.
+
 ## User-facing entry points
 
 | Need or phase | Entry point |
