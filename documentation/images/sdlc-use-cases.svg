@@ -5,10 +5,10 @@
 <rect width="1600" height="1110" fill="#f8fafc"/>
 <g font-family="Segoe UI, Arial, Helvetica, sans-serif">
 <text x="44" y="59" font-size="34" fill="#172c41" font-weight="700" text-anchor="start" >Different starting points. The same discipline.</text>
-<text x="44" y="96" font-size="23" fill="#52667a" font-weight="400" text-anchor="start" >Steps describe outcomes; skill labels show example entry points.</text>
+<text x="44" y="96" font-size="23" fill="#52667a" font-weight="400" text-anchor="start" >Green labels show example direct requests; the steps describe outcomes.</text>
 <rect x="44" y="145" width="1512" height="108" rx="12" fill="white" stroke="#c5d2df"/>
 <text x="66" y="183" font-size="24" fill="#172c41" font-weight="700" text-anchor="start" >A new product</text>
-<text x="66" y="220" font-size="20" fill="#52667a" font-weight="400" text-anchor="start" >Skill: develop</text>
+<g data-skill="true" data-use="direct"><rect x="58" y="194.0" width="280" height="34" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="66" y="220" font-size="20" fill="#176044" font-weight="400" text-anchor="start" >develop</text></g>
 <rect x="380" y="170" width="267" height="60" rx="9" fill="#eaf1f8" stroke="#eaf1f8"/>
 <text x="513.5" y="207" font-size="20" fill="#315f91" font-weight="550" text-anchor="middle" >Shape product direction</text>
 <path d="M649 200 H662" stroke="#315f91" stroke-width="2" marker-end="url(#arrow)"/>
@@ -22,7 +22,7 @@
 <text x="1377.5" y="207" font-size="20" fill="#315f91" font-weight="550" text-anchor="middle" >Deliver &amp; learn</text>
 <rect x="44" y="269" width="1512" height="108" rx="12" fill="white" stroke="#c5d2df"/>
 <text x="66" y="307" font-size="24" fill="#172c41" font-weight="700" text-anchor="start" >An existing feature</text>
-<text x="66" y="344" font-size="20" fill="#52667a" font-weight="400" text-anchor="start" >Skills: develop / implement</text>
+<g data-skill="true" data-use="direct"><rect x="58" y="318.0" width="280" height="34" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="66" y="344" font-size="20" fill="#176044" font-weight="400" text-anchor="start" >develop / implement</text></g>
 <rect x="380" y="294" width="267" height="60" rx="9" fill="#eaf1f8" stroke="#eaf1f8"/>
 <text x="513.5" y="331" font-size="20" fill="#315f91" font-weight="550" text-anchor="middle" >Inspect accepted context</text>
 <path d="M649 324 H662" stroke="#315f91" stroke-width="2" marker-end="url(#arrow)"/>
@@ -36,7 +36,7 @@
 <text x="1377.5" y="331" font-size="20" fill="#315f91" font-weight="550" text-anchor="middle" >Review the increment</text>
 <rect x="44" y="393" width="1512" height="108" rx="12" fill="white" stroke="#c5d2df"/>
 <text x="66" y="431" font-size="24" fill="#172c41" font-weight="700" text-anchor="start" >A bug or regression</text>
-<text x="66" y="468" font-size="20" fill="#52667a" font-weight="400" text-anchor="start" >Skills: improve / implement</text>
+<g data-skill="true" data-use="direct"><rect x="58" y="442.0" width="280" height="34" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="66" y="468" font-size="20" fill="#176044" font-weight="400" text-anchor="start" >improve / implement</text></g>
 <rect x="380" y="418" width="267" height="60" rx="9" fill="#e7f3ef" stroke="#e7f3ef"/>
 <text x="513.5" y="455" font-size="20" fill="#157466" font-weight="550" text-anchor="middle" >Reproduce the failure</text>
 <path d="M649 448 H662" stroke="#315f91" stroke-width="2" marker-end="url(#arrow)"/>
@@ -50,7 +50,7 @@
 <text x="1377.5" y="455" font-size="20" fill="#157466" font-weight="550" text-anchor="middle" >Retain regression tests</text>
 <rect x="44" y="517" width="1512" height="108" rx="12" fill="white" stroke="#c5d2df"/>
 <text x="66" y="555" font-size="24" fill="#172c41" font-weight="700" text-anchor="start" >A scoped assessment</text>
-<text x="66" y="592" font-size="20" fill="#52667a" font-weight="400" text-anchor="start" >Skills: review / test</text>
+<g data-skill="true" data-use="direct"><rect x="58" y="566.0" width="280" height="34" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="66" y="592" font-size="20" fill="#176044" font-weight="400" text-anchor="start" >review / test</text></g>
 <rect x="380" y="542" width="267" height="60" rx="9" fill="#e7f3ef" stroke="#e7f3ef"/>
 <text x="513.5" y="579" font-size="20" fill="#157466" font-weight="550" text-anchor="middle" >Inspect the target</text>
 <path d="M649 572 H662" stroke="#315f91" stroke-width="2" marker-end="url(#arrow)"/>
@@ -64,7 +64,7 @@
 <text x="1377.5" y="579" font-size="20" fill="#157466" font-weight="550" text-anchor="middle" >Repair when requested</text>
 <rect x="44" y="641" width="1512" height="108" rx="12" fill="white" stroke="#c5d2df"/>
 <text x="66" y="679" font-size="24" fill="#172c41" font-weight="700" text-anchor="start" >Operating a system</text>
-<text x="66" y="716" font-size="20" fill="#52667a" font-weight="400" text-anchor="start" >Skill: incident-response</text>
+<g data-skill="true" data-use="direct"><rect x="58" y="690.0" width="280" height="34" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="66" y="716" font-size="20" fill="#176044" font-weight="400" text-anchor="start" >incident-response</text></g>
 <rect x="380" y="666" width="267" height="60" rx="9" fill="#fbf0df" stroke="#fbf0df"/>
 <text x="513.5" y="703" font-size="20" fill="#8a591c" font-weight="550" text-anchor="middle" >Assess current impact</text>
 <path d="M649 696 H662" stroke="#315f91" stroke-width="2" marker-end="url(#arrow)"/>
@@ -78,7 +78,7 @@
 <text x="1377.5" y="703" font-size="20" fill="#8a591c" font-weight="550" text-anchor="middle" >Record &amp; learn</text>
 <rect x="44" y="765" width="1512" height="108" rx="12" fill="white" stroke="#c5d2df"/>
 <text x="66" y="803" font-size="24" fill="#172c41" font-weight="700" text-anchor="start" >A specialist question</text>
-<text x="66" y="840" font-size="20" fill="#52667a" font-weight="400" text-anchor="start" >Skill: product-management</text>
+<g data-skill="true" data-use="direct"><rect x="58" y="814.0" width="280" height="34" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="66" y="840" font-size="20" fill="#176044" font-weight="400" text-anchor="start" >product-management</text></g>
 <rect x="380" y="790" width="267" height="60" rx="9" fill="#eaf1f8" stroke="#eaf1f8"/>
 <text x="513.5" y="827" font-size="20" fill="#315f91" font-weight="550" text-anchor="middle" >Bound the question</text>
 <path d="M649 820 H662" stroke="#315f91" stroke-width="2" marker-end="url(#arrow)"/>
