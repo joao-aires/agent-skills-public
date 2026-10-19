@@ -28,7 +28,7 @@ Read the accepted toolchain, project commands and versions before changing confi
 | Browser/Electron drivers and component workbenches | [Journey drivers](references/journey-drivers.md); use installed playwright-cli when applicable |
 | Scoped fault fixtures or a selected network proxy | [Failure tools](references/failure-tools.md) |
 
-Read only the relevant reference. Language-specific checks and packaging follow the accepted stack's conventions; native drivers follow native-client-development when available. Use performance-testing for an accepted k6 implementation, rather than imposing k6 on an existing suite.
+Read only the relevant reference. Language-specific checks and packaging follow the accepted stack's conventions; native drivers follow native-platform implementation and driver expertise when available. Use performance-testing for an accepted k6 implementation, rather than imposing k6 on an existing suite.
 
 ## Verify the actual integration
 

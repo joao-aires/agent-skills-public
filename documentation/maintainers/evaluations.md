@@ -12,6 +12,8 @@ The current architecture contains 60 local and 37 pinned upstream skills after t
 
 Task-2 content separation adds a technical tooling owner, preserving all 59 pre-existing local skill names/native controls and the pinned acquisition/actor definitions. Repository metadata/link/unit checks and a fresh seven-plugin build establish source/resource integrity; the target 17-package independence is still pending. The authoring helper's quick validator rejects the existing supported `user-invocable` field; I retained that control and used the repository's full metadata/containment validation rather than stripping it to satisfy the narrower helper.
 
+Capability-based composition now replaces optional cross-package specialist identifiers in local entry points with expertise descriptions. Development, strategy and operations framing preserves outcome ownership and fallback to project evidence, general expertise and primary sources. The [architecture explanation](../architecture.md) distinguishes missing guidance from missing decisions/tools. Routing and absent-specialist behavior have not been evaluated; the instruction change does not inherit earlier actor passes.
+
 ## Intended flows and execution levels
 
 The specification's flow_matrix links every scenario to an intended user outcome: product-to-design, setup versus complete application, existing UI assessment/repair, design-tool handoff, research/learning, private platform applications, AI/session integration, delivery/operations and maintenance/evidence. Existing migration, job, incident, performance, resilience and library cases remain in scope; new UI methods do not replace them.

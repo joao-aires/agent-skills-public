@@ -10,6 +10,8 @@ metadata:
 
 # Decide which product outcome to pursue
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 Help choose a worthwhile user problem and a bounded response, with evidence that can change the decision. Apply directly to a product question or as support in an authorized development engagement. Scale the work to the uncertainty: a personal tool may need a short purpose and scope decision, while an uncertain commercial proposition needs deeper investigation. A defined bug or accepted feature does not restart discovery.
 
 ## Establish the problem and evidence
@@ -30,7 +32,7 @@ Sequence around outcomes and uncertainties. Distinguish committed work, the next
 
 Choose an observable user outcome and, where useful, a measure with its population, time window, data source and interpretation. Identify failure or harm signals as well as the desired improvement. Separate proposed targets from accepted commitments and existing measurements. Small populations may support qualitative observation better than a statistically unsupported experiment.
 
-Prioritize the assumptions whose failure would change the decision and choose the least costly credible way to investigate them. Use installed usability-research for participant methods; use [product feedback](../learn-from-product-feedback/SKILL.md) for evidence synthesis. Preparing a study is not conducting it. Contact, recording, telemetry changes and live experiments need the corresponding authorized scope.
+Prioritize the assumptions whose failure would change the decision and choose the least costly credible way to investigate them. Use installed usability research expertise for participant methods; use [product feedback](../learn-from-product-feedback/SKILL.md) for evidence synthesis. Preparing a study is not conducting it. Contact, recording, telemetry changes and live experiments need the corresponding authorized scope.
 
 ## Carry direction into development and back
 

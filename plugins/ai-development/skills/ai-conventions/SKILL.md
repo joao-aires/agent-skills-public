@@ -11,7 +11,7 @@ metadata:
 
 # Apply the selected AI stack
 
-Use build-evaluated-ai when available for task contracts, authority and evaluation; otherwise retain explicit success/failure, authorization and quality evidence in the application. This guidance owns technical defaults and integration choices, not product scope or quality commitments. Preserve an accepted provider/framework unless changing it is requested or a consequential decision is reopened.
+Use AI contract and evaluation expertise when available for task contracts, authority and evaluation; otherwise retain explicit success/failure, authorization and quality evidence in the application. This guidance owns technical defaults and integration choices, not product scope or quality commitments. Preserve an accepted provider/framework unless changing it is requested or a consequential decision is reopened.
 
 ## Implement the accepted provider boundary
 
@@ -23,10 +23,10 @@ Prefer Gemini for low-cost LLM and transcription experiments. Verify current cap
 
 Use installed mcp-builder for protocol implementation when available. Prefer Python and standalone fastmcp (`uv add fastmcp`, `from fastmcp import FastMCP`) with a tested compatible production version. Its API differs from the MCP SDK's mcp.server.fastmcp; check Context, lifecycle, authentication and transport against the selected standalone version. Preserve an existing server until migration is in scope.
 
-Reuse authorized application services. Verify discovery, contracts, denied access, resource ownership, side effects and transport/lifespan cleanup; use build-evaluated-ai when available for the method. An MCP-only server requires protocol and application evidence rather than model-quality evaluation.
+Reuse authorized application services. Verify discovery, contracts, denied access, resource ownership, side effects and transport/lifespan cleanup; use AI contract and evaluation expertise when available for the method. An MCP-only server requires protocol and application evidence rather than model-quality evaluation.
 
 ## Integrate without owning the application
 
-Coordinate Python SDK/instrumentation ownership to avoid duplicate spans and protect sensitive inputs at source. Use the accepted export backend and compatible library versions; use available observability-operations for signal contracts and tooling-conventions for selected Collector/backend setup. Keep evaluation cases and scorers runnable without those services. An installed SDK does not establish interoperability or answer quality.
+Coordinate Python SDK/instrumentation ownership to avoid duplicate spans and protect sensitive inputs at source. Use the accepted export backend and compatible library versions; use available observability expertise for signal contracts and guidance for the selected development tools for selected Collector/backend setup. Keep evaluation cases and scorers runnable without those services. An installed SDK does not establish interoperability or answer quality.
 
 For an accepted AG-UI/A2UI integration, read [version-matched interaction integration](references/interaction-integration.md) and use the chosen framework's compatible adapter. Keep technical configuration, actual stream/render checks and unavailable capabilities explicit.

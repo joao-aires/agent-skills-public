@@ -25,7 +25,7 @@ Compare plausible options against those constraints. Explain the recommendation,
 
 Describe system context and important service/client responsibilities, deployment boundaries and the critical request/event sequence. Specify contracts, authority checks, persistence/transaction ownership, retries/idempotency, failure/cancellation, compatibility and configuration. Include test seams, diagnostic signals, artifact/release strategy and recovery. Use the relevant backend, frontend/native-client, AI and operations guidance when installed. Architecture diagrams or a flow explorer clarify a decision when requested or useful; a drawing alone is not a design.
 
-For desktop/mobile distinguish native shell and client responsibilities from Python backend services. For AI separate model/runtime orchestration, AG-UI interaction transport, A2UI rendering and MCP/ACP integrations; verify actual SDK/protocol and harness capabilities before proposing reuse. Existing-session attachment, concurrent edits and voice interruption need explicit supported contracts.
+For desktop/mobile distinguish native shell and client responsibilities from backend services in the accepted stack. For AI separate model/runtime orchestration, AG-UI interaction transport, A2UI rendering and MCP/ACP integrations; verify actual SDK/protocol and harness capabilities before proposing reuse. Existing-session attachment, concurrent edits and voice interruption need explicit supported contracts.
 
 ## Verify consequential technical claims
 
@@ -39,7 +39,7 @@ Use the shared [consequential finding policy](../../WORKFLOW.md#resolve-conseque
 
 Where a fact or restriction changes an accepted constraint, present supported alternatives and the concrete decision. Continue independent work while dependent work waits. Preserve the required user capability when reopening architecture; a different technical solution can satisfy it without silently changing the product or accepting new terms/costs. Label evaluation spikes separately from production commitments.
 
-Use [backend design](../backend-design/SKILL.md) for service state, authority and consumer contracts inside the chosen boundaries. Use installed interaction-design and visual-design for experience decisions, and build-evaluated-ai for AI/protocol authority and evaluation. Select technical guidance from the accepted stack and actual inventory; an architecture method does not choose a framework by implication.
+Use service-contract design expertise for service state, authority and consumer contracts inside the chosen boundaries. Use installed interaction design expertise and visual design expertise for experience decisions, and AI contract and evaluation expertise for AI/protocol authority and evaluation. Select technical guidance from the accepted stack and actual inventory; an architecture method does not choose a framework by implication.
 
 ## Carry the design into delivery
 
@@ -47,4 +47,4 @@ Keep the consequential decisions in the project's existing architecture note or 
 
 Return a recommended/proposed design, meaningful alternatives, material questions and a useful next increment. Design-only authority does not permit feature edits or deployment. Reassess the affected decision when new evidence arrives; do not force a complete redesign for each feature.
 
-For substantive architecture explanations or current/target views, use [architecture documentation](../architecture-documentation/SKILL.md). System-design owns the design choices; architecture-documentation explains their structure, runtime, interface and evidence boundaries, without claiming a proposed design is implemented.
+For substantive architecture explanations or current/target views, use evidence-backed architecture explanation expertise. Keep architectural decisions separate from explaining structural, runtime, interface and evidence boundaries; a proposed design is not an implemented system.

@@ -10,6 +10,7 @@ Use this page when changing the collection. For installation and everyday use, s
 
 | Need | Reference |
 | --- | --- |
+| Understand composition, discovery and fallback | [Plugin and skill architecture](architecture.md) |
 | Inspect planned plugin boundaries and every skill owner | [Target ownership map](maintainers/sources.md#target-plugin-ownership) |
 | Add a framework, language or platform | [Adding stack support](maintainers/adding-stack-support.md) |
 | Check origins, licenses, adaptations or selection decisions | [Sources and compatibility](maintainers/sources.md) |
@@ -58,9 +59,9 @@ Labels do not enforce permissions. Task entries use native explicit-only control
 | Framework APIs, configuration and platform mechanics | Matching technical conventions and upstream specialists |
 | Scope, consequential decisions and completion evidence | Shared workflow and the existing verification owner |
 
-Role (task/support), applicability (generic/stack-specific) and invocation are independent dimensions. Plugins package useful capabilities and may contain multiple dimensions. Methods and adapters can use conditional references; a separate skill is justified by a coherent independently useful decision, not by a requirement to split every paragraph. Navigation uses descriptions and explicit conditional pointers rather than a global router or custom metadata engine.
+Role (task/support), applicability (generic/stack-specific) and invocation are independent dimensions. Plugins package useful capabilities and may contain multiple dimensions. Methods and adapters can use conditional references; a separate skill is justified by a coherent independently useful decision, not by a requirement to split every paragraph. Navigation describes needed capabilities and matches observed specialist descriptions, rather than hardcoding optional skill names or using a global router/metadata engine.
 
-Select only relevant expertise, reuse accepted decisions and preserve existing stack choices. Independently installed bundles keep essential defaults without assuming other plugins exist. See [architecture decisions and product-source review](maintainers/sources.md#product-and-capability-architecture) for the rationale and boundaries.
+Select only relevant expertise, reuse accepted decisions and preserve existing stack choices. Each capability retains its essential reasoning without assuming optional plugins exist. Missing guidance falls back to project evidence, general expertise and appropriate primary sources; missing execution tools have a separate evidence boundary. See [composition](architecture.md#compose-without-optional-dependencies). See [architecture decisions and product-source review](maintainers/sources.md#product-and-capability-architecture) for the rationale and boundaries.
 
 ## Keep guidance focused
 

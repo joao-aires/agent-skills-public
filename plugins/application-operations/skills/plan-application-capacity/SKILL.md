@@ -12,6 +12,8 @@ metadata:
 
 # Plan application capacity
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 ## Start from demand and service behavior
 
 Identify critical journeys, expected sustained and peak demand, growth, seasonal/burst behavior and acceptable latency. Use measured traffic/service times and resource profiles where available; distinguish observations, forecasts and assumptions. Inspect tail latency, queues, saturation, throttling, memory peaks and database limits instead of sizing from average CPU alone. No telemetry means an estimate requiring validation, not an invented measurement.
@@ -30,12 +32,12 @@ Set requests from representative per-container usage and scheduling needs; choos
 
 Distinguish HPA workload scaling, VPA sizing recommendations and node autoscaling. Check metric availability, request-based utilization semantics, startup/warmup and stabilization. Avoid competing controllers acting on the same resource without an understood policy. Check whether quotas, node-pool bounds, topology, disruption budgets and storage/network constraints permit the proposed replicas during peaks and rollout. Autoscaling cannot create cloud quota or fix an overloaded database.
 
-Use [Kubernetes resource guidance](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) and [HPA guidance](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/) matching the cluster version. Then search first-party guidance for EKS, GKE, AKS or the actual host, database and queue; node-provisioning and managed-service limits differ. The installed `aks-cost-optimization` is an AKS-only specialist, not an infrastructure default. Treat its suggested ratios/minima as examples to validate against workload evidence and current provider documentation.
+Use [Kubernetes resource guidance](https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/) and [HPA guidance](https://kubernetes.io/docs/concepts/workloads/autoscaling/horizontal-pod-autoscale/) matching the cluster version. Then search first-party guidance for EKS, GKE, AKS or the actual host, database and queue; node-provisioning and managed-service limits differ. AKS cost-optimization guidance is relevant only for that platform; it is not an infrastructure default. Treat its suggested ratios/minima as examples to validate against workload evidence and current provider documentation.
 
 ## Leave a testable decision
 
 Record assumptions, demand range, sizing/scaling choices, dependencies and the evidence needed to revisit them. Verify changed configuration and focused performance behavior in a safe environment; compare before/after under comparable conditions. State what is estimated versus demonstrated.
 
-Use the project's approved load/failure-testing instructions when available. Use `reliability-design` for accepted journey latency/reliability objectives and `observability-operations` for trustworthy measurements when available. Use `kubernetes-resource-engineering` for manifest mechanics and `infra-jvm-optimization` only for JVM workloads. This skill does not prescribe a new load-test tool or chaos regimen. Keep affected architecture and operating notes current as the application changes.
+Use the project's approved load/failure-testing instructions when available. Use `reliability-design` for accepted journey latency/reliability objectives and `observability-operations` for trustworthy measurements when available. Use Kubernetes resource expertise for manifest mechanics and JVM resource and optimization expertise only for JVM workloads. This skill does not prescribe a new load-test tool or chaos regimen. Keep affected architecture and operating notes current as the application changes.
 
-When k6 guidance is installed, use `performance-testing` for local, CI-runner and deployed non-production workload evidence. Size and observe the generator separately; runner contention and unachieved offered load constrain conclusions.
+When k6 guidance is installed, use implementation expertise matching the selected load-test tool for local, CI-runner and deployed non-production workload evidence. Size and observe the generator separately; runner contention and unachieved offered load constrain conclusions.

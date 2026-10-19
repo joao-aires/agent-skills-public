@@ -39,6 +39,6 @@ Consult [references/mapping-guide.md](references/mapping-guide.md) for deeper im
 
 Deliver a service/component catalog, dependency edge table, topology map, user-journey sequences, ownership/evidence gaps and navigation. Keep volatile live replicas/tags/tuning in timestamped observations rather than static architectural truth. Omit secrets and personal data from generated docs.
 
-Validate references and diagram participant names against the evidence; mark inferred/proposed edges with explicit labels. Hand journey definitions to `reliability-design`, incident scope to `incident-response`, and procedure gaps to `runbook-engineering` when appropriate; the model remains useful without those installed.
+Validate references and diagram participant names against the evidence; mark inferred/proposed edges with explicit labels. Hand journey definitions to reliability expertise, incident scope to incident investigation expertise, and procedure gaps to operating-procedure expertise when appropriate; the model remains useful without those installed.
 
-For an explicitly requested interactive HTML walkthrough, hand the evidence to `system-flow-explorer` in `visual-communication` when available. Static maps and inventories do not require its JSON contract or renderer.
+For an explicitly requested interactive HTML walkthrough, hand the evidence to interactive system explanation expertise when available. Static maps and inventories do not require its JSON contract or renderer.

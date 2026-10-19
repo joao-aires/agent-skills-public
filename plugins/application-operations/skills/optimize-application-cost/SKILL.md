@@ -12,6 +12,8 @@ metadata:
 
 # Optimize application cost
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 ## Attribute the real bill
 
 Identify the environment, provider, region, currency, billing period and application/team ownership. Use current invoices, price sheets and usage where available; separate estimates from billed amounts and allocated cost from cash savings. Use EUR and relevant European regions for this user's estimates unless the project specifies otherwise. Keep exchange-rate date, taxes/discount assumptions and commitments explicit; do not invent price conversions or reuse stale rates.
@@ -28,7 +30,7 @@ For AI, examine model choice, token/audio volume, caching, batching, retry limit
 
 ## Use provider expertise selectively
 
-Use bundled `aks-cost-optimization` only for Azure AKS. Read this skill first: validate upstream sizing ratios and example defaults against representative usage, memory peaks, availability and current documentation; do not apply them mechanically. Preserve project change/approval boundaries and verify platform commands before use.
+Seek available AKS cost-optimization expertise only for Azure AKS. Read this skill first: validate upstream sizing ratios and example defaults against representative usage, memory peaks, availability and current documentation; do not apply them mechanically. Preserve project change/approval boundaries and verify platform commands before use.
 
 For other platforms, research current first-party guidance, prices and regional limits rather than adapting Azure commands:
 

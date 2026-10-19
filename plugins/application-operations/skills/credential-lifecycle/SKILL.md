@@ -12,6 +12,8 @@ metadata:
 
 # Credential lifecycle
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 Maintain one authoritative credential record and a complete map of its consumers. Credential values belong in protected stores, not the report.
 
 ## Modes and architecture

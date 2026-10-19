@@ -10,11 +10,11 @@ metadata:
 
 # Define backend behavior before choosing implementation details
 
-Establish the observable service behavior and its failure boundaries. Use [system design](../system-design/SKILL.md) when service, client, data or deployment boundaries need architectural decisions; this discipline owns behavior inside and between the selected boundaries. Technical conventions own concrete framework, driver and runtime APIs.
+Establish the observable service behavior and its failure boundaries. Use system architecture expertise when service, client, data or deployment boundaries need architectural decisions; this discipline owns behavior inside and between the selected boundaries. Technical conventions own concrete framework, driver and runtime APIs.
 
 ## Establish authority and invariants
 
-Read the intended journey, existing contracts and accepted decisions. Identify actors, resource ownership, allowed operations and invariants that must survive failures or concurrency. Distinguish authentication from permission to act on each resource, including related resources and worker/tool execution. Client controls and model proposals cannot grant server authority. Use [security and privacy design](../security-and-privacy-design/SKILL.md) for changed trust/data boundaries.
+Read the intended journey, existing contracts and accepted decisions. Identify actors, resource ownership, allowed operations and invariants that must survive failures or concurrency. Distinguish authentication from permission to act on each resource, including related resources and worker/tool execution. Client controls and model proposals cannot grant server authority. Use authority and data-flow assessment expertise for changed trust/data boundaries.
 
 Define relevant state transitions, public inputs/outputs, validation and failure semantics. Separate accepted intent, durable progress and completed effects. Identify what callers can retry, cancel, recover or observe. Ask about unresolved product choices that change these consequences; investigate implementation facts and choose reversible details within accepted constraints.
 
@@ -36,4 +36,4 @@ Describe the affected flow or state/contract in the existing design note or conv
 
 Return the proposed/accepted contract, invariants, changed boundaries, unresolved choices and evidence needed. Load relevant technical guidance from the observed inventory for framework APIs, persistence and packaging; absence of Python guidance does not select Python or block another accepted stack.
 
-Use [change verification](../deliver-reliable-changes/SKILL.md) to exercise successful, denied, failure and recovery outcomes at the appropriate boundary. Include transaction rollback, duplicate effects or restart behavior where affected. Generated types or a transport success cannot establish semantic compatibility. Design-only work ends with the contract and verification needs; implementation remains within the requested activity.
+Use change-verification expertise to exercise successful, denied, failure and recovery outcomes at the appropriate boundary. Include transaction rollback, duplicate effects or restart behavior where affected. Generated types or a transport success cannot establish semantic compatibility. Design-only work ends with the contract and verification needs; implementation remains within the requested activity.

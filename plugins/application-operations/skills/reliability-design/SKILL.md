@@ -12,6 +12,8 @@ metadata:
 
 # Reliability design
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 Start with a user outcome, derive a measurable contract, then implement the monitoring. Do not start with whatever metric is easiest to query and call it journey reliability.
 
 ## Inputs and execution mode
@@ -25,7 +27,7 @@ Discover the target, architecture, relevant feature/critical journeys, current t
 ## Derivation workflow
 
 1. Identify the users (human or machine), intent/start boundary, observable completion, failure/cancellation/rejection branches, deadline, and important segments.
-2. Draw an evidenced architecture and Mermaid sequence. Include browser/client code, cached paths, external providers, retries, async work, and dependencies required for the outcome. Use `system-mapping` if discovery is needed, or perform the relevant mapping directly.
+2. Draw an evidenced architecture and Mermaid sequence. Include browser/client code, cached paths, external providers, retries, async work, and dependencies required for the outcome. Use current-system mapping expertise if discovery is needed, or perform the relevant mapping directly.
 3. Classify request-driven, storage and processing stages. Choose a small set of dimensions: availability, latency, quality, freshness, coverage, correctness or durability.
 4. Write an **SLI specification** in outcome terms. Separate technical handling from conversion/business acceptance and infrastructure diagnostics.
 5. Define the **implementation contract**: valid event population, good-event subset, observation point, timer, units, deduplication, retries, terminal/deadline attribution, tags, queries and missing-data behavior.

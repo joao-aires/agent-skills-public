@@ -21,7 +21,7 @@ Keep provider-required entrypoints in their required locations and component-spe
 
 ## Use readable names
 
-Name workflows, jobs and steps by their purpose, component and target. Preserve a consistent existing convention. Make dependency order, required gates, inputs/outputs and failure behavior visible without reading every implementation detail. Use available tooling-conventions for the selected provider's syntax and reusable adapters.
+Name workflows, jobs and steps by their purpose, component and target. Preserve a consistent existing convention. Make dependency order, required gates, inputs/outputs and failure behavior visible without reading every implementation detail. Use available guidance for the selected development tools for the selected provider's syntax and reusable adapters.
 
 ## Promote and recover deliberately
 
@@ -45,11 +45,11 @@ Distinguish branching, release and deployment contracts. Choose trunk-based or r
 
 A release rerun reconciles existing tags, artifacts and deployment state before resuming; it never overwrites an immutable identity or repeats an ambiguous mutation blindly. Serialize writers without cancelling active release/migration jobs. If metadata changes the artifact, validate the new identity. Verify the running and served revision, cached paths, critical user outcomes and async completion; a successful release job is not customer verification. Record configured, locally checked, built, released, deployed and outcome-verified states separately.
 
-Use `reliability-design` for journey and alert contracts and `observability-operations` for signal readiness when those skills are available. Keep release verification meaningful without requiring a new monitoring vendor.
+Use reliability expertise for journey and alert contracts and observability expertise for signal readiness when those skills are available. Keep release verification meaningful without requiring a new monitoring vendor.
 
-For branching, partial releases and gate decisions, read [branch to production](references/branch-to-production.md). For selected provider/container/registry implementation, use available tooling-conventions and matching stack expertise.
+For branching, partial releases and gate decisions, read [branch to production](references/branch-to-production.md). For selected provider/container/registry implementation, use available guidance for the selected development tools and matching stack expertise.
 
-For performance workflows, define an accepted workload and isolate application/dependency execution on the runner or use an identified authorized non-production target. Use available performance-testing only for a matching selected tool. Preserve thresholds, failure status, result artifacts and cleanup; bind credentials and concurrency to the actual environment.
+For performance workflows, define an accepted workload and isolate application/dependency execution on the runner or use an identified authorized non-production target. Use available implementation expertise matching the selected load-test tool only for a matching selected tool. Preserve thresholds, failure status, result artifacts and cleanup; bind credentials and concurrency to the actual environment.
 
 ## Deliver configuration and flag changes
 
@@ -67,6 +67,6 @@ For language/configuration/secret checks use the project's compatible tools and 
 
 ## Establish new-project artifact and deployment contracts
 
-A new application setup includes usable CI, artifact-build/release workflows and deployment/recovery procedures, even when execution is local-only. Use project-conventions when available for foundation outcomes. Select publication destinations from the artifact ecosystem, accepted distribution policy and actual namespace/ownership. Internal services need not become public packages. Native artifacts require platform identity, signing/provisioning, installation/update and recovery evidence.
+A new application setup includes usable CI, artifact-build/release workflows and deployment/recovery procedures, even when execution is local-only. Use project foundation expertise when available for foundation outcomes. Select publication destinations from the artifact ecosystem, accepted distribution policy and actual namespace/ownership. Internal services need not become public packages. Native artifacts require platform identity, signing/provisioning, installation/update and recovery evidence.
 
 Untrusted change validation runs meaningful checks and builds without privileged publication. Trusted release stages publish verified immutable artifacts with provenance, scoped credentials and reconciled reruns. Require an agreed target/configuration before deployment, verify served behavior and retain compatible recovery. Preparing release files is not publication permission; an unknown target is not a reason to create success-only placeholder jobs. Distinguish authored, linted, locally exercised, published, deployed and outcome-verified stages.

@@ -15,7 +15,7 @@ metadata:
 
 Optimize cost or throughput subject to user outcomes and stability. A smaller pod or lower heap chart alone is not proof of improvement.
 
-Use JVM flags and ergonomics only for a Java/JVM workload. For Python, Node.js or another runtime, use `plan-application-capacity` and that runtime's current guidance; do not introduce Java or Kubernetes to use this skill.
+Use JVM flags and ergonomics only for a Java/JVM workload. For Python, Node.js or another runtime, use capacity and demand-modeling expertise and that runtime's current guidance; do not introduce Java or Kubernetes to use this skill.
 
 ## Modes and evidence
 
@@ -43,4 +43,4 @@ GC choice depends on CPU/heap/pause needs and JDK; Serial/G1/ZGC are not ranked 
 
 ## Completion evidence
 
-Deliver effective configuration matrix, bottleneck evidence, resource budget, experiment changes, representative measurements, rollout status and residual risks. If benchmarks/live access are missing, call the result a configuration proposal, not a verified optimization. Coordinate telemetry with `observability-operations` and user-outcome requirements with `reliability-design` as needed.
+Deliver effective configuration matrix, bottleneck evidence, resource budget, experiment changes, representative measurements, rollout status and residual risks. If benchmarks/live access are missing, call the result a configuration proposal, not a verified optimization. Coordinate telemetry with observability expertise and user-outcome requirements with reliability expertise as needed.

@@ -12,6 +12,8 @@ metadata:
 
 # Incident response
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 Reduce user harm while building a reliable record of decisions and evidence. Do not delay a supported mitigation to finish a perfect diagnosis.
 
 ## Modes

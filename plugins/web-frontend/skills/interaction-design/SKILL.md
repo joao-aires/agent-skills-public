@@ -39,7 +39,7 @@ Reconcile each in-scope surface after propagation: implemented and checked, inte
 
 ## Verify the experience
 
-Exercise actual target layouts and critical interactions against the design, using journey-testing and supported platform tools. Component states establish shared behavior; route/device journeys establish integration. Compare rendered results with accepted references and investigate differences before changing baselines. Preserve the intended behavior while repairing discrepancies through deliver-reliable-changes.
+Exercise actual target layouts and critical interactions against the design, using journey and actual-platform verification expertise and supported platform tools. Component states establish shared behavior; route/device journeys establish integration. Compare rendered results with accepted references and investigate differences before changing baselines. Preserve the intended behavior while repairing discrepancies through change-verification expertise.
 
 For contract boundaries coordinate backend authority, invariants, validation and state transitions before implementation. The UI must reflect actual constraints rather than inventing permissions or success states. Consult [interaction references](references/interaction-references.md) for deeper patterns/accessibility; no external reference is required for ordinary decisions above.
 

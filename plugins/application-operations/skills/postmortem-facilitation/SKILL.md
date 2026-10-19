@@ -12,6 +12,8 @@ metadata:
 
 # Postmortem facilitation
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 Help responders think through what happened rather than fill a template with plausible explanations. Ask the next question that most changes understanding or the prevention plan.
 
 ## Modes

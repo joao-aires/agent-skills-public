@@ -18,7 +18,7 @@ Use local k6 execution by default; no Grafana Cloud account, MCP or distributed 
 
 ## Define the claim and workload
 
-Read critical journeys, architecture, accepted targets and operating constraints. Use installed journey-testing for workload/evidence methods when useful; retain an explicit demand, outcome and execution boundary without it. Use `reliability-design`, `plan-application-capacity` and `observability-operations` when available for outcome contracts, demand and trustworthy signals. Choose representative authenticated reads/writes, data volumes, cache conditions and traffic mix; avoid measuring only an unauthenticated health endpoint. For async work, distinguish admission from completion and track accepted jobs that miss their deadline. HTTP duration alone does not establish user-journey latency or browser rendering performance; retain Playwright for browser correctness and use browser-performance evidence when that is the claim.
+Read critical journeys, architecture, accepted targets and operating constraints. Use installed journey and actual-platform verification expertise for workload/evidence methods when useful; retain an explicit demand, outcome and execution boundary without it. Use reliability expertise, capacity and demand-modeling expertise and observability expertise when available for outcome contracts, demand and trustworthy signals. Choose representative authenticated reads/writes, data volumes, cache conditions and traffic mix; avoid measuring only an unauthenticated health endpoint. For async work, distinguish admission from completion and track accepted jobs that miss their deadline. HTTP duration alone does not establish user-journey latency or browser rendering performance; retain Playwright for browser correctness and use browser-performance evidence when that is the claim.
 
 Record intended arrival rate or concurrency, duration, warmup, thresholds, target and resources. Derive acceptance from user needs or an accepted comparable baseline. Label provisional values and seek unresolved product decisions; do not invent production commitments. Keep a short low-load smoke profile for script correctness, a bounded regression/load profile and longer stress/spike/soak profiles only when justified. A short smoke pass is not a capacity result.
 
@@ -40,7 +40,7 @@ Reuse scenario behavior across targets with explicit target/profile configuratio
 
 ## Integrate with readable CI/CD
 
-Use `delivery-pipelines` for workflow conventions and security. Prefer `performance-<application>.yml` displayed as `Performance / <Application>` with jobs `load-runner` and `load-nonprod`; adapt a clear existing convention. Use steps such as `Start application`, `Apply migrations`, `Seed test data`, `Wait for readiness`, `Run k6`, `Upload performance results` and `Stop application`.
+Use delivery expertise for workflow conventions and security. Prefer `performance-<application>.yml` displayed as `Performance / <Application>` with jobs `load-runner` and `load-nonprod`; adapt a clear existing convention. Use steps such as `Start application`, `Apply migrations`, `Seed test data`, `Wait for readiness`, `Run k6`, `Upload performance results` and `Stop application`.
 
 Run small runner checks on relevant PR changes where stable and affordable. Put deployed-target checks after deployment or behind explicit/manual or project-approved scheduled triggers; installing this skill does not create a schedule. Bind the target/profile to the environment, serialize shared-environment tests and prevent untrusted PR code from receiving environment credentials. Pin k6 and any setup actions/images to reviewed versions/SHAs/digests.
 
@@ -54,4 +54,4 @@ Compare equivalent revisions, resources, datasets, cache state, profiles and gen
 
 Report script/profile revision, target/deployed revision, workload, thresholds, measured outcomes, fixture/live boundaries and cleanup/recovery evidence. Separate authored scripts, locally executed tests, runner checks and deployed-target checks; state blocked execution. Consult [k6 details and CI decisions](references/k6-and-ci.md) for specific unanswered questions.
 
-Use `resilience-testing` for controlled dependency/component faults and recovery evidence. Combining a load profile with a fault is a separate scoped experiment; a throughput result alone does not establish outage resilience.
+Seek available failure/recovery testing expertise for controlled dependency/component faults and recovery evidence. Combining a load profile with a fault is a separate scoped experiment; a throughput result alone does not establish outage resilience.

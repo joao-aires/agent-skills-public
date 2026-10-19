@@ -34,7 +34,7 @@ Install business-strategy for product-management as well as business direction a
 
 The web-frontend bundle provides stack-independent visual-design alongside interaction and interface methods. Development-workflow provides backend-design for service behavior across stacks. AI-development separates build-evaluated-ai's task/authority/evaluation method from ai-conventions' provider/framework defaults. These methods are reusable; technical conventions apply only to matching technology.
 
-For an existing accepted product, start with the affected work. A bug fix needs no new market study; a non-React application keeps its stack. Workflow-help recommends relevant activities without executing them, and missing optional guidance remains an explicit capability boundary rather than a reason to install or migrate automatically.
+For an existing accepted product, start with the affected work. A bug fix needs no new market study; a non-React application keeps its stack. Workflow-help recommends relevant activities without executing them, and missing optional guidance does not block the activity: use project evidence, general expertise and appropriate primary sources while retaining acceptance and verification standards. Missing tools or an execution target remain precise limits. See [composition and fallback](architecture.md#compose-without-optional-dependencies).
 
 ## One end-to-end request
 

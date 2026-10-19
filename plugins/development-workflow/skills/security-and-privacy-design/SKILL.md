@@ -33,7 +33,7 @@ Treat model output and tool arguments as untrusted. Keep authorization outside t
 
 ## Reuse specialists for the actual question
 
-Use installed `differential-review` for security-sensitive changes and `supply-chain-risk-auditor` for dependency risk. The auditor supports particular lockfiles; check its declared coverage, especially for pnpm/yarn, and use ecosystem-native tools when unsupported. An unassessable result is not a clean bill of health. Neither skill replaces feature threat modeling or privacy decisions. Choose further specialist tools only when their scope matches the application and the user request.
+Use installed `differential-review` for security-sensitive changes and compatible dependency supply-chain auditing expertise for dependency risk. The auditor supports particular lockfiles; check its declared coverage, especially for pnpm/yarn, and use ecosystem-native tools when unsupported. An unassessable result is not a clean bill of health. Neither skill replaces feature threat modeling or privacy decisions. Choose further specialist tools only when their scope matches the application and the user request.
 
 ## Keep improvements connected to delivery
 
@@ -41,4 +41,4 @@ Translate concrete risks into focused checks: cross-user/tenant requests, invali
 
 Keep affected architecture, data-flow, retention and decision notes synchronized with the change. Report what was checked, what improved and what remains uncertain; do not label an application secure or compliant solely because scans pass.
 
-When the operations bundle is available, use `credential-lifecycle` for identity issuance/rotation/revocation and `vulnerability-management` for findings through deployed remediation. Keep telemetry redaction and collection access aligned with privacy requirements using `observability-operations`. These are targeted follow-ups, not prerequisites for every edit.
+Seek available credential management expertise for identity issuance/rotation/revocation and vulnerability prioritization and remediation expertise for findings through deployed remediation. Keep telemetry redaction and collection access aligned with privacy requirements using observability expertise. These are targeted follow-ups, not prerequisites for every edit.

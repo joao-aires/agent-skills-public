@@ -15,6 +15,8 @@ metadata:
 
 # Business Opportunity Analysis — Legacy Compatibility
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 The primary skill is now `business-strategy`.
 
 ## Preferred behavior

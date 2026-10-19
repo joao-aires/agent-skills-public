@@ -29,7 +29,7 @@ For new services, prefer a supported Python, uv with a committed lockfile, FastA
 
 ## Apply the service contract
 
-Use installed backend-design for actor authority, invariants, state/failure, transaction and consumer contracts before substantive implementation; system-design owns consequential architecture. Discover optional guidance through the actual inventory rather than another plugin's path. Without it, establish the affected behavior, ownership, failure semantics and observable acceptance in existing notes before coding. A local fix needs no new design ceremony.
+Use installed service-contract design expertise for actor authority, invariants, state/failure, transaction and consumer contracts before substantive implementation; seek architecture expertise when consequential boundaries need decisions. Discover optional guidance through the actual inventory rather than another plugin's path. Without it, establish the affected behavior, ownership, failure semantics and observable acceptance in existing notes before coding. A local fix needs no new design ceremony.
 
 Map the accepted contract to FastAPI schemas/dependencies, SQLAlchemy sessions and migrations. Keep the affected endpoints, jobs, tools and consumers accounted for; do not redefine behavior separately in each handler.
 
@@ -69,15 +69,15 @@ Set explicit timeouts, payload limits and cancellation behavior. Retry with boun
 
 ## Implement durable work in the selected runtime
 
-Use backend-design when installed for durable intent, ownership, idempotency, cancellation and recovery. Persist the accepted operation and progress through the chosen database/worker mechanism; database constraints and supported provider keys protect repeated effects across restarts. FastAPI BackgroundTasks is suitable for best-effort work, not delivery that must survive process loss.
+Use service-contract design expertise when installed for durable intent, ownership, idempotency, cancellation and recovery. Persist the accepted operation and progress through the chosen database/worker mechanism; database constraints and supported provider keys protect repeated effects across restarts. FastAPI BackgroundTasks is suitable for best-effort work, not delivery that must survive process loss.
 
 Choose a queue or workflow framework only for an actual durability/concurrency requirement. Verify the configured runtime's acknowledgment, retry and shutdown behavior, including ambiguous remote effects and stale workers. Keep exhausted work observable with an authorized replay/reconciliation route. Technical runtime success does not establish the business outcome.
 
 ## AI and MCP interfaces
 
-For AI, begin with a direct provider adapter if sufficient; use LangChain/LangGraph or Google ADK when orchestration requires it, without installing both by default. Pair with `build-evaluated-ai` when available. Enforce authorization outside prompts, validate structured outputs, constrain tool authority and bound tokens, audio size/duration, time and retries. Gemini can support experiments, but verify current model availability, quotas and pricing rather than assuming every LLM/STT path is free. Separate deterministic fixtures from live-provider evaluations and include failure/fallback behavior.
+For AI, begin with a direct provider adapter if sufficient; use LangChain/LangGraph or Google ADK when orchestration requires it, without installing both by default. Pair with AI contract and evaluation expertise when available. Enforce authorization outside prompts, validate structured outputs, constrain tool authority and bound tokens, audio size/duration, time and retries. Gemini can support experiments, but verify current model availability, quotas and pricing rather than assuming every LLM/STT path is free. Separate deterministic fixtures from live-provider evaluations and include failure/fallback behavior.
 
-For an MCP interface, add the AI plugin and use its standalone FastMCP guidance plus `mcp-builder`. Reuse authorized application services and transaction boundaries; an MCP adapter must not bypass them.
+For an accepted Python MCP interface, use the chosen version-compatible SDK, seeking relevant protocol implementation expertise when available. Without specialist guidance, verify actual first-party SDK contracts and exercise discovery, denied access and lifecycle cleanup directly. Reuse authorized application services and transaction boundaries; an MCP adapter must not bypass them.
 
 ## Deploy FastAPI deliberately
 
@@ -95,6 +95,6 @@ Routine decisions are inline here. Use bundled modern-python for Python tooling 
 
 ## Verify the selected interface implementation
 
-Use backend-design when installed for supported consumers and compatibility decisions. Preserve stable operation/event identities, update typed clients deliberately and exercise the relevant old/new combinations and retained events. FastAPI OpenAPI and generated types support contract checks; they do not prove semantic compatibility.
+Use service-contract design expertise when installed for supported consumers and compatibility decisions. Preserve stable operation/event identities, update typed clients deliberately and exercise the relevant old/new combinations and retained events. FastAPI OpenAPI and generated types support contract checks; they do not prove semantic compatibility.
 
 Use provider validation against OpenAPI plus representative consumer/producer examples and behavior checks. For independently deployed consumers, use consumer-driven contracts when useful; Pact is optional. Fixtures must represent supported real usage and remain aligned with provider verification. Test relevant old/new combinations and retained queued events where applicable. Document intentional breaks and migration/deprecation scope before removing support; do not require a broker or contract-testing platform for a single application.

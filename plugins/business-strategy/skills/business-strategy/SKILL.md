@@ -17,6 +17,8 @@ metadata:
 
 # Business Strategy
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 Use this skill as a **strategy-thinking system**, not a consulting-report checklist.
 
 The objective is to determine:

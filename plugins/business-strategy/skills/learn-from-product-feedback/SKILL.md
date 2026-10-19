@@ -12,6 +12,8 @@ metadata:
 
 # Learn from product feedback
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 ## Ask a decision question
 
 Start with the intended user outcome and the decision this evidence should inform: improve an interaction, investigate a problem, continue an experiment, change scope or stop. Read the product's assumptions and existing feedback. A shipped feature is an output; whether people can achieve the intended outcome is the question. Keep the activity small enough to change a real decision.

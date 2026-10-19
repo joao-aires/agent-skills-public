@@ -16,21 +16,21 @@ user-invocable: false
 
 ## Establish the direction
 
-Read the request, `AGENTS.md`, existing components and accepted design decisions. For a new web application, prefer Next.js App Router, TypeScript, Tailwind v4 and shadcn/ui. For desktop or iOS/Android also use [native-client-development](../native-client-development/SKILL.md). A Tauri React/Vite DOM interface still follows this visual/interaction process and the compatible Tailwind/shadcn conventions; only web SSR defaults are inapplicable. React Native uses native components, not DOM primitives. Preserve an established React/Vite or other frontend unless a migration is requested. Use the project's package manager, locked versions and component primitives; do not mix Tailwind v3/v4 or Radix/Base UI APIs casually. For new Next.js projects, use `@tailwindcss/postcss`, `@import "tailwindcss"` and CSS-first semantic tokens via `@theme`/`@theme inline`; follow the selected shadcn preset rather than creating a competing token system.
+Read the request, `AGENTS.md`, existing components and accepted design decisions. For a new web application, prefer Next.js App Router, TypeScript, Tailwind v4 and shadcn/ui. For desktop or iOS/Android also use native-platform implementation and driver expertise. A Tauri React/Vite DOM interface still follows this visual/interaction process and the compatible Tailwind/shadcn conventions; only web SSR defaults are inapplicable. React Native uses native components, not DOM primitives. Preserve an established React/Vite or other frontend unless a migration is requested. Use the project's package manager, locked versions and component primitives; do not mix Tailwind v3/v4 or Radix/Base UI APIs casually. For new Next.js projects, use `@tailwindcss/postcss`, `@import "tailwindcss"` and CSS-first semantic tokens via `@theme`/`@theme inline`; follow the selected shadcn preset rather than creating a competing token system.
 
-Use [visual design](../visual-design/SKILL.md) for product-derived direction, accepted references and semantic token intent, and [interaction design](../interaction-design/SKILL.md) for behavior. These generic methods apply beyond React; this skill owns the compatible React/Next.js implementation. Record meaningful stack deviations in the existing project note.
+Use visual design expertise for product-derived direction, accepted references and semantic token intent, and interaction design expertise for behavior. These generic methods apply beyond React; this skill owns the compatible React/Next.js implementation. Record meaningful stack deviations in the existing project note.
 
 ## Design behavior and account for every affected surface
 
-Use [interaction-design](../interaction-design/SKILL.md) before meaningful new or changed UX. Define goals, flows, information/actions and state transitions in concise text; add wireframes/mockups only where they settle spatial/visual uncertainty. Resolve consequential choices and state reversible assumptions before coding; reuse agreed direction without another approval ceremony. Do not invent UX independently as each page is implemented.
+Use interaction design expertise before meaningful new or changed UX. Define goals, flows, information/actions and state transitions in concise text; add wireframes/mockups only where they settle spatial/visual uncertainty. Resolve consequential choices and state reversible assumptions before coding; reuse agreed direction without another approval ceremony. Do not invent UX independently as each page is implemented.
 
-For cross-cutting work, interaction-design owns the affected-surface inventory, representative pattern and final reconciliation. Propagate shared implementations and verify actual callers/variants; preserve intentional differences and report incomplete coverage.
+For cross-cutting work, inventory affected surfaces, establish a representative interaction pattern and reconcile the final result, using relevant expertise when available. Propagate shared implementations and verify actual callers/variants; preserve intentional differences and report incomplete coverage.
 
 ## Implement the accepted visual system
 
 Map the accepted visual direction to semantic CSS variables and compatible Tailwind theme pairs. Reuse reviewed shadcn primitives/blocks, shared variants and the project's class-merging convention. Preserve the selected preset rather than layering a competing token system over it. Use consistent component semantics for surfaces, text, emphasis and status; preserve deliberate density and platform variants.
 
-Compose the product's layouts from those primitives. Add dark mode when required by the product or established system. Use upstream shadcn/Tailwind guidance for unfamiliar compatible APIs; visual-design owns typography, composition and product character. A component library supplies implementation primitives, not the product direction.
+Compose the product's layouts from those primitives. Add dark mode when required by the product or established system. Use upstream shadcn/Tailwind guidance for unfamiliar compatible APIs; establish typography, composition and product character through visual design reasoning. A component library supplies implementation primitives, not the product direction.
 
 ## Make interactions dependable
 
@@ -52,7 +52,7 @@ Avoid request waterfalls, oversized client bundles and avoidable layout shifts. 
 
 Test the production build/start path, configuration and representative authenticated journey; development-server success is narrower evidence. Identify build-time and runtime settings. `NEXT_PUBLIC_*` values are public and compiled into the client build; changing deployment environment variables does not rewrite that bundle. Prefer an explicit runtime configuration boundary when one artifact must serve different environments, exposing only safe values. If a build must differ, give it a new identity and validate it.
 
-When deploying multiple instances or changing hosting, read [production hosting and configuration](references/sources-and-exceptions.md#production-hosting-and-configuration) for cache scope/invalidation, identity isolation, version skew and proxy behavior. Verify the actual served path and affected outcome; local startup cannot establish fleet-wide behavior. Delivery-pipelines owns promotion and recovery mechanics.
+When deploying multiple instances or changing hosting, read [production hosting and configuration](references/sources-and-exceptions.md#production-hosting-and-configuration) for cache scope/invalidation, identity isolation, version skew and proxy behavior. Verify the actual served path and affected outcome; local startup cannot establish fleet-wide behavior. Seek available delivery expertise for promotion and recovery mechanics.
 
 ## Verify and use specialist guidance proportionately
 
@@ -62,4 +62,4 @@ These defaults cover routine work without reference browsing. Use bundled shadcn
 
 For API changes, verify actual client behavior against supported provider contracts, including errors, optional fields and pagination. Generated types do not prove semantic compatibility. Keep old open browser sessions in the supported-consumer set during rollout and route planned breaks through backend/delivery guidance.
 
-For meaningful visual critique or refinement, use [interface quality](../interface-quality/SKILL.md); it owns critique evidence and prioritization; visual-design owns product-derived direction and these conventions implement it in the selected stack. Use [UX writing](../ux-writing/SKILL.md) for material task language. Use [usability research](../usability-research/SKILL.md) for a requested study or real unresolved user question, rather than requiring research for routine frontend work.
+For meaningful visual critique or refinement, seek available interface assessment expertise. Prioritize findings against the product-derived visual direction and implement accepted changes with this stack's compatible primitives. Use interface-language expertise for material task language. Use usability research expertise for a requested study or real unresolved user question, rather than requiring research for routine frontend work.

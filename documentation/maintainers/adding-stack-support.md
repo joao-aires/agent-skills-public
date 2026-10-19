@@ -43,7 +43,7 @@ Here, `invocation: both` describes usage, while `user-invocable: false` hides or
 
 Explain the technical decisions, applicability, failure boundaries and evidence needed to finish. Keep essential guidance in the skill and put substantial conditional detail in adjacent references, linked with a trigger. Consult current primary documentation when choosing APIs and defaults; record consequential compatibility or licensing limits. Avoid freezing an entire generated application into instructions.
 
-Reuse generic methods through clear conditional pointers. Keep links within the independently installable bundle; another bundle's source path will not exist in a standalone installation. Name optional capabilities for discovery through the actual inventory and retain the essential behavior when they are absent. For example, a service still needs transaction and recovery reasoning even without backend-design installed.
+Reuse generic methods through clear conditional pointers. Keep links within the independently installable bundle; another bundle's source path will not exist in a standalone installation. Describe optional expertise by capability for matching against the observed inventory; do not insert particular skill/plugin names into workflow routing. Retain essential behavior when specialist guidance is absent, using project evidence, general expertise and appropriate primary sources. For example, a service still needs transaction and recovery reasoning even without backend-design installed.
 
 ## 3. Package the capability
 
@@ -51,7 +51,7 @@ For an existing bundle, add the skill/resources and bump its `plugin.json` versi
 
 When acquiring upstream material, review its fit and redistribution terms, pin its commit and tree in [upstream.lock.json](../../upstream.lock.json), and preserve licenses, dependency groups and invocation controls. The builder acquires listed resources and writes notices. Use the existing lock entries and [source-selection reference](sources.md) rather than copying an unreviewed installed skill. New adaptation logic requires its own focused packaging tests.
 
-No global router registration is required. Descriptions and conditional references let agents find relevant expertise. If an existing activity needs a new selection pointer, add it at that decision rather than copying its workflow into the new skill.
+No global router registration is required. A precise skill description lets an agent match the actual capability and accepted stack. An ordinary new stack addition should not require edits to workflows. If an activity genuinely misses a class of decision, improve its capability-level reasoning rather than adding a route to the new skill name. See [architecture and selection](../architecture.md#select-by-capability).
 
 ## 4. Update the reader-facing map
 

@@ -47,6 +47,6 @@ Verify the actual journey returns, accepted work is accounted for, queues drain 
 
 ## Keep automation and evidence honest
 
-Run stable fixture/isolated checks in relevant CI jobs; pin dependencies, preserve failing exit status and retain sanitized logs/results on failure. Deployed experiments use explicit/manual or project-approved triggers and concurrency controls for the target. No background schedule is installed here. Use `delivery-pipelines` for job conventions and environment security.
+Run stable fixture/isolated checks in relevant CI jobs; pin dependencies, preserve failing exit status and retain sanitized logs/results on failure. Deployed experiments use explicit/manual or project-approved triggers and concurrency controls for the target. No background schedule is installed here. Use delivery expertise for job conventions and environment security.
 
 Report hypothesis, code/config revision, baseline, injected/confirmed fault, intended and observed outcomes, timing, stop/cleanup/recovery evidence and remaining uncertainty. A plan, a simulation, an executed isolated test and a verified deployed experiment are distinct states. Turn demonstrated failures into regression checks or runbook changes; broaden experiments only when new risk justifies them. See [failure experiments](references/failure-experiments.md) for optional tools and deeper cases.

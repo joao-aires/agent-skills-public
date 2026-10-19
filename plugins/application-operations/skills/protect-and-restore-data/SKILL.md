@@ -12,6 +12,8 @@ metadata:
 
 # Protect and restore application data
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 ## Recover the user capability
 
 Identify durable state and dependencies: databases, uploaded objects, persistent volumes, infrastructure/configuration, secrets and encryption keys, external services and DNS. Agree acceptable data loss (RPO) and time to restore service (RTO) from user/business needs; label assumptions when these are unknown. Cover accidental deletion/corruption and infrastructure failure separately. Replication and high availability do not replace backups.

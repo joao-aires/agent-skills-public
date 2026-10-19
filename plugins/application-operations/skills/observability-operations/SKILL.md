@@ -12,6 +12,8 @@ metadata:
 
 # Observability implementation and operations
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 Make the application's behavior observable with trustworthy, affordable and protected telemetry. Journey definitions, SLO targets and alert policy belong to `reliability-design`; this skill implements their signal contracts.
 
 ## Modes and discovery
@@ -30,7 +32,7 @@ Use the accepted instrumentation contract and compatible framework/database/HTTP
 
 Give telemetry consistent service, environment and application revision identity using adopted resource conventions. Add bounded domain outcome attributes and propagate supported context across API, queue/worker and tool boundaries. Track trace/run IDs in diagnostic records, not unbounded metric labels. Use version-matched GenAI conventions for model/tool spans and record relevant model/prompt version, latency, outcome and usage. Review evolving semantic conventions and third-party instrumentation compatibility rather than assuming every framework emits the same fields.
 
-Keep application instrumentation separate from backend routing, credentials and storage. Use a bounded collection/processing boundary when needed, and verify units, aggregation, resource identity and supported signal types during translation. Standard transport does not make dashboards, queries, alerts, profiling or proprietary features portable. Use available tooling-conventions for selected backend/Collector configuration and matching stack expertise for SDK initialization.
+Keep application instrumentation separate from backend routing, credentials and storage. Use a bounded collection/processing boundary when needed, and verify units, aggregation, resource identity and supported signal types during translation. Standard transport does not make dashboards, queries, alerts, profiling or proprietary features portable. Use available guidance for the selected development tools for selected backend/Collector configuration and matching stack expertise for SDK initialization.
 
 For browser/mobile/desktop telemetry use suitable supported SDKs and a controlled ingestion boundary with appropriate rate limits, network/CORS configuration and source redaction. Never ship privileged backend credentials or sensitive payloads to a client. Collector redaction is secondary to preventing capture. Telemetry failure must not break the user journey: bound buffers/retries, expose drops and verify degraded-export behavior.
 

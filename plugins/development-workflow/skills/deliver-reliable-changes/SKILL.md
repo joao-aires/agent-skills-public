@@ -20,7 +20,7 @@ Connect the requested outcome to observable acceptance, implement useful increme
 
 Read accepted decisions, instructions and affected contracts. Preserve the existing architecture and UI direction unless changing them is the objective. Reuse agreed answers and the project's plan; a conversation can be sufficient scope. Use [Git contributions](../git-contributions/SKILL.md) for the objective worktree and contribution flow.
 
-For a defect, reproduce the relevant failure before repairing it. Use diagnosing-bugs, tdd or specialist review where their method fits. Identify the state, authority, consumer and operating boundaries affected by the change. For substantial UI work, establish interaction direction and surface coverage with interaction-design; for backend work establish shared behavior before propagating it across entry points.
+For a defect, reproduce the relevant failure before repairing it. Use diagnosing-bugs, tdd or specialist review where their method fits. Identify the state, authority, consumer and operating boundaries affected by the change. For substantial UI work, establish interaction direction and surface coverage with interaction design expertise; for backend work establish shared behavior before propagating it across entry points.
 
 Define observable scenarios and expected outcomes before dependent implementation. Keep material criteria stable; a changed requirement needs a justified decision rather than an adjusted expectation to make a failing run pass. Keep consequential assumptions and unavailable capabilities explicit.
 
@@ -41,8 +41,8 @@ These describe evidence, not additional approval ceremonies. A build, screenshot
 | API, stored state or authority | Real contract/persistence integration and allowed/denied outcomes |
 | UI or user journey | [Journey testing](../journey-testing/SKILL.md), implemented component states, rendered review and actual target-platform operation |
 | Dependencies/configuration/runtime | Relevant lint/type/schema/build and actual startup/configuration checks |
-| Delivery or data migration | [Delivery pipelines](../delivery-pipelines/SKILL.md), compatibility and recoverability |
-| Latency/load or controlled failures | [Performance testing](../performance-testing/SKILL.md) or [resilience testing](../resilience-testing/SKILL.md), selected by the claim |
+| Delivery or data migration | delivery expertise, compatibility and recoverability |
+| Latency/load or controlled failures | implementation expertise matching the selected load-test tool or [resilience testing](../resilience-testing/SKILL.md), selected by the claim |
 
 ## Implement, test, inspect and repair
 
@@ -56,14 +56,14 @@ Stop when acceptance is established or a precise blocker remains. Repeated failu
 
 ## Carry delivery consequences forward
 
-Keep local and CI checks aligned, permissions/secrets protected and dependencies reproducible. Use delivery-pipelines for artifact, configuration, promotion and recovery mechanics. Choose operational depth from the affected journey: resource authority, bounded calls/retries, diagnosable failure and recovery come before adding a monitoring platform.
+Keep local and CI checks aligned, permissions/secrets protected and dependencies reproducible. Seek available delivery expertise for artifact/configuration compatibility, promotion and recovery. Choose operational depth from the affected journey: resource authority, bounded calls/retries, diagnosable failure and recovery come before adding a monitoring platform.
 
-For changed critical journeys, keep accepted outcome/latency definitions, observation boundaries and signal/runbook links aligned. Distinguish admission, durable effects, acknowledgement and completion so retries preserve the business invariant. Use reliability-design and observability-operations when installed; report unmeasured operational targets as such. Data-destructive migrations need compatibility and recovery evidence beyond application rollback.
+For changed critical journeys, keep accepted outcome/latency definitions, observation boundaries and signal/runbook links aligned. Distinguish admission, durable effects, acknowledgement and completion so retries preserve the business invariant. Use reliability expertise and observability expertise when installed; report unmeasured operational targets as such. Data-destructive migrations need compatibility and recovery evidence beyond application rollback.
 
 ## Maintain trustworthy coverage and close
 
 Diagnose flaky checks before changing waits or retries. Any necessary quarantine records owner, reason, replacement evidence and repair/review condition as an explicit coverage gap. Remove redundant tests only after equivalent useful coverage exists. Choose tests by behavior and risk rather than a universal coverage percentage.
 
-Review scope, correctness and avoidable complexity; resolve material findings. Keep affected knowledge current through documentation-conventions. For deprecation/removal, read [retiring behavior](references/retiring-behavior.md) before removing consumers, data or operating resources.
+Review scope, correctness and avoidable complexity; resolve material findings. Keep affected knowledge current, seeking available knowledge-upkeep expertise when useful. For deprecation/removal, read [retiring behavior](references/retiring-behavior.md) before removing consumers, data or operating resources.
 
 Report changed behavior, rationale, actual checks/artifacts and remaining limits, with revision/environment sufficient to reproduce material findings. Preserve useful regression evidence. Distinguish planned, implemented, verified and deployed states, and publish or execute remote actions only within established authority.

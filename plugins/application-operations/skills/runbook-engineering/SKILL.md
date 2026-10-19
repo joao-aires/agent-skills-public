@@ -12,6 +12,8 @@ metadata:
 
 # Runbook engineering
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 Write the procedure a responder can use under pressure. A complete-looking template without established diagnostic knowledge creates false confidence.
 
 ## Modes and inputs

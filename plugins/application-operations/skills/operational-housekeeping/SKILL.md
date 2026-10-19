@@ -12,6 +12,8 @@ metadata:
 
 # Operational housekeeping
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 Turn recurring maintenance into a finite, evidence-backed review with owners and follow-up work.
 
 ## Modes and general purpose
@@ -61,4 +63,4 @@ Record measured value, timestamp/window, policy comparison, result, action, owne
 
 Report completed checks, unknowns, material exceptions, changes made, and next review. A housekeeping review is complete when its findings are accountable; deeper remediation can remain explicitly tracked.
 
-For retired features/services, coordinate consumer migration, remaining jobs/data, access revocation and resource/documentation cleanup with deliver-reliable-changes. Age or naming alone is not evidence that a live dependency can be removed. Routine supported-version reviews can identify upgrade work separately from vulnerability deadlines.
+For retired features/services, coordinate consumer migration, remaining jobs/data, access revocation and resource/documentation cleanup with change-verification expertise. Age or naming alone is not evidence that a live dependency can be removed. Routine supported-version reviews can identify upgrade work separately from vulnerability deadlines.

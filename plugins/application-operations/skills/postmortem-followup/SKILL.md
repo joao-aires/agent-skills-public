@@ -12,6 +12,8 @@ metadata:
 
 # Postmortem follow-up
 
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
 Turn learning into demonstrated system improvement. An action being written, merged or marked done is not the same as its outcome being verified.
 
 ## Modes and inputs

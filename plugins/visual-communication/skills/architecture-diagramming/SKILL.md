@@ -14,7 +14,7 @@ Create a responsive, self-contained HTML diagram when that is the requested arti
 
 ## Establish meaning before layout
 
-Identify the audience, question, scope and source evidence. Distinguish implemented architecture, observed deployment, proposed design and unknowns. Trace important relationships to supplied context or source; use system-mapping or architecture-documentation when available for deeper discovery and semantic coverage. Keep technology lists and invented components from standing in for an explanation.
+Identify the audience, question, scope and source evidence. Distinguish implemented architecture, observed deployment, proposed design and unknowns. Trace important relationships to supplied context or source; use current-system mapping expertise or evidence-backed architecture explanation expertise when available for deeper discovery and semantic coverage. Keep technology lists and invented components from standing in for an explanation.
 
 Choose context/container/component views for structure, sequences for order, state views for lifecycle or data flows for information movement. Keep labels, directed relationships and boundaries consistent. Explain notation where needed and provide text for important meaning.
 

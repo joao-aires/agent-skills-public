@@ -41,7 +41,9 @@ The agent should clarify consequential unknowns, define relevant behavior before
 
 ## How the guidance fits together
 
-Request an activity such as develop, design or review. The agent selects relevant disciplines, including product-management, system-design, visual-design and backend-design, then applies the accepted stack's conventions. Product direction starts before development and evolves with feedback. A defined change reuses accepted context. Plugins package these capabilities; they are not sequential process layers. See [ownership and composition](documentation/maintainer-reference.md#capability-architecture) for the boundaries.
+Request the activity and stopping point. The agent seeks relevant expertise by capability and applies technical guidance only to the accepted stack. Specialists improve the work when available; without them, the activity still owns its outcome and uses project evidence, general expertise and appropriate primary sources. Missing execution tools remain a distinct verification limit.
+
+Plugins package capabilities; they are not dependency layers. Read [architecture and composition](documentation/architecture.md) for selection, fallback and the current versus planned package boundaries.
 
 ## SDLC coverage
 
@@ -57,6 +59,7 @@ Request an activity such as develop, design or review. The agent selects relevan
 | --- | --- |
 | [Installation](documentation/installation.md) | How do I build, load and check the bundles? |
 | [Usage](documentation/usage.md) | What should I invoke, provide and expect? |
+| [Architecture](documentation/architecture.md) | How do skills compose, and what happens when expertise is absent? |
 | [SDLC coverage](documentation/sdlc.md) | Which skills support each phase and area? |
 | [Migration](documentation/migration.md) | How do I update an existing installation? |
 | [Maintainer reference](documentation/maintainer-reference.md) | How do I change, validate and evaluate the collection? |
