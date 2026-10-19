@@ -1,6 +1,6 @@
 # Sources and compatibility
 
-[Maintainer guide](../maintainer-reference.md) · [Catalogue](#upstream-catalogue) · [Adaptations](#adaptations) · [Matt selection](#matt-pocock-selection) · [Application references](#application-references)
+[Maintainer guide](../maintainer-reference.md) · [Catalogue](#upstream-catalogue) · [Adaptations](#adaptations) · [Matt selection](#matt-pocock-selection) · [Application references](#application-references) · [Capability architecture](#product-and-capability-architecture) · [Documentation methods](#documentation-methods)
 
 ## Upstream catalogue
 

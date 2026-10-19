@@ -2,7 +2,7 @@
 
 I use these skill bundles to build and operate applications and explore product ideas. My local skills capture conventions; bundled upstream skills add specialist techniques. Plugins follow the [Agent Plugins standard](https://agent-plugins.org/specification).
 
-Start with **development-workflow**, **python-backend** and **web-frontend** for a full-stack application. You request an activity such as `develop`, `test` or `review`; the agent uses relevant supporting skills within that work. Add **business-strategy** for product discovery/priorities and business direction. Tickets are optional, and existing project decisions take precedence.
+Start with **development-workflow**, **python-backend** and **web-frontend** for a Python/React application. Keep an existing application's stack and select the matching expertise. You request an activity such as `develop`, `test` or `review`; the agent uses relevant supporting skills within that work. Add **business-strategy** for product discovery/priorities and business direction. Tickets are optional, and existing project decisions take precedence.
 
 ## Choose your plugins
 
@@ -18,81 +18,16 @@ Start with **development-workflow**, **python-backend** and **web-frontend** for
 
 ## Quick start
 
-### 1. Build the bundles
+<a id="1-build-the-bundles"></a>
+<a id="2-load-them-in-your-client"></a>
 
-With Git and Python 3.10+ available, run in a POSIX shell:
+1. [Build complete bundles and load them in your client](documentation/installation.md). The default build includes development-workflow, python-backend and web-frontend. Add other bundles for the work you need.
+2. Open the application repository or an empty project workspace and confirm discovery. Keep plugin resources intact; application dependencies and live tools are configured separately.
+3. Choose an activity and state the outcome and stopping point.
 
-```bash
-git clone https://github.com/joao-aires/agent-skills-public.git
-cd agent-skills-public
-python -m venv .venv
-source .venv/bin/activate
-python -m pip install -r requirements-validation.txt
-python scripts/build_plugins.py --destination ./built-plugins
-export AGENT_PLUGINS_DIR="$(pwd)/built-plugins"
-```
+<a id="3-make-a-first-request"></a>
 
-If you already have a checkout, start there instead of cloning again. The builder acquires pinned upstream skills and their resources for the three full-stack plugins. The destination must be new. [Additional bundles and rebuilds](documentation/usage.md#build-and-load) use the same builder.
-
-### 2. Load them in your client
-
-Open the target application repository or an empty project workspace, rather than developing inside this skills repository.
-
-<details>
-<summary>Copilot CLI</summary>
-
-From the application workspace, in the same terminal:
-
-```bash
-copilot \
-  --plugin-dir "$AGENT_PLUGINS_DIR/development-workflow" \
-  --plugin-dir "$AGENT_PLUGINS_DIR/python-backend" \
-  --plugin-dir "$AGENT_PLUGINS_DIR/web-frontend"
-```
-
-Append `skill list --json` to inspect discovery without starting a model session. In another terminal, set `AGENT_PLUGINS_DIR` to the absolute build directory first. Session-local loading was checked with CLI 1.0.95; see the [CLI reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) for your version.
-
-</details>
-
-<details>
-<summary>Antigravity CLI (agy)</summary>
-
-Install the complete built bundles, then inspect discovery:
-
-```bash
-agy plugin install "$AGENT_PLUGINS_DIR/development-workflow"
-agy plugin install "$AGENT_PLUGINS_DIR/python-backend"
-agy plugin install "$AGENT_PLUGINS_DIR/web-frontend"
-agy plugin list --json
-```
-
-An earlier installation with 56 skills was checked with `agy` 1.3.5. Authenticate through the client's sign-in flow before model work. The [generation-trial specification](documentation/maintainers/evaluations.md#generation-trials) is harness-independent; `agy` is my local runner choice. Installation does not establish execution behavior.
-
-</details>
-
-<details>
-<summary>VS Code</summary>
-
-For versions supporting Agent Plugins, merge the individual absolute paths into user settings:
-
-```json
-{
-  "chat.plugins.enabled": true,
-  "chat.pluginLocations": {
-    "/absolute/path/built-plugins/development-workflow": true,
-    "/absolute/path/built-plugins/python-backend": true,
-    "/absolute/path/built-plugins/web-frontend": true
-  }
-}
-```
-
-Open the application workspace and inspect Configure Skills. This route follows [VS Code documentation](https://code.visualstudio.com/docs/agent-customization/agent-plugins#use-local-plugins); it has not been exercised here.
-
-</details>
-
-For another client, use its documented plugin-loading route. Keep each plugin directory and its resources intact. Discovery establishes availability, not that an agent will follow every instruction. Updating an old installation? Read [migration](documentation/migration.md) first.
-
-### 3. Make a first request
+### Make a first request
 
 Choose the activity explicitly through the client's skill picker or supported invocation syntax. In VS Code, for example: `/development-workflow:develop`. Plain requests below work where explicit skill selection by name is supported.
 
@@ -120,6 +55,7 @@ Request an activity such as develop, design or review. The agent selects relevan
 
 | Guide | Question it answers |
 | --- | --- |
+| [Installation](documentation/installation.md) | How do I build, load and check the bundles? |
 | [Usage](documentation/usage.md) | What should I invoke, provide and expect? |
 | [SDLC coverage](documentation/sdlc.md) | Which skills support each phase and area? |
 | [Migration](documentation/migration.md) | How do I update an existing installation? |
@@ -129,4 +65,4 @@ The bundles contain guidance and resources, without generated applications, conf
 
 ## Contributing
 
-Keep guidance concise and project-independent. Run `python scripts/validate_plugins.py`, `python scripts/check_collection.py` and `python -m unittest discover -s tests -v` after changes. Local material is MIT; upstream resources retain their own licenses. See [AGENTS.md](AGENTS.md) and the [maintainer checks](documentation/maintainer-reference.md#maintaining-the-collection).
+Keep guidance concise and project-independent. Run `python scripts/validate_plugins.py`, `python scripts/check_collection.py` and `python -m unittest discover -s tests -v` after changes. Local material is MIT; upstream resources retain their own licenses. See [AGENTS.md](AGENTS.md), the [maintainer checks](documentation/maintainer-reference.md#maintaining-the-collection) and [adding support for a tech stack](documentation/maintainers/adding-stack-support.md).

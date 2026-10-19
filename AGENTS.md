@@ -10,6 +10,6 @@
 
 - Write repository prose in my singular voice (João), using "I" and "my" when describing my choices. Keep examples in their actual author's voice. Use Humanizer for prose edits; preserve technical meaning, caveats, commands and link targets.
 
-- Organize repository docs by reader need: usage, SDLC coverage, migration and a maintainer reference. Keep the maintainer entry page short; group source-selection and evaluation details in its two supporting references under `documentation/maintainers/`. Keep current decisions/evidence there instead of adding a report for each change.
+- Organize repository docs by reader need: usage, SDLC coverage, migration and a maintainer reference. Keep the maintainer entry page short; group source-selection and evaluation details in its two supporting references under `documentation/maintainers/`. Keep current decisions/evidence there instead of adding a report for each change. Link focused installation and contributor how-tos from those entry pages when they answer a distinct recurring task.
 
 - Name local task entry points with short recognizable activities and supporting guidance with clear topics/disciplines, using lowercase kebab-case. Preserve established operations terminology and upstream skill names. Rename the folder/frontmatter and all maintained references together; record old names in migration notes rather than shipping duplicate aliases.

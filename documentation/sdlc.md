@@ -2,11 +2,19 @@
 
 Use the [SDLC overview](../README.md#sdlc-coverage) to orient yourself and the [task menu](usage.md#skills-you-invoke) to start work. This reference links the expertise behind those activities. `develop` spans the useful lifecycle; individual tasks let you enter at any phase. Phases are a map, not required handoffs. For a new application, [new-application flow](../plugins/development-workflow/skills/develop/references/new-application-flow.md) defines the decision outcomes develop must establish before dependent work; setup alone does not establish the lifecycle.
 
-The circular overview names SDLC phases and their outcomes. Green filled labels show direct requests; red outlined labels show supporting use. Each card first explains its purpose in plain language. Plugins are installation bundles, and supporting disciplines are linked below. A skill may support more than one phase. `plan` is detailed implementation planning after the relevant requirements and design decisions.
+## Read the lifecycle map
 
-The top panel is the **project baseline**: accepted decisions, working conventions and reproducible foundations. Read it as input to relevant work and update it when decisions change. It is maintained project context, not an extra phase before discovery.
+The circle names seven phases and their intended outcomes. Enter where the work needs attention and return to affected decisions when evidence changes. Detailed implementation planning (`plan`) follows the relevant requirements and design decisions; the initial Planning phase establishes goals, constraints and feasibility.
 
-The lower panel separates **shared methods** from **technical expertise for the accepted stack**. Shared methods contribute across discovery, development and feedback. Stack guidance informs feasibility and requirements and applies through design, implementation, testing, delivery and maintenance; it is not confined to coding. Rails point into the three parts of the flow to show this support. The legend distinguishes usage rather than exclusive skill types: the same skill can serve either role. Neutral labels identify project records; fill and outline styles distinguish the skill roles alongside color. The groups are representative, not a checklist to load in full.
+| Part of the diagram | How it contributes |
+| --- | --- |
+| Product direction and feedback | Choose useful scope and success signals; learn from delivered value |
+| SDLC cycle | Turn accepted needs into designed, verified and operated software |
+| Project baseline above the flow | Carry accepted decisions, working conventions and reproducible foundations into relevant work; update them as decisions change |
+| Shared methods below the flow | Apply research, documentation, review, protection and reliability expertise where needed |
+| Technical expertise below the flow | Inform feasibility and requirements, then realize and verify decisions using the accepted stack throughout delivery and maintenance |
+
+Green filled labels show direct requests; red outlined labels show supporting use; neutral labels identify project records. These are uses within the diagram: a skill can serve both direct and supporting roles. The examples are a selection, and plugins are installation bundles. The arrows do not authorize execution, release or deployment.
 
 ## User-facing entry points
 
@@ -97,7 +105,7 @@ Research, explicit clarification, prose editing, documentation, Git contribution
 
 ## Skills by area
 
-Generic means reusable across stacks; stack-specific means select it only for matching technology. Some areas combine both. Supporting and directly requested specialist activities are both included; role and applicability are different dimensions.
+Generic means reusable across stacks; stack-specific means select it only for matching technology. Some areas combine both. Supporting and directly requested specialist activities are both included; role and applicability are different dimensions. To extend the collection, follow [adding stack support](maintainers/adding-stack-support.md).
 
 <details>
 <summary>Expand the area catalogue and upstream techniques</summary>

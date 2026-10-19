@@ -5,7 +5,7 @@ Existing applications can keep their layout, accepted stack and tracker choices.
 ## Update your installation
 
 1. Preserve custom edits and inspect the origin of existing copies or links.
-2. Update the checkout, then [build the desired bundles](../README.md#quick-start) into a new destination. Source directories include local skills only; built bundles also contain upstream resources and notices.
+2. Update the checkout, then [build the desired bundles](installation.md#select-additional-bundles) into a new destination. Source directories include local skills only; built bundles also contain upstream resources and notices.
 3. Replace affected plugins through your client's supported route, keeping their resources intact. For manually copied skills, replace complete directories.
 4. Update saved prompts, project instructions and automation references using the name table below. Inspect and remove obsolete copies/managed links from this checkout; preserve unrelated installations.
 5. Check client discovery and try a relevant explicit activity. Building packages alone does not install plugins or configure live tools.

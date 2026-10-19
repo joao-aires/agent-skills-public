@@ -1,6 +1,6 @@
 # Maintainer guide
 
-Use this page when changing the collection. For installation and everyday use, start with the [README](../README.md#quick-start) and [Usage](usage.md).
+Use this page when changing the collection. For installation and everyday use, start with [Installation](installation.md) and [Usage](usage.md).
 
 <a id="upstream-catalogue"></a>
 <a id="source-selection"></a>
@@ -10,6 +10,7 @@ Use this page when changing the collection. For installation and everyday use, s
 
 | Need | Reference |
 | --- | --- |
+| Add a framework, language or platform | [Adding stack support](maintainers/adding-stack-support.md) |
 | Check origins, licenses, adaptations or selection decisions | [Sources and compatibility](maintainers/sources.md) |
 | Run behavior trials or inspect evidence and open limits | [Evaluating the collection](maintainers/evaluations.md) |
 | Find skills by development phase | [SDLC map](sdlc.md) |

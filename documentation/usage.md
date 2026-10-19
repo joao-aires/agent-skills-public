@@ -1,6 +1,8 @@
 # Using the plugins
 
-[Build, load and make a first request](../README.md#quick-start) before using this guide. Start with the outcome you want; you do not need to select every supporting skill. The [SDLC overview](../README.md#sdlc-coverage) shows where activities fit, and the [skill map](sdlc.md) links to deeper expertise.
+[Install the bundles](installation.md) before using this guide. Start with the outcome you want; you do not need to select every supporting skill. The [SDLC overview](../README.md#sdlc-coverage) shows where activities fit, and the [skill map](sdlc.md) links to deeper expertise.
+
+[Choose an activity](#skills-you-invoke) · [Focused examples](#focused-examples) · [UI/UX work](#uiux-expertise-for-people-and-agents) · [Automation](#scheduled-and-event-triggered-tasks)
 
 ## Skills you invoke
 
@@ -113,24 +115,11 @@ Add `ai-development` for AI features or MCP interfaces. MCP-only work needs prot
 
 ## Build and load
 
-The [README quick start](../README.md#quick-start) owns the basic build and client-loading instructions. To add AI, explicitly select all four bundles from the skills repository:
-
-```bash
-python scripts/build_plugins.py \
-  --plugin development-workflow \
-  --plugin python-backend \
-  --plugin web-frontend \
-  --plugin ai-development \
-  --destination ./built-plugins-with-ai
-```
-
-Explicit `--plugin` arguments replace the default selection; other bundle names work the same way. Build into a new destination, then replace the affected client installation with resources intact. Source `plugins/<name>` directories contain local guidance; built directories also contain acquired upstream skills and notices. Application dependencies and live tools are separate. See [migration](migration.md) before replacing old copies or links.
-
-For a new product, use product-management when direction or priorities are unresolved, refine observable requirements, design the system and experience, then plan implementation of the useful increment. Revisit the architecture decision for boundary-changing features. New setup includes authored READMEs, configuration checks, runnable tests, app containers, GitHub Actions and release/deployment procedures; unavailable target/platform execution stays explicit. Use native-client-development for TypeScript/Tauri desktop and informed iOS/Android choices, and build-evaluated-ai for AG-UI/A2UI integration when appropriate.
+Follow [installation](installation.md) for bundle selection, client loading and updates. For a new application, the [lifecycle map](sdlc.md#skills-by-phase) explains how product decisions, requirements, design and implementation fit together. `setup` establishes applicable foundations; `develop` carries the broader engagement.
 
 ## Optional Figma connection
 
-The web-frontend bundle declares Figma's optional remote endpoint in [mcp.json](../plugins/web-frontend/mcp.json). Follow [Figma's client setup](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/) when connecting it; avoid duplicate configuration if the official client plugin already supplies the connection. The declaration does not establish authenticated file access.
+Configure access through the [installation guide](installation.md#optional-figma-connection) when needed.
 
 Use available, authorized Figma context where appropriate. Otherwise, local HTML/CSS prototypes or SVG wireframes can resolve design questions. Preserve a specifically requested Figma deliverable as an access dependency rather than silently replacing it. Ordinary UI work needs no Figma account.
 
@@ -142,7 +131,7 @@ The web-frontend bundle provides [interface-quality](../plugins/web-frontend/ski
 
 Ask for a scoped result: "Review this dialog without changing it", "Improve and apply the error messages in this flow", or "Prepare a usability study for onboarding". A bare review/improvement assessment stays read-only. A specified repair can include implementation and rechecking. A research guide is a plan until actual observations exist. Ordinary UI development needs no compulsory study or Figma connection.
 
-Visual-design owns product direction and semantic token intent; frontend conventions implement it for the selected React stack; interaction-design owns flows and affected surfaces; interface-quality owns craft inspection and component/token audits; ux-writing owns task copy; usability-research owns studies and evidence synthesis. Existing test/journey guidance verifies implementation and Storybook states where adopted.
+Visual-design owns visual direction and semantic token intent; frontend conventions implement it for the selected React stack; interaction-design owns flows and affected surfaces; interface-quality owns craft inspection and component/token audits; ux-writing owns task copy; usability-research owns studies and evidence synthesis. Existing test/journey guidance verifies implementation and Storybook states where adopted.
 
 ## Explain and maintain project knowledge
 
