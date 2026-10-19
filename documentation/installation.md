@@ -24,6 +24,80 @@ If you already have a checkout, start there instead of cloning again. The builde
 
 Open the target application repository or an empty project workspace, rather than developing inside this skills repository.
 
+The examples below follow current official client documentation; these routes have not been executed against the revised bundles here. Use the route for your installed client/version and confirm its skill inventory before starting work.
+
+<details open>
+<summary>Claude Code</summary>
+
+From the application workspace, in the same terminal:
+
+```bash
+claude --plugin-dir "$AGENT_PLUGINS_DIR/development"
+```
+
+Then select `/development:develop`, or `/development:workflow-help` for help choosing an activity. Repeat `--plugin-dir` for additional bundles. Pass each complete plugin directory, rather than the parent build directory.
+
+[Claude Code's local-plugin guide](https://code.claude.com/docs/en/plugins/create#develop-without-a-marketplace) documents this route. Its [manifest reference](https://code.claude.com/docs/en/plugins-reference) allows a directory without a Claude manifest: the standard `skills/` layout loads and the directory supplies the plugin name. This route loads skills; it does not translate the portable `mcp.json` into Claude's `.mcp.json` configuration.
+
+</details>
+
+<details>
+<summary>Codex</summary>
+
+Use a local marketplace to expose complete built packages. In the application repository, copy development to a new destination. If it already exists, follow the update guidance below instead of overlaying it:
+
+```bash
+mkdir -p .local-agent-plugins
+cp -R "$AGENT_PLUGINS_DIR/development" .local-agent-plugins/development
+```
+
+Add this entry to `.agents/plugins/marketplace.json`, preserving any existing entries:
+
+```json
+{
+  "name": "project-guidance",
+  "interface": { "displayName": "Project guidance" },
+  "plugins": [
+    {
+      "name": "development",
+      "source": {
+        "source": "local",
+        "path": "./.local-agent-plugins/development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}
+```
+
+The source path is relative to the application repository root. In supported Codex desktop clients, restart the app, open the Plugins Directory and install development from Project guidance. Start a new chat, confirm discovery and select `develop` in the skill picker. Add entries only for the additional bundles you choose.
+
+The [official OpenAI documentation](https://developers.openai.com/plugins/build/plugins#install-a-local-plugin-manually) describes the portable manifest and local marketplace route. CLI marketplace management and desktop installation differ; follow that guide for your client. A source checkout's `plugins/` directories omit acquired skills, so point the marketplace at complete built copies.
+
+</details>
+
+<details>
+<summary>OpenCode V2</summary>
+
+OpenCode discovers skill sources rather than loading these directories as native executable plugins. Keep the built bundle intact and merge its absolute skill-directory path into `opencode.json` or `opencode.jsonc` in the application repository:
+
+```json
+{
+  "$schema": "https://opencode.ai/config.json",
+  "skills": ["/absolute/path/built-plugins/development/skills"]
+}
+```
+
+Replace the example path with your build location. Add a skill-directory path for each chosen bundle, then start `opencode` in the application workspace. Confirm discovery and request `@develop` with your brief.
+
+This example follows the [OpenCode V2 skills guide](https://opencode.ai/v2/docs/skills/), including its explicit-source configuration and `@skill-id` invocation. V1 uses different configuration and invocation conventions; use the documentation for your version rather than copying V2 syntax. Skill-source loading does not configure bundled MCP endpoints. Check invocation controls in the installed client; descriptive metadata alone cannot enforce them.
+
+</details>
+
 <details>
 <summary>Copilot CLI</summary>
 
@@ -52,25 +126,7 @@ An earlier bundle installation with 56 skills was checked with `agy` 1.3.5. Auth
 
 </details>
 
-<details>
-<summary>VS Code</summary>
-
-For versions supporting Agent Plugins, merge the individual absolute paths into user settings:
-
-```json
-{
-  "chat.plugins.enabled": true,
-  "chat.pluginLocations": {
-    "/absolute/path/built-plugins/development": true
-  }
-}
-```
-
-Open the application workspace and inspect Configure Skills. This route follows [VS Code documentation](https://code.visualstudio.com/docs/agent-customization/agent-plugins#use-local-plugins); it has not been exercised here.
-
-</details>
-
-For another client, use its documented plugin-loading route. Keep each plugin directory and its resources intact. Discovery establishes availability, not that an agent will follow every instruction. Updating an old installation? Read [migration](migration.md) first.
+For another client, use its documented plugin or skill-source loading route. Keep each plugin directory and its resources intact. Discovery establishes availability, not that an agent will follow every instruction. Updating an old installation? Read [migration](migration.md) first.
 
 ## Select additional bundles
 
@@ -95,7 +151,7 @@ To inspect every package rather than choose an application stack:
 python scripts/build_plugins.py --all --destination ./built-all-plugins
 ```
 
-`--all` and `--plugin` are mutually exclusive. Every destination must be new; replace client installations only after preserving local changes. Load each chosen built plugin through the client examples above, repeating its supported flag/settings/install operation as appropriate. Source directories contain local skills only; built directories also contain pinned acquisitions and notices. Application dependencies and live tools remain separate.
+`--all` and `--plugin` are mutually exclusive. Every destination must be new; replace client installations only after preserving local changes. Load each chosen built plugin through the client examples above, repeating its supported flag, marketplace entry, skill-source path or install operation as appropriate. Source directories contain local skills only; built directories also contain pinned acquisitions and notices. Application dependencies and live tools remain separate.
 
 For structural verification of the default build:
 

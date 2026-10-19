@@ -30,7 +30,7 @@ The first nine plugins are generic. The other eight provide technical expertise 
 
 ### Make a first request
 
-Choose the activity explicitly through the client's skill picker or supported invocation syntax. In VS Code, for example: `/development:develop`. Plain requests below work where explicit skill selection by name is supported.
+Choose the activity explicitly: `/development:develop` in Claude Code, `develop` through Codex's skill picker, or `@develop` in OpenCode V2. See [client setup and compatibility](documentation/installation.md#load-them-in-your-client) first. Plain requests below work where explicit skill selection by name is supported.
 
 | Starting point | Example request |
 | --- | --- |

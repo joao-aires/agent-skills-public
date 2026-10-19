@@ -6,7 +6,15 @@
 
 ## Skills you invoke
 
-Use the client's skill picker or supported explicit invocation. VS Code uses names such as `/development:test`; other clients may differ. Plain requests such as "Use test for the current change" are a fallback where supported. `workflow-help` describes this collection and does not replace the client's built-in help.
+Select the activity through the client's supported invocation:
+
+| Client | Example after discovery |
+| --- | --- |
+| Claude Code | `/development:test` |
+| Codex | Select `test` in the skill picker, then describe the change |
+| OpenCode V2 | `@test` followed by the behavior to verify |
+
+The [installation guide](installation.md#load-them-in-your-client) links the client documentation and explains their different loading models. Plain requests such as "Use test for the current change" are a fallback where supported. `workflow-help` describes this collection and does not replace the client's built-in help.
 
 | Where you are | Task | Expected result |
 | --- | --- | --- |
