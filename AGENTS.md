@@ -3,7 +3,7 @@
 ## Source and ownership
 
 - Edit owning sources under `plugins/<bundle>/`: `plugin.json`, `skills/<name>/SKILL.md`, neighboring resources and package-root framing. Build output is generated.
-- Use the [ownership map](documentation/maintainers/sources.md#target-plugin-ownership) to locate a capability. `upstream.lock.json` owns reviewed acquisitions; the builder adds them to complete bundles.
+- Use the [ownership map](documentation/maintainers/sources.md#plugin-ownership) to locate a capability. `upstream.lock.json` owns reviewed acquisitions; the builder adds them to complete bundles.
 - Keep packages self-contained. Preserve original strategy/visual resources, complete upstream groups, native invocation controls and licenses. Acquire public sources at reviewed commit/tree pins and record adaptations in notices; never redistribute private installed skills.
 
 ## Architecture and authoring
@@ -18,7 +18,7 @@
 ## Documentation and contributions
 
 - Update affected documentation alongside source changes and accepted decisions. Keep manifests, README, ownership/source catalogue and pins aligned; bump the owning version for packaged changes.
-- Keep user guides organized by reader need and the maintainer entry short. Put source/evaluation detail in the existing maintainer references rather than a report per change. Add focused how-tos for recurring tasks.
+- Keep user guides organized by reader need and the maintainer entry short. Put source/evaluation detail in the existing maintainer references rather than a report per change. Add focused how-tos for recurring tasks. Keep implementation task/work-package status and PR chronology in the tracker or Git history; repository docs describe current behavior, source decisions, actionable migration and evidence limits.
 - Use Humanizer when available for prose edits, preserving technical meaning, caveats, commands and links. Verify client-specific examples against primary documentation and distinguish documented setup from exercised behavior.
 - Follow [Git contributions](plugins/development/skills/git-contributions/SKILL.md) for objective worktrees, Conventional Commits and structured PRs. Commit/push authority is separate from merge or deployment authority.
 

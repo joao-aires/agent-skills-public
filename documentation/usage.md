@@ -65,7 +65,7 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 | Define a feature | Use refine to define read-only saved-search sharing from this brief and the existing code. |
 | Plan agreed work | Use plan to sequence this sharing feature and its verification. |
 | Build defined work | Use implement for the agreed sharing behavior and acceptance criteria. |
-| Assess a PR | Use review for PR #42 against the agreed behavior and appropriate checks. |
+| Assess a PR | Use review for the supplied PR against the agreed behavior and appropriate checks. |
 | Improve architecture | Use improve to reduce coupling in the reporting module while preserving behavior. |
 | Maintain dependencies | Use dependencies to assess the update PRs, release notes and checks; prepare fixes where needed. |
 | Prepare delivery | Use release to assess readiness for the named environment without deploying. |

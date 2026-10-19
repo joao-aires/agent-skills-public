@@ -108,7 +108,7 @@ copilot \
   --plugin-dir "$AGENT_PLUGINS_DIR/development"
 ```
 
-Append `skill list --json` to inspect discovery without starting a model session. In another terminal, set `AGENT_PLUGINS_DIR` to the absolute build directory first. Session-local loading was checked with CLI 1.0.95; see the [CLI reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) for your version.
+Append `skill list --json` to inspect discovery without starting a model session. In another terminal, set `AGENT_PLUGINS_DIR` to the absolute build directory first. See the [CLI reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) for your version.
 
 </details>
 
@@ -122,7 +122,7 @@ agy plugin install "$AGENT_PLUGINS_DIR/development"
 agy plugin list --json
 ```
 
-An earlier bundle installation with 56 skills was checked with `agy` 1.3.5. Authenticate through the client's sign-in flow before model work. The [generation-trial specification](maintainers/evaluations.md#generation-trials) is harness-independent; `agy` is my local runner choice. The new package identities have not been installed into this client here; installation does not establish execution behavior.
+Authenticate through the client's sign-in flow before model work and confirm the selected skills are discoverable. The [generation-trial specification](maintainers/evaluations.md#generation-trials) supports any compatible harness. Installation does not establish execution behavior.
 
 </details>
 

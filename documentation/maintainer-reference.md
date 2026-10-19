@@ -11,7 +11,7 @@ Use this page when changing the collection. For installation and everyday use, s
 | Need | Reference |
 | --- | --- |
 | Understand composition, discovery and fallback | [Plugin and skill architecture](architecture.md) |
-| Inspect plugin boundaries and every skill owner | [Target ownership map](maintainers/sources.md#target-plugin-ownership) |
+| Inspect plugin boundaries and every skill owner | [Plugin ownership map](maintainers/sources.md#plugin-ownership) |
 | Add a framework, language or platform | [Adding stack support](maintainers/adding-stack-support.md) |
 | Check origins, licenses, adaptations or selection decisions | [Sources and compatibility](maintainers/sources.md) |
 | Run behavior trials or inspect evidence and open limits | [Evaluating the collection](maintainers/evaluations.md) |
@@ -55,7 +55,10 @@ Labels do not enforce permissions. Task entries use native explicit-only control
 | Product priorities, useful scope and success signal | product-management; business-strategy owns business direction |
 | Architecture / service behavior | system-design / backend-design |
 | Visual direction / interaction behavior / critique | visual-design / interaction-design / interface-quality |
-| AI application, capability, protocol and evaluation design / provider implementation | ai-development / ai-conventions |
+| AI application/capability/protocol design | ai-development |
+| AI testing/evaluation strategy | ai-testing |
+| AI operating decisions and quality monitoring | ai-operations |
+| Selected Python AI implementation | ai-conventions, ai-deepeval-testing and python-ai-observability |
 | Framework APIs, configuration and platform mechanics | Matching technical conventions and upstream specialists |
 | Scope, consequential decisions and completion evidence | Shared workflow and the existing verification owner |
 

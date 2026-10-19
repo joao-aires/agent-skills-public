@@ -1,49 +1,36 @@
 # Migrating existing installations
 
-Existing applications can keep their layout, accepted stack and tracker choices. Update the installed guidance and any explicit skill references using the steps below.
+Use this guide to replace an older installation or update saved skill references. Application layout, accepted technology and tracker choices do not need to change.
 
 ## Update your installation
 
-1. Preserve custom edits and inspect the origin of existing copies or links.
-2. Update the checkout, then [build the desired bundles](installation.md#select-additional-bundles) into a new destination. Source directories include local skills only; built bundles also contain upstream resources and notices.
-3. Replace affected plugins through your client's supported route, keeping their resources intact. For manually copied skills, replace complete directories.
-4. Update saved prompts, project instructions and automation references using the name table below. Inspect and remove obsolete copies/managed links from this checkout; preserve unrelated installations.
-5. Check client discovery and try a relevant explicit activity. Building packages alone does not install plugins or configure live tools.
+1. Preserve custom edits and identify the origin of existing copies or links.
+2. [Build the desired plugins](installation.md#select-additional-bundles) into a new destination. Built packages include local and pinned upstream skills, resources and notices; source directories omit acquisitions.
+3. Replace complete affected packages through the client's supported route. Remove superseded copies to avoid duplicate names; do not overlay new files onto old directories.
+4. Update saved prompts, project instructions, automations and private resource links using the maps below and the [current ownership catalogue](maintainers/sources.md#plugin-ownership).
+5. Confirm the selected skills are discoverable in the application workspace. Discovery establishes availability; correct agent behavior needs separate verification.
 
-For the legacy skills-only helper, run `./scripts/sync-skills.sh status`, then `./scripts/sync-skills.sh sync`. It repairs unchanged-name links from this checkout's old `skills/` paths in `~/.agents/skills`, including broken links, while preserving unrelated paths. It adds available local skills only. Keep the checkout in place. The helper does not migrate renamed basenames or update copied directories/other checkouts; inspect and clean up those old entries manually.
+Building does not install or remove client plugins, configure tools or connect accounts. Preserve unrelated installations and settings. For current selection flags and client setup, use [Installation](installation.md).
 
 ## Plugin package split
 
-Skill names are unchanged. Plugin identities and ownership change, so replace superseded installations instead of loading old and new copies together. Plugin-qualified saved invocations such as `/development-workflow:test` become `/development:test` where the client supports that syntax. Bare skill selection keeps its name.
+Choose replacements for the capabilities you use. Plugin-qualified invocations change with their owning package: for example, `/development-workflow:test` becomes `/development:test` where supported. Most skill names remain the same; use [Local skill naming](#local-skill-naming) for renames.
 
 | Previous bundle | Replacement choices |
 | --- | --- |
-| development-workflow | development; optionally backend-development, delivery, documentation and development-tooling for their former contents |
+| development-workflow | development; backend-development, delivery, documentation and development-tooling for their respective capabilities |
 | business-strategy | strategy |
-| application-operations | operations; optionally operations-platforms |
-| web-frontend | frontend-development; optionally frontend-reactjs-development and frontend-native-development |
+| application-operations | operations; operations-platforms for JVM, Kubernetes and AKS expertise |
+| web-frontend | frontend-development; frontend-reactjs-development or frontend-native-development for matching implementations |
 | python-backend | backend-python-development |
-| ai-development (previous combined bundle) | ai-development for generic methods; optionally ai-python-development, ai-adk-development and ai-langchain-development |
+| ai-development with combined methods and implementation | ai-development for generic methods; ai-python-development, ai-adk-development or ai-langchain-development for selected implementations |
 | visual-communication | visualization |
 
-Build the chosen replacements in a fresh destination, preserve custom edits, and use the client's supported update/uninstall path to remove superseded plugin copies. In particular, ai-development keeps its identity but now contains only generic methods: replace its whole directory, because overlay copying would leave stale technical skills. Preserve unrelated plugins and project settings. Check discovery for duplicate skill names before starting model work. This revision does not remove or install anything in a client automatically.
-
-The default build is development alone. Explicit `--plugin` arguments replace that default; `--all` builds all packages. The current [ownership map](maintainers/sources.md#target-plugin-ownership) identifies the precise owner of each local/acquired skill. Product, visual and service methods remain separate from accepted technical defaults; no application stack migration or account connection is implied.
-
-## Original directory layout
-
-The original skills moved into activity plugins with their resources intact:
-
-| Previous directory | Current directory |
-| --- | --- |
-| `skills/business-strategy/` | [plugins/strategy/skills/business-strategy/](../plugins/strategy/skills/business-strategy/) |
-| `skills/business-opportunity-analysis/` | [plugins/strategy/skills/business-opportunity-analysis/](../plugins/strategy/skills/business-opportunity-analysis/) |
-| `skills/architecture-diagraming/` | [plugins/visualization/skills/architecture-diagramming/](../plugins/visualization/skills/architecture-diagramming/) |
-| `skills/presentation-building/` | [plugins/visualization/skills/presentation-building/](../plugins/visualization/skills/presentation-building/) |
+The ai-development plugin keeps its package name but contains only generic methods. Replace its complete directory to remove stale technical skills. The default build contains development alone; select additional capabilities explicitly.
 
 ## Local skill naming
 
-Local names use short task activities and recognizable supporting topics. Upstream names remain unchanged; duplicate aliases are not bundled.
+Update saved references to renamed local skills. Upstream names remain unchanged, and duplicate aliases are not shipped. These are guidance names, not instructions to rename application code or change test frameworks.
 
 | Previous local name | Current name |
 | --- | --- |
@@ -59,42 +46,31 @@ Local names use short task activities and recognizable supporting topics. Upstre
 | `test-application-resilience` | `resilience-testing` |
 | `build-evaluated-ai` | `ai-development` |
 | `build-delivery-pipelines` | `delivery-pipelines` |
-| `documentation-conventions` | `documentation-conventions` |
 | `design-secure-features` | `security-and-privacy-design` |
 | `contribute-code` | `git-contributions` |
 | `architecture-diagraming` | `architecture-diagramming` |
 | Standalone `backup-recovery` | `protect-and-restore-data` |
 | Standalone `cicd-release-management` | `delivery-pipelines` |
 
-The architecture rename corrects spelling. These changes do not require renaming application files or changing test frameworks.
+## AI implementation names and resource paths
 
-The AI skill now covers application/task design, model/context/tool choices, reusable skills, harness/session integration and protocol selection alongside evaluation and operation. Rebuild the ai-development package and replace the old skill directory; no duplicate alias is shipped. Native invocation controls are unchanged.
-
-## Generic AI methods and technical names
-
-The ai-development package now provides generic ai-development, ai-testing and ai-operations. Detailed evaluation methods, including speech evaluation, moved to `ai-development/skills/ai-testing/references/evaluation-references.md`. Update private links to that resource; the generic testing and operating methods require no Python/evaluator/telemetry package.
-
-The earlier technical profiles have explicit implementation names:
+The generic ai-development package contains ai-development, ai-testing and ai-operations. For the specific implementations, use ai-deepeval-testing and python-ai-observability in ai-python-development. Requests for the generic names select the disciplines rather than a Python SDK integration.
 
 | Previous package/path | Current package/path |
 | --- | --- |
 | `ai-python-development/skills/ai-testing` | `ai-python-development/skills/ai-deepeval-testing` |
 | `ai-python-development/skills/ai-operations` | `ai-python-development/skills/python-ai-observability` |
+| `ai-development/skills/build-evaluated-ai/references/evaluation-references.md` or `ai-development/skills/ai-development/references/evaluation-references.md` | `ai-development/skills/ai-testing/references/evaluation-references.md` |
 
-A request for ai-testing or ai-operations now selects the generic discipline where available; request ai-deepeval-testing or python-ai-observability for those implementations. Rebuild and replace complete affected packages, removing stale technical copies rather than creating duplicate aliases. Native invocation controls remain unchanged.
+For other moved resources, locate the owning skill in the [catalogue](maintainers/sources.md#plugin-ownership) and update private links to its current package. Selected quality-tool, local-environment, workflow/registry, telemetry-backend and browser-driver references belong to development-tooling; generic methods no longer contain those implementation instructions.
 
-## Bundle and invocation changes
+## Legacy links
 
-- MCP builder belongs to ai-python-development. Generic MCP contracts remain in ai-development; MCP-only work does not require an LLM.
-- The workflow bundle retains 18 reviewed Matt skills and excludes nine from its earlier broad import. See [selection decisions](maintainers/sources.md#matt-pocock-selection) before removing excluded copies.
-- Portable operations guidance is distributed across workflow, Python and operations bundles. `system-flow-explorer`, including its renderer/example/checks, belongs to visualization. Operating, documentation, visualization and technical capabilities are explicit additions to development.
-- `develop` handles end-to-end work; focused tasks handle individual activities. `implement` remains the upstream skill with local framing. `interaction-design` belongs to frontend-development.
-- Most local supporting skills use `user-invocable: false` in clients honoring it; request tasks or explicitly name supporting guidance where supported. Upstream native controls are preserved. No universal `/help` or task aliases are installed.
+The legacy helper supports local symlink installations from this checkout:
 
-The bundles configure no monitoring services, fault injectors, credentials, schedulers, MCP servers or browser/device dependencies. Host tools and permissions remain separate from installing guidance. See [Usage](usage.md) for the current activities.
+```bash
+./scripts/sync-skills.sh status
+./scripts/sync-skills.sh sync
+```
 
-## Generic methods and selected technical references
-
-Rebuild complete affected bundles after the task-2 content separation. Tooling-conventions now owns selected quality-tool, Compose, workflow/registry and telemetry-backend references formerly under project-conventions, delivery-pipelines and observability-operations. Private links into those resources need updating. Generic journey and AI methods retain their outcomes; concrete driver and versioned protocol details live with technical guidance. The separate AI-skill rename is documented above; other skill names and native invocation controls remain intact.
-
-The package split is implemented. Resource paths now follow the current owner; rebuild complete packages and update private links to the moved skill/resource folders.
+It repairs managed unchanged-name links, including broken links to old `skills/` or package paths, while preserving unrelated entries. It adds local skills only, requires the checkout to remain in place and does not migrate renamed basenames, copied directories or other checkouts. Inspect and clean up those entries manually. New installations should use complete built plugins.
