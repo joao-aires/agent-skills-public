@@ -2,26 +2,27 @@
 
 I use these skill bundles to build and operate applications and explore product ideas. My local skills capture conventions; bundled upstream skills add specialist techniques. Plugins follow the [Agent Plugins standard](https://agent-plugins.org/specification).
 
-Start with **development-workflow**, **python-backend** and **web-frontend** for a Python/React application. Keep an existing application's stack and select the matching expertise. You request an activity such as `develop`, `test` or `review`; the agent uses relevant supporting skills within that work. Add **business-strategy** for product discovery/priorities and business direction. Tickets are optional, and existing project decisions take precedence.
+Start with **development** for stack-independent development activities. Add product, interface, backend, AI, delivery or operations methods when useful, and select technical expertise explicitly. Existing project decisions take precedence; tickets are optional.
 
 ## Choose your plugins
 
-| Plugin | Use it for |
-| --- | --- |
-| [development-workflow](plugins/development-workflow/) | Development activities, project conventions, testing, Git/PRs, delivery and security |
-| [python-backend](plugins/python-backend/) | Python, FastAPI, SQLAlchemy, Alembic and PostgreSQL |
-| [web-frontend](plugins/web-frontend/) | Web UI/UX, interface quality, UX writing, usability research, Next.js/shadcn, TypeScript/Tauri desktop and iOS/Android clients |
-| [ai-development](plugins/ai-development/) | AI features, agents, evaluations and MCP interfaces |
-| [application-operations](plugins/application-operations/) | Reliability, observability, incidents, recovery, capacity and cost |
-| [business-strategy](plugins/business-strategy/) | Business strategy, product discovery/priorities and feedback |
-| [visual-communication](plugins/visual-communication/) | Architecture diagrams, interactive explorers and presentations |
+| Capability | Plugins | Installation choice |
+| --- | --- | --- |
+| Workflow | [development](plugins/development/), [strategy](plugins/strategy/), [operations](plugins/operations/) | SDLC work; business/product direction; running-system work |
+| Application disciplines | [frontend-development](plugins/frontend-development/), [backend-development](plugins/backend-development/), [ai-development](plugins/ai-development/), [delivery](plugins/delivery/) | Interface methods; service behavior; evaluated AI/protocols; CI/release/deployment methods |
+| Supporting capabilities | [documentation](plugins/documentation/), [visualization](plugins/visualization/) | Writing and architecture explanation; diagrams, presentations and explorers |
+| Backend/client implementation | [backend-python-development](plugins/backend-python-development/), [frontend-reactjs-development](plugins/frontend-reactjs-development/), [frontend-native-development](plugins/frontend-native-development/) | Accepted Python; React; Tauri/Expo/native implementation |
+| AI implementation | [ai-python-development](plugins/ai-python-development/), [ai-adk-development](plugins/ai-adk-development/), [ai-langchain-development](plugins/ai-langchain-development/) | Python/provider/MCP APIs; ADK; LangChain/LangGraph |
+| Selected tools/platforms | [development-tooling](plugins/development-tooling/), [operations-platforms](plugins/operations-platforms/) | Bash/testing/CI/container/diagnostics tools; JVM/Kubernetes/AKS |
+
+The first nine plugins are generic. The other eight provide technical expertise only for matching accepted choices. No plugin requires installing another; an activity retains its outcome when optional guidance is absent.
 
 ## Quick start
 
 <a id="1-build-the-bundles"></a>
 <a id="2-load-them-in-your-client"></a>
 
-1. [Build complete bundles and load them in your client](documentation/installation.md). The default build includes development-workflow, python-backend and web-frontend. Add other bundles for the work you need.
+1. [Build complete bundles and load them in your client](documentation/installation.md). The default build includes development only. Add other bundles for the work you need.
 2. Open the application repository or an empty project workspace and confirm discovery. Keep plugin resources intact; application dependencies and live tools are configured separately.
 3. Choose an activity and state the outcome and stopping point.
 
@@ -29,7 +30,7 @@ Start with **development-workflow**, **python-backend** and **web-frontend** for
 
 ### Make a first request
 
-Choose the activity explicitly through the client's skill picker or supported invocation syntax. In VS Code, for example: `/development-workflow:develop`. Plain requests below work where explicit skill selection by name is supported.
+Choose the activity explicitly through the client's skill picker or supported invocation syntax. In VS Code, for example: `/development:develop`. Plain requests below work where explicit skill selection by name is supported.
 
 | Starting point | Example request |
 | --- | --- |
@@ -43,7 +44,7 @@ The agent should clarify consequential unknowns, define relevant behavior before
 
 Request the activity and stopping point. The agent seeks relevant expertise by capability and applies technical guidance only to the accepted stack. Specialists improve the work when available; without them, the activity still owns its outcome and uses project evidence, general expertise and appropriate primary sources. Missing execution tools remain a distinct verification limit.
 
-Plugins package capabilities; they are not dependency layers. Read [architecture and composition](documentation/architecture.md) for selection, fallback and the current versus planned package boundaries.
+Plugins package capabilities; they are not dependency layers. Read [architecture and composition](documentation/architecture.md) for selection, fallback and the independent package boundaries.
 
 ## SDLC coverage
 

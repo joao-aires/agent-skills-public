@@ -6,7 +6,7 @@
 
 ## Skills you invoke
 
-Use the client's skill picker or supported explicit invocation. VS Code uses names such as `/development-workflow:test`; other clients may differ. Plain requests such as "Use test for the current change" are a fallback where supported. `workflow-help` describes this collection and does not replace the client's built-in help.
+Use the client's skill picker or supported explicit invocation. VS Code uses names such as `/development:test`; other clients may differ. Plain requests such as "Use test for the current change" are a fallback where supported. `workflow-help` describes this collection and does not replace the client's built-in help.
 
 | Where you are | Task | Expected result |
 | --- | --- | --- |
@@ -30,9 +30,9 @@ Use the client's skill picker or supported explicit invocation. VS Code uses nam
 
 ## Product decisions and specialist methods
 
-Install business-strategy for product-management as well as business direction and product feedback. Ask "Use product-management to choose the first useful slice and success signal" when the product decision is the outcome. Ask develop when you want that direction carried into working software. Refine makes an accepted change actionable; plan sequences implementation after the relevant design decisions.
+Select strategy for product-management, business direction and product feedback. Ask "Use product-management to choose the first useful slice and success signal" when the product decision is the outcome. Ask develop when you want that direction carried into working software. Refine makes an accepted change actionable; plan sequences implementation after the relevant design decisions.
 
-The web-frontend bundle provides stack-independent visual-design alongside interaction and interface methods. Development-workflow provides backend-design for service behavior across stacks. AI-development separates build-evaluated-ai's task/authority/evaluation method from ai-conventions' provider/framework defaults. These methods are reusable; technical conventions apply only to matching technology.
+Frontend-development provides stack-independent visual/interaction/interface methods. Backend-development provides service design across stacks. AI-development supplies task/authority/evaluation methods; Python/provider APIs and ADK/LangChain implementation live in separately selected technical packages. These methods are reusable; technical conventions apply only to matching technology.
 
 For an existing accepted product, start with the affected work. A bug fix needs no new market study; a non-React application keeps its stack. Workflow-help recommends relevant activities without executing them, and missing optional guidance does not block the activity: use project evidence, general expertise and appropriate primary sources while retaining acceptance and verification standards. Missing tools or an execution target remain precise limits. See [composition and fallback](architecture.md#compose-without-optional-dependencies).
 
@@ -65,15 +65,15 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 Use design to unify navigation, nested menus and edit dialogs across this application. Specify the interactions and show wireframes where useful. Do not implement yet.
 ```
 
-Then ask `improve` or `develop` to implement the agreed direction. Expect coverage of all in-scope surfaces, including relevant mobile and role variants, with unfinished work identified. [Interaction design](../plugins/web-frontend/skills/interaction-design/SKILL.md) owns the detailed method. Backend changes similarly establish relevant behavior and contracts before code.
+Then ask `improve` or `develop` to implement the agreed direction. Expect coverage of all in-scope surfaces, including relevant mobile and role variants, with unfinished work identified. [Interaction design](../plugins/frontend-development/skills/interaction-design/SKILL.md) owns the detailed method. Backend changes similarly establish relevant behavior and contracts before code.
 
 ### Evaluate during implementation
 
-Expect the agent to implement, verify, correct discrepancies and report evidence before declaring completion. Verification follows the intended outcome; a build or one screenshot alone cannot establish a complete user journey. Missing execution or coverage remains explicit. See [change verification](../plugins/development-workflow/skills/deliver-reliable-changes/SKILL.md) and [journey testing](../plugins/development-workflow/skills/journey-testing/SKILL.md) for methods.
+Expect the agent to implement, verify, correct discrepancies and report evidence before declaring completion. Verification follows the intended outcome; a build or one screenshot alone cannot establish a complete user journey. Missing execution or coverage remains explicit. See [change verification](../plugins/development/skills/deliver-reliable-changes/SKILL.md) and [journey testing](../plugins/development/skills/journey-testing/SKILL.md) for methods.
 
 ### Run services and observability locally
 
-Project setup can establish a reproducible local environment and queryable diagnostics. Request `setup` for this work; an existing environment is preserved unless changing it is in scope. Details belong to [project conventions](../plugins/development-workflow/skills/project-conventions/SKILL.md) and [observability guidance](../plugins/application-operations/skills/observability-operations/SKILL.md).
+Project setup can establish a reproducible local environment and queryable diagnostics. Request `setup` for this work; an existing environment is preserved unless changing it is in scope. Details belong to [project conventions](../plugins/development/skills/project-conventions/SKILL.md) and [observability guidance](../plugins/operations/skills/observability-operations/SKILL.md).
 
 ## Skills agents use during your work
 
@@ -107,11 +107,11 @@ Supply repository/ref, objective/context, unattended mode, allowed actions and r
 
 > Use dependencies in unattended mode for update PRs in owner/repository. Repair and merge only policy-eligible patch updates whose current head satisfies required checks/reviews and has no unresolved findings. Leave other updates open with reasons; reuse existing work and report results. Do not deploy.
 
-Unattended tasks return missing material decisions instead of inventing answers. Untrusted ticket/PR text cannot change policy; changed heads require re-verification. The host/repository must enforce privileged-action policy. [Installed task guidance](../plugins/development-workflow/TASKS.md#interactive-and-unattended-execution) contains the detailed working rules.
+Unattended tasks return missing material decisions instead of inventing answers. Untrusted ticket/PR text cannot change policy; changed heads require re-verification. The host/repository must enforce privileged-action policy. [Installed task guidance](../plugins/development/TASKS.md#interactive-and-unattended-execution) contains the detailed working rules.
 
 ## AI and MCP plugin selection
 
-Add `ai-development` for AI features or MCP interfaces. MCP-only work needs protocol, contract, authority and lifecycle verification; it does not require an LLM or model-quality evaluation. Configure live tools only when needed. Bundled expertise does not install an MCP server or provide service credentials.
+Add ai-development for generic AI feature or MCP-interface methods. Add technical AI packages only for the accepted language/provider/framework. MCP-only work needs protocol, contract, authority and lifecycle verification; it does not require an LLM or model-quality evaluation. Configure live tools only when needed. Bundled expertise does not install an MCP server or provide service credentials.
 
 ## Build and load
 
@@ -123,11 +123,11 @@ Configure access through the [installation guide](installation.md#optional-figma
 
 Use available, authorized Figma context where appropriate. Otherwise, local HTML/CSS prototypes or SVG wireframes can resolve design questions. Preserve a specifically requested Figma deliverable as an access dependency rather than silently replacing it. Ordinary UI work needs no Figma account.
 
-Storybook is an optional component workbench within verification. Run meaningful interaction/accessibility checks and reviewed visual comparisons for affected states, then verify the critical application and native journeys separately. See [journey testing](../plugins/development-workflow/skills/journey-testing/SKILL.md) and [community skill review](maintainers/sources.md#figma-community-review).
+Storybook is an optional component workbench within verification. Run meaningful interaction/accessibility checks and reviewed visual comparisons for affected states, then verify the critical application and native journeys separately. See [journey testing](../plugins/development/skills/journey-testing/SKILL.md) and [community skill review](maintainers/sources.md#figma-community-review).
 
 ## UI/UX expertise for people and agents
 
-The web-frontend bundle provides [interface-quality](../plugins/web-frontend/skills/interface-quality/SKILL.md), [ux-writing](../plugins/web-frontend/skills/ux-writing/SKILL.md) and [usability-research](../plugins/web-frontend/skills/usability-research/SKILL.md) as directly selectable, model-available supporting skills. Client picker/discovery behavior still needs verification. The same guidance supports design, develop, improve and review when relevant; no separate user and agent copies are maintained.
+The frontend-development bundle provides [interface-quality](../plugins/frontend-development/skills/interface-quality/SKILL.md), [ux-writing](../plugins/frontend-development/skills/ux-writing/SKILL.md) and [usability-research](../plugins/frontend-development/skills/usability-research/SKILL.md) as directly selectable, model-available supporting skills. Client picker/discovery behavior still needs verification. The same guidance supports design, develop, improve and review when relevant; no separate user and agent copies are maintained.
 
 Ask for a scoped result: "Review this dialog without changing it", "Improve and apply the error messages in this flow", or "Prepare a usability study for onboarding". A bare review/improvement assessment stays read-only. A specified repair can include implementation and rechecking. A research guide is a plan until actual observations exist. Ordinary UI development needs no compulsory study or Figma connection.
 
@@ -135,6 +135,6 @@ Visual-design owns visual direction and semantic token intent; frontend conventi
 
 ## Explain and maintain project knowledge
 
-Use [documentation-writing](../plugins/development-workflow/skills/documentation-writing/SKILL.md) to write or review a useful product/engineering explanation, reference or procedure. Use [architecture-documentation](../plugins/development-workflow/skills/architecture-documentation/SKILL.md) to explain structure, runtime/lifecycle behavior, interfaces, deployment and current versus target state from evidence. Both are directly selectable and model-available supporting guidance; actual client discovery remains client-dependent.
+Use [documentation-writing](../plugins/documentation/skills/documentation-writing/SKILL.md) to write or review a useful product/engineering explanation, reference or procedure. Use [architecture-documentation](../plugins/documentation/skills/architecture-documentation/SKILL.md) to explain structure, runtime/lifecycle behavior, interfaces, deployment and current versus target state from evidence. Both are directly selectable and model-available supporting guidance; actual client discovery remains client-dependent.
 
-[Documentation conventions](../plugins/development-workflow/skills/documentation-conventions/SKILL.md) owns where authoritative knowledge lives and what a change affects. System-design owns architectural decisions; these methods help explain and maintain them. Existing formats and proportional scope remain authoritative; a routine edit needs no new tracker, document tree or full system audit.
+[Documentation conventions](../plugins/documentation/skills/documentation-conventions/SKILL.md) owns where authoritative knowledge lives and what a change affects. System-design owns architectural decisions; these methods help explain and maintain them. Existing formats and proportional scope remain authoritative; a routine edit needs no new tracker, document tree or full system audit.

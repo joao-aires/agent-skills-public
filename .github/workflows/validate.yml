@@ -27,11 +27,20 @@ jobs:
       - name: Build every pinned plugin
         run: >-
           python scripts/build_plugins.py
-          --plugin development-workflow --plugin python-backend --plugin web-frontend
-          --plugin ai-development --plugin application-operations
-          --plugin business-strategy --plugin visual-communication
+          --all
           --destination "$RUNNER_TEMP/built-plugins"
       - name: Check complete inventory and local resources
         run: python scripts/check_collection.py --built "$RUNNER_TEMP/built-plugins"
+      - name: Check workflow-only default build
+        run: |
+          python scripts/build_plugins.py --destination "$RUNNER_TEMP/default-plugins"
+          python scripts/check_collection.py --built "$RUNNER_TEMP/default-plugins" --plugin development
+      - name: Build and check each plugin independently
+        run: |
+          for manifest in plugins/*/plugin.json; do
+            plugin_name="$(basename "$(dirname "$manifest")")"
+            python scripts/build_plugins.py --plugin "$plugin_name" --destination "$RUNNER_TEMP/independent/$plugin_name"
+            python scripts/check_collection.py --built "$RUNNER_TEMP/independent/$plugin_name" --plugin "$plugin_name"
+          done
       - name: Check system flow explorer
-        run: python plugins/visual-communication/skills/system-flow-explorer/scripts/smoke_test.py
+        run: python plugins/visualization/skills/system-flow-explorer/scripts/smoke_test.py

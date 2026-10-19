@@ -16,6 +16,18 @@ except ModuleNotFoundError:
     from scripts.skill_metadata import validate_skill_metadata
 
 ROOT = Path(__file__).resolve().parents[1]
+DEFAULT_PLUGINS = ('development',)
+
+
+def select_plugins(root, requested=None, all_plugins=False):
+    available = {p.parent.name for p in (root / 'plugins').glob('*/plugin.json')}
+    if all_plugins and requested:
+        raise ValueError('--all and --plugin cannot be combined')
+    selected = sorted(available) if all_plugins else list(dict.fromkeys(requested or DEFAULT_PLUGINS))
+    if not selected or set(selected) - available:
+        raise ValueError('Unknown plugin selection: ' + ', '.join(sorted(set(selected) - available)))
+    return selected
+
 
 
 def git(repo, *args):
@@ -66,7 +78,7 @@ def adapt_skill(target, source):
     adaptations = source.get('adaptations', [])
     if not adaptations:
         return
-    if set(adaptations) - {'workflow-framing', 'documentation-paths', 'string-metadata', 'inline-adversarial-review', 'frontend-framing', 'backend-framing', 'ai-framing', 'usage-labels', 'tracker-neutral', 'support-visibility', 'implementation-entrypoint'}:
+    if set(adaptations) - {'workflow-framing', 'composition-framing', 'documentation-paths', 'string-metadata', 'inline-adversarial-review', 'frontend-framing', 'backend-framing', 'ai-framing', 'usage-labels', 'tracker-neutral', 'support-visibility', 'implementation-entrypoint'}:
         raise ValueError('Unknown upstream adaptation')
     for document in target.rglob('*.md'):
         text = document.read_text()
@@ -138,21 +150,25 @@ def adapt_skill(target, source):
         if document.name == 'SKILL.md' and document.parent == target and 'workflow-framing' in adaptations:
             parts = text.split('---', 2)
             text = '---' + parts[1] + '---\n\nRead [workflow framing](../../WORKFLOW.md) before applying this skill.\n' + parts[2]
+        if document.name == 'SKILL.md' and document.parent == target and 'composition-framing' in adaptations:
+            parts = text.split('---', 2)
+            text = '---' + parts[1] + '---\n\nRead [composition guidance](../../COMPOSITION.md) for scope, optional expertise and fallback.\n' + parts[2]
         if document.name == 'SKILL.md' and document.parent == target and 'frontend-framing' in adaptations:
             parts = text.split('---', 2)
             text = '---' + parts[1] + '---\n\nRead [frontend conventions](../frontend-conventions/SKILL.md) for project defaults before applying this skill. The accepted design and installed framework/Tailwind versions take precedence; this is not authorization to migrate or redesign.\n' + parts[2]
         if document.name == 'SKILL.md' and document.parent == target and 'backend-framing' in adaptations:
             parts = text.split('---', 2)
-            text = '---' + parts[1] + '---\n\nRead [backend conventions](../backend-conventions/SKILL.md) before applying this skill. Accepted project constraints take precedence over upstream tooling/language suggestions. Prefer Python and standalone fastmcp (`from fastmcp import FastMCP`) for new MCP interfaces; MCP SDK examples require adaptation to the installed standalone API. Do not migrate existing tooling or servers unless requested.\n' + parts[2]
+            text = '---' + parts[1] + '---\n\nRead [backend conventions](../backend-conventions/SKILL.md) before applying this skill. Accepted project constraints take precedence over upstream tooling/language suggestions. Do not migrate existing tooling or servers unless requested.\n' + parts[2]
         if document.name == 'SKILL.md' and document.parent == target and 'ai-framing' in adaptations:
             parts = text.split('---', 2)
-            text = '---' + parts[1] + '---\n\nRead [AI and MCP guidance](../build-evaluated-ai/SKILL.md) before applying this skill. For new MCP servers prefer Python and standalone fastmcp (`from fastmcp import FastMCP`); adapt MCP SDK examples to the installed standalone API. MCP-only work needs protocol/authorization tests, not an LLM or model-quality evaluation. Preserve accepted project choices.\n' + parts[2]
+            text = '---' + parts[1] + '---\n\nRead [Python AI and MCP conventions](../ai-conventions/SKILL.md) before applying this skill. For new MCP servers prefer Python and standalone fastmcp (`from fastmcp import FastMCP`); adapt MCP SDK examples to the installed standalone API. MCP-only work needs protocol/authorization tests, not an LLM or model-quality evaluation. Preserve accepted project choices.\n' + parts[2]
         document.write_text(text)
 
 
 def build(root, selected, destination, cache):
     if destination.exists():
         raise ValueError('Destination must not exist; existing installations are never overwritten')
+    selected = select_plugins(root, selected)
     lock = json.loads((root / 'upstream.lock.json').read_text())
     cache.mkdir(parents=True, exist_ok=True)
     destination.parent.mkdir(parents=True, exist_ok=True)
@@ -215,11 +231,13 @@ def build(root, selected, destination, cache):
 
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--plugin', action='append', help='Plugin to bundle, repeatable; default: workflow, backend, frontend')
+    selection = parser.add_mutually_exclusive_group()
+    selection.add_argument('--plugin', action='append', help='Plugin to bundle, repeatable; default: development only')
+    selection.add_argument('--all', action='store_true', help='Build every plugin discovered from its manifest')
     parser.add_argument('--destination', type=Path, required=True)
     parser.add_argument('--cache', type=Path, default=Path.home() / '.cache' / 'agent-skills-public')
     args = parser.parse_args()
-    selected = list(dict.fromkeys(args.plugin or ['development-workflow', 'python-backend', 'web-frontend']))
+    selected = select_plugins(ROOT, args.plugin, args.all)
     acquired = build(ROOT, selected, args.destination.resolve(), args.cache.resolve())
     print(f'Built {len(selected)} plugins with {len(acquired)} upstream skills at {args.destination}')
 

@@ -147,7 +147,7 @@
 <g aria-label="Reusable methods and matching technical expertise">
 <rect x="20" y="1250" width="1400" height="420" rx="18" fill="#f4f5fa" stroke="#c4bddb"/>
 <text x="40" y="1283" text-anchor="start" font-size="21" font-weight="700" fill="#15233b">Shared methods across discovery, development and feedback</text>
-<text x="40" y="1306" text-anchor="start" font-size="15" font-weight="400" fill="#526580">Apply the relevant discipline wherever its question or risk arises.</text>
+<text x="40" y="1306" text-anchor="start" font-size="15" font-weight="400" fill="#526580">Seek relevant expertise by capability; examples below identify skills, not required dependencies.</text>
 <g data-card="true">
 <rect x="40" y="1320" width="440" height="110" rx="12" fill="white" stroke="#c5d2df"/>
 <text x="260.0" y="1344" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">Research &amp; shared knowledge</text>
@@ -192,6 +192,6 @@
 <text x="1180.0" y="1566" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Examples: Gemini · ADK/LangGraph · FastMCP</text>
 <g data-skill="true" data-use="support"><rect x="970.0" y="1597.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="1180.0" y="1612.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">ai-conventions</text></g>
 </g>
-<text x="720" y="1653" text-anchor="middle" font-size="14" font-weight="400" fill="#526580">Choose relevant expertise, preserve accepted decisions, and verify results at the boundary claimed.</text>
+<text x="720" y="1653" text-anchor="middle" font-size="14" font-weight="400" fill="#526580">Specialists are optional; preserve the outcome and verification standard when guidance is absent.</text>
 </g>
 </g></svg>

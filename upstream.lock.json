@@ -2,7 +2,7 @@
   "version": 1,
   "sources": [
     {
-      "plugin": "web-frontend",
+      "plugin": "frontend-reactjs-development",
       "repository": "https://github.com/vercel-labs/agent-skills.git",
       "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
       "path": "skills/composition-patterns",
@@ -22,7 +22,7 @@
       }
     },
     {
-      "plugin": "web-frontend",
+      "plugin": "frontend-reactjs-development",
       "repository": "https://github.com/vercel-labs/agent-skills.git",
       "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
       "path": "skills/react-best-practices",
@@ -42,7 +42,7 @@
       }
     },
     {
-      "plugin": "web-frontend",
+      "plugin": "frontend-reactjs-development",
       "repository": "https://github.com/shadcn-ui/ui.git",
       "commit": "6b600cf1ff42f8a746747ea587e52af3ee224643",
       "path": "skills/shadcn",
@@ -62,7 +62,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development-tooling",
       "repository": "https://github.com/microsoft/playwright-cli.git",
       "commit": "b85c7a736bb473bf55b584e54a09ffa698d6d871",
       "path": "skills/playwright-cli",
@@ -81,7 +81,7 @@
       ]
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development-tooling",
       "repository": "https://github.com/github/awesome-copilot.git",
       "commit": "143a3d976b3c1603cc8932984d5e1f28501cb5fc",
       "path": "skills/github-actions-hardening",
@@ -100,7 +100,7 @@
       ]
     },
     {
-      "plugin": "python-backend",
+      "plugin": "backend-python-development",
       "repository": "https://github.com/trailofbits/skills.git",
       "commit": "82fe8226252622fa807643bdca1710901198553a",
       "path": "plugins/modern-python/skills/modern-python",
@@ -120,7 +120,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/trailofbits/skills.git",
       "commit": "82fe8226252622fa807643bdca1710901198553a",
       "path": "plugins/property-based-testing/skills/property-based-testing",
@@ -138,7 +138,7 @@
       ]
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/trailofbits/skills.git",
       "commit": "82fe8226252622fa807643bdca1710901198553a",
       "path": "plugins/differential-review/skills/differential-review",
@@ -157,7 +157,7 @@
       }
     },
     {
-      "plugin": "ai-development",
+      "plugin": "ai-python-development",
       "repository": "https://github.com/anthropics/skills.git",
       "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
       "path": "skills/mcp-builder",
@@ -177,7 +177,7 @@
       }
     },
     {
-      "plugin": "ai-development",
+      "plugin": "ai-adk-development",
       "repository": "https://github.com/google/adk-python.git",
       "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
       "path": ".agents/skills/adk-agent-builder",
@@ -196,7 +196,7 @@
       ]
     },
     {
-      "plugin": "ai-development",
+      "plugin": "ai-adk-development",
       "repository": "https://github.com/google/adk-python.git",
       "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
       "path": ".agents/skills/adk-architecture",
@@ -215,7 +215,7 @@
       ]
     },
     {
-      "plugin": "ai-development",
+      "plugin": "ai-langchain-development",
       "repository": "https://github.com/langchain-ai/langchain-skills.git",
       "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
       "path": "config/skills/langchain-fundamentals",
@@ -234,7 +234,7 @@
       ]
     },
     {
-      "plugin": "ai-development",
+      "plugin": "ai-langchain-development",
       "repository": "https://github.com/langchain-ai/langchain-skills.git",
       "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
       "path": "config/skills/langgraph-fundamentals",
@@ -253,7 +253,7 @@
       ]
     },
     {
-      "plugin": "ai-development",
+      "plugin": "ai-langchain-development",
       "repository": "https://github.com/langchain-ai/langchain-skills.git",
       "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
       "path": "config/skills/langgraph-persistence",
@@ -272,7 +272,7 @@
       ]
     },
     {
-      "plugin": "ai-development",
+      "plugin": "ai-langchain-development",
       "repository": "https://github.com/langchain-ai/langchain-skills.git",
       "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
       "path": "config/skills/langchain-dependencies",
@@ -291,7 +291,7 @@
       ]
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/engineering/code-review",
@@ -312,7 +312,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/engineering/codebase-design",
@@ -332,7 +332,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/engineering/diagnosing-bugs",
@@ -352,7 +352,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/engineering/domain-modeling",
@@ -372,7 +372,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/engineering/grill-with-docs",
@@ -391,7 +391,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/engineering/implement",
@@ -411,7 +411,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/engineering/implement-spec",
@@ -431,7 +431,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/engineering/improve-codebase-architecture",
@@ -450,7 +450,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/engineering/prototype",
@@ -470,7 +470,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/engineering/research",
@@ -490,7 +490,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/engineering/retro",
@@ -509,7 +509,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/engineering/tdd",
@@ -529,7 +529,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/engineering/to-spec",
@@ -549,7 +549,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/productivity/grill-me",
@@ -568,7 +568,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/productivity/grilling",
@@ -588,7 +588,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/productivity/handoff",
@@ -607,7 +607,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/productivity/to-questionnaire",
@@ -626,7 +626,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development",
       "repository": "https://github.com/mattpocock/skills.git",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "path": "skills/productivity/writing-for-agents",
@@ -646,7 +646,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "development-tooling",
       "repository": "https://github.com/trailofbits/skills.git",
       "commit": "82fe8226252622fa807643bdca1710901198553a",
       "path": "plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor",
@@ -665,7 +665,7 @@
       ]
     },
     {
-      "plugin": "application-operations",
+      "plugin": "operations-platforms",
       "repository": "https://github.com/Azure/AKS-Skills.git",
       "commit": "20bf35201a79b324d2ca3e00e5c82020ff362024",
       "path": "skills/aks-cost-optimization",
@@ -684,7 +684,7 @@
       ]
     },
     {
-      "plugin": "web-frontend",
+      "plugin": "frontend-reactjs-development",
       "repository": "https://github.com/wshobson/agents.git",
       "commit": "46891e7e60da0e52baf1050b7b6391b64e84c6d9",
       "path": "plugins/frontend-mobile-development/skills/tailwind-design-system",
@@ -704,7 +704,7 @@
       }
     },
     {
-      "plugin": "development-workflow",
+      "plugin": "documentation",
       "repository": "https://github.com/blader/humanizer.git",
       "commit": "225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8",
       "path": ".",
@@ -712,7 +712,7 @@
       "license": "MIT",
       "license_path": "LICENSE",
       "adaptations": [
-        "workflow-framing",
+        "composition-framing",
         "usage-labels",
         "support-visibility"
       ],

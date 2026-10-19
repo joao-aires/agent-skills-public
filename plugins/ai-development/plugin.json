@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ai-development",
-  "version": "0.10.1",
-  "description": "AI features and MCP interfaces, with evaluation, Google ADK, LangChain/LangGraph and standalone FastMCP.",
+  "version": "0.11.0",
+  "description": "Provider-independent AI application, protocol, authority and evaluation methods.",
   "author": {
     "name": "João Aires"
   },

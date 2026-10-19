@@ -18,7 +18,7 @@ python scripts/build_plugins.py --destination ./built-plugins
 export AGENT_PLUGINS_DIR="$(pwd)/built-plugins"
 ```
 
-If you already have a checkout, start there instead of cloning again. The builder acquires pinned upstream skills and their resources for the three full-stack plugins. The destination must be new. [Additional bundles and rebuilds](#select-additional-bundles) use the same builder.
+If you already have a checkout, start there instead of cloning again. The builder acquires pinned upstream skills and their resources for the selected plugin (development by default). The destination must be new. [Additional bundles and rebuilds](#select-additional-bundles) use the same builder.
 
 ## Load them in your client
 
@@ -31,9 +31,7 @@ From the application workspace, in the same terminal:
 
 ```bash
 copilot \
-  --plugin-dir "$AGENT_PLUGINS_DIR/development-workflow" \
-  --plugin-dir "$AGENT_PLUGINS_DIR/python-backend" \
-  --plugin-dir "$AGENT_PLUGINS_DIR/web-frontend"
+  --plugin-dir "$AGENT_PLUGINS_DIR/development"
 ```
 
 Append `skill list --json` to inspect discovery without starting a model session. In another terminal, set `AGENT_PLUGINS_DIR` to the absolute build directory first. Session-local loading was checked with CLI 1.0.95; see the [CLI reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) for your version.
@@ -46,13 +44,11 @@ Append `skill list --json` to inspect discovery without starting a model session
 Install the complete built bundles, then inspect discovery:
 
 ```bash
-agy plugin install "$AGENT_PLUGINS_DIR/development-workflow"
-agy plugin install "$AGENT_PLUGINS_DIR/python-backend"
-agy plugin install "$AGENT_PLUGINS_DIR/web-frontend"
+agy plugin install "$AGENT_PLUGINS_DIR/development"
 agy plugin list --json
 ```
 
-An earlier installation with 56 skills was checked with `agy` 1.3.5. Authenticate through the client's sign-in flow before model work. The [generation-trial specification](maintainers/evaluations.md#generation-trials) is harness-independent; `agy` is my local runner choice. Installation does not establish execution behavior.
+An earlier bundle installation with 56 skills was checked with `agy` 1.3.5. Authenticate through the client's sign-in flow before model work. The [generation-trial specification](maintainers/evaluations.md#generation-trials) is harness-independent; `agy` is my local runner choice. The new package identities have not been installed into this client here; installation does not establish execution behavior.
 
 </details>
 
@@ -65,9 +61,7 @@ For versions supporting Agent Plugins, merge the individual absolute paths into 
 {
   "chat.plugins.enabled": true,
   "chat.pluginLocations": {
-    "/absolute/path/built-plugins/development-workflow": true,
-    "/absolute/path/built-plugins/python-backend": true,
-    "/absolute/path/built-plugins/web-frontend": true
+    "/absolute/path/built-plugins/development": true
   }
 }
 ```
@@ -80,18 +74,36 @@ For another client, use its documented plugin-loading route. Keep each plugin di
 
 ## Select additional bundles
 
-To add AI, explicitly select all four bundles from the skills repository:
+Explicit `--plugin` arguments replace the default selection; repeat development when you want it included. For a Python/React application with generic interface/service/delivery methods:
 
 ```bash
 python scripts/build_plugins.py \
-  --plugin development-workflow \
-  --plugin python-backend \
-  --plugin web-frontend \
-  --plugin ai-development \
-  --destination ./built-plugins-with-ai
+  --plugin development \
+  --plugin frontend-development \
+  --plugin backend-development \
+  --plugin delivery \
+  --plugin backend-python-development \
+  --plugin frontend-reactjs-development \
+  --destination ./built-python-react
 ```
 
-Explicit `--plugin` arguments replace the default selection; other bundle names work the same way. Build into a new destination, then replace the affected client installation with resources intact. Source `plugins/<name>` directories contain local guidance; built directories also contain acquired upstream skills and notices. Application dependencies and live tools are separate. See [migration](migration.md) before replacing old copies or links.
+Add strategy for product/business work, documentation or visualization for those capabilities, and operations for operating work. AI-development supplies generic AI methods without a provider framework; select ai-python-development, ai-adk-development or ai-langchain-development only for an accepted implementation. Tool and infrastructure expertise are explicit additions too. See the [plugin catalogue](../README.md#choose-your-plugins).
+
+To inspect every package rather than choose an application stack:
+
+```bash
+python scripts/build_plugins.py --all --destination ./built-all-plugins
+```
+
+`--all` and `--plugin` are mutually exclusive. Every destination must be new; replace client installations only after preserving local changes. Load each chosen built plugin through the client examples above, repeating its supported flag/settings/install operation as appropriate. Source directories contain local skills only; built directories also contain pinned acquisitions and notices. Application dependencies and live tools remain separate.
+
+For structural verification of the default build:
+
+```bash
+python scripts/check_collection.py --built ./built-plugins --plugin development
+```
+
+For a selected multi-plugin build, repeat the checker's `--plugin` arguments to match it. With no checker selection, `--built` expects all 17 packages. These checks establish resources/inventory, not client discovery or agent adherence.
 
 ## Verify installation and update
 
@@ -101,7 +113,7 @@ Discovery verifies availability. Actual execution and adherence need separate [b
 
 ## Optional Figma connection
 
-The web-frontend bundle declares Figma's optional remote endpoint in [mcp.json](../plugins/web-frontend/mcp.json). Follow [Figma's client setup](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/) when connecting it; avoid duplicate configuration if the official client plugin already supplies the connection. The declaration does not establish authenticated file access.
+The frontend-development bundle declares Figma's optional remote endpoint in [mcp.json](../plugins/frontend-development/mcp.json). Follow [Figma's client setup](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/) when connecting it; avoid duplicate configuration if the official client plugin already supplies the connection. The declaration does not establish authenticated file access.
 
 Connect only when the requested work needs Figma, and verify access to the intended file. The [usage guide](usage.md#optional-figma-connection) explains local design alternatives and Storybook's verification role.
 

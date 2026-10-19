@@ -72,7 +72,7 @@ class InstallationTests(unittest.TestCase):
             result = (skill / 'SKILL.md').read_text()
             self.assertEqual(yaml.safe_load(result.split('---', 2)[1]), yaml.safe_load(original.split('---', 2)[1]))
             self.assertIn('../backend-conventions/SKILL.md', result)
-            self.assertIn('from fastmcp import FastMCP', result)
+            self.assertNotIn('Prefer Python and standalone', result)
             self.assertIn('Do not migrate existing tooling', result)
             self.assertTrue(result.endswith(original.split('---', 2)[2]))
             self.assertEqual((skill / 'reference.md').read_text(), 'Original resource')
@@ -139,7 +139,8 @@ class InstallationTests(unittest.TestCase):
             path.write_text('---\nname: mcp-builder\ndescription: Example\n---\nOriginal SDK guidance\n')
             installer.adapt_skill(skill, {'adaptations': ['ai-framing']})
             result = path.read_text()
-            self.assertIn('../build-evaluated-ai/SKILL.md', result)
+            self.assertIn('../ai-conventions/SKILL.md', result)
+            self.assertNotIn('../build-evaluated-ai/SKILL.md', result)
             self.assertIn('not an LLM', result)
             self.assertNotIn('../backend-conventions', result)
             self.assertTrue(result.endswith('\nOriginal SDK guidance\n'))
@@ -263,3 +264,46 @@ class InstallationTests(unittest.TestCase):
             installed = output / 'example/skills/example/scripts'
             self.assertEqual((installed / 'render.py').read_text(), 'print("example")\n')
             self.assertFalse((installed / '__pycache__').exists())
+
+    def test_selection_defaults_to_development_and_all_discovers_manifests(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for name in ('development', 'technical'):
+                package = root / 'plugins' / name
+                package.mkdir(parents=True)
+                (package / 'plugin.json').write_text('{}')
+            (root / 'plugins/not-a-package').mkdir()
+            self.assertEqual(installer.select_plugins(root), ['development'])
+            self.assertEqual(installer.select_plugins(root, ['technical', 'technical']), ['technical'])
+            self.assertEqual(installer.select_plugins(root, all_plugins=True), ['development', 'technical'])
+            with self.assertRaisesRegex(ValueError, 'cannot be combined'):
+                installer.select_plugins(root, ['technical'], True)
+            with self.assertRaisesRegex(ValueError, 'Unknown plugin'):
+                installer.select_plugins(root, ['not-a-package'])
+
+    def test_composition_framing_preserves_original_body_and_controls(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            skill = Path(tmp) / 'editor'
+            skill.mkdir()
+            original = '---\nname: editor\ndescription: Edit prose\nuser-invocable: false\n---\nOriginal writing method.\n'
+            (skill / 'SKILL.md').write_text(original)
+            installer.adapt_skill(skill, {'adaptations': ['composition-framing']})
+            result = (skill / 'SKILL.md').read_text()
+            self.assertEqual(yaml.safe_load(result.split('---', 2)[1]), yaml.safe_load(original.split('---', 2)[1]))
+            self.assertIn('../../COMPOSITION.md', result)
+            self.assertNotIn('../../WORKFLOW.md', result)
+            self.assertTrue(result.endswith(original.split('---', 2)[2]))
+
+    def test_generic_packages_do_not_acquire_technical_skills(self):
+        root = Path(__file__).resolve().parents[1]
+        generic = {'development', 'strategy', 'operations', 'frontend-development',
+                   'backend-development', 'ai-development', 'delivery', 'documentation', 'visualization'}
+        sources = json.loads((root / 'upstream.lock.json').read_text())['sources']
+        for plugin in generic:
+            with self.subTest(plugin=plugin):
+                self.assertTrue((root / 'plugins' / plugin / 'plugin.json').is_file())
+                for path in (root / 'plugins' / plugin).glob('skills/*/SKILL.md'):
+                    self.assertEqual(yaml.safe_load(path.read_text().split('---', 2)[1])['metadata']['scope'], 'generic')
+                for source in sources:
+                    if source['plugin'] == plugin:
+                        self.assertEqual(source['labels']['scope'], 'generic')

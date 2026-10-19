@@ -2,7 +2,7 @@
 
 The collection separates the work someone requests, the expertise that improves it and the technology chosen for its implementation. I package useful capabilities as plugins. A plugin is an installation and update boundary; it does not define an execution order or require other plugins.
 
-The current repository still builds seven bundles. Generic and technical content have been separated, and capability-based selection is expressed in the local workflow instructions before the package moves. The [target ownership map](maintainers/sources.md#target-plugin-ownership) assigns all 97 skills to 17 planned packages. Target names are not installation arguments yet. A new skills-only distribution is outside this plan; the legacy helper remains a migration aid.
+The repository builds 17 independently selectable plugins: nine generic capability packages and eight technical packages. The [ownership map](maintainers/sources.md#target-plugin-ownership) assigns all 97 skills. Development is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. A new skills-only distribution is outside this plan; the legacy helper remains a migration aid.
 
 ## Activities, methods and technical expertise
 
@@ -59,6 +59,6 @@ Adding stack expertise should improve matching through its description and imple
 
 ## Implementation and evidence
 
-The instruction changes implement capability-based composition in local entry points and shared workflow framing. The package split, workflow-only default installation, migration and final diagram/onboarding alignment remain pending in PR #19. The existing [installation guide](installation.md) describes what currently builds; optional components still share some of those seven bundles.
+The packages, workflow-only default, capability-based instructions and [migration route](migration.md) are implemented. Required internal Markdown resources and injected upstream framing are checked within each package. Every package is built and checked independently, in addition to the complete build. The [installation guide](installation.md) describes selection and client-specific loading; new package identities have not been reinstalled into clients here.
 
 Metadata, link, containment, inventory and resource checks establish packaging integrity. They do not establish that an agent discovers the right expertise, uses it well or produces a working application. Behavioral evaluation remains deferred. Later comparisons should exercise matching specialists present, absent and partially available, plus an existing different stack, a client without discovery and a genuinely unavailable execution target. Judge preserved outcomes, scope and evidence rather than particular skill names or read counts. See [evaluation procedures and limits](maintainers/evaluations.md).

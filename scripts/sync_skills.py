@@ -11,7 +11,13 @@ def managed(destination: Path, name: str, source: Path) -> bool:
     if not destination.is_symlink():
         return False
     target = (destination.parent / os.readlink(destination)).resolve()
-    return target in {source.resolve(), (ROOT / "skills" / name).resolve()}
+    if target in {source.resolve(), (ROOT / "skills" / name).resolve()}:
+        return True
+    try:
+        relative = target.relative_to((ROOT / "plugins").resolve())
+    except ValueError:
+        return False
+    return len(relative.parts) == 3 and relative.parts[1:] == ("skills", name)
 
 
 def main():

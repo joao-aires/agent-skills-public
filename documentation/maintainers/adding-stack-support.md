@@ -47,7 +47,7 @@ Reuse generic methods through clear conditional pointers. Keep links within the 
 
 ## 3. Package the capability
 
-For an existing bundle, add the skill/resources and bump its `plugin.json` version. A new independently installable bundle needs `plugins/<bundle>/plugin.json`, using the [Python bundle manifest](../../plugins/python-backend/plugin.json) and [bundled schema](../../schemas/plugin.schema.json) as references. Give it its own name, description, version and applicable license metadata. Keep resources inside the package.
+For an existing bundle, add the skill/resources and bump its `plugin.json` version. A new independently installable bundle needs `plugins/<bundle>/plugin.json`, using the [Python bundle manifest](../../plugins/backend-python-development/plugin.json) and [bundled schema](../../schemas/plugin.schema.json) as references. Give it its own name, description, version and applicable license metadata. Keep resources inside the package.
 
 When acquiring upstream material, review its fit and redistribution terms, pin its commit and tree in [upstream.lock.json](../../upstream.lock.json), and preserve licenses, dependency groups and invocation controls. The builder acquires listed resources and writes notices. Use the existing lock entries and [source-selection reference](sources.md) rather than copying an unreviewed installed skill. New adaptation logic requires its own focused packaging tests.
 
@@ -63,9 +63,9 @@ Keep each fact in its authoritative home:
 | New technical expertise | SDLC area catalogue; representative diagram examples only when they improve understanding |
 | New source or adaptation | Lockfile and source-selection reference |
 | Rename or replacement | Migration guide and every maintained reference |
-| New bundle | CI's explicit all-plugin build list in `.github/workflows/validate.yml` |
+| New bundle | CI coverage in `.github/workflows/validate.yml`; `--all` discovers manifests automatically |
 
-The builder accepts explicit `--plugin` selections. The default remains the three Python/React application bundles unless deliberately changed; it does not automatically include a new bundle. Inspect callers and documented build examples when changing that policy. Package validation discovers manifests, but CI's build list is explicit.
+The builder accepts explicit `--plugin` selections. The default is development alone; new technical bundles are not added implicitly. `--all` discovers all manifests for complete builds, and CI checks each package independently. Inspect callers and documented examples when deliberately changing selection policy.
 
 Describe the supported scope and remaining platform limits. Adding a skill file, loading it successfully and observing correct agent behavior are separate milestones.
 
@@ -80,7 +80,7 @@ python scripts/validate_evaluations.py
 python -m unittest discover -s tests -v
 ```
 
-Build into a fresh destination with explicit selections that include the addition. For a new bundle, add it to the existing all-plugin CI command as well. Run `python scripts/check_collection.py --built <destination>` against a complete all-plugin build; that checker expects every package, so a partial build is insufficient. Check inventories, notices, resource parity and duplicate names before publishing. The [maintainer guide](../maintainer-reference.md#maintaining-the-collection) owns the general contribution checks.
+Build into a fresh destination with explicit selections that include the addition. A new manifest participates in the all-plugin and independent CI builds automatically. Run `python scripts/check_collection.py --built <destination>` against a complete all-plugin build; that checker expects every package unless repeated `--plugin` arguments identify an intentionally selected build. Use both complete and independent builds for a packaging contribution. Check inventories, notices, resource parity and duplicate names before publishing. The [maintainer guide](../maintainer-reference.md#maintaining-the-collection) owns the general contribution checks.
 
 Before claiming behavioral support, run appropriately scoped [evaluations](evaluations.md) and retain the evidence at the tested revision. Useful cases include a matching-stack implementation, an existing application whose different stack must remain intact, and a standalone installation missing optional methods. Verify relevant application behavior with the stack's real tools; package checks alone cannot establish it. Native, live-service and publication boundaries require their own capabilities and authorization.
 

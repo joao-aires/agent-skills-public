@@ -53,3 +53,48 @@ class CollectionTests(unittest.TestCase):
             self.assertEqual(len(errors), 2)
             self.assertTrue(any("resource.txt" in error for error in errors))
             self.assertTrue(any("inventory" in error for error in errors))
+
+    def test_selected_build_checks_only_requested_packages_but_rejects_extras(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            for name in ('workflow', 'technical'):
+                skill = root / 'plugins' / name / 'skills' / name
+                skill.mkdir(parents=True)
+                (skill.parent.parent / 'plugin.json').write_text('{}')
+                (skill / 'SKILL.md').write_text('# Self-contained method\n')
+            (root / 'upstream.lock.json').write_text('{"sources": []}')
+            built = root / 'built'
+            shutil.copytree(root / 'plugins/workflow', built / 'workflow')
+            (built / 'workflow/UPSTREAM-NOTICES.json').write_text('[]')
+            self.assertFalse(collection.check_built(root, built, ['workflow'])[0])
+            self.assertTrue(collection.check_built(root, built)[0])
+            shutil.copytree(root / 'plugins/technical', built / 'technical')
+            self.assertTrue(any('extra=' in error for error in collection.check_built(root, built, ['workflow'])[0]))
+
+    def test_package_resources_reject_cross_package_and_missing_transitive_links(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            package = root / 'workflow'
+            skill = package / 'skills/method'
+            (skill / 'references').mkdir(parents=True)
+            (skill / 'SKILL.md').write_text('[Details](references/guide.md)\n')
+            (skill / 'references/guide.md').write_text('[Required](absent.md)\n')
+            errors, _ = collection.check_package_links(package, {'method'}, [])
+            self.assertTrue(any('missing resource' in error for error in errors))
+            (skill / 'references/guide.md').write_text('[Shared](../../../../outside.md)\n')
+            (root / 'outside.md').write_text('Exists, but is not packaged.\n')
+            errors, _ = collection.check_package_links(package, {'method'}, [])
+            self.assertTrue(any('escapes package' in error for error in errors))
+            (skill / 'references/guide.md').write_text('# Detail\n[Local](#detail)\n')
+            self.assertFalse(collection.check_package_links(package, {'method'}, [])[0])
+
+    def test_acquired_framing_requires_its_local_resources(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            package = Path(tmp)
+            notices = [{'installed_skill': 'server', 'adaptations': ['ai-framing']}]
+            errors, _ = collection.check_package_links(package, set(), notices)
+            self.assertTrue(any('adaptation resource' in error for error in errors))
+            conventions = package / 'skills/ai-conventions'
+            conventions.mkdir(parents=True)
+            (conventions / 'SKILL.md').write_text('# Local implementation\n')
+            self.assertFalse(collection.check_package_links(package, set(), notices)[0])
