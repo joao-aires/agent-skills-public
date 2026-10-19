@@ -2,7 +2,7 @@
 
 The collection separates the work someone requests, the expertise that improves it and the technology chosen for its implementation. I package useful capabilities as plugins. A plugin is an installation and update boundary; it does not define an execution order or require other plugins.
 
-The repository builds 17 independently selectable plugins: nine generic capability packages and eight technical packages. The [ownership map](maintainers/sources.md#target-plugin-ownership) assigns all 101 skills. Development is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. A new skills-only distribution is outside this plan; the legacy helper remains a migration aid.
+The repository builds 17 independently selectable plugins: nine generic capability packages and eight technical packages. The [ownership map](maintainers/sources.md#target-plugin-ownership) assigns all 103 skills. Development is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. A new skills-only distribution is outside this plan; the legacy helper remains a migration aid.
 
 ## Activities, methods and technical expertise
 
@@ -39,13 +39,15 @@ The same concern can need conceptual guidance and a selected implementation. Kee
 
 | Responsibility | Capability | Implementation boundary |
 | --- | --- | --- |
-| Application patterns, architecture/protocol tradeoffs and evaluation levels | [Generic AI development](../plugins/ai-development/skills/ai-development/SKILL.md) | No provider, model, framework or evaluation SDK required |
-| Execute a selected evaluation approach | [AI testing](../plugins/ai-python-development/skills/ai-testing/SKILL.md) | Python/DeepEval runner, datasets, metrics and CI integration; the application itself may use another language |
-| Collect AI execution evidence | [AI operations](../plugins/ai-python-development/skills/ai-operations/SKILL.md) | Python/OpenTelemetry instrumentation, propagation, privacy and export verification |
+| Application patterns, architecture and protocol tradeoffs | [Generic AI development](../plugins/ai-development/skills/ai-development/SKILL.md) | No provider, model, framework or evaluation SDK required |
+| Testing strategy and evidence | [AI testing](../plugins/ai-development/skills/ai-testing/SKILL.md) | Generic evaluation levels, cases, graders, acceptance and regression evidence |
+| AI operating decisions | [AI operations](../plugins/ai-development/skills/ai-operations/SKILL.md) | Generic task/quality signals, provider limits, cost, drift and recovery |
+| Execute a selected evaluation approach | [ai-deepeval-testing](../plugins/ai-python-development/skills/ai-deepeval-testing/SKILL.md) | Python/DeepEval runner, datasets, metrics and CI integration; the application itself may use another language |
+| Collect AI execution evidence | [python-ai-observability](../plugins/ai-python-development/skills/python-ai-observability/SKILL.md) | Python/OpenTelemetry instrumentation, propagation, privacy and export verification |
 | Service signal/target design and operating response | Generic reliability and observability expertise | Task outcomes, useful signals and operating decisions independent of a backend |
 | Run a Collector, store or dashboard | Matching deployment/tool expertise | The actually chosen infrastructure/backend |
 
-Evaluation judges quality; observability explains execution and operating behavior. A platform can offer both without making them the same evidence. These capabilities compose when relevant; loading generic AI development neither installs the Python package nor requires its specialists. Future implementation libraries belong with matching technical expertise without changing the generic reasoning contract.
+The generic AI skills own different decisions: development shapes the application and its boundaries, testing defines useful evidence, and operations governs AI operating behavior. Evaluation judges quality; observability explains execution and operating behavior. A platform can offer both without making them the same evidence. These capabilities compose when relevant; loading the generic AI package neither installs the Python package nor requires its specialists. Each generic discipline retains enough essential reasoning to work without another specialist; detailed evaluation methods belong to AI testing rather than the development entry point. Future implementation libraries belong with matching technical expertise without changing the generic reasoning contract.
 
 ## Compose without optional dependencies
 

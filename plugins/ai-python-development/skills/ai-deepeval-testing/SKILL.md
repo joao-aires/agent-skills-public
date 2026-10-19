@@ -1,5 +1,5 @@
 ---
-name: ai-testing
+name: ai-deepeval-testing
 description: Implement Python AI evaluation suites with DeepEval for model, retrieval, agent trajectory, conversation and end-to-end quality. Use when DeepEval is selected or being evaluated; preserve existing evaluation tools and do not introduce model calls, hosted reporting or synthetic generation without scope.
 user-invocable: false
 metadata:
@@ -17,13 +17,13 @@ Use the accepted task, architecture and quality criteria. Seek available experti
 
 Inspect the project's Python/dependency constraints, existing tests, datasets, metrics, model/judge settings and CI. Use a locked compatible DeepEval version in the established test/development dependency group. Preserve an accepted alternative unless comparing or migrating is requested. Consult the [DeepEval evaluation guide](https://deepeval.com/docs/evaluation-introduction) for the selected release's API; documented examples do not establish installed compatibility.
 
-Choose a simple output-based evaluation for a bounded task. Use component or trajectory evaluation when a multi-step agent needs diagnostic evidence; instrument only the relevant path and coordinate the existing tracing owner. Use conversation cases for multi-turn behavior. A protocol-only service may need deterministic compatibility checks without a judge or model evaluation.
+Map the accepted evaluation levels to supported DeepEval APIs. Use output cases for bounded inference, component/trajectory APIs where internal execution matters and conversation cases for supported multi-turn evaluation. Instrument only the relevant path with the existing tracing owner. A protocol-only service may need compatibility checks without DeepEval.
 
 ## Map actual artifacts to test cases
 
 Keep input scenarios/goldens, expected outcomes/rubrics and test results distinct. Use `LLMTestCase` for single-turn input/output evidence and `ConversationalTestCase` for supported multi-turn evaluation. `EvaluationDataset` and `Golden` can organize rerunnable inputs. Populate cases from the actual application run, including relevant retrieved context and tool evidence supported by the installed API; invented outputs establish only a fixture.
 
-Retain curated task cases, held-out regressions and privacy-reviewed failure examples in the project's existing format. Synthetic generation and conversation simulation are optional, require their own execution/data authorization, and need human/domain review before becoming acceptance evidence. Do not default to a fixed dataset size or repeated paid generation loop.
+Adapt curated cases and held-out regressions to the selected dataset API without replacing the authoritative case source. Synthetic generation and conversation simulation are optional, credentialed execution paths; preserve agreed scope and review generated goldens before using them as acceptance evidence.
 
 Select metrics for the property: task correctness/usefulness, retrieval/grounding, appropriate tools/trajectory or conversation outcomes. Use a custom rubric such as `GEval` only with explicit evaluation parameters and calibrated judgments. Inspect the metric's required fields, judge/provider, threshold and failure behavior against [metric documentation](https://deepeval.com/docs/metrics-introduction). A safety or business-authority invariant stays an exact application assertion, outside the judge.
 

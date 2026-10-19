@@ -112,13 +112,13 @@ The [skills directory](https://www.skills.sh/getsentry/skills/agents-md) reports
 
 ## AI development, testing and operations segmentation
 
-The generic ai-development skill owns application patterns, architecture tradeoffs, model/context/tool and protocol decisions, deterministic authority, conceptual evaluation levels and operating outcomes. Its prior quality, speech and interaction guidance remains in the entry point and linked references. Matching implementation expertise is optional; no evaluator, instrumentation SDK or vendor is a generic dependency.
+The generic ai-development package contains three independently useful disciplines. Ai-development owns application patterns, architecture tradeoffs, model/context/tool choices, skills/harness integration and protocols. Ai-testing owns conceptual evaluation levels, cases, measures, acceptance and regression evidence, including the retained detailed quality/speech reference. Ai-operations owns AI-specific task and quality signals, provider/resource limits, cost, drift, configuration changes and recovery. Development keeps concise pointers to those owners; it no longer duplicates detailed evaluation or operating methods. None requires an evaluator SDK, instrumentation library or vendor.
 
-Python ai-testing owns DeepEval test-case/dataset/metric integration and bounded script/pytest-style CI execution. Python ai-operations owns compatible OpenTelemetry providers/instrumentors/exporters, context propagation, privacy controls and received-signal verification. AI-conventions retains provider and FastMCP integration. These three local technical skills share ai-python-development with the acquired mcp-builder, for four skills in total. Generic operational signal/SLO decisions remain with operations methods, and Collector/backend deployment remains with matching platform/tool guidance. A Python evaluation runner need not imply a Python application.
+Ai-deepeval-testing owns the selected Python/DeepEval test-case, dataset, metric and script/pytest-style CI integration. Python-ai-observability owns Python OpenTelemetry provider/instrumentor/exporter integration, context propagation, privacy controls and received-signal verification. AI-conventions retains provider and FastMCP implementation. These three local technical skills share ai-python-development with the acquired mcp-builder, for four skills in total. A Python evaluation runner need not imply a Python application. Generic service reliability and incident procedures remain with relevant operating expertise, and Collector/backend deployment remains with matching platform/tool guidance. Optional specialists are selected by capability; missing expertise does not remove essential reasoning or lower acceptance.
 
 The [DeepEval evaluation guide](https://deepeval.com/docs/evaluation-introduction), [metrics](https://deepeval.com/docs/metrics-introduction) and [CI instructions](https://deepeval.com/docs/evaluation-unit-testing-in-ci-cd) informed the original testing skill. The official [DeepEval skills](https://github.com/confident-ai/deepeval/tree/main/skills) were reviewed but not acquired: their mandatory intake/synthetic-data generation, hosted-service preference and fixed iteration defaults do not fit this collection's scope and composition principles. API documentation remains the implementation authority; no hosted account or generation loop is imposed.
 
-The original operations skill uses [Python instrumentation](https://opentelemetry.io/docs/languages/python/instrumentation/), [exporters](https://opentelemetry.io/docs/languages/python/exporters/) and the selected [GenAI conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/). These are technical integration choices, not a generic monitoring-vendor preference. Traces describe execution; evaluations assess quality, even when a platform offers both. No SDK/backend or live evaluation was installed or exercised for this guidance change.
+The Python observability skill uses [Python instrumentation](https://opentelemetry.io/docs/languages/python/instrumentation/), [exporters](https://opentelemetry.io/docs/languages/python/exporters/) and the selected [GenAI conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/). These are technical integration choices, not a generic monitoring-vendor preference. Traces describe execution; evaluations assess quality, even when a platform offers both. No SDK/backend or live evaluation was installed or exercised for this guidance change.
 
 ## Supplied operations and explorer skills
 
@@ -213,7 +213,7 @@ Independently installable bundles retain concise essential defaults and discover
 
 ## Plugin ownership
 
-The collection has 17 independent packages and 101 skills: 62 local and 39 acquired. Development is the default build; nine generic packages contain no stack-specific skills, and eight technical packages are explicitly selected. Source commit/tree pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 17 independent packages and 103 skills: 64 local and 39 acquired. Development is the default build; nine generic packages contain no stack-specific skills, and eight technical packages are explicitly selected. Source commit/tree pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
 
 A plugin represents a useful installation choice. Workflow, application discipline and supporting capability describe its purpose; generic versus technical describes its applicability. These groups do not impose an execution order or dependencies. Installing a technical package makes expertise available without accepting its technology for a project. Keep accepted choices, select matching guidance from actual inventory and retain useful outcomes when optional specialists are absent.
 
@@ -228,7 +228,7 @@ The collection has nine generic capability packages and eight optional technical
 | `operations` | Generic | 12 | Service reliability, signals, incidents, recovery, capacity and security upkeep. |
 | `frontend-development` | Generic | 6 | Experience and interface methods across web, desktop and mobile. |
 | `backend-development` | Generic | 1 | Service authority, state, failure, durable work and consumer contracts. |
-| `ai-development` | Generic | 1 | AI application/task design, evaluation, interaction/protocol contracts and authority across client/service boundaries. |
+| `ai-development` | Generic | 3 | AI application/architecture and protocol design; testing/evaluation methods; AI-specific operating decisions and evidence. |
 | `delivery` | Generic | 1 | CI/release/deployment methods, immutable artifacts, promotion, compatibility and recovery. |
 | `documentation` | Generic support | 4 | Writing, architecture explanation, knowledge organization and prose editing. |
 | `visualization` | Generic support | 3 | Diagrams, presentations and interactive system explanation; preserve executable resources. |
@@ -269,7 +269,7 @@ Each skill has one owner. Generic methods and technical implementation now occup
 | project-conventions and its quality/local-environment references | development: foundation contracts, isolation/readiness and check-selection principles | Language defaults to matching stacks; Compose, hook/checker configuration and preferred diagnostics setup to development-tooling |
 | delivery-pipelines and artifact/workflow references | delivery: verification, artifact identity, promotion, authorization and recovery | development-tooling: GitHub Actions/GHCR/container mechanics; ecosystem packaging mechanics to matching stacks |
 | ai-conventions | ai-development: only provider-independent task/authority/evaluation and framework-selection reasoning | ai-python-development: Python/Gemini/FastMCP mechanics; ADK and LangChain implementations to their packages |
-| ai-development and evaluation/interaction references | ai-development: AI task/model/context/tool decisions, skills and harness integration, protocol selection, deterministic authority, quality evidence and operating lifecycle | SDK/renderer integration to matching AI/frontend packages; backend/dashboard setup to development-tooling |
+| Generic AI development, testing and operations | ai-development: application/capability/protocol design, deterministic authority, evaluation strategy and AI operating outcomes; each discipline owns its details | SDK/renderer integration to matching AI/frontend packages; backend/dashboard setup to development-tooling |
 | native-client-development | frontend-development: experience needs; development/system-design: consequential platform choice | frontend-native-development: Tauri/Expo/native lifecycle and driver implementation |
 | observability-operations and related local/AI references | operations: trustworthy outcome signals, collection/privacy/failure boundaries | development-tooling: selected Collector/backend deployment; language-specific instrumentation to matching stacks |
 | performance-testing, journey-testing, resilience-testing and quality examples | development: meaningful workload/journey/fault evidence and execution scope | development-tooling: k6, Playwright and concrete checker commands; native drivers to frontend-native-development |
@@ -281,7 +281,7 @@ Existing personal preferences remain available in explicitly selected technical 
 Each row has one current owner. Local links lead to the current source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 101 skills and their current owners</summary>
+<summary>All 103 skills and their current owners</summary>
 
 | Skill | Origin | Previous bundle | Current plugin | Disposition |
 | --- | --- | --- | --- | --- |
@@ -349,7 +349,9 @@ Each row has one current owner. Local links lead to the current source; upstream
 | [frontend-design](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design) | Upstream | New addition | `frontend-development` | Visual craft within accepted direction and scope. |
 | [visual-design](../../plugins/frontend-development/skills/visual-design/SKILL.md) | Local | web-frontend | `frontend-development` | Retain method and resources. |
 | [backend-design](../../plugins/backend-development/skills/backend-design/SKILL.md) | Local | development-workflow | `backend-development` | Retain method and resources. |
-| [ai-development](../../plugins/ai-development/skills/ai-development/SKILL.md) | Local | ai-development | `ai-development` | Rename and broaden AI application development; retain authority/evaluation and interaction contracts, with vendor APIs in technical packages. |
+| [ai-development](../../plugins/ai-development/skills/ai-development/SKILL.md) | Local | ai-development | `ai-development` | Own AI application/capability/protocol design and authority; delegate detailed generic testing and operations to their same-package owners. |
+| [ai-testing](../../plugins/ai-development/skills/ai-testing/SKILL.md) | Local | Extracted generic method | `ai-development` | Own evaluation strategy and retained detailed quality/speech reference independently of an SDK. |
+| [ai-operations](../../plugins/ai-development/skills/ai-operations/SKILL.md) | Local | Extracted generic method | `ai-development` | Own AI task/quality signals, limits, drift, rollout and recovery independently of instrumentation. |
 | [delivery-pipelines](../../plugins/delivery/skills/delivery-pipelines/SKILL.md) | Local | development-workflow | `delivery` | Separate: retain delivery contracts; move provider/container/registry implementation. |
 | [architecture-documentation](../../plugins/documentation/skills/architecture-documentation/SKILL.md) | Local | development-workflow | `documentation` | Retain method and resources. |
 | [documentation-conventions](../../plugins/documentation/skills/documentation-conventions/SKILL.md) | Local | development-workflow | `documentation` | Retain method and resources. |
@@ -373,8 +375,8 @@ Each row has one current owner. Local links lead to the current source; upstream
 | [langchain-fundamentals](https://github.com/langchain-ai/langchain-skills/tree/16a992f09ab3ccfb642dd4f08d350d833d1990bf/config/skills/langchain-fundamentals) | Upstream | ai-development | `ai-langchain-development` | Retain matching technical implementation and resources. |
 | [langgraph-fundamentals](https://github.com/langchain-ai/langchain-skills/tree/16a992f09ab3ccfb642dd4f08d350d833d1990bf/config/skills/langgraph-fundamentals) | Upstream | ai-development | `ai-langchain-development` | Retain matching technical implementation and resources. |
 | [langgraph-persistence](https://github.com/langchain-ai/langchain-skills/tree/16a992f09ab3ccfb642dd4f08d350d833d1990bf/config/skills/langgraph-persistence) | Upstream | ai-development | `ai-langchain-development` | Retain matching technical implementation and resources. |
-| [ai-testing](../../plugins/ai-python-development/skills/ai-testing/SKILL.md) | Local | New addition | `ai-python-development` | Python DeepEval evaluation integration; generic acceptance stays outside the adapter. |
-| [ai-operations](../../plugins/ai-python-development/skills/ai-operations/SKILL.md) | Local | New addition | `ai-python-development` | Python OpenTelemetry AI instrumentation and export verification. |
+| [ai-deepeval-testing](../../plugins/ai-python-development/skills/ai-deepeval-testing/SKILL.md) | Local | New addition | `ai-python-development` | Python DeepEval evaluation integration; generic acceptance stays outside the adapter. |
+| [python-ai-observability](../../plugins/ai-python-development/skills/python-ai-observability/SKILL.md) | Local | New addition | `ai-python-development` | Python OpenTelemetry AI instrumentation and export verification. |
 | [ai-conventions](../../plugins/ai-python-development/skills/ai-conventions/SKILL.md) | Local | ai-development | `ai-python-development` | Separate: keep Python/provider/MCP mechanics here; ADK and LangChain mechanics go to their own packages. |
 | [mcp-builder](https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/mcp-builder) | Upstream | ai-development | `ai-python-development` | Retain complete acquired resources and native controls; protocol outcomes stay in ai-development. |
 | [bash-engineering](../../plugins/development-tooling/skills/bash-engineering/SKILL.md) | Local | development-workflow | `development-tooling` | Retain matching technical implementation and resources. |
@@ -399,7 +401,7 @@ Figma remains optional tooling declared by frontend-development; the React techn
 
 ### Inventory coverage and next boundary
 
-The assignment covers 62 local skills and 39 distinct acquired skills exactly once, with no omissions or duplicate owners.
+The assignment covers 64 local skills and 39 distinct acquired skills exactly once, with no omissions or duplicate owners.
 
 All packages build together with `--all` and independently with explicit selection. Package checks verify inventories, local-resource parity, notices, required framing, and transitive owned Markdown links staying inside their bundle. CI also checks the default development-only build. These checks do not establish agent behavior; behavioral evaluations remain deferred.
 

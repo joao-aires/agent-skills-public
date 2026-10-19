@@ -1,5 +1,5 @@
 ---
-name: ai-operations
+name: python-ai-observability
 description: Set up and verify Python AI observability with OpenTelemetry and compatible model/framework instrumentation. Use for AI task/tool/retrieval traces, usage and latency signals, export/privacy configuration and operational diagnosis; keep the chosen backend and quality evaluation separate.
 user-invocable: false
 metadata:
@@ -9,7 +9,7 @@ metadata:
   role: support
 ---
 
-# Instrument and operate Python AI execution
+# Instrument Python AI execution
 
 Use the accepted task/service outcomes and operating constraints. Seek available reliability/observability and AI-evaluation expertise for signal meaning and quality boundaries; keep those outcomes explicit when specialist guidance is absent. This skill owns Python AI instrumentation and export integration. Collector/backend deployment, service SLO design and quality scoring remain separate responsibilities.
 

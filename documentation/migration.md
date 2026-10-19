@@ -70,6 +70,19 @@ The architecture rename corrects spelling. These changes do not require renaming
 
 The AI skill now covers application/task design, model/context/tool choices, reusable skills, harness/session integration and protocol selection alongside evaluation and operation. Rebuild the ai-development package and replace the old skill directory; no duplicate alias is shipped. Native invocation controls are unchanged.
 
+## Generic AI methods and technical names
+
+The ai-development package now provides generic ai-development, ai-testing and ai-operations. Detailed evaluation methods, including speech evaluation, moved to `ai-development/skills/ai-testing/references/evaluation-references.md`. Update private links to that resource; the generic testing and operating methods require no Python/evaluator/telemetry package.
+
+The earlier technical profiles have explicit implementation names:
+
+| Previous package/path | Current package/path |
+| --- | --- |
+| `ai-python-development/skills/ai-testing` | `ai-python-development/skills/ai-deepeval-testing` |
+| `ai-python-development/skills/ai-operations` | `ai-python-development/skills/python-ai-observability` |
+
+A request for ai-testing or ai-operations now selects the generic discipline where available; request ai-deepeval-testing or python-ai-observability for those implementations. Rebuild and replace complete affected packages, removing stale technical copies rather than creating duplicate aliases. Native invocation controls remain unchanged.
+
 ## Bundle and invocation changes
 
 - MCP builder belongs to ai-python-development. Generic MCP contracts remain in ai-development; MCP-only work does not require an LLM.
