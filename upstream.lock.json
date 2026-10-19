@@ -721,6 +721,43 @@
         "invocation": "agent",
         "role": "support"
       }
+    },
+    {
+      "plugin": "development",
+      "repository": "https://github.com/getsentry/skills.git",
+      "commit": "f57ada2d0b640406ea7e25b11d636c530e77c58b",
+      "path": "skills/agents-md",
+      "tree": "79bf72b1b141202a03f515b4a133f4845cf8d9e6",
+      "license": "Apache-2.0",
+      "license_path": "LICENSE",
+      "adaptations": [
+        "workflow-framing",
+        "instruction-authoring-framing",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "both",
+        "role": "support"
+      }
+    },
+    {
+      "plugin": "frontend-development",
+      "repository": "https://github.com/anthropics/skills.git",
+      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
+      "path": "skills/frontend-design",
+      "tree": "d79e2a5bb4df4a386c2adcdd9ab8709bba28c3f6",
+      "license": "Apache-2.0",
+      "license_path": "skills/frontend-design/LICENSE.txt",
+      "adaptations": [
+        "visual-design-framing",
+        "usage-labels"
+      ],
+      "labels": {
+        "scope": "generic",
+        "invocation": "both",
+        "role": "support"
+      }
     }
   ]
 }

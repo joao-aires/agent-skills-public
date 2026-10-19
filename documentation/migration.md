@@ -57,6 +57,7 @@ Local names use short task activities and recognizable supporting topics. Upstre
 | `test-end-to-end` | `journey-testing` |
 | `test-application-performance` | `performance-testing` |
 | `test-application-resilience` | `resilience-testing` |
+| `build-evaluated-ai` | `ai-development` |
 | `build-delivery-pipelines` | `delivery-pipelines` |
 | `documentation-conventions` | `documentation-conventions` |
 | `design-secure-features` | `security-and-privacy-design` |
@@ -66,6 +67,8 @@ Local names use short task activities and recognizable supporting topics. Upstre
 | Standalone `cicd-release-management` | `delivery-pipelines` |
 
 The architecture rename corrects spelling. These changes do not require renaming application files or changing test frameworks.
+
+The AI skill now covers application/task design, model/context/tool choices, reusable skills, harness/session integration and protocol selection alongside evaluation and operation. Rebuild the ai-development package and replace the old skill directory; no duplicate alias is shipped. Native invocation controls are unchanged.
 
 ## Bundle and invocation changes
 
@@ -79,6 +82,6 @@ The bundles configure no monitoring services, fault injectors, credentials, sche
 
 ## Generic methods and selected technical references
 
-Rebuild complete affected bundles after the task-2 content separation. Tooling-conventions now owns selected quality-tool, Compose, workflow/registry and telemetry-backend references formerly under project-conventions, delivery-pipelines and observability-operations. Private links into those resources need updating. Generic journey and AI methods retain their outcomes; concrete driver and versioned protocol details live with technical guidance. Existing skill names and native invocation controls remain intact.
+Rebuild complete affected bundles after the task-2 content separation. Tooling-conventions now owns selected quality-tool, Compose, workflow/registry and telemetry-backend references formerly under project-conventions, delivery-pipelines and observability-operations. Private links into those resources need updating. Generic journey and AI methods retain their outcomes; concrete driver and versioned protocol details live with technical guidance. The separate AI-skill rename is documented above; other skill names and native invocation controls remain intact.
 
 The package split is implemented. Resource paths now follow the current owner; rebuild complete packages and update private links to the moved skill/resource folders.

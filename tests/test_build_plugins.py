@@ -140,7 +140,7 @@ class InstallationTests(unittest.TestCase):
             installer.adapt_skill(skill, {'adaptations': ['ai-framing']})
             result = path.read_text()
             self.assertIn('../ai-conventions/SKILL.md', result)
-            self.assertNotIn('../build-evaluated-ai/SKILL.md', result)
+            self.assertNotIn('../ai-development/SKILL.md', result)
             self.assertIn('not an LLM', result)
             self.assertNotIn('../backend-conventions', result)
             self.assertTrue(result.endswith('\nOriginal SDK guidance\n'))
@@ -293,6 +293,25 @@ class InstallationTests(unittest.TestCase):
             self.assertIn('../../COMPOSITION.md', result)
             self.assertNotIn('../../WORKFLOW.md', result)
             self.assertTrue(result.endswith(original.split('---', 2)[2]))
+
+    def test_specialist_framing_preserves_source_body_metadata_and_resources(self):
+        for adaptation in ('instruction-authoring-framing', 'visual-design-framing'):
+            with self.subTest(adaptation=adaptation), tempfile.TemporaryDirectory() as tmp:
+                skill = Path(tmp) / 'specialist'
+                skill.mkdir()
+                original = '---\nname: specialist\ndescription: Original\nuser-invocable: true\ndisable-model-invocation: true\n---\n# Original method\nKeep the upstream example.\n'
+                (skill / 'SKILL.md').write_text(original)
+                (skill / 'SPEC.md').write_text('Upstream supporting specification\n')
+                installer.adapt_skill(skill, {'adaptations': [adaptation, 'usage-labels'],
+                    'labels': {'scope': 'generic', 'invocation': 'both', 'role': 'support'}})
+                result = (skill / 'SKILL.md').read_text()
+                metadata = yaml.safe_load(result.split('---', 2)[1])
+                source_metadata = yaml.safe_load(original.split('---', 2)[1])
+                for key, value in source_metadata.items():
+                    self.assertEqual(metadata[key], value)
+                self.assertEqual(metadata['metadata']['scope'], 'generic')
+                self.assertTrue(result.endswith(original.split('---', 2)[2]))
+                self.assertEqual((skill / 'SPEC.md').read_text(), 'Upstream supporting specification\n')
 
     def test_generic_packages_do_not_acquire_technical_skills(self):
         root = Path(__file__).resolve().parents[1]

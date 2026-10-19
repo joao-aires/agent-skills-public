@@ -2,7 +2,7 @@
 
 The collection separates the work someone requests, the expertise that improves it and the technology chosen for its implementation. I package useful capabilities as plugins. A plugin is an installation and update boundary; it does not define an execution order or require other plugins.
 
-The repository builds 17 independently selectable plugins: nine generic capability packages and eight technical packages. The [ownership map](maintainers/sources.md#target-plugin-ownership) assigns all 97 skills. Development is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. A new skills-only distribution is outside this plan; the legacy helper remains a migration aid.
+The repository builds 17 independently selectable plugins: nine generic capability packages and eight technical packages. The [ownership map](maintainers/sources.md#target-plugin-ownership) assigns all 101 skills. Development is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. A new skills-only distribution is outside this plan; the legacy helper remains a migration aid.
 
 ## Activities, methods and technical expertise
 
@@ -32,6 +32,20 @@ Workflow instructions describe the expertise needed for a decision. They do not 
 Use the client's observed skill inventory or supported discovery to find matches, read the relevant guidance and carry applicable conclusions into the work. Descriptions are the portable selection surface; metadata can help where the client exposes it. This architecture assumes neither semantic search nor metadata filtering. Without inventory access, proceed from available project guidance rather than claiming a specialist was discovered or searching unrelated installations/accounts. Keep discovery proportionate and stop when enough context is available.
 
 A user can still explicitly select a known skill. Help may name actual observed activities, and documentation may catalogue their owners. Those are different from hardcoding optional specialist identities into workflow routing. Internal required resources retain precise links; optional cross-package guidance is selected by capability.
+
+## Example: AI design, evaluation and operation
+
+The same concern can need conceptual guidance and a selected implementation. Keep their responsibilities separate:
+
+| Responsibility | Capability | Implementation boundary |
+| --- | --- | --- |
+| Application patterns, architecture/protocol tradeoffs and evaluation levels | [Generic AI development](../plugins/ai-development/skills/ai-development/SKILL.md) | No provider, model, framework or evaluation SDK required |
+| Execute a selected evaluation approach | [AI testing](../plugins/ai-python-development/skills/ai-testing/SKILL.md) | Python/DeepEval runner, datasets, metrics and CI integration; the application itself may use another language |
+| Collect AI execution evidence | [AI operations](../plugins/ai-python-development/skills/ai-operations/SKILL.md) | Python/OpenTelemetry instrumentation, propagation, privacy and export verification |
+| Service signal/target design and operating response | Generic reliability and observability expertise | Task outcomes, useful signals and operating decisions independent of a backend |
+| Run a Collector, store or dashboard | Matching deployment/tool expertise | The actually chosen infrastructure/backend |
+
+Evaluation judges quality; observability explains execution and operating behavior. A platform can offer both without making them the same evidence. These capabilities compose when relevant; loading generic AI development neither installs the Python package nor requires its specialists. Future implementation libraries belong with matching technical expertise without changing the generic reasoning contract.
 
 ## Compose without optional dependencies
 

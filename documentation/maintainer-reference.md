@@ -55,7 +55,7 @@ Labels do not enforce permissions. Task entries use native explicit-only control
 | Product priorities, useful scope and success signal | product-management; business-strategy owns business direction |
 | Architecture / service behavior | system-design / backend-design |
 | Visual direction / interaction behavior / critique | visual-design / interaction-design / interface-quality |
-| AI task, authority and evaluation / provider implementation | build-evaluated-ai / ai-conventions |
+| AI application, capability, protocol and evaluation design / provider implementation | ai-development / ai-conventions |
 | Framework APIs, configuration and platform mechanics | Matching technical conventions and upstream specialists |
 | Scope, consequential decisions and completion evidence | Shared workflow and the existing verification owner |
 

@@ -152,7 +152,7 @@
     },
     {
       "id": "portable-local-observability",
-      "prompt": "Use project-conventions, observability-operations and build-evaluated-ai to design a new Next.js/FastAPI/PostgreSQL worker application local setup. There are two concurrent feature worktrees. Jobs make Gemini calls and send email. The developer wants local unified telemetry and might use Datadog in production. Resources are limited; no deployment, live model call, email send, Docker execution or installation is authorized. Provide a concise implementation/verification plan from this context.",
+      "prompt": "Use project-conventions, observability-operations and ai-development to design a new Next.js/FastAPI/PostgreSQL worker application local setup. There are two concurrent feature worktrees. Jobs make Gemini calls and send email. The developer wants local unified telemetry and might use Datadog in production. Resources are limited; no deployment, live model call, email send, Docker execution or installation is authorized. Provide a concise implementation/verification plan from this context.",
       "criteria": [
         "Compose isolates project names, published ports, owned data and controlled external effects; readiness includes required initialization.",
         "Application instrumentation remains OTel/OTLP based with backend-specific routing/credentials separated.",

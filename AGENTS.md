@@ -1,50 +1,48 @@
 # Repository instructions
 
-This repository publishes reusable agent guidance as independently selectable plugins. Make changes in the owning source package and keep the collection useful across projects and clients. Start with [architecture and composition](documentation/architecture.md); use the [maintainer guide](documentation/maintainer-reference.md) for contribution details.
+## Source and ownership
 
-## Find the owner
+- Edit owning sources under `plugins/<bundle>/`: `plugin.json`, `skills/<name>/SKILL.md`, neighboring resources and package-root framing. Build output is generated.
+- Use the [ownership map](documentation/maintainers/sources.md#target-plugin-ownership) to locate a capability. `upstream.lock.json` owns reviewed acquisitions; the builder adds them to complete bundles.
+- Keep packages self-contained. Preserve original strategy/visual resources, complete upstream groups, native invocation controls and licenses. Acquire public sources at reviewed commit/tree pins and record adaptations in notices; never redistribute private installed skills.
 
-- `plugins/<bundle>/plugin.json` identifies a package; `skills/<name>/SKILL.md` contains each local skill and its neighboring resources. Package-root documents own shared framing.
-- [Sources and ownership](documentation/maintainers/sources.md#target-plugin-ownership) maps skills to packages. `upstream.lock.json` records reviewed acquisitions; the builder adds them to complete bundles. Generated build output is not the editing source.
-- `scripts/` and `tests/` maintain validation, acquisition and packaging. `evals/` describes behavioral scenarios; [evaluation guidance](documentation/maintainers/evaluations.md) records procedures, findings and limits.
+## Architecture and authoring
 
-## Preserve the architecture
+- Preserve independently useful generic activities, application disciplines, technical expertise and supporting capabilities. Development is the default build; technical packages are explicit additions and do not select an application stack.
+- Select optional expertise by capability and actual available descriptions, without hardcoded cross-package names or a dependency resolver. Required same-package resources may use precise relative links. Without a specialist, retain acceptance standards using project evidence, general expertise and primary sources; distinguish missing guidance from missing tools or decisions.
+- Write decision principles with applicability and completion evidence. Keep ordinary implementation choices with the project and agent; reserve strict sequences for real dependencies. Link conditional detail with a reading trigger, and keep each rule with its owner.
+- Generalize findings into decision guidance; put concrete reproductions in `evals/` or justified deterministic tests. Avoid incident-specific prohibition lists, generated applications, scaffolds and mandatory process machinery.
+- Preserve explicit-only activity controls and the requested action scope. Descriptive metadata does not enforce permissions. Add MCP connections or client hooks only for a concrete need with documented setup.
+- Use lowercase kebab-case: short activities for tasks and recognizable disciplines for support. Preserve upstream names and established operations terminology. Rename folders, frontmatter and maintained references together; record old names in migration notes without duplicate aliases.
 
-Keep generic activities, application disciplines, technical expertise and supporting capabilities independently useful. Development is the default build; technical packages are explicit additions. Installing guidance does not select an application stack.
+## Documentation and contributions
 
-Route optional expertise by needed capabilities and actual available descriptions. Do not hardcode optional cross-package skill/plugin names or introduce a global router or dependency resolver. Required resources inside a package may use precise relative links. When a specialist is absent, use project evidence, general expertise and appropriate primary sources while preserving acceptance and verification standards. Distinguish absent guidance from unavailable tools or unresolved user decisions.
+- Update affected documentation alongside source changes and accepted decisions. Keep manifests, README, ownership/source catalogue and pins aligned; bump the owning version for packaged changes.
+- Keep user guides organized by reader need and the maintainer entry short. Put source/evaluation detail in the existing maintainer references rather than a report per change. Add focused how-tos for recurring tasks.
+- Use Humanizer when available for prose edits, preserving technical meaning, caveats, commands and links. Verify client-specific examples against primary documentation and distinguish documented setup from exercised behavior.
+- Follow [Git contributions](plugins/development/skills/git-contributions/SKILL.md) for objective worktrees, Conventional Commits and structured PRs. Commit/push authority is separate from merge or deployment authority.
 
-Keep packages self-contained. Preserve the original strategy/visual resources, complete upstream dependency groups, invocation controls and licenses. Acquire public upstream content at reviewed commit/tree pins; record adaptations in source notices. Never redistribute private installed skills. Add MCP connections or client hooks only for a concrete need with documented setup.
+## Verification
 
-## Write decision guidance
+Use the virtual environment and dependencies in [installation](documentation/installation.md#build-the-bundles).
 
-Start from the decision a skill helps make, its applicability and the evidence that marks completion. Write concise principles that leave ordinary implementation choices to the project and agent. Use strict sequences for real dependencies or operational invariants. Put conditional detail in linked resources with a clear reading trigger.
+| Check | Command |
+| --- | --- |
+| Manifests, metadata, pins and containment | `python scripts/validate_plugins.py` |
+| Maintained links and names | `python scripts/check_collection.py` |
+| Scenario definitions | `python scripts/validate_evaluations.py` |
+| Packaging and validation regressions | `python -m unittest discover -s tests -v` |
 
-Give a rule one owning location within its package and link it where needed. Generalize an observed failure into a decision principle; keep the concrete reproduction in an evaluation or a justified deterministic test. Avoid growing lists of incident-specific prohibitions, generated applications, scaffolds or mandatory process machinery.
+- Run relevant checks above; for packaging/resource changes also build into a new destination and check complete output. CI checks the default, full collection and each package independently. Add focused tests for changed packaging behavior; render/inspect changed diagrams and run affected resource checks.
+- Package and definition checks establish structure, not agent adherence, application behavior or deployment. Run client installation, account setup and behavioral trials only within the request; record the actual revision, actions, results and limits.
 
-Preserve native invocation controls. Descriptive metadata is not permission enforcement. Explicit-only activities require an explicit request; automatically selected supporting guidance stays within the requested scope. Client limitations and missing evidence remain visible.
+## Detailed references
 
-Use lowercase kebab-case: short recognizable activities for task entry points, clear topics/disciplines for support. Preserve established operations terminology and upstream names. Rename the folder, frontmatter and maintained references together; record old names in migration notes without duplicate aliases.
-
-## Maintain the documentation
-
-Write repository prose in my singular voice (João), using "I" and "my" for my choices. Keep examples in their author's voice. Use Humanizer for prose edits while preserving technical meaning, caveats, commands and link targets.
-
-Organize docs by reader need. README introduces the collection; installation and usage explain how to start; architecture and SDLC explain composition and lifecycle coverage; migration explains updates. Keep the maintainer entry short, with source and evaluation detail under `documentation/maintainers/`. Put current decisions/evidence in their existing homes rather than adding a report per change.
-
-Update affected documentation alongside source changes and accepted decisions. Keep manifests, README, ownership/source catalogue and acquisition pins aligned. Bump the owning package version when packaged content changes. Verify client-specific examples against current primary documentation; keep documented setup distinct from exercised behavior. [Adding stack support](documentation/maintainers/adding-stack-support.md) explains extensions without new workflow dependencies.
-
-## Verify the affected contract
-
-Install dependencies from `requirements-validation.txt` in a virtual environment as described in [installation](documentation/installation.md#build-the-bundles). Run these repository checks after relevant changes:
-
-```bash
-python scripts/validate_plugins.py
-python scripts/check_collection.py
-python scripts/validate_evaluations.py
-python -m unittest discover -s tests -v
-```
-
-For packaging or resource changes, build into a fresh destination and check the complete output. CI also checks the development-only default and every package independently; see [maintainer checks](documentation/maintainer-reference.md#maintaining-the-collection) for commands and coverage. Add focused regression tests for packaging behavior. Render and inspect changed diagrams; run affected resource checks when their behavior changes.
-
-Do not install clients/plugins, connect accounts or run behavioral evaluations merely to complete structural checks. Run those when the request includes them, and record the actual target revision, actions, results and limits. Package, link and evaluation-definition checks establish structure; they do not establish agent adherence, application behavior or successful deployment.
+| Need | Source |
+| --- | --- |
+| Composition, discovery and fallback | [Architecture](documentation/architecture.md) |
+| Contribution procedure, naming and build/check commands | [Maintainer guide](documentation/maintainer-reference.md) |
+| Sources, licenses, adaptations and ownership | [Source catalogue](documentation/maintainers/sources.md) |
+| Behavioral scenarios and recorded limits | [Evaluation guide](documentation/maintainers/evaluations.md) |
+| New framework, language or platform | [Adding stack support](documentation/maintainers/adding-stack-support.md) |
+| Replacing old packages or names | [Migration](documentation/migration.md) |

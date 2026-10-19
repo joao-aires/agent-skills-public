@@ -34,7 +34,7 @@ Select verification through [deliver-reliable-changes](../deliver-reliable-chang
 
 - Keep code, migrations, tests, dependencies, configuration and scoped instructions discoverable within actual application/component boundaries. Preserve an established layout; choose a simple documented structure for a new repository. Keep provider-required entrypoints in their required locations.
 - Put product and engineering knowledge under `documentation/`; use project knowledge organization and upkeep expertise to create only useful documents.
-- Keep root AGENTS.md focused on purpose, stack, startup/test commands, shared conventions and the requirement to synchronize affected docs with code and decisions. Put component-specific commands and exceptions beside that component. Link authoritative information instead of duplicating it.
+- Keep root AGENTS.md focused on purpose, stack, startup/test commands, shared conventions and the requirement to synchronize affected docs with code and decisions. Put component-specific commands and exceptions beside that component. Link authoritative information instead of duplicating it. For instruction-file authoring or pruning, seek available expertise in concise, scoped repository instructions and verify that required knowledge remains directly present or linked.
 - Record compatible dependencies and lockfiles, required configuration and a safe local setup. Make it possible to start and verify the first slice without guessing secrets or commands.
 - Add boundaries, services and infrastructure when a concrete requirement justifies them. Prefer domain-oriented code over layers with no present responsibility.
 

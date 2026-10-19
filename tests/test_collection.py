@@ -89,12 +89,16 @@ class CollectionTests(unittest.TestCase):
             self.assertFalse(collection.check_package_links(package, {'method'}, [])[0])
 
     def test_acquired_framing_requires_its_local_resources(self):
-        with tempfile.TemporaryDirectory() as tmp:
-            package = Path(tmp)
-            notices = [{'installed_skill': 'server', 'adaptations': ['ai-framing']}]
-            errors, _ = collection.check_package_links(package, set(), notices)
-            self.assertTrue(any('adaptation resource' in error for error in errors))
-            conventions = package / 'skills/ai-conventions'
-            conventions.mkdir(parents=True)
-            (conventions / 'SKILL.md').write_text('# Local implementation\n')
-            self.assertFalse(collection.check_package_links(package, set(), notices)[0])
+        cases = {'ai-framing': ['ai-conventions'],
+                 'visual-design-framing': ['visual-design', 'interface-quality']}
+        for adaptation, resources in cases.items():
+            with self.subTest(adaptation=adaptation), tempfile.TemporaryDirectory() as tmp:
+                package = Path(tmp)
+                notices = [{'installed_skill': 'specialist', 'adaptations': [adaptation]}]
+                self.assertTrue(collection.check_package_links(package, set(), notices)[0])
+                for index, resource in enumerate(resources):
+                    conventions = package / 'skills' / resource
+                    conventions.mkdir(parents=True)
+                    (conventions / 'SKILL.md').write_text('# Local implementation\n')
+                    errors, _ = collection.check_package_links(package, set(), notices)
+                    self.assertEqual(bool(errors), index < len(resources) - 1)
