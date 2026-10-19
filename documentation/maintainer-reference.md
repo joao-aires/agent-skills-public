@@ -10,6 +10,7 @@ Use this page when changing the collection. For installation and everyday use, s
 
 | Need | Reference |
 | --- | --- |
+| Inspect planned plugin boundaries and every skill owner | [Target ownership map](maintainers/sources.md#target-plugin-ownership) |
 | Add a framework, language or platform | [Adding stack support](maintainers/adding-stack-support.md) |
 | Check origins, licenses, adaptations or selection decisions | [Sources and compatibility](maintainers/sources.md) |
 | Run behavior trials or inspect evidence and open limits | [Evaluating the collection](maintainers/evaluations.md) |

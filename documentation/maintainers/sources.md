@@ -1,6 +1,6 @@
 # Sources and compatibility
 
-[Maintainer guide](../maintainer-reference.md) · [Catalogue](#upstream-catalogue) · [Adaptations](#adaptations) · [Matt selection](#matt-pocock-selection) · [Application references](#application-references) · [Capability architecture](#product-and-capability-architecture) · [Documentation methods](#documentation-methods)
+[Maintainer guide](../maintainer-reference.md) · [Catalogue](#upstream-catalogue) · [Adaptations](#adaptations) · [Matt selection](#matt-pocock-selection) · [Application references](#application-references) · [Capability architecture](#product-and-capability-architecture) · [Documentation methods](#documentation-methods) · [Target ownership](#target-plugin-ownership)
 
 ## Upstream catalogue
 
@@ -165,6 +165,8 @@ The refactor preserves new-project onboarding/checks/tests/containers/CI/artifac
 
 ## Product and capability architecture
 
+This section describes the method separation currently implemented in PR #19. The [target ownership plan](#target-plugin-ownership) below specifies the next package boundaries; those moves are not implemented yet.
+
 I separate the requested activity, reusable discipline and technical implementation. Activities own the engagement and stopping point; disciplines own decisions and evidence; technical conventions apply those decisions to an accepted stack. Role, applicability and invocation remain independent metadata dimensions. Plugins stay as useful delivery bundles rather than becoming one package per conceptual layer.
 
 | Decision | Ownership and boundary |
@@ -183,3 +185,190 @@ I also reviewed prioritize-features and identify-assumptions-new at [phuryn/pm-s
 The new product-management skill is original local guidance. It uses the accepted product outcomes and existing evidence/decision principles, with optional frameworks and no required research format, tracker, scoring formula or commercial study. No new upstream text/resources are acquired, and existing upstream pins, notices and native invocation controls remain unchanged. The same principle guides the visual/backend/AI ownership split: preserve useful technical invariants and explicit preferences without repeating an entire product process in each stack.
 
 Independently installable bundles retain concise essential defaults and discover optional methods through the observed inventory. Missing guidance does not select another stack, authorize installation or eliminate required outcomes. I preserve the seven-phase lifecycle, project foundations, implementation/verification loop and consequential-decision policy. The refactor stops before behavioral architecture evaluation; repository checks do not establish improved routing or application outcomes.
+
+## Target plugin ownership
+
+This is the task-1 ownership plan for the next packaging changes in PR #19. `delivery` is the chosen plugin name. The inventory is the current 59 local and 37 acquired skills, checked against the source tree and lockfile at `96dbdb1`. The package names below are targets; the repository still builds seven existing plugins. No folders, manifests, acquisition pins, client installations or invocation controls have changed in this step.
+
+A plugin represents a useful installation choice. Workflow, application discipline and supporting capability describe its purpose; generic versus technical describes its applicability. These groups do not impose an execution order or dependencies. Installing a technical package makes expertise available without accepting its technology for a project. Keep accepted choices, select matching guidance from actual inventory and retain useful outcomes when optional specialists are absent.
+
+### Package boundaries
+
+The target has nine generic capability packages and eight optional technical packages. This is more than the current seven because their mixed contents cannot provide the requested independent choices. I group specialist tools and operating platforms into two explicit optional packages rather than create a plugin for every tool. Split those further only when independent installation is useful. No empty placeholder packages are planned.
+
+| Target plugin | Applicability | Existing skills | Responsibility |
+| --- | --- | --- | --- |
+| `strategy` | Generic | 4 | Business direction, product priorities and feedback; business-strategy is the current source bundle. |
+| `development` | Generic | 40 | SDLC engagements, project foundations, contribution flow and verification; usable without stack packages. |
+| `operations` | Generic | 12 | Service reliability, signals, incidents, recovery, capacity and security upkeep. |
+| `frontend-development` | Generic | 5 | Experience and interface methods across web, desktop and mobile. |
+| `backend-development` | Generic | 1 | Service authority, state, failure, durable work and consumer contracts. |
+| `ai-development` | Generic | 1 | AI application/task design, evaluation, interaction/protocol contracts and authority across client/service boundaries. |
+| `delivery` | Generic | 1 | CI/release/deployment methods, immutable artifacts, promotion, compatibility and recovery. |
+| `documentation` | Generic support | 4 | Writing, architecture explanation, knowledge organization and prose editing. |
+| `visualization` | Generic support | 3 | Diagrams, presentations and interactive system explanation; preserve executable resources. |
+| `backend-python-development` | Technical | 3 | Python/FastAPI/persistence and Python automation; no backend service required for CLI work. |
+| `frontend-reactjs-development` | Technical | 5 | React/Next.js/shadcn/Tailwind and their actual component APIs. |
+| `frontend-native-development` | Technical | 1 | TypeScript/Tauri and React Native/Expo, platform lifecycle, packaging and native drivers. |
+| `ai-adk-development` | Technical | 2 | Google ADK; preserve the paired architecture/builder skills. |
+| `ai-langchain-development` | Technical | 4 | LangChain/LangGraph and dependencies/persistence as a complete group. |
+| `ai-python-development` | Technical | 2 | Python model/provider adapters and standalone FastMCP; no ADK/LangChain requirement. |
+| `development-tooling` | Technical | 5 | Optional Bash, browser/load testing, delivery/configuration tooling and lockfile audit implementations. |
+| `operations-platforms` | Technical | 3 | Optional JVM, Kubernetes and AKS expertise; match each skill independently to the actual platform. |
+
+Generic means no required language, framework, provider or platform selection. Comparing technologies, naming optional standards and explaining compatibility remain useful. Concrete implementation and preferred-tool setup belong to technical guidance. Classification must follow the body and its references, not just the metadata label.
+
+### Setup, repository and delivery ownership
+
+| Decision or work | Owner | Boundary |
+| --- | --- | --- |
+| Requested project setup/adoption | setup in development | Coordinates the agreed foundation work; does not replace product/architecture decisions or authorize feature implementation. |
+| Repository structure, configuration contract, local commands, onboarding and applicable checks | project-conventions in development | Owns the foundation outcomes; accepted layout and tooling take precedence. |
+| Worktree, branch, staging, commit and PR mechanics | git-contributions in development | Keeps the objective reviewable; does not own runtime/package setup. |
+| Product-to-design-to-implementation engagement | develop in development | Establishes needed outcomes within scope; optional discipline packages deepen the method. |
+| CI, versioned artifacts, release/deployment compatibility, promotion and recovery | delivery-pipelines in delivery | Owns provider-neutral delivery decisions and evidence; an unknown target remains an unresolved boundary. |
+| Explicit release/readiness engagement | release in development | Coordinates the requested action and stopping point; delivery expertise is optional, not an automatic installation. |
+| Python/React/native/AI build, package and configuration mechanics | Matching technical package | Implements accepted decisions with compatible APIs and tools. |
+| GitHub Actions, Docker/Compose, registry and checker configuration | development-tooling | Supplies selected implementation details; no implied provider adoption or publication. |
+| Signal/recovery requirements, incidents and restoration exercises | operations | Owns running-system outcomes; platform and telemetry-backend configuration is optional technical expertise. |
+| Authoritative knowledge and source-backed explanation | documentation | Keeps useful knowledge current; setup and delivery retain their own required outcomes. |
+
+A workflow-only setup still establishes applicable onboarding, reproducible commands, meaningful checks and artifact/delivery/recovery expectations. It uses available project facts and tools without promising specialist depth. Missing optional guidance neither deletes these outcomes nor requires installation. Methods are discovered by name from actual inventory, with no cross-plugin filesystem links or automatic explicit-only task invocations.
+
+### Content that needs separating
+
+The inventory table assigns a primary owner to each existing skill. These assignments do not mean its current text is already independent:
+
+| Current content | Generic owner | Technical owner |
+| --- | --- | --- |
+| project-conventions and its quality/local-environment references | development: foundation contracts, isolation/readiness and check-selection principles | Language defaults to matching stacks; Compose, hook/checker configuration and preferred diagnostics setup to development-tooling |
+| delivery-pipelines and artifact/workflow references | delivery: verification, artifact identity, promotion, authorization and recovery | development-tooling: GitHub Actions/GHCR/container mechanics; ecosystem packaging mechanics to matching stacks |
+| ai-conventions | ai-development: only provider-independent task/authority/evaluation and framework-selection reasoning | ai-python-development: Python/Gemini/FastMCP mechanics; ADK and LangChain implementations to their packages |
+| build-evaluated-ai and evaluation/interaction references | ai-development: deterministic authority, quality evidence, streaming/generated-interface contracts and compatibility decisions | SDK/renderer integration to matching AI/frontend packages; backend/dashboard setup to development-tooling |
+| native-client-development | frontend-development: experience needs; development/system-design: consequential platform choice | frontend-native-development: Tauri/Expo/native lifecycle and driver implementation |
+| observability-operations and related local/AI references | operations: trustworthy outcome signals, collection/privacy/failure boundaries | development-tooling: selected Collector/backend deployment; language-specific instrumentation to matching stacks |
+| performance-testing, journey-testing, resilience-testing and quality examples | development: meaningful workload/journey/fault evidence and execution scope | development-tooling: k6, Playwright and concrete checker commands; native drivers to frontend-native-development |
+
+Existing personal preferences remain available in explicitly selected technical guidance or project instructions; they stop being universal generic defaults. AG-UI/A2UI and OpenTelemetry can remain conditional interoperability choices in methods, but implementation instructions must match accepted protocols and installed versions. This step does not acquire new tools or write the separated skill bodies.
+
+### Complete existing-skill assignment
+
+Each row has one primary target. Local links lead to the current source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. “Separate” marks a content boundary to implement before claiming generic independence.
+
+<details>
+<summary>All 96 current skills and their target owners</summary>
+
+| Skill | Origin | Current plugin | Target plugin | Disposition |
+| --- | --- | --- | --- | --- |
+| [business-opportunity-analysis](../../plugins/business-strategy/skills/business-opportunity-analysis/SKILL.md) | Local | business-strategy | `strategy` | Retain compatibility entry and resources; prefer business-strategy for new work. |
+| [business-strategy](../../plugins/business-strategy/skills/business-strategy/SKILL.md) | Local | business-strategy | `strategy` | Retain method and resources. |
+| [learn-from-product-feedback](../../plugins/business-strategy/skills/learn-from-product-feedback/SKILL.md) | Local | business-strategy | `strategy` | Retain method and resources. |
+| [product-management](../../plugins/business-strategy/skills/product-management/SKILL.md) | Local | business-strategy | `strategy` | Retain method and resources. |
+| [code-review](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/code-review) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [codebase-design](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/codebase-design) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [deliver-reliable-changes](../../plugins/development-workflow/skills/deliver-reliable-changes/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [dependencies](../../plugins/development-workflow/skills/dependencies/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [design](../../plugins/development-workflow/skills/design/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [develop](../../plugins/development-workflow/skills/develop/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [diagnosing-bugs](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/diagnosing-bugs) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [differential-review](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/differential-review/skills/differential-review) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [domain-modeling](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/domain-modeling) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [git-contributions](../../plugins/development-workflow/skills/git-contributions/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [grill-me](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grill-me) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [grill-with-docs](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/grill-with-docs) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [grilling](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grilling) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [handoff](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/handoff) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [harden](../../plugins/development-workflow/skills/harden/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [implement](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/implement) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [implement-spec](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/implement-spec) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [improve](../../plugins/development-workflow/skills/improve/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [improve-codebase-architecture](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/improve-codebase-architecture) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [journey-testing](../../plugins/development-workflow/skills/journey-testing/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [plan](../../plugins/development-workflow/skills/plan/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [project-conventions](../../plugins/development-workflow/skills/project-conventions/SKILL.md) | Local | development-workflow | `development` | Separate: retain foundation outcomes; move language, tooling and local-service defaults. |
+| [property-based-testing](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/property-based-testing/skills/property-based-testing) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [prototype](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/prototype) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [refine](../../plugins/development-workflow/skills/refine/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [release](../../plugins/development-workflow/skills/release/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [research](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/research) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [resilience-testing](../../plugins/development-workflow/skills/resilience-testing/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [retro](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/retro) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [review](../../plugins/development-workflow/skills/review/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [security-and-privacy-design](../../plugins/development-workflow/skills/security-and-privacy-design/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [setup](../../plugins/development-workflow/skills/setup/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [system-design](../../plugins/development-workflow/skills/system-design/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [system-mapping](../../plugins/development-workflow/skills/system-mapping/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [tdd](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/tdd) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [test](../../plugins/development-workflow/skills/test/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [to-questionnaire](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/to-questionnaire) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [to-spec](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/to-spec) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [workflow-help](../../plugins/development-workflow/skills/workflow-help/SKILL.md) | Local | development-workflow | `development` | Retain method and resources. |
+| [writing-for-agents](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/writing-for-agents) | Upstream | development-workflow | `development` | Retain method and resources. |
+| [credential-lifecycle](../../plugins/application-operations/skills/credential-lifecycle/SKILL.md) | Local | application-operations | `operations` | Retain method and resources. |
+| [incident-response](../../plugins/application-operations/skills/incident-response/SKILL.md) | Local | application-operations | `operations` | Retain method and resources. |
+| [observability-operations](../../plugins/application-operations/skills/observability-operations/SKILL.md) | Local | application-operations | `operations` | Separate: retain signal contracts/operations; move backend installation and preferred-vendor configuration. |
+| [operational-housekeeping](../../plugins/application-operations/skills/operational-housekeeping/SKILL.md) | Local | application-operations | `operations` | Retain method and resources. |
+| [optimize-application-cost](../../plugins/application-operations/skills/optimize-application-cost/SKILL.md) | Local | application-operations | `operations` | Retain method and resources. |
+| [plan-application-capacity](../../plugins/application-operations/skills/plan-application-capacity/SKILL.md) | Local | application-operations | `operations` | Retain method and resources. |
+| [postmortem-facilitation](../../plugins/application-operations/skills/postmortem-facilitation/SKILL.md) | Local | application-operations | `operations` | Retain method and resources. |
+| [postmortem-followup](../../plugins/application-operations/skills/postmortem-followup/SKILL.md) | Local | application-operations | `operations` | Retain method and resources. |
+| [protect-and-restore-data](../../plugins/application-operations/skills/protect-and-restore-data/SKILL.md) | Local | application-operations | `operations` | Retain method and resources. |
+| [reliability-design](../../plugins/application-operations/skills/reliability-design/SKILL.md) | Local | application-operations | `operations` | Retain method and resources. |
+| [runbook-engineering](../../plugins/application-operations/skills/runbook-engineering/SKILL.md) | Local | application-operations | `operations` | Retain method and resources. |
+| [vulnerability-management](../../plugins/application-operations/skills/vulnerability-management/SKILL.md) | Local | application-operations | `operations` | Retain method and resources. |
+| [interaction-design](../../plugins/web-frontend/skills/interaction-design/SKILL.md) | Local | web-frontend | `frontend-development` | Retain method and resources. |
+| [interface-quality](../../plugins/web-frontend/skills/interface-quality/SKILL.md) | Local | web-frontend | `frontend-development` | Retain method and resources. |
+| [usability-research](../../plugins/web-frontend/skills/usability-research/SKILL.md) | Local | web-frontend | `frontend-development` | Retain method and resources. |
+| [ux-writing](../../plugins/web-frontend/skills/ux-writing/SKILL.md) | Local | web-frontend | `frontend-development` | Retain method and resources. |
+| [visual-design](../../plugins/web-frontend/skills/visual-design/SKILL.md) | Local | web-frontend | `frontend-development` | Retain method and resources. |
+| [backend-design](../../plugins/development-workflow/skills/backend-design/SKILL.md) | Local | development-workflow | `backend-development` | Retain method and resources. |
+| [build-evaluated-ai](../../plugins/ai-development/skills/build-evaluated-ai/SKILL.md) | Local | ai-development | `ai-development` | Separate: retain AI/interaction contracts; move vendor setup and SDK examples. |
+| [delivery-pipelines](../../plugins/development-workflow/skills/delivery-pipelines/SKILL.md) | Local | development-workflow | `delivery` | Separate: retain delivery contracts; move provider/container/registry implementation. |
+| [architecture-documentation](../../plugins/development-workflow/skills/architecture-documentation/SKILL.md) | Local | development-workflow | `documentation` | Retain method and resources. |
+| [documentation-conventions](../../plugins/development-workflow/skills/documentation-conventions/SKILL.md) | Local | development-workflow | `documentation` | Retain method and resources. |
+| [documentation-writing](../../plugins/development-workflow/skills/documentation-writing/SKILL.md) | Local | development-workflow | `documentation` | Retain method and resources. |
+| [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) | Upstream | development-workflow | `documentation` | Retain method and resources. |
+| [architecture-diagramming](../../plugins/visual-communication/skills/architecture-diagramming/SKILL.md) | Local | visual-communication | `visualization` | Retain method and resources. |
+| [presentation-building](../../plugins/visual-communication/skills/presentation-building/SKILL.md) | Local | visual-communication | `visualization` | Retain method and resources. |
+| [system-flow-explorer](../../plugins/visual-communication/skills/system-flow-explorer/SKILL.md) | Local | visual-communication | `visualization` | Retain method and resources. |
+| [backend-conventions](../../plugins/python-backend/skills/backend-conventions/SKILL.md) | Local | python-backend | `backend-python-development` | Retain Python mechanics; shared service decisions stay in backend-development. |
+| [modern-python](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/modern-python/skills/modern-python) | Upstream | python-backend | `backend-python-development` | Retain matching technical implementation and resources. |
+| [python-automation-engineering](../../plugins/python-backend/skills/python-automation-engineering/SKILL.md) | Local | python-backend | `backend-python-development` | Retain Python automation; use outside backend services remains supported. |
+| [frontend-conventions](../../plugins/web-frontend/skills/frontend-conventions/SKILL.md) | Local | web-frontend | `frontend-reactjs-development` | Retain React mechanics; shared visual/interaction decisions stay in frontend-development. |
+| [shadcn](https://github.com/shadcn-ui/ui/tree/6b600cf1ff42f8a746747ea587e52af3ee224643/skills/shadcn) | Upstream | web-frontend | `frontend-reactjs-development` | Retain matching technical implementation and resources. |
+| [tailwind-design-system](https://github.com/wshobson/agents/tree/46891e7e60da0e52baf1050b7b6391b64e84c6d9/plugins/frontend-mobile-development/skills/tailwind-design-system) | Upstream | web-frontend | `frontend-reactjs-development` | Retain matching technical implementation and resources. |
+| [vercel-composition-patterns](https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/composition-patterns) | Upstream | web-frontend | `frontend-reactjs-development` | Retain matching technical implementation and resources. |
+| [vercel-react-best-practices](https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/react-best-practices) | Upstream | web-frontend | `frontend-reactjs-development` | Retain matching technical implementation and resources. |
+| [native-client-development](../../plugins/web-frontend/skills/native-client-development/SKILL.md) | Local | web-frontend | `frontend-native-development` | Separate: keep native implementation; framework-neutral experience decisions stay in frontend-development. |
+| [adk-agent-builder](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/agents/skills/adk-agent-builder) | Upstream | ai-development | `ai-adk-development` | Retain matching technical implementation and resources. |
+| [adk-architecture](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/agents/skills/adk-architecture) | Upstream | ai-development | `ai-adk-development` | Retain matching technical implementation and resources. |
+| [langchain-dependencies](https://github.com/langchain-ai/langchain-skills/tree/16a992f09ab3ccfb642dd4f08d350d833d1990bf/config/skills/langchain-dependencies) | Upstream | ai-development | `ai-langchain-development` | Retain matching technical implementation and resources. |
+| [langchain-fundamentals](https://github.com/langchain-ai/langchain-skills/tree/16a992f09ab3ccfb642dd4f08d350d833d1990bf/config/skills/langchain-fundamentals) | Upstream | ai-development | `ai-langchain-development` | Retain matching technical implementation and resources. |
+| [langgraph-fundamentals](https://github.com/langchain-ai/langchain-skills/tree/16a992f09ab3ccfb642dd4f08d350d833d1990bf/config/skills/langgraph-fundamentals) | Upstream | ai-development | `ai-langchain-development` | Retain matching technical implementation and resources. |
+| [langgraph-persistence](https://github.com/langchain-ai/langchain-skills/tree/16a992f09ab3ccfb642dd4f08d350d833d1990bf/config/skills/langgraph-persistence) | Upstream | ai-development | `ai-langchain-development` | Retain matching technical implementation and resources. |
+| [ai-conventions](../../plugins/ai-development/skills/ai-conventions/SKILL.md) | Local | ai-development | `ai-python-development` | Separate: keep Python/provider/MCP mechanics here; ADK and LangChain mechanics go to their own packages. |
+| [mcp-builder](https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/mcp-builder) | Upstream | ai-development | `ai-python-development` | Retain complete acquired resources and native controls; protocol outcomes stay in ai-development. |
+| [bash-engineering](../../plugins/development-workflow/skills/bash-engineering/SKILL.md) | Local | development-workflow | `development-tooling` | Retain matching technical implementation and resources. |
+| [github-actions-hardening](https://github.com/github/awesome-copilot/tree/143a3d976b3c1603cc8932984d5e1f28501cb5fc/skills/github-actions-hardening) | Upstream | development-workflow | `development-tooling` | Retain GitHub Actions mechanics; delivery contracts stay in delivery. |
+| [performance-testing](../../plugins/development-workflow/skills/performance-testing/SKILL.md) | Local | development-workflow | `development-tooling` | Retain k6 implementation; journey/verification decisions stay in development. |
+| [playwright-cli](https://github.com/microsoft/playwright-cli/tree/b85c7a736bb473bf55b584e54a09ffa698d6d871/skills/playwright-cli) | Upstream | development-workflow | `development-tooling` | Retain matching technical implementation and resources. |
+| [supply-chain-risk-auditor](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor) | Upstream | development-workflow | `development-tooling` | Retain scripts and supported-lockfile limits; risk priority stays in dependencies/vulnerability-management. |
+| [aks-cost-optimization](https://github.com/Azure/AKS-Skills/tree/20bf35201a79b324d2ca3e00e5c82020ff362024/skills/aks-cost-optimization) | Upstream | application-operations | `operations-platforms` | AKS only; retain all six references and platform limits. |
+| [infra-jvm-optimization](../../plugins/application-operations/skills/infra-jvm-optimization/SKILL.md) | Local | application-operations | `operations-platforms` | JVM only; Kubernetes examples require matching infrastructure. |
+| [kubernetes-resource-engineering](../../plugins/application-operations/skills/kubernetes-resource-engineering/SKILL.md) | Local | application-operations | `operations-platforms` | Kubernetes only; no platform adoption implied. |
+
+</details>
+
+### Resource and invocation closure
+
+Keep the 18 retained Matt skills together in development, including their research, interview, domain-modeling, implementation, review, retrospective and writing-for-agents dependencies. These supporting techniques help that workflow operate independently; they need no catch-all supporting package. Moving Humanizer to documentation must not make prose editing a hard dependency of development. Use Humanizer when available; ordinary writing still proceeds without it. Writing-for-agents remains available locally for the retrospective workflow.
+
+Shared TASKS.md/WORKFLOW.md framing, local relative references, upstream adaptations and optional Figma configuration need a containment review when skills move. Each independently installed package must carry the instructions/resources it requires; it may use a small scoped framing file and discover optional methods by name. Keep the complete Humanizer, diagram/presentation/explorer, supply-chain scripts, AKS references, ADK pair and LangChain group. Moving an acquired skill changes its destination and may require adaptation changes, but its reviewed source pin, license and native controls remain authoritative.
+
+Figma remains optional tooling for frontend-development; its declaration must not be attached to the React package simply because it currently lives beside React skills. Tool availability and authorized file access are separate from installing interface methods. A skills-only distribution will need the same resource closure; the current legacy symlink helper does not establish it.
+
+### Inventory coverage and next boundary
+
+The assignment covers 59 local skills and 37 distinct acquired skills exactly once, with no omissions or duplicate owners.
+
+The next task separates principles from technical mechanics before moving packages. Later steps update manifests, builder defaults, acquisition destinations/adaptations, notices, CI, migration, installation routes and diagrams together. Until then, the existing installation guide and source catalogue describe actual packages. Repository checks validate this plan's links and coverage, not standalone packaging or agent behavior. Behavioral evaluations remain deferred.
