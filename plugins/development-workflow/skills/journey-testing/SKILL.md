@@ -17,21 +17,19 @@ Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation bo
 
 ## Define the claim and boundary
 
-Read acceptance criteria and existing tests. Select the main affected journey and meaningful failure cases; allocate focused logic and combinatorial edge cases to unit/integration tests. Select an actual platform driver using the table below. Use installed tools for repeatable checks and exploratory operation; an MCP is optional. Keep regression tests and representative scenarios in the target application.
+Read acceptance criteria and existing tests. Select the main affected journey and meaningful failure cases; allocate focused logic and combinatorial edge cases to unit/integration tests. Select an actual platform driver compatible with the surface and claim below, preserving an existing suite. Use installed tools for repeatable checks and exploratory operation; an MCP is optional. Keep regression tests and representative scenarios in the target application.
 
-For a full-stack claim, exercise the real frontend, API and the application's actual persistence layer, with migrations applied where applicable. Use PostgreSQL when that is the selected stack; preserve an existing database choice. Keep external providers replaceable with controlled fixtures in routine CI; report that boundary. A mock API or browser-only demo proves a narrower claim and must be named as such.
+For a full-stack claim, exercise the real frontend, API and the application's actual persistence layer, with migrations applied where applicable. Preserve the selected database and exercise its actual transaction/persistence boundary. Keep external providers replaceable with controlled fixtures in routine CI; report that boundary. A mock API or browser-only demo proves a narrower claim and must be named as such.
 
 ## Select the platform and evidence
 
-| Surface | Starting point | Boundary to verify |
-| --- | --- | --- |
-| Web | Playwright plus installed browser CLI/MCP for exploration | Actual browsers, responsive sizes, keyboard/focus and relevant role variants |
-| Tauri | Supported native/WebView automation for the actual target; component/browser checks supplement it | Packaged shell, IPC capabilities, lifecycle and OS integration; web preview is narrower evidence |
-| Electron | Playwright Electron support where compatible (experimental) | Renderer coverage does not prove native dialogs, packaging, updates or filesystem integration |
-| Native desktop | Platform-native automation or an appropriate maintained Appium driver | Named supported OS and packaged application; inspect driver maintenance/limitations |
-| Android/iOS | Maestro for suitable flows or Appium/platform-native tooling | Actual emulator/device, lifecycle, permissions, keyboard, offline and supported OS behavior |
+| Surface | Evidence boundary |
+| --- | --- |
+| Web | Actual supported browsers, responsive sizes, keyboard/focus and relevant role variants |
+| Desktop | Packaged application, native shell/IPC, lifecycle and OS integration on the supported target |
+| Mobile | Each supported emulator/device platform, lifecycle, permissions, keyboard, offline and OS behavior |
 
-A mobile viewport is not a native-mobile test. Maestro's desktop authoring app does not automate arbitrary native desktop applications. Compose can supply backend services; desktop clients and simulators normally run on the appropriate host. Record device/OS/browser/build identities. Test the selected application's real platform; supporting these methods does not add those frameworks to this repository.
+Use available tooling-conventions for chosen web/component drivers and native-client-development for supported native drivers. A mobile viewport cannot establish native behavior, a web preview cannot establish a packaged shell, and a backend run cannot establish client integration. Record actual device/OS/browser/build identities and missing capabilities; selecting a method does not install a driver or change the client framework.
 
 Combine a small critical journey suite with component/state checks, visual regression, accessibility evaluation and bounded agent exploration. Use a component-state catalogue such as Storybook when the project benefits from it; it is optional. Stabilize data, rendering environment, fonts, time and animations for visual comparisons; compare against the accepted design and reviewed baselines. A changed screenshot is evidence to investigate, not permission to accept a new baseline. Automated accessibility checks complement keyboard, screen-reader and user evaluation where needed; they do not prove accessibility or usability.
 
@@ -66,4 +64,4 @@ For suite upkeep, follow deliver-reliable-changes: temporary flaky-test quaranti
 
 Use deliver-reliable-changes for scenario selection and the implement/test/inspect/repair loop. This skill supplies platform and outcome evidence, including actual callers of shared components. Reconcile observed results with accepted interactions and visual references; investigate differences before changing a baseline. Preserve incomplete coverage and unresolved human judgments in the result.
 
-For deeper driver setup and evaluation methods use [journey references](references/journey-references.md). Core decisions above should suffice for ordinary work.
+For the implementation feedback loop and evidence methods use [journey references](references/journey-references.md). For demand/load claims read [performance claims](references/performance-claims.md); actual driver/tool setup belongs to matching installed technical expertise. Core decisions above should suffice for ordinary work.

@@ -1,0 +1,11 @@
+# Version-matched interaction integration
+
+Use only for an accepted AG-UI/A2UI integration with compatible SDK, backend, renderer and target framework. These protocol details do not select Python, React or an agent framework. Preserve the selected protocol and verify current first-party specifications before implementation.
+
+Select a compatible SDK, backend adapter, transport, renderer and protocol revision from current first-party documentation. A2UI versions have different message contracts; pin the chosen specification and matching renderer/catalog. On 15 October 2026 the published site identified 0.9.1 as current and 1.0 as candidate; recheck before implementation rather than treating this observation as a permanent default. Verify React, React Native or other renderer support instead of promising universal parity from the protocol alone.
+
+Validate emitted wire messages against the chosen published protocol schemas and exercise a compatible renderer or independent conformance fixture. Matching a custom Pydantic/Zod model to its own tests does not establish interoperability. For A2UI 0.9.1 the standard versioned envelopes use createSurface, updateComponents, updateDataModel and deleteSurface; a private recursive surface_id/components tree is not that protocol. Custom catalogs extend approved component/action definitions while preserving the selected message envelope and binding contract. Label private application formats as extensions rather than naming them A2UI.
+
+Use the selected AG-UI SDK/event schemas for transport messages too. Application names such as session.ready or turn.start are custom semantics; carry them through the standard CUSTOM event envelope rather than presenting private bare event types as AG-UI conformance.
+
+Check the actual stream and rendered action round trip, including cancellation, reconnect and denied actions. Use independent schema/renderer evidence instead of validating only an application-owned imitation. See [AG-UI](https://docs.ag-ui.com/introduction), [A2UI](https://a2ui.org/) and [renderer development](https://a2ui.org/guides/renderer-development/). Framework-specific adapters belong with their selected framework integration; this reference remains useful for a direct SDK implementation.

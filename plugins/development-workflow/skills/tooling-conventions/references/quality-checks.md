@@ -1,11 +1,9 @@
 # Focused quality checks
 
-Use the tools matching the repository, preserving established alternatives. Author configuration in the target application; this collection does not install hooks or wrap Super-Linter.
+Use the tools matching the repository, preserving established alternatives. Language lint/type/test tools belong to the matching stack conventions. Author configuration in the target application; this collection does not install hooks or wrap Super-Linter.
 
 | Concern | Starting point | When |
 | --- | --- | --- |
-| Python | [Ruff](https://docs.astral.sh/ruff/), chosen type checker | Affected files during implementation; required project checks in CI |
-| JavaScript/TypeScript | [ESLint](https://eslint.org/docs/latest/use/), project formatter, TypeScript | Affected files and relevant type/build boundary |
 | YAML | [yamllint](https://yamllint.readthedocs.io/en/stable/) | Changed YAML, preserving workflow/template semantics |
 | GitHub Actions | [actionlint](https://github.com/rhysd/actionlint) | Workflow changes and CI validation |
 | Dockerfiles | [Hadolint](https://github.com/hadolint/hadolint) plus actual Docker builds/startup | Container build/runtime changes |

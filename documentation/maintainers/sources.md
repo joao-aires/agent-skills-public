@@ -175,7 +175,7 @@ I separate the requested activity, reusable discipline and technical implementat
 | Product direction | Product-management owns problem evidence, priorities, useful scope, success signals and sequencing. Product-feedback owns evidence synthesis; refine owns engineering requirements. |
 | System and service design | System-design owns architectural boundaries; backend-design owns service authority, state, failure and consumer contracts. Python conventions retain concrete runtime/persistence mechanics. |
 | Interface design | Visual-design owns product-derived direction and token intent; interaction-design owns flows and coverage; interface-quality owns critique. React and native conventions implement these decisions with compatible primitives. |
-| AI and protocols | Build-evaluated-ai owns provider-independent contracts, authority and evaluation. Ai-conventions owns Gemini/ADK/LangChain/FastMCP and concrete observability integration defaults. |
+| AI and protocols | Build-evaluated-ai owns provider-independent contracts, authority and evaluation. Ai-conventions owns Python/Gemini/FastMCP integration; upstream specialists retain ADK/LangChain implementation. Selected telemetry/backend setup belongs to tooling-conventions. |
 | Navigation | Workflow-help recommends activities; develop coordinates an explicitly requested engagement. TASKS.md links conditional methods and adapters from actual inventory. No global router or dependency engine is added. |
 
 I reviewed Anthropic's product-brainstorming and roadmap-update skills at [33eeda1](https://github.com/anthropics/knowledge-work-plugins/tree/33eeda1e8fd856455b05479d13a0f85b5f803744/product-management/skills), under its [Apache-2.0 license](https://github.com/anthropics/knowledge-work-plugins/blob/33eeda1e8fd856455b05479d13a0f85b5f803744/LICENSE). They offer problem exploration, assumption testing, outcome-oriented roadmaps and dependency reasoning. Their larger workflow includes fixed ideation counts, connected-tool assumptions and suggested follow-ups that do not fit every bounded development request.
@@ -188,7 +188,7 @@ Independently installable bundles retain concise essential defaults and discover
 
 ## Target plugin ownership
 
-This is the task-1 ownership plan for the next packaging changes in PR #19. `delivery` is the chosen plugin name. The inventory is the current 59 local and 37 acquired skills, checked against the source tree and lockfile at `96dbdb1`. The package names below are targets; the repository still builds seven existing plugins. No folders, manifests, acquisition pins, client installations or invocation controls have changed in this step.
+This is the target ownership plan for PR #19. `delivery` is the chosen plugin name. Task 1 assigned 59 local and 37 acquired skills against the source tree/lockfile at `96dbdb1`. Task 2 adds tooling-conventions as the technical owner of separated resources, giving 60 local plus 37 acquired skills. The map below includes that addition. The package names remain targets: seven existing plugins still build, with unchanged acquisition pins and invocation controls. Task 2 changes skill content, reference locations and affected package versions; package moves and installation changes remain later work.
 
 A plugin represents a useful installation choice. Workflow, application discipline and supporting capability describe its purpose; generic versus technical describes its applicability. These groups do not impose an execution order or dependencies. Installing a technical package makes expertise available without accepting its technology for a project. Keep accepted choices, select matching guidance from actual inventory and retain useful outcomes when optional specialists are absent.
 
@@ -213,7 +213,7 @@ The target has nine generic capability packages and eight optional technical pac
 | `ai-adk-development` | Technical | 2 | Google ADK; preserve the paired architecture/builder skills. |
 | `ai-langchain-development` | Technical | 4 | LangChain/LangGraph and dependencies/persistence as a complete group. |
 | `ai-python-development` | Technical | 2 | Python model/provider adapters and standalone FastMCP; no ADK/LangChain requirement. |
-| `development-tooling` | Technical | 5 | Optional Bash, browser/load testing, delivery/configuration tooling and lockfile audit implementations. |
+| `development-tooling` | Technical | 6 | Optional Bash, browser/load testing, delivery/configuration tooling and lockfile audit implementations. |
 | `operations-platforms` | Technical | 3 | Optional JVM, Kubernetes and AKS expertise; match each skill independently to the actual platform. |
 
 Generic means no required language, framework, provider or platform selection. Comparing technologies, naming optional standards and explaining compatibility remain useful. Concrete implementation and preferred-tool setup belong to technical guidance. Classification must follow the body and its references, not just the metadata label.
@@ -237,7 +237,7 @@ A workflow-only setup still establishes applicable onboarding, reproducible comm
 
 ### Content that needs separating
 
-The inventory table assigns a primary owner to each existing skill. These assignments do not mean its current text is already independent:
+The inventory table assigns a primary owner to each existing skill. Task 2 separates these responsibilities in the skill bodies and resources. The physical package boundary remains pending:
 
 | Current content | Generic owner | Technical owner |
 | --- | --- | --- |
@@ -249,14 +249,14 @@ The inventory table assigns a primary owner to each existing skill. These assign
 | observability-operations and related local/AI references | operations: trustworthy outcome signals, collection/privacy/failure boundaries | development-tooling: selected Collector/backend deployment; language-specific instrumentation to matching stacks |
 | performance-testing, journey-testing, resilience-testing and quality examples | development: meaningful workload/journey/fault evidence and execution scope | development-tooling: k6, Playwright and concrete checker commands; native drivers to frontend-native-development |
 
-Existing personal preferences remain available in explicitly selected technical guidance or project instructions; they stop being universal generic defaults. AG-UI/A2UI and OpenTelemetry can remain conditional interoperability choices in methods, but implementation instructions must match accepted protocols and installed versions. This step does not acquire new tools or write the separated skill bodies.
+Existing personal preferences remain available in explicitly selected technical guidance or project instructions; they stop being universal generic defaults. AG-UI/A2UI and OpenTelemetry can remain conditional interoperability choices in methods, but implementation instructions must match accepted protocols and installed versions. The technical toolkit retains selected GitHub/GHCR, Compose, SigNoz/Langfuse and checker preferences as conditional implementation guidance. No new upstream tools are acquired.
 
 ### Complete existing-skill assignment
 
-Each row has one primary target. Local links lead to the current source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. “Separate” marks a content boundary to implement before claiming generic independence.
+Each row has one primary target. Local links lead to the current source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. “Separate” records the content boundaries addressed in task 2; standalone package independence still requires the package moves.
 
 <details>
-<summary>All 96 current skills and their target owners</summary>
+<summary>All 97 current skills and their target owners</summary>
 
 | Skill | Origin | Current plugin | Target plugin | Disposition |
 | --- | --- | --- | --- | --- |
@@ -353,6 +353,7 @@ Each row has one primary target. Local links lead to the current source; upstrea
 | [performance-testing](../../plugins/development-workflow/skills/performance-testing/SKILL.md) | Local | development-workflow | `development-tooling` | Retain k6 implementation; journey/verification decisions stay in development. |
 | [playwright-cli](https://github.com/microsoft/playwright-cli/tree/b85c7a736bb473bf55b584e54a09ffa698d6d871/skills/playwright-cli) | Upstream | development-workflow | `development-tooling` | Retain matching technical implementation and resources. |
 | [supply-chain-risk-auditor](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor) | Upstream | development-workflow | `development-tooling` | Retain scripts and supported-lockfile limits; risk priority stays in dependencies/vulnerability-management. |
+| [tooling-conventions](../../plugins/development-workflow/skills/tooling-conventions/SKILL.md) | Local | development-workflow | `development-tooling` | Added in task 2: owns selected CI/container/registry/checker/telemetry and web-driver implementation references. |
 | [aks-cost-optimization](https://github.com/Azure/AKS-Skills/tree/20bf35201a79b324d2ca3e00e5c82020ff362024/skills/aks-cost-optimization) | Upstream | application-operations | `operations-platforms` | AKS only; retain all six references and platform limits. |
 | [infra-jvm-optimization](../../plugins/application-operations/skills/infra-jvm-optimization/SKILL.md) | Local | application-operations | `operations-platforms` | JVM only; Kubernetes examples require matching infrastructure. |
 | [kubernetes-resource-engineering](../../plugins/application-operations/skills/kubernetes-resource-engineering/SKILL.md) | Local | application-operations | `operations-platforms` | Kubernetes only; no platform adoption implied. |
@@ -369,6 +370,14 @@ Figma remains optional tooling for frontend-development; its declaration must no
 
 ### Inventory coverage and next boundary
 
-The assignment covers 59 local skills and 37 distinct acquired skills exactly once, with no omissions or duplicate owners.
+The assignment covers 60 local skills and 37 distinct acquired skills exactly once, with no omissions or duplicate owners.
 
-The next task separates principles from technical mechanics before moving packages. Later steps update manifests, builder defaults, acquisition destinations/adaptations, notices, CI, migration, installation routes and diagrams together. Until then, the existing installation guide and source catalogue describe actual packages. Repository checks validate this plan's links and coverage, not standalone packaging or agent behavior. Behavioral evaluations remain deferred.
+Task 2 separates principles from technical mechanics within the current packages; it does not establish standalone installation of the target packages. The next task moves packages and updates manifests, builder defaults, acquisition destinations/adaptations, notices, CI, migration, installation routes and diagrams together. Until then, the existing installation guide and source catalogue describe actual packages. Repository checks validate this plan's links and coverage, not standalone packaging or agent behavior. Behavioral evaluations remain deferred.
+
+### Task-2 content separation
+
+Project conventions now own foundation outcomes without choosing an application language, CI provider, container engine or telemetry vendor. Delivery pipelines retain promotion/trust/recovery contracts and discover optional implementation guidance. Tooling-conventions owns the moved quality, local-environment, workflow, artifact and telemetry-backend references, with container, browser and failure-tool details. Language lint defaults remain in their accepted stack owners.
+
+AI methods retain provider-independent selection, deterministic authority, evaluation and protocol evidence. Concrete Python/provider APIs and versioned interaction examples live in ai-conventions; the paired ADK skills and complete LangChain group remain unchanged. Interface methods retain platform-independent behavior, while native-client-development owns compatible drivers and native implementation without requiring a Python backend. Observability retains signal outcomes with no preferred backend. Journey/resilience methods retain application/platform evidence and general workload/failure reasoning, with actual tool setup conditional.
+
+The separation adds one technical supporting skill and moves resources, without changing existing names/native controls, source pins, acquisition adaptations or behavioral cases. The unchanged seven-package build still mixes generic and technical skills; this step does not claim the future workflow-only installation exists. Behavioral evaluations remain deferred.

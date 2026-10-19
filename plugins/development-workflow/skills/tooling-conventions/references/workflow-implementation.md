@@ -11,6 +11,10 @@ CI is orchestration; task runners own reusable build logic. These conventions ge
 - Pin action revisions, toolchains and dependency locks according to the supply-chain policy. Verify updates; `latest` and floating internal branches are not immutable references.
 - Scope caches by trust/toolchain/lock inputs and prevent untrusted caches from poisoning privileged builds.
 
+## Names and source locations
+
+Keep GitHub Actions entrypoints in `.github/workflows/` and application scripts/Dockerfiles beside their owner. For new workflows, prefer `<activity>-<application>.yml` such as `ci-api.yml`, `release-api.yml` and `deploy-api.yml`, with display names such as `CI / API` and `Deploy / API`. Use descriptive lowercase job IDs and short verb-object step names; include target/artifact identity in deployment runs. Preserve a consistent existing convention.
+
 ## Workflow structure
 
 Document typed inputs, defaults, secrets, outputs and failure semantics. Optional additive inputs are easier to evolve; renaming/removing/changing a default can break consumers. Reusable workflows orchestrate jobs; composite actions usually suit shared steps; code actions suit substantial host API logic; container actions suit packaged tool environments.

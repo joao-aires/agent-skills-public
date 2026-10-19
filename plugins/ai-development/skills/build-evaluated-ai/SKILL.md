@@ -16,7 +16,7 @@ For MCP-only work, use the MCP section below; no LLM, agent framework or model-q
 
 Define the product task, input/output contract and observable success before choosing an agent framework. Preserve agreed scope and existing architecture.
 
-Choose the smallest boundary that can satisfy the accepted behavior: a direct call may be sufficient, while orchestration or durable state needs explicit justification. Use [AI conventions](../ai-conventions/SKILL.md) when selecting or integrating a provider, framework, Python MCP implementation or observability tool. Preserve the accepted stack and keep domain behavior testable without a model.
+Choose the smallest boundary that can satisfy the accepted behavior: a direct SDK call may suffice; orchestration needs justify a framework; explicit state transitions, resumability or durable work can justify a stateful runtime. Compare options against the task, authority, persistence and operating constraints, preserving accepted choices. Select matching installed technical specialists for actual provider/framework/protocol APIs; their absence does not choose a stack or authorize installation. Keep domain behavior testable without a model.
 
 ## Keep correctness outside the model
 
@@ -41,7 +41,7 @@ Keep representative inputs, expected outcomes/rubrics, dataset revision and dete
 
 After meaningful AI changes run deterministic handling checks, then authorized live quality comparisons when relevant. Record code/model/prompt/tool configuration and dataset/evaluator versions, sample size, per-case failures, latency and usage alongside quality. Repeat stochastic cases sufficiently for the decision and report variability; one favorable generation or aggregate score cannot hide failed authority/task constraints. Calibrate model judges against accepted human examples, include human review for unresolved subjective judgments and keep deterministic invariants outside the judge. Do not silently change expected outputs, thresholds or rubrics to pass. Mocks establish application behavior only.
 
-Keep evaluation runnable without a dashboard. Instrument logical task and tool outcomes where useful, protect sensitive data and use ai-conventions for concrete SDK/observability integration. Missing provider access leaves live quality unverified. Consult [evaluation references](references/evaluation-references.md) for deeper methods.
+Keep evaluation runnable without a dashboard. Instrument logical task and tool outcomes where useful, protect sensitive data and use available matching technical guidance for SDK/observability integration. Missing provider access leaves live quality unverified. Consult [evaluation references](references/evaluation-references.md) for deeper methods.
 
 ## Report completion and limits
 
@@ -49,7 +49,7 @@ Version evaluation examples and prompts when they affect behavior. Report what i
 
 ## Build MCP interfaces
 
-Use ai-conventions and the selected version-matched protocol specialist for implementation. A protocol interface does not imply a model or framework choice.
+Use the accepted implementation language and available version-matched protocol specialists. Define discovery, lifecycle and transport behavior before choosing an SDK; a generic method does not select Python or FastMCP. A protocol interface does not imply a model or framework choice.
 
 Expose narrow typed tools over authorized application services. Verify discovery, contracts, missing/invalid credentials, resource ownership, side-effect policy, failure handling and transport/lifespan cleanup. MCP tooling can support AI applications without making the server itself an AI system.
 

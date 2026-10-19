@@ -1,6 +1,6 @@
 ---
 name: delivery-pipelines
-description: Create or review CI/CD, Dockerfiles and GitHub Actions for application
+description: Create or review provider-independent CI/CD and release contracts for application
   verification, artifact promotion, deployment and rollback or roll-forward. Apply
   when delivery infrastructure changes, within the requested repository and environment
   scope.
@@ -15,17 +15,13 @@ user-invocable: false
 
 ## Separate verification, artifacts and deployment
 
-Read the application commands, environment model and accepted deployment decisions. Keep workflows small enough to explain: CI verifies a change; release produces a versioned artifact; deployment promotes that artifact to an environment. Combine stages for a small application when clearer. Share repeated mechanics through reusable workflows or composite actions with explicit inputs, permissions and outputs; avoid a generic pipeline framework.
+Read the application commands, environment model and accepted deployment decisions. Keep workflows small enough to explain: CI verifies a change; release produces a versioned artifact; deployment promotes that artifact to an environment. Combine stages for a small application when clearer. Share repeated mechanics through the selected provider's reusable interfaces with explicit inputs, permissions and outputs; avoid a generic pipeline framework.
 
-Keep GitHub entrypoints in `.github/workflows/`; keep application-specific scripts and Dockerfiles beside their application. Run the same meaningful checks locally and in CI. Provide fast feedback before expensive integration/E2E checks, retain useful failure evidence, and make required checks stable across path filters. Do not let a skipped workflow leave a required check permanently pending.
+Keep provider-required entrypoints in their required locations and component-specific build/scripts beside their owner. Run the same meaningful checks locally and in CI. Provide fast feedback before expensive integration/E2E checks, retain useful failure evidence, and make required checks stable across path filters. Do not let a skipped workflow leave a required check permanently pending.
 
 ## Use readable names
 
-For new workflows, use `<activity>-<application>.yml`, such as `ci-api.yml`, `release-api.yml` and `deploy-api.yml`. Display names use `CI / API`, `Release / API`, `Deploy / API`; include the target and artifact in deployment run names. Use lowercase job IDs describing the responsibility (`unit-tests`, `build-image`, `deploy-staging`, `verify-production`) and human-readable job names. Give steps short verb-object names: `Install dependencies`, `Run API tests`, `Publish image`, `Verify deployment`. Follow a consistent existing convention rather than renaming everything. Names should explain purpose without opening the implementation.
-
-## Build reproducible containers
-
-Use trusted, maintained base images, explicit versions/digests with an update process, locked application dependencies, multi-stage builds where useful, and a minimal runtime containing only required files. Exclude secrets, local environments and irrelevant build inputs with `.dockerignore`. Order dependency and source layers for useful caching. Use build secret mounts; do not bake credentials into arguments, environment layers or copied files. Run as a non-root user where supported, make ownership explicit and preserve graceful termination. Verify the actual image starts with the deployment's command/configuration; a successful build is insufficient.
+Name workflows, jobs and steps by their purpose, component and target. Preserve a consistent existing convention. Make dependency order, required gates, inputs/outputs and failure behavior visible without reading every implementation detail. Use available tooling-conventions for the selected provider's syntax and reusable adapters.
 
 ## Promote and recover deliberately
 
@@ -39,9 +35,9 @@ Use backend/frontend conventions for process lifecycles, connection budgets, pro
 
 ## Protect the pipeline
 
-Use installed `github-actions-hardening` for detailed review. Keep permissions minimal, pin third-party actions to reviewed full commit SHAs with update automation, prefer OIDC to long-lived cloud keys, and treat PR content as untrusted. Separate untrusted validation from privileged publishing/deployment. Do not execute fork code with production credentials. Bound job duration and distinguish caches from deployable artifacts.
+Separate untrusted validation from privileged publication/deployment, minimize permissions and use supported short-lived credentials where available. Treat source/event inputs as untrusted, protect build inputs and caches across trust boundaries, and never expose deployment credentials to arbitrary change code. Pin executable dependencies according to the project's supply-chain policy, bound job duration and retain sanitized failure evidence. Use matching provider specialists when available; no CI host is required by this method.
 
-Report which checks and recovery paths were actually exercised, target environments and remaining gaps. Consult current [GitHub security guidance](https://docs.github.com/en/actions/reference/security/secure-use) and [Docker build guidance](https://docs.docker.com/build/building/best-practices/) for the project's versions and platform.
+Report which checks and recovery paths were exercised, target identities and remaining gaps. Configuration review, local execution and a remotely completed promotion are distinct evidence.
 
 ## Branching, releases and partial completion
 
@@ -51,9 +47,9 @@ A release rerun reconciles existing tags, artifacts and deployment state before 
 
 Use `reliability-design` for journey and alert contracts and `observability-operations` for signal readiness when those skills are available. Keep release verification meaningful without requiring a new monitoring vendor.
 
-Optional deeper guidance: [branch to production](references/branch-to-production.md) and [workflow implementation](references/workflow-implementation.md).
+For branching, partial releases and gate decisions, read [branch to production](references/branch-to-production.md). For selected provider/container/registry implementation, use available tooling-conventions and matching stack expertise.
 
-For performance workflows, use `performance-testing`: start the application and its dependencies on the runner for bounded regression checks, and run k6 against an identified deployed non-production environment for target-specific load checks. Preserve thresholds, failure status, result artifacts and cleanup; bind credentials and concurrency to the actual environment.
+For performance workflows, define an accepted workload and isolate application/dependency execution on the runner or use an identified authorized non-production target. Use available performance-testing only for a matching selected tool. Preserve thresholds, failure status, result artifacts and cleanup; bind credentials and concurrency to the actual environment.
 
 ## Deliver configuration and flag changes
 
@@ -64,15 +60,13 @@ Feature flags need a purpose, owner, intended audience, default/evaluation-failu
 For routine runtime/library/base-image upgrades, review supported versions and release notes, keep coupled versions coherent, regenerate lockfiles with the project's tools, verify affected behavior and publish a new tested artifact. Automation can propose updates; passing installation or a vulnerability scan alone does not establish compatibility. Follow accepted release/recovery conventions without imposing universal automatic merges.
 
 
-For application-on-runner checks, reuse the supported Compose services/configuration with isolated project/data/ports and explicit migrations, seed and readiness. Preserve failure exit status while collecting test screenshots/traces, service logs and correlated diagnostic evidence; clean up owned resources even on failure. Keep fast deterministic checks routine and heavier platform, visual, load/fault and real-model evaluations at appropriate risk-based milestones. Use appropriate native runners/devices for desktop/mobile checks. A Compose backend run does not prove native-client behavior; missing platform coverage stays visible.
+For application-on-runner checks, reuse the supported local service mechanism and configuration with isolated project/data/ports and explicit migrations, seed and readiness. Preserve failure exit status while collecting test screenshots/traces, service logs and correlated diagnostic evidence; clean up owned resources even on failure. Keep fast deterministic checks routine and heavier platform, visual, load/fault and real-model evaluations at appropriate risk-based milestones. Use appropriate native runners/devices for desktop/mobile checks. A backend run does not prove native-client behavior; missing platform coverage stays visible.
 
 
-For language/configuration/secret checks use the project's individual pinned tools and commands, selected by project-conventions. Keep local/hook and CI semantics aligned; CI checks the intended diff/full tree independently of developer hooks. YAML syntax checks do not replace actionlint's workflow checks, and staged Gitleaks checks do not establish clean history. Capture redacted useful failures and preserve nonzero exits. Do not add Super-Linter as a blanket dependency.
+For language/configuration/secret checks use the project's compatible tools and commands. Keep local/hook and CI semantics aligned; CI independently verifies its intended scope. A syntax check does not establish provider semantics, and a staged secret check does not establish clean history. Preserve failing status while collecting redacted evidence.
 
 ## Establish new-project artifact and deployment contracts
 
-A new application setup includes usable CI, artifact-build/release workflows and a deployment/recovery procedure, even when execution is local-only. Follow project-conventions for the foundation contract and use current first-party examples in [artifact defaults](references/artifact-defaults.md). Default to GitHub Actions for new GitHub-hosted projects unless an existing provider is accepted.
+A new application setup includes usable CI, artifact-build/release workflows and deployment/recovery procedures, even when execution is local-only. Use project-conventions when available for foundation outcomes. Select publication destinations from the artifact ecosystem, accepted distribution policy and actual namespace/ownership. Internal services need not become public packages. Native artifacts require platform identity, signing/provisioning, installation/update and recovery evidence.
 
-Use GHCR (`ghcr.io`) for Docker images. For a distributable Python package, build and validate wheel/sdist and default publication to PyPI; pip installs packages and is not a registry. Use npm for distributable JS/TS packages and the ecosystem's established registry for other package types. App-only/internal components need not become public packages. Native clients produce platform artifacts with signing/notarization/store prerequisites made explicit. Preparing release files does not authorize publishing an image, package, installer or store submission.
-
-PR CI validates code, configuration and meaningful tests and builds without privileged publication. Trusted release events publish the already-verified immutable artifacts with provenance/version identity and least-privilege credentials; reconcile reruns. Prefer supported trusted publishing/OIDC where the destination supports it. Require target inputs and readiness before deployment, promote by immutable identity, verify served behavior and retain a compatible recovery route. Do not create success-only placeholder workflows for unknown targets. Check workflow syntax and Dockerfiles, build/start images locally where available, and distinguish authored, linted, locally exercised and remotely executed stages.
+Untrusted change validation runs meaningful checks and builds without privileged publication. Trusted release stages publish verified immutable artifacts with provenance, scoped credentials and reconciled reruns. Require an agreed target/configuration before deployment, verify served behavior and retain compatible recovery. Preparing release files is not publication permission; an unknown target is not a reason to create success-only placeholder jobs. Distinguish authored, linted, locally exercised, published, deployed and outcome-verified stages.

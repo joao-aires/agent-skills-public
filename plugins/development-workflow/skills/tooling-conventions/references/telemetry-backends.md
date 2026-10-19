@@ -1,4 +1,4 @@
-# Portable telemetry references
+# Selected telemetry backend integration
 
 ## Instrumentation and routing
 
@@ -28,3 +28,9 @@ Backend routes are alternatives, or an explicitly configured fan-out. Applicatio
 - [Langfuse datasets](https://langfuse.com/docs/evaluation/experiments/datasets) and [self-hosting](https://langfuse.com/self-hosting): optional evaluation workflow, dependencies and edition boundaries.
 
 Collector routing makes instrumentation reusable; dashboards, alerts, queries and proprietary capabilities still need adaptation. Verify the actual target with representative data. Do not treat Grafana Cloud AI features as guaranteed features of a local OSS deployment.
+
+## Optional AI dataset services
+
+For a selected Langfuse workflow, verify dataset/experiment publication and supported edition/version behavior; retain application-side cases and scorers. [Langfuse datasets](https://langfuse.com/docs/evaluation/experiments/datasets) and [self-hosting](https://langfuse.com/self-hosting) describe the service boundary. [OpenTelemetry GenAI conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/) and [SigNoz AI observability](https://signoz.io/docs/ai-observability/) describe compatible signal setup. These services do not replace quality acceptance or deterministic authorization checks.
+
+For selected OpenTelemetry SDKs, prefer supported `OTEL_*` configuration and verify the actual runtime/exporter mapping. The application SDK owns initialization; avoid overlapping providers or double exports.

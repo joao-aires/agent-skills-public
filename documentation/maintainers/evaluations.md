@@ -8,7 +8,9 @@ The [evaluation cases](../../evals/development-workflows.json) contain 38 behavi
 
 Product-management, generic visual/backend methods, the AI method/adapter separation and conditional navigation are implemented as a follow-up to the merged writing refactor. This work stops before the planned architecture evaluation stage at my request. No new behavioral cases or application generation trials were executed, and existing scenario definitions remain unchanged. Repository checks establish metadata, links, packaging and resource consistency only; routing, cross-stack transfer and product outcomes remain for the next evaluation stage.
 
-The current architecture contains 59 local and 37 pinned upstream skills. Earlier results below describe their own inventories and revisions; they do not verify this architecture. Documentation reorganization does not rerun those trials.
+The current architecture contains 60 local and 37 pinned upstream skills after task-2 content separation. Earlier results below describe their own inventories and revisions; they do not verify this architecture. Documentation reorganization does not rerun those trials.
+
+Task-2 content separation adds a technical tooling owner, preserving all 59 pre-existing local skill names/native controls and the pinned acquisition/actor definitions. Repository metadata/link/unit checks and a fresh seven-plugin build establish source/resource integrity; the target 17-package independence is still pending. The authoring helper's quick validator rejects the existing supported `user-invocable` field; I retained that control and used the repository's full metadata/containment validation rather than stripping it to satisfy the narrower helper.
 
 ## Intended flows and execution levels
 
@@ -59,7 +61,7 @@ Next run fresh-desktop-from-product-idea from an empty repository without old co
 
 Keep Figma declaration/discovery/OAuth/read/write, protocol/renderer, named-session and voice/provider checks independently gated. Missing Figma tools allow useful supplied/local review but do not satisfy a live read/write claim. Never connect an account, upload private product artifacts or publish Storybook merely to pass a test without that action being authorized.
 
-Most definitions remain unexecuted; the focused observations below identify the cases actually run. The architecture follow-up contains 59 local plus 37 pinned upstream skills; the focused runs below used the earlier 55-local inventory. Historical 87- and 90-skill results retain their original revisions and scope.
+Most definitions remain unexecuted; the focused observations below identify the cases actually run. The architecture follow-up contains 60 local plus 37 pinned upstream skills; the focused runs below used the earlier 55-local inventory. Historical 87- and 90-skill results retain their original revisions and scope.
 
 ## Generation trials
 

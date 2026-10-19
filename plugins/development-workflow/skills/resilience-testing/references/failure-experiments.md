@@ -14,7 +14,5 @@ Use the entry point for routine decisions. Choose mechanisms from the actual app
 Record control/baseline, hypothesis, target, fault method and scope, observation, stop condition and restoration. Use the existing project record format. Do not import numerical thresholds or a production-first experiment policy from a reference.
 
 - [Principles of chaos engineering](https://principlesofchaos.org/) explains hypothesis-driven experiments and limiting impact. Apply the task's authorized environment/action boundaries.
-- [pytest monkeypatch](https://docs.pytest.org/en/stable/how-to/monkeypatch.html) supports scoped deterministic substitutions for Python tests; prefer project-native fixtures and ensure patches are undone.
-- [Toxiproxy](https://github.com/Shopify/toxiproxy) is an optional TCP fault proxy for isolated connection/delay tests. Use a reviewed compatible version and explicit affected routes; it does not simulate every protocol, provider or regional failure.
 
 A fixture may reproduce an application's error branch without reproducing a real provider's ambiguous commit behavior. If that ambiguity matters, use a controlled service capable of committing and withholding its acknowledgment. Confirm the fault mechanism and persistent outcome independently; don't label a mock result as verified external recovery.

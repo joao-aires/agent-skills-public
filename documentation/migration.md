@@ -64,3 +64,9 @@ The architecture rename corrects spelling. These changes do not require renaming
 - Most local supporting skills use `user-invocable: false` in clients honoring it; request tasks or explicitly name supporting guidance where supported. Upstream native controls are preserved. No universal `/help` or task aliases are installed.
 
 The bundles configure no monitoring services, fault injectors, credentials, schedulers, MCP servers or browser/device dependencies. Host tools and permissions remain separate from installing guidance. See [Usage](usage.md) for the current activities.
+
+## Generic methods and selected technical references
+
+Rebuild complete affected bundles after the task-2 content separation. Tooling-conventions now owns selected quality-tool, Compose, workflow/registry and telemetry-backend references formerly under project-conventions, delivery-pipelines and observability-operations. Private links into those resources need updating. Generic journey and AI methods retain their outcomes; concrete driver and versioned protocol details live with technical guidance. Existing skill names and native invocation controls remain intact.
+
+The target delivery and other capability packages are still a plan. This revision retains seven installation bundles and the current build default; do not use target names as installer arguments yet.

@@ -13,7 +13,7 @@ user-invocable: false
 
 # Test application resilience
 
-Verify the promised user outcome when a relevant dependency or component fails, then verify recovery. Use existing test tools and the smallest boundary that answers the question. Keep tests beside the affected application; no chaos service, MCP or Kubernetes operator is required. Use `performance-testing` for demand/load claims and combine load with a fault only when that interaction is the intended experiment.
+Verify the promised user outcome when a relevant dependency or component fails, then verify recovery. Use existing test tools and the smallest boundary that answers the question. Keep tests beside the affected application; no chaos service, MCP or Kubernetes operator is required. Use available journey-testing for demand/load claims and a matching technical specialist for the selected tool. Combine load with a fault only when that interaction is the intended experiment.
 
 ## Define the hypothesis and boundary
 

@@ -1,11 +1,8 @@
-# AI evaluation and telemetry references
+# Evaluation evidence
 
-- [Langfuse datasets](https://langfuse.com/docs/evaluation/experiments/datasets): representative cases and experiments; keep application-side cases/scorers runnable independently.
-- [Langfuse self-hosting](https://langfuse.com/self-hosting): local Compose and supported deployment boundaries.
-- [OpenTelemetry GenAI conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/): verify stability and installed integration compatibility.
-- [SigNoz AI observability](https://signoz.io/docs/ai-observability/): execution cost/usage/latency/tool visibility, distinct from product quality acceptance.
+Keep datasets, expected outcomes and deterministic evaluators runnable in the application without a hosted service. Identify code/model/prompt/tool, dataset and evaluator revisions. Retain per-case failures, denominators, sample size, variability and relevant latency/usage boundaries. A dashboard is a view of evidence, not its source of authority.
 
-Deterministic authorization, side-effect and schema checks remain required even when a model judge rates an answer highly. Report provider calls, judge variability and unexecuted cases accurately.
+Calibrate subjective grading against accepted human examples. Keep authorization, schema, side-effect and failure invariants deterministic even when a model judge rates quality highly. Observed execution signals explain what ran and how it failed; they cannot establish answer usefulness on their own. Use available observability methods for signal contracts and selected technical guidance for SDK/backend setup.
 
 ## Speech evaluation
 

@@ -12,7 +12,7 @@ Check current first-party documentation, required native modules, supported OS/t
 
 Tauri mobile is another option when web reuse and supported plugins fit; do not assume desktop plugin behavior or UX carries across mobile. React Native recommends a framework such as Expo. Use Expo development builds for actual native-module/runtime verification; cloud EAS builds are optional and do not grant paid-service or store-publication authority.
 
-Record the chosen client stack, tested modules, Python API contract, offline requirements, device connectivity and lifecycle strategy. Evaluate one useful journey on both platforms before claiming parity. Keep simulator/device, release-signing and store-delivery results distinct.
+Record the chosen client stack, tested modules, backend API contract, offline requirements, device connectivity and lifecycle strategy. Evaluate one useful journey on both platforms before claiming parity. Keep simulator/device, release-signing and store-delivery results distinct.
 
 Sources checked 15 October 2026; verify version-specific support when used:
 
