@@ -85,7 +85,7 @@ Inspect observed behavior, missed pointers, repeated reading, unnecessary work a
 
 ## Recorded evidence and limits
 
-Past trials established some bounded application and tool behavior and also exposed material failures. Their original execution records are retained in Git history; the summary below does not claim a passing result for the current collection.
+Past trials established some bounded application and tool behavior and also exposed material failures. Their detailed historical summaries remain in Git history; the summary below does not claim a passing result for the current collection.
 
 | Area | Observed boundary |
 | --- | --- |
