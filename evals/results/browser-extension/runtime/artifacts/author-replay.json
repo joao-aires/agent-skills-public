@@ -1,0 +1,375 @@
+{
+  "startedAt": "2026-10-21T16:00:46.677Z",
+  "driver": "Playwright 1.64.1",
+  "executablePath": "evaluation-work/browser-extension-browser/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+  "checks": [
+    {
+      "name": "production manifest references exist and grants are narrow",
+      "status": "passed",
+      "buildSha256": "517b245d09c0d7cbc38500ce192d3c16cb498488b893a37fc07d2c82b8b01d91"
+    },
+    {
+      "name": "actual action popup saves with input and click; independent local storage has revision 1",
+      "status": "passed",
+      "popupTarget": "3461BB8E41AF4587AFB3556A8059073F"
+    },
+    {
+      "name": "actual popup destroyed then reopened as a new target and restores saved text",
+      "status": "passed",
+      "oldTarget": "3461BB8E41AF4587AFB3556A8059073F",
+      "newTarget": "4D49C588AC12C8417D5F3D0E107298AD"
+    },
+    {
+      "name": "production content script displays own page note as text and does not inject child frames",
+      "status": "passed"
+    },
+    {
+      "name": "real content-script messages cannot save, cross-read, add authority or invoke unknown operations; every denial leaves storage unchanged",
+      "status": "passed",
+      "cases": 9
+    },
+    {
+      "name": "real content-script direct storage read, write and clear are denied with no mutation",
+      "status": "passed"
+    },
+    {
+      "name": "trusted popup payload limits and idempotent retry protect stored note",
+      "status": "passed",
+      "invalidCases": 3
+    },
+    {
+      "name": "simultaneous trusted saves preserve one revision and reject stale competing write",
+      "status": "passed"
+    },
+    {
+      "name": "malformed persisted state fails closed without rewriting data; controlled fixture restores valid snapshot",
+      "status": "passed"
+    },
+    {
+      "name": "unsupported path and separate local host receive no injection; unsupported research resource is denied",
+      "status": "passed"
+    },
+    {
+      "name": "forced worker stop confirmed; production content click wakes a new worker boot, restores state and retry does not duplicate write",
+      "status": "passed",
+      "beforeBoot": "d3ee4682-eba1-40c1-ba38-cc357bbb3bc6",
+      "afterBoot": "74f3c7bc-7180-455e-9f18-8aaea4ebffff"
+    },
+    {
+      "name": "installed grants inspected",
+      "status": "passed",
+      "grants": {
+        "origins": [
+          "http://127.0.0.1/research/*"
+        ],
+        "permissions": [
+          "storage"
+        ]
+      }
+    },
+    {
+      "name": "browser restart retains local storage and popup document reconstructs note",
+      "status": "passed",
+      "surface": "popup URL tab for this extra disk durability check only"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "host": "127.0.0.1:60757",
+      "url": "/research/alpha"
+    },
+    {
+      "host": "127.0.0.1:60757",
+      "url": "/research/beta"
+    },
+    {
+      "host": "127.0.0.1:60757",
+      "url": "/other"
+    },
+    {
+      "host": "localhost:60757",
+      "url": "/research/alpha"
+    },
+    {
+      "host": "localhost:60757",
+      "url": "/research/beta"
+    },
+    {
+      "host": "127.0.0.1:60757",
+      "url": "/research/unknown"
+    }
+  ],
+  "cleanup": {
+    "browserClosed": true,
+    "serverClosed": true,
+    "profileRemoved": true
+  },
+  "build": {
+    "buildSha256": "517b245d09c0d7cbc38500ce192d3c16cb498488b893a37fc07d2c82b8b01d91",
+    "files": {
+      "content.js": "6ee99e86e5ab1f7f50c9e81f6e7b4cb889072ef80b9e0d9db714db1250294ed2",
+      "manifest.json": "55c29fde7c284a431c3f60adfaf6a84f753cd778dd9f5da4407796dcf7c0c63f",
+      "popup.css": "bd27c389272a042b93f14eedc628973e3338169c8fc39f21ff2f4d36a61c0fa0",
+      "popup.html": "986998aca98de528da1356248b9f260ebdb3c0799849cd21c592d79603704908",
+      "popup.js": "67ada005c07d7db575157fc4ac349a1acf2acfcc47a87b29ff6c76fbc26a4547",
+      "worker.js": "e87cdf326fe5d1c19a59b1f0ad7caf7ec3cefea456615e6a8c3b3e1e579589b3"
+    },
+    "manifest": {
+      "manifest_version": 3,
+      "name": "Local Research Notes",
+      "version": "1.0.0",
+      "minimum_chrome_version": "127",
+      "description": "A local-only note for each controlled research page.",
+      "permissions": [
+        "storage"
+      ],
+      "action": {
+        "default_title": "Local Research Notes",
+        "default_popup": "popup.html"
+      },
+      "background": {
+        "service_worker": "worker.js"
+      },
+      "content_scripts": [
+        {
+          "matches": [
+            "http://127.0.0.1/research/*"
+          ],
+          "js": [
+            "content.js"
+          ],
+          "run_at": "document_idle",
+          "all_frames": false
+        }
+      ],
+      "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+      }
+    }
+  },
+  "controlledOrigin": "http://127.0.0.1:60757",
+  "extensionId": "lcmbpjjklcocnfagkimjpcnepfcnhgkn",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/156.0.8078.4",
+    "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "jsVersion": "15.6.75"
+  },
+  "contentDenials": [
+    {
+      "payload": {
+        "type": "note.save",
+        "id": "alpha",
+        "text": "ATTACK",
+        "expectedRevision": 1,
+        "requestId": "attack-0001"
+      },
+      "response": {
+        "ok": false,
+        "error": "FORBIDDEN"
+      }
+    },
+    {
+      "payload": {
+        "type": "note.read",
+        "id": "beta"
+      },
+      "response": {
+        "ok": false,
+        "error": "FORBIDDEN"
+      }
+    },
+    {
+      "payload": {
+        "type": "pageNote.read",
+        "text": "ATTACK"
+      },
+      "response": {
+        "ok": false,
+        "error": "INVALID_MESSAGE"
+      }
+    },
+    {
+      "payload": {
+        "type": "pageNote.read",
+        "id": "beta"
+      },
+      "response": {
+        "ok": false,
+        "error": "INVALID_MESSAGE"
+      }
+    },
+    {
+      "payload": {
+        "type": "pageNote.read",
+        "url": "http://localhost/private"
+      },
+      "response": {
+        "ok": false,
+        "error": "INVALID_MESSAGE"
+      }
+    },
+    {
+      "payload": {
+        "type": "notes.delete"
+      },
+      "response": {
+        "ok": false,
+        "error": "UNKNOWN_OPERATION"
+      }
+    },
+    {
+      "payload": null,
+      "response": {
+        "ok": false,
+        "error": "INVALID_MESSAGE"
+      }
+    },
+    {
+      "payload": [],
+      "response": {
+        "ok": false,
+        "error": "INVALID_MESSAGE"
+      }
+    },
+    {
+      "payload": {
+        "type": 42
+      },
+      "response": {
+        "ok": false,
+        "error": "INVALID_MESSAGE"
+      }
+    }
+  ],
+  "workerRecovery": {
+    "versionId": "0",
+    "beforeBoot": "d3ee4682-eba1-40c1-ba38-cc357bbb3bc6",
+    "afterBoot": "74f3c7bc-7180-455e-9f18-8aaea4ebffff",
+    "events": [
+      {
+        "versionId": "0",
+        "registrationId": "0",
+        "scriptURL": "chrome-extension://lcmbpjjklcocnfagkimjpcnepfcnhgkn/worker.js",
+        "runningStatus": "running",
+        "status": "activated",
+        "scriptLastModified": 1792598446,
+        "scriptResponseTime": 0,
+        "controlledClients": [],
+        "targetId": "C04C58904CDC6563D2043CC50E4E57B3"
+      },
+      {
+        "versionId": "0",
+        "registrationId": "0",
+        "scriptURL": "chrome-extension://lcmbpjjklcocnfagkimjpcnepfcnhgkn/worker.js",
+        "runningStatus": "stopping",
+        "status": "activated",
+        "scriptLastModified": 1792598446,
+        "scriptResponseTime": 0,
+        "controlledClients": [],
+        "targetId": "C04C58904CDC6563D2043CC50E4E57B3"
+      },
+      {
+        "versionId": "0",
+        "registrationId": "0",
+        "scriptURL": "chrome-extension://lcmbpjjklcocnfagkimjpcnepfcnhgkn/worker.js",
+        "runningStatus": "stopped",
+        "status": "activated",
+        "scriptLastModified": 1792598446,
+        "scriptResponseTime": 0,
+        "controlledClients": []
+      },
+      {
+        "versionId": "0",
+        "registrationId": "0",
+        "scriptURL": "chrome-extension://lcmbpjjklcocnfagkimjpcnepfcnhgkn/worker.js",
+        "runningStatus": "starting",
+        "status": "activated",
+        "scriptLastModified": 1792598446,
+        "scriptResponseTime": 0,
+        "controlledClients": []
+      },
+      {
+        "versionId": "0",
+        "registrationId": "0",
+        "scriptURL": "chrome-extension://lcmbpjjklcocnfagkimjpcnepfcnhgkn/worker.js",
+        "runningStatus": "starting",
+        "status": "activated",
+        "scriptLastModified": 1792598446,
+        "scriptResponseTime": 0,
+        "controlledClients": [],
+        "targetId": "C04C58904CDC6563D2043CC50E4E57B3"
+      },
+      {
+        "versionId": "0",
+        "registrationId": "0",
+        "scriptURL": "chrome-extension://lcmbpjjklcocnfagkimjpcnepfcnhgkn/worker.js",
+        "runningStatus": "starting",
+        "status": "activated",
+        "scriptLastModified": 1792598446,
+        "scriptResponseTime": 0,
+        "controlledClients": [],
+        "targetId": "C04C58904CDC6563D2043CC50E4E57B3"
+      },
+      {
+        "versionId": "0",
+        "registrationId": "0",
+        "scriptURL": "chrome-extension://lcmbpjjklcocnfagkimjpcnepfcnhgkn/worker.js",
+        "runningStatus": "running",
+        "status": "activated",
+        "scriptLastModified": 1792598446,
+        "scriptResponseTime": 0,
+        "controlledClients": [],
+        "targetId": "C04C58904CDC6563D2043CC50E4E57B3"
+      },
+      {
+        "versionId": "0",
+        "registrationId": "0",
+        "scriptURL": "chrome-extension://lcmbpjjklcocnfagkimjpcnepfcnhgkn/worker.js",
+        "runningStatus": "running",
+        "status": "activated",
+        "scriptLastModified": 1792598446,
+        "scriptResponseTime": 0,
+        "controlledClients": [],
+        "targetId": "C04C58904CDC6563D2043CC50E4E57B3"
+      },
+      {
+        "versionId": "0",
+        "registrationId": "0",
+        "scriptURL": "chrome-extension://lcmbpjjklcocnfagkimjpcnepfcnhgkn/worker.js",
+        "runningStatus": "running",
+        "status": "activated",
+        "scriptLastModified": 1792598446,
+        "scriptResponseTime": 0,
+        "controlledClients": [],
+        "targetId": "C04C58904CDC6563D2043CC50E4E57B3"
+      }
+    ]
+  },
+  "installedGrants": {
+    "origins": [
+      "http://127.0.0.1/research/*"
+    ],
+    "permissions": [
+      "storage"
+    ]
+  },
+  "finalStorage": {
+    "note:alpha": {
+      "requestId": "c860c057-6946-4594-8fb1-b36df29441f7",
+      "revision": 1,
+      "text": "Alpha study — durable synthetic note\n<script>window.pwned=true</script>",
+      "updatedAt": "2026-10-21T16:00:49.459Z"
+    },
+    "note:beta": {
+      "requestId": "concurrent-0",
+      "revision": 1,
+      "text": "one",
+      "updatedAt": "2026-10-21T16:00:50.171Z"
+    }
+  },
+  "status": "passed",
+  "finishedAt": "2026-10-21T16:00:55.623Z"
+}

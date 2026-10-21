@@ -10,6 +10,8 @@ The [ownership catalogue](sources.md#plugin-ownership) records the current packa
 
 A [bounded planning/assessment record](../../evals/results/capability-expansion/results.json) covers nine synthetic cases at its recorded source revision, including a workflow-only fallback case. Independent actors received source guidance; the author graded their outputs against criteria withheld from them. All nine met those scoped criteria. This establishes neither installed-client discovery nor application/runtime behavior; the record retains inputs, outputs and per-criterion observations.
 
+A [Chrome/MV3 evaluation record](../../evals/results/browser-extension/results.json) adds four bounded design/assessment probes and a disposable real-extension trial. It separates preserved UI/stack choices and standalone fallback from actual popup, storage, message-denial and forced-worker-recovery observations. The source revision, generated fixture identity, driver/browser, harness repairs and untested boundaries are retained with the record. These checks do not establish installed-client discovery, WXT/CRXJS build compatibility, other browser targets or store delivery.
+
 The current collection has not received a complete behavioral rerun. Earlier trials used different inventories and configurations; their results cannot be transferred to the current guidance. See [recorded evidence and limits](#recorded-evidence-and-limits) for the boundaries of those observations and [architecture](../architecture.md) for the supported composition model.
 
 ## Intended flows and execution levels

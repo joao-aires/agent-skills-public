@@ -1,0 +1,49 @@
+{
+  "targetInfos": [
+    {
+      "targetId": "5FC770D55B4CD8FD9560A8C071C6E7B1",
+      "type": "service_worker",
+      "title": "Service Worker chrome-extension://mdcaeonmhphljlahnbapeoajmoocepni/worker.js",
+      "url": "chrome-extension://mdcaeonmhphljlahnbapeoajmoocepni/worker.js",
+      "attached": true,
+      "canAccessOpener": false,
+      "browserContextId": "A8BEC392D4CC6FB5B99304688F84799E"
+    },
+    {
+      "targetId": "23EC523E03671723F1BAFD8A17FC28AD",
+      "type": "browser_ui",
+      "title": "Omnibox Popup",
+      "url": "chrome://omnibox-popup.top-chrome/",
+      "attached": false,
+      "canAccessOpener": false,
+      "browserContextId": "A8BEC392D4CC6FB5B99304688F84799E"
+    },
+    {
+      "targetId": "E54EA7932E88544B29E70B8087A44221",
+      "type": "browser_ui",
+      "title": "Omnibox Popup",
+      "url": "chrome://omnibox-popup.top-chrome/omnibox_popup_aim.html",
+      "attached": false,
+      "canAccessOpener": false,
+      "browserContextId": "A8BEC392D4CC6FB5B99304688F84799E"
+    },
+    {
+      "targetId": "75132EB167203F97F35CB779686EC631",
+      "type": "page",
+      "title": "about:blank",
+      "url": "about:blank",
+      "attached": true,
+      "canAccessOpener": false,
+      "browserContextId": "A8BEC392D4CC6FB5B99304688F84799E"
+    },
+    {
+      "targetId": "73EC8DF3E468782E04E934AEF25D99EE",
+      "type": "page",
+      "title": "Local Research Notes",
+      "url": "chrome-extension://mdcaeonmhphljlahnbapeoajmoocepni/popup.html",
+      "attached": false,
+      "canAccessOpener": false,
+      "browserContextId": "A8BEC392D4CC6FB5B99304688F84799E"
+    }
+  ]
+}

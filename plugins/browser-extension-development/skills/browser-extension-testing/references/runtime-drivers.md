@@ -14,6 +14,7 @@ const extensionRoot = path.resolve(process.env.EXTENSION_BUILD!);
 const context = await chromium.launchPersistentContext('', {
   channel: 'chromium',
   headless: true,
+  chromiumSandbox: true,
   args: [
     `--disable-extensions-except=${extensionRoot}`,
     `--load-extension=${extensionRoot}`,
@@ -26,7 +27,7 @@ try {
 }
 ```
 
-The caller supplies an existing production build path and installed test dependencies; this fragment is browser setup, not a finished test or permission grant. Use a unique test profile and controlled fixtures. Current Puppeteer offers its own extension-loading options/APIs; use that version's contract rather than transplanting Playwright setup or obsolete flags. Preserve the browser sandbox unless the actual isolated environment requires an evidenced exception.
+The caller supplies an existing production build path and installed test dependencies; this fragment is browser setup, not a finished test or permission grant. Use a unique test profile and controlled fixtures. Current Puppeteer offers its own extension-loading options/APIs; use that version's contract rather than transplanting Playwright setup or obsolete flags. Set [`chromiumSandbox: true`](https://playwright.dev/docs/api/class-browsertype#browser-type-launch-persistent-context-option-chromium-sandbox) explicitly with Playwright: omitting the option does not enable Chromium sandboxing. Preserve it unless the actual isolated environment requires an evidenced exception, and record that narrower test boundary.
 
 ## Discover and trigger the correct context
 

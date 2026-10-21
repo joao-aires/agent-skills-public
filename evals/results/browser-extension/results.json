@@ -1,0 +1,157 @@
+{
+  "evaluated_source_commit": "b9403b5108aaad7a969fdd05f69664b58b86f624",
+  "recorded_at_utc": "2026-10-21T16:02:39.711541+00:00",
+  "execution": "Three independent session subagents with fork_turns=none. Two completed four assessment cases; the third generated and tested a disposable MV3 extension. Sources were explicitly supplied as built packages, not installed into a client.",
+  "grading": "Author inspection against criteria frozen before actor dispatch; actors did not receive criteria or expected outputs. No comparative or statistical improvement claim.",
+  "model": "Inherited session model/settings; no override.",
+  "artifact_processing": "Actor outputs preserved with local workspace path prefixes normalized. Runtime report has an evidence-retention notice; substantive findings/results are unchanged. Author grading, replay and setup correction are separately labeled.",
+  "results": [
+    {
+      "case_id": "extension-design-scope",
+      "verdict": "met-scoped-assessment-criteria",
+      "artifact": "ui-assessments.md",
+      "criteria": [
+        {
+          "criterion": "Connects surface, user task, permission and persistence/lifecycle decisions without inventing accepted framework or visual choices.",
+          "verdict": "met",
+          "observation": "Compares popup and panel against short-note capture; defines page association, drafts, persistence and invocation-based grants while leaving framework/visual proposals unaccepted."
+        },
+        {
+          "criterion": "Preserves the design-only stopping point and does not execute scaffolding or external actions.",
+          "verdict": "met",
+          "observation": "Returns a design assessment and states no source edits, scaffold, browser execution, account setup or publication occurred."
+        },
+        {
+          "criterion": "Produces actionable behavior and verification boundaries rather than treating the platform skill as a substitute development workflow.",
+          "verdict": "met",
+          "observation": "Supplies state transitions, meaningful verification boundaries and conditional specialist use rather than executing another development process."
+        }
+      ]
+    },
+    {
+      "case_id": "extension-existing-ui",
+      "verdict": "met-scoped-assessment-criteria",
+      "artifact": "ui-assessments.md",
+      "criteria": [
+        {
+          "criterion": "Preserves React/Vite/CRXJS, Tailwind major, font, tokens and accepted light-only design rather than introducing universal platform aesthetics or server defaults.",
+          "verdict": "met",
+          "observation": "Explicitly retains React/Vite/CRXJS, Tailwind v3, Radix, bundled serif, warm tokens and the accepted light-only design."
+        },
+        {
+          "criterion": "Addresses popup lifetime and injected UI style/token/portal/focus integration with actual runtime evidence requirements.",
+          "verdict": "met",
+          "observation": "Explains disposable popup state and injected styling, Radix portal container, Shadow DOM, focus, host interference and lifecycle checks."
+        },
+        {
+          "criterion": "Separates documented platform constraints, optional design choices and checks not executed.",
+          "verdict": "met",
+          "observation": "Distinguishes source/rendered/component/runtime evidence and identifies the absence of supplied application artifacts; no visual or accessibility pass is invented."
+        }
+      ]
+    },
+    {
+      "case_id": "extension-standalone",
+      "verdict": "met-scoped-assessment-criteria",
+      "artifact": "standalone-assessments.md",
+      "criteria": [
+        {
+          "criterion": "Retains useful product/UI/security/testing reasoning without requiring optional skills or introducing React, a backend, account or new package manager.",
+          "verdict": "met",
+          "observation": "Plans plain JavaScript with no required framework, backend, account, package manager migration or optional plugin installation, retaining UI, security and verification reasoning."
+        },
+        {
+          "criterion": "Derives grants from user invocation and distinguishes absent guidance from actual runtime/tool limits.",
+          "verdict": "met",
+          "observation": "Derives activeTab/scripting from user invocation and separates missing specialists from missing driver/runtime evidence."
+        },
+        {
+          "criterion": "Preserves planning-only scope and evidence limits.",
+          "verdict": "met",
+          "observation": "Returns planning only and lists unexecuted application/build/browser checks rather than claiming a working extension."
+        }
+      ]
+    },
+    {
+      "case_id": "extension-store-preparation",
+      "verdict": "met-scoped-assessment-criteria",
+      "artifact": "standalone-assessments.md",
+      "criteria": [
+        {
+          "criterion": "Identifies artifact-root and unfinished listing evidence, preserves actual stack/CI and requires the production candidate identity and checks.",
+          "verdict": "met",
+          "observation": "Identifies the enclosing dist directory and unfinished screenshot, retains GitLab/Django/PostgreSQL, and specifies candidate digest, package inspection and compatible update evidence."
+        },
+        {
+          "criterion": "Separates preparation, upload, review submission and publication; missing publisher setup does not block useful local preparation.",
+          "verdict": "met",
+          "observation": "Separates useful local preparation from upload, review submission and publication; no account or credential setup is performed."
+        },
+        {
+          "criterion": "Assesses current policy/API compatibility without guaranteeing store approval or requesting secrets in conversation.",
+          "verdict": "met",
+          "observation": "Consults primary policy/version/listing guidance, avoids approval guarantees and secret collection, and labels supplied facts separately from inspected artifacts."
+        }
+      ]
+    },
+    {
+      "case_id": "extension-runtime-boundaries",
+      "verdict": "met-scoped-runtime-criteria",
+      "artifact": "runtime/output.md",
+      "machine_results": "runtime/artifacts/results.json",
+      "author_replay": "runtime/artifacts/author-replay.json",
+      "criteria": [
+        {
+          "criterion": "Implements coherent context/message/storage authority and verifies allowed and denied operations through real extension contexts.",
+          "verdict": "met",
+          "observation": "Inspected production worker and runtime assertions: browser-supplied content-script sender context, exact payload validation, trusted storage and all denied-message/direct-storage attempts are tested against unchanged full storage."
+        },
+        {
+          "criterion": "Verifies persistence across UI destruction and worker termination followed by an event from another context, distinguishing forced termination from normal idle behavior.",
+          "verdict": "met",
+          "observation": "Actual action popup is destroyed and reopened as a distinct target; CDP observes worker stopped then running after a shipped content-button event, with changed boot ID, restored note and no duplicate replay. Report distinguishes forced termination from natural idle suspension."
+        },
+        {
+          "criterion": "Identifies browser/build/driver and tests actual page effects while accurately limiting toolbar invocation and permission claims.",
+          "verdict": "met",
+          "observation": "Records production build hash, Chrome for Testing 156.0.8078.4, Playwright 1.64.1 and actual page text. Action popup is opened through action.openPopup, with no claim of physical toolbar click, activeTab consent or other browser behavior."
+        },
+        {
+          "criterion": "Preserves isolated fixtures, sandbox and bounded cleanup; a launch or unit mock alone is not success.",
+          "verdict": "met",
+          "observation": "Both successful runs close browser/server and remove profiles. Thirteen runtime groups pass with actual extension contexts and no sandbox-disabling option. Earlier harness failures and their repairs remain recorded."
+        }
+      ]
+    }
+  ],
+  "limits": [
+    "Four assessment cases have no supplied running application and do not establish implementation or rendered UI quality.",
+    "Explicit guidance exposure and read records do not establish installed-client discovery or native invocation controls.",
+    "The React/Tailwind/Radix case is an assessment, not a framework build or rendered injected-dialog trial.",
+    "No WXT/CRXJS application build, other browser/OS, natural worker idle-suspension, permission-consent flow or store action is established by these observations."
+  ],
+  "post_evaluation_source_correction": {
+    "path": "plugins/browser-extension-development/skills/browser-extension-testing/references/runtime-drivers.md",
+    "change": "Explicitly enable Playwright chromiumSandbox in the setup fragment, matching the existing prose and the runtime actor implementation.",
+    "validation": "Author extracted and exercised the corrected setup in headless Chrome for Testing 156.0.8078.4 with Playwright 1.64.1; see driver-setup-check.json. The independent actor already enabled sandboxing before receiving any correction."
+  },
+  "runtime": {
+    "production_build_sha256": "517b245d09c0d7cbc38500ce192d3c16cb498488b893a37fc07d2c82b8b01d91",
+    "actor_checks": 13,
+    "author_replay_checks": 13,
+    "mode": "headed actual popup and contexts; separate headless documented-setup check",
+    "fixture_sources_retained": "Original disposable workspace outside repository; generated applications are not packaged as skills.",
+    "fixture_source_sha256": {
+      "build.mjs": "17c461a20b95748e571a264e3c3e0e59aecd0d306340a4b7a0099e594b3a48b7",
+      "package.json": "31e0fca88328cf1d1ace3e5842cf73587226caf7f71d1c0ff9432e81c68e2852",
+      "src/content.js": "6ee99e86e5ab1f7f50c9e81f6e7b4cb889072ef80b9e0d9db714db1250294ed2",
+      "src/manifest.json": "55c29fde7c284a431c3f60adfaf6a84f753cd778dd9f5da4407796dcf7c0c63f",
+      "src/popup.css": "bd27c389272a042b93f14eedc628973e3338169c8fc39f21ff2f4d36a61c0fa0",
+      "src/popup.html": "986998aca98de528da1356248b9f260ebdb3c0799849cd21c592d79603704908",
+      "src/popup.js": "67ada005c07d7db575157fc4ac349a1acf2acfcc47a87b29ff6c76fbc26a4547",
+      "src/worker.js": "e87cdf326fe5d1c19a59b1f0ad7caf7ec3cefea456615e6a8c3b3e1e579589b3",
+      "test.mjs": "3e44671fa5c2f3fd975853689686132b7c710ba0ca97a27961b5b2e0ce599593"
+    },
+    "author_inspection": "Read worker authority/state implementation and runtime assertions; inspected machine results and actual popup screenshot. Replayed the same source/build independently in a fresh workspace/profile and observed all thirteen groups pass with matching build hash."
+  }
+}

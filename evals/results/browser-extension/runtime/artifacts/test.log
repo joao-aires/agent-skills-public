@@ -1,0 +1,13 @@
+PASS production manifest references exist and grants are narrow
+PASS actual action popup saves with input and click; independent local storage has revision 1
+PASS actual popup destroyed then reopened as a new target and restores saved text
+PASS production content script displays own page note as text and does not inject child frames
+PASS real content-script messages cannot save, cross-read, add authority or invoke unknown operations; every denial leaves storage unchanged
+PASS real content-script direct storage read, write and clear are denied with no mutation
+PASS trusted popup payload limits and idempotent retry protect stored note
+PASS simultaneous trusted saves preserve one revision and reject stale competing write
+PASS malformed persisted state fails closed without rewriting data; controlled fixture restores valid snapshot
+PASS unsupported path and separate local host receive no injection; unsupported research resource is denied
+PASS forced worker stop confirmed; production content click wakes a new worker boot, restores state and retry does not duplicate write
+PASS installed grants inspected
+PASS browser restart retains local storage and popup document reconstructs note

@@ -1,0 +1,21 @@
+{
+  "kind": "author-check-of-documented-driver-fragment",
+  "browser": "Chrome for Testing 156.0.8078.4",
+  "driver": "Playwright 1.64.1",
+  "mode": "headless",
+  "platform": "macOS arm64",
+  "result": "pass",
+  "observations": [
+    "The corrected setup fragment loaded its declared MV3 fixture worker in isolated Chromium.",
+    "chromiumSandbox was explicitly true; the captured launch command did not contain --no-sandbox.",
+    "The context closed after assertions."
+  ],
+  "source_change": "runtime-drivers.md now explicitly enables chromiumSandbox; Playwright defaults it to false.",
+  "limits": [
+    "This checks documented setup, not an application journey or store distribution.",
+    "The import was mapped from @playwright/test to the same-version installed Playwright library; matching official browser bytes were supplied through a test-owned cache path.",
+    "An initial instrumentation check using Browser.getBrowserCommandLine failed because that runtime did not expose it without --enable-automation. The final check used the captured Playwright launch command; the unsupported check is not counted as a pass.",
+    "Node browser installation failed certificate-chain verification; curl downloaded the official object with TLS verification enabled, validated length/checksum, and unpacked it outside the repository. No trust checks were disabled."
+  ],
+  "snippet_sha256": "6c189dc6371e6ab0cd499cfcfc7dde8df6d14729424dc86429540e86916cfd08"
+}

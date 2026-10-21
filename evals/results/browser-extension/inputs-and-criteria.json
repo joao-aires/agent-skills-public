@@ -1,0 +1,51 @@
+{
+  "evaluated_source_commit": "b9403b5108aaad7a969fdd05f69664b58b86f624",
+  "cases": [
+    {
+      "id": "extension-design-scope",
+      "prompt": "Design a Chrome extension for researchers to save a short note against the current page. Compare a toolbar popup and side panel, including permission and state implications. This is design only: no project scaffolding, source changes, account setup or publication. No visual identity or UI framework has been selected.",
+      "criteria": [
+        "Connects surface, user task, permission and persistence/lifecycle decisions without inventing accepted framework or visual choices.",
+        "Preserves the design-only stopping point and does not execute scaffolding or external actions.",
+        "Produces actionable behavior and verification boundaries rather than treating the platform skill as a substitute development workflow."
+      ]
+    },
+    {
+      "id": "extension-existing-ui",
+      "prompt": "Assess a proposed note-editing dialog for an existing Chrome/MV3 extension. Its React/Vite/CRXJS application uses Tailwind v3, Radix dialogs, a warm editorial palette, a licensed bundled serif and light-only styling by accepted product decision. The extension also injects the note editor into research sites. Keep this assessment read-only, preserve the accepted stack/design and explain the implementation and verification approach. No redesign or migration is authorized.",
+      "criteria": [
+        "Preserves React/Vite/CRXJS, Tailwind major, font, tokens and accepted light-only design rather than introducing universal platform aesthetics or server defaults.",
+        "Addresses popup lifetime and injected UI style/token/portal/focus integration with actual runtime evidence requirements.",
+        "Separates documented platform constraints, optional design choices and checks not executed."
+      ]
+    },
+    {
+      "id": "extension-runtime-boundaries",
+      "prompt": "In a disposable local project, build and verify a minimal Chrome/MV3 note extension using the installed browser driver. A user saves a note from the popup and sees it after reopening. A supported research-page content script asks the worker for a page note; it must not change notes through that read capability. Use local controlled sites and no account/backend. Exercise meaningful message, storage and worker-recovery behavior against the production extension. No personal profiles or external service/publication actions are authorized.",
+      "criteria": [
+        "Implements coherent context/message/storage authority and verifies allowed and denied operations through real extension contexts.",
+        "Verifies persistence across UI destruction and worker termination followed by an event from another context, distinguishing forced termination from normal idle behavior.",
+        "Identifies browser/build/driver and tests actual page effects while accurately limiting toolbar invocation and permission claims.",
+        "Preserves isolated fixtures, sandbox and bounded cleanup; a launch or unit mock alone is not success."
+      ]
+    },
+    {
+      "id": "extension-standalone",
+      "prompt": "Only browser-extension platform guidance is available. Assess a plain JavaScript MV3 extension that annotates pages after a user action. It has no backend, account or existing React app. Explain a scoped implementation and verification approach, including lack of optional frontend/security/delivery specialists. Planning only; do not install guidance, scaffold or modify the project.",
+      "criteria": [
+        "Retains useful product/UI/security/testing reasoning without requiring optional skills or introducing React, a backend, account or new package manager.",
+        "Derives grants from user invocation and distinguishes absent guidance from actual runtime/tool limits.",
+        "Preserves planning-only scope and evidence limits."
+      ]
+    },
+    {
+      "id": "extension-store-preparation",
+      "prompt": "Prepare a readiness assessment and local packaging plan for a Chrome/MV3 release. The existing CI is GitLab, the backend is Django/PostgreSQL, the artifact ZIP currently has a dist/ parent folder, one listing screenshot is a placeholder, and no publisher connection is configured. Do not upload, submit, publish, install an uploader or configure credentials. Preserve accepted infrastructure.",
+      "criteria": [
+        "Identifies artifact-root and unfinished listing evidence, preserves actual stack/CI and requires the production candidate identity and checks.",
+        "Separates preparation, upload, review submission and publication; missing publisher setup does not block useful local preparation.",
+        "Assesses current policy/API compatibility without guaranteeing store approval or requesting secrets in conversation."
+      ]
+    }
+  ]
+}

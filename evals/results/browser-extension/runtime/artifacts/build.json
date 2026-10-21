@@ -1,0 +1,43 @@
+{
+  "buildSha256": "517b245d09c0d7cbc38500ce192d3c16cb498488b893a37fc07d2c82b8b01d91",
+  "files": {
+    "content.js": "6ee99e86e5ab1f7f50c9e81f6e7b4cb889072ef80b9e0d9db714db1250294ed2",
+    "manifest.json": "55c29fde7c284a431c3f60adfaf6a84f753cd778dd9f5da4407796dcf7c0c63f",
+    "popup.css": "bd27c389272a042b93f14eedc628973e3338169c8fc39f21ff2f4d36a61c0fa0",
+    "popup.html": "986998aca98de528da1356248b9f260ebdb3c0799849cd21c592d79603704908",
+    "popup.js": "67ada005c07d7db575157fc4ac349a1acf2acfcc47a87b29ff6c76fbc26a4547",
+    "worker.js": "e87cdf326fe5d1c19a59b1f0ad7caf7ec3cefea456615e6a8c3b3e1e579589b3"
+  },
+  "manifest": {
+    "manifest_version": 3,
+    "name": "Local Research Notes",
+    "version": "1.0.0",
+    "minimum_chrome_version": "127",
+    "description": "A local-only note for each controlled research page.",
+    "permissions": [
+      "storage"
+    ],
+    "action": {
+      "default_title": "Local Research Notes",
+      "default_popup": "popup.html"
+    },
+    "background": {
+      "service_worker": "worker.js"
+    },
+    "content_scripts": [
+      {
+        "matches": [
+          "http://127.0.0.1/research/*"
+        ],
+        "js": [
+          "content.js"
+        ],
+        "run_at": "document_idle",
+        "all_frames": false
+      }
+    ],
+    "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self'"
+    }
+  }
+}
