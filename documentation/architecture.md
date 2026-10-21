@@ -2,7 +2,7 @@
 
 The collection separates the work someone requests, the expertise that improves it and the technology chosen for its implementation. I package useful capabilities as plugins. A plugin is an installation and update boundary; it does not define an execution order or require other plugins.
 
-The repository builds 24 independently selectable plugins: 13 generic capability packages and 11 technical packages. The [ownership map](maintainers/sources.md#plugin-ownership) assigns all 117 skills. Development is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. Distribution uses complete built plugins; the legacy local-skill helper is a migration aid.
+The repository builds 25 independently selectable plugins: 13 generic capability packages and 12 technical packages. The [ownership map](maintainers/sources.md#plugin-ownership) assigns all 122 skills. Development is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. Distribution uses complete built plugins; the legacy local-skill helper is a migration aid.
 
 ## Activities, methods and technical expertise
 

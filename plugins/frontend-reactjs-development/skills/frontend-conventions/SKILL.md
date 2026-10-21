@@ -22,6 +22,7 @@ Read the request, `AGENTS.md`, existing components and accepted design decisions
 | --- | --- |
 | New web application | Prefer Next.js App Router, TypeScript, Tailwind v4 and shadcn/ui. |
 | Tauri React/Vite DOM interface | Apply the visual/interaction process and compatible Tailwind/shadcn conventions; web SSR defaults are inapplicable. |
+| Browser extension DOM interface | Preserve its bundler and extension entrypoints; apply compatible components/tokens. Server rendering/actions require a real server and do not run in extension pages/workers. |
 | React Native | Use native components, not DOM primitives. |
 | Desktop or iOS/Android | Also use native-platform implementation and driver expertise. |
 
