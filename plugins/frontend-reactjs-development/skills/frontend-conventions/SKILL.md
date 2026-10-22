@@ -1,6 +1,6 @@
 ---
 name: frontend-conventions
-description: Build, extend or review React/Next.js interfaces using opinionated shadcn/Tailwind
+description: Build, extend or review React/Next.js interfaces using the selected component system, compatible styling
   conventions and supplied visual references. Use for dashboards, customer applications,
   storefronts, content sites, navigation, styling, forms and frontend architecture;
   preserve accepted project choices during ordinary feature work.
@@ -16,11 +16,11 @@ user-invocable: false
 
 ## Establish the direction
 
-Read the request, `AGENTS.md`, existing components and accepted design decisions.
+Read the request, `AGENTS.md`, existing components and accepted design decisions. Establish the component system and light/dark/system appearance policy with visual and interaction design expertise before dependent implementation. Preserve the user's choice of plain Tailwind, Tailwind with shadcn/ui, HeroUI or another compatible system; installed guidance is not a reason to switch libraries. The shadcn-specific conventions below apply when that system is selected. For another library, retain the design/verification outcomes and use its version-matched primary contracts and available implementation expertise.
 
 | Context | Applicable starting guidance |
 | --- | --- |
-| New web application | Prefer Next.js App Router, TypeScript, Tailwind v4 and shadcn/ui. |
+| New web application | When the stack is open, prefer Next.js App Router and TypeScript; recommend a compatible component/styling system through the UI foundation decision. Tailwind v4 with shadcn/ui is a candidate, not an override of an accepted choice. |
 | Tauri React/Vite DOM interface | Apply the visual/interaction process and compatible Tailwind/shadcn conventions; web SSR defaults are inapplicable. |
 | Browser extension DOM interface | Preserve its bundler and extension entrypoints; apply compatible components/tokens. Server rendering/actions require a real server and do not run in extension pages/workers. |
 | React Native | Use native components, not DOM primitives. |
@@ -28,7 +28,7 @@ Read the request, `AGENTS.md`, existing components and accepted design decisions
 
 Preserve an established React/Vite or other frontend unless migration is requested. Use the project's package manager, locked versions and primitives; keep Tailwind v3/v4 and Radix/Base UI APIs compatible.
 
-For new Next.js projects, use `@tailwindcss/postcss`, `@import "tailwindcss"` and CSS-first semantic tokens via `@theme`/`@theme inline`. Follow the selected shadcn preset rather than creating a competing token system.
+When Tailwind v4 is selected for a new Next.js project, use `@tailwindcss/postcss`, `@import "tailwindcss"` and CSS-first semantic tokens via `@theme`/`@theme inline`. When using shadcn/ui, follow its selected preset rather than creating a competing token system. For another system, use its own supported theme mechanism and avoid mixing incompatible Tailwind/component major versions.
 
 Use visual design expertise for product-derived direction, accepted references and semantic token intent, and interaction design expertise for behavior. These generic methods apply beyond React; this skill owns the compatible React/Next.js implementation. Record meaningful stack deviations in the existing project note.
 
@@ -40,17 +40,17 @@ For cross-cutting work, inventory affected surfaces, establish a representative 
 
 ## Implement the accepted visual system
 
-Translate the accepted direction into semantic roles before assigning utilities across pages. Establish which tokens represent the page, raised surfaces, primary and secondary text, emphasis, interactive controls and status. Map those roles to compatible CSS variables and Tailwind theme pairs, retaining the selected shadcn preset as the implementation foundation.
+Translate the accepted direction into semantic roles before assigning utilities across pages. Establish which tokens represent the page, raised surfaces, primary and secondary text, emphasis, interactive controls and status. Map those roles through the selected system’s supported token/theme mechanism. With Tailwind, use compatible CSS variables and theme pairs; another system does not need Tailwind scaffolding. Retain the selected component system as the implementation foundation.
 
-Build shared component variants for repeated differences that have a meaning in the product. Keep one-off layout choices close to their caller, and move a repeated pattern into a shared composition when its behavior and appearance need a common owner. Reuse reviewed shadcn primitives/blocks and the project's class-merging convention so local overrides do not quietly create a competing visual system. Preserve deliberate density and platform variants.
+Build shared component variants for repeated differences that have a meaning in the product. Keep one-off layout choices close to their caller, and move a repeated pattern into a shared composition when its behavior and appearance need a common owner. Reuse the selected system’s reviewed primitives/blocks and the project's class-merging convention so local overrides do not quietly create a competing visual system. Preserve deliberate density and platform variants.
 
-Compose the product's layouts from those primitives. Add dark mode when required by the product or established system. Use upstream shadcn/Tailwind guidance for unfamiliar compatible APIs; establish typography, composition and product character through visual design reasoning. A component library supplies implementation primitives, not the product direction.
+Compose the product's layouts from those primitives. Implement the accepted light/dark/system policy across first paint, saved preferences, live changes and all affected surfaces, including portals. Use version-matched guidance for unfamiliar compatible APIs; establish typography, composition and product character through visual design reasoning. A component library supplies implementation primitives, not the product direction.
 
 ## Make interactions dependable
 
 Use semantic controls, visible labels, keyboard access and clear focus.
 
-- Use actual compatible shadcn/Radix/Base UI primitives for menus/dialogs, not handwritten visual lookalikes lacking semantics or focus behavior.
+- Use actual compatible primitives from the selected system for menus/dialogs, not handwritten visual lookalikes lacking semantics or focus behavior.
 - Verify focus containment, dialog roles/labels and restoration to the invoking control after closing, and never substitute tooltips or placeholders for labels.
 - Include loading, empty, error, validation and permission states.
 - Preserve input on recoverable failures, prevent duplicate submission and provide actionable errors.
@@ -105,7 +105,7 @@ For new compatible React projects, use TypeScript and ESLint with the project fo
 - Test the critical journey against real persistence using the project's E2E workflow; a screenshot alone is insufficient.
 - Keep changed contracts and accepted design decisions synchronized, and report checks actually performed.
 
-These defaults cover routine work without reference browsing. Use bundled shadcn, Vercel React/composition and Tailwind design-system skills for unfamiliar components or deeper implementation questions. My default and the Tailwind upstream guide both target **v4**. Apply a requested v3-to-v4 upgrade as a focused migration: check browser compatibility, dependencies, configuration and rendered behavior; do not migrate an unrelated existing application silently. Consult [sources and exceptions](references/sources-and-exceptions.md) for version migrations or decisions these defaults do not resolve.
+These defaults cover routine work without reference browsing. Use bundled shadcn, Vercel React/composition and Tailwind design-system skills for unfamiliar components or deeper implementation questions. The bundled Tailwind guide targets **v4** and applies when that styling system is selected. Apply a requested v3-to-v4 upgrade as a focused migration: check browser compatibility, dependencies, configuration and rendered behavior; do not migrate an unrelated existing application silently. Consult [sources and exceptions](references/sources-and-exceptions.md) for version migrations or decisions these defaults do not resolve.
 
 For API changes, verify actual client behavior against supported provider contracts, including errors, optional fields and pagination. Generated types do not prove semantic compatibility. Keep old open browser sessions in the supported-consumer set during rollout and route planned breaks through backend/delivery guidance.
 

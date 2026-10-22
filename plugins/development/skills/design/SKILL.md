@@ -20,10 +20,11 @@ Establish the audience, intended outcome, accepted decisions and affected bounda
 
 ## Design the affected interface
 
-For UI work establish contextual visual direction, flows, state and affected-surface coverage. Choose methods for the unresolved question:
+For UI work establish the accepted platform/component system and appearance policy before dependent mockups or implementation. Use existing choices or recommend an appropriate system and theme behavior with their tradeoffs. Carry those decisions through contextual visual direction, flows, state and affected-surface coverage. Choose methods for the unresolved question:
 
 | Question | Relevant expertise or artifact |
 | --- | --- |
+| Component-system and appearance foundations | Available visual design expertise, accepted application constraints and matching implementation guidance |
 | Product-specific visual direction | Available visual design expertise |
 | Flow, state and behavior | Available interaction design expertise |
 | Layout or navigation uncertainty | Text, wireframes, Figma or local prototypes, according to the question and available tools |

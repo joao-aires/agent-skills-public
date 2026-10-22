@@ -71,7 +71,7 @@ Use [design](../plugins/development/skills/design/SKILL.md) with [system-design]
 
 #### Interaction, visual and contract design
 
-Use [design](../plugins/development/skills/design/SKILL.md), [visual-design](../plugins/frontend-development/skills/visual-design/SKILL.md), [interaction-design](../plugins/frontend-development/skills/interaction-design/SKILL.md) and [backend-design](../plugins/backend-development/skills/backend-design/SKILL.md), then relevant technical guidance. Anthropic frontend-design supports visual execution when direction is open; preserve the accepted design during ordinary changes. Derive contextual visual direction and define surfaces, behavior, authority and failure contracts from the requirements before dependent implementation.
+Use [design](../plugins/development/skills/design/SKILL.md), [visual-design](../plugins/frontend-development/skills/visual-design/SKILL.md), [interaction-design](../plugins/frontend-development/skills/interaction-design/SKILL.md) and [backend-design](../plugins/backend-development/skills/backend-design/SKILL.md), then relevant technical guidance. Anthropic frontend-design supports visual execution when direction is open; preserve the accepted design during ordinary changes. Establish the accepted component system and light/dark/system appearance policy before dependent UI mockups. Derive contextual visual direction and define surfaces, behavior, authority and failure contracts from the requirements before dependent implementation. Preserve existing foundations during small changes; a technical package is optional expertise, not a framework selection.
 
 #### Implementation planning and foundations
 

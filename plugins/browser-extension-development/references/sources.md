@@ -31,3 +31,7 @@ Use these sources when changing the corresponding boundary, and verify the insta
 | Store readiness and promotion | [Policies](https://developer.chrome.com/docs/webstore/program-policies/policies), [review](https://developer.chrome.com/docs/webstore/review-process), [API](https://developer.chrome.com/docs/webstore/api) |
 
 These references establish documented contracts, not exercised application behavior, store approval or cross-browser parity. The repository's evaluation records state which bounded checks were actually performed.
+
+## Experience-design references
+
+The [extension experience patterns](../skills/browser-extension-ui/references/experience-patterns.md) reference pins inspected Raindrop and Bitwarden source for surface composition, theme roles and lifecycle distinctions. These are source-based design lessons, with no imported application code/assets or claim of measured user outcomes. Generic visual guidance owns the early component-system/appearance decision; platform guidance applies it to actual browser surfaces and lifetimes.

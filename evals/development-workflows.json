@@ -767,6 +767,26 @@
         "Separates preparation, upload, review submission and publication; missing publisher setup does not block useful local preparation.",
         "Assesses current policy/API compatibility without guaranteeing store approval or requesting secrets in conversation."
       ]
+    },
+    {
+      "id": "ui-foundations-and-theme-handoff",
+      "prompt": "Design a new browser-based research application in the supplied empty disposable workspace. Recommend a UI system and appearance policy before producing representative mockups. I am considering plain Tailwind, Tailwind with shadcn/ui, HeroUI or another appropriate option. Explain the choice using the task and maintenance constraints in the brief. This is design only; do not install a framework or implement the application.",
+      "criteria": [
+        "Component-system ownership, platform compatibility and tradeoffs are resolved or explicitly proposed before dependent mockups; available skills do not silently select a stack.",
+        "Light/dark/system behavior, semantic roles and first-paint/persistence expectations appear in the same design-to-implementation contract.",
+        "The representative design carries those decisions into content, controls and meaningful states, while proposed choices remain distinguishable from accepted requirements.",
+        "Design-only scope is preserved and no installation, application implementation or participant validation is invented."
+      ]
+    },
+    {
+      "id": "extension-collection-ui-and-existing-system",
+      "prompt": "Improve the supplied Chrome extension for reviewing a large collection. It already uses React with HeroUI and has an accepted brand. Users lose edits when the popup closes and cannot tell whether a bulk action affects searched or selected items. Configuration crowds the popup; a separate view can change settings while work is pending. Design and implement the scoped improvement in the supplied isolated repository/profile using synthetic data only. Preserve the framework and choose appropriate browser surfaces. No real history, provider accounts or publication.",
+      "criteria": [
+        "Surface choices follow task length, comparison and continuity needs without forcing every extension to acquire the same popup/panel/options arrangement.",
+        "Accepted component system, brand and appearance policy are retained, with readable dense content and keyboard/focus behavior across affected surfaces.",
+        "Source context, edits, progress and bulk selection remain explicit across closure/reopening and simultaneous settings changes; stale work cannot be applied.",
+        "Rendered appearance and actual extension lifecycle/permission behavior have separate, accurate evidence; sources are inspiration rather than copied branding or claimed user research."
+      ]
     }
   ],
   "generation_trials": [
@@ -1163,7 +1183,8 @@
         "contextual-ui-direction",
         "design-to-implementation-handoff",
         "figma-capability-boundaries",
-        "figma-authenticated-read-write-cleanup"
+        "figma-authenticated-read-write-cleanup",
+        "ui-foundations-and-theme-handoff"
       ],
       "trial_ids": [
         "fresh-desktop-from-product-idea"
@@ -1263,7 +1284,8 @@
         "extension-existing-ui",
         "extension-runtime-boundaries",
         "extension-standalone",
-        "extension-store-preparation"
+        "extension-store-preparation",
+        "extension-collection-ui-and-existing-system"
       ],
       "trial_ids": [],
       "evidence": [
