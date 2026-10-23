@@ -2,7 +2,7 @@
 
 [Current status](#current-status) · [Run a scenario](#run-and-grade-a-scenario) · [Generation trials](#generation-trials) · [Evidence limits](#recorded-evidence-and-limits) · [Maintainer guide](../maintainer-reference.md)
 
-The [evaluation specification](../../evals/development-workflows.json) contains 52 behavior cases, 12 generation trials and an eleven-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
+The [evaluation specification](../../evals/development-workflows.json) contains 56 behavior cases, 12 generation trials and an eleven-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
 
 ## Current status
 
@@ -16,7 +16,7 @@ The current collection has not received a complete behavioral rerun. Earlier tri
 
 ## Intended flows and execution levels
 
-The specification's flow_matrix connects cases to user outcomes: product-to-design, project setup versus complete applications, UI assessment/repair, design-tool handoff, research, native/private-data applications, AI/session integration, delivery/operations and maintenance. Migration, jobs, incidents, performance, resilience and libraries are also represented. Cross-cutting cases assess identity/access lifecycle, SaaS dashboards and commercial recovery, GDPR/SOC 2 evidence, PostgreSQL, TypeScript and Go contracts, plus absent-specialist fallback. Browser-extension cases cover design-only work, an existing UI system, standalone guidance, real MV3 contexts/lifecycle and store preparation without promotion.
+The specification's flow_matrix connects cases to user outcomes: product-to-design, project setup versus complete applications, UI assessment/repair, design-tool handoff, research, native/private-data applications, AI/session integration, delivery/operations and maintenance. Migration, jobs, incidents, performance, resilience and libraries are also represented. Cross-cutting cases assess identity/access lifecycle, SaaS dashboards and commercial recovery, GDPR/SOC 2 evidence, PostgreSQL, TypeScript and Go contracts, plus absent-specialist fallback. Browser-extension cases cover design-only work, an existing UI system, standalone guidance, real MV3 contexts/lifecycle and store preparation without promotion. A multi-brief design case checks whether task-derived structures adapt to different extension types, hybrids and unavailable surfaces; it accepts alternative valid layouts and is defined rather than executed.
 
 | Level | Evidence produced | Boundary |
 | --- | --- | --- |

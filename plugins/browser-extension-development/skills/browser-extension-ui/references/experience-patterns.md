@@ -1,6 +1,6 @@
 # Extension experience patterns
 
-Use this when a new extension needs several surfaces, when collection work outgrows a popup or when revising an existing experience. Start with the user's task and accepted visual/component foundations. Source review can suggest useful patterns; it does not establish participant usability or make an upstream product's layout appropriate for every extension.
+Use this to establish behavior across surfaces and views after choosing a task structure from [extension types](extension-types.md), or when changing an existing transition. Start with the accepted work and visual/component foundations. Source review can suggest useful patterns; it does not establish participant usability or make an upstream product's layout appropriate for every extension.
 
 ## Give each surface a clear job
 
@@ -27,6 +27,24 @@ Separate settings that take effect immediately from draft values that need savin
 A browser grant, stored connection configuration, authenticated account and supported model/feature are different states. Represent the ones that matter to the operation. Explain the recipient and purpose before requesting access, retain useful behavior on refusal, and expose revocation/disconnection where users can find it. A successful settings save does not prove a service request succeeded.
 
 Apply the accepted appearance policy across popup, options, larger views and overlays. Test first paint, persisted overrides, live system changes and consistency between already-open surfaces. Include native controls and intermediate transitions in contrast assessment; matching page backgrounds alone does not establish a coherent dark mode.
+
+## Trace transitions between surfaces and views
+
+Treat navigation as a change in work context, not simply a change of URL or component. Trace the important departures and returns for the selected extension type. A clipper can hand a draft to an editor, a vault can open authentication before filling, and a page companion can continue a conversation in a full tab. All need an explicit account of what continues and what may change.
+
+| Question | Establish before implementation |
+| --- | --- |
+| What initiates the transition? | Toolbar, selection, shortcut, browser controls or an in-app action. Direct entry may have no earlier workspace or return destination. |
+| What identifies the work? | Original page/window, selected objects, account, conversation, draft or job. Focus alone is usually an unreliable identity. |
+| What survives departure? | Recoverable inputs, deliberate edits, selection, progress and relevant reading position. A transient surface cannot be the sole owner of required state. |
+| What can change elsewhere? | Permissions, authentication, defaults, source content or another view's edits. Decide what synchronizes, applies later, conflicts or invalidates a result. |
+| How does the person return? | Recognizable return/close action, browser navigation or a reused destination. Restore a useful location and focus without repeating the operation. |
+
+Keep frequent choices for the active operation near its work; give substantial durable configuration a findable home. A shortcut and a canonical destination should reach the same persistence/validation contract. The same reasoning applies to account setup, access requests and advanced editors: proximity helps a small related decision, while a longer task can need a dedicated view. Do not solve every departure with a dialog or every persistent preference with another browser tab.
+
+Browser entry is a special case of this method. Chrome exposes declared options through its own controls; the [options guide](https://developer.chrome.com/docs/extensions/develop/ui/options-page) documents embedded and full-page forms. Those entries must work without an earlier workspace. A browser-hosted options page and a settings route within the application can share one configuration model while having different return behavior. Similarly, a native side panel may be opened independently and can have tab-specific or shared scope; establish the actual policy instead of assuming that visual continuity implies context continuity.
+
+Exercise the chosen transition from both an existing task and independent entry where supported. Change, cancel or fail the secondary task, then return. Confirm original scope, recoverable inputs, location and result freshness. Opening another view must not itself repeat a consequential operation. Test simultaneous views when they can affect the same work, rather than validating each screen in isolation.
 
 ## Source-based lessons
 

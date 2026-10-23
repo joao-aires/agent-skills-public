@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "browser-extension-development",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Chrome Manifest V3 architecture, permissions, extension UI, runtime testing and store delivery; preserve accepted frameworks and design.",
   "author": {
     "name": "João Aires"

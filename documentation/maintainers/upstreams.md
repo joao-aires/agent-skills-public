@@ -14,7 +14,9 @@ Use Agent Depot to acquire and update third-party skills. Their unmodified files
 
 Several artifacts can reference one source at different commits. Every artifact has an explicit accepted `commit`. Optional `track` specifies where to look for candidates, such as `{ "branch": "main" }`, without changing the accepted pin. Artifacts without tracking remain pinned; scheduled discovery does not guess a branch or upgrade them.
 
-Keep managed snapshots unchanged. Edit authored skills directly; place adjustments to acquired guidance in the builder’s allowlisted adaptations and declare their use in packaging metadata. Preserve attribution and native invocation controls. Do not edit a lockfile to accept local drift.
+Keep managed snapshots unchanged. Put the collection's methods and workflow expectations in authored companion skills or package framing, preserving the acquired method as an independently reviewable dependency. An authored activity can select compatible expertise or explain project constraints without replacing the upstream text. Do not edit a lockfile to accept local drift.
+
+Existing builds also apply the declared output adaptations: these include framing and metadata as well as content rewrites such as tracker prerequisites. Snapshot integrity does not mean the generated skill is byte-identical to upstream. Review those transformations against each candidate update; wording-dependent replacements can fail when upstream changes. Keep new guidance in companions rather than adding another semantic rewrite. A packaging compatibility change still needs an explicit rationale, provenance and focused validation. Removing existing transformations requires preserving their applicable workflow and invocation behavior; it is a separate packaging change, not an implicit consequence of editing an authored skill.
 
 ## Prepare the maintenance CLI
 
@@ -36,7 +38,7 @@ To update the CLI pin, review its command and persisted-format compatibility, ch
 
 1. Review the upstream method, required resources, redistribution terms and its fit with the owning plugin. Reuse an existing repository source ID where applicable.
 2. Declare the artifact in `agent-depot.json` with a full accepted commit and the destination `plugins/<owner>/skills/<upstream-name>`. Add an explicit resource mapping for a required external license, usually to `UPSTREAM-LICENSE.txt`. Preserve every resource inside the selected skill root.
-3. Add `metadata.packaging` inside the artifact object; use the fields below. Preserve complete groups of mutually required skills; declare new adaptations only with focused packaging tests.
+3. Add `metadata.packaging` inside the artifact object; use the fields below. Preserve complete groups of mutually required skills. A necessary packaging compatibility exception needs an explicit rationale and focused tests; collection-specific guidance belongs in authored companions.
 4. In an established collection, prepare and apply a plan. `lock` followed by `sync` is for initial acquisition, not a way to bypass reviewed changes to accepted snapshots.
 
 ```bash

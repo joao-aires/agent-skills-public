@@ -71,6 +71,8 @@ Each plugin carries the files and resources its own skills require: instructions
 
 Give shared rules an owner within each bundle. Keep enough reasoning locally to perform its stated capability, with concise scoped framing where several skills need it. Link conditional technical detail when it applies. Avoid copying an entire specialist method into a workflow or adding a resolver/registry to encode optional relationships. Once selected, conclusions flow through the current task context and existing project notes; no handoff schema or extra tracker is required.
 
+Authored companion skills and package framing own the collection's additional expectations around an acquired method. Keep upstream snapshots unchanged and avoid introducing those expectations through build-time instruction rewrites. Existing declared output adaptations remain part of the packaging contract and need their own compatibility review; preserving source bytes does not make that output identical to upstream.
+
 Adding stack expertise should improve matching through its description and implementation content without editing every workflow. The [stack-extension guide](maintainers/adding-stack-support.md) explains the contribution mechanics. The [ownership map](maintainers/sources.md#setup-repository-and-delivery-ownership) distinguishes project foundations, contribution mechanics, delivery contracts and selected technical implementation.
 
 ## Implementation and evidence
