@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "database-development",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Database design and evidence-led performance methods independent of engine, application language or hosting platform.",
   "author": {
     "name": "João Aires"

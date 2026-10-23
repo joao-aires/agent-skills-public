@@ -23,6 +23,7 @@ class InvocationTests(unittest.TestCase):
             skill = root / 'plugins/example/skills/start-work'
             (skill / 'agents').mkdir(parents=True)
             (root / 'plugins/example/plugin.json').write_text('{"name":"example"}')
+            (root / 'plugins/example/LICENSE').write_text('MIT License\n')
             (skill / 'SKILL.md').write_text('---\nname: start-work\ndescription: Start a workflow on request.\ndisable-model-invocation: true\n---\nStart the requested work.\n')
             settings = skill / 'agents/openai.yaml'
             settings.write_text('policy:\n  allow_implicit_invocation: false\n')
@@ -34,3 +35,6 @@ class InvocationTests(unittest.TestCase):
                 p = skill / 'SKILL.md'
                 p.write_text(p.read_text().replace('invocation: true', 'invocation: "true"'))
                 self.assertTrue(any('Invalid invocation flag' in e for e in validator.validate()))
+                p.write_text(p.read_text().replace('invocation: "true"', 'invocation: true'))
+                (root / 'plugins/example/LICENSE').unlink()
+                self.assertTrue(any('Missing package LICENSE' in e for e in validator.validate()))

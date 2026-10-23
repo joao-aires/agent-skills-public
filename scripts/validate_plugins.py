@@ -37,6 +37,8 @@ def validate() -> list[str]:
             if name in names:
                 raise ValueError(f"Duplicate plugin name {name}")
             names.add(name)
+            if not (package / "LICENSE").is_file():
+                raise ValueError("Missing package LICENSE for local material")
             for path in package.rglob("*"):
                 if not path.resolve().is_relative_to(package):
                     raise ValueError(f"Escaping package path: {path}")
@@ -79,4 +81,4 @@ if __name__ == "__main__":
         print(failure, file=sys.stderr)
     if failures:
         raise SystemExit(1)
-    print("Plugin manifests, skill metadata, upstream pins and package containment passed.")
+    print("Plugin manifests, licenses, skill metadata, upstream pins and package containment passed.")
