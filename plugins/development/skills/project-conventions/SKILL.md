@@ -16,6 +16,8 @@ Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation bo
 
 # Establish and maintain project conventions
 
+Inspect what each configured check actually covers. Formatting, linting, typechecking and behavior tests establish different properties; a command or configuration filename alone does not prove coverage of the affected source. In mixed-language projects, verify file inclusion and compatible tool versions before treating a clean build as sufficient foundation evidence. Preserve an adequate existing toolchain rather than adding another tool for the same check.
+
 ## Match the requested change
 
 Read the request, existing code and accepted decisions before choosing structure.

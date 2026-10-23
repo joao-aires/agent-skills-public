@@ -43,6 +43,10 @@ Cover the affected design:
 
 Use relevant backend, frontend/native-client, AI and operations guidance when installed. Diagrams or a flow explorer can clarify a decision; a drawing alone is not a design.
 
+When work depends on mutable external state, establish what can change between observation and effect and which changes invalidate the proposed operation. Compare revalidation/version checks, transactions, serialization or reconciliation according to the platform and required consistency. Bind resources through identities appropriate to the operation; a mutable label or position may not identify the originally authorized target. Human edits take precedence where the accepted product promises that behavior, rather than through a universal rule that every manual change wins.
+
+Choose recovery from the effects the system can actually observe and reverse. A transaction, resumable operation, compensation, reconciliation or visible partial result can each fit different boundaries. A generated proposal is not evidence that an effect occurred, and a lost response is not evidence that it did not. Define where completion becomes authoritative and what later work may safely assume. Keep the state representation and recovery mechanism proportionate to that responsibility.
+
 | When the application includes | Make these boundaries explicit |
 | --- | --- |
 | Desktop or mobile clients | Native shell/client responsibilities versus backend services in the accepted stack. |
