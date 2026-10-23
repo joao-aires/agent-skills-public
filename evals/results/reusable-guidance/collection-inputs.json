@@ -1,0 +1,34 @@
+{
+  "source": "synthetic local evaluation material",
+  "existing_application": {
+    "stack": "React client, existing catalog API; no new infrastructure requested",
+    "feature_requests": [
+      {
+        "audience": "museum visitors",
+        "need": "A short readable explanation of an item, grounded in available catalog evidence; visitors may ask follow-up questions."
+      },
+      {
+        "audience": "catalog import service",
+        "need": "Import the source object identity, title, maker when known, and provenance/source references; incomplete source facts must remain distinguishable from source disagreements."
+      }
+    ],
+    "accepted_authority": "An editor must accept proposed catalog changes; this design request grants no write authority."
+  },
+  "records": [
+    {
+      "id": "OBJ-1823",
+      "title": "Study of a river",
+      "maker": null,
+      "sources": [
+        {
+          "id": "S1",
+          "text": "The acquisition card lists an unsigned work, estimated 1880\u20131890."
+        },
+        {
+          "id": "S2",
+          "text": "A later inventory tentatively attributes the work to R. Vale; the attribution is unconfirmed."
+        }
+      ]
+    }
+  ]
+}
