@@ -53,9 +53,9 @@ Decide theme behavior from product requirements and the established system. If f
 
 Use [injected UI and shared components](references/content-ui.md) when mounting into a site, moving components into a ShadowRoot or adapting overlays/portals. Style isolation, font/token inheritance and focus/event behavior need separate checks. Neither JavaScript isolated worlds nor Shadow DOM alone proves that an injected experience is safe or usable.
 
-## Make dense work and configuration understandable
+## Adapt information and controls to the task
 
-Lead with the information that lets someone recognize an item, then its source/context and relevant state. Support search/filtering and explicit selection when collections grow. Explain whether a bulk action affects visible results, selected items or a broader scope; preserve exclusions and edits, and keep the consequence and recovery visible. Use a persistent action region when long scrolling would otherwise hide the decision. Density should serve comparison without making labels, focus or targets difficult to use.
+In library and collection views, lead with the information that lets someone recognize an item, then its source/context and relevant state. Support search/filtering and explicit selection when collections grow. Explain whether a bulk action affects visible results, selected items or a broader scope; preserve exclusions and edits, and keep the consequence and recovery visible. Use a persistent action region when long scrolling would otherwise hide the decision. Density should serve comparison without making labels, focus or targets difficult to use.
 
 Separate task controls from substantial configuration. Make defaults, immediate changes and explicit saves distinguishable, and explain when a change requires a fresh result. A setting changed in one view must not leave another view presenting a stale proposal as current. Surface status near the relevant action and distinguish saved configuration from verified service access. Optional integrations need clear recipients and distinct states for the capabilities they actually use, such as browser grants, account authorization or model support, rather than one ambiguous connected badge.
 
