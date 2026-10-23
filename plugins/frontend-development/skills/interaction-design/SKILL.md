@@ -1,6 +1,6 @@
 ---
 name: interaction-design
-description: Define and verify frontend user journeys, navigation, menus, dialogs,
+description: Define and verify information architecture, user journeys, navigation, menus, dialogs,
   forms and shared interaction patterns before meaningful UI implementation. Use for
   new UX, cross-screen redesigns, global component changes or inconsistent behavior;
   inventory all affected surfaces and states instead of improvising each page.
@@ -24,6 +24,14 @@ Use the component-system and appearance decisions established with visual design
 Read the request, accepted UX/product decisions, references and existing components/routes. Inspect the rendered application when available and distinguish observed behavior from code assumptions. Map user roles, tasks and entry/exit points before choosing widgets. Preserve established branding, density, navigation and business language unless changing them is the request.
 
 For a cross-cutting change, trace shared primitives, caller overrides and alternate/conditional entry points. Keep a concise coverage record of the affected surfaces, meaningful states, intended shared behavior and verification status in existing notes. Derive its scope from the request and actual application, including relevant roles/platforms.
+
+## Organize work before choosing screens
+
+Information architecture determines how users find work, configuration and help. Begin with the tasks people return to, the objects they work on and the scope in which they act. Group destinations in their vocabulary; an internal service or integration does not automatically deserve a menu item. Reuse an established navigation model when it still supports the work. Derive additional views from real capabilities and roles instead of filling a standard application shell with unused pages.
+
+Distinguish controls for the current operation from preferences that persist into later work. Consider how often someone changes a value, what it affects and whether they need to see the result while changing it. Frequent task choices usually belong near the work; substantial configuration needs a recognizable home. A default and a temporary override may both be useful, but their scope and precedence must be understandable. Infrequent privacy or access controls still need to be findable when a consequential decision depends on them.
+
+Choose navigation and containers together. A page supports a substantial task with its own location; a drawer can keep a short related task beside the work; a dialog focuses a bounded interruption. Specify the return path and what happens to drafts, selection and ongoing results before choosing one. Platform conventions can justify a separate settings page or window; preserving context matters across that transition. Read [navigation and configuration design](references/navigation-and-configuration.md) for new navigation structures, settings organization or a redesign spanning several views.
 
 ## Specify the interaction before coding
 

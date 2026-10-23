@@ -43,6 +43,8 @@ Lead with the information that lets someone recognize an item, then its source/c
 
 Separate task controls from substantial configuration. Make defaults, immediate changes and explicit saves distinguishable, and explain when a change requires a fresh result. A setting changed in one view must not leave another view presenting a stale proposal as current. Surface status near the relevant action and distinguish saved configuration from verified service access. Optional integrations need clear recipients and distinct states for the capabilities they actually use, such as browser grants, account authorization or model support, rather than one ambiguous connected badge.
 
+Give configuration a recognizable entry and return path across the chosen browser surfaces. An options page, a settings view in the extension workspace or a short adjacent panel can each fit a different task; do not require one layout for every extension. Preserve the original page/window context and unfinished work when configuration opens elsewhere. Read [configuration navigation](references/experience-patterns.md#navigate-to-configuration-and-back) when choosing that boundary or changing how several surfaces expose settings.
+
 ## Represent permission and lifecycle states
 
 Explain the action and site scope before requesting access, request it at the relevant interaction and retain useful behavior when access is declined. Distinguish unsupported/restricted pages, absent grants, expired account access, empty results and a disconnected content script. Do not collapse these into an indefinite spinner or silently retry with broader permissions.

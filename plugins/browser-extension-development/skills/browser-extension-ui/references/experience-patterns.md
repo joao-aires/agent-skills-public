@@ -28,6 +28,16 @@ A browser grant, stored connection configuration, authenticated account and supp
 
 Apply the accepted appearance policy across popup, options, larger views and overlays. Test first paint, persisted overrides, live system changes and consistency between already-open surfaces. Include native controls and intermediate transitions in contrast assessment; matching page backgrounds alone does not establish a coherent dark mode.
 
+## Navigate to configuration and back
+
+Distinguish choices for the active operation from durable extension preferences. Keep frequent operation choices near the affected work; use a recognizable settings destination for substantial configuration. A shortcut from a popup can be useful, but it should reach the same settings and persistence contract as the workspace or browser-provided entry point.
+
+Chrome exposes a declared options page through its own extension controls as well as extension-authored entry points. The [options-page guide](https://developer.chrome.com/docs/extensions/develop/ui/options-page) documents embedded and full-page options. A workspace settings route or panel can also suit the product. Choose according to configuration complexity, continuity and the existing application architecture; opening a new tab is neither required for all settings nor inherently a UX failure.
+
+Before implementing the transition, establish what can close, which window/page owns the operation, where recoverable input lives and what the return action does. A toolbar popup may disappear as settings opens, so it cannot be the only owner of that input. Settings can be opened independently from browser controls: its return path must also work when no prior workspace view exists.
+
+Exercise opening settings from the relevant popup/workspace entries, changing or cancelling a preference, then reopening the original work. Check whether that change applies immediately, changes a later default or invalidates an existing result. Confirm the intended source context and input are retained, and that another open view cannot silently apply an outdated result. A browser-hosted configuration page and an in-workspace view need consistent meanings even when their layouts differ.
+
 ## Source-based lessons
 
 These are observations of public source, not imported code, brand assets or claims that these extensions are objectively the best designed.
