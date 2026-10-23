@@ -49,6 +49,8 @@ The same concern can need conceptual guidance and a selected implementation. Kee
 
 The generic AI skills own different decisions: development shapes the application and its boundaries, testing defines useful evidence, and operations governs AI operating behavior. Evaluation judges quality; observability explains execution and operating behavior. A platform can offer both without making them the same evidence. These capabilities compose when relevant; loading the generic AI package neither installs the Python package nor requires its specialists. Each generic discipline retains enough essential reasoning to work without another specialist; detailed evaluation methods belong to AI testing rather than the development entry point. Future implementation libraries belong with matching technical expertise without changing the generic reasoning contract.
 
+For consequential model exchanges, [input/output design](../plugins/ai-development/skills/ai-development/references/model-io-design.md) explains how the consumer, evidence and allowed effects determine the contract and recovery. [Performance/resource guidance](../plugins/ai-development/skills/ai-operations/references/performance-and-resources.md) selects optimizations from observed constraints and accepted quality. Compact representations, caching and partial recomputation are conditional techniques, not a required architecture for AI applications.
+
 ## Compose without optional dependencies
 
 The higher-level activity retains responsibility for the result. A specialist deepens the reasoning or supplies implementation details; it does not become a prerequisite for preserving the outcome.

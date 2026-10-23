@@ -28,6 +28,8 @@ Make the deployed application, model/provider, prompt, tool/skill, retrieval/cor
 
 Account for quotas, rate limits, concurrency, context/token budgets and end-to-end cost, including retries, judges, retrieval and delegated work. Separate estimates from measured usage and use relevant operating/capacity expertise for resource planning. Provider success or nominal per-call price cannot establish useful task throughput or total cost.
 
+Read [performance and resource decisions](references/performance-and-resources.md) when investigating latency, selecting an optimization or budgeting a multi-call task. Locate the constraint before choosing smaller outputs, different reasoning, caching or concurrency. Their benefit depends on the workload, quality requirements and actual service capabilities.
+
 Bound retries and work duration; handle overload, cancellation, partial effects and resumable state.
 
 - Keep idempotency and business state authoritative outside the model.

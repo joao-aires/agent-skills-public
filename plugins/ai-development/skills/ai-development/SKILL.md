@@ -26,6 +26,14 @@ Compare these approaches against the actual uncertainty and action needs. Keep t
 
 Choose a model/provider against task evidence, modalities, structured-output/tool support, context limits, latency, cost and deployment/data constraints. Version-match actual APIs and retain a replaceable integration boundary where useful. A loaded specialist does not accept a stack or authorize installation. Keep domain behavior testable without a model.
 
+## Design the result for its consumer
+
+Establish what the model contributes and who consumes it before choosing a response format. A person reading advice, software importing records and a service executing tool arguments need different contracts. Choose prose, structured data, tool calls or a combination from that need. Preserve explanations, citations and uncertainty when the consumer relies on them; generating fewer tokens is useful only if the required information survives.
+
+Separate valid representation, valid application data, permitted effects and task usefulness. A schema can express some domain constraints, but authorization and constraints it cannot express still need application checks. A well-formed result can remain unsupported or unhelpful. Decide how each consequential property will be established rather than treating one successful parse or model judgment as sufficient.
+
+Read [model input/output design](references/model-io-design.md) when choosing a software-consumed contract, organizing substantial context or designing recovery. It explains representation tradeoffs, instruction/evidence authority and cause-sensitive recovery without requiring every application to use JSON, a fixed prompt layout or an agent loop.
+
 ## Compose the required capabilities
 
 Choose each mechanism for the boundary it serves:

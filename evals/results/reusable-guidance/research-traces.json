@@ -1,0 +1,48 @@
+{
+  "source": "synthetic local evaluation material",
+  "accepted_outcome": "Answer a collection researcher with supported citations; existing answer rubric must be retained. No service mutation or paid calls.",
+  "observations": [
+    {
+      "run": "A1",
+      "candidate": "baseline",
+      "input_set": "P1",
+      "retrieval_ms": 7400,
+      "provider_elapsed_ms": 1400,
+      "validation_and_client_ms": 250,
+      "cache_usage": null,
+      "rubric": "pass",
+      "attempts": 1
+    },
+    {
+      "run": "A2",
+      "candidate": "baseline",
+      "input_set": "P2",
+      "retrieval_ms": 9100,
+      "provider_elapsed_ms": 1600,
+      "validation_and_client_ms": 250,
+      "cache_usage": null,
+      "rubric": "pass",
+      "attempts": 1
+    },
+    {
+      "run": "B1",
+      "candidate": "proposal",
+      "input_set": "P3",
+      "retrieval_ms": 5200,
+      "provider_elapsed_ms": 800,
+      "validation_and_client_ms": 250,
+      "cache_usage": null,
+      "rubric": "missing required citation",
+      "attempts": 1
+    }
+  ],
+  "configuration_changes": {
+    "proposal": [
+      "different model",
+      "shorter answer limit",
+      "different input set"
+    ]
+  },
+  "provider_internal_timings": "not available",
+  "provider_cost": "not available"
+}

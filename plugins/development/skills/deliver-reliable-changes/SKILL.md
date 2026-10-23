@@ -91,3 +91,5 @@ Diagnose flaky checks before changing waits or retries.
 Review scope, correctness and avoidable complexity; resolve material findings. Keep affected knowledge current, seeking available knowledge-upkeep expertise when useful. For deprecation/removal, read [retiring behavior](references/retiring-behavior.md) before removing consumers, data or operating resources.
 
 Report changed behavior, rationale, actual checks/artifacts and remaining limits, with revision/environment sufficient to reproduce material findings. Preserve useful regression evidence. Distinguish planned, implemented, verified and deployed states, and publish or execute remote actions only within established authority.
+
+When work crosses actors or sessions, retain the provenance needed to interpret completion. Distinguish initial implementation, later repairs, independent review and the revision actually exercised; an interrupted run is not proof it would never have completed. Review findings can support a correction but do not substitute for runtime evidence. Preserve relevant outstanding scope in the handoff without requiring an actor ledger for ordinary single-session work.
