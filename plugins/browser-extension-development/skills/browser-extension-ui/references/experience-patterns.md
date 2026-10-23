@@ -1,6 +1,6 @@
 # Extension experience patterns
 
-Use this when a new extension needs several surfaces, when collection work outgrows a popup or when revising an existing experience. Start with the user's task and accepted visual/component foundations. Source review can suggest useful patterns; it does not establish participant usability or make an upstream product's layout appropriate for every extension.
+Use this to establish behavior across surfaces and views after choosing a task structure from [extension types](extension-types.md), or when changing an existing transition. Start with the accepted work and visual/component foundations. Source review can suggest useful patterns; it does not establish participant usability or make an upstream product's layout appropriate for every extension.
 
 ## Give each surface a clear job
 
@@ -28,15 +28,23 @@ A browser grant, stored connection configuration, authenticated account and supp
 
 Apply the accepted appearance policy across popup, options, larger views and overlays. Test first paint, persisted overrides, live system changes and consistency between already-open surfaces. Include native controls and intermediate transitions in contrast assessment; matching page backgrounds alone does not establish a coherent dark mode.
 
-## Navigate to configuration and back
+## Trace transitions between surfaces and views
 
-Distinguish choices for the active operation from durable extension preferences. Keep frequent operation choices near the affected work; use a recognizable settings destination for substantial configuration. A shortcut from a popup can be useful, but it should reach the same settings and persistence contract as the workspace or browser-provided entry point.
+Treat navigation as a change in work context, not simply a change of URL or component. Trace the important departures and returns for the selected extension type. A clipper can hand a draft to an editor, a vault can open authentication before filling, and a page companion can continue a conversation in a full tab. All need an explicit account of what continues and what may change.
 
-Chrome exposes a declared options page through its own extension controls as well as extension-authored entry points. The [options-page guide](https://developer.chrome.com/docs/extensions/develop/ui/options-page) documents embedded and full-page options. A workspace settings route or panel can also suit the product. Choose according to configuration complexity, continuity and the existing application architecture; opening a new tab is neither required for all settings nor inherently a UX failure.
+| Question | Establish before implementation |
+| --- | --- |
+| What initiates the transition? | Toolbar, selection, shortcut, browser controls or an in-app action. Direct entry may have no earlier workspace or return destination. |
+| What identifies the work? | Original page/window, selected objects, account, conversation, draft or job. Focus alone is usually an unreliable identity. |
+| What survives departure? | Recoverable inputs, deliberate edits, selection, progress and relevant reading position. A transient surface cannot be the sole owner of required state. |
+| What can change elsewhere? | Permissions, authentication, defaults, source content or another view's edits. Decide what synchronizes, applies later, conflicts or invalidates a result. |
+| How does the person return? | Recognizable return/close action, browser navigation or a reused destination. Restore a useful location and focus without repeating the operation. |
 
-Before implementing the transition, establish what can close, which window/page owns the operation, where recoverable input lives and what the return action does. A toolbar popup may disappear as settings opens, so it cannot be the only owner of that input. Settings can be opened independently from browser controls: its return path must also work when no prior workspace view exists.
+Keep frequent choices for the active operation near its work; give substantial durable configuration a findable home. A shortcut and a canonical destination should reach the same persistence/validation contract. The same reasoning applies to account setup, access requests and advanced editors: proximity helps a small related decision, while a longer task can need a dedicated view. Do not solve every departure with a dialog or every persistent preference with another browser tab.
 
-Exercise opening settings from the relevant popup/workspace entries, changing or cancelling a preference, then reopening the original work. Check whether that change applies immediately, changes a later default or invalidates an existing result. Confirm the intended source context and input are retained, and that another open view cannot silently apply an outdated result. A browser-hosted configuration page and an in-workspace view need consistent meanings even when their layouts differ.
+Browser entry is a special case of this method. Chrome exposes declared options through its own controls; the [options guide](https://developer.chrome.com/docs/extensions/develop/ui/options-page) documents embedded and full-page forms. Those entries must work without an earlier workspace. A browser-hosted options page and a settings route within the application can share one configuration model while having different return behavior. Similarly, a native side panel may be opened independently and can have tab-specific or shared scope; establish the actual policy instead of assuming that visual continuity implies context continuity.
+
+Exercise the chosen transition from both an existing task and independent entry where supported. Change, cancel or fail the secondary task, then return. Confirm original scope, recoverable inputs, location and result freshness. Opening another view must not itself repeat a consequential operation. Test simultaneous views when they can affect the same work, rather than validating each screen in isolation.
 
 ## Source-based lessons
 

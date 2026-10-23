@@ -842,6 +842,31 @@
         "Unknown and partial effects are observed/reconciled before replay, with truthful status and bounded recovery.",
         "Focused tests observe intended/denied effects and concurrent changes without merely checking a success response."
       ]
+    },
+    {
+      "id": "extension-task-pattern-selection",
+      "prompt": "Design the extension experience for the supplied product brief and accepted platform/design constraints. Explain the main journey, UI structure, browser surfaces and important states, with a bounded verification plan. This is design only; do not scaffold, install, configure accounts or change external applications.",
+      "evaluator_setup": "Run separate variants using raw briefs, not archetype labels: (1) save a selected research passage into a named collection, (2) find a stored account item and use it on a matching site, (3) keep notes or a conversation beside a document while visiting other pages, (4) make per-site reading adjustments, (5) inspect a running page and record diagnostics, (6) perform a quick URL operation through a shortcut without a persistent shell, (7) organize a large collection with reversible bulk edits, (8) capture an artifact and edit/export it, (9) customize a browser start destination, and (10) author and enable repeatable site workflows. Include at least one hybrid and one variant where a side panel is unavailable on the accepted target. Supply actual roles, appearance choices, capabilities and persistence requirements; withhold grader preferences and do not require a particular reference product or surface.",
+      "criteria": [
+        "The proposed structure follows the user task, relevant objects, scope and interruption needs; it distinguishes product type from the browser surface and gives reasons for meaningful alternatives.",
+        "The arrangement supports the relevant loop, such as capture/receipt, contextual list/detail/use, page-adjacent ongoing work, scoped adaptation, inspection, command/result or job/editor; pattern names alone are insufficient.",
+        "A hybrid composes actual supported tasks without accumulating every pattern or copying product-specific menus, branding, security assumptions or unaccepted capabilities.",
+        "Entry, current location, context policy, departure/return, drafts, progress and stale results are addressed where relevant, with configuration treated as one transition among others.",
+        "Target-browser support, host and lifecycle differences are respected; unsupported side panels do not become an implicit browser migration or a falsely equivalent injected sidebar.",
+        "Verification probes challenge the chosen loop in its real host; a design inference or proposed test is not reported as runtime or participant usability evidence."
+      ],
+      "evidence": [
+        "Task and object characterization, chosen structure and surface rationale",
+        "Adapted wireflow or equivalent with meaningful state/transition behavior",
+        "Target-specific verification plan and stated evidence limits"
+      ],
+      "negative_controls": [
+        "More than one sensible structure can satisfy a brief; no required popup, side panel, settings page count or named design reference.",
+        "A small command utility need not gain a dashboard, library or account; configuration improvements must not replace its actual task."
+      ],
+      "capability_gates": [
+        "Supplied synthetic briefs and accepted browser/product contracts"
+      ]
     }
   ],
   "generation_trials": [
@@ -1344,7 +1369,8 @@
         "extension-runtime-boundaries",
         "extension-standalone",
         "extension-store-preparation",
-        "extension-collection-ui-and-existing-system"
+        "extension-collection-ui-and-existing-system",
+        "extension-task-pattern-selection"
       ],
       "trial_ids": [],
       "evidence": [
