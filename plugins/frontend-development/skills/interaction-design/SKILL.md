@@ -39,6 +39,10 @@ For each reusable pattern, establish the relevant contract before implementation
 
 Describe how the interaction unfolds. Start from the user's entry point, explain what they can do in each meaningful state, and follow the action through completion, cancellation or failure. Decide which state belongs to the URL, the local draft, the server or a background process. That ownership determines whether Back, reload, a repeated action or a late response should preserve, discard or refresh the user's work.
 
+For asynchronous or multi-surface work, distinguish opening a view, requesting a result and authorizing an effect according to the product's actual interaction. Some tasks benefit from preview and confirmation; others legitimately operate automatically. Explain which context and accepted edits continue after a surface closes or another view changes, and make stale or conflicting work understandable. Avoid adopting the same Apply/Undo or background-work pattern for every product.
+
+Represent access and setup at the level the action needs. A saved configuration, browser grant, authenticated account and supported service capability can disagree. Show the relevant state and next useful action instead of one misleading connected badge. Coordinate the underlying authority and data-flow decisions with available security expertise; the UI describes those decisions rather than creating them.
+
 Choose a page, drawer or dialog according to the task's need for space, continuity and navigation. Shared controls should behave consistently, while different user goals and mobile constraints can justify explicit variants. Establish business rules from evidence; do not invent research or product decisions.
 
 Capture the result in a short behavioral description or state/transition table. Add wireframes/wireflows for layout/navigation uncertainty or representative mockups for a new visual direction; reuse adequate existing references. A mockup establishes appearance, not persistence, authorization or complete behavior. Text, wireframe and mockup are not all required for every change.

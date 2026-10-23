@@ -40,6 +40,10 @@ Identify the application, model, prompt, retrieval/context and tool configuratio
 
 Retain denominators, sample size and variability. Repeat stochastic cases enough to support the decision; one favorable generation does not establish reliability. Include measured latency and usage/cost where they affect acceptance, labelling estimates and missing values. Inspect execution failures and skipped cases before interpreting quality scores.
 
+Define a useful outcome before calculating efficiency. Include failed and recovery attempts in the resource accounting; reporting latency only for accepted responses can conceal a candidate that fails more often. Keep per-attempt measurements alongside job-level completion and quality. A prompt, model, reasoning setting and response format changed together cannot establish which one caused an improvement or failure. Use paired or interleaved runs where useful, record relevant queue/cache conditions and keep the conclusions proportional to the sample.
+
+Choose measures that expose the task's tradeoffs. Abstaining on every case can appear safe while serving nobody; a fluent response can appear helpful while inventing evidence. Assess the relevant coverage, correctness and usefulness separately, allowing multiple acceptable results when the task permits them. Exact grouping, extraction or retrieval measures belong to the application's evaluation rather than becoming requirements for unrelated AI features.
+
 Keep execution modes explicit:
 
 - Deterministic fixtures establish how the application handles supplied outcomes, failures and authority conditions. Run cheap checks routinely in CI.

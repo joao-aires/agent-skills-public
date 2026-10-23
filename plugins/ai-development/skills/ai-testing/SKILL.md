@@ -54,6 +54,8 @@ Record the evaluated application/model/prompt/context/tool configuration and dat
 - An average must not hide failed authority or consequential task criteria.
 - Include latency and usage/cost when they affect acceptance, with unavailable or estimated values labelled.
 
+Choose the comparison's denominator from the promised outcome. Failed attempts and recovery still consume time and resources; an optimization must retain accepted quality and behavior. Separate changes sufficiently to support the conclusion, and record confounding factors when they cannot be held comparable. A few runs can reveal a defect or justify another experiment without establishing a reliability rate or causal explanation.
+
 ## Implement and run proportionate checks
 
 Seek available expertise for the selected evaluator, test drivers and runtime; without it, use project evidence and primary documentation while retaining the same criteria. A Python evaluator can test a non-Python application. No SDK, hosted dataset service, dashboard or particular record format is required by this method.

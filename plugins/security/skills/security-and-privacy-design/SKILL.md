@@ -50,6 +50,8 @@ Preserve the application's access, deletion and export behavior across integrati
 
 Treat model output and tool arguments as untrusted. Keep authorization outside the prompt; minimize data sent to providers and avoid giving a model broad credentials. Apply the project's AI/tool guidance where relevant.
 
+Choose credential ownership from the actual deployment. Distributed client code cannot keep a confidential application secret merely by receiving it through a build variable. User-supplied credentials have different exposure, storage and revocation tradeoffs; they do not automatically require a new server or make remote processing private. Trace the chosen credential to its recipient and operations, including redirects or delegated processors where relevant. When recipients, purposes or stored access change, reassess the applicable disclosure, authorization and consent basis rather than assuming an old setup covers every expansion or requiring a new prompt for every technical edit.
+
 ## Reuse specialists for the actual question
 
 Use available security-sensitive differential-review expertise for affected changes and compatible dependency supply-chain auditing expertise for dependency risk. The auditor supports particular lockfiles; check its declared coverage, especially for pnpm/yarn, and use ecosystem-native tools when unsupported. An unassessable result is not a clean bill of health. Neither skill replaces feature threat modeling or privacy decisions. Choose further specialist tools only when their scope matches the application and the user request.

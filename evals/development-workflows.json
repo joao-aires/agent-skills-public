@@ -787,6 +787,36 @@
         "Source context, edits, progress and bulk selection remain explicit across closure/reopening and simultaneous settings changes; stale work cannot be applied.",
         "Rendered appearance and actual extension lifecycle/permission behavior have separate, accurate evidence; sources are inspiration rather than copied branding or claimed user research."
       ]
+    },
+    {
+      "id": "ai-output-consumer-contracts",
+      "prompt": "Use the available guidance to design two supplied features in an existing application: a sourced explanation of a museum collection for visitors and an importer extracting catalog fields for software. Preserve the established service and interface. The supplied examples include missing evidence and inconsistent references. Produce the affected design and local evaluation cases only; no live calls, implementation or deployment.",
+      "criteria": [
+        "Output choices follow each consumer and preserve needed explanation/provenance without imposing JSON or compact identifiers on every answer.",
+        "Representation, expressible domain constraints, application validation, effect authority and uncertain quality are distinguished.",
+        "Missing evidence and unsuccessful execution have task-appropriate behavior rather than an invented mandatory fallback category.",
+        "Evaluation criteria assess the actual outcomes and do not claim live model quality from designed cases."
+      ]
+    },
+    {
+      "id": "ai-performance-causal-diagnosis",
+      "prompt": "Investigate the supplied slow research-assistant traces and paired evaluation records. Retrieval accounts for most elapsed time; a proposed model change also shortens answers and changes the input set, and no cache-hit observations are available. Recommend a bounded next experiment using supplied artifacts only. No provider calls, paid services or production changes.",
+      "criteria": [
+        "The observed bottleneck is distinguished from unobservable provider internals and client latency.",
+        "The recommendation preserves useful evidence and answer quality rather than assuming smaller output or lower reasoning fixes the delay.",
+        "Failed/recovery attempts, comparable cases, sample uncertainty and meaningful completion denominators remain visible.",
+        "Caching and provider capability claims require evidence; no unmeasured speedup or causal effect is invented."
+      ]
+    },
+    {
+      "id": "pending-operation-concurrent-change",
+      "prompt": "Design and implement the requested repair in the supplied owned local inventory application. A long-running proposal targets a record whose label, permissions or contents can change before commit. An external write may complete before its response is lost. Follow the supplied policy for human edits and existing update APIs. Use local fixtures only; no external mutations or infrastructure provisioning.",
+      "criteria": [
+        "Target identity, allowed effects and relevant freshness are established at the actual mutation boundary.",
+        "Conflict handling follows the supplied policy without assuming every manual edit always wins or requiring a new universal state engine.",
+        "Unknown and partial effects are observed/reconciled before replay, with truthful status and bounded recovery.",
+        "Focused tests observe intended/denied effects and concurrent changes without merely checking a success response."
+      ]
     }
   ],
   "generation_trials": [
@@ -1218,11 +1248,13 @@
     },
     {
       "id": "ai-protocol-and-session",
-      "outcome": "Verify actual published contracts, renderer/actions, error envelopes and supported existing-session access.",
+      "outcome": "Design task-appropriate AI contracts and evidence, diagnose inference tradeoffs, and verify required protocol/session capabilities.",
       "case_ids": [
         "ai-and-mcp-authority",
         "agui-a2ui-independent-conformance",
-        "harness-existing-session-capability"
+        "harness-existing-session-capability",
+        "ai-output-consumer-contracts",
+        "ai-performance-causal-diagnosis"
       ],
       "trial_ids": [
         "agui-a2ui-application",
@@ -1239,7 +1271,8 @@
         "current-incident-and-recovery",
         "k6-three-targets",
         "controlled-fault-and-recovery",
-        "portable-local-observability"
+        "portable-local-observability",
+        "pending-operation-concurrent-change"
       ],
       "trial_ids": [
         "project-foundations"
