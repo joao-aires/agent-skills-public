@@ -2,6 +2,7 @@ name: CI / Plugins
 on:
   push:
   pull_request:
+  workflow_call:
 permissions:
   contents: read
 jobs:
@@ -36,6 +37,8 @@ jobs:
           --destination "$RUNNER_TEMP/built-plugins"
       - name: Check complete inventory and local resources
         run: python scripts/check_collection.py --built "$RUNNER_TEMP/built-plugins"
+      - name: Generate Claude Code and Codex marketplace manifests
+        run: python scripts/build_plugin_marketplaces.py --built "$RUNNER_TEMP/built-plugins"
       - name: Check workflow-only default build
         run: |
           python scripts/build_plugins.py --destination "$RUNNER_TEMP/default-plugins"

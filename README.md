@@ -30,15 +30,30 @@ The collection has 13 generic plugins and 12 technical plugins. Technical expert
 <a id="1-build-the-bundles"></a>
 <a id="2-load-them-in-your-client"></a>
 
-1. [Build complete bundles and load them in your client](documentation/installation.md). The default build includes development only. Add other bundles for the work you need.
-2. Open the application repository or an empty project workspace and confirm discovery. Keep plugin resources intact; application dependencies and live tools are configured separately.
-3. Choose an activity and state the outcome and stopping point.
+Install the published **development** bundle, then add other capabilities as needed. The generated `claude-marketplace` branch contains complete bundles and catalogs for both clients.
+
+**Claude Code**
+
+```bash
+claude plugin marketplace add joao-aires/agent-skills-public#claude-marketplace
+claude plugin install development@agent-skills-public
+```
+
+**Codex**
+
+```bash
+codex plugin marketplace add joao-aires/agent-skills-public --ref claude-marketplace
+```
+
+Open the plugin browser in a supported Codex client, install development from Agent Skills Public, then start a new session. Open the application repository and confirm discovery before beginning work.
+
+[Installation and updates](documentation/installation.md) covers local builds, ChatGPT desktop, OpenCode, Pi, VS Code and other clients. It also explains marketplace refresh versus installed-plugin updates. If published output is unavailable, use the local-build route.
 
 <a id="3-make-a-first-request"></a>
 
 ### Make a first request
 
-Choose the activity explicitly: `/development:develop` in Claude Code, `develop` through Codex's skill picker, or `@develop` in OpenCode V2. See [client setup and compatibility](documentation/installation.md#load-them-in-your-client) first. Plain requests below work where explicit skill selection by name is supported.
+Choose the activity explicitly: `/development:develop` in Claude Code, or `develop` through Codex's skill picker. See [client setup and compatibility](documentation/installation.md#load-them-in-your-client) first. Plain requests below work where explicit skill selection by name is supported.
 
 | Starting point | Example request |
 | --- | --- |

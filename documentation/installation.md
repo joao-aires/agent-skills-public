@@ -22,36 +22,65 @@ If you already have a checkout, start there instead of cloning again. The builde
 
 ## Load them in your client
 
-Open the target application repository or an empty project workspace, rather than developing inside this skills repository.
+Open the application repository or an empty project workspace. The `claude-marketplace` distribution branch contains built bundles, a Claude Code catalog at `.claude-plugin/marketplace.json` and a Codex catalog at `.agents/plugins/marketplace.json`. They reference the same complete packages. The [publish workflow](../.github/workflows/publish-claude-marketplace.yml) runs the full validation workflow at the same revision before publishing from `main`; a failed validation prevents publication. Publications retain Git history so an existing clone can fast-forward, and remove files no longer present in the build. Forks publish under their own owner when their Actions configuration permits it.
 
-The examples below follow current official client documentation; these routes have not been executed against the revised bundles here. Use the route for your installed client/version and confirm its skill inventory before starting work.
+The client routes below were checked against primary documentation. Catalog generation and resource closure are tested locally; installation, discovery and updates in each native client still need verification for your installed version. Marketplace publication is separate from listing in a public plugin directory.
 
-<details open>
-<summary>Claude Code</summary>
+### Claude Code
 
-From the application workspace, in the same terminal:
+Add the published marketplace and install a bundle:
+
+```bash
+claude plugin marketplace add joao-aires/agent-skills-public#claude-marketplace
+claude plugin install development@agent-skills-public
+```
+
+Choose `/development:develop` in a new session, or `/development:workflow-help` for help choosing an activity. Install additional bundles by qualified name, such as `strategy@agent-skills-public`.
+
+Third-party marketplaces have automatic updates disabled by default. In `/plugin`, open Marketplaces, select this marketplace and enable auto-update if desired. To update manually:
+
+```bash
+claude plugin marketplace update agent-skills-public
+claude plugin update development@agent-skills-public
+```
+
+Refreshing the marketplace catalog alone does not update installed plugins. Run `/reload-plugins` in the active session, or start a new session, after an update. See [Claude Code's installation and update guide](https://code.claude.com/docs/en/discover-plugins#keep-plugins-updated).
+
+For a local build, from the application workspace in the terminal where `AGENT_PLUGINS_DIR` is set:
 
 ```bash
 claude --plugin-dir "$AGENT_PLUGINS_DIR/development"
 ```
 
-Then select `/development:develop`, or `/development:workflow-help` for help choosing an activity. Repeat `--plugin-dir` for additional bundles. Pass each complete plugin directory, rather than the parent build directory.
+Repeat `--plugin-dir` for additional bundles. Pass each complete plugin directory, not its parent build directory. The [manifest reference](https://code.claude.com/docs/en/plugins-reference) documents standard `skills/` discovery without a Claude-specific manifest. This loads skills; it does not translate portable `mcp.json` into Claude's `.mcp.json` configuration.
 
-[Claude Code's local-plugin guide](https://code.claude.com/docs/en/plugins/create#develop-without-a-marketplace) documents this route. Its [manifest reference](https://code.claude.com/docs/en/plugins-reference) allows a directory without a Claude manifest: the standard `skills/` layout loads and the directory supplies the plugin name. This route loads skills; it does not translate the portable `mcp.json` into Claude's `.mcp.json` configuration.
+### Codex and ChatGPT desktop
 
-</details>
+Codex has a separate marketplace catalog format, generated alongside the Claude catalog. Register the distribution source:
 
-<details>
-<summary>Codex</summary>
+```bash
+codex plugin marketplace add joao-aires/agent-skills-public --ref claude-marketplace
+codex plugin marketplace list
+```
 
-Use a local marketplace to expose complete built packages. In the application repository, copy development to a new destination. If it already exists, follow the update guidance below instead of overlaying it:
+In a supported client, open the Plugins Directory, choose Agent Skills Public and install development. Codex CLI also provides `/plugins`. Start a new chat/session and select `develop`. Supported ChatGPT desktop Work/Codex surfaces can use repo or personal marketplaces; registering a source does not publish it to the universal directory or your organization's managed catalog. Workspace-wide GitHub imports follow the administrator's separate setup.
+
+Refresh the registered Git marketplace with:
+
+```bash
+codex plugin marketplace upgrade agent-skills-public
+```
+
+Then check the installed plugin in the client and start a new session. Source registration, marketplace refresh and activation in an existing session are different steps; do not assume a changed source is already loaded. Follow the [official OpenAI packaging and marketplace guide](https://developers.openai.com/plugins/build/plugins) and [supported plugin surfaces](https://learn.chatgpt.com/docs/plugins) for your client. The Codex IDE extension is not a plugin installation surface in that guide; use supported skill discovery or the host's documented plugin support instead.
+
+For a local build, copy the complete bundle to a new directory in the application repository:
 
 ```bash
 mkdir -p .local-agent-plugins
 cp -R "$AGENT_PLUGINS_DIR/development" .local-agent-plugins/development
 ```
 
-Add this entry to `.agents/plugins/marketplace.json`, preserving any existing entries:
+Add or merge the following into `.agents/plugins/marketplace.json`, preserving existing entries:
 
 ```json
 {
@@ -60,30 +89,21 @@ Add this entry to `.agents/plugins/marketplace.json`, preserving any existing en
   "plugins": [
     {
       "name": "development",
-      "source": {
-        "source": "local",
-        "path": "./.local-agent-plugins/development"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
+      "source": { "source": "local", "path": "./.local-agent-plugins/development" },
+      "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
       "category": "Productivity"
     }
   ]
 }
 ```
 
-The source path is relative to the application repository root. In supported Codex desktop clients, restart the app, open the Plugins Directory and install development from Project guidance. Start a new chat, confirm discovery and select `develop` in the skill picker. Add entries only for the additional bundles you choose.
+Paths are relative to the marketplace root, not `.agents/plugins/`. Restart the desktop app, install development from Project guidance and start a new chat. For local updates, replace only a preserved, deliberately managed bundle copy and restart as described in the official guide. Add entries for other chosen bundles. Raw source directories contain unadapted upstream snapshots; expose built packages instead.
 
-The [official OpenAI documentation](https://developers.openai.com/plugins/build/plugins#install-a-local-plugin-manually) describes the portable manifest and local marketplace route. CLI marketplace management and desktop installation differ; follow that guide for your client. A source checkout's `plugins/` directories contain raw acquired skills without the collection’s adaptations or generated notices, so point the marketplace at complete built copies.
+### OpenCode
 
-</details>
+OpenCode skill sources are different from its executable JavaScript plugins. Keep the built bundles intact and load their skill directories.
 
-<details>
-<summary>OpenCode V2</summary>
-
-OpenCode discovers skill sources rather than loading these directories as native executable plugins. Keep the built bundle intact and merge its absolute skill-directory path into `opencode.json` or `opencode.jsonc` in the application repository:
+For **OpenCode V2**, merge absolute directories into the `skills` array in `opencode.json` or `opencode.jsonc`:
 
 ```json
 {
@@ -92,41 +112,53 @@ OpenCode discovers skill sources rather than loading these directories as native
 }
 ```
 
-Replace the example path with your build location. Add a skill-directory path for each chosen bundle, then start `opencode` in the application workspace. Confirm discovery and request `@develop` with your brief.
+Start `opencode` in the application workspace, confirm discovery and request `@develop`. Replace the example path and add one source for each chosen bundle. Rebuild into a new destination when updating, repoint the configured sources and start a new session. The [V2 skill guide](https://opencode.ai/v2/docs/skills/) documents these sources and invocation controls.
 
-This example follows the [OpenCode V2 skills guide](https://opencode.ai/v2/docs/skills/), including its explicit-source configuration and `@skill-id` invocation. V1 uses different configuration and invocation conventions; use the documentation for your version rather than copying V2 syntax. Skill-source loading does not configure bundled MCP endpoints. Check invocation controls in the installed client; descriptive metadata alone cannot enforce them.
+For **V1**, use the locations and permissions in its [skill guide](https://docs.opencode.ai/docs/skills/), rather than V2 configuration. A skill-directory link in a supported source such as `.opencode/skills/<name>` can retain the complete built package at its original location, so relative resources remain available. Preserve existing entries and confirm how your installed version resolves links and invocation controls. Skill-source loading does not configure MCP endpoints.
 
-</details>
+### Pi coding agent
 
-<details>
-<summary>Copilot CLI</summary>
+Pi can read skill directories without converting these bundles into executable extensions or Pi packages. Merge absolute paths into the `skills` array in the application repository's `.pi/settings.json`:
 
-From the application workspace, in the same terminal:
-
-```bash
-copilot \
-  --plugin-dir "$AGENT_PLUGINS_DIR/development"
+```json
+{
+  "skills": ["/absolute/path/built-plugins/development/skills"]
+}
 ```
 
-Append `skill list --json` to inspect discovery without starting a model session. In another terminal, set `AGENT_PLUGINS_DIR` to the absolute build directory first. See the [CLI reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference) for your version.
+Start Pi in the application workspace, inspect startup diagnostics and explicitly invoke `/skill:develop`. Add directories for other chosen bundles. After rebuilding, update these paths and run `/reload`, then confirm discovery. Absolute paths avoid confusing project settings paths, which resolve from `.pi`. Keep the surrounding package and its resources intact. This route does not install MCP services or JavaScript extensions. See Pi's [skills](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/skills.md) and [resource settings](https://github.com/earendil-works/pi/blob/main/packages/coding-agent/docs/settings.md#resources).
 
-</details>
+### VS Code with GitHub Copilot
 
-<details>
-<summary>Antigravity CLI (agy)</summary>
+VS Code is the editor; the selected agent harness determines which customizations it loads. For Copilot's plugin support, merge this into your settings while preserving other marketplaces:
 
-Install the complete built bundles, then inspect discovery:
-
-```bash
-agy plugin install "$AGENT_PLUGINS_DIR/development"
-agy plugin list --json
+```json
+{
+  "chat.plugins.marketplaces": ["joao-aires/agent-skills-public#claude-marketplace"]
+}
 ```
 
-Authenticate through the client's sign-in flow before model work and confirm the selected skills are discoverable. The [generation-trial specification](maintainers/evaluations.md#generation-trials) supports any compatible harness. Installation does not establish execution behavior.
+Open the Agent Customizations editor or search `@agentPlugins` in Extensions, then find and install development. Marketplace settings are experimental and may be controlled by your organization. VS Code uses the Claude-compatible catalog on this branch; it does not require the Codex catalog.
 
-</details>
+For local builds, register complete plugin directories instead:
 
-For another client, use its documented plugin or skill-source loading route. Keep each plugin directory and its resources intact. Discovery establishes availability, not that an agent will follow every instruction. Updating an old installation? Read [migration](migration.md) first.
+```json
+{
+  "chat.pluginLocations": {
+    "/absolute/path/built-plugins/development": true
+  }
+}
+```
+
+Check discovery in the selected harness. For updates, use Extensions: Check for Extension Updates, or the update operation in the interface where you installed the plugin. Do not assume separate plugin management interfaces share an inventory. The [VS Code plugin guide](https://code.visualstudio.com/docs/agent-customization/agent-plugins) covers marketplace refs, local directories and update behavior. For skill-only discovery, consult the [Agent Skills guide](https://code.visualstudio.com/docs/agent-customization/agent-skills); preserve package-relative resources rather than copying only `SKILL.md`. Other harnesses in VS Code follow their own client guidance.
+
+### Other clients
+
+For Copilot CLI, load a built package with `copilot --plugin-dir "$AGENT_PLUGINS_DIR/development"` and inspect available skills with the [CLI's plugin commands](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference).
+
+For Antigravity CLI, the prior trial route was `agy plugin install "$AGENT_PLUGINS_DIR/development"`, followed by `agy plugin list --json`. Confirm these commands against the installed version before relying on them. Client authentication and discovery do not establish workflow adherence.
+
+For any skill-only client, retain the complete built package and use supported directory sources or links. Copying a skill away from package-root framing can break relative references. Check explicit invocation controls rather than treating metadata as enforcement. Read [migration](migration.md) before replacing old installations.
 
 ## Select additional bundles
 
@@ -159,7 +191,7 @@ For structural verification of the default build:
 python scripts/check_collection.py --built ./built-plugins --plugin development
 ```
 
-For a selected multi-plugin build, repeat the checker's `--plugin` arguments to match it. With no checker selection, `--built` expects all 24 packages. These checks establish resources/inventory, not client discovery or agent adherence.
+For a selected multi-plugin build, repeat the checker's `--plugin` arguments to match it. With no checker selection, `--built` expects the full collection. These checks establish resources/inventory, not client discovery or agent adherence.
 
 ## Verify installation and update
 
