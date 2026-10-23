@@ -4,6 +4,7 @@
 
 - Edit owning sources under `plugins/<bundle>/`: `plugin.json`, `skills/<name>/SKILL.md`, neighboring resources and package-root framing. Build output is generated.
 - Use the [ownership map](documentation/maintainers/sources.md#plugin-ownership) to locate a capability. `agent-depot.json` owns accepted artifact commits, destinations and per-artifact `metadata.packaging`; `agent-depot.lock.json` owns snapshot identities. Managed upstream folders are immutable inputs; the builder applies adaptations only to generated bundles.
+- Put new collection-specific methods and workflow expectations in authored companion skills or package framing. Do not patch acquired instructions to add them, including through new build-time rewrites. Existing declared output adaptations still require explicit review during upstream updates; their presence is not a reason to add another semantic patch.
 - Keep packages self-contained. Preserve original strategy/visual resources, complete upstream groups, native invocation controls and licenses. Acquire public sources through Agent Depot at reviewed artifact commit pins and record adaptations in notices; never redistribute private installed skills.
 
 For acquisition and updates, follow [upstream maintenance](documentation/maintainers/upstreams.md). Ordinary builds use committed resources and never fetch upstream repositories.
