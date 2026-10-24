@@ -33,6 +33,8 @@ Distinguish controls for the current operation from preferences that persist int
 
 Choose navigation and containers together. A page supports a substantial task with its own location; a drawer can keep a short related task beside the work; a dialog focuses a bounded interruption. Specify the return path and what happens to drafts, selection and ongoing results before choosing one. Platform conventions can justify a separate settings page or window; preserving context matters across that transition. Read [navigation and configuration design](references/navigation-and-configuration.md) for new navigation structures, settings organization or a redesign spanning several views.
 
+Give recurring controls a predictable scope, location and behavior across related views. Distinguish application-wide navigation/actions from those belonging to the current page, object or selection, so users can carry what they learned into the next view. Follow the shared page composition established with visual design. When a responsive or task-specific variant relocates a control, preserve its recognizable meaning and make the current location and return path clear.
+
 ## Specify the interaction before coding
 
 For each reusable pattern, establish the relevant contract before implementation:

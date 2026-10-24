@@ -38,12 +38,26 @@ Translate the direction into reusable roles. Give colors, type sizes, spacing an
 
 Use available visual-execution craft for composition, typography and critique when choices are open; the accepted identity and actual brief remain authoritative. Derive character from the content and the way people work with it. A decorative domain motif or recolored starter does not explain why the design suits the product. Read [visual direction and review](references/visual-direction.md) for substantial new work, redesign or handoff, including how to connect the design to components and inspect the implemented result.
 
+## Establish the shared page composition
+
+Define how related views belong to the same application before composing them independently. Reusing buttons and tokens still leaves decisions about the surrounding layout: where identity and navigation live, how a page announces its purpose, and how its content aligns with neighboring views. Carry an adequate existing composition forward during ordinary changes.
+
+| Shared concern | Establish across related views |
+| --- | --- |
+| Identity and navigation | Stable placement and hierarchy for product identity, global navigation and recurring actions. |
+| Page hierarchy | Recognizable title, context and local-action regions, with consistent type roles and spacing. |
+| Content frame | Related width, alignment, gutters, section rhythm and separator roles; allow a narrower reading measure within the frame where the content needs it. |
+| Layout variants | Explain departures through task, platform or space constraints, and preserve recognizable roles when the arrangement changes. |
+
+Map these choices to shared layout components or equivalent platform patterns as well as tokens. A focused editor, a dense collection and a settings form can need different content arrangements while keeping predictable orientation. Record consequential variants with the accepted design; a new route alone does not justify a new composition.
+
 ## Build and inspect the design
 
 Reuse accepted designs and choose an artifact that can answer the remaining question. Figma can support shared design work when available and authorized; local HTML/CSS can reveal responsive or interactive behavior; SVG can explain a static layout or flow. An explicitly required format remains part of the deliverable.
 
 1. Build a representative part of the experience using realistic content. Include a difficult state, content growth, supported appearance modes and the layouts the task needs, so the design is judged beyond its most flattering empty screen.
 2. Inspect where attention goes, whether content remains readable and how the composition handles those conditions. Repair mismatches with the intended direction before applying the pattern elsewhere.
+3. For work spanning views, compare representative related views together and move between them. Check the shared composition at supported widths and appearance modes, including short and long content. Resolve unexplained shifts or record a justified variant before calling the shared design complete. Without rendered access, return the comparison plan and identify the evidence still missing.
 
 Keep the reason for the choices, proposed versus accepted status, important states and reusable component/token roles in the existing design record. Technical guidance maps them to the accepted platform and component system; a design recommendation does not authorize a framework migration or make a technical package mandatory.
 

@@ -133,13 +133,14 @@
     {
       "id": "task-and-configuration-navigation",
       "prompt": "Use design to make the supplied collection-management interface easier to navigate on desktop and narrow screens. Preserve its supported capabilities, accepted component system and behavior contracts. Return a proposed structure and verification plan. Design only; no implementation, installation or external writes.",
-      "evaluator_setup": "Supply synthetic route/control inventories, screen artifacts, accepted roles and state contracts. Include an in-progress review batch, current search/filter controls, default sorting for later lists, workspace connection configuration and a browser-hosted configuration entry. The product has no billing capability. Keep grader expectations separate from actor inputs; do not prescribe the destination layout or name suspected structural defects in the prompt.",
+      "evaluator_setup": "Supply synthetic route/control inventories, screen artifacts spanning related views with short and long content and a justified focused-task variant, accepted roles and state contracts. Include an in-progress review batch, current search/filter controls, default sorting for later lists, workspace connection configuration and a browser-hosted configuration entry. The product has no billing capability. Keep grader expectations separate from actor inputs; do not prescribe the destination layout or name suspected structural defects in the prompt.",
       "criteria": [
         "Destinations are justified by actual tasks, objects and roles; an absent billing capability does not become a fabricated page or feature.",
         "Current operation controls, durable defaults and connection configuration have explained homes and scopes; shortcut and canonical entry points share one persistence contract.",
         "Page, panel, dialog and browser-hosted settings choices follow task complexity, continuity and platform constraints without a universal same-route or separate-page requirement.",
         "The proposal specifies navigation, current location and departure/return behavior for the pending batch, including save/cancel, changes in scope and result invalidation where applicable.",
         "Desktop/narrow and keyboard coverage is meaningful; navigation links and action menus are distinguished rather than assigning ARIA menu behavior by visual naming.",
+        "Shared page composition and recurring control roles are coherent across related views. Proposed departures have task/platform reasons; the verification plan compares rendered views and transitions across relevant content lengths, widths and appearances, without claiming that this design-only task executed those checks.",
         "Decisions, assumptions and missing contracts are identified; a proposed walkthrough is not reported as implemented behavior, participant evidence or completed runtime verification."
       ],
       "evidence": [
@@ -149,7 +150,8 @@
       ],
       "negative_controls": [
         "Multiple sensible layouts can satisfy the task; a particular menu, settings route or framework is not the expected answer.",
-        "A standard application shell or a page-name inventory alone does not establish a usable structure."
+        "A standard application shell or a page-name inventory alone does not establish a usable structure.",
+        "Legitimate task or platform variants need not share identical geometry; component reuse or screenshots assessed independently do not establish cross-page consistency."
       ],
       "capability_gates": [
         "Supplied product, route and interface artifacts"
