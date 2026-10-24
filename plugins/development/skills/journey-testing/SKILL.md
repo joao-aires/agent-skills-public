@@ -1,7 +1,7 @@
 ---
 name: journey-testing
 description: Define, automate, explore and evaluate user journeys across web, desktop
-  and mobile applications. Use for UI/API/persistence changes, interaction and visual
+  and mobile applications, including browser extensions. Use for UI/API/persistence changes, interaction and visual
   consistency, authentication, authorization, lifecycle behavior and failing journey checks.
 metadata:
   scope: generic
@@ -28,6 +28,7 @@ For a full-stack claim, exercise the real frontend, API and the application's ac
 | Surface | Evidence boundary |
 | --- | --- |
 | Web | Actual supported browsers, responsive sizes, keyboard/focus and relevant role variants |
+| Browser extension | Loaded production build in a supported browser, actual UI entrypoint and background lifecycle, site grants and page/context boundaries |
 | Desktop | Packaged application, native shell/IPC, lifecycle and OS integration on the supported target |
 | Mobile | Each supported emulator/device platform, lifecycle, permissions, keyboard, offline and OS behavior |
 

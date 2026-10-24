@@ -106,7 +106,7 @@ Optional [shadcn MCP](https://ui.shadcn.com/docs/mcp) and [Playwright MCP](https
 
 [getsentry/skills agents-md](https://github.com/getsentry/skills/tree/f57ada2d0b640406ea7e25b11d636c530e77c58b/skills/agents-md) adds focused repository-instruction authoring to development. Its inspect-first method, exact command/path checks, scoped instructions and reference-backed editing complement project foundations and general instruction writing. The reviewed source is Apache-2.0; acquisition preserves SKILL.md, SPEC.md and SOURCES.md. GitHub's create-agentsmd was also reviewed; its comprehensive section/template approach adds less to this collection's concise, conditional guidance. Sentry's sample package manager and attribution blocks do not become project policy, and shortening must preserve required information. Use it for instruction-file work rather than every documentation change.
 
-[Anthropic frontend-design](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design) adds visual execution craft to frontend-development without choosing a framework. The claude-code plugin copy references an absent LICENSE.txt; that repository's root terms do not establish a redistribution grant. The reviewed anthropics/skills copy has identical skill text and an included Apache-2.0 LICENSE.txt, so that is the acquired source. Visual-design owns direction and handoff, interaction-design owns behavior, frontend-design supplies subject-grounded composition/typography/craft, and interface-quality owns rendered critique. Use craft guidance for new visual decisions or requested redesigns; preserve accepted tokens/components and avoid adding a new style or approval ceremony to routine changes. Deterministic accessibility, interactions and persisted behavior need their own verification.
+[Anthropic frontend-design](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design) adds visual execution craft to frontend-development without choosing a framework. The claude-code plugin copy references an absent LICENSE.txt; that repository's root terms do not establish a redistribution grant. The reviewed anthropics/skills copy has identical skill text and an included Apache-2.0 LICENSE.txt, so that is the acquired source. Visual-design owns early component-system/appearance foundations, direction and handoff, interaction-design owns behavior, frontend-design supplies subject-grounded composition/typography/craft, and interface-quality owns rendered critique. Plain Tailwind, Tailwind with shadcn/ui, HeroUI or another accepted system can implement those foundations when compatible; this does not create a package dependency or authorize a migration. Use craft guidance for new visual decisions or requested redesigns; preserve accepted tokens/components and avoid adding a new style or approval ceremony to routine changes. Deterministic accessibility, interactions and persisted behavior need their own verification.
 
 The [skills directory](https://www.skills.sh/getsentry/skills/agents-md) reports meaningful adoption for agents-md, and [frontend-design](https://www.skills.sh/anthropics/skills/frontend-design) is widely installed. Adoption supports discovery; source review and applicable evidence determine fit. Neither acquisition establishes behavioral improvement; those trials remain deferred.
 
@@ -233,15 +233,19 @@ The original governance skills connect applicability, system/control decisions a
 
 The [Go source review](../../plugins/go-development/skills/go-conventions/references/sources.md) records inspected Samber, madflojo, cxuu and JetBrains candidates. Their topic coverage informs an original concise foundation, but mandatory orchestration/tool installation, broad house rules or linked-group scope do not fit unchanged acquisition. No Go upstream skill or setup script is imported. Conditional primary references cover the accepted toolchain.
 
+## Browser-extension source selection
+
+The [browser-extension source review](../../plugins/browser-extension-development/references/sources.md) records the pinned Quang collection and primary Chrome, WXT, CRXJS and browser-driver contracts. Five original technical skills cover architecture/lifecycle, permissions/security, extension UI, runtime testing and store delivery. They preserve existing workflows, design systems and accepted stacks. The upstream's twelve skills are source references rather than acquired snapshots: correcting their framework, testing and authority examples would require extensive adaptations. No new Agent Depot artifacts, client installation or publisher connection is introduced. Chrome/MV3 is the supported guidance scope; other browsers and store/runtime behavior need their own evidence.
+
 ## Plugin ownership
 
-The collection has 24 independent packages and 117 skills: 78 local and 39 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 11 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 25 independent packages and 122 skills: 83 local and 39 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
 
 A plugin represents a useful installation choice. Workflow, application discipline and supporting capability describe its purpose; generic versus technical describes its applicability. These groups do not impose an execution order or dependencies. Installing a technical package makes expertise available without accepting its technology for a project. Keep accepted choices, select matching guidance from actual inventory and retain useful outcomes when optional specialists are absent.
 
 ### Package boundaries
 
-The collection has 13 generic capability packages and 11 optional technical packages. I group specialist tools and operating platforms into two explicit optional packages rather than create a plugin for every tool. Split a package only when independent installation is useful.
+The collection has 13 generic capability packages and 12 optional technical packages. I group specialist tools and operating platforms into two explicit optional packages rather than create a plugin for every tool. Split a package only when independent installation is useful.
 
 | Plugin | Applicability | Skills | Responsibility |
 | --- | --- | --- | --- |
@@ -256,6 +260,7 @@ The collection has 13 generic capability packages and 11 optional technical pack
 | `visualization` | Generic support | 3 | Diagrams, presentations and interactive system explanation; preserve executable resources. |
 | `backend-python-development` | Technical | 3 | Python/FastAPI/persistence and Python automation; no backend service required for CLI work. |
 | `frontend-reactjs-development` | Technical | 5 | React/Next.js/shadcn/Tailwind and their actual component APIs. |
+| `browser-extension-development` | Technical | 5 | Chrome/MV3 execution contexts, permissions, extension surfaces, runtime verification and controlled store delivery. |
 | `frontend-native-development` | Technical | 1 | TypeScript/Tauri and React Native/Expo, platform lifecycle, packaging and native drivers. |
 | `ai-adk-development` | Technical | 2 | Google ADK; preserve the paired architecture/builder skills. |
 | `ai-langchain-development` | Technical | 4 | LangChain/LangGraph and dependencies/persistence as a complete group. |
@@ -306,7 +311,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 117 skills and their current owners</summary>
+<summary>All 122 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -393,7 +398,13 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [tailwind-design-system](https://github.com/wshobson/agents/tree/46891e7e60da0e52baf1050b7b6391b64e84c6d9/plugins/frontend-mobile-development/skills/tailwind-design-system) | Upstream | `frontend-reactjs-development` |
 | [vercel-composition-patterns](https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/composition-patterns) | Upstream | `frontend-reactjs-development` |
 | [vercel-react-best-practices](https://github.com/vercel-labs/agent-skills/tree/063bee94c3f4df8453406c830b0a7df0f2860278/skills/react-best-practices) | Upstream | `frontend-reactjs-development` |
-| [native-client-development](../../plugins/frontend-native-development/skills/native-client-development/SKILL.md) | Local | `frontend-native-development` |
+| [browser-extension-development](../../plugins/browser-extension-development/skills/browser-extension-development/SKILL.md) | Local | `browser-extension-development` |
+| [browser-extension-security](../../plugins/browser-extension-development/skills/browser-extension-security/SKILL.md) | Local | `browser-extension-development` |
+| [browser-extension-ui](../../plugins/browser-extension-development/skills/browser-extension-ui/SKILL.md) | Local | `browser-extension-development` |
+| [browser-extension-testing](../../plugins/browser-extension-development/skills/browser-extension-testing/SKILL.md) | Local | `browser-extension-development` |
+| [browser-extension-delivery](../../plugins/browser-extension-development/skills/browser-extension-delivery/SKILL.md) | Local | `browser-extension-development` |
+| [native-client-development](../../plugins/frontend-native-development/skills/native-client-development/SKILL.md) | Local | `browser-extension-development` | Technical | 5 | Chrome/MV3 execution contexts, permissions, extension surfaces, runtime verification and controlled store delivery. |
+| `frontend-native-development` |
 | [adk-agent-builder](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-agent-builder) | Upstream | `ai-adk-development` |
 | [adk-architecture](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-architecture) | Upstream | `ai-adk-development` |
 | [langchain-dependencies](https://github.com/langchain-ai/langchain-skills/tree/16a992f09ab3ccfb642dd4f08d350d833d1990bf/config/skills/langchain-dependencies) | Upstream | `ai-langchain-development` |

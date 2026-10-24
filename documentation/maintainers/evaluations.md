@@ -2,7 +2,7 @@
 
 [Current status](#current-status) · [Run a scenario](#run-and-grade-a-scenario) · [Generation trials](#generation-trials) · [Evidence limits](#recorded-evidence-and-limits) · [Maintainer guide](../maintainer-reference.md)
 
-The [evaluation specification](../../evals/development-workflows.json) contains 47 behavior cases, 12 generation trials and a ten-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
+The [evaluation specification](../../evals/development-workflows.json) contains 52 behavior cases, 12 generation trials and an eleven-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
 
 ## Current status
 
@@ -10,11 +10,13 @@ The [ownership catalogue](sources.md#plugin-ownership) records the current packa
 
 A [bounded planning/assessment record](../../evals/results/capability-expansion/results.json) covers nine synthetic cases at its recorded source revision, including a workflow-only fallback case. Independent actors received source guidance; the author graded their outputs against criteria withheld from them. All nine met those scoped criteria. This establishes neither installed-client discovery nor application/runtime behavior; the record retains inputs, outputs and per-criterion observations.
 
+A [Chrome/MV3 evaluation record](../../evals/results/browser-extension/results.json) adds four bounded design/assessment probes and a disposable real-extension trial. It separates preserved UI/stack choices and standalone fallback from actual popup, storage, message-denial and forced-worker-recovery observations. The source revision, generated fixture identity, driver/browser, harness repairs and untested boundaries are retained with the record. These checks do not establish installed-client discovery, WXT/CRXJS build compatibility, other browser targets or store delivery.
+
 The current collection has not received a complete behavioral rerun. Earlier trials used different inventories and configurations; their results cannot be transferred to the current guidance. See [recorded evidence and limits](#recorded-evidence-and-limits) for the boundaries of those observations and [architecture](../architecture.md) for the supported composition model.
 
 ## Intended flows and execution levels
 
-The specification's flow_matrix connects cases to user outcomes: product-to-design, project setup versus complete applications, UI assessment/repair, design-tool handoff, research, native/private-data applications, AI/session integration, delivery/operations and maintenance. Migration, jobs, incidents, performance, resilience and libraries are also represented. Cross-cutting cases assess identity/access lifecycle, SaaS dashboards and commercial recovery, GDPR/SOC 2 evidence, PostgreSQL, TypeScript and Go contracts, plus absent-specialist fallback.
+The specification's flow_matrix connects cases to user outcomes: product-to-design, project setup versus complete applications, UI assessment/repair, design-tool handoff, research, native/private-data applications, AI/session integration, delivery/operations and maintenance. Migration, jobs, incidents, performance, resilience and libraries are also represented. Cross-cutting cases assess identity/access lifecycle, SaaS dashboards and commercial recovery, GDPR/SOC 2 evidence, PostgreSQL, TypeScript and Go contracts, plus absent-specialist fallback. Browser-extension cases cover design-only work, an existing UI system, standalone guidance, real MV3 contexts/lifecycle and store preparation without promotion.
 
 | Level | Evidence produced | Boundary |
 | --- | --- | --- |

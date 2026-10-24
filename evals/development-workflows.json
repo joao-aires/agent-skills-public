@@ -721,6 +721,72 @@
         "Do not convert absent specialist guidance, unavailable execution or unperformed checks into a pass.",
         "Preserve the requested design/assessment stopping point, accepted stack and external-action scope."
       ]
+    },
+    {
+      "id": "extension-design-scope",
+      "prompt": "Design a Chrome extension for researchers to save a short note against the current page. Compare a toolbar popup and side panel, including permission and state implications. This is design only: no project scaffolding, source changes, account setup or publication. No visual identity or UI framework has been selected.",
+      "criteria": [
+        "Connects surface, user task, permission and persistence/lifecycle decisions without inventing accepted framework or visual choices.",
+        "Preserves the design-only stopping point and does not execute scaffolding or external actions.",
+        "Produces actionable behavior and verification boundaries rather than treating the platform skill as a substitute development workflow."
+      ]
+    },
+    {
+      "id": "extension-existing-ui",
+      "prompt": "Assess a proposed note-editing dialog for an existing Chrome/MV3 extension. Its React/Vite/CRXJS application uses Tailwind v3, Radix dialogs, a warm editorial palette, a licensed bundled serif and light-only styling by accepted product decision. The extension also injects the note editor into research sites. Keep this assessment read-only, preserve the accepted stack/design and explain the implementation and verification approach. No redesign or migration is authorized.",
+      "criteria": [
+        "Preserves React/Vite/CRXJS, Tailwind major, font, tokens and accepted light-only design rather than introducing universal platform aesthetics or server defaults.",
+        "Addresses popup lifetime and injected UI style/token/portal/focus integration with actual runtime evidence requirements.",
+        "Separates documented platform constraints, optional design choices and checks not executed."
+      ]
+    },
+    {
+      "id": "extension-runtime-boundaries",
+      "prompt": "In a disposable local project, build and verify a minimal Chrome/MV3 note extension using the installed browser driver. A user saves a note from the popup and sees it after reopening. A supported research-page content script asks the worker for a page note; it must not change notes through that read capability. Use local controlled sites and no account/backend. Exercise meaningful message, storage and worker-recovery behavior against the production extension. No personal profiles or external service/publication actions are authorized.",
+      "criteria": [
+        "Implements coherent context/message/storage authority and verifies allowed and denied operations through real extension contexts.",
+        "Verifies persistence across UI destruction and worker termination followed by an event from another context, distinguishing forced termination from normal idle behavior.",
+        "Identifies browser/build/driver and tests actual page effects while accurately limiting toolbar invocation and permission claims.",
+        "Preserves isolated fixtures, sandbox and bounded cleanup; a launch or unit mock alone is not success."
+      ]
+    },
+    {
+      "id": "extension-standalone",
+      "prompt": "Only browser-extension platform guidance is available. Assess a plain JavaScript MV3 extension that annotates pages after a user action. It has no backend, account or existing React app. Explain a scoped implementation and verification approach, including lack of optional frontend/security/delivery specialists. Planning only; do not install guidance, scaffold or modify the project.",
+      "criteria": [
+        "Retains useful product/UI/security/testing reasoning without requiring optional skills or introducing React, a backend, account or new package manager.",
+        "Derives grants from user invocation and distinguishes absent guidance from actual runtime/tool limits.",
+        "Preserves planning-only scope and evidence limits."
+      ]
+    },
+    {
+      "id": "extension-store-preparation",
+      "prompt": "Prepare a readiness assessment and local packaging plan for a Chrome/MV3 release. The existing CI is GitLab, the backend is Django/PostgreSQL, the artifact ZIP currently has a dist/ parent folder, one listing screenshot is a placeholder, and no publisher connection is configured. Do not upload, submit, publish, install an uploader or configure credentials. Preserve accepted infrastructure.",
+      "criteria": [
+        "Identifies artifact-root and unfinished listing evidence, preserves actual stack/CI and requires the production candidate identity and checks.",
+        "Separates preparation, upload, review submission and publication; missing publisher setup does not block useful local preparation.",
+        "Assesses current policy/API compatibility without guaranteeing store approval or requesting secrets in conversation."
+      ]
+    },
+    {
+      "id": "ui-foundations-and-theme-handoff",
+      "prompt": "Design a new browser-based research application in the supplied empty disposable workspace. Recommend a UI system and appearance policy before producing representative mockups. I am considering plain Tailwind, Tailwind with shadcn/ui, HeroUI or another appropriate option. Explain the choice using the task and maintenance constraints in the brief. This is design only; do not install a framework or implement the application.",
+      "criteria": [
+        "Component-system ownership, platform compatibility and tradeoffs are resolved or explicitly proposed before dependent mockups; available skills do not silently select a stack.",
+        "Light/dark/system behavior, semantic roles and first-paint/persistence expectations appear in the same design-to-implementation contract.",
+        "The representative design carries those decisions into content, controls and meaningful states, while proposed choices remain distinguishable from accepted requirements.",
+        "Design-only scope is preserved and no installation, application implementation or participant validation is invented."
+      ]
+    },
+    {
+      "id": "extension-collection-ui-and-existing-system",
+      "prompt": "Improve the supplied Chrome extension for reviewing a large collection. It already uses React with HeroUI and has an accepted brand. Users lose edits when the popup closes and cannot tell whether a bulk action affects searched or selected items. Configuration crowds the popup; a separate view can change settings while work is pending. Design and implement the scoped improvement in the supplied isolated repository/profile using synthetic data only. Preserve the framework and choose appropriate browser surfaces. No real history, provider accounts or publication.",
+      "criteria": [
+        "Surface choices follow task length, comparison and continuity needs without forcing every extension to acquire the same popup/panel/options arrangement.",
+        "Accepted component system, brand and appearance policy are retained, with readable dense content and keyboard/focus behavior across affected surfaces.",
+        "Source context, edits, progress and bulk selection remain explicit across closure/reopening and simultaneous settings changes; stale work cannot be applied.",
+        "Rendered appearance and actual extension lifecycle/permission behavior have separate, accurate evidence; sources are inspiration rather than copied branding or claimed user research."
+      ]
     }
   ],
   "generation_trials": [
@@ -1117,7 +1183,8 @@
         "contextual-ui-direction",
         "design-to-implementation-handoff",
         "figma-capability-boundaries",
-        "figma-authenticated-read-write-cleanup"
+        "figma-authenticated-read-write-cleanup",
+        "ui-foundations-and-theme-handoff"
       ],
       "trial_ids": [
         "fresh-desktop-from-product-idea"
@@ -1208,6 +1275,30 @@
         "crosscut-absent-specialists"
       ],
       "trial_ids": []
+    },
+    {
+      "id": "browser-extension-lifecycle",
+      "outcome": "Apply optional Chrome/MV3 expertise inside existing workflow and design decisions, verifying actual extension boundaries and preserving release authority.",
+      "case_ids": [
+        "extension-design-scope",
+        "extension-existing-ui",
+        "extension-runtime-boundaries",
+        "extension-standalone",
+        "extension-store-preparation",
+        "extension-collection-ui-and-existing-system"
+      ],
+      "trial_ids": [],
+      "evidence": [
+        "Recorded source/build and actor inventory; actual prompts and per-criterion observations.",
+        "Loaded production extension and independently observed page/storage/context effects for runtime claims; real toolbar/panel and store claims remain separate."
+      ],
+      "negative_controls": [
+        "A design or assessment request must not become scaffolding, a framework/design migration or live publication.",
+        "A standalone platform package must remain useful without optional specialists or an account/backend."
+      ],
+      "capability_gates": [
+        "A compatible isolated extension-capable browser/driver is required for runtime claims; publisher/account actions need their own explicit scope."
+      ]
     }
   ]
 }

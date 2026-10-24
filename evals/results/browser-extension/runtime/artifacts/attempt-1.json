@@ -1,0 +1,86 @@
+{
+  "startedAt": "2026-10-21T15:57:59.603Z",
+  "driver": "Playwright 1.64.1",
+  "executablePath": "evaluation-work/browser-extension-browser/chrome-mac-arm64/Google Chrome for Testing.app/Contents/MacOS/Google Chrome for Testing",
+  "checks": [
+    {
+      "name": "production manifest references exist and grants are narrow",
+      "status": "passed",
+      "buildSha256": "517b245d09c0d7cbc38500ce192d3c16cb498488b893a37fc07d2c82b8b01d91"
+    }
+  ],
+  "errors": [],
+  "requests": [
+    {
+      "host": "127.0.0.1:60531",
+      "url": "/research/alpha"
+    },
+    {
+      "host": "127.0.0.1:60531",
+      "url": "/research/beta"
+    }
+  ],
+  "cleanup": {
+    "browserClosed": true,
+    "serverClosed": true,
+    "profileRemoved": true
+  },
+  "build": {
+    "buildSha256": "517b245d09c0d7cbc38500ce192d3c16cb498488b893a37fc07d2c82b8b01d91",
+    "files": {
+      "content.js": "6ee99e86e5ab1f7f50c9e81f6e7b4cb889072ef80b9e0d9db714db1250294ed2",
+      "manifest.json": "55c29fde7c284a431c3f60adfaf6a84f753cd778dd9f5da4407796dcf7c0c63f",
+      "popup.css": "bd27c389272a042b93f14eedc628973e3338169c8fc39f21ff2f4d36a61c0fa0",
+      "popup.html": "986998aca98de528da1356248b9f260ebdb3c0799849cd21c592d79603704908",
+      "popup.js": "67ada005c07d7db575157fc4ac349a1acf2acfcc47a87b29ff6c76fbc26a4547",
+      "worker.js": "e87cdf326fe5d1c19a59b1f0ad7caf7ec3cefea456615e6a8c3b3e1e579589b3"
+    },
+    "manifest": {
+      "manifest_version": 3,
+      "name": "Local Research Notes",
+      "version": "1.0.0",
+      "minimum_chrome_version": "127",
+      "description": "A local-only note for each controlled research page.",
+      "permissions": [
+        "storage"
+      ],
+      "action": {
+        "default_title": "Local Research Notes",
+        "default_popup": "popup.html"
+      },
+      "background": {
+        "service_worker": "worker.js"
+      },
+      "content_scripts": [
+        {
+          "matches": [
+            "http://127.0.0.1/research/*"
+          ],
+          "js": [
+            "content.js"
+          ],
+          "run_at": "document_idle",
+          "all_frames": false
+        }
+      ],
+      "content_security_policy": {
+        "extension_pages": "script-src 'self'; object-src 'self'"
+      }
+    }
+  },
+  "controlledOrigin": "http://127.0.0.1:60531",
+  "extensionId": "mdcaeonmhphljlahnbapeoajmoocepni",
+  "browser": {
+    "protocolVersion": "1.3",
+    "product": "Chrome/156.0.8078.4",
+    "revision": "@f842f52ef39fd97b449eb27cff414bf05a98ddce",
+    "userAgent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.0.0 Safari/537.36",
+    "jsVersion": "15.6.75"
+  },
+  "status": "failed",
+  "failure": {
+    "message": "Polling timeout: [{\"targetId\":\"9EA86C8540249B5F0866196BA1B03F59\",\"type\":\"service_worker\",\"title\":\"Service Worker chrome-extension://mdcaeonmhphljlahnbapeoajmoocepni/worker.js\",\"url\":\"chrome-extension://mdcaeonmhphljlahnbapeoajmoocepni/worker.js\",\"attached\":true,\"canAccessOpener\":false,\"browserContextId\":\"228761B86ACF626A84A1BCB717AF75E1\"},{\"targetId\":\"8D53220D91BDB30D62E430AF0676B3A9\",\"type\":\"browser_ui\",\"title\":\"Omnibox Popup\",\"url\":\"chrome://omnibox-popup.top-chrome/\",\"attached\":false,\"canAccessOpener\":false,\"browserContextId\":\"228761B86ACF626A84A1BCB717AF75E1\"},{\"targetId\":\"EF2A9B28FE32347BC982387F4D961049\",\"type\":\"browser_ui\",\"title\":\"Omnibox Popup\",\"url\":\"chrome://omnibox-popup.top-chrome/omnibox_popup_aim.html\",\"attached\":false,\"canAccessOpener\":false,\"browserContextId\":\"228761B86ACF626A84A1BCB717AF75E1\"},{\"targetId\":\"81B56B0C32DF04D4EF73C0224F0E1260\",\"type\":\"page\",\"title\":\"Local Research Notes\",\"url\":\"chrome-extension://mdcaeonmhphljlahnbapeoajmoocepni/popup.html\",\"attached\":false,\"canAccessOpener\":false,\"browserContextId\":\"228761B86ACF626A84A1BCB717AF75E1\"},{\"targetId\":\"9A16706CA5B455A0148BC3F9A79313A3\",\"type\":\"page\",\"title\":\"Controlled research\",\"url\":\"http://127.0.0.1:60531/research/alpha\",\"attached\":true,\"canAccessOpener\":false,\"browserContextId\":\"228761B86ACF626A84A1BCB717AF75E1\"}]",
+    "stack": "Error: Polling timeout: [{\"targetId\":\"9EA86C8540249B5F0866196BA1B03F59\",\"type\":\"service_worker\",\"title\":\"Service Worker chrome-extension://mdcaeonmhphljlahnbapeoajmoocepni/worker.js\",\"url\":\"chrome-extension://mdcaeonmhphljlahnbapeoajmoocepni/worker.js\",\"attached\":true,\"canAccessOpener\":false,\"browserContextId\":\"228761B86ACF626A84A1BCB717AF75E1\"},{\"targetId\":\"8D53220D91BDB30D62E430AF0676B3A9\",\"type\":\"browser_ui\",\"title\":\"Omnibox Popup\",\"url\":\"chrome://omnibox-popup.top-chrome/\",\"attached\":false,\"canAccessOpener\":false,\"browserContextId\":\"228761B86ACF626A84A1BCB717AF75E1\"},{\"targetId\":\"EF2A9B28FE32347BC982387F4D961049\",\"type\":\"browser_ui\",\"title\":\"Omnibox Popup\",\"url\":\"chrome://omnibox-popup.top-chrome/omnibox_popup_aim.html\",\"attached\":false,\"canAccessOpener\":false,\"browserContextId\":\"228761B86ACF626A84A1BCB717AF75E1\"},{\"targetId\":\"81B56B0C32DF04D4EF73C0224F0E1260\",\"type\":\"page\",\"title\":\"Local Research Notes\",\"url\":\"chrome-extension://mdcaeonmhphljlahnbapeoajmoocepni/popup.html\",\"attached\":false,\"canAccessOpener\":false,\"browserContextId\":\"228761B86ACF626A84A1BCB717AF75E1\"},{\"targetId\":\"9A16706CA5B455A0148BC3F9A79313A3\",\"type\":\"page\",\"title\":\"Controlled research\",\"url\":\"http://127.0.0.1:60531/research/alpha\",\"attached\":true,\"canAccessOpener\":false,\"browserContextId\":\"228761B86ACF626A84A1BCB717AF75E1\"}]\n    at poll (file://evaluation-work/browser-extension-forward-tests/runtime/test.mjs:11:213)\n    at async openPopup (file://evaluation-work/browser-extension-forward-tests/runtime/test.mjs:48:18)\n    at async file://evaluation-work/browser-extension-forward-tests/runtime/test.mjs:68:9"
+  },
+  "finishedAt": "2026-10-21T15:58:18.312Z"
+}

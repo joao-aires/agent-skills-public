@@ -15,6 +15,10 @@ metadata:
 
 Use this with [visual design](../visual-design/SKILL.md) for product-derived visual direction, tokens and representative rendered review. This skill owns behavior and coverage; technical conventions own implementation for the selected stack. Use both disciplines for a new interface. Apply it automatically to relevant requested work; users do not need to remember the skill name. A typo, a tiny token adjustment or unchanged interaction needs proportionate reasoning, not a fresh full design document.
 
+## Carry the accepted foundations into behavior
+
+Use the component-system and appearance decisions established with visual design before specifying widgets. Preserve their interaction anatomy and theme ownership across the affected surfaces. If theme switching is supported, specify where its preference lives, when it takes effect, how system changes interact with an override and how an open secondary surface receives the change. Reuse adequate existing decisions; discovering a missing technical specialist does not justify inventing a different component system.
+
 ## Discover the full affected experience
 
 Read the request, accepted UX/product decisions, references and existing components/routes. Inspect the rendered application when available and distinguish observed behavior from code assumptions. Map user roles, tasks and entry/exit points before choosing widgets. Preserve established branding, density, navigation and business language unless changing them is the request.

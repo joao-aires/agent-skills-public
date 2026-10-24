@@ -12,6 +12,7 @@ Start with **development** for stack-independent development activities. Add pro
 | Application disciplines | [frontend-development](plugins/frontend-development/), [backend-development](plugins/backend-development/), [ai-development](plugins/ai-development/), [delivery](plugins/delivery/) | Interface methods; service behavior; AI design/testing/operations; CI/release/deployment methods |
 | Supporting capabilities | [documentation](plugins/documentation/), [visualization](plugins/visualization/) | Writing and architecture explanation; diagrams, presentations and explorers |
 | Backend/client implementation | [backend-python-development](plugins/backend-python-development/), [frontend-reactjs-development](plugins/frontend-reactjs-development/), [frontend-native-development](plugins/frontend-native-development/) | Accepted Python; React; Tauri/Expo/native implementation |
+| Browser extensions | [browser-extension-development](plugins/browser-extension-development/) | Chrome/MV3 architecture, permissions, extension UI, runtime testing and store delivery. |
 | AI implementation | [ai-python-development](plugins/ai-python-development/), [ai-adk-development](plugins/ai-adk-development/), [ai-langchain-development](plugins/ai-langchain-development/) | Python/provider/MCP APIs; ADK; LangChain/LangGraph |
 | Selected tools/platforms | [development-tooling](plugins/development-tooling/), [operations-platforms](plugins/operations-platforms/) | Bash/testing/CI/container/diagnostics tools; JVM/Kubernetes/AKS |
 | Database engineering | [database-development](plugins/database-development/) | Data contracts, consistency, schema evolution and evidence-led performance methods. |
@@ -22,7 +23,7 @@ Start with **development** for stack-independent development activities. Add pro
 | TypeScript implementation | [typescript-development](plugins/typescript-development/) | Runtime/module/package contracts and TypeScript implementation verification without React. |
 | Go implementation | [go-development](plugins/go-development/) | Go module/package, lifecycle, error and verification contracts for services, libraries and CLIs. |
 
-The collection has 10 generic plugins and 9 technical plugins. Technical expertise applies only to matching accepted choices. No plugin requires installing another; an activity retains its outcome when optional guidance is absent.
+The collection has 13 generic plugins and 12 technical plugins. Technical expertise applies only to matching accepted choices. No plugin requires installing another; an activity retains its outcome when optional guidance is absent.
 
 ## Quick start
 
