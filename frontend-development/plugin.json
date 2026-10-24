@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "frontend-development",
+  "version": "0.2.1",
+  "description": "Platform-independent visual and interaction design, interface quality, UX writing and usability research.",
+  "author": {
+    "name": "Jo\u00e3o Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "LicenseRef-Mixed"
+}

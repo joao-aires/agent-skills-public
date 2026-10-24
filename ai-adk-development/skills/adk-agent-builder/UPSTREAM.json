@@ -1,0 +1,21 @@
+{
+  "plugin": "ai-adk-development",
+  "license": "Apache-2.0",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "usage-labels",
+    "support-visibility"
+  ],
+  "labels": {
+    "scope": "stack-specific",
+    "invocation": "agent",
+    "stack": "Google ADK",
+    "role": "support"
+  },
+  "artifact": "ai-adk-development--adk-agent-builder",
+  "destination": "plugins/ai-adk-development/skills/adk-agent-builder",
+  "repository": "https://github.com/google/adk-python.git",
+  "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
+  "path": ".agents/skills/adk-agent-builder",
+  "installed_skill": "adk-agent-builder"
+}

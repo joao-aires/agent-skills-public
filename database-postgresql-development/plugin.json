@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "database-postgresql-development",
+  "version": "0.1.2",
+  "description": "PostgreSQL schema, transactions, performance and operations; original guidance with reviewed upstream and first-party source references.",
+  "author": {
+    "name": "João Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "MIT"
+}

@@ -1,0 +1,21 @@
+{
+  "plugin": "development-tooling",
+  "license": "CC-BY-SA-4.0",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "usage-labels",
+    "support-visibility"
+  ],
+  "labels": {
+    "scope": "stack-specific",
+    "invocation": "agent",
+    "stack": "Supported dependency lockfile ecosystems",
+    "role": "support"
+  },
+  "artifact": "development-tooling--supply-chain-risk-auditor",
+  "destination": "plugins/development-tooling/skills/supply-chain-risk-auditor",
+  "repository": "https://github.com/trailofbits/skills.git",
+  "commit": "82fe8226252622fa807643bdca1710901198553a",
+  "path": "plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor",
+  "installed_skill": "supply-chain-risk-auditor"
+}

@@ -1,0 +1,95 @@
+---
+name: journey-testing
+description: Define, automate, explore and evaluate user journeys across web, desktop
+  and mobile applications, including browser extensions. Use for UI/API/persistence changes, interaction and visual
+  consistency, authentication, authorization, lifecycle behavior and failing journey checks.
+metadata:
+  scope: generic
+  invocation: both
+  role: support
+user-invocable: false
+---
+
+Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
+
+
+# Test what users depend on
+
+## Define the claim and boundary
+
+Read the acceptance criteria and existing tests, then write down the user's goal and the observable result that completes it. Follow the journey through navigation, input, service work and the final state. Choose the important branches where a user could be blocked, receive misleading feedback or affect data they do not own.
+
+Keep a small set of these journeys at the application level. Put detailed combinations of business rules and edge cases in focused unit or integration tests so browser/device checks remain understandable and practical to run. Preserve an existing suite and choose an actual platform driver compatible with the surface and claim below. Use installed tools for repeatable checks and exploratory operation; an MCP is optional. Keep regression tests and representative scenarios in the target application.
+
+For a full-stack claim, exercise the real frontend, API and the application's actual persistence layer, with migrations applied where applicable. Preserve the selected database and exercise its actual transaction/persistence boundary. Keep external providers replaceable with controlled fixtures in routine CI; report that boundary. A mock API or browser-only demo proves a narrower claim and must be named as such.
+
+## Select the platform and evidence
+
+| Surface | Evidence boundary |
+| --- | --- |
+| Web | Actual supported browsers, responsive sizes, keyboard/focus and relevant role variants |
+| Browser extension | Loaded production build in a supported browser, actual UI entrypoint and background lifecycle, site grants and page/context boundaries |
+| Desktop | Packaged application, native shell/IPC, lifecycle and OS integration on the supported target |
+| Mobile | Each supported emulator/device platform, lifecycle, permissions, keyboard, offline and OS behavior |
+
+Use available guidance for the selected development tools for chosen web/component drivers and native-platform implementation and driver expertise for supported native drivers. A mobile viewport cannot establish native behavior, a web preview cannot establish a packaged shell, and a backend run cannot establish client integration. Record actual device/OS/browser/build identities and missing capabilities; selecting a method does not install a driver or change the client framework.
+
+Combine a small critical journey suite with component/state checks, visual regression, accessibility evaluation and bounded agent exploration.
+
+- Use a component-state catalogue such as Storybook when the project benefits from it; it is optional.
+- Stabilize data, rendering environment, fonts, time and animations for visual comparisons; compare against the accepted design and reviewed baselines. A changed screenshot is evidence to investigate, not permission to accept a new baseline.
+- Automated accessibility checks complement keyboard, screen-reader and user evaluation where needed; they do not prove accessibility or usability.
+
+### Agent exploration
+
+For exploration give the agent a user goal, acceptance criteria, target and allowed actions, rather than only a prescribed click sequence.
+
+- Inspect real UI/accessibility state, relevant requests, console errors, persisted outcomes and telemetry. Screenshots aid layout judgment but cannot establish saved data, permissions or task success.
+- Preserve useful reproductions and convert discovered regressions into checks at the appropriate boundary.
+- Treat model visual/usability judgments as fallible findings, calibrate against accepted references and human examples, and distinguish observations from subjective suggestions.
+- An agent's positive narrative is not a release gate.
+
+## Exercise components within the verification loop
+
+Where Storybook is adopted:
+
+1. Derive stories from accepted interaction/state coverage before implementation. Exercise actual shared components, including portals and required providers; keep failure/draft states repeatable through controlled providers.
+2. Add meaningful interaction assertions, accessibility checks and reviewed visual comparisons to existing local/CI checks using the project's version-compatible runner.
+3. Verify the actual route/native caller, real authentication, API/database persistence and denied access in critical journeys. Reuse stories or fixtures where supported instead of duplicating identical coverage.
+
+A static build proves only that the catalogue builds; a rendered story without assertions does not establish interaction behavior. Preserve accessibility warnings as unresolved required checks where applicable; a paid publishing service is unnecessary for local tests.
+
+For example, a modal's verification includes keyboard opening, initial focus, Tab/Shift+Tab containment, Escape and trigger restoration. A mounted-component assertion misses those behaviors.
+
+Keep heuristic critique, agent exploration and observed participant usability research distinct. A discussion guide is a research plan, not evidence that users completed tasks.
+
+
+## Make outcomes observable
+
+- Assert user-visible results and relevant persisted state, not merely successful clicks, HTTP 200 or the absence of errors.
+- Check data survives reload or a new session. Verify update/delete effects rather than trusting an optimistic UI.
+- For private resources, use distinct users and test direct access by another user's resource ID, including mutation paths. Hiding a button does not establish authorization.
+- Exercise the real authentication path in dedicated auth coverage; reuse authenticated sessions where appropriate for other journeys. Never bypass the behavior the test claims to establish.
+- Inspect affected mobile/desktop layouts and keyboard/focus behavior. Include relevant loading, empty, error, validation and permission states; do not rely only on screenshots.
+
+## Keep tests trustworthy
+
+Isolate users and data per test or worker and use an explicit test database.
+
+- Apply migrations, establish service readiness and clean up only owned test data; do not reset an unspecified database.
+- Use semantic locators and observable-state waits instead of fixed sleeps.
+- Keep real credentials out of committed fixtures and traces.
+- Synthetic test identities require explicit local/test opt-in and production rejection, with regression checks for those configuration boundaries.
+
+Match local and CI configuration. Capture failure traces/screenshots and useful service logs. Reproduce a flaky failure and diagnose state, timing or environment before changing waits; do not weaken assertions or inflate retries to hide it. Keep a small critical journey set fast enough to run routinely.
+
+Report commands, environment, journeys and actual results, plus mocked boundaries and important gaps. If the browser/database environment is unavailable, supply the tests or plan and say execution is blocked; do not claim full-stack verification. Expand coverage when changed risk warrants it rather than duplicating every unit test in the browser.
+
+For suite upkeep, follow deliver-reliable-changes: temporary flaky-test quarantine has accountable repair and explicit coverage implications. Preserve useful traces and fixture ownership, and remove redundant browser checks only when the affected journey remains established at an appropriate boundary.
+
+
+## Carry results into implementation
+
+Use deliver-reliable-changes for scenario selection and the implement/test/inspect/repair loop. This skill supplies platform and outcome evidence, including actual callers of shared components. Reconcile observed results with accepted interactions and visual references; investigate differences before changing a baseline. Preserve incomplete coverage and unresolved human judgments in the result.
+
+For the implementation feedback loop and evidence methods use [journey references](references/journey-references.md). For demand/load claims read [performance claims](references/performance-claims.md); actual driver/tool setup belongs to matching installed technical expertise. Core decisions above should suffice for ordinary work.

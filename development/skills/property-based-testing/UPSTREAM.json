@@ -1,0 +1,20 @@
+{
+  "plugin": "development",
+  "license": "CC-BY-SA-4.0",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "usage-labels",
+    "support-visibility"
+  ],
+  "labels": {
+    "scope": "generic",
+    "invocation": "agent",
+    "role": "support"
+  },
+  "artifact": "development--property-based-testing",
+  "destination": "plugins/development/skills/property-based-testing",
+  "repository": "https://github.com/trailofbits/skills.git",
+  "commit": "82fe8226252622fa807643bdca1710901198553a",
+  "path": "plugins/property-based-testing/skills/property-based-testing",
+  "installed_skill": "property-based-testing"
+}

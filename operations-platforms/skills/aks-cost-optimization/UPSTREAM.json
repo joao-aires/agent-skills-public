@@ -1,0 +1,21 @@
+{
+  "plugin": "operations-platforms",
+  "license": "MIT",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "usage-labels",
+    "support-visibility"
+  ],
+  "labels": {
+    "scope": "stack-specific",
+    "invocation": "agent",
+    "stack": "Azure AKS",
+    "role": "support"
+  },
+  "artifact": "operations-platforms--aks-cost-optimization",
+  "destination": "plugins/operations-platforms/skills/aks-cost-optimization",
+  "repository": "https://github.com/Azure/AKS-Skills.git",
+  "commit": "20bf35201a79b324d2ca3e00e5c82020ff362024",
+  "path": "skills/aks-cost-optimization",
+  "installed_skill": "aks-cost-optimization"
+}

@@ -1,0 +1,86 @@
+[
+  {
+    "plugin": "ai-langchain-development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "stack-specific",
+      "invocation": "agent",
+      "stack": "LangChain",
+      "role": "support"
+    },
+    "artifact": "ai-langchain-development--langchain-fundamentals",
+    "destination": "plugins/ai-langchain-development/skills/langchain-fundamentals",
+    "repository": "https://github.com/langchain-ai/langchain-skills.git",
+    "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
+    "path": "config/skills/langchain-fundamentals",
+    "installed_skill": "langchain-fundamentals"
+  },
+  {
+    "plugin": "ai-langchain-development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "stack-specific",
+      "invocation": "agent",
+      "stack": "LangGraph",
+      "role": "support"
+    },
+    "artifact": "ai-langchain-development--langgraph-fundamentals",
+    "destination": "plugins/ai-langchain-development/skills/langgraph-fundamentals",
+    "repository": "https://github.com/langchain-ai/langchain-skills.git",
+    "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
+    "path": "config/skills/langgraph-fundamentals",
+    "installed_skill": "langgraph-fundamentals"
+  },
+  {
+    "plugin": "ai-langchain-development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "stack-specific",
+      "invocation": "agent",
+      "stack": "LangGraph",
+      "role": "support"
+    },
+    "artifact": "ai-langchain-development--langgraph-persistence",
+    "destination": "plugins/ai-langchain-development/skills/langgraph-persistence",
+    "repository": "https://github.com/langchain-ai/langchain-skills.git",
+    "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
+    "path": "config/skills/langgraph-persistence",
+    "installed_skill": "langgraph-persistence"
+  },
+  {
+    "plugin": "ai-langchain-development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "stack-specific",
+      "invocation": "agent",
+      "stack": "LangChain, LangGraph",
+      "role": "support"
+    },
+    "artifact": "ai-langchain-development--langchain-dependencies",
+    "destination": "plugins/ai-langchain-development/skills/langchain-dependencies",
+    "repository": "https://github.com/langchain-ai/langchain-skills.git",
+    "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
+    "path": "config/skills/langchain-dependencies",
+    "installed_skill": "langchain-dependencies"
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "saas-development",
+  "version": "0.1.2",
+  "description": "SaaS tenant/customer and commercial lifecycle design, task-oriented dashboards and scoped readiness assessment across implementation stacks.",
+  "author": {
+    "name": "João Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "MIT"
+}

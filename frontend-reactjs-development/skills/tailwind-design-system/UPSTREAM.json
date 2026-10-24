@@ -1,0 +1,22 @@
+{
+  "plugin": "frontend-reactjs-development",
+  "license": "MIT",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "frontend-framing",
+    "usage-labels",
+    "support-visibility"
+  ],
+  "labels": {
+    "scope": "stack-specific",
+    "invocation": "agent",
+    "stack": "React, Next.js, Tailwind, shadcn",
+    "role": "support"
+  },
+  "artifact": "frontend-reactjs-development--tailwind-design-system",
+  "destination": "plugins/frontend-reactjs-development/skills/tailwind-design-system",
+  "repository": "https://github.com/wshobson/agents.git",
+  "commit": "46891e7e60da0e52baf1050b7b6391b64e84c6d9",
+  "path": "plugins/frontend-mobile-development/skills/tailwind-design-system",
+  "installed_skill": "tailwind-design-system"
+}

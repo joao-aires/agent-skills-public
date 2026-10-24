@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "typescript-development",
+  "version": "0.1.2",
+  "description": "TypeScript engineering for accepted runtimes, libraries, services and clients; module/package contracts, validation and verification independent of React.",
+  "author": {
+    "name": "João Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "MIT"
+}

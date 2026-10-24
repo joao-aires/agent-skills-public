@@ -1,0 +1,70 @@
+---
+name: product-management
+description: Shape product direction from user problems, evidence and constraints. Use for discovery, prioritization, useful first slices, success measures and product sequencing before development or when new evidence changes priorities; reuse accepted decisions for defined changes.
+user-invocable: true
+metadata:
+  scope: generic
+  invocation: both
+  role: support
+---
+
+# Decide which product outcome to pursue
+
+Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
+
+Help choose a worthwhile user problem and a bounded response, with evidence that can change the decision. Apply directly to a product question or as support in an authorized development engagement. Scale the work to the uncertainty: a personal tool may need a short purpose and scope decision, while an uncertain commercial proposition needs deeper investigation. A defined bug or accepted feature does not restart discovery.
+
+## Establish the problem and evidence
+
+Read existing product decisions, supplied research, feedback and actual behavior.
+
+- Identify the intended users, their job and current workaround, the difficulty or unmet outcome, and the intended personal, internal or commercial use.
+- Separate observed facts, interpretations and untested demand or solution assumptions.
+- Reuse answers already established.
+
+Question the proposed feature when a simpler product, process or existing tool could achieve the outcome. Investigate decision-changing technical facts; ask about unresolved user priorities, usage or commitments. Use [business strategy](../business-strategy/SKILL.md) for competitive position, value capture and business viability when those are the actual question. Product direction works within accepted strategy and can supply evidence that reopens it.
+
+## Choose a useful slice and what to defer
+
+Compare responses to the same user problem, including doing less or changing the surrounding workflow. Establish who benefits, how often the problem occurs, how much it prevents the intended outcome, and how strong the evidence is. Then consider what each response costs to learn about, deliver and maintain. Separate a low-cost idea from one whose adoption depends on changing several teams or external systems.
+
+Use these considerations to make a choice, rather than presenting an unranked list of attractive features. Explain which evidence supports the recommendation and which uncertain belief could reverse it. A scoring framework helps when its inputs can be defended; invented precision can conceal the actual judgment. State what is deferred and why. A feature request is evidence of a need, not an automatic backlog commitment.
+
+Choose a coherent experience that lets the intended user achieve a meaningful result.
+
+- Describe the main journey, scope/non-goals and the important assumptions.
+- Keep must-have behavior separate from ideas and later options.
+- Ask for a consequential product choice when alternatives change the accepted outcome; choose reversible details within scope without another approval ceremony.
+
+Sequence around outcomes and uncertainties. Distinguish committed work, the next candidate and later possibilities; dates need an actual capacity or external commitment basis. An evidence gap can justify a small prototype or investigation instead of a production feature. Do not invent research findings, customers, forecasts or delivery promises.
+
+## Define success and a way to learn
+
+Choose an observable user outcome and, where useful, a measure with its population, time window, data source and interpretation.
+
+- Identify failure or harm signals as well as the desired improvement.
+- Separate proposed targets from accepted commitments and existing measurements.
+- Small populations may support qualitative observation better than a statistically unsupported experiment.
+
+Work backward from the next decision to the evidence it needs. If the uncertainty concerns whether people can find and complete the task, observe the task; if it concerns whether the proposed result is worth adopting, investigate the current workaround, consequences and willingness to change. Define what result would lead you to continue, revise or stop before collecting more evidence. This keeps research from becoming activity without a decision.
+
+Prioritize the assumptions whose failure would change the decision and choose the least costly credible way to investigate them. Use installed usability research expertise for participant methods; use [product feedback](../learn-from-product-feedback/SKILL.md) for evidence synthesis. Preparing a study is not conducting it. Contact, recording, telemetry changes and live experiments need the corresponding authorized scope.
+
+## Carry direction into development and back
+
+Return the product decision with:
+
+- Recommended or accepted problem and intended users.
+- Useful slice and deferred scope.
+- Evidence, assumptions and unresolved choices.
+- Success signal and next decision.
+
+Use the existing brief, PRD or conversation; no mandatory template, tracker or parallel decision register is needed.
+
+### When engineering work follows
+
+Refine owns observable requirements, design owns system/experience decisions and plan owns implementation sequencing. Reach those activities only within the requested engagement; do not invoke explicit-only tasks automatically. Use their supporting methods directly when appropriate. A product-only request ends with the product decision and evidence plan, without implementation.
+
+### After delivery
+
+Feed actual outcomes through product feedback and revisit the affected priority or assumption. Keep accepted product decisions authoritative until changed by new evidence or the user; neither a completed feature nor a polished prototype establishes product success.

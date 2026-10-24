@@ -1,0 +1,5 @@
+# Compose relevant expertise
+
+The requested activity owns its outcome and stopping point. Seek expertise relevant to unresolved decisions and accepted implementation choices through the client's observed inventory or supported discovery; match descriptions and applicability before reading selected guidance. Describe the capability needed rather than requiring a particular skill or plugin name. Preserve native invocation controls and existing authority.
+
+When specialist guidance is absent, use project instructions, accepted decisions, code/configuration, general expertise and appropriate primary sources, then verify against the same acceptance criteria. Missing guidance alone is not a blocker or permission to skip design, tests or evidence. Investigate material facts before asking about unresolved decisions; continue independent work and identify actual tool, access or environment limits precisely. Do not install, migrate, expand scope or ask repeated permission merely to obtain guidance. No inventory/search capability is assumed, and discovery stays within authorized resources.

@@ -1,0 +1,23 @@
+[
+  {
+    "plugin": "documentation",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "composition-framing",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support"
+    },
+    "artifact": "documentation--humanizer",
+    "destination": "plugins/documentation/skills/humanizer",
+    "repository": "https://github.com/blader/humanizer.git",
+    "commit": "225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8",
+    "path": ".",
+    "installed_skill": "humanizer"
+  }
+]

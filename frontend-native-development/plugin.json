@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "frontend-native-development",
+  "version": "0.1.1",
+  "description": "TypeScript/Tauri and React Native/Expo clients, platform lifecycle, packaging and native verification.",
+  "author": {
+    "name": "João Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "MIT"
+}

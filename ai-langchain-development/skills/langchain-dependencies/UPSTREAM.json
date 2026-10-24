@@ -1,0 +1,21 @@
+{
+  "plugin": "ai-langchain-development",
+  "license": "MIT",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "usage-labels",
+    "support-visibility"
+  ],
+  "labels": {
+    "scope": "stack-specific",
+    "invocation": "agent",
+    "stack": "LangChain, LangGraph",
+    "role": "support"
+  },
+  "artifact": "ai-langchain-development--langchain-dependencies",
+  "destination": "plugins/ai-langchain-development/skills/langchain-dependencies",
+  "repository": "https://github.com/langchain-ai/langchain-skills.git",
+  "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
+  "path": "config/skills/langchain-dependencies",
+  "installed_skill": "langchain-dependencies"
+}

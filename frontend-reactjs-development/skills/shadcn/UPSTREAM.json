@@ -1,0 +1,22 @@
+{
+  "plugin": "frontend-reactjs-development",
+  "license": "MIT",
+  "license_path": "LICENSE.md",
+  "adaptations": [
+    "frontend-framing",
+    "usage-labels",
+    "support-visibility"
+  ],
+  "labels": {
+    "scope": "stack-specific",
+    "invocation": "agent",
+    "stack": "React, Next.js, Tailwind, shadcn",
+    "role": "support"
+  },
+  "artifact": "frontend-reactjs-development--shadcn",
+  "destination": "plugins/frontend-reactjs-development/skills/shadcn",
+  "repository": "https://github.com/shadcn-ui/ui.git",
+  "commit": "6b600cf1ff42f8a746747ea587e52af3ee224643",
+  "path": "skills/shadcn",
+  "installed_skill": "shadcn"
+}

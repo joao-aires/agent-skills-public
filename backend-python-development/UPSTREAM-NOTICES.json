@@ -1,0 +1,24 @@
+[
+  {
+    "plugin": "backend-python-development",
+    "license": "CC-BY-SA-4.0",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "backend-framing",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "stack-specific",
+      "invocation": "agent",
+      "stack": "Python",
+      "role": "support"
+    },
+    "artifact": "backend-python-development--modern-python",
+    "destination": "plugins/backend-python-development/skills/modern-python",
+    "repository": "https://github.com/trailofbits/skills.git",
+    "commit": "82fe8226252622fa807643bdca1710901198553a",
+    "path": "plugins/modern-python/skills/modern-python",
+    "installed_skill": "modern-python"
+  }
+]

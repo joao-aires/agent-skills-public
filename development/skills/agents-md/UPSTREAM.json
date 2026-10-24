@@ -1,0 +1,21 @@
+{
+  "plugin": "development",
+  "license": "Apache-2.0",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "workflow-framing",
+    "instruction-authoring-framing",
+    "usage-labels"
+  ],
+  "labels": {
+    "scope": "generic",
+    "invocation": "both",
+    "role": "support"
+  },
+  "artifact": "development--agents-md",
+  "destination": "plugins/development/skills/agents-md",
+  "repository": "https://github.com/getsentry/skills.git",
+  "commit": "f57ada2d0b640406ea7e25b11d636c530e77c58b",
+  "path": "skills/agents-md",
+  "installed_skill": "agents-md"
+}

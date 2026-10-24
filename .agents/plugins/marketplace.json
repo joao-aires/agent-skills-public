@@ -1,0 +1,308 @@
+{
+  "name": "agent-skills-public",
+  "interface": {
+    "displayName": "Agent Skills Public"
+  },
+  "plugins": [
+    {
+      "name": "ai-adk-development",
+      "source": {
+        "source": "local",
+        "path": "./ai-adk-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "ai-development",
+      "source": {
+        "source": "local",
+        "path": "./ai-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "ai-langchain-development",
+      "source": {
+        "source": "local",
+        "path": "./ai-langchain-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "ai-python-development",
+      "source": {
+        "source": "local",
+        "path": "./ai-python-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "backend-development",
+      "source": {
+        "source": "local",
+        "path": "./backend-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "backend-python-development",
+      "source": {
+        "source": "local",
+        "path": "./backend-python-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "browser-extension-development",
+      "source": {
+        "source": "local",
+        "path": "./browser-extension-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "database-development",
+      "source": {
+        "source": "local",
+        "path": "./database-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "database-postgresql-development",
+      "source": {
+        "source": "local",
+        "path": "./database-postgresql-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "delivery",
+      "source": {
+        "source": "local",
+        "path": "./delivery"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "development",
+      "source": {
+        "source": "local",
+        "path": "./development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "development-tooling",
+      "source": {
+        "source": "local",
+        "path": "./development-tooling"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "documentation",
+      "source": {
+        "source": "local",
+        "path": "./documentation"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "frontend-development",
+      "source": {
+        "source": "local",
+        "path": "./frontend-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "frontend-native-development",
+      "source": {
+        "source": "local",
+        "path": "./frontend-native-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "frontend-reactjs-development",
+      "source": {
+        "source": "local",
+        "path": "./frontend-reactjs-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "go-development",
+      "source": {
+        "source": "local",
+        "path": "./go-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "governance",
+      "source": {
+        "source": "local",
+        "path": "./governance"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "operations",
+      "source": {
+        "source": "local",
+        "path": "./operations"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "operations-platforms",
+      "source": {
+        "source": "local",
+        "path": "./operations-platforms"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "saas-development",
+      "source": {
+        "source": "local",
+        "path": "./saas-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "security",
+      "source": {
+        "source": "local",
+        "path": "./security"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "strategy",
+      "source": {
+        "source": "local",
+        "path": "./strategy"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "typescript-development",
+      "source": {
+        "source": "local",
+        "path": "./typescript-development"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    },
+    {
+      "name": "visualization",
+      "source": {
+        "source": "local",
+        "path": "./visualization"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

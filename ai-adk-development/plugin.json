@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ai-adk-development",
+  "version": "0.1.1",
+  "description": "Google ADK architecture and agent implementation.",
+  "author": {
+    "name": "Jo\u00e3o Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "LicenseRef-Mixed"
+}

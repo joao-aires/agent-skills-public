@@ -1,0 +1,27 @@
+# Sources and exceptions
+
+Use the main skill for routine work. These primary references resolve details that depend on versions, identity providers, drivers or platforms.
+
+| Need | Source and interpretation |
+| --- | --- |
+| FastAPI structure, contracts and practical integration | [Official full-stack template](https://github.com/fastapi/full-stack-fastapi-template), [FastAPI docs](https://fastapi.tiangolo.com/) and [community production practices](https://github.com/zhanymkanov/fastapi-best-practices). The template uses SQLModel and a Vite frontend: adapt useful practices without replacing my SQLAlchemy/Next.js choices. Community async preferences are contextual, not a universal mandate. |
+| Sessions, async drivers and transactions | [SQLAlchemy asyncio](https://docs.sqlalchemy.org/en/20/orm/extensions/asyncio.html) and [session basics](https://docs.sqlalchemy.org/en/20/orm/session_basics.html). An AsyncSession is mutable transaction state, one per concurrent task; choose sync/async deliberately. |
+| Schema evolution | [Alembic autogeneration limitations](https://alembic.sqlalchemy.org/en/latest/autogenerate.html) and [PostgreSQL constraints](https://www.postgresql.org/docs/current/ddl-constraints.html). Generated migrations need review; constraints enforce concurrent invariants. |
+| Identity and browser security | [FastAPI password/JWT example](https://fastapi.tiangolo.com/tutorial/security/oauth2-jwt/), [OWASP cheat sheets](https://cheatsheetseries.owasp.org/) and the chosen provider's official docs. Tutorial token issuance is not a complete identity platform; verify recovery, revocation, OIDC, CSRF and tenant rules for the actual client. |
+| Background work | [FastAPI BackgroundTasks](https://fastapi.tiangolo.com/tutorial/background-tasks/) and the chosen worker's docs. Critical work needs durable delivery and recovery, not an in-process task. |
+| AI, tools and speech | [Google ADK docs](https://google.github.io/adk-docs/), [LangChain docs](https://docs.langchain.com/), [Gemini audio](https://ai.google.dev/gemini-api/docs/audio), [Gemini pricing](https://ai.google.dev/gemini-api/docs/pricing), and the bundled AI plugin's official skills. Verify current model/quota/region/support; free-tier availability is not guaranteed. |
+| MCP | [Standalone FastMCP installation/migration](https://gofastmcp.com/getting-started/installation) and `mcp-builder` from `ai-development`. Prefer `fastmcp` / `from fastmcp import FastMCP`; upstream Python examples target the MCP SDK's `mcp.server.fastmcp`, so adapt against standalone version-matched docs. Keep Context, lifespan, auth and transport APIs consistent; reuse application authorization. |
+
+For another backend profile, extract deployment boundary, contracts, persistence/transaction model, identity/authorization, concurrency/durability and external integrations from supplied references. Record accepted constraints; prefer the simplest design meeting them. Use provider-specific official guidance for managed databases, queues, encryption or deployment rather than assuming Kubernetes or one cloud.
+
+## Production changes and durable execution
+
+- [PostgreSQL ALTER TABLE](https://www.postgresql.org/docs/current/sql-altertable.html) explains operation-specific locks and validation; [CREATE INDEX](https://www.postgresql.org/docs/current/sql-createindex.html) explains concurrent-index limitations and failure states. Match the installed database release. Small fixtures test semantics, not production timing.
+- [Alembic runtime](https://alembic.sqlalchemy.org/en/latest/api/runtime.html) covers migration execution and autocommit boundaries. Some DDL requires special transaction handling; do not force every operation into one transaction or prescribe an unsafe universal downgrade.
+- [Transactional outbox](https://docs.aws.amazon.com/prescriptive-guidance/latest/cloud-design-patterns/transactional-outbox.html) illustrates atomic domain/delivery intent and duplicate handling. Use the principle with the actual database and broker; the reference does not require AWS infrastructure. Provider idempotency, lease and acknowledgment behavior must come from that provider's documentation.
+- [FastAPI deployment concepts](https://fastapi.tiangolo.com/deployment/concepts/) and [SQLAlchemy pooling](https://docs.sqlalchemy.org/en/20/core/pooling.html) explain process/resource and connection lifecycle concerns. Validate worker counts, per-process resources and drain behavior against the project's actual hosting strategy.
+
+
+## Interface compatibility
+
+[Pact concepts](https://docs.pact.io/) distinguishes integration/consumer expectations from provider schema validation and supports HTTP/message contracts. Use it selectively where independent consumers justify it. OpenAPI diffs and generated clients catch structural changes; representative behavior tests must still establish errors, permissions, defaults and event semantics. Preserve existing integration tooling.

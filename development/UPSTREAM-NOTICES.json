@@ -1,0 +1,455 @@
+[
+  {
+    "plugin": "development",
+    "license": "CC-BY-SA-4.0",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support"
+    },
+    "artifact": "development--property-based-testing",
+    "destination": "plugins/development/skills/property-based-testing",
+    "repository": "https://github.com/trailofbits/skills.git",
+    "commit": "82fe8226252622fa807643bdca1710901198553a",
+    "path": "plugins/property-based-testing/skills/property-based-testing",
+    "installed_skill": "property-based-testing"
+  },
+  {
+    "plugin": "development",
+    "license": "CC-BY-SA-4.0",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "inline-adversarial-review",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support"
+    },
+    "artifact": "development--differential-review",
+    "destination": "plugins/development/skills/differential-review",
+    "repository": "https://github.com/trailofbits/skills.git",
+    "commit": "82fe8226252622fa807643bdca1710901198553a",
+    "path": "plugins/differential-review/skills/differential-review",
+    "installed_skill": "differential-review"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "tracker-neutral",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support"
+    },
+    "artifact": "development--code-review",
+    "destination": "plugins/development/skills/code-review",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/code-review",
+    "installed_skill": "code-review"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support"
+    },
+    "artifact": "development--codebase-design",
+    "destination": "plugins/development/skills/codebase-design",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/codebase-design",
+    "installed_skill": "codebase-design"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support"
+    },
+    "artifact": "development--diagnosing-bugs",
+    "destination": "plugins/development/skills/diagnosing-bugs",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/diagnosing-bugs",
+    "installed_skill": "diagnosing-bugs"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support"
+    },
+    "artifact": "development--domain-modeling",
+    "destination": "plugins/development/skills/domain-modeling",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/domain-modeling",
+    "installed_skill": "domain-modeling"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task"
+    },
+    "artifact": "development--grill-with-docs",
+    "destination": "plugins/development/skills/grill-with-docs",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/grill-with-docs",
+    "installed_skill": "grill-with-docs"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "implementation-entrypoint"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task"
+    },
+    "artifact": "development--implement",
+    "destination": "plugins/development/skills/implement",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/implement",
+    "installed_skill": "implement"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "tracker-neutral"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task"
+    },
+    "artifact": "development--implement-spec",
+    "destination": "plugins/development/skills/implement-spec",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/implement-spec",
+    "installed_skill": "implement-spec"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task"
+    },
+    "artifact": "development--improve-codebase-architecture",
+    "destination": "plugins/development/skills/improve-codebase-architecture",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/improve-codebase-architecture",
+    "installed_skill": "improve-codebase-architecture"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support"
+    },
+    "artifact": "development--prototype",
+    "destination": "plugins/development/skills/prototype",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/prototype",
+    "installed_skill": "prototype"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support"
+    },
+    "artifact": "development--research",
+    "destination": "plugins/development/skills/research",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/research",
+    "installed_skill": "research"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task"
+    },
+    "artifact": "development--retro",
+    "destination": "plugins/development/skills/retro",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/retro",
+    "installed_skill": "retro"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support"
+    },
+    "artifact": "development--tdd",
+    "destination": "plugins/development/skills/tdd",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/tdd",
+    "installed_skill": "tdd"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "tracker-neutral"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task"
+    },
+    "artifact": "development--to-spec",
+    "destination": "plugins/development/skills/to-spec",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/to-spec",
+    "installed_skill": "to-spec"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task"
+    },
+    "artifact": "development--grill-me",
+    "destination": "plugins/development/skills/grill-me",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/productivity/grill-me",
+    "installed_skill": "grill-me"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support"
+    },
+    "artifact": "development--grilling",
+    "destination": "plugins/development/skills/grilling",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/productivity/grilling",
+    "installed_skill": "grilling"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task"
+    },
+    "artifact": "development--handoff",
+    "destination": "plugins/development/skills/handoff",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/productivity/handoff",
+    "installed_skill": "handoff"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task"
+    },
+    "artifact": "development--to-questionnaire",
+    "destination": "plugins/development/skills/to-questionnaire",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/productivity/to-questionnaire",
+    "installed_skill": "to-questionnaire"
+  },
+  {
+    "plugin": "development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support"
+    },
+    "artifact": "development--writing-for-agents",
+    "destination": "plugins/development/skills/writing-for-agents",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/productivity/writing-for-agents",
+    "installed_skill": "writing-for-agents"
+  },
+  {
+    "plugin": "development",
+    "license": "Apache-2.0",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "instruction-authoring-framing",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "both",
+      "role": "support"
+    },
+    "artifact": "development--agents-md",
+    "destination": "plugins/development/skills/agents-md",
+    "repository": "https://github.com/getsentry/skills.git",
+    "commit": "f57ada2d0b640406ea7e25b11d636c530e77c58b",
+    "path": "skills/agents-md",
+    "installed_skill": "agents-md"
+  }
+]

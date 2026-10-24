@@ -1,0 +1,21 @@
+{
+  "plugin": "ai-langchain-development",
+  "license": "MIT",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "usage-labels",
+    "support-visibility"
+  ],
+  "labels": {
+    "scope": "stack-specific",
+    "invocation": "agent",
+    "stack": "LangGraph",
+    "role": "support"
+  },
+  "artifact": "ai-langchain-development--langgraph-fundamentals",
+  "destination": "plugins/ai-langchain-development/skills/langgraph-fundamentals",
+  "repository": "https://github.com/langchain-ai/langchain-skills.git",
+  "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
+  "path": "config/skills/langgraph-fundamentals",
+  "installed_skill": "langgraph-fundamentals"
+}

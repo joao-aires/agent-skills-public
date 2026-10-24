@@ -1,0 +1,21 @@
+{
+  "plugin": "development-tooling",
+  "license": "MIT",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "usage-labels",
+    "support-visibility"
+  ],
+  "labels": {
+    "scope": "stack-specific",
+    "invocation": "agent",
+    "stack": "GitHub Actions",
+    "role": "support"
+  },
+  "artifact": "development-tooling--github-actions-hardening",
+  "destination": "plugins/development-tooling/skills/github-actions-hardening",
+  "repository": "https://github.com/github/awesome-copilot.git",
+  "commit": "143a3d976b3c1603cc8932984d5e1f28501cb5fc",
+  "path": "skills/github-actions-hardening",
+  "installed_skill": "github-actions-hardening"
+}

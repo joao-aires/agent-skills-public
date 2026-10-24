@@ -1,0 +1,112 @@
+# AKS Spot Node Pools
+
+Recommend and create Spot VM node pools for batch, dev/test, or fault-tolerant workloads (60-90% cost reduction vs regular nodes).
+
+## Check Existing Node Pools
+
+```bash
+az aks nodepool list \
+  --cluster-name "<CLUSTER_NAME>" --resource-group "<RESOURCE_GROUP>" \
+  --query "[].{name:name, vmSize:vmSize, priority:scaleSetPriority, count:count, mode:mode}" \
+  -o table
+```
+
+## Identify Spot-Suitable Workloads
+
+Before creating a Spot pool, identify which workloads can tolerate interruptions:
+
+```bash
+# List deployments without PodDisruptionBudgets (single-replica or no PDB = higher eviction risk)
+kubectl get deployments --all-namespaces -o json | \
+  jq -r '.items[] | select(.spec.replicas == 1) | "\(.metadata.namespace)/\(.metadata.name)"'
+
+# Check which pods already have spot tolerations
+kubectl get pods --all-namespaces -o json | \
+  jq -r '.items[] | select(.spec.tolerations[]?.key == "kubernetes.azure.com/scalesetpriority") | "\(.metadata.namespace)/\(.metadata.name)"'
+```
+
+Use the suitability table below to decide which workloads to migrate.
+
+## Mixed Node Pool Pattern (Spot + Regular)
+
+For workloads that need resilience but want cost savings, use a mixed approach:
+
+```bash
+# Keep existing regular node pool as fallback (min 1-2 nodes)
+az aks nodepool update \
+  --cluster-name "<CLUSTER_NAME>" --resource-group "<RESOURCE_GROUP>" \
+  --name "<REGULAR_POOL>" \
+  --enable-cluster-autoscaler --min-count 1 --max-count 3
+
+# Add Spot pool for the majority of workload capacity
+# -1 means pay up to on-demand price (no cap); set e.g. 0.05 to cap hourly spend
+az aks nodepool add \
+  --cluster-name "<CLUSTER_NAME>" --resource-group "<RESOURCE_GROUP>" \
+  --name "<SPOT_POOL_NAME>" \
+  --priority Spot --eviction-policy Delete --spot-max-price -1 \
+  --node-vm-size "<VM_SIZE>" \
+  --node-count 3 --min-count 0 --max-count 10 \
+  --enable-cluster-autoscaler \
+  --node-taints "kubernetes.azure.com/scalesetpriority=spot:NoSchedule" \
+  --labels "kubernetes.azure.com/scalesetpriority=spot"
+```
+
+The toleration below makes Spot nodes eligible, while preferred node affinity biases scheduling toward Spot when it is available. Because the affinity is preferred rather than required, regular nodes remain eligible as fallback when Spot capacity cannot satisfy the pod. Pods pinned to Spot with a `nodeSelector` or required node affinity cannot use that fallback and will remain pending until a Spot node is available again.
+
+## Workload Toleration and Preference (add to Deployment YAML)
+
+```yaml
+tolerations:
+- key: "kubernetes.azure.com/scalesetpriority"
+  operator: "Equal"
+  value: "spot"
+  effect: "NoSchedule"
+affinity:
+  nodeAffinity:
+    preferredDuringSchedulingIgnoredDuringExecution:
+    # Kubernetes preference weights are 1-100; use 100 to strongly favor Spot.
+    - weight: 100
+      preference:
+        matchExpressions:
+        - key: "kubernetes.azure.com/scalesetpriority"
+          operator: In
+          values:
+          - "spot"
+```
+
+## Suitability
+
+| Workload | Spot-Suitable? |
+|----------|----------------|
+| Batch / data processing | Yes |
+| Dev / test environments | Yes |
+| Stateless web/API (replicas >= 2) | Yes (with care) |
+| Jobs with checkpointing | Yes |
+| Stateful workloads (databases) | No |
+| Single-replica critical services | No |
+
+> Risk: Low for batch/dev. High for production stateful workloads. Spot VMs evict with 30-second notice. Eviction policy Delete is recommended for AKS.
+
+## Handling Eviction Gracefully
+
+Configure workloads to handle the 30-second eviction notice ([Microsoft Learn: Spot Virtual Machines — eviction policy](https://learn.microsoft.com/azure/virtual-machine-scale-sets/use-spot#eviction-policy)):
+
+```yaml
+# Add to Deployment spec — terminationGracePeriodSeconds should be < 30s for Spot
+spec:
+  template:
+    spec:
+      terminationGracePeriodSeconds: 25
+      containers:
+      - name: <CONTAINER_NAME>
+        lifecycle:
+          preStop:
+            exec:
+              command: ["/bin/sh", "-c", "sleep 5"]  # Drain in-flight requests
+```
+
+> ⚠️ **A PodDisruptionBudget does not protect a workload from Spot reclamation.** Azure Spot capacity reclamation is an infrastructure-level eviction: "[a]t any point in time when Azure needs the capacity back, the Azure infrastructure evicts Azure Spot Virtual Machine instances," with no SLA and no high-availability guarantee ([Microsoft Learn: Use Azure Spot Virtual Machines](https://learn.microsoft.com/azure/virtual-machine-scale-sets/use-spot); [Microsoft Learn: Spot node pools](https://learn.microsoft.com/azure/aks/spot-node-pool)). A PDB's `minAvailable`/`maxUnavailable` limits concurrent **voluntary** evictions through the Kubernetes Eviction API, such as an AKS node drain; involuntary disruptions such as deletion of a node VM can still reduce availability below the budget ([Microsoft Learn: Limit disruption impact by using PDBs](https://learn.microsoft.com/azure/aks/operator-best-practices-scheduler#limit-disruption-impact-by-using-pod-disruption-budgets-pdbs)). It has no effect on Azure deallocating or deleting the underlying Spot VM.
+>
+> For actual Spot resilience, keep multiple replicas distributed across nodes or other failure domains and size regular-pool fallback capacity to maintain the workload's availability requirements; Microsoft recommends multiple replicas and multiple nodes for involuntary disruptions ([Microsoft Learn: PDB best practices](https://learn.microsoft.com/azure/aks/operator-best-practices-scheduler#involuntary-disruptions)). Use the regular fallback pool from the [Mixed Node Pool Pattern](#mixed-node-pool-pattern-spot--regular) above, and don't pin Spot-tolerant pods to Spot with a `nodeSelector` or required node affinity.
+>
+> Use workload-specific PDBs for their actual purpose: limiting concurrent Eviction API disruptions during voluntary operations such as node pool upgrades, drains, and cluster-autoscaler scale-down.

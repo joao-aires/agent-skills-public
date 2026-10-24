@@ -1,0 +1,645 @@
+<!--
+  ╔══════════════════════════════════════════════════════════╗
+  ║  ADDON: Vertical Timeline Navigation                    ║
+  ║                                                         ║
+  ║  A fixed right-side chronological rail with event        ║
+  ║  labels, year markers, and progressive disclosure       ║
+  ║  tied to scroll position.                               ║
+  ║                                                         ║
+  ║  INTEGRATION POINTS                                     ║
+  ║  ─────────────────                                      ║
+  ║  CSS   → merge into <style> after the core CSS          ║
+  ║  HTML  → insert <nav> before the slide counter          ║
+  ║  JS    → merge into the main <script> IIFE              ║
+  ║  VARS  → add --nav-w and --rail-x to :root              ║
+  ║  SCENE → add padding-right override to .scene           ║
+  ║  SLIDE → add data-tl attribute to each <section>        ║
+  ║  COUNTER → shift slide-counter right by --nav-w          ║
+  ╚══════════════════════════════════════════════════════════╝
+-->
+
+<!-- ══════════════════════════════════════════════════════════
+     CSS — add to :root and append after core styles
+     ══════════════════════════════════════════════════════════ -->
+<style>
+/* ── Timeline CSS variables (merge into :root) ──────────── */
+/*
+:root {
+    --nav-w: clamp(252px, 21vw, 378px);
+    --rail-x: 46%;
+}
+*/
+
+/* ── Scene padding override (merge into .scene rule) ────── */
+/*
+.scene {
+    padding-right: calc(var(--nav-w) + clamp(.5rem, 1.5vw, 2rem));
+}
+*/
+
+/* ── Slide counter position override ────────────────────── */
+/*
+.slide-counter {
+    right: calc(var(--nav-w) + .8rem);
+}
+*/
+
+/* ══════════════════════════════════════════════════════════
+   RIGHT-SIDE VERTICAL TIMELINE
+   ══════════════════════════════════════════════════════ */
+.timeline-nav {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: var(--nav-w);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 200;
+    background: linear-gradient(90deg, transparent 0%, rgba(10, 10, 18, .92) 25%);
+    pointer-events: none;
+}
+
+.tl-rail {
+    position: relative;
+    height: 86vh;
+    width: 100%;
+    pointer-events: auto;
+}
+
+.tl-rail::before {
+    content: '';
+    position: absolute;
+    left: var(--rail-x);
+    transform: translateX(-50%);
+    top: 0;
+    bottom: 0;
+    width: 1.5px;
+    background: var(--border);
+}
+
+/* ── Year tick marks ────────────────────────────────────── */
+.tl-year {
+    position: absolute;
+    left: var(--rail-x);
+    transform: translate(-50%, -50%);
+    font-family: var(--font-mono);
+    font-size: clamp(9px, 0.85vw, 14px);
+    letter-spacing: .02em;
+    color: var(--text-muted);
+    opacity: .5;
+    text-align: center;
+    line-height: 1;
+    z-index: 3;
+    background: var(--bg);
+    padding: 2px 4px;
+}
+
+/* ── Event labels (right of rail — default) ─────────────── */
+.tl-event {
+    position: absolute;
+    left: var(--rail-x);
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: all .3s;
+    margin-left: clamp(15px, 1.47vw, 25px);
+}
+
+.tl-event .label {
+    padding: clamp(2.1px, 0.26vw, 5.25px) clamp(5.25px, 0.53vw, 10.5px);
+    border-radius: 4.2px;
+    font-size: clamp(9.5px, 0.89vw, 14.7px);
+    font-weight: 500;
+    color: var(--text);
+    background: var(--surface);
+    border: 1px solid rgba(136, 136, 160, .3);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: calc(var(--nav-w) * 0.48);
+    transition: all .35s ease;
+    line-height: 1.3;
+}
+
+/* ── Optional badge (small annotation next to label) ────── */
+.tl-event .badge {
+    font-family: var(--font-mono);
+    font-size: clamp(6.5px, 0.62vw, 10px);
+    color: var(--text-muted);
+    margin-left: clamp(3px, 0.3vw, 6px);
+    opacity: .6;
+}
+
+/* ── Left-side events (secondary track) ─────────────────── */
+.tl-event.tl-left {
+    left: auto;
+    right: calc(100% - var(--rail-x));
+    flex-direction: row-reverse;
+    margin-left: 0;
+    margin-right: clamp(15px, 1.47vw, 25px);
+    cursor: default;
+}
+
+.tl-event.tl-left .label {
+    color: rgba(167, 139, 250, .7);
+    background: rgba(167, 139, 250, .06);
+    border-color: rgba(167, 139, 250, .2);
+}
+
+.tl-event.tl-left .badge {
+    color: rgba(167, 139, 250, .4);
+    margin-left: 0;
+    margin-right: clamp(3px, 0.3vw, 6px);
+}
+
+/* ── Non-interactive left events (annotations) ──────────── */
+.tl-event.tl-secondary {
+    cursor: default;
+    pointer-events: none;
+}
+
+.tl-event.tl-secondary .label {
+    font-size: clamp(7.5px, 0.72vw, 12px);
+    font-weight: 400;
+    color: rgba(167, 139, 250, .55);
+    background: rgba(167, 139, 250, .04);
+    border: 1px solid rgba(167, 139, 250, .12);
+}
+
+/* ── Event tint variants ────────────────────────────────── */
+.tl-event.tl-yellow .label {
+    color: rgba(255, 217, 61, .78);
+    background: rgba(255, 217, 61, .06);
+    border-color: rgba(255, 217, 61, .22);
+}
+
+.tl-event.tl-red .label {
+    color: rgba(255, 107, 107, .78);
+    background: rgba(255, 107, 107, .06);
+    border-color: rgba(255, 107, 107, .22);
+}
+
+/* ── Progressive disclosure ─────────────────────────────── */
+.tl-event.tl-hidden,
+.tl-now.tl-hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.tl-event.tl-revealed {
+    opacity: .35;
+    pointer-events: auto;
+    transition: opacity .5s ease;
+}
+
+.tl-event.active {
+    opacity: 1 !important;
+}
+
+.tl-now.tl-revealed {
+    opacity: .25;
+    transition: opacity .5s ease;
+}
+
+/* ── Anchor dots ────────────────────────────────────────── */
+.tl-anchor {
+    position: absolute;
+    left: var(--rail-x);
+    transform: translate(-50%, -50%);
+    width: clamp(8px, 0.7vw, 12px);
+    height: clamp(8px, 0.7vw, 12px);
+    border-radius: 50%;
+    background: var(--dot-pale);
+    z-index: 2;
+    pointer-events: none;
+    transition: all .35s ease, opacity .5s ease;
+}
+
+.tl-anchor.active {
+    width: clamp(11px, 0.9vw, 16px);
+    height: clamp(11px, 0.9vw, 16px);
+    background: var(--dot-active);
+    box-shadow: 0 0 8px rgba(59, 130, 246, .5);
+}
+
+.tl-anchor.left-anchor {
+    background: rgba(167, 139, 250, .25);
+    width: clamp(6px, 0.55vw, 9px);
+    height: clamp(6px, 0.55vw, 9px);
+}
+
+.tl-anchor.left-anchor.active {
+    background: var(--purple);
+    box-shadow: 0 0 8px rgba(167, 139, 250, .45);
+}
+
+.tl-anchor.secondary-anchor {
+    background: rgba(167, 139, 250, .25);
+    width: clamp(5px, 0.5vw, 8px);
+    height: clamp(5px, 0.5vw, 8px);
+}
+
+/* ── SVG leader-line connectors ─────────────────────────── */
+.tl-connectors {
+    position: absolute;
+    inset: 0;
+    overflow: visible;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.tl-connectors path {
+    fill: none;
+    stroke: rgba(136, 136, 160, .25);
+    stroke-width: 1.5;
+    transition: stroke .35s, opacity .5s ease;
+}
+
+.tl-connectors path.active {
+    stroke: var(--dot-active);
+    stroke-width: 2;
+}
+
+.tl-connectors path.left-path {
+    stroke: rgba(167, 139, 250, .18);
+    stroke-width: 1.25;
+}
+
+.tl-connectors path.left-path.active {
+    stroke: var(--purple);
+    stroke-width: 1.8;
+}
+
+.tl-connectors path.secondary-path {
+    stroke: rgba(167, 139, 250, .18);
+    stroke-width: 1;
+}
+
+/* ── Active event state ─────────────────────────────────── */
+.tl-event.active .label {
+    background: rgba(59, 130, 246, .15);
+    border-color: rgba(59, 130, 246, .4);
+    color: #fff;
+    font-weight: 600;
+    max-width: calc(var(--nav-w) * 0.48);
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tl-event.tl-left.active .label {
+    background: rgba(167, 139, 250, .12);
+    border-color: rgba(167, 139, 250, .35);
+    color: var(--purple);
+}
+
+.tl-event.tl-yellow.active .label {
+    background: rgba(255, 217, 61, .14);
+    border-color: rgba(255, 217, 61, .4);
+    color: var(--yellow);
+}
+
+.tl-event.tl-red.active .label {
+    background: rgba(255, 107, 107, .14);
+    border-color: rgba(255, 107, 107, .4);
+    color: var(--red);
+}
+
+/* ── Now marker ─────────────────────────────────────────── */
+.tl-now {
+    position: absolute;
+    left: var(--rail-x);
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    opacity: .25;
+    transition: opacity .4s ease;
+    margin-left: clamp(15px, 1.47vw, 25px);
+}
+
+.tl-now.active { opacity: 1 }
+
+.tl-now .label {
+    font-family: var(--font-mono);
+    font-size: clamp(8px, 0.75vw, 12px);
+    font-weight: 600;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: .06em;
+}
+
+.tl-anchor.now-anchor {
+    background: var(--accent);
+    box-shadow: 0 0 4px rgba(78, 205, 196, .2);
+    width: clamp(10px, 0.85vw, 14px);
+    height: clamp(10px, 0.85vw, 14px);
+}
+
+.tl-anchor.now-anchor.active {
+    box-shadow: 0 0 10px rgba(78, 205, 196, .5);
+    animation: pulse-now 2s ease-in-out infinite;
+}
+
+.tl-connectors path.now-path {
+    stroke: var(--accent);
+    opacity: .25;
+    transition: opacity .4s ease, stroke .35s;
+}
+
+.tl-connectors path.now-path.active { opacity: 1 }
+
+@keyframes pulse-now {
+    0%, 100% { box-shadow: 0 0 6px rgba(78, 205, 196, .3) }
+    50% { box-shadow: 0 0 14px rgba(78, 205, 196, .7) }
+}
+
+/* ── Mobile: hide timeline ──────────────────────────────── */
+@media(max-width:700px) {
+    .timeline-nav { display: none }
+    .scene { padding-right: 1.25rem }
+    .slide-counter { right: 1rem }
+}
+</style>
+
+<!-- ══════════════════════════════════════════════════════════
+     HTML — insert before the slide counter element
+     ══════════════════════════════════════════════════════════ -->
+<nav class="timeline-nav" id="timelineNav">
+    <div class="tl-rail" id="tlRail">
+        <svg class="tl-connectors" id="tlConnectors" xmlns="http://www.w3.org/2000/svg"></svg>
+
+        <!-- Year markers — position by data-date -->
+        <!-- <div class="tl-year" data-date="2024-01">2024</div> -->
+        <!-- <div class="tl-year" data-date="2025-01">2025</div> -->
+        <!-- <div class="tl-year" data-date="2026-01">2026</div> -->
+
+        <!-- Events (right of rail) — link to slides via data-target -->
+        <!-- <div class="tl-event" data-date="YYYY-MM" data-target="s-slide-id">
+            <div class="label">Event Name</div>
+        </div> -->
+
+        <!-- Tint variants: add class tl-yellow, tl-red -->
+        <!-- <div class="tl-event tl-yellow" data-date="YYYY-MM" data-target="s-slide-id">
+            <div class="label">Notable Event</div>
+        </div> -->
+
+        <!-- Left-side events (secondary track) -->
+        <!-- <div class="tl-event tl-left" data-date="YYYY-MM" data-target="s-slide-id">
+            <div class="label">Left Event</div>
+        </div> -->
+
+        <!-- Non-interactive annotations (left, smaller, no click) -->
+        <!-- <div class="tl-event tl-left tl-secondary" data-date="YYYY-MM">
+            <div class="label">Annotation</div><span class="badge">detail</span>
+        </div> -->
+
+        <!-- Now marker -->
+        <!-- <div class="tl-now" data-date="YYYY-MM">
+            <div class="label">Now</div>
+        </div> -->
+    </div>
+</nav>
+
+<!-- ══════════════════════════════════════════════════════════
+     SLIDES — add data-tl="s-event-id" to each <section>
+
+     Convention:
+       data-tl="none"       → title slide (no event link)
+       data-tl="s-event-id" → links to a tl-event's data-target
+       data-tl="s-now"      → "present day" section slides
+     ══════════════════════════════════════════════════════════ -->
+
+<!-- ══════════════════════════════════════════════════════════
+     JS — merge into the main <script> IIFE
+     ══════════════════════════════════════════════════════════ -->
+<script>
+/* ── Timeline position calculator ──────────────────────── */
+const NS = 'http://www.w3.org/2000/svg';
+const rail = document.getElementById('tlRail');
+const svgEl = document.getElementById('tlConnectors');
+
+function parseDate(str) {
+    const p = str.split('-').map(Number);
+    return new Date(p[0], (p[1] || 1) - 1, p[2] || 1);
+}
+
+function positionTimeline() {
+    const dated = document.querySelectorAll('[data-date]');
+    if (!dated.length) return;
+    const railW = rail.getBoundingClientRect().width;
+    const railXVar = getComputedStyle(document.documentElement).getPropertyValue('--rail-x').trim();
+    const railXPct = railXVar.endsWith('%') ? parseFloat(railXVar) / 100 : 0.5;
+    const railXpx = railW * (Number.isFinite(railXPct) ? railXPct : 0.5);
+
+    const dates = Array.from(dated).map(el => parseDate(el.dataset.date));
+    const minT = Math.min(...dates.map(d => d.getTime()));
+    const maxT = Math.max(...dates.map(d => d.getTime()));
+    const pad = 90 * 24 * 60 * 60 * 1000;
+    const rangeStart = minT - pad;
+    const rangeEnd = maxT + pad * 0.66;
+    const span = rangeEnd - rangeStart;
+
+    const items = Array.from(dated).map(el => {
+        const t = parseDate(el.dataset.date).getTime();
+        const datePct = ((t - rangeStart) / span) * 100;
+        return { el, datePct, labelPct: datePct };
+    });
+
+    const eventItems = items.filter(i => i.el.classList.contains('tl-event'));
+    eventItems.sort((a, b) => a.datePct - b.datePct);
+    const rightEventItems = eventItems.filter(i => !i.el.classList.contains('tl-left'));
+    const leftEventItems = eventItems.filter(i => i.el.classList.contains('tl-left'));
+    const secondaryItems = leftEventItems.filter(i => i.el.classList.contains('tl-secondary'));
+    const interactiveLeftItems = leftEventItems.filter(i => !i.el.classList.contains('tl-secondary'));
+    const nowItems = items.filter(i => i.el.classList.contains('tl-now'));
+    const rightRailItems = [...rightEventItems, ...nowItems].sort((a, b) => a.datePct - b.datePct);
+
+    function resolveCollisions(group, minGap) {
+        for (let pass = 0; pass < 10; pass++) {
+            let moved = false;
+            for (let i = 1; i < group.length; i++) {
+                const gap = group[i].labelPct - group[i - 1].labelPct;
+                if (gap < minGap) {
+                    const shift = (minGap - gap) / 2;
+                    group[i - 1].labelPct -= shift;
+                    group[i].labelPct += shift;
+                    moved = true;
+                }
+            }
+            if (!moved) break;
+        }
+    }
+    resolveCollisions(rightRailItems, 3.4);
+    resolveCollisions(leftEventItems, 3.2);
+
+    items.forEach(({ el, datePct, labelPct }) => {
+        const isPositioned = el.classList.contains('tl-event') || el.classList.contains('tl-now');
+        const pct = isPositioned ? labelPct : datePct;
+        el.style.top = Math.max(1, Math.min(99, pct)).toFixed(2) + '%';
+    });
+
+    /* ── Anchor dots ─────────────────────────────────── */
+    rail.querySelectorAll('.tl-anchor').forEach(a => a.remove());
+    const allAnchored = [...eventItems, ...nowItems];
+    allAnchored.forEach(item => {
+        const dot = document.createElement('div');
+        dot.className = 'tl-anchor';
+        if (item.el.classList.contains('tl-now')) dot.classList.add('now-anchor');
+        else if (item.el.classList.contains('tl-secondary')) dot.classList.add('secondary-anchor');
+        else if (item.el.classList.contains('tl-left')) dot.classList.add('left-anchor');
+        dot.style.top = Math.max(1, Math.min(99, item.datePct)).toFixed(2) + '%';
+        dot.dataset.target = item.el.dataset.target || '';
+        dot.dataset.date = item.el.dataset.date || '';
+        rail.appendChild(dot);
+    });
+
+    /* ── SVG leader-line connectors ──────────────────── */
+    while (svgEl.firstChild) svgEl.removeChild(svgEl.firstChild);
+    const railH = rail.getBoundingClientRect().height;
+
+    const evMargin = parseFloat(getComputedStyle(rightEventItems[0]?.el)?.marginLeft || 14);
+    const labelXR = railXpx + evMargin;
+
+    rightRailItems.forEach(item => {
+        const dotY = (item.datePct / 100) * railH;
+        const labelY = (item.labelPct / 100) * railH;
+        const midX = railXpx + evMargin * 0.45;
+        const path = document.createElementNS(NS, 'path');
+        path.setAttribute('d', `M${railXpx},${dotY} C${midX},${dotY} ${midX},${labelY} ${labelXR},${labelY}`);
+        if (item.el.classList.contains('tl-now')) path.classList.add('now-path');
+        path.dataset.target = item.el.dataset.target || '';
+        svgEl.appendChild(path);
+    });
+
+    /* ── Left-side connectors ────────────────────────── */
+    leftEventItems.forEach(item => {
+        const dotY = (item.datePct / 100) * railH;
+        const labelY = (item.labelPct / 100) * railH;
+        const labelXL = railXpx - parseFloat(getComputedStyle(item.el).marginRight || 14);
+        const midX = railXpx - evMargin * 0.45;
+        const path = document.createElementNS(NS, 'path');
+        path.setAttribute('d', `M${railXpx},${dotY} C${midX},${dotY} ${midX},${labelY} ${labelXL},${labelY}`);
+        if (item.el.classList.contains('tl-secondary')) {
+            path.classList.add('secondary-path');
+        } else {
+            path.classList.add('left-path');
+            path.dataset.target = item.el.dataset.target || '';
+        }
+        svgEl.appendChild(path);
+    });
+
+    return { eventItems, nowItems, rightRailItems, leftEventItems, secondaryItems, interactiveLeftItems };
+}
+
+/* ── Build reveal index for progressive disclosure ─────── */
+let timelineData = positionTimeline();
+window.addEventListener('resize', () => { timelineData = positionTimeline(); });
+document.addEventListener('fullscreenchange', () => { timelineData = positionTimeline(); });
+document.addEventListener('webkitfullscreenchange', () => { timelineData = positionTimeline(); });
+
+const tlScenes = Array.from(document.querySelectorAll('.scene'));
+const revealMap = [];     // [{ sceneIdx, eventEls[] }]
+const eventTargets = {};  // target -> tl-event element(s)
+
+document.querySelectorAll('.tl-event[data-target]').forEach(ev => {
+    const t = ev.dataset.target;
+    if (!eventTargets[t]) eventTargets[t] = [];
+    eventTargets[t].push(ev);
+});
+
+tlScenes.forEach((sec, idx) => {
+    const tl = sec.dataset.tl;
+    if (!tl || tl === 'none') return;
+    const evs = eventTargets[tl] || [];
+    if (evs.length) revealMap.push({ sceneIdx: idx, eventEls: evs });
+});
+
+/* "Now" marker reveal index — use last event or second-to-last slide */
+const nowRevealIdx = revealMap.length
+    ? revealMap[revealMap.length - 1].sceneIdx
+    : Math.max(0, tlScenes.length - 2);
+
+/* Assign secondary (non-interactive) left events to nearest preceding event by date */
+const secondaryRevealIdx = {};
+if (timelineData) {
+    const evDates = (timelineData.eventItems || [])
+        .filter(i => !i.el.classList.contains('tl-secondary'))
+        .map(i => ({
+            date: parseDate(i.el.dataset.date).getTime(),
+            idx: revealMap.findIndex(r => r.eventEls.some(e => e === i.el))
+        })).filter(d => d.idx >= 0);
+
+    (timelineData.secondaryItems || []).forEach(s => {
+        const sDate = parseDate(s.el.dataset.date).getTime();
+        let bestIdx = nowRevealIdx;
+        for (const ed of evDates) {
+            if (ed.date <= sDate) bestIdx = revealMap[ed.idx]?.sceneIdx ?? bestIdx;
+        }
+        secondaryRevealIdx[s.el.dataset.date + '|' + (s.el.querySelector('.label')?.textContent || '')] = bestIdx;
+    });
+}
+
+/* ── Timeline update (call from scroll handler) ───────── */
+function updateTimeline(activeSceneIdx) {
+    if (!timelineData) return;
+
+    /* Progressive disclosure for interactive events */
+    const currentRevealStep = revealMap.findIndex(r => r.sceneIdx > activeSceneIdx);
+    const maxRevealed = currentRevealStep === -1 ? revealMap.length : currentRevealStep;
+
+    document.querySelectorAll('.tl-event:not(.tl-secondary)').forEach(ev => {
+        ev.classList.remove('active', 'tl-revealed', 'tl-hidden');
+        const ri = revealMap.findIndex(r => r.eventEls.includes(ev));
+        if (ri < 0 || ri >= maxRevealed) { ev.classList.add('tl-hidden'); return; }
+        ev.classList.add('tl-revealed');
+    });
+
+    /* Activate current event */
+    const activeEntry = [...revealMap].reverse().find(r => r.sceneIdx <= activeSceneIdx);
+    if (activeEntry) activeEntry.eventEls.forEach(e => e.classList.add('active'));
+
+    /* Secondary left events — reveal based on nearest preceding event */
+    document.querySelectorAll('.tl-event.tl-secondary').forEach(s => {
+        const key = s.dataset.date + '|' + (s.querySelector('.label')?.textContent || '');
+        const revIdx = secondaryRevealIdx[key] ?? Infinity;
+        s.classList.toggle('tl-hidden', activeSceneIdx < revIdx);
+        s.classList.toggle('tl-revealed', activeSceneIdx >= revIdx);
+    });
+
+    /* Now marker */
+    document.querySelectorAll('.tl-now').forEach(n => {
+        n.classList.toggle('tl-hidden', activeSceneIdx < nowRevealIdx);
+        n.classList.toggle('tl-revealed', activeSceneIdx >= nowRevealIdx);
+        n.classList.toggle('active', activeSceneIdx >= nowRevealIdx);
+    });
+
+    /* Anchor + connector active states */
+    const activeTarget = activeEntry?.eventEls[0]?.dataset.target || '';
+    rail.querySelectorAll('.tl-anchor').forEach(dot => {
+        dot.classList.toggle('active', dot.dataset.target === activeTarget);
+        const matchDate = dot.dataset.date;
+        const parentHidden = [...document.querySelectorAll(`[data-date="${matchDate}"]`)]
+            .every(el => el.classList.contains('tl-hidden'));
+        dot.style.opacity = parentHidden ? '0' : '';
+    });
+
+    svgEl.querySelectorAll('path').forEach(p => {
+        p.classList.toggle('active', p.dataset.target === activeTarget);
+        const tgt = p.dataset.target;
+        if (tgt) {
+            const evHidden = (eventTargets[tgt] || []).every(e => e.classList.contains('tl-hidden'));
+            p.style.opacity = evHidden ? '0' : '';
+        }
+    });
+
+    /* Click-to-scroll on interactive events */
+    document.querySelectorAll('.tl-event:not(.tl-secondary)').forEach(ev => {
+        ev.onclick = () => {
+            const target = document.getElementById(ev.dataset.target);
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        };
+    });
+}
+</script>

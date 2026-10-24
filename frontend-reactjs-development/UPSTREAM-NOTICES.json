@@ -1,0 +1,90 @@
+[
+  {
+    "plugin": "frontend-reactjs-development",
+    "license": "MIT (skill frontmatter)",
+    "license_path": null,
+    "adaptations": [
+      "frontend-framing",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "stack-specific",
+      "invocation": "agent",
+      "stack": "React, Next.js, Tailwind, shadcn",
+      "role": "support"
+    },
+    "artifact": "frontend-reactjs-development--vercel-composition-patterns",
+    "destination": "plugins/frontend-reactjs-development/skills/vercel-composition-patterns",
+    "repository": "https://github.com/vercel-labs/agent-skills.git",
+    "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+    "path": "skills/composition-patterns",
+    "installed_skill": "vercel-composition-patterns"
+  },
+  {
+    "plugin": "frontend-reactjs-development",
+    "license": "MIT (skill frontmatter)",
+    "license_path": null,
+    "adaptations": [
+      "frontend-framing",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "stack-specific",
+      "invocation": "agent",
+      "stack": "React, Next.js, Tailwind, shadcn",
+      "role": "support"
+    },
+    "artifact": "frontend-reactjs-development--vercel-react-best-practices",
+    "destination": "plugins/frontend-reactjs-development/skills/vercel-react-best-practices",
+    "repository": "https://github.com/vercel-labs/agent-skills.git",
+    "commit": "063bee94c3f4df8453406c830b0a7df0f2860278",
+    "path": "skills/react-best-practices",
+    "installed_skill": "vercel-react-best-practices"
+  },
+  {
+    "plugin": "frontend-reactjs-development",
+    "license": "MIT",
+    "license_path": "LICENSE.md",
+    "adaptations": [
+      "frontend-framing",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "stack-specific",
+      "invocation": "agent",
+      "stack": "React, Next.js, Tailwind, shadcn",
+      "role": "support"
+    },
+    "artifact": "frontend-reactjs-development--shadcn",
+    "destination": "plugins/frontend-reactjs-development/skills/shadcn",
+    "repository": "https://github.com/shadcn-ui/ui.git",
+    "commit": "6b600cf1ff42f8a746747ea587e52af3ee224643",
+    "path": "skills/shadcn",
+    "installed_skill": "shadcn"
+  },
+  {
+    "plugin": "frontend-reactjs-development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "frontend-framing",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "stack-specific",
+      "invocation": "agent",
+      "stack": "React, Next.js, Tailwind, shadcn",
+      "role": "support"
+    },
+    "artifact": "frontend-reactjs-development--tailwind-design-system",
+    "destination": "plugins/frontend-reactjs-development/skills/tailwind-design-system",
+    "repository": "https://github.com/wshobson/agents.git",
+    "commit": "46891e7e60da0e52baf1050b7b6391b64e84c6d9",
+    "path": "plugins/frontend-mobile-development/skills/tailwind-design-system",
+    "installed_skill": "tailwind-design-system"
+  }
+]

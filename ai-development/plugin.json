@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "ai-development",
+  "version": "0.14.0",
+  "description": "Provider-independent AI application design, testing/evaluation and operations; models, context, tools, harnesses and protocols.",
+  "author": {
+    "name": "João Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "MIT"
+}

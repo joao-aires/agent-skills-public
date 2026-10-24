@@ -1,0 +1,11 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "go-development",
+  "version": "0.1.2",
+  "description": "Go engineering for accepted modules, services, libraries and CLIs: lifecycle, dependency, error and verification contracts with contextual primary references.",
+  "author": {
+    "name": "João Aires"
+  },
+  "repository": "https://github.com/joao-aires/agent-skills-public",
+  "license": "MIT"
+}

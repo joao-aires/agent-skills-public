@@ -1,0 +1,21 @@
+{
+  "plugin": "development",
+  "license": "MIT",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "workflow-framing",
+    "documentation-paths",
+    "usage-labels"
+  ],
+  "labels": {
+    "scope": "generic",
+    "invocation": "user",
+    "role": "task"
+  },
+  "artifact": "development--handoff",
+  "destination": "plugins/development/skills/handoff",
+  "repository": "https://github.com/mattpocock/skills.git",
+  "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+  "path": "skills/productivity/handoff",
+  "installed_skill": "handoff"
+}

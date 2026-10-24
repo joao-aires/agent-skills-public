@@ -1,0 +1,24 @@
+[
+  {
+    "plugin": "ai-python-development",
+    "license": "Apache-2.0",
+    "license_path": "skills/mcp-builder/LICENSE.txt",
+    "adaptations": [
+      "ai-framing",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "stack-specific",
+      "invocation": "agent",
+      "stack": "Python, standalone FastMCP, MCP",
+      "role": "support"
+    },
+    "artifact": "ai-python-development--mcp-builder",
+    "destination": "plugins/ai-python-development/skills/mcp-builder",
+    "repository": "https://github.com/anthropics/skills.git",
+    "commit": "8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4",
+    "path": "skills/mcp-builder",
+    "installed_skill": "mcp-builder"
+  }
+]

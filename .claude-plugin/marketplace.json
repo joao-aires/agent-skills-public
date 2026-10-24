@@ -1,0 +1,159 @@
+{
+  "name": "agent-skills-public",
+  "owner": {
+    "name": "João Aires"
+  },
+  "description": "Portable SDLC, strategy and operations skill bundles built from agent-skills-public.",
+  "plugins": [
+    {
+      "name": "ai-adk-development",
+      "source": "./ai-adk-development",
+      "description": "Google ADK architecture and agent implementation.",
+      "version": "0.1.1"
+    },
+    {
+      "name": "ai-development",
+      "source": "./ai-development",
+      "description": "Provider-independent AI application design, testing/evaluation and operations; models, context, tools, harnesses and protocols.",
+      "version": "0.14.0"
+    },
+    {
+      "name": "ai-langchain-development",
+      "source": "./ai-langchain-development",
+      "description": "LangChain and LangGraph implementation, dependencies and persistence.",
+      "version": "0.1.1"
+    },
+    {
+      "name": "ai-python-development",
+      "source": "./ai-python-development",
+      "description": "Python provider/FastMCP integration, DeepEval testing and Python OpenTelemetry observability.",
+      "version": "0.3.2"
+    },
+    {
+      "name": "backend-development",
+      "source": "./backend-development",
+      "description": "Framework-independent service authority, state, durable work, failure and consumer contracts.",
+      "version": "0.1.1"
+    },
+    {
+      "name": "backend-python-development",
+      "source": "./backend-python-development",
+      "description": "Python, FastAPI, SQLAlchemy, Alembic, persistence and Python automation implementation.",
+      "version": "0.1.2"
+    },
+    {
+      "name": "browser-extension-development",
+      "source": "./browser-extension-development",
+      "description": "Chrome Manifest V3 architecture, permissions, extension UI, runtime testing and store delivery; preserve accepted frameworks and design.",
+      "version": "0.1.3"
+    },
+    {
+      "name": "database-development",
+      "source": "./database-development",
+      "description": "Database design and evidence-led performance methods independent of engine, application language or hosting platform.",
+      "version": "0.1.2"
+    },
+    {
+      "name": "database-postgresql-development",
+      "source": "./database-postgresql-development",
+      "description": "PostgreSQL schema, transactions, performance and operations; original guidance with reviewed upstream and first-party source references.",
+      "version": "0.1.2"
+    },
+    {
+      "name": "delivery",
+      "source": "./delivery",
+      "description": "Provider-independent CI, artifact identity, promotion, deployment and recovery methods.",
+      "version": "0.1.1"
+    },
+    {
+      "name": "development",
+      "source": "./development",
+      "description": "Stack-independent SDLC activities, project foundations, contributions and verification.",
+      "version": "0.3.0"
+    },
+    {
+      "name": "development-tooling",
+      "source": "./development-tooling",
+      "description": "Selected Bash, browser/load testing, CI/container/registry, diagnostics and supply-chain tooling.",
+      "version": "0.1.2"
+    },
+    {
+      "name": "documentation",
+      "source": "./documentation",
+      "description": "Product and engineering writing, architecture explanation, knowledge upkeep and prose editing.",
+      "version": "0.1.2"
+    },
+    {
+      "name": "frontend-development",
+      "source": "./frontend-development",
+      "description": "Platform-independent visual and interaction design, interface quality, UX writing and usability research.",
+      "version": "0.2.1"
+    },
+    {
+      "name": "frontend-native-development",
+      "source": "./frontend-native-development",
+      "description": "TypeScript/Tauri and React Native/Expo clients, platform lifecycle, packaging and native verification.",
+      "version": "0.1.1"
+    },
+    {
+      "name": "frontend-reactjs-development",
+      "source": "./frontend-reactjs-development",
+      "description": "React, Next.js, shadcn and Tailwind implementation guidance.",
+      "version": "0.1.4"
+    },
+    {
+      "name": "go-development",
+      "source": "./go-development",
+      "description": "Go engineering for accepted modules, services, libraries and CLIs: lifecycle, dependency, error and verification contracts with contextual primary references.",
+      "version": "0.1.2"
+    },
+    {
+      "name": "governance",
+      "source": "./governance",
+      "description": "Applicability-led compliance design and GDPR/SOC 2 readiness: translate obligations and service commitments into accountable controls and evidence.",
+      "version": "0.1.2"
+    },
+    {
+      "name": "operations",
+      "source": "./operations",
+      "description": "Platform-independent reliability, observability, incidents, recovery, capacity and upkeep.",
+      "version": "0.1.1"
+    },
+    {
+      "name": "operations-platforms",
+      "source": "./operations-platforms",
+      "description": "Selected JVM, Kubernetes and Azure AKS implementation and optimization.",
+      "version": "0.1.2"
+    },
+    {
+      "name": "saas-development",
+      "source": "./saas-development",
+      "description": "SaaS tenant/customer and commercial lifecycle design, task-oriented dashboards and scoped readiness assessment across implementation stacks.",
+      "version": "0.1.2"
+    },
+    {
+      "name": "security",
+      "source": "./security",
+      "description": "Security/privacy design and identity/access development across application stacks; contextual framework selection and verification.",
+      "version": "0.2.0"
+    },
+    {
+      "name": "strategy",
+      "source": "./strategy",
+      "description": "Business strategy, product priorities and evidence-based product learning.",
+      "version": "0.1.1"
+    },
+    {
+      "name": "typescript-development",
+      "source": "./typescript-development",
+      "description": "TypeScript engineering for accepted runtimes, libraries, services and clients; module/package contracts, validation and verification independent of React.",
+      "version": "0.1.2"
+    },
+    {
+      "name": "visualization",
+      "source": "./visualization",
+      "description": "Architecture diagrams, interactive system explanation and presentations.",
+      "version": "0.1.1"
+    }
+  ]
+}
