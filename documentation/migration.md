@@ -52,6 +52,8 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | Standalone `backup-recovery` | `protect-and-restore-data` |
 | Standalone `cicd-release-management` | `delivery-pipelines` |
 
+The separately acquired Anthropic `frontend-design` entry point is also retired from frontend-development. It is replaced by `interface-design` for applicable design work, with [visual craft](../plugins/frontend-development/skills/interface-design/references/visual-craft.md) loaded conditionally when an open creative direction warrants it. This is a migration of the packaged capability, not a rename of the upstream project's original skill.
+
 ## AI implementation names and resource paths
 
 The generic ai-development package contains ai-development, ai-testing and ai-operations. For the specific implementations, use ai-deepeval-testing and python-ai-observability in ai-python-development. Requests for the generic names select the disciplines rather than a Python SDK integration.

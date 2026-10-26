@@ -21,7 +21,6 @@ The [manifest](../../agent-depot.json) declares repositories, accepted artifact 
 | development-tooling | [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | playwright-cli |
 | development-tooling | [trailofbits/skills](https://github.com/trailofbits/skills) | supply-chain-risk-auditor |
 | documentation | [blader/humanizer](https://github.com/blader/humanizer) | humanizer |
-| frontend-development | [anthropics/skills](https://github.com/anthropics/skills) | frontend-design |
 | frontend-reactjs-development | [shadcn-ui/ui](https://github.com/shadcn-ui/ui) | shadcn |
 | frontend-reactjs-development | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | vercel-composition-patterns, vercel-react-best-practices |
 | frontend-reactjs-development | [wshobson/agents](https://github.com/wshobson/agents) | tailwind-design-system |
@@ -38,7 +37,6 @@ The [manifest](../../agent-depot.json) declares repositories, accepted artifact 
 | Review and supply chain | differential-review uses its included method without an unavailable registered agent. The pinned supply-chain parser does not cover pnpm/yarn; missing coverage is not a clean audit. |
 | AKS cost | Azure AKS only, with its six references. Other platforms use contextual first-party guidance. |
 | Repository instructions | agents-md retains its complete source directory; local framing treats size/format targets as heuristics, sample commands/attribution as examples and host instruction precedence as authoritative. |
-| Visual craft | frontend-design preserves its body and license; local framing applies accepted visual direction, project scope and platform conventions before aesthetic suggestions. |
 | Visibility and labels | Preserve explicit upstream controls; set support visibility only when absent. Scope/stack/role/invocation labels describe use, not permissions. |
 
 Agent Depot acquires accepted artifact commits and records file identities without executing upstream scripts. Built `UPSTREAM.json`, `UPSTREAM-NOTICES.json` and license files record provenance. Trail of Bits material is CC-BY-SA-4.0; other acquired sources are MIT or Apache-2.0 as recorded at their pins. Bundles have mixed-license notices. Embedded live links/commands can still change despite source pinning. Private installed content is never redistributed.
@@ -106,9 +104,9 @@ Optional [shadcn MCP](https://ui.shadcn.com/docs/mcp) and [Playwright MCP](https
 
 [getsentry/skills agents-md](https://github.com/getsentry/skills/tree/f57ada2d0b640406ea7e25b11d636c530e77c58b/skills/agents-md) adds focused repository-instruction authoring to development. Its inspect-first method, exact command/path checks, scoped instructions and reference-backed editing complement project foundations and general instruction writing. The reviewed source is Apache-2.0; acquisition preserves SKILL.md, SPEC.md and SOURCES.md. GitHub's create-agentsmd was also reviewed; its comprehensive section/template approach adds less to this collection's concise, conditional guidance. Sentry's sample package manager and attribution blocks do not become project policy, and shortening must preserve required information. Use it for instruction-file work rather than every documentation change.
 
-[Anthropic frontend-design](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design) adds visual execution craft to frontend-development without choosing a framework. The claude-code plugin copy references an absent LICENSE.txt; that repository's root terms do not establish a redistribution grant. The reviewed anthropics/skills copy has identical skill text and an included Apache-2.0 LICENSE.txt, so that is the acquired source. Interface-design owns component-system/appearance foundations, direction, behavior, handoff and rendered critique; frontend-design supplies optional subject-grounded composition, typography and visual craft. Plain Tailwind, Tailwind with shadcn/ui, HeroUI or another accepted system can implement those foundations when compatible; this does not create a package dependency or authorize a migration. Use craft guidance for new visual decisions or requested redesigns; preserve accepted tokens/components and avoid adding a new style or approval ceremony to routine changes. Deterministic accessibility, interactions and persisted behavior need their own verification.
+The previous Anthropic [frontend-design](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design) snapshot (Apache-2.0) has been retired from the packaged catalogue to avoid a second, competing generic UI entry point. Its useful subject-grounded art-direction, typography and critique ideas were re-expressed as original guidance in [interface design](../../plugins/frontend-development/skills/interface-design/SKILL.md) and [visual craft](../../plugins/frontend-development/skills/interface-design/references/visual-craft.md), without redistributing the upstream instructional text or assets. The external pinned source remains a reference for provenance and comparative evaluations, not an acquired package. Generic design reconciles product, visual and interaction choices; domain specialists contribute application semantics and blueprints; technical specialists shape feasible design and implement accepted decisions. No optional plugin becomes a required dependency.
 
-The [skills directory](https://www.skills.sh/getsentry/skills/agents-md) reports meaningful adoption for agents-md, and [frontend-design](https://www.skills.sh/anthropics/skills/frontend-design) is widely installed. Adoption supports discovery; source review and applicable evidence determine fit. Neither acquisition establishes behavioral improvement; those trials remain deferred.
+The [skills directory](https://www.skills.sh/getsentry/skills/agents-md) reports adoption for agents-md, while the original [frontend-design](https://www.skills.sh/anthropics/skills/frontend-design) remains a comparator for future visual-quality trials. Popularity does not establish the integrated skill's quality; behavioral comparisons remain necessary.
 
 ## AI development, testing and operations segmentation
 
@@ -252,7 +250,7 @@ The collection has 13 generic capability packages and 12 optional technical pack
 | `strategy` | Generic | 4 | Business direction, product priorities and evidence-based feedback. |
 | `development` | Generic | 40 | SDLC engagements, project foundations, contribution flow and verification; usable without stack packages. |
 | `operations` | Generic | 12 | Service reliability, signals, incidents, recovery, capacity and security upkeep. |
-| `frontend-development` | Generic | 6 | Experience and interface methods across web, desktop and mobile. |
+| `frontend-development` | Generic | 3 | Integrated interface design, UX writing and usability research across web, desktop and mobile. |
 | `backend-development` | Generic | 1 | Service authority, state, failure, durable work and consumer contracts. |
 | `ai-development` | Generic | 3 | AI application/architecture and protocol design; testing/evaluation methods; AI-specific operating decisions and evidence. |
 | `delivery` | Generic | 1 | CI/release/deployment methods, immutable artifacts, promotion, compatibility and recovery. |
@@ -375,7 +373,6 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [interface-design](../../plugins/frontend-development/skills/interface-design/SKILL.md) | Local | `frontend-development` |
 | [usability-research](../../plugins/frontend-development/skills/usability-research/SKILL.md) | Local | `frontend-development` |
 | [ux-writing](../../plugins/frontend-development/skills/ux-writing/SKILL.md) | Local | `frontend-development` |
-| [frontend-design](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design) | Upstream | `frontend-development` |
 | [backend-design](../../plugins/backend-development/skills/backend-design/SKILL.md) | Local | `backend-development` |
 | [ai-development](../../plugins/ai-development/skills/ai-development/SKILL.md) | Local | `ai-development` |
 | [ai-testing](../../plugins/ai-development/skills/ai-testing/SKILL.md) | Local | `ai-development` |
