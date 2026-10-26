@@ -92,7 +92,7 @@ class CollectionTests(unittest.TestCase):
 
     def test_acquired_framing_requires_its_local_resources(self):
         cases = {'ai-framing': ['ai-conventions'],
-                 'visual-design-framing': ['visual-design', 'interface-quality']}
+                 'visual-design-framing': ['interface-design']}
         for adaptation, resources in cases.items():
             with self.subTest(adaptation=adaptation), tempfile.TemporaryDirectory() as tmp:
                 package = Path(tmp)

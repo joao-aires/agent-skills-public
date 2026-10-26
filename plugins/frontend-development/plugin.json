@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "frontend-development",
-  "version": "0.2.1",
-  "description": "Platform-independent visual and interaction design, interface quality, UX writing and usability research.",
+  "version": "0.3.0",
+  "description": "Platform-independent interface design and refinement, UX writing and usability research.",
   "author": {
     "name": "João Aires"
   },

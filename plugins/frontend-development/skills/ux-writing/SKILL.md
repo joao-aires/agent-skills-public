@@ -10,7 +10,7 @@ metadata:
 
 # Write interface copy for the actual task
 
-Make the action, current state and consequences understandable in the product's voice. Use [interaction design](../interaction-design/SKILL.md) for behavior and [interface quality](../interface-quality/SKILL.md) for rendered fit.
+Make the action, current state and consequences understandable in the product's voice. Use [interaction design](../interface-design/SKILL.md) for behavior and [interface quality](../interface-design/SKILL.md) for rendered fit.
 
 ## Ground language in behavior
 
