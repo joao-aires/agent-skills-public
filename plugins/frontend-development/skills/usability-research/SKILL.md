@@ -10,7 +10,7 @@ metadata:
 
 # Investigate usability with observable tasks
 
-Choose research to resolve a user question or inform a decision. Use for requested study preparation or supplied observations; routine UI work can use [interface quality](../interface-design/SKILL.md) without a study. [Interaction design](../interface-design/SKILL.md) owns the proposed flow.
+Choose research to resolve a user question or inform a decision. Use for requested study preparation or supplied observations; routine UI work can use [interface quality](../interface-design/SKILL.md) without a study. [Interface design](../interface-design/SKILL.md) owns the proposed flow.
 
 ## Frame the decision and method
 
@@ -33,7 +33,13 @@ Give participants realistic goals and observable end states while leaving them t
 - Recovery tasks can start from naturally occurring failures or a moderator-prepared failed state; instructions should preserve the original goal without teaching an invalid attempt or its correction.
 - Instructional/comprehension exercises answer a different question and need their own interpretation.
 
-Prepare a moderator guide that keeps the participant's goal separate from the interface's solution. Describe the situation and desired end state without naming the control to use. Decide what counts as independent completion, when assistance will be offered, and how assisted completion will be recorded, so the moderator does not quietly turn a failed task into a success.
+Prepare a moderator guide that keeps the participant's goal separate from the interface's solution. Describe the situation and desired end state without naming the control to use. Define:
+
+- what counts as independent completion;
+- when assistance will be offered;
+- how assisted completion will be recorded.
+
+This prevents the moderator from quietly turning a failed task into a success.
 
 Invite participants to explain what they expect and what they are looking for. Use neutral follow-up probes after observing the behavior; record errors, hesitation, assistance and the participant's own explanation separately from your interpretation. Check task feasibility in the prototype and trace tasks to research questions. Ratings require a stated question/scale and an interpretation justified by the method.
 

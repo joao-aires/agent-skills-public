@@ -46,7 +46,7 @@ The ai-development package supplies three generic skills: ai-development for app
 
 For an existing accepted product, start with the affected work. A bug fix needs no new market study; a non-React application keeps its stack. Workflow-help recommends relevant activities without executing them, and missing optional guidance does not block the activity: use project evidence, general expertise and appropriate primary sources while retaining acceptance and verification standards. Missing tools or an execution target remain precise limits. See [composition and fallback](architecture.md#compose-without-optional-dependencies).
 
-Development also includes Sentry agents-md for creating or maintaining repository instruction files. Request it for AGENTS.md/CLAUDE.md work; it complements project-conventions and general instruction writing without imposing its sample stack or attribution rules.
+Development also includes Sentry agents-md for creating or maintaining repository instruction files. Request it for AGENTS.md/CLAUDE.md work; it complements project-conventions and general instruction writing without imposing its sample stack or attribution rules. The owned [maintenance method](../plugins/development/skills/project-conventions/references/repository-instructions.md) covers audits, scope, durable session learnings and removal of stale guidance. Client-specific filenames and discovery still require the client's documented behavior.
 
 ## SaaS, security, governance and data expertise
 
@@ -154,7 +154,7 @@ Storybook is an optional component workbench within verification. Run meaningful
 
 ## UI/UX expertise for people and agents
 
-The frontend-development bundle provides [interface-design](../plugins/frontend-development/skills/interface-design/SKILL.md), [ux-writing](../plugins/frontend-development/skills/ux-writing/SKILL.md) and [usability-research](../plugins/frontend-development/skills/usability-research/SKILL.md) as directly selectable, model-available supporting skills. Client picker/discovery behavior still needs verification. The same guidance supports design, develop, improve and review when relevant; no separate user and agent copies are maintained.
+The frontend-development bundle provides [interface-quality](../plugins/frontend-development/skills/interface-design/SKILL.md), [ux-writing](../plugins/frontend-development/skills/ux-writing/SKILL.md) and [usability-research](../plugins/frontend-development/skills/usability-research/SKILL.md) as directly selectable, model-available supporting skills. Client picker/discovery behavior still needs verification. The same guidance supports design, develop, improve and review when relevant; no separate user and agent copies are maintained.
 
 Ask for a scoped result: "Review this dialog without changing it", "Improve and apply the error messages in this flow", or "Prepare a usability study for onboarding". A bare review/improvement assessment stays read-only. A specified repair can include implementation and rechecking. A research guide is a plan until actual observations exist. Ordinary UI development needs no compulsory study or Figma connection.
 
