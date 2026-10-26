@@ -158,7 +158,7 @@ The frontend-development bundle provides [interface-design](../plugins/frontend-
 
 Ask for a scoped result: "Review this dialog without changing it", "Improve and apply the error messages in this flow", or "Prepare a usability study for onboarding". A bare review/improvement assessment stays read-only. A specified repair can include implementation and rechecking. A research guide is a plan until actual observations exist. Ordinary UI development needs no compulsory study or Figma connection.
 
-Interface-design owns visual direction and semantic token intent; frontend conventions implement it for the selected React stack; interface-design owns flows and affected surfaces; interface-design owns craft inspection and component/token audits; ux-writing owns task copy; usability-research owns studies and evidence synthesis. Existing test/journey guidance verifies implementation and Storybook states where adopted.
+Interface-design owns information architecture, interactions, visual direction, cross-view consistency, critique and component/token audits; frontend conventions implement the accepted direction for the selected React stack. UX-writing owns task language, and usability-research owns studies and participant evidence synthesis. Existing test/journey guidance verifies implementation and Storybook states where adopted.
 
 ## Explain and maintain project knowledge
 
