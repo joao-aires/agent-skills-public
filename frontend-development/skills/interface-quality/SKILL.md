@@ -24,10 +24,23 @@ Inspect rendered surfaces with realistic content and meaningful states, includin
 
 - Trace issues to source, tokens or component definitions where available.
 - Follow the primary task and notice where the interface directs attention. Check whether the most prominent information and actions are the ones the task needs, and whether grouping and spacing explain which content belongs together.
-- Trace relevant navigation through the task, configuration and return path. Check that destinations and control locations match their scope, the current context stays recognizable, and returning preserves work or explains a necessary invalidation. Repeated instructions can signal an unclear structure; distinguish that cause from wording alone.
-- Compare related rendered views together against the shared page composition: identity/navigation, heading hierarchy, recurring actions, content alignment and section boundaries. Follow a real transition and vary content length, viewport and appearance where relevant. Investigate unexplained movement or competing patterns even when each component looks correct on its own; assess intentional variants against their task or platform reason. Identify unrendered views as unverified before claiming cross-page consistency.
 - Examine typography at the sizes and lengths actually used, including dense data, labels and long values. Check whether semantic color, icons and motion communicate a consistent meaning and remain understandable without relying on one visual cue alone.
 - Check content growth, zoom and locale/direction where they affect the task.
+
+### Compare related views and transitions
+
+Follow the task through configuration and back. Check destinations and control locations against their scope, keep the current context recognizable, and verify that returning preserves work or explains a necessary invalidation. Repeated instructions can signal an unclear structure; distinguish that cause from wording alone.
+
+Compare related rendered views against their shared composition:
+
+- identity, navigation and recurring actions;
+- heading hierarchy and page context;
+- content alignment, gutters and section boundaries;
+- behavior with different content lengths, viewports and appearance modes.
+
+Investigate unexplained movement or competing patterns even when each component looks correct on its own. Assess intentional variants against their task or platform reason. Identify unrendered views as unverified before claiming cross-page consistency.
+
+### Check accessibility and evidence
 
 Verify applicable accessibility requirements and exercise keyboard/focus, labels, overlay behavior and reduced motion when runtime access permits. Separate static observations, runtime results, hypotheses and unavailable evidence. A finding must establish the user impact it claims; use an unverified label for a path that has not been exercised.
 

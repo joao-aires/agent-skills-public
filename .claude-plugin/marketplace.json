@@ -15,7 +15,7 @@
       "name": "ai-development",
       "source": "./ai-development",
       "description": "Provider-independent AI application design, testing/evaluation and operations; models, context, tools, harnesses and protocols.",
-      "version": "0.14.0"
+      "version": "0.14.1"
     },
     {
       "name": "ai-langchain-development",
@@ -27,7 +27,7 @@
       "name": "ai-python-development",
       "source": "./ai-python-development",
       "description": "Python provider/FastMCP integration, DeepEval testing and Python OpenTelemetry observability.",
-      "version": "0.3.2"
+      "version": "0.3.3"
     },
     {
       "name": "backend-development",
@@ -39,13 +39,13 @@
       "name": "backend-python-development",
       "source": "./backend-python-development",
       "description": "Python, FastAPI, SQLAlchemy, Alembic, persistence and Python automation implementation.",
-      "version": "0.1.2"
+      "version": "0.1.3"
     },
     {
       "name": "browser-extension-development",
       "source": "./browser-extension-development",
       "description": "Chrome Manifest V3 architecture, permissions, extension UI, runtime testing and store delivery; preserve accepted frameworks and design.",
-      "version": "0.1.3"
+      "version": "0.1.4"
     },
     {
       "name": "database-development",
@@ -63,43 +63,43 @@
       "name": "delivery",
       "source": "./delivery",
       "description": "Provider-independent CI, artifact identity, promotion, deployment and recovery methods.",
-      "version": "0.1.1"
+      "version": "0.1.2"
     },
     {
       "name": "development",
       "source": "./development",
       "description": "Stack-independent SDLC activities, project foundations, contributions and verification.",
-      "version": "0.3.0"
+      "version": "0.3.1"
     },
     {
       "name": "development-tooling",
       "source": "./development-tooling",
       "description": "Selected Bash, browser/load testing, CI/container/registry, diagnostics and supply-chain tooling.",
-      "version": "0.1.2"
+      "version": "0.1.3"
     },
     {
       "name": "documentation",
       "source": "./documentation",
       "description": "Product and engineering writing, architecture explanation, knowledge upkeep and prose editing.",
-      "version": "0.1.2"
+      "version": "0.1.3"
     },
     {
       "name": "frontend-development",
       "source": "./frontend-development",
       "description": "Platform-independent visual and interaction design, interface quality, UX writing and usability research.",
-      "version": "0.2.1"
+      "version": "0.2.2"
     },
     {
       "name": "frontend-native-development",
       "source": "./frontend-native-development",
       "description": "TypeScript/Tauri and React Native/Expo clients, platform lifecycle, packaging and native verification.",
-      "version": "0.1.1"
+      "version": "0.1.2"
     },
     {
       "name": "frontend-reactjs-development",
       "source": "./frontend-reactjs-development",
       "description": "React, Next.js, shadcn and Tailwind implementation guidance.",
-      "version": "0.1.4"
+      "version": "0.1.5"
     },
     {
       "name": "go-development",
@@ -111,37 +111,37 @@
       "name": "governance",
       "source": "./governance",
       "description": "Applicability-led compliance design and GDPR/SOC 2 readiness: translate obligations and service commitments into accountable controls and evidence.",
-      "version": "0.1.2"
+      "version": "0.1.3"
     },
     {
       "name": "operations",
       "source": "./operations",
       "description": "Platform-independent reliability, observability, incidents, recovery, capacity and upkeep.",
-      "version": "0.1.1"
+      "version": "0.1.2"
     },
     {
       "name": "operations-platforms",
       "source": "./operations-platforms",
       "description": "Selected JVM, Kubernetes and Azure AKS implementation and optimization.",
-      "version": "0.1.2"
+      "version": "0.1.3"
     },
     {
       "name": "saas-development",
       "source": "./saas-development",
       "description": "SaaS tenant/customer and commercial lifecycle design, task-oriented dashboards and scoped readiness assessment across implementation stacks.",
-      "version": "0.1.2"
+      "version": "0.1.3"
     },
     {
       "name": "security",
       "source": "./security",
       "description": "Security/privacy design and identity/access development across application stacks; contextual framework selection and verification.",
-      "version": "0.2.0"
+      "version": "0.2.1"
     },
     {
       "name": "strategy",
       "source": "./strategy",
       "description": "Business strategy, product priorities and evidence-based product learning.",
-      "version": "0.1.1"
+      "version": "0.1.2"
     },
     {
       "name": "typescript-development",
@@ -153,7 +153,7 @@
       "name": "visualization",
       "source": "./visualization",
       "description": "Architecture diagrams, interactive system explanation and presentations.",
-      "version": "0.1.1"
+      "version": "0.1.2"
     }
   ]
 }

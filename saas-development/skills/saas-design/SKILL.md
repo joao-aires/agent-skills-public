@@ -14,7 +14,11 @@ user-invocable: true
 
 # Define the hosted product's contracts
 
-Start with who uses the product, who pays for it and which groups share resources. Define the user account, organization/workspace, tenant isolation boundary, billing customer and deployment separately before deciding how they relate. A single person may belong to several organizations; a customer may pay for more than one workspace; a deployment may serve many tenants. The application needs explicit ownership and access rules for the relationships it actually supports. Preserve an adequate accepted design and keep depth proportional to the requested feature. Read [lifecycle decisions](references/lifecycle.md) for commercial or tenant transitions and [research sources](../../references/sources.md) for inspected project patterns and their limits.
+Start with who uses the product, who pays for it and which groups share resources. Define the user account, organization/workspace, tenant isolation boundary, billing customer and deployment separately before deciding how they relate.
+
+A single person may belong to several organizations; a customer may pay for more than one workspace; a deployment may serve many tenants. The application needs explicit ownership and access rules for the relationships it actually supports.
+
+Preserve an adequate accepted design and keep depth proportional to the requested feature. Read [lifecycle decisions](references/lifecycle.md) for commercial or tenant transitions and [research sources](../../references/sources.md) for inspected project patterns and their limits.
 
 ## Establish the tenancy and authority model
 

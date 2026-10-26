@@ -48,11 +48,11 @@ Select verification through [deliver-reliable-changes](../deliver-reliable-chang
 
 - Keep code, migrations, tests, dependencies, configuration and scoped instructions discoverable within actual application/component boundaries. Preserve an established layout; choose a simple documented structure for a new repository. Keep provider-required entrypoints in their required locations.
 - Put product and engineering knowledge under `documentation/`; use project knowledge organization and upkeep expertise to create only useful documents.
-- Keep root AGENTS.md focused on purpose, stack, startup/test commands, shared conventions and the requirement to synchronize affected docs with code and decisions. Put component-specific commands and exceptions beside that component. Link authoritative information instead of duplicating it. For instruction-file authoring or pruning, seek available expertise in concise, scoped repository instructions and verify that required knowledge remains directly present or linked.
+- Keep root AGENTS.md focused on purpose, stack, startup/test commands, shared conventions and the requirement to synchronize affected docs with code and decisions. Put component-specific commands and exceptions beside that component. Link authoritative information instead of duplicating it. For instruction-file creation, audit or pruning, read [repository instruction maintenance](references/repository-instructions.md) and seek available concise, scoped authoring expertise.
 - Record compatible dependencies and lockfiles, required configuration and a safe local setup. Make it possible to start and verify the first slice without guessing secrets or commands.
 - Add boundaries, services and infrastructure when a concrete requirement justifies them. Prefer domain-oriented code over layers with no present responsibility.
 
-Use the relevant backend/frontend/AI skills and installed upstream expertise; do not assume a reference is installed. Preserve compatible installed UI/UX guidance without redistributing private material. Capture repeated corrections as a short scoped instruction or an executable check, rather than accumulating generic rules.
+Use the relevant backend/frontend/AI skills and installed upstream expertise; do not assume a reference is installed. Preserve compatible installed UI/UX guidance without redistributing private material. Investigate repeated corrections for a durable cause, then place a useful instruction, canonical procedure or executable check with its owner. A session workaround alone does not establish a project convention.
 
 ## Complete new-project foundations
 
@@ -89,7 +89,7 @@ Provide startup, initialization/migrations, representative non-sensitive seed da
 
 Make useful diagnostics queryable without introducing a monitoring vendor.
 
-- Preserve an accepted backend; use available observability expertise for signal contracts and guidance for the selected development tools for selected service/backend configuration.
+- Preserve an accepted backend. Seek observability expertise for signal meaning and matching tool expertise for service/backend configuration.
 - Keep readiness and received telemetry as separate evidence.
 - Control external effects through fixtures or explicitly opted-in sandboxes.
 - Native clients and simulators require their supported host and actual platform checks; backend execution cannot establish client behavior.
@@ -102,7 +102,7 @@ Agree the authoritative PRD/requirements, implemented architecture and target-de
 
 ## Keep foundations aligned as the project evolves
 
-Treat repository structure, dependency/runtime choices, configuration contracts, scoped instructions and delivery commands as maintained project decisions. Update affected commands, lockfiles and authoritative documentation alongside a relevant change. Resolve conflicting instructions at their proper scope; avoid copying the same rules into every component. Use project knowledge organization and upkeep expertise for knowledge upkeep and available delivery expertise for delivery contracts and matching technical guidance for implementation; this skill coordinates the project conventions rather than duplicating specialist guidance.
+Treat repository structure, dependency/runtime choices, configuration contracts, scoped instructions and delivery commands as maintained project decisions. Update affected commands, lockfiles and authoritative documentation alongside a relevant change. Resolve conflicting instructions at their proper scope; avoid copying the same rules into every component. Seek knowledge-maintenance expertise for authoritative records, delivery expertise for release contracts and matching technical guidance for their implementation. This skill keeps those foundations aligned without duplicating the specialist methods.
 
 Start a full setup or structural review only when requested. Apply existing conventions during feature work, and suggest a broader change when a concrete problem warrants it rather than silently migrating the application.
 

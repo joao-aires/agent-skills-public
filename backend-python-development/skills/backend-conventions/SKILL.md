@@ -135,7 +135,16 @@ Choose a queue or workflow framework only for an actual durability/concurrency r
 
 ## AI and MCP interfaces
 
-For AI, begin with a direct provider adapter if sufficient; use LangChain/LangGraph or Google ADK when orchestration requires it, without installing both by default. Pair with AI contract and evaluation expertise when available. Enforce authorization outside prompts, validate structured outputs, constrain tool authority and bound tokens, audio size/duration, time and retries. Gemini can support experiments, but verify current model availability, quotas and pricing rather than assuming every LLM/STT path is free. Separate deterministic fixtures from live-provider evaluations and include failure/fallback behavior.
+For AI, begin with a direct provider adapter if sufficient. Use LangChain/LangGraph or Google ADK when orchestration requires it, without installing both by default. Pair with AI contract and evaluation expertise when available.
+
+At the application boundary:
+
+- Enforce authorization outside prompts and constrain tool authority.
+- Validate structured outputs before using them.
+- Bound tokens, audio size/duration, time and retries.
+- Separate deterministic fixtures from live-provider evaluations and include failure/fallback behavior.
+
+Gemini can support experiments, but verify current model availability, quotas and pricing rather than assuming every LLM/STT path is free.
 
 For an accepted Python MCP interface, use the chosen version-compatible SDK, seeking relevant protocol implementation expertise when available. Without specialist guidance, verify actual first-party SDK contracts and exercise discovery, denied access and lifecycle cleanup directly. Reuse authorized application services and transaction boundaries; an MCP adapter must not bypass them.
 
@@ -167,4 +176,10 @@ Routine decisions are inline here. Use bundled modern-python for Python tooling 
 
 Use service-contract design expertise when installed for supported consumers and compatibility decisions. Preserve stable operation/event identities, update typed clients deliberately and exercise the relevant old/new combinations and retained events. FastAPI OpenAPI and generated types support contract checks; they do not prove semantic compatibility.
 
-Use provider validation against OpenAPI plus representative consumer/producer examples and behavior checks. For independently deployed consumers, use consumer-driven contracts when useful; Pact is optional. Fixtures must represent supported real usage and remain aligned with provider verification. Test relevant old/new combinations and retained queued events where applicable. Document intentional breaks and migration/deprecation scope before removing support; do not require a broker or contract-testing platform for a single application.
+Use provider validation against OpenAPI plus representative consumer/producer examples and behavior checks. For independently deployed consumers, consumer-driven contracts can help; Pact is optional, and a single application need not acquire a broker or contract-testing platform.
+
+Keep the evidence aligned with supported usage:
+
+- Use fixtures that represent real consumers and remain aligned with provider verification.
+- Test relevant old/new combinations and retained queued events where applicable.
+- Document intentional breaks and migration/deprecation scope before removing support.

@@ -35,6 +35,10 @@ A named stack or starter kit does not supply missing decisions. Defined existing
 
 Treat the rough idea as an outcome to shape, not an instruction to build every imagined feature. Inspect the repository and supplied references first.
 
+For existing behavior, use [system mapping](../system-mapping/SKILL.md#trace-a-feature-before-changing-it) to follow the relevant path and a comparable implementation. Establish how users enter the feature, where decisions and state changes happen, and which tests observe the result.
+
+Use that evidence to answer technical questions and expose material unknowns before designing the extension. Keep the trace narrow enough for the slice; a new application needs its constraints and intended journey rather than an invented existing architecture.
+
 - For a new product select a useful coherent first slice; for existing work preserve architecture, identity, UI and operations constraints.
 - When users, product value or priorities are uncertain, use installed product discovery and prioritization expertise to establish the product decision before dependent requirements/design.
 - Use business strategy when business direction or viability is actually unresolved.
@@ -64,5 +68,9 @@ Keep the reasoning connected across phases. The product outcome should explain t
 Implement in increments that can be exercised, using relevant supporting skills directly and preserving native invocation controls. After each meaningful change, run the checks that observe its behavior, inspect the result, and repair defects before extending the same approach elsewhere. If implementation disproves an assumption, revisit the affected design or requirement and carry that change through the remaining work.
 
 Deliver-reliable-changes owns this scenario/test/inspect/repair loop and the evidence needed to claim completion; Git contributions owns isolation and publication. Keep the accepted decisions and affected documentation consistent with what was built. For UI work, inspect the running experience; for stored behavior, check what can be read back through the real application path.
+
+## Review and close
+
+Use deliver-reliable-changes for final review of the integrated change and resolution of material findings. Carry the accepted outcome and actual verification evidence into that review; identify an independent review as such only when it occurred. Revisit the affected design or check if a finding changes its premise.
 
 Finish with the implemented user outcome, the checks actually performed, and any unfinished or blocked part. Delivery and learning are part of considering the result, but publishing, deploying or contacting users still follows the established contribution/delivery scope.

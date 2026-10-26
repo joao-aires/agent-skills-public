@@ -22,7 +22,13 @@ Before wireframing or choosing components for a new interface or substantial red
 | Appearance | Establish light, dark or both, system-following behavior and any manual override. For a new interactive application, recommend system appearance with light/dark overrides unless the brief calls for a different policy. Preserve an existing policy unless changing it is in scope. |
 | Design-system ownership | Reuse an established system; otherwise define semantic roles and shared primitives. Identify how library defaults will be adapted to the product without competing token systems or divergent copies of the same control. |
 
-Choose the component system for its fit, not its presence in the available skills. Plain Tailwind offers styling control but does not supply accessible behavior for complex widgets. Tailwind with shadcn/ui offers editable components and places their maintenance with the project. HeroUI is a component-library option for a compatible React application; check the selected version's runtime, styling and interaction contracts. Another requested library or an established CSS system remains a valid choice. Seek matching implementation expertise when available, or use the selected system's primary documentation; the design method does not depend on installing a technical plugin.
+Choose the component system for its fit to the product and platform:
+
+- **Plain Tailwind** offers styling control but does not supply accessible behavior for complex widgets.
+- **Tailwind with shadcn/ui** offers editable components and places their maintenance with the project.
+- **HeroUI** is a component-library option for a compatible React application. Check the selected version's runtime, styling and interaction contracts.
+
+Another requested library or an established CSS system remains a valid choice. Seek matching implementation expertise when available, or use the selected system's primary documentation; the design method does not depend on installing a technical plugin.
 
 Record these decisions in the existing design note or handoff before deriving tokens and mockups. Carry the selected component anatomy, density, keyboard behavior and theme roles through the representative design and implementation. A library supplies primitives, not the product's visual identity. Read [foundation sources](references/ui-foundations.md) when comparing an unfamiliar library or resolving its theme behavior.
 
@@ -34,7 +40,9 @@ When direction is open, compare coherent alternatives that change the experience
 
 Distinguish requirements from inspiration and proposed choices. Use references for particular qualities you can name and adapt, not as whole layouts to imitate. Missing brand assets permit a reversible proposal that can be shown and critiqued; they do not require invented research or a blocked engagement.
 
-Translate the direction into reusable roles. Give colors, type sizes, spacing and surfaces names that describe their use, then apply those roles consistently to shared components. These semantic tokens let the implementation preserve the design when a palette or component changes. Map them across every supported appearance mode, including content, controls, status, focus and overlays; dark mode needs an intentional palette rather than a background inversion. Keep deliberate differences where the task needs them.
+Translate the direction into reusable roles. Give colors, type sizes, spacing and surfaces names that describe their use, then apply those roles consistently to shared components. These semantic tokens let the implementation preserve the design when a palette or component changes.
+
+Map the roles across every supported appearance mode, including content, controls, status, focus and overlays. Dark mode needs an intentional palette rather than a background inversion. Keep deliberate differences where the task needs them.
 
 Use available visual-execution craft for composition, typography and critique when choices are open; the accepted identity and actual brief remain authoritative. Derive character from the content and the way people work with it. A decorative domain motif or recolored starter does not explain why the design suits the product. Read [visual direction and review](references/visual-direction.md) for substantial new work, redesign or handoff, including how to connect the design to components and inspect the implemented result.
 

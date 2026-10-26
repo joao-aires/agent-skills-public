@@ -15,7 +15,13 @@ Use AI contract and evaluation expertise when available for task contracts, auth
 
 ## Implement the accepted provider boundary
 
-Use the application's Python adapter and locked, compatible SDK version. Framework choice belongs to the accepted architecture: use installed ADK or LangChain/LangGraph specialists only for that chosen framework, without introducing either family for a direct SDK call. Keep provider configuration and credentials at the integration boundary. Translate the SDK's responses into the application's own result and failure semantics there, including incomplete output, refusals, tool requests and transport errors. Domain code should not need to infer success from provider-specific response fields.
+Use the application's Python adapter and a locked, compatible SDK. Keep provider configuration and credentials at that boundary, and translate SDK responses into the application's result and failure semantics:
+
+- Complete and incomplete output.
+- Refusals and tool requests.
+- Transport errors and other supported failure states.
+
+Domain code should not need to infer success from provider-specific fields. Follow the accepted framework choice; use available ADK or LangChain/LangGraph expertise for that framework, without adding either family to a direct SDK integration.
 
 For streaming, decide how the application assembles partial output, signals completion and handles interruption. Verify the selected SDK's actual lifecycle rather than assuming a stream of text has the same contract as a complete response. Preserve enough operation identity to diagnose a retry without repeating a consequential tool action.
 
@@ -39,7 +45,7 @@ Reuse authorized application services. Verify discovery, contracts, denied acces
 
 Coordinate Python SDK/instrumentation ownership to avoid duplicate spans and protect sensitive inputs at source.
 
-- Use the accepted export backend and compatible library versions; use available observability expertise for signal contracts and guidance for the selected development tools for selected Collector/backend setup.
+- Use the accepted export backend and compatible library versions. Seek observability expertise for signal meaning and matching tool expertise for Collector/backend setup.
 - Keep evaluation cases and scorers runnable without those services.
 
 | Selected implementation | Guidance |

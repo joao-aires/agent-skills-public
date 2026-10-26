@@ -22,7 +22,9 @@ Use that separation to choose operating signals. Measure delays where they arise
 - Define useful denominators, time windows and candidate or approved targets; do not promise an SLO or quality threshold without acceptance.
 - For interactive work, distinguish first useful output, full completion and interruption/cancellation behavior.
 
-Make the deployed application, model/provider, prompt, tool/skill, retrieval/corpus and protocol configuration revisions identifiable. Correlate request/task, model, retrieval, tool and delegated work through supported execution context; retain gaps for opaque remote peers rather than inventing a complete trajectory. Choose signal detail and sampling for the decisions they support, including the risk of missing rare consequential failures.
+Make the effective application, model/provider, prompt, tool/skill, retrieval/corpus and protocol configuration revisions identifiable. Use supported execution context to correlate the task with its model, retrieval, tool and delegated work.
+
+Choose signal detail and sampling for the operating decisions they support. Record opaque remote steps as visibility gaps, and account for the possibility that sampling misses rare consequential failures.
 
 ## Control resource, provider and recovery behavior
 

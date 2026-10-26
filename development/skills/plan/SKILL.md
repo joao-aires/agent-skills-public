@@ -35,6 +35,14 @@ Put uncertain or constraining work early enough that it can change the remaining
 | Acceptance and regression risk | Focused tests and their evidence |
 | Delivery and failure | Release and recovery consequences |
 
+Make each step specific enough for another contributor to begin it:
+
+- Identify the affected component or verified code location.
+- Name the existing mechanism to reuse and the responsibility being added or changed.
+- Identify the integration check that connects the increment to its consumer.
+
+Label new components as proposals; do not invent existing files or function names. Leave ordinary local choices to implementation so the plan can accommodate new evidence without losing its intended outcome.
+
 ## Return an executable plan
 
 Return steps in the order they can actually be carried out. Make it clear which work is ready, which depends on a decision, and which can proceed independently. For changes to persisted data or deployed consumers, explain the order in which old and new versions can coexist and when cleanup becomes safe.

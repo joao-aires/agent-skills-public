@@ -20,17 +20,38 @@ Establish actors, inputs, outputs, consequential errors and observable acceptanc
 - Reuse accepted product, architecture and interface decisions.
 - Resolve material data-use, licensing, security, reliability and cost constraints before dependent commitments; seek the relevant available expertise without assuming another plugin exists.
 
-Choose how much of the task the model needs to control. If the rules are known and inputs can be validated, ordinary application code may be sufficient. A bounded model call fits a task that needs inference but has a defined input and output. An application-owned workflow keeps sequencing and recovery in code while allowing model judgments at selected points. An agent runtime is useful when the next action genuinely depends on what the model discovers, but it also needs limits, supervision and a way to account for partial work.
+Choose how much of the task the model needs to control:
+
+| Approach | Fits when | Responsibility to retain |
+| --- | --- | --- |
+| Ordinary application code | The rules are known and the inputs can be validated. | Explicit domain rules and predictable failure handling. |
+| Bounded model call | The task needs inference with a defined input and output. | Input/output validation and handling of uncertain or unusable results. |
+| Application-owned workflow | Selected steps need model judgment within a known process. | Sequencing and recovery in application code. |
+| Agent runtime | The next action depends on what the model discovers. | Limits, supervision and accounting for partial work. |
 
 Compare these approaches against the actual uncertainty and action needs. Keep the parts with hard correctness requirements under deterministic control, even when an agent chooses the next step. For application-type choices and architecture tradeoffs, read [application patterns](references/application-patterns.md). Use a framework for a justified orchestration capability, durable execution for work that must survive interruption, and multiple agents when distinct responsibilities improve the task enough to justify coordination. Do not introduce these layers to complete a technology checklist.
 
-Choose a model/provider against task evidence, modalities, structured-output/tool support, context limits, latency, cost and deployment/data constraints. Version-match actual APIs and retain a replaceable integration boundary where useful. A loaded specialist does not accept a stack or authorize installation. Keep domain behavior testable without a model.
+Evaluate a model/provider against the task's actual requirements:
+
+- Quality on representative inputs and required modalities.
+- Structured-output and tool capabilities, with their actual limits.
+- Context capacity, latency and total cost.
+- Deployment, licensing and data-handling constraints.
+
+Match implementation to the selected API version and keep the provider integration replaceable where useful. Preserve domain tests that do not need a model. Loading specialist guidance does not accept a stack or authorize installation.
 
 ## Design the result for its consumer
 
 Establish what the model contributes and who consumes it before choosing a response format. A person reading advice, software importing records and a service executing tool arguments need different contracts. Choose prose, structured data, tool calls or a combination from that need. Preserve explanations, citations and uncertainty when the consumer relies on them; generating fewer tokens is useful only if the required information survives.
 
-Separate valid representation, valid application data, permitted effects and task usefulness. A schema can express some domain constraints, but authorization and constraints it cannot express still need application checks. A well-formed result can remain unsupported or unhelpful. Decide how each consequential property will be established rather than treating one successful parse or model judgment as sufficient.
+Assess the result at distinct levels:
+
+- **Representation:** can the consumer parse it?
+- **Application data:** do its values and relationships satisfy the domain rules?
+- **Authority:** are any proposed effects permitted?
+- **Usefulness:** does it accomplish the task with adequate support and quality?
+
+A schema can express some domain constraints; application checks must enforce authorization and the rules it cannot express. Parsing success does not establish the other properties.
 
 Read [model input/output design](references/model-io-design.md) when choosing a software-consumed contract, organizing substantial context or designing recovery. It explains representation tradeoffs, instruction/evidence authority and cause-sensitive recovery without requiring every application to use JSON, a fixed prompt layout or an agent loop.
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "strategy",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Business strategy, product priorities and evidence-based product learning.",
   "author": {
     "name": "João Aires"

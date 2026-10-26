@@ -2,6 +2,24 @@
 
 Use this reference when writing or restructuring skills, repository instructions or other agent-facing guidance. Choose presentation for the decision or action the reader needs to find. Preserve the instruction's meaning and authority while making its organization visible.
 
+## Choose the kind of guidance the work needs
+
+Begin with the job the skill helps someone perform and what useful work it should leave behind. The description should make that job recognizable during selection; the body should help carry it out. Keep adjacent responsibilities separate when they answer different questions, while retaining the explanation needed to use each one independently.
+
+Different jobs need different forms of instruction. These are authoring choices, not required sections, metadata categories or a new skill hierarchy:
+
+| Kind of guidance | What the reader needs | Useful result or quality check |
+| --- | --- | --- |
+| Workflow | Activities, real dependencies, consequential decisions and transitions between them | Work can advance from the current evidence to the requested outcome without repeating settled phases. |
+| Craft or design | Principles that shape judgment, reasons for choices and a way to critique their execution | Choices suit the actual brief, work together and survive inspection in their intended context. |
+| Technical reference | Precise mechanisms, supported versions, prerequisites, alternatives and operational consequences | The selected technique fits the accepted stack and behaves as described at the relevant boundary. |
+| Diagnosis or review | Evidence to collect, competing explanations, discriminating checks and significance | A finding explains the observed failure or risk and supports an actionable next step. |
+| Analysis or decision support | Relevant distinctions, evidence interpretation, alternatives and uncertainty | A recommendation follows from the evidence and identifies what could change it. |
+| Artifact production | The artifact's purpose, required contents, applicable conventions and verification | The intended reader can use the result for its stated job. |
+| Maintenance | The current baseline, criteria for retaining or changing it, and a check for drift | Useful knowledge stays current; obsolete or redundant material is corrected or removed. |
+
+A skill may combine these forms. A design method can include a short sequence and a critique; a maintenance method can use technical reference. Include a sequence only where order matters. Describe the result in terms of information or behavior, rather than requiring a separate report, file or template for every use. An interactive exploration can end with a resolved question and an explicit uncertainty.
+
 ## Teach the method before compressing it
 
 Write for a capable practitioner who understands the field but has not reconstructed this particular method. A skill should explain how to approach its task: where to begin, what to inspect, how to interpret the result, and why a consequential choice follows. A list of concerns is useful as a reminder after that reasoning is clear; on its own it leaves the reader to supply the method.
@@ -9,6 +27,10 @@ Write for a capable practitioner who understands the field but has not reconstru
 When an instruction uses an abstraction such as a contract, invariant, boundary or verification, name the thing involved and what the practitioner does with it. Define domain terms when understanding them changes the work. Connect the action to its consequence so the reader can recognize when another approach would be appropriate. Retain the explanation at the point of use instead of scattering it across several small fragments.
 
 Depth should resolve uncertainty about the task. Useful detail includes a distinction that changes a decision, a mechanism that makes the decision work, an assumption that limits it, or a way to recognize success and failure. Generic encouragement, repeated safeguards and longer restatements of a concern add reading without adding guidance. There is no target word count: a narrow skill can be short, while a substantial discipline needs room for its reasoning.
+
+Choose the explanation for what a capable reader still needs. A craft principle may need a causal explanation and critique criteria, while a fragile operation needs exact prerequisites and recovery steps. Naming concerns such as security, performance or usability does not explain how to assess them. Conversely, a narrow reminder that is already precise does not need a tutorial attached to it.
+
+Distinguish a constraint from a recommended starting point. State why a default is useful and when another choice fits better; mark an illustrative quantity or technique as such. Reserve unconditional language for actual contracts, authority boundaries and invariants. Recommendations should leave ordinary choices with the project and agent rather than manufacture new approvals or require particular tools.
 
 Examples earn their place when they clarify something the explanation cannot make sufficiently tangible. Keep useful existing examples and executable resources. Do not add a sample scenario or code block simply to make every skill look substantial; improve the explanation first. Detailed conditional procedures belong in linked references, with enough of the method in the entry point that readers know when they need them.
 
@@ -29,6 +51,14 @@ A skill can mix workflow and reference. Put shared purpose and essential constra
 A comparison table does not imply that its rows are mutually exclusive. State when mechanisms compose, and keep a shared prerequisite outside the rows so it clearly applies to every option. Separate operating modes from authorization constraints that apply in every mode.
 
 Use only the structures the content needs. Avoid replacing every sentence with a bullet, inserting a table for unrelated facts, or giving every skill the same sections. Labels help when readers need to locate a specific concern; bolding every item adds little hierarchy. Keep code, commands and contracts in their appropriate literal form.
+
+## Connect guidance without duplicating it
+
+An entry point should orient the reader and supply what every relevant path needs. Link substantial conditional material where the reader can recognize its trigger, with enough context to choose it. Keep a definition, its applicability and its consequential rule close together. A reference that holds the entire unexplained method makes the entry point difficult to use; copying every reference into the entry point defeats selective reading.
+
+Within a bundle, link the owner of shared contribution, authority or verification rules. For optional expertise, describe the capability needed and select from the actual available inventory. Preserve the requested outcome when guidance is absent, using project evidence and appropriate primary sources. Distinguish that absence from an unavailable execution tool or an unresolved user decision.
+
+Repository instruction files have a different context budget from a selectively loaded skill. Keep broadly loaded project instructions focused on durable local facts and the pointers needed to act on them; keep substantive methods and procedures with their canonical owners. Client filenames, discovery and precedence require current host-specific evidence. A sample command, template or attribution block is not project policy.
 
 ## Keep the rule and its conditions together
 
@@ -60,5 +90,7 @@ For the skill's actual modes, ask:
 - Can they identify completion evidence and remaining uncertainty?
 
 Compare a revision against its source. Preserve invocation controls, accepted choices, fallback behavior, prerequisites, exceptions, authority boundaries and evidence limits. Check that moving a sentence has not changed its apparent applicability. Upstream-owned content keeps its provenance and adaptation policy.
+
+Review purpose and method before sentence-level polish. If the skill still leaves a consequential decision unexplained, repair that gap; if it already enables the work, retain it. Do not expand every short skill or rewrite every member of a collection to make their shapes match. Keep a source-backed recommendation separate from a demonstrated integration or behavioral result.
 
 A reader-question review can establish that the author checked those paths; it is not independent user validation. Link, metadata and package checks establish structural properties. Use behavioral trials when a consequential interpretation changes, and report their actual scope. Counts of headings, lists or tables do not establish comprehensibility.

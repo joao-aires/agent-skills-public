@@ -29,9 +29,20 @@ For a cross-cutting change, trace shared primitives, caller overrides and altern
 
 Information architecture determines how users find work, configuration and help. Begin with the tasks people return to, the objects they work on and the scope in which they act. Group destinations in their vocabulary; an internal service or integration does not automatically deserve a menu item. Reuse an established navigation model when it still supports the work. Derive additional views from real capabilities and roles instead of filling a standard application shell with unused pages.
 
-Distinguish controls for the current operation from preferences that persist into later work. Consider how often someone changes a value, what it affects and whether they need to see the result while changing it. Frequent task choices usually belong near the work; substantial configuration needs a recognizable home. A default and a temporary override may both be useful, but their scope and precedence must be understandable. Infrequent privacy or access controls still need to be findable when a consequential decision depends on them.
+Distinguish controls for the current operation from preferences that persist into later work. Place them according to how often someone changes a value, what it affects and whether they need to see the result while changing it:
 
-Choose navigation and containers together. A page supports a substantial task with its own location; a drawer can keep a short related task beside the work; a dialog focuses a bounded interruption. Specify the return path and what happens to drafts, selection and ongoing results before choosing one. Platform conventions can justify a separate settings page or window; preserving context matters across that transition. Read [navigation and configuration design](references/navigation-and-configuration.md) for new navigation structures, settings organization or a redesign spanning several views.
+- Keep frequent task choices near the work they affect.
+- Give substantial configuration a recognizable home.
+- When a default and a temporary override are both useful, make their scope and precedence understandable.
+- Keep infrequent privacy or access controls findable when a consequential decision depends on them.
+
+Choose navigation and containers together:
+
+- **Page:** a substantial task that benefits from its own location.
+- **Drawer:** a short related task that can stay beside the work.
+- **Dialog:** a bounded interruption that needs focused attention.
+
+Specify the return path and what happens to drafts, selection and ongoing results before choosing one. Platform conventions can justify a separate settings page or window; preserving context matters across that transition. Read [navigation and configuration design](references/navigation-and-configuration.md) for new navigation structures, settings organization or a redesign spanning several views.
 
 Give recurring controls a predictable scope, location and behavior across related views. Distinguish application-wide navigation/actions from those belonging to the current page, object or selection, so users can carry what they learned into the next view. Follow the shared page composition established with visual design. When a responsive or task-specific variant relocates a control, preserve its recognizable meaning and make the current location and return path clear.
 
@@ -64,7 +75,14 @@ Ask only unresolved high-impact questions. State reversible assumptions and proc
 
 Select representative complex and simple surfaces, including a dialog/mobile or role variant when relevant. Establish the shared implementation against the behavioral design before propagation. Reuse the project's primitives, tokens and composed components; fix a shared pattern centrally when appropriate rather than patching pages with divergent overrides. Preserve legitimate variants with explicit reasons.
 
-Reconcile each in-scope surface after propagation: implemented and checked, intentionally unchanged, excluded by accepted scope, or blocked/unverified. Inspect callers, portals and conditional paths as well as shared definitions. Report the remaining scope as partial until it is accounted for.
+After propagation, inspect callers, portals and conditional paths as well as shared definitions. Account for each in-scope surface as:
+
+- implemented and checked;
+- intentionally unchanged;
+- excluded by accepted scope; or
+- blocked or unverified.
+
+Report the remaining scope as partial until it is accounted for.
 
 ## Verify the experience
 
