@@ -231,8 +231,8 @@
       ]
     },
     {
-      "id": "interface-quality-direct-read-only",
-      "prompt": "Use interface-quality to review the supplied existing note-editor flow. Preserve its accepted compact editorial design and current stack. Inspect only the supplied local preview and repository; report the most useful findings and gaps. Review only: no source edits, baseline updates, design annotations or remote writes.",
+      "id": "interface-design-direct-read-only",
+      "prompt": "Use interface-design to review the supplied existing note-editor flow. Preserve its accepted compact editorial design and current stack. Inspect only the supplied local preview and repository; report the most useful findings and gaps. Review only: no source edits, baseline updates, design annotations or remote writes.",
       "evaluator_setup": "Prepare a runnable local UI with a keyboard-reachable delete dialog, long note content, an icon-only control and an intentional dense token system. Retain the original focus/name/overflow behavior as grader evidence; do not name hidden defects in the actor prompt. Include one acceptable compact variant. Keep a low-contrast decorative divider and a labelled control as applicability controls; independently calculate any recommended replacement contrast and inspect copy/reveal behavior for clipped text.",
       "criteria": [
         "Direct skill use inspects the named scope and distinguishes runtime findings from static inference.",
@@ -257,7 +257,7 @@
       ]
     },
     {
-      "id": "interface-quality-automatic-design",
+      "id": "interface-design-automatic-design",
       "prompt": "Use design for a research notebook aimed at people who read, edit and retrieve long notes with source context. Work in the supplied React/Tauri project with a Python backend. Recommend a coherent first-slice experience and use a bounded local prototype if useful. No brand assets are supplied; no external services, publication or full feature implementation.",
       "evaluator_setup": "Supply realistic long notes, accepted audience/platform constraints and a local prototype capability. Do not name the new support skills in the actor prompt. Keep a separate reference rubric for product fit, state coverage and character.",
       "criteria": [
@@ -326,7 +326,7 @@
     },
     {
       "id": "component-token-audit-scope",
-      "prompt": "Use interface-quality to audit the supplied component catalogue and its page callers for duplication, naming drift and inconsistent state coverage. Preserve the accepted token scale and platform variants. Assessment only; no library repairs, annotations or publishing.",
+      "prompt": "Use interface-design to audit the supplied component catalogue and its page callers for duplication, naming drift and inconsistent state coverage. Preserve the accepted token scale and platform variants. Assessment only; no library repairs, annotations or publishing.",
       "evaluator_setup": "Provide definition/instance/binding data and actual callers: a confirmed duplicate, an inaccessible remote library reference, an intentional mobile variant and a local override. Include an intentionally non-4/8 spacing system.",
       "criteria": [
         "Distinguishes a confirmed duplicate from missing remote-library evidence and legitimate variants.",
@@ -869,6 +869,32 @@
       "capability_gates": [
         "Supplied synthetic briefs and accepted browser/product contracts"
       ]
+    },
+    {
+      "id": "interface-design-contextual-visual-refinement",
+      "prompt": "Use interface-design to review the supplied operations dashboard's visual hierarchy, spacing, typography, color, depth, imagery and empty states. Keep its accepted compact identity, component system and behavior. Recommend prioritized corrections based on the supplied populated, filtered-empty and narrow viewport screenshots. Read-only; no implementation or design writes.",
+      "evaluator_setup": "Provide a realistic operations dashboard with existing token definitions and representative populated, loading and filtered-empty screenshots including long labels, an intentionally compact but useful table, unclear section spacing, competing visual prominence, redundant borders and an error recovery path. Keep hidden expected issues and contrast measurements with the grader; do not name them in the prompt.",
+      "criteria": [
+        "Findings name the exact supplied surface/state, actual visual evidence, task impact and probable cause rather than generic redesign advice.",
+        "Hierarchy, proximity, typography and clutter are assessed using contextual visual decisions; proposed corrections reuse accepted roles and components.",
+        "Preserves deliberate operational density and user-visible labels; no arbitrary style template, palette swap or mandatory HSL conversion.",
+        "Separates aesthetic suggestions from demonstrated issues, quantitative contrast claims, hypothetical paths and participant research findings.",
+        "Recommendations address narrow screens, content growth and empty-state next actions without inventing unsupported product behavior.",
+        "No repository, canvas or screenshot-baseline writes are performed."
+      ],
+      "evidence": [
+        "Prioritized, surface-specific visual review",
+        "Supplied screenshot-to-finding trace and expected follow-up check",
+        "Unchanged repo and design artifact hashes"
+      ],
+      "negative_controls": [
+        "More whitespace and larger cards are not automatically improvements to a dense operations table.",
+        "A single screenshot does not verify keyboard behavior or user satisfaction.",
+        "A guessed contrast ratio is not a measurement."
+      ],
+      "capability_gates": [
+        "Supplied images or renderable local target"
+      ]
     }
   ],
   "generation_trials": [
@@ -1222,7 +1248,7 @@
         "new-product-license-decision",
         "cross-lifecycle-consequential-findings",
         "consequential-answer-continuation",
-        "interface-quality-automatic-design"
+        "interface-design-automatic-design"
       ],
       "trial_ids": [
         "fresh-desktop-from-product-idea",
@@ -1246,13 +1272,14 @@
       "id": "existing-ui-assess-improve-verify",
       "outcome": "Read-only assessment followed by accepted, scoped repairs, preserved design system and real verification.",
       "case_ids": [
-        "interface-quality-direct-read-only",
+        "interface-design-direct-read-only",
         "component-token-audit-scope",
         "ux-writing-review-and-scope",
         "ux-writing-authorized-rewrite",
         "storybook-behavior-not-build",
         "global-ui-interaction-design",
-        "task-and-configuration-navigation"
+        "task-and-configuration-navigation",
+        "interface-design-contextual-visual-refinement"
       ],
       "trial_ids": [
         "ui-review-to-authorized-repair",
