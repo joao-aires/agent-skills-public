@@ -184,6 +184,18 @@ The [Anthropic skills collection](https://github.com/anthropics/skills/tree/dbd4
 
 These references inform original authoring; this review does not acquire more upstream skills or change existing pins. Adopt a writing technique when it clarifies the local method, while retaining the collection's scope, optional composition and proportional execution. Client-specific tools, rigid collaboration counts and technical defaults need their own applicability assessment. Readability and meaningful depth require author judgment and reader feedback; resemblance to an upstream format does not establish effectiveness.
 
+The [product-management plugin](https://github.com/anthropics/knowledge-work-plugins/tree/33d3dea41a341b341d4f5da2e8801ae0c89be2b8/product-management) supplies further examples of domain explanation, evidence synthesis and recognizable results. Its specification, research, metrics, roadmap and brainstorming methods support different forms of work. Their useful lesson is the connection between a method and its result, rather than common report sections. Fixed idea counts, scoring thresholds, repeated intake and connected-service assumptions remain contextual choices.
+
+The following official plugins were reviewed at [5826794](https://github.com/anthropics/claude-plugins-official/tree/58267944f92187b7d6a1c822165c96c81c864806/plugins):
+
+| Reference | Adopted principle | Boundary |
+| --- | --- | --- |
+| [frontend-design](https://github.com/anthropics/claude-plugins-official/blob/58267944f92187b7d6a1c822165c96c81c864806/plugins/frontend-design/skills/frontend-design/SKILL.md) | Subject-grounded craft, coherent choices and rendered self-critique. | Its skill text is identical to the already acquired resource; no second copy or new pin is needed. Aesthetic starting points remain subordinate to the accepted brief and identity. |
+| [feature-dev](https://github.com/anthropics/claude-plugins-official/tree/58267944f92187b7d6a1c822165c96c81c864806/plugins/feature-dev) | Evidence-backed feature tracing and a concrete design-to-implementation handoff. | No prescribed agent counts, model/tool bindings, repeated approval gates or numerical review-confidence threshold are imported. Existing verification and delivery methods retain ownership. |
+| [claude-md-management](https://github.com/anthropics/claude-plugins-official/tree/58267944f92187b7d6a1c822165c96c81c864806/plugins/claude-md-management) | Assess instructions against the repository and retain only useful durable knowledge. | Sentry agents-md remains the acquired authoring method. Owned maintenance guidance complements it without importing scoring templates, client-specific discovery assumptions or a second authoring skill. |
+
+These are source references for original guidance, not newly acquired dependencies. Workflow, craft, technical reference, diagnosis, analysis, artifact production and maintenance need different amounts and forms of explanation. [Structured instructions](../../plugins/documentation/skills/documentation-writing/references/structured-instructions.md) describes how to choose those forms; [repository instruction maintenance](../../plugins/development/skills/project-conventions/references/repository-instructions.md) owns the repository audit and durable-learning method.
+
 ## Product and capability architecture
 
 The [ownership catalogue](#plugin-ownership) identifies each skill's package. Structural independence has repository/build checks; behavioral adherence remains unverified.

@@ -869,6 +869,39 @@
       "capability_gates": [
         "Supplied synthetic briefs and accepted browser/product contracts"
       ]
+    },
+    {
+      "id": "bounded-feature-exploration-handoff",
+      "prompt": "Use design and plan for the supplied small Python inventory CLI. Add archive and restore for an owner's items; the default list excludes archived items and an explicit archived view lists them. Existing ownership rules remain in force. Read the repository and return the design and implementation plan only. Also explain how a separate requested help-text correction would differ in scope. No implementation, new infrastructure, publication or live services.",
+      "evaluator_setup": "Supply a real small repository with CLI, service and storage responsibilities, a comparable owner-scoped operation, focused tests and exact local commands. Keep code paths discoverable rather than explaining the intended implementation in the prompt.",
+      "criteria": [
+        "Traces the existing entrypoint, decision/effect ownership and relevant tests with verified code references.",
+        "Connects the chosen design to existing mechanisms, changed responsibilities, integration points and observable checks.",
+        "Orders a useful implementation increment without inventing existing files, mandatory documents, new infrastructure or repeated approval gates.",
+        "Keeps the help-text correction proportionate and preserves the design/plan-only boundary."
+      ]
+    },
+    {
+      "id": "repository-instruction-maintenance",
+      "prompt": "Audit and update the supplied repository instructions for future contributors. Use the actual project and canonical contributor/security documents, and consider the supplied session notes. Keep application source and personal configuration unchanged. Local read-only checks and edits to the named instruction files are allowed; no remote actions.",
+      "evaluator_setup": "Supply root and nested instructions, a compatibility entrypoint with its own useful content, real command definitions, canonical docs and session notes containing verified discoveries, temporary workarounds and an unaccepted preference. Keep evaluator judgments separate.",
+      "criteria": [
+        "Verifies commands and paths against actual definitions and distinguishes inspected from executed evidence.",
+        "Preserves useful constraints and compatibility content, scopes component rules and links canonical procedures without imposing a universal file layout or line limit.",
+        "Promotes only supported, durable, useful knowledge to the appropriate owner; avoids turning temporary incidents or personal preferences into project policy.",
+        "Corrects or removes stale and redundant guidance and reports the actual diff and verification limits without unauthorized source changes."
+      ]
+    },
+    {
+      "id": "skill-authoring-purpose-fit",
+      "prompt": "Review and improve the supplied authored skill drafts for an existing-component visual adjustment and a diagnostic investigation. Use their stated jobs and scope. Return usable revised instructions and explain the material changes. No application implementation, upstream edits or new tooling.",
+      "evaluator_setup": "Supply a precise narrow craft draft and an abstract diagnostic draft with an important authorization/evidence boundary. Their different jobs should permit different structures. Keep desired edits and grading criteria away from the actor.",
+      "criteria": [
+        "Retains useful narrow guidance rather than expanding every skill into a common workflow or artifact template.",
+        "Makes the diagnostic method actionable through evidence, competing explanations and checks that distinguish them.",
+        "Distinguishes constraints from defaults and selects paragraphs, lists or comparisons according to meaning, without decorative examples or formatting quotas.",
+        "Preserves scope, authority, uncertainty and completion evidence while making the result understandable."
+      ]
     }
   ],
   "generation_trials": [
@@ -1006,7 +1039,7 @@
         "Grade only the requested phase: setup establishes applicable foundations, design establishes decision/contract outcomes, and develop from a rough idea establishes the useful full lifecycle. Do not require feature implementation in a setup-only phase or fabricate business research for a personal tool."
       ],
       "context": {
-        "platform_decision": "React Native + Expo with TypeScript, accepted by João on 15 October 2026",
+        "platform_decision": "React Native + Expo with TypeScript, accepted by Jo\u00e3o on 15 October 2026",
         "platform_results": [
           "ios",
           "android"
@@ -1339,7 +1372,10 @@
         "suite-upgrade-and-retirement",
         "runner-error-evidence-reconciliation",
         "documentation-reader-and-contract",
-        "architecture-current-target-evidence"
+        "architecture-current-target-evidence",
+        "bounded-feature-exploration-handoff",
+        "repository-instruction-maintenance",
+        "skill-authoring-purpose-fit"
       ],
       "trial_ids": [
         "existing-open-source",

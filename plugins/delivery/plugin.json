@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "delivery",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Provider-independent CI, artifact identity, promotion, deployment and recovery methods.",
   "author": {
     "name": "João Aires"

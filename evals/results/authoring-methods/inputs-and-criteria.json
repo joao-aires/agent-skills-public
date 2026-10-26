@@ -1,0 +1,76 @@
+{
+  "source_base": "80f085058625ebbb4ce866f83b8420ce01ca78bd",
+  "execution": "Bounded source-directory and built-bundle guidance probes; no native client skill-discovery test or application-generation claim.",
+  "actor_prompts": {
+    "workflow": "Use design and plan for this inventory CLI. Add archive and restore for an owner's items. Default list excludes archived items; an explicit archived view lists them. Existing ownership rules remain in force. Return the design and implementation plan only. Also explain how a separate requested correction to the CLI help description would differ in scope. No source changes, new infrastructure, publication or live services.",
+    "instructions": "Audit and update AGENTS.md, tests/AGENTS.md and CLAUDE.md for future contributors, using this repository and session-notes.md. Local read-only checks and edits to those named instruction files are allowed. Keep application source and personal configuration unchanged. No remote actions.",
+    "authoring": "Review and improve these two authored skill drafts according to their stated jobs and scope. Return usable revised instructions and explain material changes. No application implementation, upstream edits or new tooling."
+  },
+  "raw_files": {
+    "workflow": {
+      "store.py": "import json\nfrom pathlib import Path\n\ndef load(path):\n    return json.loads(Path(path).read_text())\n\ndef save(path, records):\n    Path(path).write_text(json.dumps(records, indent=2) + \"\\n\")\n",
+      "service.py": "def list_items(records, owner):\n    return [dict(item) for item in records if item[\"owner\"] == owner]\n\ndef rename_item(records, owner, item_id, label):\n    item = next((item for item in records if item[\"id\"] == item_id and item[\"owner\"] == owner), None)\n    if item is None:\n        raise LookupError(\"Item unavailable\")\n    item[\"label\"] = label\n    return dict(item)\n",
+      "app.py": "import argparse\nimport json\nimport service\nimport store\n\ndef main():\n    parser = argparse.ArgumentParser(description=\"Manage inventory items\")\n    parser.add_argument(\"--data\", default=\"items.json\")\n    parser.add_argument(\"--owner\", required=True)\n    sub = parser.add_subparsers(dest=\"command\", required=True)\n    sub.add_parser(\"list\")\n    rename = sub.add_parser(\"rename\")\n    rename.add_argument(\"id\", type=int)\n    rename.add_argument(\"label\")\n    args = parser.parse_args()\n    records = store.load(args.data)\n    if args.command == \"list\":\n        print(json.dumps(service.list_items(records, args.owner)))\n    else:\n        result = service.rename_item(records, args.owner, args.id, args.label)\n        store.save(args.data, records)\n        print(json.dumps(result))\n\nif __name__ == \"__main__\":\n    main()\n",
+      "tests/test_service.py": "import unittest\nimport service\n\nclass ServiceTests(unittest.TestCase):\n    def setUp(self):\n        self.records = [{\"id\": 1, \"owner\": \"alice\", \"label\": \"Printer\"}, {\"id\": 2, \"owner\": \"bob\", \"label\": \"Camera\"}]\n\n    def test_list_scope(self):\n        self.assertEqual([item[\"id\"] for item in service.list_items(self.records, \"alice\")], [1])\n\n    def test_rename_own(self):\n        self.assertEqual(service.rename_item(self.records, \"alice\", 1, \"Office printer\")[\"label\"], \"Office printer\")\n\n    def test_rename_other_denied(self):\n        with self.assertRaises(LookupError):\n            service.rename_item(self.records, \"alice\", 2, \"Changed\")\n        self.assertEqual(self.records[1][\"label\"], \"Camera\")\n",
+      "items.json": "[\n  {\n    \"id\": 1,\n    \"owner\": \"alice\",\n    \"label\": \"Printer\"\n  },\n  {\n    \"id\": 2,\n    \"owner\": \"bob\",\n    \"label\": \"Camera\"\n  }\n]\n",
+      "CONTRIBUTING.md": "# Contributing\n\nUse Python 3.11 or newer and its standard library. No dependency installation is needed.\n\nRun from the repository root:\n\n| Task | Command |\n| --- | --- |\n| Tests | `python3 -m unittest discover -s tests -v` |\n| CLI help | `python3 app.py --help` |\n| List owned sample items | `python3 app.py --owner alice list` |\n\n`service.py` owns item operations. `app.py` translates CLI arguments and `store.py` reads/writes the selected JSON file. The example owner is a local fixture selector, not production authentication. Preserve the existing implementation for this exercise.\n",
+      "SECURITY.md": "# Data handling\n\nExports must never contain private email addresses. Item operations must preserve owner isolation. Tests use synthetic records; no remote services or real identities are required.\n",
+      "AGENTS.md": "# Inventory CLI\n\nUse the commands in CONTRIBUTING.md. Preserve owner-scoped operations in service.py and the existing standard-library toolchain. SECURITY.md contains required data-handling rules.\n"
+    },
+    "instructions": {
+      "store.py": "import json\nfrom pathlib import Path\n\ndef load(path):\n    return json.loads(Path(path).read_text())\n\ndef save(path, records):\n    Path(path).write_text(json.dumps(records, indent=2) + \"\\n\")\n",
+      "service.py": "def list_items(records, owner):\n    return [dict(item) for item in records if item[\"owner\"] == owner]\n\ndef rename_item(records, owner, item_id, label):\n    item = next((item for item in records if item[\"id\"] == item_id and item[\"owner\"] == owner), None)\n    if item is None:\n        raise LookupError(\"Item unavailable\")\n    item[\"label\"] = label\n    return dict(item)\n",
+      "app.py": "import argparse\nimport json\nimport service\nimport store\n\ndef main():\n    parser = argparse.ArgumentParser(description=\"Manage inventory items\")\n    parser.add_argument(\"--data\", default=\"items.json\")\n    parser.add_argument(\"--owner\", required=True)\n    sub = parser.add_subparsers(dest=\"command\", required=True)\n    sub.add_parser(\"list\")\n    rename = sub.add_parser(\"rename\")\n    rename.add_argument(\"id\", type=int)\n    rename.add_argument(\"label\")\n    args = parser.parse_args()\n    records = store.load(args.data)\n    if args.command == \"list\":\n        print(json.dumps(service.list_items(records, args.owner)))\n    else:\n        result = service.rename_item(records, args.owner, args.id, args.label)\n        store.save(args.data, records)\n        print(json.dumps(result))\n\nif __name__ == \"__main__\":\n    main()\n",
+      "tests/test_service.py": "import unittest\nimport service\n\nclass ServiceTests(unittest.TestCase):\n    def setUp(self):\n        self.records = [{\"id\": 1, \"owner\": \"alice\", \"label\": \"Printer\"}, {\"id\": 2, \"owner\": \"bob\", \"label\": \"Camera\"}]\n\n    def test_list_scope(self):\n        self.assertEqual([item[\"id\"] for item in service.list_items(self.records, \"alice\")], [1])\n\n    def test_rename_own(self):\n        self.assertEqual(service.rename_item(self.records, \"alice\", 1, \"Office printer\")[\"label\"], \"Office printer\")\n\n    def test_rename_other_denied(self):\n        with self.assertRaises(LookupError):\n            service.rename_item(self.records, \"alice\", 2, \"Changed\")\n        self.assertEqual(self.records[1][\"label\"], \"Camera\")\n",
+      "items.json": "[\n  {\n    \"id\": 1,\n    \"owner\": \"alice\",\n    \"label\": \"Printer\"\n  },\n  {\n    \"id\": 2,\n    \"owner\": \"bob\",\n    \"label\": \"Camera\"\n  }\n]\n",
+      "CONTRIBUTING.md": "# Contributing\n\nUse Python 3.11 or newer and its standard library. No dependency installation is needed.\n\nRun from the repository root:\n\n| Task | Command |\n| --- | --- |\n| Tests | `python3 -m unittest discover -s tests -v` |\n| CLI help | `python3 app.py --help` |\n| List owned sample items | `python3 app.py --owner alice list` |\n\n`service.py` owns item operations. `app.py` translates CLI arguments and `store.py` reads/writes the selected JSON file. The example owner is a local fixture selector, not production authentication. Preserve the existing implementation for this exercise.\n",
+      "SECURITY.md": "# Data handling\n\nExports must never contain private email addresses. Item operations must preserve owner isolation. Tests use synthetic records; no remote services or real identities are required.\n",
+      "AGENTS.md": "# Inventory project instructions\n\nUse Python 3.11 or newer. Run `npm test` before delivering a change.\nExports must never contain private email addresses.\nThe last task fixed a printer-label typo in commit deadbee.\nKeep owner isolation in item operations.\n",
+      "tests/AGENTS.md": "# Tests\n\nUse Python 3.11 or newer.\nExports must never contain private email addresses.\nUse synthetic records created by each test; never edit items.json to establish test expectations.\n",
+      "CLAUDE.md": "# Contributor entrypoint\n\nRead AGENTS.md and CONTRIBUTING.md for project instructions and commands.\n\nThe legacy CSV importer uses UTC dates; preserve that contract when editing importer data. This is a retained project requirement.\n",
+      "session-notes.md": "# Session observations\n\n- `python3 -m unittest discover -s tests -v` completed all three tests successfully.\n- `python3 app.py --help` printed usage without credentials or reading the data file.\n- A temporary local DNS outage was bypassed by disabling certificate checks in an unrelated experiment; that workaround was removed.\n- One contributor suggested switching to Poetry, but the project has not accepted a package-manager change.\n- Keep the legacy CSV importer UTC requirement in the compatibility entrypoint; it remains accepted even though the importer implementation is outside this fixture.\n"
+    },
+    "authoring": {
+      "component-spacing/SKILL.md": "---\nname: component-spacing\ndescription: Adjust spacing within an existing component while preserving the accepted design system.\nuser-invocable: true\n---\n\n# Adjust spacing in context\n\nInspect the component with its actual content and the adjacent elements it must align with. Use the existing spacing roles and choose gaps that show which elements belong together. Preserve accepted type, color and interaction behavior.\n\nRender the affected component and its relevant narrow layout. Check long labels, content growth and keyboard focus before reporting the adjustment. If rendering is unavailable, describe the proposed change and leave visual verification explicit. A spacing request does not authorize a component-library migration.\n",
+      "job-failure-diagnosis/SKILL.md": "---\nname: job-failure-diagnosis\ndescription: Investigate recurring failures in background jobs using supplied code, configuration and execution records.\nuser-invocable: true\n---\n\n# Diagnose failed jobs\n\nConsider reliability, scalability, observability, infrastructure and user experience. Identify root causes and recommend best practices. Ensure that the solution is robust.\n\nOnly supplied artifacts and local analysis are authorized. No live job replay, data access, notification or deployment. Preserve uncertainty when the supplied evidence cannot establish the cause. Return the supported diagnosis and useful next check; do not claim a repair was executed.\n"
+    }
+  },
+  "criteria": {
+    "bounded-feature-exploration-handoff": [
+      "Traces the existing entrypoint, decision/effect ownership and relevant tests with verified code references.",
+      "Connects the chosen design to existing mechanisms, changed responsibilities, integration points and observable checks.",
+      "Orders a useful implementation increment without inventing existing files, mandatory documents, new infrastructure or repeated approval gates.",
+      "Keeps the help-text correction proportionate and preserves the design/plan-only boundary."
+    ],
+    "repository-instruction-maintenance": [
+      "Verifies commands and paths against actual definitions and distinguishes inspected from executed evidence.",
+      "Preserves useful constraints and compatibility content, scopes component rules and links canonical procedures without imposing a universal file layout or line limit.",
+      "Promotes only supported, durable, useful knowledge to the appropriate owner; avoids turning temporary incidents or personal preferences into project policy.",
+      "Corrects or removes stale and redundant guidance and reports the actual diff and verification limits without unauthorized source changes."
+    ],
+    "skill-authoring-purpose-fit": [
+      "Retains useful narrow guidance rather than expanding every skill into a common workflow or artifact template.",
+      "Makes the diagnostic method actionable through evidence, competing explanations and checks that distinguish them.",
+      "Distinguishes constraints from defaults and selects paragraphs, lists or comparisons according to meaning, without decorative examples or formatting quotas.",
+      "Preserves scope, authority, uncertainty and completion evidence while making the result understandable."
+    ]
+  },
+  "guidance_snapshot": {
+    "development": {
+      "tree_sha256": "a04a3e84771abe109b40087f95ecaaf3b66919f8fea875d4dd3c96e0abb76332",
+      "version": "0.3.1"
+    },
+    "documentation": {
+      "tree_sha256": "9834b9e8730dd8b49d069748c22be557c2096e135851ac04e2fcfc0ea7e400f4",
+      "version": "0.1.3"
+    }
+  },
+  "execution_details": {
+    "isolation": "Three separate subagents with fork_turns=none; each received only its raw fixtures, task, named built guidance and action scope. No native installation or automatic discovery was tested.",
+    "model": "Inherited model; provider model/version metadata not exposed by the collaboration tool.",
+    "scope": "Local fixtures only. No external services, accounts, installation or deployment. The evaluator retained criteria; actors were not given them.",
+    "read_evidence": "Actor-declared file-read lists are retained in their outputs; no complete independently captured tool trace or native-routing claim is available.",
+    "revision_limit": "These hashes identify the candidate bundles supplied to actors. Later source-only closing-handoff wording in develop was not part of those probes; final packaging checks are recorded separately.",
+    "artifact_copy": "Copied text outputs normalize trailing whitespace only. The before/after strings in instructions/actual-changes.json preserve the actual instruction-file bytes; the stale phrase in the actor report remains recorded."
+  }
+}

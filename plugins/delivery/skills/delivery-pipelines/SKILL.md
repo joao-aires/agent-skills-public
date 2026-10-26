@@ -31,7 +31,7 @@ Keep provider-required entrypoints in their required locations and component-spe
 
 ## Use readable names
 
-Name workflows, jobs and steps by their purpose, component and target. Preserve a consistent existing convention. Make dependency order, required gates, inputs/outputs and failure behavior visible without reading every implementation detail. Use available guidance for the selected development tools for the selected provider's syntax and reusable adapters.
+Name workflows, jobs and steps by their purpose, component and target. Preserve a consistent existing convention. Make dependency order, required gates, inputs/outputs and failure behavior visible without reading every implementation detail. Seek matching tool expertise for the selected provider's syntax and reusable adapters.
 
 ## Promote and recover deliberately
 
@@ -77,7 +77,7 @@ Use reliability expertise for journey and alert contracts and observability expe
 
 For branching, partial releases and gate decisions, read [branch to production](references/branch-to-production.md). For selected provider/container/registry implementation, use available guidance for the selected development tools and matching stack expertise.
 
-For performance workflows, define an accepted workload and isolate application/dependency execution on the runner or use an identified authorized non-production target. Use available implementation expertise matching the selected load-test tool only for a matching selected tool. Preserve thresholds, failure status, result artifacts and cleanup; bind credentials and concurrency to the actual environment.
+For performance workflows, define an accepted workload and isolate application/dependency execution on the runner or use an identified authorized non-production target. Seek implementation expertise for the project's selected load-test tool. Preserve thresholds, failure status, result artifacts and cleanup; bind credentials and concurrency to the actual environment.
 
 ## Deliver configuration and flag changes
 

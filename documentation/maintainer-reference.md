@@ -86,7 +86,19 @@ Link the owner instead of copying its rules. Optional guidance is selected from 
 
 When revising a skill, start from the decision it helps make and the evidence that marks completion. Keep the principle, its applicability and the required outcome together. State the desired behavior directly; reserve strict sequences for dependencies and operational invariants that require them. Use Matt's pinned `writing-for-agents` for instruction hierarchy and pruning.
 
-Use [structured instructions](../plugins/documentation/skills/documentation-writing/references/structured-instructions.md) for explanatory depth and presentation. Explain how to perform the work and why the consequential choices matter before compressing it into reminders. Keep domain mechanisms and reasoning intelligible to a contributor; a collection of short abstract instructions does not become useful merely by gaining headings or bullets. Choose paragraphs, lists, sequences, comparisons and examples according to meaning, with no common template, formatting quota or target length. Review applicability, conditions and completion evidence after rewriting.
+Use [structured instructions](../plugins/documentation/skills/documentation-writing/references/structured-instructions.md) to choose the form of guidance and its explanatory depth. A workflow needs useful transitions; craft guidance needs judgment and critique; technical reference needs precise mechanisms; maintenance needs criteria for retaining, changing and removing information. These are authoring choices, not new metadata or required sections. Explain consequential decisions without expanding a narrow, already usable skill into a playbook.
+
+Assess each authored skill against its actual job:
+
+| Question | Review for |
+| --- | --- |
+| Can someone select it for the right work? | A recognizable job, applicability and useful scope. |
+| Can they perform that work? | A method or decision principles with enough concrete explanation. |
+| Can they make a different choice when appropriate? | Constraints distinguished from defaults, heuristics and examples. |
+| Can they find the needed detail? | Meaningful structure, conditional references and clear ownership. |
+| Can they judge the result? | Observable outcomes or relevant quality criteria and honest evidence limits. |
+
+Choose paragraphs, lists, sequences, comparisons and examples according to meaning, with no common template, formatting quota or target length. A result can be a decision, an interaction or a verified change; it need not be another document. Retain guidance that already does its job. Review applicability, conditions and completion evidence after rewriting.
 
 Give each rule one owning location within a bundle. Keep material needed on every relevant path in the entry point; link conditional technical detail with a clear trigger. Independently installable bundles may need small overlapping defaults to remain useful on their own. Preserve resources and invocation controls when adapting upstream guidance.
 

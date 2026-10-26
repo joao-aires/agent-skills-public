@@ -39,7 +39,7 @@ Reuse authorized application services. Verify discovery, contracts, denied acces
 
 Coordinate Python SDK/instrumentation ownership to avoid duplicate spans and protect sensitive inputs at source.
 
-- Use the accepted export backend and compatible library versions; use available observability expertise for signal contracts and guidance for the selected development tools for selected Collector/backend setup.
+- Use the accepted export backend and compatible library versions. Seek observability expertise for signal meaning and matching tool expertise for Collector/backend setup.
 - Keep evaluation cases and scorers runnable without those services.
 
 | Selected implementation | Guidance |

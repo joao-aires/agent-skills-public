@@ -35,8 +35,8 @@ Discover runtime/JDK version, architecture/libc, container launch flags, applica
 4. Inspect CPU requests/limits versus JVM processor detection and framework pool sizing. A processor-count flag shapes ergonomics; it does not reserve/enforce CPU.
 5. Choose a small experiment: collector, heap strategy, pool/buffer bounds, workload concurrency, requests/limits, scheduling or scaling signal. Explain the workload-specific hypothesis and tradeoffs.
 6. Align application and infrastructure: heap/resources/scaling units; startup/readiness/liveness; preStop/application shutdown/pod grace; worker offsets/jobs; topology/PDB/rollout capacity; GitOps/autoscaler ownership.
-7. Test cold start, representative steady/peak load, long-running soak, dependency slowness, draining and scale behavior. Monitor user outcome and resource budget together.
-8. Promote progressively with source/artifact/config identities, rollback triggers and observation window. Preserve explicit production overrides while lower environments validate changes.
+7. Select tests for the affected lifecycle and performance claim: cold start, representative steady/peak load, long-running soak, dependency slowness, draining or scaling. Monitor user outcome and resource budget together; a bounded configuration assessment can leave execution explicitly outstanding.
+8. When promotion is authorized, promote progressively with source/artifact/config identities, rollback triggers and an observation window. Preserve explicit production overrides while lower environments validate changes.
 9. Document before/after measurements, regression checks and limits. Retain or revert experiments based on evidence.
 
 ## Guard against misleading optimization

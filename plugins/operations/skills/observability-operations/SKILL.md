@@ -44,7 +44,7 @@ Give telemetry consistent service, environment and application revision identity
 - Use version-matched GenAI conventions for model/tool spans and record relevant model/prompt version, latency, outcome and usage.
 - Review evolving semantic conventions and third-party instrumentation compatibility rather than assuming every framework emits the same fields.
 
-Keep application instrumentation separate from backend routing, credentials and storage. Use a bounded collection/processing boundary when needed, and verify units, aggregation, resource identity and supported signal types during translation. Standard transport does not make dashboards, queries, alerts, profiling or proprietary features portable. Use available guidance for the selected development tools for selected backend/Collector configuration and matching stack expertise for SDK initialization.
+Keep application instrumentation separate from backend routing, credentials and storage. Use a bounded collection/processing boundary when needed, and verify units, aggregation, resource identity and supported signal types during translation. Standard transport does not make dashboards, queries, alerts, profiling or proprietary features portable. Seek matching tool expertise for the selected backend/Collector configuration and runtime expertise for SDK initialization.
 
 For browser/mobile/desktop telemetry use suitable supported SDKs and a controlled ingestion boundary with appropriate rate limits, network/CORS configuration and source redaction.
 
