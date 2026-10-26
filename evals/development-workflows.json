@@ -895,6 +895,125 @@
       "capability_gates": [
         "Supplied images or renderable local target"
       ]
+    },
+    {
+      "id": "integrated-visual-craft-without-upstream-dependency",
+      "prompt": "Use design to propose a distinctive company product landing page for the supplied specialist developer tool. The accepted product brief and realistic content are included; no specific aesthetic is imposed. Only the local frontend-development bundle and a static render facility are installed, not the separately acquired Anthropic frontend-design skill. Design-only; no repository modifications. Produce a brief direction, a representative composition and a grounded critique.",
+      "evaluator_setup": "Provide a coherent product identity brief, genuine headline/body content, one long heading, supported accessibility constraints and static rendering. Include a separate comparator run using the pinned historical Anthropic frontend-design source if available. Evaluate against distinctiveness and usability by blinded human rubric; do not name expected aesthetics in the actor prompt.",
+      "criteria": [
+        "Design direction arises from product and audience rather than generic gradients, identical cards or ungrounded visual novelty.",
+        "Typography, composition, color and restrained motion choices are cohesive, accessible and evaluated against long/real content.",
+        "The actor uses the integrated creative reference where relevant without requiring a removed upstream skill or copying its wording.",
+        "Aesthetic critique identifies a concrete improvement and a justified exception rather than treating a style list as prohibitions.",
+        "Correctly stops at design with meaningful evidence and unverified limitations."
+      ],
+      "evidence": [
+        "Visual direction and rendered representative slice",
+        "Actual reference selection trace if client exposes it",
+        "Human aesthetic/legibility rubric and optional historical upstream comparator"
+      ],
+      "negative_controls": [
+        "A generic page with reordered cards is not distinctiveness.",
+        "A high novelty score is not sufficient if main actions, accessibility or product identity are lost.",
+        "Passing documentation checks does not establish creative quality."
+      ],
+      "capability_gates": [
+        "Renderable representative UI or supplied design images"
+      ]
+    },
+    {
+      "id": "compose-saas-archetype-and-frontend-constraints",
+      "prompt": "Design a bounded improvement to a multi-tenant SaaS operational dashboard with a selected React/shadcn stack. The project already has approved tokens, a compact shared shell and route patterns. The task needs tenant-aware incident queues, metric freshness and bulk triage with a clear selection scope. Use available dashboard/domain, general interface and platform expertise as appropriate. Design-only; no implementation or new component-library selection.",
+      "evaluator_setup": "Supply accepted PRD/tasks, multi-tenant resource model, confusing metric units/staleness, a selected existing React component system, responsive screens, and a bulk-selection permission/state contract. Provide domain, generic interface and React specialist availability. Keep alternative acceptable layout choices for grader, not prescriptive expected UI.",
+      "criteria": [
+        "Uses domain requirements—tenant/environment, freshness, metric meaning, selection/pagination and role authority—as design inputs before committing a layout.",
+        "Preserves the accepted identity, compatible component behavior and theme conventions without allowing shadcn starter samples to dictate the product structure.",
+        "Produces coherent hierarchy, IA, flows, success/error/empty states and representative route-level coverage.",
+        "Resolves competing domain, generic design and implementation advice against actual obligations and feasible alternatives.",
+        "Treats specialist contributions as contextual and compatible rather than requiring a rigid skill invocation chain."
+      ],
+      "evidence": [
+        "Decision-to-source trace for domain, UI and technical constraints",
+        "Representative screen/flow/state design and applicable verification plan",
+        "Available skill reads or precise missing inventory limitation"
+      ],
+      "negative_controls": [
+        "An attractive KPI card gallery without data meaning fails the task.",
+        "Framework guidance may not fabricate tenant privileges or override the design system.",
+        "Do not claim protected data access from hidden controls."
+      ],
+      "capability_gates": [
+        "Provided domain and component context"
+      ]
+    },
+    {
+      "id": "narrow-frontend-fix-reuses-accepted-ux",
+      "prompt": "Implement a narrow spacing fix to an existing React settings form with accepted visual identity and no changed interaction behavior. Use only necessary expertise and tests. Do not reorganize navigation, redesign typography, migrate Tailwind or schedule a research study.",
+      "evaluator_setup": "Provide a runnable React settings form with one concrete misaligned spacing token, existing component tokens, a visual baseline and targeted regression driver. Make generic, domain and technical skills installed to test over-selection.",
+      "criteria": [
+        "Keeps repair focused on the observed spacing issue and existing implementation constraints.",
+        "Does not activate an unrelated domain blueprint or comprehensive new art-direction process.",
+        "Preserves labels, keyboard behavior, layout at relevant widths and token semantics.",
+        "Verifies the actual affected render and reports checks honestly."
+      ],
+      "evidence": [
+        "Patch/diff and targeted rendered comparison",
+        "Skill selection evidence where supported",
+        "Relevant check results and no unrelated visual churn"
+      ],
+      "negative_controls": [
+        "A new theme or navigation layout is not a spacing fix.",
+        "Installing new UI dependencies without a demonstrated need is a failure."
+      ],
+      "capability_gates": [
+        "Runnable frontend/visual inspection"
+      ]
+    },
+    {
+      "id": "compose-extension-platform-and-interface-method",
+      "prompt": "Design how a browser extension lets users review a saved collection in a full tab and invoke quick capture from a popup. Reuse the accepted visual system and account for popup dismissal, tab context, recoverable drafts and permission denial. Select applicable extension-surface and general interface knowledge, not a SaaS-dashboard template. Design only.",
+      "evaluator_setup": "Supply accepted extension brief and Chrome MV3 surface lifecycle, current tokens and primary user journeys. Include material popup dismissal and lost-draft risks alongside a separate full-tab experience.",
+      "criteria": [
+        "Platform surface/lifecycle and permission constraints materially shape UX before wireframing.",
+        "General design decisions unify shared navigation/actions, visual identity, hierarchy and recovery without forcing identical layouts across popup/full tab.",
+        "Separates domain/surface contract authority from aesthetic judgment and implementation feasibility.",
+        "No unrelated SaaS/React-native specialist is mandatory; alternative installed capabilities do not cause a fixed dependency chain."
+      ],
+      "evidence": [
+        "Task-to-surface and state-transition map",
+        "Representative popup/full-tab design and quality checks",
+        "Relevance/selection evidence where available"
+      ],
+      "negative_controls": [
+        "A wide dashboard cropped into a popup is not a valid design.",
+        "Closing a popup cannot erase promised persistent work."
+      ],
+      "capability_gates": [
+        "Supported extension requirements and visual design target"
+      ]
+    },
+    {
+      "id": "new-archetype-reference-without-central-router",
+      "prompt": "A newly installed application specialist provides a knowledge-workspace blueprint with search/reading/editing patterns and realistic task states; the project is a pre-existing app with a different accepted component system. Design an improved document workspace using the available specialist, generic interface guidance and actual implementation constraints. Do not change any central skill router or register a new mandatory dependency.",
+      "evaluator_setup": "Expose an unknown-to-core catalogue archetype specialist whose description advertises document-workspace information structure, selection, long-form content and sources. Provide a concrete accepted stack/design, representative content and an installed inventory that does not assume a particular plugin name.",
+      "criteria": [
+        "Uses the new specialist's description and relevant references to influence IA, workflows and content without requiring modification of generic interface rules.",
+        "Retains the generic interface method's hierarchy, interactions, readability and evidence principles.",
+        "Preserves accepted stack and tokens, resolves material conflicts explicitly and works if the specialist is absent using supplied context.",
+        "Avoids inventing a central registry, hardcoded archetype catalogue or installation dependency."
+      ],
+      "evidence": [
+        "Observed specialist selection and influenced decisions, or precise fallback evidence",
+        "Representative proposed experience with realistic content",
+        "No infrastructure/registry modifications"
+      ],
+      "negative_controls": [
+        "The domain blueprint must not be pasted wholesale into generic interface-design.",
+        "A missing optional expert is not permission to fabricate research evidence."
+      ],
+      "capability_gates": [
+        "Supplied domain blueprint or observable installed capability inventory"
+      ]
     }
   ],
   "generation_trials": [
@@ -1279,7 +1398,8 @@
         "storybook-behavior-not-build",
         "global-ui-interaction-design",
         "task-and-configuration-navigation",
-        "interface-design-contextual-visual-refinement"
+        "interface-design-contextual-visual-refinement",
+        "narrow-frontend-fix-reuses-accepted-ux"
       ],
       "trial_ids": [
         "ui-review-to-authorized-repair",
@@ -1294,7 +1414,8 @@
         "design-to-implementation-handoff",
         "figma-capability-boundaries",
         "figma-authenticated-read-write-cleanup",
-        "ui-foundations-and-theme-handoff"
+        "ui-foundations-and-theme-handoff",
+        "integrated-visual-craft-without-upstream-dependency"
       ],
       "trial_ids": [
         "fresh-desktop-from-product-idea"
@@ -1385,7 +1506,9 @@
         "postgresql-workload-design",
         "typescript-package-contract",
         "go-lifecycle-contract",
-        "crosscut-absent-specialists"
+        "crosscut-absent-specialists",
+        "compose-saas-archetype-and-frontend-constraints",
+        "new-archetype-reference-without-central-router"
       ],
       "trial_ids": []
     },
@@ -1399,7 +1522,8 @@
         "extension-standalone",
         "extension-store-preparation",
         "extension-collection-ui-and-existing-system",
-        "extension-task-pattern-selection"
+        "extension-task-pattern-selection",
+        "compose-extension-platform-and-interface-method"
       ],
       "trial_ids": [],
       "evidence": [
