@@ -33,7 +33,9 @@ Link the request/task, retrieval, model, tool and relevant delegated-work spans 
 
 Use the compatible [GenAI semantic conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/) supported by the chosen instrumentation. Check their version/stability and opt-in behavior instead of copying assumed attribute names. Keep application-specific outcome fields clearly owned and documented; do not emit vendor-specific fields into unrelated backend spans. Use bounded metric dimensions; per-user/session/request identifiers belong only in permitted trace context, not unbounded metric labels.
 
-Preserve context through async tasks and background jobs using supported propagation and explicit lifecycle boundaries. Correlate retries, cancellation and resumed work without inventing parent spans or exposing internal reasoning. Track externally visible work only where the peer supplies supported correlation; missing remote context is a gap, not a complete trajectory.
+Preserve context through async tasks and background jobs using supported propagation. Define when each operation begins and ends, including work that outlives its initiating request.
+
+Correlate retries, cancellation and resumed work without inventing parent spans or exposing internal reasoning. For remote peers, retain only the relationships their supported correlation can establish; missing context remains a visibility gap.
 
 ## Protect content and configure export
 

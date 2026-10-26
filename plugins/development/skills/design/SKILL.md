@@ -48,7 +48,13 @@ Follow the operation through repeated requests, partial failure and concurrent c
 
 Compare consequential alternatives against constraints and tradeoffs; retain existing decisions where suitable. Ask about unresolved high-impact choices, record reversible assumptions and continue when the direction is sufficiently established.
 
-Connect the selected design to the application that will implement it. Use the affected behavior trace to identify existing components and conventions to reuse, responsibilities that change, and integration points that must agree. Explain the intended flow from the caller through decisions and effects to the observed result. Name relevant code locations when known; keep proposed additions distinct from existing files and leave routine implementation details open.
+Connect the selected design to the application that will implement it. Use the affected behavior trace to identify:
+
+- existing components and conventions to reuse;
+- responsibilities that change;
+- integration points that must agree.
+
+Explain the intended flow from the caller through decisions and effects to the observed result. Name relevant code locations when known, keep proposed additions distinct from existing files, and leave routine implementation details open.
 
 Carry the behavior, consequential choices and evidence needed to verify them into planning. The handoff should let someone explain where to start and which assumption could change the approach. A small local change may need only a short explanation beside its acceptance criteria; a cross-component change benefits from an implementation map or sequence when that clarifies dependencies.
 

@@ -29,7 +29,12 @@ Identify dependencies and the selected treatment of subservice organizations and
 
 For each relevant criterion or service commitment, identify the process that is intended to satisfy it. Explain the action, responsible owner, trigger or frequency, and the population of events to which it applies. Then identify the source that can show whether those events were handled as intended.
 
-Evaluate the process and its evidence together. An automated job needs evidence of its relevant runs and how failures were handled; a performed review needs evidence of what was reviewed and how exceptions were resolved. These are evidence questions to settle with the responsible assurance owner, not a requirement to adopt a particular document or platform. Preserve the actual examination scope and period.
+Evaluate the process and its evidence together:
+
+- For an automated job, inspect evidence of relevant runs and how failures were handled.
+- For a performed review, inspect what was reviewed and how exceptions were resolved.
+
+Settle these evidence questions with the responsible assurance owner within the actual examination scope and period. They do not require a particular document or platform.
 
 - Include applicable access lifecycle, changes, monitoring/incident handling, recovery, vendor and risk processes rather than equating readiness with application security.
 - Reuse proportionate existing processes; a particular compliance platform, policy count or organizational template is unnecessary.

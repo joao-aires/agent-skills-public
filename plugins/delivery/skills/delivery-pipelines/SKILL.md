@@ -15,15 +15,15 @@ user-invocable: false
 
 ## Separate verification, artifacts and deployment
 
-Read the application commands, environment model and accepted deployment decisions. Distinguish the stage responsibilities:
+Read the application commands, environment model and accepted deployment decisions. Connect stage responsibilities through explicit inputs and outputs:
 
-| Stage | Responsibility |
+| Stage | Responsibility and result |
 | --- | --- |
-| CI | Verify a change. |
-| Release | Produce a versioned artifact. |
-| Deployment | Promote that artifact to an environment. |
+| CI / verification | Verify the change; establish evidence about a source revision and its relevant configuration. |
+| Release | Produce a versioned artifact whose identity can be traced to that evidence. |
+| Deployment | Promote that artifact with its target configuration, perform the change, and verify the served outcome. |
 
-Connect the stages through explicit inputs and outputs. Verification establishes evidence about a source revision and its relevant configuration. Release creates an artifact with an identity that can be traced to that evidence. Deployment selects the artifact and target configuration, performs the change, and verifies the served outcome. This separation makes it possible to diagnose a failed stage and resume without rebuilding or republishing an unrelated result.
+Keeping those identities connected makes it possible to diagnose a failed stage and resume without rebuilding or republishing an unrelated result.
 
 Combine stages for a small application when clearer. Share repeated mechanics through the selected provider's reusable interfaces with explicit inputs, permissions and outputs; avoid a generic pipeline framework.
 

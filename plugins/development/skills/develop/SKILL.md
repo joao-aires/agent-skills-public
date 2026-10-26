@@ -35,7 +35,9 @@ A named stack or starter kit does not supply missing decisions. Defined existing
 
 Treat the rough idea as an outcome to shape, not an instruction to build every imagined feature. Inspect the repository and supplied references first.
 
-For existing behavior, use [system mapping](../system-mapping/SKILL.md#trace-a-feature-before-changing-it) to follow the relevant path and a comparable implementation. Establish how users enter the feature, where decisions and state changes happen, and which tests observe the result. Use that evidence to answer technical questions and expose material unknowns before designing the extension. Keep the trace narrow enough for the slice; a new application needs its constraints and intended journey rather than an invented existing architecture.
+For existing behavior, use [system mapping](../system-mapping/SKILL.md#trace-a-feature-before-changing-it) to follow the relevant path and a comparable implementation. Establish how users enter the feature, where decisions and state changes happen, and which tests observe the result.
+
+Use that evidence to answer technical questions and expose material unknowns before designing the extension. Keep the trace narrow enough for the slice; a new application needs its constraints and intended journey rather than an invented existing architecture.
 
 - For a new product select a useful coherent first slice; for existing work preserve architecture, identity, UI and operations constraints.
 - When users, product value or priorities are uncertain, use installed product discovery and prioritization expertise to establish the product decision before dependent requirements/design.

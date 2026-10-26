@@ -50,7 +50,9 @@ Document backend addresses for host, simulator/emulator and physical devices, de
 
 ## Establish and prove platform delivery
 
-Keep root and client READMEs, scoped instructions, locked dependencies, frontend/Rust/native configuration checks, tests and platform build commands. Use delivery expertise when available for artifact/release/recovery contracts and matching tooling for provider configuration. Preserve an accepted backend build/runtime mechanism. Native clients are packaged for their platforms, not as Docker runtime images. Document signing/notarization, provisioning, update compatibility and store submission prerequisites; configuring a pipeline does not authorize signing-service changes or publication.
+Keep the repository and each client reproducible: root/client READMEs, scoped instructions, locked dependencies, frontend/Rust/native configuration checks, tests and platform build commands. Preserve an accepted backend build/runtime mechanism; native clients are packaged for their platforms, not as Docker runtime images.
+
+Use delivery expertise when available for artifact/release/recovery contracts and matching tooling for provider configuration. Document signing/notarization, provisioning, update compatibility and store submission prerequisites. Configuring a pipeline does not authorize signing-service changes or publication.
 
 Verify frontend components/contracts and backend integration, using [platform testing](references/platform-testing.md) for driver compatibility, then launch the actual Tauri binary or each target's development build on a supported simulator/device.
 

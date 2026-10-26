@@ -54,7 +54,9 @@ For browser/mobile/desktop telemetry use suitable supported SDKs and a controlle
 
 ## Connect local telemetry to evaluation
 
-Use the project's selected local service mechanism with explicit connectivity, readiness and resource/retention bounds. Add only the backend the requested diagnostic capability needs. Expose supported read/query APIs or CLI for agents as well as dashboards for people; an MCP is optional and its availability must be verified. Keep query access scoped and correlate scenario/run, revision and environment with the relevant trace and logs. Capture sanitized diagnostic artifacts for failed checks; do not claim ingestion from a container being healthy.
+Use the project's selected local service mechanism with explicit connectivity, readiness and resource/retention bounds. Add only the backend the requested diagnostic capability needs.
+
+Expose supported read/query APIs or CLI for agents as well as dashboards for people; an MCP is optional and its availability must be verified. Keep query access scoped and correlate scenario/run, revision and environment with the relevant trace and logs. Capture sanitized diagnostic artifacts for failed checks; do not claim ingestion from a container being healthy.
 
 1. Exercise a representative successful journey and controlled error through actual services. Check span relationships across request/worker/tool boundaries, durations/units/outcomes, log correlation and sensitive-data exclusion.
 2. Assert generated telemetry at an inspectable export/test boundary.
@@ -62,7 +64,9 @@ Use the project's selected local service mechanism with explicit connectivity, r
 
 These boundaries distinguish instrumentation defects from routing/backend failures. Document unverified destinations; for a backend switch, test ingestion and affected translations/queries explicitly.
 
-AI execution telemetry explains latency, failures, tool use and usage; it does not prove answer quality. Keep evaluation cases, expected outcomes and deterministic scoring/version identity portable in the application. Add an external dataset/experiment service only for a useful accepted workflow, through an adapter without a service dependency in domain logic. Avoid duplicate instrumentation/exports and identify which pipeline owns each signal. Use matching technical guidance for backend/version-specific setup; missing tooling leaves that destination unverified, not a reason to select a vendor.
+AI execution telemetry explains latency, failures, tool use and usage; it does not prove answer quality. Keep evaluation cases, expected outcomes and deterministic scoring/version identity portable in the application. Add an external dataset/experiment service only for a useful accepted workflow, through an adapter without a service dependency in domain logic.
+
+Avoid duplicate instrumentation/exports and identify which pipeline owns each signal. Use matching technical guidance for backend/version-specific setup. Missing tooling leaves that destination unverified, rather than selecting a vendor by implication.
 
 ## Implement signals
 

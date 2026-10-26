@@ -4,6 +4,8 @@ These are three bounded independent guidance probes, not application-generation 
 
 [Inputs and criteria](inputs-and-criteria.json) retain the raw fixture files, requests, source base and candidate bundle fingerprints. Source and built-resource checks identify the candidate; actor-declared read lists do not establish native client routing or automatic skill discovery. Model/version metadata was not exposed. There was no coordinator repair or second generation.
 
+The probes below used the initial candidate recorded in their fingerprints and predate the later editorial revisions. See the [83-skill editorial review](editorial-review.md) and [separate product/AI follow-up probes](editorial-probes/assessment.md) for that work. The initial results are not transferred to subsequently revised skill bodies.
+
 ## Results
 
 | Case | Criterion results | Evidence and limitation |

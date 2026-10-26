@@ -1,0 +1,42 @@
+{
+  "sourceBase": "305db47a1faf9a14b8e7587f6de3781a0f97afee",
+  "candidateState": "Uncommitted editorial changes in PR 37; skill fingerprints identify the exact supplied content.",
+  "execution": "Independent fresh-context agents; source-guided tasks, not native client discovery or built-bundle installation.",
+  "modelMetadata": "Not exposed by the collaboration tool.",
+  "cases": {
+    "product": {
+      "criteria": [
+        "Distinguishes people, repeated requests and event counts without inferring unsupported adoption or conversion.",
+        "Develops evidence-linked findings with contradictory or unobserved cases and hypotheses retained.",
+        "Compares plausible responses and recommends a bounded slice under accepted constraints.",
+        "Defines an observable follow-up and preserves analysis-only authority."
+      ],
+      "skills": [
+        "plugins/strategy/skills/product-management/SKILL.md",
+        "plugins/strategy/skills/learn-from-product-feedback/SKILL.md"
+      ],
+      "input": "We run a small internal handover tool. Recommend the next useful product slice using the supplied evidence. This is analysis only. Use the product-management and learn-from-product-feedback skills at the absolute paths supplied with this request. Return your analysis and recommendation in result.md beside this input. Do not contact anyone, add tracking, create tickets or change application code.\n\nAccepted context: twelve shift leads use the tool to hand work over. The outcome is that the next shift can identify unfinished work without reconstructing it from chat. The team has capacity for one small change this week.\n\nRaw records, last four weeks:\n- A, experienced lead: three support messages requesting CSV export. Says they paste a spreadsheet into chat because the handover link is hard to find after leaving the page.\n- B, new lead: could create a handover in a supplied observation but could not find it on the next shift without assistance. Requested search.\n- C, experienced lead: reports no difficulty reopening handovers and says a tutorial would be annoying. Uses a saved browser link.\n- D, new lead: requested notifications; says they do not know whether the previous shift saved the latest edits. No observed session exists.\n- Event export: 48 created events from eight accounts; 31 reopened events from five accounts. The event definition counts every reopen, including repeats. Two accounts had tracking disabled. No per-handover matching or completion timestamps are available.\n- No evidence on the other four leads. No measured impact of export, search or notifications.\n",
+      "skillSha256": {
+        "plugins/strategy/skills/product-management/SKILL.md": "37b3f06a5cafd107c16fe686413aa7a711915be2d3625f3863ba2fb4cdf1a4a6",
+        "plugins/strategy/skills/learn-from-product-feedback/SKILL.md": "5497d25f1b4224f5605afe5685cde5d4807d6e9985e24b5dc673727dee2f3314"
+      }
+    },
+    "ai": {
+      "criteria": [
+        "Explains orchestration choice using actual authority and workflow requirements.",
+        "Separates representation, domain validity, authority and usefulness with relevant checks.",
+        "Defines comparable evaluation inputs and handles incomplete references without fabricated quality claims.",
+        "Keeps design scope and treats unagreed latency/cost targets as open."
+      ],
+      "skills": [
+        "plugins/ai-development/skills/ai-development/SKILL.md",
+        "plugins/ai-development/skills/ai-testing/SKILL.md"
+      ],
+      "input": "Design an AI-assisted support-reply feature for an existing SaaS application. Use the ai-development and ai-testing skills at the absolute paths supplied with this request. Return design.md beside this input. Design only: do not implement, provision a provider, contact users or send real tickets to a model.\n\nAccepted requirements: staff request a draft for one ticket, edit it, then send through the existing authorized application action. The application already retrieves the permitted ticket and relevant help articles. The model must not retrieve arbitrary customer records or send messages. Provider choice is open. The first release needs useful drafts for two supported languages. Forty sanitized historical tickets exist; approved replies cover only twenty. Latency and cost targets have not been agreed. The team asks whether it needs an agent framework, what to validate, and how to compare two model candidates.\n",
+      "skillSha256": {
+        "plugins/ai-development/skills/ai-development/SKILL.md": "7bdb1bfd1a667b6661515c2c9af508c48ded650fead249536276394f1b3d5fa8",
+        "plugins/ai-development/skills/ai-testing/SKILL.md": "792ba6d9b49e0f4b42a3db3795651bbace947ea685eecb3b09b90df0280c5599"
+      }
+    }
+  }
+}

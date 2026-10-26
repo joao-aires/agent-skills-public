@@ -35,7 +35,13 @@ Put uncertain or constraining work early enough that it can change the remaining
 | Acceptance and regression risk | Focused tests and their evidence |
 | Delivery and failure | Release and recovery consequences |
 
-Ground the steps in the design and repository evidence. Identify the affected component or code location, the existing mechanism to reuse and the integration check that joins the increment to its consumer. Use verified paths where they help someone begin the work; describe a proposed component as proposed rather than inventing files or function names. Keep detail proportional to uncertainty, so implementation can discover ordinary local choices without invalidating the plan.
+Make each step specific enough for another contributor to begin it:
+
+- Identify the affected component or verified code location.
+- Name the existing mechanism to reuse and the responsibility being added or changed.
+- Identify the integration check that connects the increment to its consumer.
+
+Label new components as proposals; do not invent existing files or function names. Leave ordinary local choices to implementation so the plan can accommodate new evidence without losing its intended outcome.
 
 ## Return an executable plan
 

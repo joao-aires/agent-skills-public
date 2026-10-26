@@ -31,7 +31,14 @@ Consult [references/mapping-guide.md](references/mapping-guide.md) for deeper im
 
 For bounded feature work, begin with a comparable behavior or the entry point being changed. Follow its actual calls and transformations through permission checks, domain logic, stored changes and the result seen by its consumer. Locate the tests and configuration that exercise that path. Expand the investigation when a dependency or conflicting source changes your understanding; a folder tour alone does not establish how the feature works.
 
-Keep a compact trace with navigable code references: where the behavior starts, which components own its decisions and effects, what existing pattern can be reused, and what remains uncertain. Distinguish the current behavior from a proposed extension. Pass that trace into design so the proposal can name integration points and explain departures from existing patterns. Read the critical source yourself when relying on another actor's exploration; a summary is a guide to evidence, not a replacement for it.
+Keep a compact trace with navigable code references:
+
+- where the behavior starts;
+- which components own its decisions and effects;
+- what existing pattern can be reused;
+- what remains uncertain.
+
+Distinguish the current behavior from a proposed extension. Pass the trace into design so the proposal can name integration points and explain departures from existing patterns. Read the critical source yourself when relying on another actor's exploration; a summary is a guide to evidence, not a replacement for it.
 
 ## Discovery
 

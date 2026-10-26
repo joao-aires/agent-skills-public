@@ -33,7 +33,13 @@ Read [permission and message boundaries](references/permissions-and-messages.md)
 
 Page DOM, page events, content-script inputs and external messages can be attacker-controlled. The isolated JavaScript world and Shadow DOM do not make the shared page content trustworthy. A same-extension sender ID alone does not establish which operation a content script may request.
 
-Define allowed sender contexts and validate message shape, resource identifiers and requested effects at the privileged handler. Resolve privileged endpoints and operations from trusted application configuration. Do not turn the worker into a generic arbitrary-URL fetcher, script executor or backend credential proxy. Bind a page-sensitive operation to the relevant tab/frame/document and current grant; account for navigation between request and completion.
+At the privileged handler:
+
+- Define allowed sender contexts and validate message shape, resource identifiers and requested effects.
+- Resolve privileged endpoints and operations from trusted application configuration.
+- Bind a page-sensitive operation to the relevant tab/frame/document and current grant, accounting for navigation between request and completion.
+
+Do not turn the worker into a generic arbitrary-URL fetcher, script executor or backend credential proxy.
 
 For external messaging, explicitly constrain the intended peers and inspect sender information with the current API contract. Unknown operations and invalid payloads should fail without performing an effect or returning sensitive details. Bound request size, work and retries to the actual operation. Type declarations and grep scans are aids, not evidence that these boundaries hold.
 

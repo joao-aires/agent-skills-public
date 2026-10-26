@@ -16,7 +16,9 @@ user-invocable: false
 
 ## Establish the direction
 
-Read the request, `AGENTS.md`, existing components and accepted design decisions. Establish the component system and light/dark/system appearance policy with visual and interaction design expertise before dependent implementation. Preserve the user's choice of plain Tailwind, Tailwind with shadcn/ui, HeroUI or another compatible system; installed guidance is not a reason to switch libraries. The shadcn-specific conventions below apply when that system is selected. For another library, retain the design/verification outcomes and use its version-matched primary contracts and available implementation expertise.
+Read the request, `AGENTS.md`, existing components and accepted design decisions. Establish the component system and light/dark/system appearance policy with visual and interaction design expertise before dependent implementation.
+
+Preserve the user's choice of plain Tailwind, Tailwind with shadcn/ui, HeroUI or another compatible system. Installed guidance is not a reason to switch libraries. The shadcn-specific conventions below apply when that system is selected; for another library, retain the design/verification outcomes and use its version-matched primary contracts and available implementation expertise.
 
 | Context | Applicable starting guidance |
 | --- | --- |
@@ -42,7 +44,13 @@ For cross-cutting work, inventory affected surfaces, establish a representative 
 
 Translate the accepted direction into semantic roles before assigning utilities across pages. Establish which tokens represent the page, raised surfaces, primary and secondary text, emphasis, interactive controls and status. Map those roles through the selected system’s supported token/theme mechanism. With Tailwind, use compatible CSS variables and theme pairs; another system does not need Tailwind scaffolding. Retain the selected component system as the implementation foundation.
 
-Build shared component variants for repeated differences that have a meaning in the product. Keep one-off layout choices close to their caller, and move a repeated pattern into a shared composition when its behavior and appearance need a common owner. Reuse the selected system’s reviewed primitives/blocks and the project's class-merging convention so local overrides do not quietly create a competing visual system. Preserve deliberate density and platform variants.
+Give each kind of variation an appropriate owner:
+
+- Use shared component variants for repeated differences that have a meaning in the product.
+- Keep one-off layout choices close to their caller.
+- Move a repeated pattern into a shared composition when its behavior and appearance need a common owner.
+
+Reuse the selected system's reviewed primitives/blocks and the project's class-merging convention so local overrides do not quietly create a competing visual system. Preserve deliberate density and platform variants.
 
 Compose the product's layouts from those primitives. Implement the accepted light/dark/system policy across first paint, saved preferences, live changes and all affected surfaces, including portals. Use version-matched guidance for unfamiliar compatible APIs; establish typography, composition and product character through visual design reasoning. A component library supplies implementation primitives, not the product direction.
 
@@ -105,7 +113,9 @@ For new compatible React projects, use TypeScript and ESLint with the project fo
 - Test the critical journey against real persistence using the project's E2E workflow; a screenshot alone is insufficient.
 - Keep changed contracts and accepted design decisions synchronized, and report checks actually performed.
 
-These defaults cover routine work without reference browsing. Use bundled shadcn, Vercel React/composition and Tailwind design-system skills for unfamiliar components or deeper implementation questions. The bundled Tailwind guide targets **v4** and applies when that styling system is selected. Apply a requested v3-to-v4 upgrade as a focused migration: check browser compatibility, dependencies, configuration and rendered behavior; do not migrate an unrelated existing application silently. Consult [sources and exceptions](references/sources-and-exceptions.md) for version migrations or decisions these defaults do not resolve.
+These defaults cover routine work without reference browsing. For unfamiliar components or deeper implementation questions, use bundled shadcn, Vercel React/composition and Tailwind design-system skills where applicable to the selected system.
+
+The bundled Tailwind guide targets **v4**. Treat a requested v3-to-v4 upgrade as a focused migration: check browser compatibility, dependencies, configuration and rendered behavior. Do not migrate an unrelated existing application silently. Consult [sources and exceptions](references/sources-and-exceptions.md) for version migrations or decisions these defaults do not resolve.
 
 For API changes, verify actual client behavior against supported provider contracts, including errors, optional fields and pagination. Generated types do not prove semantic compatibility. Keep old open browser sessions in the supported-consumer set during rollout and route planned breaks through backend/delivery guidance.
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "ai-development",
-  "version": "0.14.0",
+  "version": "0.14.1",
   "description": "Provider-independent AI application design, testing/evaluation and operations; models, context, tools, harnesses and protocols.",
   "author": {
     "name": "João Aires"

@@ -14,7 +14,9 @@ user-invocable: true
 
 # Design dashboards for decisions and work
 
-Identify the audience, their recurring tasks, the decisions this surface should support and the cost of acting on the wrong context. Separate customer workspaces, customer administration and internal operator tools. Reuse sufficient product evidence and accepted visual direction; a dashboard request does not automatically reopen branding or select a UI library. Read [dashboard decisions](references/dashboard-decisions.md) for data/interaction tradeoffs and the [source review](../../references/sources.md) for inspected open-source examples.
+Identify the audience, their recurring tasks, the decisions this surface should support and the cost of acting on the wrong context. Separate customer workspaces, customer administration and internal operator tools.
+
+Reuse sufficient product evidence and accepted visual direction. A dashboard request does not automatically reopen branding or select a UI library. Read [dashboard decisions](references/dashboard-decisions.md) for data/interaction tradeoffs and the [source review](../../references/sources.md) for inspected open-source examples.
 
 ## Establish context and hierarchy
 

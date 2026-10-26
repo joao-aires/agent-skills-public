@@ -37,4 +37,10 @@ For each finding, provide:
 - User or system impact.
 - An actionable fix.
 
-Support a defect with a concrete path through the changed code and the condition that makes it fail. Explain why the result violates an accepted requirement or existing behavior. When the concern depends on an assumption you could not verify, state that assumption and the evidence needed to resolve it. Distinguish missing evidence from a proven defect. Leave source unchanged by default, apart from owned test/runtime artifacts. Posting comments, applying fixes, approving or merging requires the request or trusted job policy. A changed head invalidates earlier review/test conclusions.
+Support a defect with the path through the changed code, the condition that makes it fail and the accepted behavior it violates. If the conclusion depends on an unverified assumption, state that assumption and the evidence needed to resolve it. Missing evidence and a proven defect are different findings.
+
+### Preserve review scope and revision
+
+- Leave source unchanged by default, apart from owned test/runtime artifacts.
+- Post comments, apply fixes, approve or merge only under the request or trusted job policy.
+- Reassess affected conclusions after a head change; earlier review and test evidence does not establish the new revision's behavior.

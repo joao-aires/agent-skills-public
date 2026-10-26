@@ -47,11 +47,25 @@ Choose a surface that supports the task comfortably, rather than minimizing its 
 
 ## Implement the accepted system in context
 
-Carry forward the accepted component system and appearance policy before choosing extension-specific layouts. Apply compatible project components and semantic tokens. A React extension can use its existing shadcn/Tailwind setup without acquiring Next.js server rendering. Preserve the installed Tailwind major and component primitives; use their version-matched setup if genuinely missing. Bundle approved fonts/icons locally where needed for CSP, offline use and performance; choose them for the reading task rather than banning custom fonts universally.
+Carry forward the accepted component system and appearance policy before choosing extension-specific layouts. Apply compatible project components and semantic tokens:
+
+- Preserve the installed Tailwind major and component primitives. Use their version-matched setup if genuinely missing.
+- A React extension can use its existing shadcn/Tailwind setup without acquiring Next.js server rendering.
+- Bundle approved fonts/icons locally where needed for CSP, offline use and performance. Choose them for the reading task rather than banning custom fonts universally.
 
 Adapt the application's shared page composition to each browser surface. Keep identity, navigation and recurring actions recognizable across views with the same role; a popup, side panel and full tab may need different arrangements because of their space and lifecycle. Compare the actual affected surfaces and transitions, including browser-owned boundaries and scrolling behavior, before claiming consistency. Use project evidence and the general visual/interaction principles above when specialist guidance is unavailable.
 
-Decide theme behavior from product requirements and the established system. If following browser/system appearance or offering an override, verify both initial rendering and persisted preference across surfaces. Treat first paint, persisted overrides, live system changes and synchronization among open surfaces as one theme contract. Include overlays/portals, native form controls, focus and errors; inspect contrast while the theme changes as well as after it settles. Avoid a theme flash or duplicate competing token systems. Use density that makes the real task readable with long labels, zoom and localization, not a fixed compact recipe for every extension.
+### Appearance and density
+
+Decide theme behavior from product requirements and the established system. If following browser/system appearance or offering an override, check the theme contract across surfaces:
+
+- initial rendering without a theme flash;
+- persisted manual overrides;
+- live system changes according to the accepted policy;
+- synchronization among open surfaces;
+- overlays/portals, native form controls, focus, errors and contrast during and after a change.
+
+Avoid duplicate competing token systems. Choose density that makes the real task readable with long labels, zoom and localization, rather than applying one compact recipe to every extension.
 
 Use [injected UI and shared components](references/content-ui.md) when mounting into a site, moving components into a ShadowRoot or adapting overlays/portals. Style isolation, font/token inheritance and focus/event behavior need separate checks. Neither JavaScript isolated worlds nor Shadow DOM alone proves that an injected experience is safe or usable.
 
@@ -67,7 +81,14 @@ Derive navigation from the selected task structure: capture and confirmation, li
 
 Explain the action and site scope before requesting access, request it at the relevant interaction and retain useful behavior when access is declined. Distinguish unsupported/restricted pages, absent grants, expired account access, empty results and a disconnected content script. Do not collapse these into an indefinite spinner or silently retry with broader permissions.
 
-Keep accepted work and recoverable input outside a disposable popup. On reopen, reconstruct status from an appropriate source of truth rather than pretending the operation completed because the UI closed. For context-sensitive actions, retain and show the relevant source window/page/site and account context. A surface gaining focus or moving to another window must not silently retarget an accepted action. Prevent stale results from being applied after navigation, changed selection or configuration; make synchronization or invalidation explicit when multiple views can edit the same operation.
+Keep accepted work and recoverable input outside a disposable popup. On reopen, reconstruct status from an appropriate source of truth rather than pretending the operation completed because the UI closed.
+
+For context-sensitive actions:
+
+- retain and show the relevant source window/page/site and account context;
+- prevent focus changes or movement to another window from silently retargeting an accepted action;
+- prevent stale results from being applied after navigation, changed selection or configuration;
+- make synchronization or invalidation explicit when multiple views can edit the same operation.
 
 ## Inspect real surfaces and assets
 

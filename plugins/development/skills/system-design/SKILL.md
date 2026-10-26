@@ -23,7 +23,14 @@ Read the product context and repository evidence. Use [system-mapping](../system
 
 Start with the journey the system must support and follow the information needed to complete it. Identify who supplies that information, which component owns the durable record, which consumers use it, and which external systems can affect completion. This reveals where trust, consistency and failure need explicit treatment.
 
-Translate quality goals into conditions that influence the design. Identify what must remain available when a dependency fails, which data may be lost, how quickly the user needs a response, and whether work continues after the client disconnects. Include supported clients, offline behavior, synchronization, expected concurrency, budget, deployment environment and the team's operating capabilities where relevant. Distinguish accepted requirements from provisional estimates; unmeasured demand and unknown platform support remain open inputs.
+Translate quality goals into conditions that influence the design:
+
+- What must remain available when a dependency fails?
+- Which data may be lost?
+- How quickly does the user need a response?
+- Does work continue after the client disconnects?
+
+Include supported clients, offline behavior, synchronization, expected concurrency, budget, deployment environment and the team's operating capabilities where relevant. Distinguish accepted requirements from provisional estimates; unmeasured demand and unknown platform support remain open inputs.
 
 ### Compare plausible options
 
@@ -43,9 +50,15 @@ Cover the affected design:
 
 Use relevant backend, frontend/native-client, AI and operations guidance when installed. Diagrams or a flow explorer can clarify a decision; a drawing alone is not a design.
 
-When work depends on mutable external state, establish what can change between observation and effect and which changes invalidate the proposed operation. Compare revalidation/version checks, transactions, serialization or reconciliation according to the platform and required consistency. Bind resources through identities appropriate to the operation; a mutable label or position may not identify the originally authorized target. Human edits take precedence where the accepted product promises that behavior, rather than through a universal rule that every manual change wins.
+### Account for changes between observation and effect
+
+When work depends on mutable external state, establish what can change and which changes invalidate the proposed operation. Compare revalidation/version checks, transactions, serialization or reconciliation according to the platform and required consistency.
+
+Bind resources through identities appropriate to the operation; a mutable label or position may not identify the originally authorized target. Human edits take precedence where the accepted product promises that behavior, rather than through a universal rule that every manual change wins.
 
 Choose recovery from the effects the system can actually observe and reverse. A transaction, resumable operation, compensation, reconciliation or visible partial result can each fit different boundaries. A generated proposal is not evidence that an effect occurred, and a lost response is not evidence that it did not. Define where completion becomes authoritative and what later work may safely assume. Keep the state representation and recovery mechanism proportionate to that responsibility.
+
+### Include application-specific boundaries
 
 | When the application includes | Make these boundaries explicit |
 | --- | --- |
