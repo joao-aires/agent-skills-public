@@ -37,8 +37,8 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `project-bootstrap`, `maintain-project-foundations` | `project-conventions` |
 | `build-consistent-frontend` | `frontend-conventions` |
 | `build-python-backend` | `backend-conventions` |
-| `design-interactions` | `interaction-design` |
-| `interface-craft` | `interface-quality` |
+| `design-interactions`, `interaction-design` | `interface-design` |
+| `interface-craft`, `interface-quality`, `visual-design` | `interface-design` |
 | `write-scannable-documentation`, `write-project-documentation` | `documentation-writing` |
 | `document-software-architecture` | `architecture-documentation` |
 | `test-end-to-end` | `journey-testing` |

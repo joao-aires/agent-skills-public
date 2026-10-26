@@ -92,7 +92,7 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 Use design to unify navigation, nested menus and edit dialogs across this application. Specify the interactions and show wireframes where useful. Do not implement yet.
 ```
 
-Then ask `improve` or `develop` to implement the agreed direction. Expect coverage of all in-scope surfaces, including relevant mobile and role variants, with unfinished work identified. [Interaction design](../plugins/frontend-development/skills/interaction-design/SKILL.md) owns the detailed method. Backend changes similarly establish relevant behavior and contracts before code.
+Then ask `improve` or `develop` to implement the agreed direction. Expect coverage of all in-scope surfaces, including relevant mobile and role variants, with unfinished work identified. [Interaction design](../plugins/frontend-development/skills/interface-design/SKILL.md) owns the detailed method. Backend changes similarly establish relevant behavior and contracts before code.
 
 ### Evaluate during implementation
 
@@ -154,11 +154,11 @@ Storybook is an optional component workbench within verification. Run meaningful
 
 ## UI/UX expertise for people and agents
 
-The frontend-development bundle provides [interface-quality](../plugins/frontend-development/skills/interface-quality/SKILL.md), [ux-writing](../plugins/frontend-development/skills/ux-writing/SKILL.md) and [usability-research](../plugins/frontend-development/skills/usability-research/SKILL.md) as directly selectable, model-available supporting skills. Client picker/discovery behavior still needs verification. The same guidance supports design, develop, improve and review when relevant; no separate user and agent copies are maintained.
+The frontend-development bundle provides [interface-design](../plugins/frontend-development/skills/interface-design/SKILL.md), [ux-writing](../plugins/frontend-development/skills/ux-writing/SKILL.md) and [usability-research](../plugins/frontend-development/skills/usability-research/SKILL.md) as directly selectable, model-available supporting skills. Client picker/discovery behavior still needs verification. The same guidance supports design, develop, improve and review when relevant; no separate user and agent copies are maintained.
 
 Ask for a scoped result: "Review this dialog without changing it", "Improve and apply the error messages in this flow", or "Prepare a usability study for onboarding". A bare review/improvement assessment stays read-only. A specified repair can include implementation and rechecking. A research guide is a plan until actual observations exist. Ordinary UI development needs no compulsory study or Figma connection.
 
-Visual-design owns visual direction and semantic token intent; frontend conventions implement it for the selected React stack; interaction-design owns flows and affected surfaces; interface-quality owns craft inspection and component/token audits; ux-writing owns task copy; usability-research owns studies and evidence synthesis. Existing test/journey guidance verifies implementation and Storybook states where adopted.
+Interface-design owns visual direction and semantic token intent; frontend conventions implement it for the selected React stack; interface-design owns flows and affected surfaces; interface-design owns craft inspection and component/token audits; ux-writing owns task copy; usability-research owns studies and evidence synthesis. Existing test/journey guidance verifies implementation and Storybook states where adopted.
 
 ## Explain and maintain project knowledge
 

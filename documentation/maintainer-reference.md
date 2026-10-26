@@ -41,7 +41,7 @@ The generated `claude-marketplace` branch is distribution output; never edit it 
 
 ## Naming and invocation
 
-Use lowercase kebab-case: short activities for tasks (`develop`, `test`, `review`) and recognizable disciplines for support (`interaction-design`, `performance-testing`). Preserve upstream names and established operations terminology. Rename folders, frontmatter and maintained references together; record old names in [migration](migration.md#local-skill-naming), without duplicate aliases.
+Use lowercase kebab-case: short activities for tasks (`develop`, `test`, `review`) and recognizable disciplines for support (`interface-design`, `performance-testing`). Preserve upstream names and established operations terminology. Rename folders, frontmatter and maintained references together; record old names in [migration](migration.md#local-skill-naming), without duplicate aliases.
 
 | Metadata | Meaning |
 | --- | --- |
@@ -50,7 +50,7 @@ Use lowercase kebab-case: short activities for tasks (`develop`, `test`, `review
 | `role` | `task` entry point or `support` guidance |
 | `invocation` | Preferred `user`, `agent` or `both` usage |
 
-Labels do not enforce permissions. Task entries use native explicit-only controls; most local support is model-available with `user-invocable: false`. Product-management, visual-design, backend-design and the existing UI/UX discipline skills are also directly selectable with `user-invocable: true`, using the same body for people and agents. Preserve upstream controls and record client limitations. [TASKS.md](../plugins/development/TASKS.md) owns execution scope; [WORKFLOW.md](../plugins/development/WORKFLOW.md) owns upstream project fit and consequential-finding decisions across phases.
+Labels do not enforce permissions. Task entries use native explicit-only controls; most local support is model-available with `user-invocable: false`. Product-management, interface-design, backend-design and the existing UI/UX discipline skills are also directly selectable with `user-invocable: true`, using the same body for people and agents. Preserve upstream controls and record client limitations. [TASKS.md](../plugins/development/TASKS.md) owns execution scope; [WORKFLOW.md](../plugins/development/WORKFLOW.md) owns upstream project fit and consequential-finding decisions across phases.
 
 ## Capability architecture
 
@@ -59,7 +59,7 @@ Labels do not enforce permissions. Task entries use native explicit-only control
 | Engagement, stopping point and requested execution | Activity entry point and TASKS.md |
 | Product priorities, useful scope and success signal | product-management; business-strategy owns business direction |
 | Architecture / service behavior | system-design / backend-design |
-| Visual direction / interaction behavior / critique | visual-design / interaction-design / interface-quality |
+| Visual direction / interaction behavior / critique | interface-design |
 | AI application/capability/protocol design | ai-development |
 | AI testing/evaluation strategy | ai-testing |
 | AI operating decisions and quality monitoring | ai-operations |
