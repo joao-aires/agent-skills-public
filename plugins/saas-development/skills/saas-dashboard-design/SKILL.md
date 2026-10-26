@@ -14,7 +14,9 @@ user-invocable: true
 
 # Design dashboards for decisions and work
 
-Identify the audience, their recurring tasks, the decisions this surface should support and the cost of acting on the wrong context. Separate customer workspaces, customer administration and internal operator tools. Reuse sufficient product evidence and accepted visual direction; a dashboard request does not automatically reopen branding or select a UI library. Read [dashboard decisions](references/dashboard-decisions.md) for data/interaction tradeoffs and the [source review](../../references/sources.md) for inspected open-source examples.
+Identify the audience, their recurring tasks, the decisions this surface should support and the cost of acting on the wrong context. Separate customer workspaces, customer administration and internal operator tools.
+
+Reuse sufficient product evidence and accepted visual direction. A dashboard request does not automatically reopen branding or select a UI library. Read [dashboard decisions](references/dashboard-decisions.md) for data/interaction tradeoffs and the [source review](../../references/sources.md) for inspected open-source examples.
 
 ## Establish context and hierarchy
 
@@ -24,7 +26,7 @@ Make organization/workspace, time range, environment and relevant resource scope
 
 Give each summary or metric a decision it supports. Establish what a change in the value would lead the user to do, then choose the surrounding explanation and route to detail. Compare layouts using realistic data distributions, including long names, large counts and uneven activity, rather than arranging identical cards around invented metrics.
 
-Derive hierarchy, typography, density, color and interaction language from the product's purpose and accepted design system. Seek available interface craft, interaction, accessibility and writing expertise by capability. When absent, make and inspect a coherent direction with project evidence and appropriate references. Use the accepted stack's components/tokens; the skill does not require a framework, design tool or chart library.
+Domain facts shape the interface **before** visual synthesis: define the objects, tenant/resource scope, evidence and consequential decisions that the experience must make legible. Contribute candidate task/overview/list/detail structures and data-interaction contracts to available general interface design reasoning. Let that method refine hierarchy, navigation and visual consistency without replacing these domain semantics. The selected technical platform also informs feasible layout and state behavior before decisions are finalized. When generic design expertise is unavailable, preserve a coherent task-oriented design using the accepted system, real data and these domain requirements. Use the accepted stack's components/tokens; the skill does not require a framework, design tool or chart library.
 
 ## Make data and actions interpretable
 
@@ -53,6 +55,6 @@ Design first-use, loading, useful empty, filtered-empty, partial/stale, denied, 
 
 Verify realistic content, keyboard/focus, accessible names, zoom, responsive layouts and the primary task under relevant success/failure states.
 
-When implementing, inspect the rendered target; a component story or screenshot does not establish full functional behavior. Check server isolation and persisted outcomes separately.
+This domain method remains independently usable and can provide the design result directly; a separate generic interface skill is not an obligatory dependency or a competing design approval step. When implementing, inspect the rendered target; a component story or screenshot does not establish full functional behavior. Check server isolation and persisted outcomes separately.
 
 Return the design rationale, affected states and actual evidence at the requested stopping point.

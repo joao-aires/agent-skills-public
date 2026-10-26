@@ -65,6 +65,14 @@ Start with the requested outcome and stopping point. Identify the unresolved dec
 | CI, artifacts, publication or target promotion | Delivery trust, immutable identity, compatibility and recovery | Selected CI provider, packaging ecosystem, registry and target |
 | Signals, recovery, capacity or operating behavior | Outcome indicators, observability, data recovery and demand/cost analysis | Actual runtime, infrastructure and signal backend |
 
+### Compose interface expertise by decision, not by a fixed plugin chain
+
+For substantive UI work, establish the user task, accepted design, application type and selected platform before choosing a visual solution. Seek **application/domain or archetype** guidance when objects, workflow structure, data semantics or platform-specific patterns materially change what should appear; seek **general interface** guidance for navigation, interaction states, composition, visual hierarchy and evidence-based critique; seek **technical/platform** guidance for component contracts, lifecycle, implementation constraints and actual compatibility. The specialists can influence each other: domain semantics and framework limitations shape UI decisions up front, while rendered tests and feasibility findings can reopen a design choice. Project evidence and accepted decisions take precedence over fashionable examples, generic creative defaults and an optional library's sample layout.
+
+A specialized application method may produce much of a usable interface design itself. Do not require it to invoke a generic interface skill or discard its conclusions to recreate the layout. For conflicting proposals, identify the owner and requirement: product/user objectives, domain and authority invariants, accessibility/platform obligations, then discretionary aesthetic and implementation preferences. Resolve feasible alternatives against the actual task and report consequential tradeoffs. Do not silently degrade a required workflow to match a starter component.
+
+Select optional expertise from observed descriptions and relevant constraints, not a closed list of applications, naming convention or central blueprint router. Newly installed application-archetype skills and conditional references should be usable without edits to this task guide. For a narrow CSS correction or unchanged UI behavior, reuse accepted intent and technical conventions without a new design ceremony. Preserve independent fallback when any specialist is absent and name consequential knowledge gaps.
+
 Carry relevant conclusions and completion evidence into the requested work. Loading a file does not establish the outcome, and selecting support does not invoke another explicit-only activity. Internal contribution and verification resources remain part of this bundle's workflow.
 
 ### Compose without optional dependencies

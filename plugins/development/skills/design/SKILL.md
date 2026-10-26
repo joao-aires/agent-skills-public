@@ -31,6 +31,8 @@ For UI work establish the accepted platform/component system and appearance poli
 | Rendered quality or consequential language | Available interface assessment or interface-language expertise |
 | A question needing participant evidence | Available usability research expertise |
 
+Before choosing an interface structure, incorporate material domain/archetype guidance (what users operate on, what data means, what workflows must be preserved) and the accepted platform's technical constraints (component behavior, lifecycle, design-system conventions). Treat both as inputs to experience design, not as downstream implementation instructions. Relevant specialists may propose a complete domain-appropriate starting structure; general interface methods refine and reconcile it rather than forcing a second design. If constraints disagree, compare alternatives against accepted outcomes, real authority/accessibility rules and supported platform behavior. Keep optional expertise selected by capability, never by a mandatory package dependency.
+
 Work through the main user task before polishing a screen. Determine what the user needs to understand, which action should be easiest to find, and what feedback explains the result. Use realistic content and the important empty, busy, error and permission states so the layout is designed for the application people will actually use.
 
 Develop a representative part of the experience far enough to judge the direction. If navigation is uncertain, a wireframe may answer the question; if typography, density or visual identity is uncertain, inspect a rendered design. Explain why the chosen direction suits the product and what an alternative would cost. Once it works, carry its layout, tokens and component behavior into the other affected surfaces.
@@ -47,5 +49,15 @@ Follow the operation through repeated requests, partial failure and concurrent c
 ## Resolve choices and hand off
 
 Compare consequential alternatives against constraints and tradeoffs; retain existing decisions where suitable. Ask about unresolved high-impact choices, record reversible assumptions and continue when the direction is sufficiently established.
+
+Connect the selected design to the application that will implement it. Use the affected behavior trace to identify:
+
+- existing components and conventions to reuse;
+- responsibilities that change;
+- integration points that must agree.
+
+Explain the intended flow from the caller through decisions and effects to the observed result. Name relevant code locations when known, keep proposed additions distinct from existing files, and leave routine implementation details open.
+
+Carry the behavior, consequential choices and evidence needed to verify them into planning. The handoff should let someone explain where to start and which assumption could change the approach. A small local change may need only a short explanation beside its acceptance criteria; a cross-component change benefits from an implementation map or sequence when that clarifies dependencies.
 
 Return the agreed/proposed design, acceptance evidence and explicit unknowns. A design request does not silently authorize implementation or impose a design-document approval gate on trivial edits.

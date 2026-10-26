@@ -28,7 +28,7 @@ A hosted backend remains a separate service with its accepted stack. Bundle a lo
 
 ## Implement the platform experience
 
-Use installed visual design expertise for product-derived visual direction/rendered review and interaction design expertise for behavior; otherwise retain explicit design intent, affected states and actual client verification. Native-client guidance complements these rather than replacing product/UX work.
+Bring native navigation, safe areas, OS conventions, keyboard/touch, lifecycle, permissions and accessible-component limitations into interface design *before* choosing layouts and interactions. Use general interface design expertise for product-derived visual direction and coherent cross-surface behavior when available; otherwise retain explicit design intent, affected states and actual client verification. This skill owns native compatibility, implementation and verification, not the product's visual identity; it is independently usable without a generic design plugin.
 
 - For React/Tauri DOM clients, use installed guidance for the accepted frontend stack for compatible shadcn/Tailwind implementation defaults; React Native uses native primitives.
 - Reuse domain/API contracts and design tokens where suitable, while implementing platform-appropriate components and navigation. Web shadcn components are not React Native widgets.
@@ -50,7 +50,9 @@ Document backend addresses for host, simulator/emulator and physical devices, de
 
 ## Establish and prove platform delivery
 
-Keep root and client READMEs, scoped instructions, locked dependencies, frontend/Rust/native configuration checks, tests and platform build commands. Use delivery expertise when available for artifact/release/recovery contracts and matching tooling for provider configuration. Preserve an accepted backend build/runtime mechanism. Native clients are packaged for their platforms, not as Docker runtime images. Document signing/notarization, provisioning, update compatibility and store submission prerequisites; configuring a pipeline does not authorize signing-service changes or publication.
+Keep the repository and each client reproducible: root/client READMEs, scoped instructions, locked dependencies, frontend/Rust/native configuration checks, tests and platform build commands. Preserve an accepted backend build/runtime mechanism; native clients are packaged for their platforms, not as Docker runtime images.
+
+Use delivery expertise when available for artifact/release/recovery contracts and matching tooling for provider configuration. Document signing/notarization, provisioning, update compatibility and store submission prerequisites. Configuring a pipeline does not authorize signing-service changes or publication.
 
 Verify frontend components/contracts and backend integration, using [platform testing](references/platform-testing.md) for driver compatibility, then launch the actual Tauri binary or each target's development build on a supported simulator/device.
 
