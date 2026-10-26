@@ -15,15 +15,15 @@ user-invocable: false
 
 ## Separate verification, artifacts and deployment
 
-Read the application commands, environment model and accepted deployment decisions. Distinguish the stage responsibilities:
+Read the application commands, environment model and accepted deployment decisions. Connect stage responsibilities through explicit inputs and outputs:
 
-| Stage | Responsibility |
+| Stage | Responsibility and result |
 | --- | --- |
-| CI | Verify a change. |
-| Release | Produce a versioned artifact. |
-| Deployment | Promote that artifact to an environment. |
+| CI / verification | Verify the change; establish evidence about a source revision and its relevant configuration. |
+| Release | Produce a versioned artifact whose identity can be traced to that evidence. |
+| Deployment | Promote that artifact with its target configuration, perform the change, and verify the served outcome. |
 
-Connect the stages through explicit inputs and outputs. Verification establishes evidence about a source revision and its relevant configuration. Release creates an artifact with an identity that can be traced to that evidence. Deployment selects the artifact and target configuration, performs the change, and verifies the served outcome. This separation makes it possible to diagnose a failed stage and resume without rebuilding or republishing an unrelated result.
+Keeping those identities connected makes it possible to diagnose a failed stage and resume without rebuilding or republishing an unrelated result.
 
 Combine stages for a small application when clearer. Share repeated mechanics through the selected provider's reusable interfaces with explicit inputs, permissions and outputs; avoid a generic pipeline framework.
 
@@ -31,7 +31,7 @@ Keep provider-required entrypoints in their required locations and component-spe
 
 ## Use readable names
 
-Name workflows, jobs and steps by their purpose, component and target. Preserve a consistent existing convention. Make dependency order, required gates, inputs/outputs and failure behavior visible without reading every implementation detail. Use available guidance for the selected development tools for the selected provider's syntax and reusable adapters.
+Name workflows, jobs and steps by their purpose, component and target. Preserve a consistent existing convention. Make dependency order, required gates, inputs/outputs and failure behavior visible without reading every implementation detail. Seek matching tool expertise for the selected provider's syntax and reusable adapters.
 
 ## Promote and recover deliberately
 
@@ -77,7 +77,7 @@ Use reliability expertise for journey and alert contracts and observability expe
 
 For branching, partial releases and gate decisions, read [branch to production](references/branch-to-production.md). For selected provider/container/registry implementation, use available guidance for the selected development tools and matching stack expertise.
 
-For performance workflows, define an accepted workload and isolate application/dependency execution on the runner or use an identified authorized non-production target. Use available implementation expertise matching the selected load-test tool only for a matching selected tool. Preserve thresholds, failure status, result artifacts and cleanup; bind credentials and concurrency to the actual environment.
+For performance workflows, define an accepted workload and isolate application/dependency execution on the runner or use an identified authorized non-production target. Seek implementation expertise for the project's selected load-test tool. Preserve thresholds, failure status, result artifacts and cleanup; bind credentials and concurrency to the actual environment.
 
 ## Deliver configuration and flag changes
 

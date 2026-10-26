@@ -37,7 +37,13 @@ Write requirements that another contributor could implement without reconstructi
 
 Keep unresolved design choices visible. Requirements can be ready for design while still needing an architecture decision; they are not ready for implementation if that decision changes the behavior being promised.
 
-For a consequential failure, explain what the consumer observes, whether effects may already have occurred and what continuation or recovery is allowed. This can produce both functional behavior and quality constraints: an actionable rejection differs from a deadline, durability or availability requirement. Derive the branches from the affected journey instead of importing an exhaustive error catalogue. A short transition description can be sufficient; use a matrix only when it makes several outcomes easier to compare.
+For a consequential failure, establish:
+
+- what the consumer observes;
+- whether effects may already have occurred;
+- what continuation or recovery is allowed.
+
+These decisions can produce both functional behavior and quality constraints. An actionable rejection differs from a deadline, durability or availability requirement. Derive the branches from the affected journey instead of importing an exhaustive error catalogue. A short transition description can be sufficient; use a matrix only when it makes several outcomes easier to compare.
 
 For UI work, identify interaction decisions using available interaction design expertise. For backend work, use available service-contract design expertise for state, ownership, transactions and recovery decisions. A detailed brief does not itself authorize implementation code.
 

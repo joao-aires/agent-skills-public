@@ -31,7 +31,18 @@ Use available evidence before adding tools: support reports, user-provided inter
 | Qualitative feedback | Context and friction | The loudest customer or an AI-generated sentiment score does not establish a representative population. |
 | Quantitative usage | Prevalence and outcomes | Check missing events, definitions and selection bias before interpreting the population. |
 
-Group repeated reports by underlying problem, preserve representative evidence, deduplicate repeated contacts and distinguish people/accounts from mentions.
+### Develop findings from observations
+
+Keep the source material available while building the interpretation:
+
+1. Extract distinct observations, statements and relevant behavior from each source. Retain the source, user segment and task context; keep a participant's words separate from your interpretation.
+2. Give related observations descriptive labels, then group them into candidate patterns. Group by the difficulty or unmet outcome rather than only by the requested feature. Count distinct people or accounts separately from repeated mentions.
+3. Check each candidate against its supporting records and contradictory cases. Split patterns that have different causes or user contexts, and retain important outliers rather than forcing every observation into a group.
+4. Express a supported pattern as a finding: what is happening, to whom, why it matters and which evidence establishes it. Mark an explanation that still needs testing as a hypothesis.
+
+Compare sources that can answer the same question. Usage records may help establish how often a behavior occurs; interviews may help explain the circumstances. If they disagree, check their populations, definitions and collection periods before treating either as decisive.
+
+### Interpret available measures
 
 Choose a small number of meaningful measures when data exists: reaching the intended outcome, drop-off between relevant steps, repeat use or retention.
 
@@ -43,13 +54,21 @@ For a saved-search feature, ask whether users can save and later reuse a search.
 
 ## Turn evidence into a small next step
 
-For each important pattern, keep the underlying observation visible, explain your interpretation, and identify what remains a hypothesis. Look for the point in the journey where the user could no longer achieve the intended result. The same symptom can have different causes, so compare the reports with available behavior before recommending a feature.
+Follow each important finding back through the user journey. Identify where the person could no longer achieve the intended result and which explanation the evidence supports. Similar complaints can have different causes; compare the reports with actual behavior before recommending a feature.
 
-Prioritize problems by severity, relevance to the intended users, strength of evidence and the cost of learning or fixing them. Explain conflicting evidence rather than averaging it away: different segments may have different needs, and a satisfied frequent user may never encounter the obstacle that prevents a new user from starting. Use numeric scoring only when its inputs add clarity.
+Prioritize using severity, relevance to intended users, evidence strength and the cost of learning or fixing. Preserve segment differences: a frequent user's success does not establish that a new user can get started. Use numerical scoring only when its inputs make the choice clearer.
 
 Recommend a response to the underlying difficulty. A feature request may reveal a problem better solved by clearer interaction, different defaults, better reliability or a narrower product promise.
 
-Recommend a bounded response with an observable outcome and a way to assess it later. Bring accepted work into requirements/planning, using the conversation or Markdown when sufficient; no ticket requirement. Use [product management](../product-management/SKILL.md) for product reprioritization and the next useful slice; refinement owns detailed engineering requirements. Keep the roadmap, assumptions and decision log aligned without turning every comment into backlog work. Close the loop by checking the outcome after the change; contact/report back to users only when requested.
+For a recommended response, identify:
+
+- The finding it addresses and the expected improvement.
+- The observable outcome and how it will be assessed later.
+- Any remaining assumption that needs investigation before committing to the change.
+
+Bring accepted work into requirements and planning; the conversation or Markdown can be sufficient. Use [product management](../product-management/SKILL.md) for reprioritization and the next useful slice, and refinement for detailed engineering requirements. Keep the roadmap and relevant decisions aligned without making every comment a backlog commitment.
+
+After the change, check whether the intended outcome improved. Contacting or reporting back to users remains subject to the requested scope.
 
 ## Keep collection respectful and optional
 

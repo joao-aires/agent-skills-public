@@ -37,7 +37,14 @@ Use meaningful user/data slices and privacy-reviewed observed failures to identi
 
 ### Select measures
 
-Choose a measure that can observe the property in question. Use exact assertions for facts the application can determine, such as whether an operation was authorized or a required field is present. Use reference-based or semantic measures when more than one wording can satisfy an answer. Use domain-specific metrics when the task has an established notion of quality. Human assessment remains important when usefulness or taste cannot yet be expressed reliably by a grader.
+Choose a measure that can observe the property in question:
+
+| Property | Suitable assessment |
+| --- | --- |
+| A fact the application can determine, such as allowed access or a required field | Exact assertions. |
+| An answer that admits several valid wordings | Reference-based or semantic measures appropriate to the task. |
+| A task with an established quality definition | Its domain-specific metrics. |
+| Usefulness or taste that a grader cannot yet assess reliably | Human assessment. |
 
 When using a model judge, define the criteria it should apply and compare its judgments with accepted human assessments, including borderline and unacceptable results. Inspect disagreement before relying on an aggregate score. A fluent explanation from a judge is not evidence that its decision is calibrated.
 
@@ -54,7 +61,9 @@ Record the evaluated application/model/prompt/context/tool configuration and dat
 - An average must not hide failed authority or consequential task criteria.
 - Include latency and usage/cost when they affect acceptance, with unavailable or estimated values labelled.
 
-Choose the comparison's denominator from the promised outcome. Failed attempts and recovery still consume time and resources; an optimization must retain accepted quality and behavior. Separate changes sufficiently to support the conclusion, and record confounding factors when they cannot be held comparable. A few runs can reveal a defect or justify another experiment without establishing a reliability rate or causal explanation.
+Choose the comparison's denominator from the promised outcome. Include failed attempts and recovery when accounting for time and resources; an optimization must retain accepted quality and behavior.
+
+Change candidates under comparable conditions and separate interventions enough to support the conclusion. Record confounding factors when they cannot be controlled. A few runs can reveal a defect or justify another experiment without establishing a reliability rate or causal explanation.
 
 ## Implement and run proportionate checks
 

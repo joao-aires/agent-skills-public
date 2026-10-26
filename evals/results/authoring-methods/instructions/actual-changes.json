@@ -1,0 +1,19 @@
+{
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "before": "# Inventory project instructions\n\nUse Python 3.11 or newer. Run `npm test` before delivering a change.\nExports must never contain private email addresses.\nThe last task fixed a printer-label typo in commit deadbee.\nKeep owner isolation in item operations.\n",
+      "after": "# Inventory project instructions\n\n- Use Python 3.11 or newer and its standard library; no dependency installation is needed.\n- Read [CONTRIBUTING.md](CONTRIBUTING.md) for setup, code ownership and the CLI's fixture-owner limitations.\n\n## Commands\n\nRun from the repository root; run tests before delivering a change:\n\n| Task | Command |\n| --- | --- |\n| Tests | `python3 -m unittest discover -s tests -v` |\n| CLI help | `python3 app.py --help` |\n\n## Project constraints\n\n- Preserve owner isolation and exclude private email addresses from exports, as required by [SECURITY.md](SECURITY.md).\n- For legacy CSV importer data changes, follow the retained UTC contract in [CLAUDE.md](CLAUDE.md).\n- For test changes, also read [tests/AGENTS.md](tests/AGENTS.md).\n- Update affected contributor instructions when commands or accepted contracts change.\n"
+    },
+    {
+      "path": "tests/AGENTS.md",
+      "before": "# Tests\n\nUse Python 3.11 or newer.\nExports must never contain private email addresses.\nUse synthetic records created by each test; never edit items.json to establish test expectations.\n",
+      "after": "# Test instructions\n\n- Use synthetic records created by each test; never edit `items.json` to establish test expectations.\n\n## Focused check\n\nRun from the repository root:\n\n| Task | Command |\n| --- | --- |\n| Service tests | `python3 -m unittest discover -s tests -p 'test_service.py' -v` |\n"
+    },
+    {
+      "path": "CLAUDE.md",
+      "before": "# Contributor entrypoint\n\nRead AGENTS.md and CONTRIBUTING.md for project instructions and commands.\n\nThe legacy CSV importer uses UTC dates; preserve that contract when editing importer data. This is a retained project requirement.\n",
+      "after": "# Contributor entrypoint\n\n- Read [AGENTS.md](AGENTS.md) and [CONTRIBUTING.md](CONTRIBUTING.md) for shared project instructions and commands.\n- The legacy CSV importer uses UTC dates; preserve that contract when editing importer data. This is a retained project requirement.\n"
+    }
+  ]
+}

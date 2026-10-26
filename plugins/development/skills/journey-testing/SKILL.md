@@ -32,7 +32,7 @@ For a full-stack claim, exercise the real frontend, API and the application's ac
 | Desktop | Packaged application, native shell/IPC, lifecycle and OS integration on the supported target |
 | Mobile | Each supported emulator/device platform, lifecycle, permissions, keyboard, offline and OS behavior |
 
-Use available guidance for the selected development tools for chosen web/component drivers and native-platform implementation and driver expertise for supported native drivers. A mobile viewport cannot establish native behavior, a web preview cannot establish a packaged shell, and a backend run cannot establish client integration. Record actual device/OS/browser/build identities and missing capabilities; selecting a method does not install a driver or change the client framework.
+Select driver guidance for the actual surface: web/component tooling for a browser interface, and compatible native implementation and driver expertise for a packaged client. A mobile viewport cannot establish native behavior, a web preview cannot establish a packaged shell, and a backend run cannot establish client integration. Record actual device/OS/browser/build identities and missing capabilities; selecting a method does not install a driver or change the client framework.
 
 Combine a small critical journey suite with component/state checks, visual regression, accessibility evaluation and bounded agent exploration.
 

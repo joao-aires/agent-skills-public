@@ -2,7 +2,7 @@
 
 [Current status](#current-status) · [Run a scenario](#run-and-grade-a-scenario) · [Generation trials](#generation-trials) · [Evidence limits](#recorded-evidence-and-limits) · [Maintainer guide](../maintainer-reference.md)
 
-The [evaluation specification](../../evals/development-workflows.json) contains 59 behavior cases, 12 generation trials and an eleven-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
+The [evaluation specification](../../evals/development-workflows.json) contains 62 behavior cases, 12 generation trials and an eleven-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
 
 ## Current status
 
@@ -13,6 +13,8 @@ A [bounded planning/assessment record](../../evals/results/capability-expansion/
 A [Chrome/MV3 evaluation record](../../evals/results/browser-extension/results.json) adds four bounded design/assessment probes and a disposable real-extension trial. It separates preserved UI/stack choices and standalone fallback from actual popup, storage, message-denial and forced-worker-recovery observations. The source revision, generated fixture identity, driver/browser, harness repairs and untested boundaries are retained with the record. These checks do not establish installed-client discovery, WXT/CRXJS build compatibility, other browser targets or store delivery.
 
 The current collection has not received a complete behavioral rerun. Earlier trials used different inventories and configurations; their results cannot be transferred to the current guidance. See [recorded evidence and limits](#recorded-evidence-and-limits) for the boundaries of those observations and [architecture](../architecture.md) for the supported composition model.
+
+The [authoring and workflow probes](../../evals/results/authoring-methods/assessment.md) record bounded independent checks of feature handoffs, repository-instruction maintenance and purpose-specific skill revision. They include a partial reporting result and do not establish full-suite adherence or improvement over a baseline.
 
 ## Intended flows and execution levels
 

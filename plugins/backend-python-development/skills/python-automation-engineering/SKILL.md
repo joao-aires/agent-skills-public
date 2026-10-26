@@ -16,7 +16,9 @@ user-invocable: false
 
 Build a tool whose result remains understandable when no person watches it run. Establish what a complete result means, how the tool selects its targets, and what its caller should do after a partial failure. The command's exit status, structured output and human summary should agree about that state.
 
-For API collection, track what was requested, what was actually visited and which part failed. An empty complete collection and an incomplete collection need different results. For mutations, separate the intended operation from individual attempts so a resumed run can identify completed work, recheck preconditions and avoid repeating effects. Automating a command is worthwhile when it reduces toil or improves consistency without concealing partial failure.
+For API collection, track what was requested, what was actually visited and which part failed. An empty complete collection and an incomplete collection need different results.
+
+For mutations, separate the intended operation from individual attempts so a resumed run can identify completed work, recheck preconditions and avoid repeating effects. Automating a command is worthwhile when it reduces toil or improves consistency without concealing partial failure.
 
 ## Modes and discovery
 

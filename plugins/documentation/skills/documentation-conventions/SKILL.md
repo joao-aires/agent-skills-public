@@ -87,6 +87,8 @@ For example, adding private saved searches changes ownership rules, the data mod
 
 Generate schemas from code when practical and link them rather than maintaining conflicting copies. Keep credentials and private data out of examples. Distinguish implemented behavior, approved plans, assumptions and superseded decisions; do not mark a roadmap item delivered before verification.
 
+When a change affects repository instructions, use available scoped instruction-authoring and maintenance expertise. Keep durable working-command pointers and non-obvious project rules there; keep detailed procedures in their canonical documents. Check session learnings for evidence, lasting relevance and the appropriate scope before recording them, and correct or remove stale guidance rather than continually appending exceptions.
+
 ## Check completion
 
 Read affected docs against the actual change. Check commands, paths, links, boundary diagrams and acceptance criteria for drift. Summarize which knowledge changed, why, and any unresolved discrepancy. If no document is affected, say so briefly; avoid manufacturing documentation work. Prefer explanations of intent and tradeoffs over inventories of code files.

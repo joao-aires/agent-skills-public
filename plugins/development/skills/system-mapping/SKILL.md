@@ -27,6 +27,19 @@ Discover the requested product/feature, repositories, documents and target outpu
 
 Consult [references/mapping-guide.md](references/mapping-guide.md) for deeper implementation details when needed.
 
+## Trace a feature before changing it
+
+For bounded feature work, begin with a comparable behavior or the entry point being changed. Follow its actual calls and transformations through permission checks, domain logic, stored changes and the result seen by its consumer. Locate the tests and configuration that exercise that path. Expand the investigation when a dependency or conflicting source changes your understanding; a folder tour alone does not establish how the feature works.
+
+Keep a compact trace with navigable code references:
+
+- where the behavior starts;
+- which components own its decisions and effects;
+- what existing pattern can be reused;
+- what remains uncertain.
+
+Distinguish the current behavior from a proposed extension. Pass the trace into design so the proposal can name integration points and explain departures from existing patterns. Read the critical source yourself when relying on another actor's exploration; a summary is a guide to evidence, not a replacement for it.
+
 ## Discovery
 
 1. Inventory source entry points, routes, commands, consumers, jobs and visible UI capabilities. Use contracts and handlers, not repository naming alone.
@@ -39,7 +52,7 @@ Consult [references/mapping-guide.md](references/mapping-guide.md) for deeper im
 
 ## Output
 
-Deliver a service/component catalog, dependency edge table, topology map, user-journey sequences, ownership/evidence gaps and navigation.
+Choose the output for the requested scope. A bounded feature can use the compact trace and affected evidence gaps above. A system-wide baseline needs a service/component catalog, dependency edges, topology, representative journeys and ownership/evidence gaps; choose diagrams and tables that make those relationships understandable. A recurring review can return the affected changes and remaining gaps without recreating the baseline.
 
 - Keep volatile live replicas/tags/tuning in timestamped observations rather than static architectural truth.
 - Omit secrets and personal data from generated docs.

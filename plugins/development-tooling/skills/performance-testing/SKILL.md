@@ -26,7 +26,15 @@ Read critical journeys, architecture, accepted targets and operating constraints
 - For async work, distinguish admission from completion and track accepted jobs that miss their deadline.
 - HTTP duration alone does not establish user-journey latency or browser rendering performance; retain Playwright for browser correctness and use browser-performance evidence when that is the claim.
 
-Record intended arrival rate or concurrency, duration, warmup, thresholds, target and resources. Derive acceptance from user needs or an accepted comparable baseline. Label provisional values and seek unresolved product decisions; do not invent production commitments. Keep a short low-load smoke profile for script correctness, a bounded regression/load profile and longer stress/spike/soak profiles only when justified. A short smoke pass is not a capacity result.
+Record intended arrival rate or concurrency, duration, warmup, thresholds, target and resources. Derive acceptance from user needs or an accepted comparable baseline. Label provisional values and seek unresolved product decisions; do not invent production commitments.
+
+Choose a profile according to the claim:
+
+| Profile | Purpose and limit |
+| --- | --- |
+| Short, low-load smoke | Check script correctness; a pass is not a capacity result. |
+| Bounded regression/load | Compare the accepted workload and thresholds. |
+| Stress, spike or soak | Investigate the relevant overload, burst or sustained-load question when justified. |
 
 ## Implement meaningful k6 scenarios
 

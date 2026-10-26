@@ -21,6 +21,8 @@ Trace how untrusted input reaches the valuable action or sensitive data in scope
 
 Use that trace to identify a plausible failure or abuse path and its impact. Prioritize findings that can change access, expose data, corrupt state or prevent an important operation. Scanners can supply evidence about a particular class of weakness; investigate whether a finding applies to the actual application before selecting a fix.
 
-Apply bounded fixes within the request at the component that owns the protection. Verify both the legitimate operation and the attempt that must fail, including relevant ownership/tenant denial, invalid input and secret handling. A hidden control or a rejected frontend action does not establish that the underlying operation is protected. Use vulnerability prioritization and remediation expertise for dependency findings, credential management expertise for credential authority, and specialist reviews within their coverage.
+Apply bounded fixes within the request at the component that owns the protection. Verify both the legitimate operation and the attempt that must fail, including relevant ownership/tenant denial, invalid input and secret handling. A hidden control or a rejected frontend action does not establish that the underlying operation is protected.
+
+Use vulnerability prioritization and remediation expertise for dependency findings, credential management expertise for credential authority, and specialist reviews within their coverage.
 
 Report residual risks and unverified boundaries. Live credential rotation, authentication rewrites, risk acceptance, merging and legal/security certification each require the corresponding scope and evidence.

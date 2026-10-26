@@ -40,7 +40,17 @@ Use available interaction/visual expertise for the experience and matching langu
 
 Define small messages around application operations: the caller's context, supported payload, permitted resource, response/error and whether retry can duplicate an effect. TypeScript types help callers but do not validate incoming messages. Use [permissions and security](../browser-extension-security/SKILL.md) for authority, runtime validation and privileged actions.
 
-Register worker event listeners synchronously at module initialization. Restore needed state within the handler instead of awaiting startup before registering listeners. Persist accepted jobs/checkpoints before acknowledging durable work; use appropriate storage and idempotent/reconcilable effects where a restart or lost response matters. Do not keep a worker artificially alive to substitute for a recovery design. Use alarms for suitable scheduled work rather than assuming an in-memory timer will survive suspension; establish timing precision from the selected browser API.
+### Make worker restart behavior part of the operation
+
+Register worker event listeners synchronously at module initialization. Restore needed state within the handler instead of awaiting startup before registering listeners.
+
+For work whose outcome must survive a restart or lost response:
+
+- Persist accepted jobs/checkpoints before acknowledging durable work.
+- Use appropriate storage and idempotent or reconcilable effects.
+- Recover progress rather than keeping the worker artificially alive as a substitute for a recovery design.
+
+Use alarms for suitable scheduled work rather than assuming an in-memory timer will survive suspension. Establish timing precision from the selected browser API.
 
 Handle unavailable content scripts, closed tabs, revoked access and invalidated extension contexts as ordinary lifecycle states. Surface an actionable result and preserve recoverable drafts. Never replay a privileged action against a different tab merely because the original disappeared.
 

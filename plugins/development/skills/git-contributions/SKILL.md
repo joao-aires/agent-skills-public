@@ -48,4 +48,6 @@ For multiline descriptions, use a body file or structured tool argument. Follow 
 - Follow the repository template; scale structure to complexity.
 - Include risks/migrations only when material, and a diagram only when it clarifies a changed relationship.
 
-Keep title and description about the final diff; remove abandoned approaches and conversational history unless they explain a relevant tradeoff. Use accurate issue links and closing keywords. Verify the published head, diff and required checks, and report the PR link and actual state. Keep the worktree available for review fixes until its work is safely preserved and no longer needed.
+Keep title and description about the final diff. Remove abandoned approaches and conversational history unless they explain a relevant tradeoff, and use accurate issue links and closing keywords.
+
+Before reporting completion, verify the published head, diff and required checks. Report the PR link and actual state. Keep the worktree available for review fixes until its work is safely preserved and no longer needed.
