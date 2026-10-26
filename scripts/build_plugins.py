@@ -32,7 +32,7 @@ def adapt_skill(target, source):
     adaptations = source.get('adaptations', [])
     if not adaptations:
         return
-    if set(adaptations) - {'workflow-framing', 'composition-framing', 'instruction-authoring-framing', 'visual-design-framing', 'documentation-paths', 'string-metadata', 'inline-adversarial-review', 'frontend-framing', 'backend-framing', 'ai-framing', 'usage-labels', 'tracker-neutral', 'support-visibility', 'implementation-entrypoint'}:
+    if set(adaptations) - {'workflow-framing', 'composition-framing', 'instruction-authoring-framing', 'documentation-paths', 'string-metadata', 'inline-adversarial-review', 'frontend-framing', 'backend-framing', 'ai-framing', 'usage-labels', 'tracker-neutral', 'support-visibility', 'implementation-entrypoint'}:
         raise ValueError('Unknown upstream adaptation')
     for document in target.rglob('*.md'):
         text = document.read_text()
@@ -110,9 +110,6 @@ def adapt_skill(target, source):
         if document.name == 'SKILL.md' and document.parent == target and 'instruction-authoring-framing' in adaptations:
             parts = text.split('---', 2)
             text = '---' + parts[1] + '---\n\nApply this method to the actual repository and request. Preserve necessary project constraints when shortening instructions; size and formatting targets are editing heuristics. Sample commands and attribution blocks illustrate structure, not project policy. Follow the host\'s instruction hierarchy and retain applicable parent rules; narrower instructions override only their conflicting scoped details. Create compatibility files only when needed within scope, preserving existing files.\n' + parts[2]
-        if document.name == 'SKILL.md' and document.parent == target and 'visual-design-framing' in adaptations:
-            parts = text.split('---', 2)
-            text = '---' + parts[1] + '---\n\nRead [interface design](../interface-design/SKILL.md) for accepted direction, interaction behavior and rendered critique. Use this craft method when a visual decision is open or a redesign is requested. Preserve accepted identity, tokens, components, accessibility and platform conventions; aesthetic novelty and the upstream studio scenario do not override the real brief. Reuse sufficient context without another approval ceremony. Design-only work stops at design; implement only within the requested scope using the accepted stack. Web-specific examples apply to web surfaces.\n' + parts[2]
         if document.name == 'SKILL.md' and document.parent == target and 'frontend-framing' in adaptations:
             parts = text.split('---', 2)
             text = '---' + parts[1] + '---\n\nRead [frontend conventions](../frontend-conventions/SKILL.md) for project defaults before applying this skill. The accepted design and installed framework/Tailwind versions take precedence; this is not authorization to migrate or redesign.\n' + parts[2]

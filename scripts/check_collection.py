@@ -96,7 +96,6 @@ def check_package_links(package, local_names, notices):
     framing = {
         "workflow-framing": ["../../WORKFLOW.md"],
         "composition-framing": ["../../COMPOSITION.md"],
-        "visual-design-framing": ["../interface-design/SKILL.md"],
         "frontend-framing": ["../frontend-conventions/SKILL.md"],
         "backend-framing": ["../backend-conventions/SKILL.md"],
         "ai-framing": ["../ai-conventions/SKILL.md"],
