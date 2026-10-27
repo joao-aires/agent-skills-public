@@ -69,7 +69,7 @@
       "name": "development",
       "source": "./development",
       "description": "Stack-independent SDLC activities, project foundations, contributions and verification.",
-      "version": "0.3.1"
+      "version": "0.3.2"
     },
     {
       "name": "development-tooling",
@@ -86,8 +86,8 @@
     {
       "name": "frontend-development",
       "source": "./frontend-development",
-      "description": "Platform-independent visual and interaction design, interface quality, UX writing and usability research.",
-      "version": "0.2.2"
+      "description": "Integrated interface design and visual craft, UX writing and usability research across application types.",
+      "version": "0.4.1"
     },
     {
       "name": "frontend-native-development",
@@ -99,7 +99,7 @@
       "name": "frontend-reactjs-development",
       "source": "./frontend-reactjs-development",
       "description": "React, Next.js, shadcn and Tailwind implementation guidance.",
-      "version": "0.1.5"
+      "version": "0.1.6"
     },
     {
       "name": "go-development",

@@ -28,7 +28,7 @@ A hosted backend remains a separate service with its accepted stack. Bundle a lo
 
 ## Implement the platform experience
 
-Use installed visual design expertise for product-derived visual direction/rendered review and interaction design expertise for behavior; otherwise retain explicit design intent, affected states and actual client verification. Native-client guidance complements these rather than replacing product/UX work.
+Bring native navigation, safe areas, OS conventions, keyboard/touch, lifecycle, permissions and accessible-component limitations into interface design *before* choosing layouts and interactions. Use general interface design expertise for product-derived visual direction and coherent cross-surface behavior when available; otherwise retain explicit design intent, affected states and actual client verification. This skill owns native compatibility, implementation and verification, not the product's visual identity; it is independently usable without a generic design plugin.
 
 - For React/Tauri DOM clients, use installed guidance for the accepted frontend stack for compatible shadcn/Tailwind implementation defaults; React Native uses native primitives.
 - Reuse domain/API contracts and design tokens where suitable, while implementing platform-appropriate components and navigation. Web shadcn components are not React Native widgets.

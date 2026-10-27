@@ -20,22 +20,23 @@ Establish the audience, intended outcome, accepted decisions and affected bounda
 
 ## Design the affected interface
 
-For UI work establish the accepted platform/component system and appearance policy before dependent mockups or implementation. Use existing choices or recommend an appropriate system and theme behavior with their tradeoffs. Carry those decisions through contextual visual direction, flows, state and affected-surface coverage. Choose methods for the unresolved question:
+For substantive UI work, seek the available **integrated interface-design capability** for hierarchy, navigation, interaction states, visual direction and critique; these do not require separate visual, interaction and assessment skill calls. Establish the accepted platform/component system and appearance policy before dependent mockups or implementation. Use existing choices or recommend a compatible system and theme behavior with their tradeoffs. Select other expertise only when the question calls for it:
 
 | Question | Relevant expertise or artifact |
 | --- | --- |
-| Component-system and appearance foundations | Available visual design expertise, accepted application constraints and matching implementation guidance |
-| Product-specific visual direction | Available visual design expertise |
-| Flow, state and behavior | Available interaction design expertise |
-| Layout or navigation uncertainty | Text, wireframes, Figma or local prototypes, according to the question and available tools |
-| Rendered quality or consequential language | Available interface assessment or interface-language expertise |
+| Application structure, objects or data semantics | Relevant domain/archetype expertise and accepted product evidence |
+| Component-system feasibility and platform behavior | Matching technical implementation guidance, brought into design early |
+| Layout, behavior or visual uncertainty | Integrated interface design with text, wireframes, Figma or a local render as useful |
+| Consequential task language | Available UX-writing expertise |
 | A question needing participant evidence | Available usability research expertise |
+
+Before choosing an interface structure, incorporate material domain/archetype guidance (what users operate on, what data means, what workflows must be preserved) and the accepted platform's technical constraints (component behavior, lifecycle, design-system conventions). Treat both as inputs to experience design, not as downstream implementation instructions. Relevant specialists may propose a complete domain-appropriate starting structure; general interface methods refine and reconcile it rather than forcing a second design. If constraints disagree, compare alternatives against accepted outcomes, real authority/accessibility rules and supported platform behavior. Keep optional expertise selected by capability, never by a mandatory package dependency.
 
 Work through the main user task before polishing a screen. Determine what the user needs to understand, which action should be easiest to find, and what feedback explains the result. Use realistic content and the important empty, busy, error and permission states so the layout is designed for the application people will actually use.
 
 Develop a representative part of the experience far enough to judge the direction. If navigation is uncertain, a wireframe may answer the question; if typography, density or visual identity is uncertain, inspect a rendered design. Explain why the chosen direction suits the product and what an alternative would cost. Once it works, carry its layout, tokens and component behavior into the other affected surfaces.
 
-The handoff should make implementation choices traceable to design choices: which components to reuse, what states they need, how the layout adapts, and which details still need validation. Stack conventions map these decisions to implementation; Storybook can verify implemented component states later.
+The handoff should preserve the **combined** domain, interaction, visual and technical decisions in the existing task/design record: which objects and authority rules matter, chosen flow and states, tokens/components to reuse, how the layout adapts, and what needs verification. Reuse specialist findings rather than asking implementation to reconcile competing drafts or requiring a new document. Stack conventions map the accepted choices to code; Storybook can verify implemented component states later.
 
 
 ## Establish service behavior

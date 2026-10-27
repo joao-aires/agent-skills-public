@@ -12,7 +12,7 @@ metadata:
 
 # Fit the experience to the browser surface
 
-Read the accepted task, visual direction and interaction behavior before selecting layouts or components. Inspect existing tokens, typography, primitives and framework versions. Chrome's surface constraints affect implementation; they do not require a Google-like palette, a new font system or a component-library migration. Use available visual, interaction and accessibility expertise when relevant. Without it, establish task hierarchy and meaningful states from project evidence and inspect the rendered result.
+Read the accepted task, visual direction and interaction behavior before selecting layouts or components. Inspect existing tokens, typography, primitives and framework versions. Chrome's surface constraints affect implementation; they do not require a Google-like palette, a new font system or a component-library migration. Use general interface design expertise for shared hierarchy, flow and visual consistency when relevant; contribute browser-surface lifecycle, entry/exit and permission constraints *before* a layout is settled. A popup's dismissal contract or a host site's focus ownership may require different interaction structures than a full-tab application. This specialist can still design a complete extension experience when no generic interface skill is installed; it must not require another plugin or impose its own visual identity.
 
 ## Derive the experience from the kind of work
 

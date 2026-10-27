@@ -23,7 +23,7 @@ Pin target/base/head from the PR or current repository context; ask only if ambi
 - Use the agreed request/spec/ticket when present, without requiring a tracker or inventing requirements.
 - Follow the changed behavior from its caller to its result. Read enough surrounding code to understand existing callers, stored state and error handling, then check whether the new behavior agrees with them.
 - Examine consequential assumptions: which actor is trusted, which changes happen together, what a retry means, and which consumers may still use the previous behavior. Use relevant specialists to deepen concerns that the diff actually changes.
-- For affected UI use interface assessment expertise and interface-language expertise when installed; distinguish rendered/runtime evidence from static inspection.
+- For affected UI use available integrated interface-design expertise to assess hierarchy, interactions, consistency and accessibility against the accepted design and affected states. Use UX-writing expertise for consequential copy when relevant; distinguish rendered/runtime evidence from static inspection. Review the shared design decisions and domain/platform constraints rather than applying a new aesthetic preference.
 - Use usability research expertise only for relevant supplied observations or a requested research plan, not to fabricate validation.
 - Use code-review or security techniques only as supported by the client's invocation controls; review inline if delegation is unavailable.
 

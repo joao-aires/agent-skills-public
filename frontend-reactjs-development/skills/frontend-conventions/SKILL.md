@@ -16,7 +16,7 @@ user-invocable: false
 
 ## Establish the direction
 
-Read the request, `AGENTS.md`, existing components and accepted design decisions. Establish the component system and light/dark/system appearance policy with visual and interaction design expertise before dependent implementation.
+Read the request, `AGENTS.md`, existing components and accepted design decisions. Establish the component system and light/dark/system appearance policy using accepted project decisions and available integrated interface-design expertise before dependent implementation; technical conventions also inform feasibility early.
 
 Preserve the user's choice of plain Tailwind, Tailwind with shadcn/ui, HeroUI or another compatible system. Installed guidance is not a reason to switch libraries. The shadcn-specific conventions below apply when that system is selected; for another library, retain the design/verification outcomes and use its version-matched primary contracts and available implementation expertise.
 
@@ -32,11 +32,11 @@ Preserve an established React/Vite or other frontend unless migration is request
 
 When Tailwind v4 is selected for a new Next.js project, use `@tailwindcss/postcss`, `@import "tailwindcss"` and CSS-first semantic tokens via `@theme`/`@theme inline`. When using shadcn/ui, follow its selected preset rather than creating a competing token system. For another system, use its own supported theme mechanism and avoid mixing incompatible Tailwind/component major versions.
 
-Use visual design expertise for product-derived direction, accepted references and semantic token intent, and interaction design expertise for behavior. These generic methods apply beyond React; this skill owns the compatible React/Next.js implementation. Record meaningful stack deviations in the existing project note.
+Use available general interface design expertise for product-specific direction, IA, visual hierarchy, interaction contracts and critique. This skill owns compatible React/Next.js primitives, component/theme mappings, lifecycle and implementation feasibility. Surface relevant technical constraints *while the design is being formed*—for example, existing navigation architecture, component semantics, client/server boundaries or portal/theme behavior—without dictating a generic starter layout. A design may challenge an implementation default when the user task justifies it; compare cost and compatibility rather than silently weakening the intended UX. Record meaningful stack deviations in the existing project note.
 
 ## Design behavior and account for every affected surface
 
-Use interaction design expertise before meaningful new or changed UX. Define goals, flows, information/actions and state transitions in concise text; add wireframes/mockups only where they settle spatial/visual uncertainty. Resolve consequential choices and state reversible assumptions before coding; reuse agreed direction without another approval ceremony. Do not invent UX independently as each page is implemented.
+For meaningful new or changed UX, establish the intended experience with available general design and applicable application/domain specialists before implementing it. Define goals, flows, information/actions and state transitions in concise text; add wireframes/mockups only where they settle spatial/visual uncertainty. Resolve consequential choices and state reversible assumptions before coding; reuse agreed direction without another approval ceremony. Do not invent UX independently as each page is implemented.
 
 For cross-cutting work, inventory affected surfaces, establish a representative interaction pattern and reconcile the final result, using relevant expertise when available. Propagate shared implementations and verify actual callers/variants; preserve intentional differences and report incomplete coverage.
 
@@ -119,4 +119,4 @@ The bundled Tailwind guide targets **v4**. Treat a requested v3-to-v4 upgrade as
 
 For API changes, verify actual client behavior against supported provider contracts, including errors, optional fields and pagination. Generated types do not prove semantic compatibility. Keep old open browser sessions in the supported-consumer set during rollout and route planned breaks through backend/delivery guidance.
 
-For meaningful visual critique or refinement, seek available interface assessment expertise. Prioritize findings against the product-derived visual direction and implement accepted changes with this stack's compatible primitives. Use interface-language expertise for material task language. Use usability research expertise for a requested study or real unresolved user question, rather than requiring research for routine frontend work.
+For meaningful visual critique or refinement, use applicable interface design/evaluation expertise. Prioritize findings against the product-derived visual direction and implement accepted changes with this stack's compatible primitives. Use interface-language expertise for material task language. Use usability research expertise for a requested study or real unresolved user question, rather than requiring research for routine frontend work.
