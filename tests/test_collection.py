@@ -56,7 +56,7 @@ class CollectionTests(unittest.TestCase):
 
             # Historical migration mappings remain intentionally exempt.
             (root / 'documentation/usage.md').write_text(
-                '# Start\nSee [reference](https://example.com/old-name/guide).\n'
+                '# Start\nSee [reference](https://example.com/something/old-name/guide).\n'
             )
             self.assertFalse(collection.check_links(root)[0])
 

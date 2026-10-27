@@ -85,9 +85,9 @@ def check_links(root):
             continue
         body = prose(document.read_text())
         # External primary-source URLs may contain legacy names as URL path
-        # segments (e.g. a provider\'s /backup-recovery/ page); these are not
-        # references to the repository\'s skill inventory.
-        prose_without_urls = re.sub(r"https?://[^\\s)]+", "", body)
+        # segments (e.g. a provider's /backup-recovery/ page); these are not
+        # references to the repository's skill inventory.
+        prose_without_urls = re.sub(r"https?://[^\s)]+", "", body)
         for old in retired:
             # Catch skill identities in prose as well as backticks. The migration
             # table is the authority; ordinary words like "interaction design"
