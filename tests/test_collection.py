@@ -55,7 +55,9 @@ class CollectionTests(unittest.TestCase):
             self.assertTrue(any('obsolete skill link label Old name' in x for x in errors))
 
             # Historical migration mappings remain intentionally exempt.
-            (root / 'documentation/usage.md').write_text('# Start\n')
+            (root / 'documentation/usage.md').write_text(
+                '# Start\nSee [reference](https://example.com/old-name/guide).\n'
+            )
             self.assertFalse(collection.check_links(root)[0])
 
     def test_missing_resource_and_extra_skill_fail(self):

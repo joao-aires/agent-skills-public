@@ -84,11 +84,15 @@ def check_links(root):
         if document.name in {"migration.md", "maintainer-reference.md"}:
             continue
         body = prose(document.read_text())
+        # External primary-source URLs may contain legacy names as URL path
+        # segments (e.g. a provider\'s /backup-recovery/ page); these are not
+        # references to the repository\'s skill inventory.
+        prose_without_urls = re.sub(r"https?://[^\\s)]+", "", body)
         for old in retired:
             # Catch skill identities in prose as well as backticks. The migration
             # table is the authority; ordinary words like "interaction design"
             # are not themselves obsolete names.
-            if re.search(r"(?<![\w-])" + re.escape(old) + r"(?![\w-])", body, re.I):
+            if re.search(r"(?<![\w-])" + re.escape(old) + r"(?![\w-])", prose_without_urls, re.I):
                 errors.append(f"{document.relative_to(root)}: obsolete skill name {old}")
 
         # A link may resolve even when its displayed label advertises a retired
