@@ -68,7 +68,7 @@ class CollectionTests(unittest.TestCase):
             skill = root / "plugins/example/skills/local-method"
             skill.mkdir(parents=True)
             (skill / "SKILL.md").write_text("# Local method\n")
-            (skill.parents[2] / "plugin.json").write_text('{"name":"example"}')
+            (skill.parent.parent / "plugin.json").write_text('{"name":"example"}')
             sources = root / "documentation/maintainers/sources.md"
             sources.parent.mkdir(parents=True)
             valid = (
