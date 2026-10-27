@@ -1,6 +1,6 @@
 # Evaluating the collection
 
-[Current status](#current-status) · [Run a scenario](#run-and-grade-a-scenario) · [Generation trials](#generation-trials) · [Evidence limits](#recorded-evidence-and-limits) · [Maintainer guide](../maintainer-reference.md)
+[Current status](#current-status) · [Run a scenario](#run-and-grade-a-scenario) · [Generation trials](#generation-trials) · [Evidence limits](#recorded-evidence-and-limits) · [Roadmap](evaluation-roadmap.md) · [Maintainer guide](../maintainer-reference.md)
 
 The [evaluation specification](../../evals/development-workflows.json) defines behavior cases and generation trials across an eleven-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
 
@@ -15,6 +15,8 @@ A [Chrome/MV3 evaluation record](../../evals/results/browser-extension/results.j
 The current collection has not received a complete behavioral rerun. Earlier trials used different inventories and configurations; their results cannot be transferred to the current guidance. See [recorded evidence and limits](#recorded-evidence-and-limits) for the boundaries of those observations and [architecture](../architecture.md) for the supported composition model.
 
 The [authoring and workflow probes](../../evals/results/authoring-methods/assessment.md) record bounded independent checks of feature handoffs, repository-instruction maintenance and purpose-specific skill revision. They include a partial reporting result and do not establish full-suite adherence or improvement over a baseline.
+
+The [evaluation roadmap](evaluation-roadmap.md) describes proposed improvements to case/result consistency, repeatable execution, assessment, comparisons, coverage and CI integration. It separates intended outcomes from the capabilities described here.
 
 ## Intended flows and execution levels
 

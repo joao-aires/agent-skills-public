@@ -16,6 +16,7 @@ Use this page when changing the collection. For installation and everyday use, s
 | Acquire, verify or update committed snapshots | [Upstream maintenance](maintainers/upstreams.md) |
 | Check origins, licenses, adaptations or selection decisions | [Sources and compatibility](maintainers/sources.md) |
 | Run behavior trials or inspect evidence and open limits | [Evaluating the collection](maintainers/evaluations.md) |
+| Choose the next evaluation improvements | [Evaluation roadmap](maintainers/evaluation-roadmap.md) |
 | Find skills by development phase | [SDLC map](sdlc.md) |
 | Rename or replace an installed skill | [Migration](migration.md) |
 
