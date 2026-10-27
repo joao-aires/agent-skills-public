@@ -931,7 +931,7 @@
     },
     {
       "id": "integrated-visual-craft-without-upstream-dependency",
-      "prompt": "Use design to propose a distinctive company product landing page for the supplied specialist developer tool. The accepted product brief and realistic content are included; no specific aesthetic is imposed. Only the local frontend-development bundle and a static render facility are installed, not the separately acquired Anthropic frontend-design skill. Design-only; no repository modifications. Produce a brief direction, a representative composition and a grounded critique.",
+      "prompt": "Use interface-design directly to propose a distinctive company product landing page for the supplied specialist developer tool. The accepted product brief and realistic content are included; no specific aesthetic is imposed. Only the local frontend-development bundle and a static render facility are installed, not the separately acquired Anthropic frontend-design skill. Design-only; no repository modifications. Produce a brief direction, a representative composition and a grounded critique.",
       "evaluator_setup": "Provide a coherent product identity brief, genuine headline/body content, one long heading, supported accessibility constraints and static rendering. Include a separate comparator run using the pinned historical Anthropic frontend-design source if available. Evaluate against distinctiveness and usability by blinded human rubric; do not name expected aesthetics in the actor prompt.",
       "criteria": [
         "Design direction arises from product and audience rather than generic gradients, identical cards or ungrounded visual novelty.",
