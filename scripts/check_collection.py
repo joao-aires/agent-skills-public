@@ -79,12 +79,29 @@ def check_links(root):
         if row.startswith("| `") or row.startswith("| Standalone `"):
             old_names.update(re.findall(r"`([a-z0-9]+(?:-[a-z0-9]+)*)`", row.split("|")[1]))
     current = {p.parent.name for p in root.glob("plugins/*/skills/*/SKILL.md")}
+    retired = old_names - current
     for document in maintained_documents(root):
         if document.name in {"migration.md", "maintainer-reference.md"}:
             continue
-        for old in old_names - current:
-            if f"`{old}`" in prose(document.read_text()):
+        body = prose(document.read_text())
+        for old in retired:
+            # Catch skill identities in prose as well as backticks. The migration
+            # table is the authority; ordinary words like "interaction design"
+            # are not themselves obsolete names.
+            if re.search(r"(?<![\\w-])" + re.escape(old) + r"(?![\\w-])", body, re.I):
                 errors.append(f"{document.relative_to(root)}: obsolete skill name {old}")
+
+        # A link may resolve even when its displayed label advertises a retired
+        # skill, e.g. [Interaction design](.../interface-design/SKILL.md).
+        for label, value in re.findall(r"\\[([^]\\n]+)\\]\\(([^\\s)]+)(?:\\s+[^)]*)?\\)", body):
+            link = urlsplit(value.strip("<>"))
+            if link.scheme or link.netloc:
+                continue
+            target = (document.parent / unquote(link.path)).resolve() if link.path else document
+            label_name = re.sub(r"\\s+", "-", label.strip(" \\t\\n`*").lower())
+            if (label_name in retired and target.name == "SKILL.md"
+                    and target.parent.name != label_name):
+                errors.append(f"{document.relative_to(root)}: obsolete skill link label {label}")
     return errors, checked
 
 

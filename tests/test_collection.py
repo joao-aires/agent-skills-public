@@ -35,6 +35,29 @@ class CollectionTests(unittest.TestCase):
             errors, _ = collection.check_links(root)
             self.assertTrue(any("maintainers/sources.md: missing absent.md" in error for error in errors))
 
+    def test_retired_skill_names_in_prose_and_link_labels_fail(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_depot(root)
+            self.fixture(root)
+            current = root / 'plugins/example/skills/new-name'
+            current.mkdir(parents=True)
+            (current / 'SKILL.md').write_text('# New method\\n')
+            (root / 'documentation/migration.md').write_text(
+                '| `old-name` | `new-name` |\\n'
+            )
+            (root / 'documentation/usage.md').write_text(
+                '# Start\\nOld-name is available.\\n'
+                '[Old name](../plugins/example/skills/new-name/SKILL.md)\\n'
+            )
+            errors, _ = collection.check_links(root)
+            self.assertTrue(any('obsolete skill name old-name' in x for x in errors))
+            self.assertTrue(any('obsolete skill link label Old name' in x for x in errors))
+
+            # Historical migration mappings remain intentionally exempt.
+            (root / 'documentation/usage.md').write_text('# Start\\n')
+            self.assertFalse(collection.check_links(root)[0])
+
     def test_missing_resource_and_extra_skill_fail(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)

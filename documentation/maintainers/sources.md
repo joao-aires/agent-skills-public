@@ -159,7 +159,7 @@ Figma's [official MCP guide](https://developers.figma.com/docs/figma-mcp-server/
 
 ## Local UI/UX capability owners
 
-Interface-quality, ux-writing and usability-research are original local guidance under this repository's license. Their responsibilities include evidence-based inspection, contextual design, scoped copy changes, component/token preservation, neutral research tasks and honest observation status. These local methods do not copy Community skill text, scripts or private installed content.
+Interface-design, ux-writing and usability-research are original local guidance under this repository's license. Together they cover product-grounded interface structure, interaction and visual critique, scoped copy changes, component/token preservation, neutral research tasks and honest observation status. These local methods do not copy Community skill text, scripts or private installed content.
 
 The Community candidates above remain references. The MIT better-interface repository delegates to a six-skill group and differs from the canvas-writing Community version; acquiring that group would add overlapping ownership and dependency/control adaptation. The Apache-2.0 Balise source remains reference-only. I chose focused local owners with shared user/agent access and host-independent evidence boundaries, retaining Figma as an optional surface. This is a scope decision, not a claim that local guidance outperforms those sources. A controlled behavioral comparison has not run.
 
