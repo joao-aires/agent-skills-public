@@ -41,7 +41,7 @@ Choose the relevant analysis without imposing another process:
 
 | Concern | Examine and use |
 | --- | --- |
-| UX | Establish interaction intent before changing screens; account for all affected surfaces. Use available interface assessment and interface-language expertise for craft and task copy. |
+| UX | Use available integrated interface-design expertise for interaction intent, visual critique and affected-surface consistency against the accepted design. Seek UX-writing expertise separately for consequential copy. Reuse existing decisions for narrow fixes rather than initiating a redesign. |
 | Usability evidence | Use available research expertise for a requested study or actual observations. |
 | Architecture | Examine responsibilities, dependency direction, ownership, coupling/change hotspots, seams and testability. Use codebase-design/domain-modeling where useful, without forcing deep-module vocabulary, HTML reports or interviews. |
 

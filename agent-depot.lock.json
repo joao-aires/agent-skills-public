@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "manifestHash": "15697bb74b92eed256e65395e353ba88b235add8d8b79df2b49720101dcce902",
+  "manifestHash": "13e4de13afc497a335d7bc11c7e26c2eb4fe3c5af0fab46f2c9bfa4a4fda6cb0",
   "sources": {
     "vercel-labs-agent-skills": {
       "repository": "https://github.com/vercel-labs/agent-skills.git"
@@ -2968,60 +2968,6 @@
         }
       },
       "digest": "7d0a2906c218e89698b79163e150a98c751eac71dfa72eea32f9edca750d2304",
-      "inspection": {
-        "format": "skill",
-        "validation": "valid",
-        "skills": [
-          "SKILL.md"
-        ],
-        "mcpServers": [],
-        "extensions": [],
-        "diagnostics": []
-      }
-    },
-    "frontend-development--frontend-design": {
-      "source": "anthropics-skills",
-      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-      "kind": "skill",
-      "path": "skills/frontend-design",
-      "destination": "plugins/frontend-development/skills/frontend-design",
-      "resources": [
-        {
-          "path": "skills/frontend-design/LICENSE.txt",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "frontend-development",
-          "license": "Apache-2.0",
-          "license_path": "skills/frontend-design/LICENSE.txt",
-          "adaptations": [
-            "visual-design-framing",
-            "usage-labels"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "both",
-            "role": "support"
-          }
-        }
-      },
-      "files": {
-        "LICENSE.txt": {
-          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
-          "mode": "100644"
-        },
-        "SKILL.md": {
-          "sha256": "d91970639e9f5c37682ac7ab60094d35f1c7c1f38d731bd56396563aee10c1d3",
-          "mode": "100644"
-        },
-        "UPSTREAM-LICENSE.txt": {
-          "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594",
-          "mode": "100644"
-        }
-      },
-      "digest": "3e55230af5915b43616d7db447029fde98bcab30f881c056f6829c237f0743ac",
       "inspection": {
         "format": "skill",
         "validation": "valid",

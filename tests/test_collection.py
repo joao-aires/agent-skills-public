@@ -35,6 +35,65 @@ class CollectionTests(unittest.TestCase):
             errors, _ = collection.check_links(root)
             self.assertTrue(any("maintainers/sources.md: missing absent.md" in error for error in errors))
 
+    def test_retired_skill_names_in_prose_and_link_labels_fail(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_depot(root)
+            self.fixture(root)
+            current = root / 'plugins/example/skills/new-name'
+            current.mkdir(parents=True)
+            (current / 'SKILL.md').write_text('# New method\n')
+            (root / 'documentation/migration.md').write_text(
+                '| `old-name` | `new-name` |\n'
+            )
+            (root / 'documentation/usage.md').write_text(
+                '# Start\nOld-name is available.\n'
+                '[Old name](../plugins/example/skills/new-name/SKILL.md)\n'
+            )
+            errors, _ = collection.check_links(root)
+            self.assertTrue(any('obsolete skill name old-name' in x for x in errors))
+            self.assertTrue(any('obsolete skill link label Old name' in x for x in errors))
+
+            # Historical migration mappings remain intentionally exempt.
+            (root / 'documentation/usage.md').write_text(
+                '# Start\nSee [reference](https://example.com/something/old-name/guide).\n'
+            )
+            self.assertFalse(collection.check_links(root)[0])
+
+
+    def test_source_catalogue_rejects_drift_and_malformed_ownership(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_depot(root)
+            skill = root / "plugins/example/skills/local-method"
+            skill.mkdir(parents=True)
+            (skill / "SKILL.md").write_text("# Local method\n")
+            (skill.parent.parent / "plugin.json").write_text('{"name":"example"}')
+            sources = root / "documentation/maintainers/sources.md"
+            sources.parent.mkdir(parents=True)
+            valid = (
+                "The collection has 1 independent packages and 1 skills: 1 local and 0 acquired.\n"
+                "| Plugin | Applicability | Skills | Responsibility |\n"
+                "| --- | --- | --- | --- |\n"
+                "| `example` | Generic | 1 | Test bundle. |\n"
+                "### Setup, repository and delivery ownership\n"
+                "<details>\n<summary>All 1 skills and their current owners</summary>\n"
+                "| Skill | Origin | Plugin |\n| --- | --- | --- |\n"
+                "| [local-method](../../plugins/example/skills/local-method/SKILL.md) | Local | `example` |\n"
+                "</details>\n"
+            )
+            sources.write_text(valid)
+            self.assertEqual(collection.check_source_catalogue(root), [])
+            sources.write_text(valid.replace("1 skills: 1 local", "2 skills: 1 local"))
+            self.assertTrue(any("totals" in e for e in collection.check_source_catalogue(root)))
+            sources.write_text(valid.replace("| `example` | Generic | 1 | Test bundle. |",
+                                             "| `example` | Generic | 2 | Test bundle. |"))
+            self.assertTrue(any("declares" in e for e in collection.check_source_catalogue(root)))
+            sources.write_text(valid.replace("| Local | `example` |", "| Local | `wrong` |"))
+            self.assertTrue(any("skills missing" in e for e in collection.check_source_catalogue(root)))
+            sources.write_text(valid.replace(" | Local | `example` |", " | Local | `example` | broken |"))
+            self.assertTrue(any("malformed skill row" in e for e in collection.check_source_catalogue(root)))
+
     def test_missing_resource_and_extra_skill_fail(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
@@ -92,7 +151,7 @@ class CollectionTests(unittest.TestCase):
 
     def test_acquired_framing_requires_its_local_resources(self):
         cases = {'ai-framing': ['ai-conventions'],
-                 'visual-design-framing': ['visual-design', 'interface-quality']}
+                 'frontend-framing': ['frontend-conventions']}
         for adaptation, resources in cases.items():
             with self.subTest(adaptation=adaptation), tempfile.TemporaryDirectory() as tmp:
                 package = Path(tmp)

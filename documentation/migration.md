@@ -37,8 +37,8 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `project-bootstrap`, `maintain-project-foundations` | `project-conventions` |
 | `build-consistent-frontend` | `frontend-conventions` |
 | `build-python-backend` | `backend-conventions` |
-| `design-interactions` | `interaction-design` |
-| `interface-craft` | `interface-quality` |
+| `design-interactions`, `interaction-design` | `interface-design` |
+| `interface-craft`, `interface-quality`, `visual-design` | `interface-design` |
 | `write-scannable-documentation`, `write-project-documentation` | `documentation-writing` |
 | `document-software-architecture` | `architecture-documentation` |
 | `test-end-to-end` | `journey-testing` |
@@ -51,6 +51,8 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `architecture-diagraming` | `architecture-diagramming` |
 | Standalone `backup-recovery` | `protect-and-restore-data` |
 | Standalone `cicd-release-management` | `delivery-pipelines` |
+
+The separately acquired Anthropic `frontend-design` entry point is also retired from frontend-development. It is replaced by `interface-design` for applicable design work, with [visual craft](../plugins/frontend-development/skills/interface-design/references/visual-craft.md) loaded conditionally when an open creative direction warrants it. This is a migration of the packaged capability, not a rename of the upstream project's original skill.
 
 ## AI implementation names and resource paths
 

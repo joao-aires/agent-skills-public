@@ -271,7 +271,7 @@ class InstallationTests(unittest.TestCase):
             self.assertTrue(result.endswith(original.split('---', 2)[2]))
 
     def test_specialist_framing_preserves_source_body_metadata_and_resources(self):
-        for adaptation in ('instruction-authoring-framing', 'visual-design-framing'):
+        for adaptation in ('instruction-authoring-framing',):
             with self.subTest(adaptation=adaptation), tempfile.TemporaryDirectory() as tmp:
                 skill = Path(tmp) / 'specialist'
                 skill.mkdir()

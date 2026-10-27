@@ -40,7 +40,7 @@ The [installation guide](installation.md#load-them-in-your-client) links the cli
 
 Select strategy for product-management, business direction and product feedback. Ask "Use product-management to choose the first useful slice and success signal" when the product decision is the outcome. Ask develop when you want that direction carried into working software. Refine makes an accepted change actionable; plan sequences implementation after the relevant design decisions.
 
-Frontend-development provides stack-independent visual/interaction/interface methods and Anthropic frontend-design for distinctive visual execution within the accepted direction. Use it when visual decisions are open or a redesign is requested; ordinary changes preserve the existing system. Backend-development provides service design across stacks.
+Frontend-development provides one integrated interface-design method for information architecture, interaction, visual craft and critique, plus independent UX writing and usability research. Creative, subject-specific art direction is conditionally available inside interface-design when choices are open; ordinary changes preserve the existing system. Application-specific specialists contribute archetype patterns and domain semantics, while the accepted frontend platform constrains and implements the design. Backend-development provides service design across stacks.
 
 The ai-development package supplies three generic skills: ai-development for application patterns, architecture and capability/protocol decisions; ai-testing for testing/evaluation strategy and evidence; and ai-operations for task signals, quality monitoring, provider/resource limits and recovery. Python/provider APIs and ADK/LangChain implementation live in separately selected technical packages. Ai-python-development includes ai-deepeval-testing for a selected DeepEval evaluation runner and python-ai-observability for Python OpenTelemetry instrumentation; quality criteria and operating outcomes stay generic, and no hosted backend is required. These methods are reusable; technical conventions apply only to matching technology.
 
@@ -92,7 +92,7 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 Use design to unify navigation, nested menus and edit dialogs across this application. Specify the interactions and show wireframes where useful. Do not implement yet.
 ```
 
-Then ask `improve` or `develop` to implement the agreed direction. Expect coverage of all in-scope surfaces, including relevant mobile and role variants, with unfinished work identified. [Interaction design](../plugins/frontend-development/skills/interaction-design/SKILL.md) owns the detailed method. Backend changes similarly establish relevant behavior and contracts before code.
+Then ask `improve` or `develop` to implement the agreed direction. Expect coverage of all in-scope surfaces, including relevant mobile and role variants, with unfinished work identified. [Interface design](../plugins/frontend-development/skills/interface-design/SKILL.md) owns the integrated UX/UI method. Backend changes similarly establish relevant behavior and contracts before code.
 
 ### Evaluate during implementation
 
@@ -154,11 +154,11 @@ Storybook is an optional component workbench within verification. Run meaningful
 
 ## UI/UX expertise for people and agents
 
-The frontend-development bundle provides [interface-quality](../plugins/frontend-development/skills/interface-quality/SKILL.md), [ux-writing](../plugins/frontend-development/skills/ux-writing/SKILL.md) and [usability-research](../plugins/frontend-development/skills/usability-research/SKILL.md) as directly selectable, model-available supporting skills. Client picker/discovery behavior still needs verification. The same guidance supports design, develop, improve and review when relevant; no separate user and agent copies are maintained.
+The frontend-development bundle provides [interface-design](../plugins/frontend-development/skills/interface-design/SKILL.md), [ux-writing](../plugins/frontend-development/skills/ux-writing/SKILL.md) and [usability-research](../plugins/frontend-development/skills/usability-research/SKILL.md) as directly selectable, model-available supporting skills. Client picker/discovery behavior still needs verification. The same guidance supports design, develop, improve and review when relevant; no separate user and agent copies are maintained.
 
 Ask for a scoped result: "Review this dialog without changing it", "Improve and apply the error messages in this flow", or "Prepare a usability study for onboarding". A bare review/improvement assessment stays read-only. A specified repair can include implementation and rechecking. A research guide is a plan until actual observations exist. Ordinary UI development needs no compulsory study or Figma connection.
 
-Visual-design owns visual direction and semantic token intent; frontend conventions implement it for the selected React stack; interaction-design owns flows and affected surfaces; interface-quality owns craft inspection and component/token audits; ux-writing owns task copy; usability-research owns studies and evidence synthesis. Existing test/journey guidance verifies implementation and Storybook states where adopted.
+Interface-design owns information architecture, interactions, visual direction, cross-view consistency, critique and component/token audits; frontend conventions implement the accepted direction for the selected React stack. UX-writing owns task language, and usability-research owns studies and participant evidence synthesis. Existing test/journey guidance verifies implementation and Storybook states where adopted.
 
 ## Explain and maintain project knowledge
 

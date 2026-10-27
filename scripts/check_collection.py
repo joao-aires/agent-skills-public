@@ -79,13 +79,102 @@ def check_links(root):
         if row.startswith("| `") or row.startswith("| Standalone `"):
             old_names.update(re.findall(r"`([a-z0-9]+(?:-[a-z0-9]+)*)`", row.split("|")[1]))
     current = {p.parent.name for p in root.glob("plugins/*/skills/*/SKILL.md")}
+    retired = old_names - current
     for document in maintained_documents(root):
         if document.name in {"migration.md", "maintainer-reference.md"}:
             continue
-        for old in old_names - current:
-            if f"`{old}`" in prose(document.read_text()):
+        body = prose(document.read_text())
+        # External primary-source URLs may contain legacy names as URL path
+        # segments (e.g. a provider's /backup-recovery/ page); these are not
+        # references to the repository's skill inventory.
+        prose_without_urls = re.sub(r"https?://[^\s)]+", "", body)
+        for old in retired:
+            # Catch skill identities in prose as well as backticks. The migration
+            # table is the authority; ordinary words like "interaction design"
+            # are not themselves obsolete names.
+            if re.search(r"(?<![\w-])" + re.escape(old) + r"(?![\w-])", prose_without_urls, re.I):
                 errors.append(f"{document.relative_to(root)}: obsolete skill name {old}")
+
+        # A link may resolve even when its displayed label advertises a retired
+        # skill, e.g. [Interaction design](.../interface-design/SKILL.md).
+        for label, value in re.findall(r"\[([^]\n]+)\]\(([^\s)]+)(?:\s+[^)]*)?\)", body):
+            link = urlsplit(value.strip("<>"))
+            if link.scheme or link.netloc:
+                continue
+            target = (document.parent / unquote(link.path)).resolve() if link.path else document
+            label_name = re.sub(r"\s+", "-", label.strip(" \t\n`*").lower())
+            if (label_name in retired and target.name == "SKILL.md"
+                    and target.parent.name != label_name):
+                errors.append(f"{document.relative_to(root)}: obsolete skill link label {label}")
     return errors, checked
+
+
+
+def check_source_catalogue(root):
+    """Keep the maintained ownership table aligned with real packaged skills."""
+    document = root / "documentation/maintainers/sources.md"
+    if not document.exists():
+        return []
+    body = document.read_text()
+    errors = []
+    upstream = load_sources(root, verify=False)
+    managed = {Path(source["destination"]) for source in upstream}
+    local = {(path.parent.name, "Local", path.parents[2].name)
+             for path in root.glob("plugins/*/skills/*/SKILL.md")
+             if path.parent.relative_to(root) not in managed}
+    expected = local | {(Path(source["destination"]).name, "Upstream", source["plugin"])
+                        for source in upstream}
+    owners = {path.parent.name for path in root.glob("plugins/*/plugin.json")}
+
+    if "| Skill | Origin | Plugin |" not in body or "</details>" not in body:
+        return ["source catalogue: missing skill table"]
+    skill_section = body.split("| Skill | Origin | Plugin |", 1)[1].split("</details>", 1)[0]
+    listed = []
+    for line in skill_section.splitlines():
+        if not line.startswith("|") or line.startswith("| ---"):
+            continue
+        match = re.fullmatch(r"\| \[([^]]+)\]\([^)]+\) \| (Local|Upstream) \| `([^\`]+)` \|", line)
+        if not match:
+            errors.append(f"source catalogue: malformed skill row {line[:120]}")
+        else:
+            listed.append(match.groups())
+    if len(listed) != len(set(listed)):
+        errors.append("source catalogue: duplicate skill rows")
+    if set(listed) != expected:
+        errors.append(f"source catalogue: skills missing={sorted(expected-set(listed))}; extra={sorted(set(listed)-expected)}")
+
+    marker = "| Plugin | Applicability | Skills | Responsibility |"
+    if marker not in body or "### Setup, repository and delivery ownership" not in body:
+        return errors + ["source catalogue: missing package table"]
+    package_section = body.split(marker, 1)[1].split("### Setup, repository and delivery ownership", 1)[0]
+    packages = {}
+    for line in package_section.splitlines():
+        if not line.startswith("|") or line.startswith("| ---"):
+            continue
+        match = re.fullmatch(r"\| `([^\`]+)` \| (Generic(?: support)?|Technical) \| (\d+) \| .* \|", line)
+        if not match:
+            errors.append(f"source catalogue: malformed package row {line[:120]}")
+            continue
+        name, category, count = match.groups()
+        if name in packages:
+            errors.append(f"source catalogue: duplicate package {name}")
+        packages[name] = int(count)
+    if set(packages) != owners:
+        errors.append(f"source catalogue: packages missing={sorted(owners-set(packages))}; extra={sorted(set(packages)-owners)}")
+    actual_counts = Counter(owner for _, _, owner in expected)
+    for package, count in packages.items():
+        if count != actual_counts[package]:
+            errors.append(f"source catalogue: {package} declares {count} skills, has {actual_counts[package]}")
+
+    totals = re.search(r"The collection has (\d+) independent packages and (\d+) skills: (\d+) local and (\d+) acquired\.", body)
+    breakdown = Counter(origin for _, origin, _ in expected)
+    real = (len(owners), len(expected), breakdown["Local"], breakdown["Upstream"])
+    if not totals or tuple(map(int, totals.groups())) != real:
+        errors.append(f"source catalogue: incorrect inventory totals; expected {real}")
+    caption = re.search(r"<summary>All (\d+) skills and their current owners</summary>", body)
+    if not caption or int(caption.group(1)) != len(expected):
+        errors.append(f"source catalogue: incorrect skill catalogue heading; expected {len(expected)}")
+    return errors
 
 
 def check_package_links(package, local_names, notices):
@@ -96,7 +185,6 @@ def check_package_links(package, local_names, notices):
     framing = {
         "workflow-framing": ["../../WORKFLOW.md"],
         "composition-framing": ["../../COMPOSITION.md"],
-        "visual-design-framing": ["../visual-design/SKILL.md", "../interface-quality/SKILL.md"],
         "frontend-framing": ["../frontend-conventions/SKILL.md"],
         "backend-framing": ["../backend-conventions/SKILL.md"],
         "ai-framing": ["../ai-conventions/SKILL.md"],
@@ -220,7 +308,8 @@ def main():
     if args.plugin and not args.built:
         parser.error('--plugin requires --built')
     errors, count = check_links(ROOT)
-    print(f"Checked {count} maintained relative links/anchors and migration names")
+    errors.extend(check_source_catalogue(ROOT))
+    print(f"Checked {count} maintained relative links/anchors, migration names and source catalogue")
     if args.built:
         build_errors, skills = check_built(ROOT, args.built.resolve(), args.plugin)
         errors.extend(build_errors)

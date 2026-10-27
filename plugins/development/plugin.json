@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "development",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Stack-independent SDLC activities, project foundations, contributions and verification.",
   "author": {
     "name": "João Aires"

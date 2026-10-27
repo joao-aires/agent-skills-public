@@ -21,7 +21,6 @@ The [manifest](../../agent-depot.json) declares repositories, accepted artifact 
 | development-tooling | [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | playwright-cli |
 | development-tooling | [trailofbits/skills](https://github.com/trailofbits/skills) | supply-chain-risk-auditor |
 | documentation | [blader/humanizer](https://github.com/blader/humanizer) | humanizer |
-| frontend-development | [anthropics/skills](https://github.com/anthropics/skills) | frontend-design |
 | frontend-reactjs-development | [shadcn-ui/ui](https://github.com/shadcn-ui/ui) | shadcn |
 | frontend-reactjs-development | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | vercel-composition-patterns, vercel-react-best-practices |
 | frontend-reactjs-development | [wshobson/agents](https://github.com/wshobson/agents) | tailwind-design-system |
@@ -38,7 +37,6 @@ The [manifest](../../agent-depot.json) declares repositories, accepted artifact 
 | Review and supply chain | differential-review uses its included method without an unavailable registered agent. The pinned supply-chain parser does not cover pnpm/yarn; missing coverage is not a clean audit. |
 | AKS cost | Azure AKS only, with its six references. Other platforms use contextual first-party guidance. |
 | Repository instructions | agents-md retains its complete source directory; local framing treats size/format targets as heuristics, sample commands/attribution as examples and host instruction precedence as authoritative. |
-| Visual craft | frontend-design preserves its body and license; local framing applies accepted visual direction, project scope and platform conventions before aesthetic suggestions. |
 | Visibility and labels | Preserve explicit upstream controls; set support visibility only when absent. Scope/stack/role/invocation labels describe use, not permissions. |
 
 Agent Depot acquires accepted artifact commits and records file identities without executing upstream scripts. Built `UPSTREAM.json`, `UPSTREAM-NOTICES.json` and license files record provenance. Trail of Bits material is CC-BY-SA-4.0; other acquired sources are MIT or Apache-2.0 as recorded at their pins. Bundles have mixed-license notices. Embedded live links/commands can still change despite source pinning. Private installed content is never redistributed.
@@ -106,9 +104,9 @@ Optional [shadcn MCP](https://ui.shadcn.com/docs/mcp) and [Playwright MCP](https
 
 [getsentry/skills agents-md](https://github.com/getsentry/skills/tree/f57ada2d0b640406ea7e25b11d636c530e77c58b/skills/agents-md) adds focused repository-instruction authoring to development. Its inspect-first method, exact command/path checks, scoped instructions and reference-backed editing complement project foundations and general instruction writing. The reviewed source is Apache-2.0; acquisition preserves SKILL.md, SPEC.md and SOURCES.md. GitHub's create-agentsmd was also reviewed; its comprehensive section/template approach adds less to this collection's concise, conditional guidance. Sentry's sample package manager and attribution blocks do not become project policy, and shortening must preserve required information. Use it for instruction-file work rather than every documentation change.
 
-[Anthropic frontend-design](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design) adds visual execution craft to frontend-development without choosing a framework. The claude-code plugin copy references an absent LICENSE.txt; that repository's root terms do not establish a redistribution grant. The reviewed anthropics/skills copy has identical skill text and an included Apache-2.0 LICENSE.txt, so that is the acquired source. Visual-design owns early component-system/appearance foundations, direction and handoff, interaction-design owns behavior, frontend-design supplies subject-grounded composition/typography/craft, and interface-quality owns rendered critique. Plain Tailwind, Tailwind with shadcn/ui, HeroUI or another accepted system can implement those foundations when compatible; this does not create a package dependency or authorize a migration. Use craft guidance for new visual decisions or requested redesigns; preserve accepted tokens/components and avoid adding a new style or approval ceremony to routine changes. Deterministic accessibility, interactions and persisted behavior need their own verification.
+The previous Anthropic [frontend-design](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design) snapshot (Apache-2.0) has been retired from the packaged catalogue to avoid a competing generic UI entry point. Its useful creative-direction, typography and critique ideas were re-expressed as original guidance in [interface design](../../plugins/frontend-development/skills/interface-design/SKILL.md) and [visual craft](../../plugins/frontend-development/skills/interface-design/references/visual-craft.md), without redistributing the upstream instruction text or assets. The external pinned source remains a provenance and quality-comparison reference, not an acquired package. Domain specialists contribute semantics and archetype decisions, general interface design reconciles IA, interactions and visual craft, and technical specialists shape feasible design and implement accepted choices.
 
-The [skills directory](https://www.skills.sh/getsentry/skills/agents-md) reports meaningful adoption for agents-md, and [frontend-design](https://www.skills.sh/anthropics/skills/frontend-design) is widely installed. Adoption supports discovery; source review and applicable evidence determine fit. Neither acquisition establishes behavioral improvement; those trials remain deferred.
+The [skills directory](https://www.skills.sh/getsentry/skills/agents-md) reports adoption for agents-md, while the original [frontend-design](https://www.skills.sh/anthropics/skills/frontend-design) remains a comparator for future creative-quality trials. Popularity does not establish that the integrated method matches upstream quality; behavioral comparisons remain necessary.
 
 ## AI development, testing and operations segmentation
 
@@ -161,7 +159,7 @@ Figma's [official MCP guide](https://developers.figma.com/docs/figma-mcp-server/
 
 ## Local UI/UX capability owners
 
-Interface-quality, ux-writing and usability-research are original local guidance under this repository's license. Their responsibilities include evidence-based inspection, contextual design, scoped copy changes, component/token preservation, neutral research tasks and honest observation status. These local methods do not copy Community skill text, scripts or private installed content.
+Interface-design, ux-writing and usability-research are original local guidance under this repository's license. Together they cover product-grounded interface structure, interaction and visual critique, scoped copy changes, component/token preservation, neutral research tasks and honest observation status. These local methods do not copy Community skill text, scripts or private installed content.
 
 The Community candidates above remain references. The MIT better-interface repository delegates to a six-skill group and differs from the canvas-writing Community version; acquiring that group would add overlapping ownership and dependency/control adaptation. The Apache-2.0 Balise source remains reference-only. I chose focused local owners with shared user/agent access and host-independent evidence boundaries, retaining Figma as an optional surface. This is a scope decision, not a claim that local guidance outperforms those sources. A controlled behavioral comparison has not run.
 
@@ -190,7 +188,7 @@ The following official plugins were reviewed at [5826794](https://github.com/ant
 
 | Reference | Adopted principle | Boundary |
 | --- | --- | --- |
-| [frontend-design](https://github.com/anthropics/claude-plugins-official/blob/58267944f92187b7d6a1c822165c96c81c864806/plugins/frontend-design/skills/frontend-design/SKILL.md) | Subject-grounded craft, coherent choices and rendered self-critique. | Its skill text is identical to the already acquired resource; no second copy or new pin is needed. Aesthetic starting points remain subordinate to the accepted brief and identity. |
+| [frontend-design](https://github.com/anthropics/claude-plugins-official/blob/58267944f92187b7d6a1c822165c96c81c864806/plugins/frontend-design/skills/frontend-design/SKILL.md) | Subject-grounded craft, coherent choices and rendered self-critique. | The external source is retained for comparison only, not acquired or shipped. Aesthetic starting points remain subordinate to the accepted brief and identity. |
 | [feature-dev](https://github.com/anthropics/claude-plugins-official/tree/58267944f92187b7d6a1c822165c96c81c864806/plugins/feature-dev) | Evidence-backed feature tracing and a concrete design-to-implementation handoff. | No prescribed agent counts, model/tool bindings, repeated approval gates or numerical review-confidence threshold are imported. Existing verification and delivery methods retain ownership. |
 | [claude-md-management](https://github.com/anthropics/claude-plugins-official/tree/58267944f92187b7d6a1c822165c96c81c864806/plugins/claude-md-management) | Assess instructions against the repository and retain only useful durable knowledge. | Sentry agents-md remains the acquired authoring method. Owned maintenance guidance complements it without importing scoring templates, client-specific discovery assumptions or a second authoring skill. |
 
@@ -207,7 +205,7 @@ I separate the requested activity, reusable discipline and technical implementat
 | Business direction | Business-strategy retains its original strategic model and resources. |
 | Product direction | Product-management owns problem evidence, priorities, useful scope, success signals and sequencing. Product-feedback owns evidence synthesis; refine owns engineering requirements. |
 | System and service design | System-design owns architectural boundaries; backend-design owns service authority, state, failure and consumer contracts. Python conventions retain concrete runtime/persistence mechanics. |
-| Interface design | Visual-design owns product-derived direction and token intent; interaction-design owns flows and coverage; interface-quality owns critique. React and native conventions implement these decisions with compatible primitives. |
+| Interface design | Interface-design owns general information architecture, flows, interaction behavior, visual direction/tokens and evidence-based critique. Application/archetype specialists own domain semantics and product-type patterns; React, native and other technical conventions inform feasible design and implement accepted decisions with compatible primitives. |
 | AI design, testing and operations | Ai-development owns application/capability/protocol design; ai-testing owns evaluation strategy/evidence; ai-operations owns AI operating outcomes. Ai-conventions, ai-deepeval-testing and python-ai-observability supply selected Python implementations. Framework and backend deployment expertise remain separate. |
 | Navigation | Workflow-help recommends activities; develop coordinates an explicitly requested engagement. TASKS.md describes needed expertise and matches available descriptions, preserving fallback when specialists are absent. No global router or dependency engine is added. |
 
@@ -251,7 +249,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 25 independent packages and 122 skills: 83 local and 39 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 25 independent packages and 119 skills: 81 local and 38 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
 
 A plugin represents a useful installation choice. Workflow, application discipline and supporting capability describe its purpose; generic versus technical describes its applicability. These groups do not impose an execution order or dependencies. Installing a technical package makes expertise available without accepting its technology for a project. Keep accepted choices, select matching guidance from actual inventory and retain useful outcomes when optional specialists are absent.
 
@@ -263,8 +261,9 @@ The collection has 13 generic capability packages and 12 optional technical pack
 | --- | --- | --- | --- |
 | `strategy` | Generic | 4 | Business direction, product priorities and evidence-based feedback. |
 | `development` | Generic | 40 | SDLC engagements, project foundations, contribution flow and verification; usable without stack packages. |
+| `security` | Generic | 2 | Application authorization, privacy boundaries and secure feature implementation. |
 | `operations` | Generic | 12 | Service reliability, signals, incidents, recovery, capacity and security upkeep. |
-| `frontend-development` | Generic | 6 | Experience and interface methods across web, desktop and mobile. |
+| `frontend-development` | Generic | 3 | Integrated interface design, UX writing and usability research across web, desktop and mobile. |
 | `backend-development` | Generic | 1 | Service authority, state, failure, durable work and consumer contracts. |
 | `ai-development` | Generic | 3 | AI application/architecture and protocol design; testing/evaluation methods; AI-specific operating decisions and evidence. |
 | `delivery` | Generic | 1 | CI/release/deployment methods, immutable artifacts, promotion, compatibility and recovery. |
@@ -323,7 +322,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 122 skills and their current owners</summary>
+<summary>All 119 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -384,12 +383,9 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [reliability-design](../../plugins/operations/skills/reliability-design/SKILL.md) | Local | `operations` |
 | [runbook-engineering](../../plugins/operations/skills/runbook-engineering/SKILL.md) | Local | `operations` |
 | [vulnerability-management](../../plugins/operations/skills/vulnerability-management/SKILL.md) | Local | `operations` |
-| [interaction-design](../../plugins/frontend-development/skills/interaction-design/SKILL.md) | Local | `frontend-development` |
-| [interface-quality](../../plugins/frontend-development/skills/interface-quality/SKILL.md) | Local | `frontend-development` |
+| [interface-design](../../plugins/frontend-development/skills/interface-design/SKILL.md) | Local | `frontend-development` |
 | [usability-research](../../plugins/frontend-development/skills/usability-research/SKILL.md) | Local | `frontend-development` |
 | [ux-writing](../../plugins/frontend-development/skills/ux-writing/SKILL.md) | Local | `frontend-development` |
-| [frontend-design](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design) | Upstream | `frontend-development` |
-| [visual-design](../../plugins/frontend-development/skills/visual-design/SKILL.md) | Local | `frontend-development` |
 | [backend-design](../../plugins/backend-development/skills/backend-design/SKILL.md) | Local | `backend-development` |
 | [ai-development](../../plugins/ai-development/skills/ai-development/SKILL.md) | Local | `ai-development` |
 | [ai-testing](../../plugins/ai-development/skills/ai-testing/SKILL.md) | Local | `ai-development` |
@@ -415,8 +411,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [browser-extension-ui](../../plugins/browser-extension-development/skills/browser-extension-ui/SKILL.md) | Local | `browser-extension-development` |
 | [browser-extension-testing](../../plugins/browser-extension-development/skills/browser-extension-testing/SKILL.md) | Local | `browser-extension-development` |
 | [browser-extension-delivery](../../plugins/browser-extension-development/skills/browser-extension-delivery/SKILL.md) | Local | `browser-extension-development` |
-| [native-client-development](../../plugins/frontend-native-development/skills/native-client-development/SKILL.md) | Local | `browser-extension-development` | Technical | 5 | Chrome/MV3 execution contexts, permissions, extension surfaces, runtime verification and controlled store delivery. |
-| `frontend-native-development` |
+| [native-client-development](../../plugins/frontend-native-development/skills/native-client-development/SKILL.md) | Local | `frontend-native-development` |
 | [adk-agent-builder](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-agent-builder) | Upstream | `ai-adk-development` |
 | [adk-architecture](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-architecture) | Upstream | `ai-adk-development` |
 | [langchain-dependencies](https://github.com/langchain-ai/langchain-skills/tree/16a992f09ab3ccfb642dd4f08d350d833d1990bf/config/skills/langchain-dependencies) | Upstream | `ai-langchain-development` |

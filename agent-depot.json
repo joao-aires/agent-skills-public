@@ -1187,35 +1187,6 @@
           }
         }
       }
-    },
-    "frontend-development--frontend-design": {
-      "source": "anthropics-skills",
-      "commit": "dbd4588f9e1033efb41dad4bef2f7947c8993d44",
-      "kind": "skill",
-      "path": "skills/frontend-design",
-      "destination": "plugins/frontend-development/skills/frontend-design",
-      "resources": [
-        {
-          "path": "skills/frontend-design/LICENSE.txt",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "frontend-development",
-          "license": "Apache-2.0",
-          "license_path": "skills/frontend-design/LICENSE.txt",
-          "adaptations": [
-            "visual-design-framing",
-            "usage-labels"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "both",
-            "role": "support"
-          }
-        }
-      }
     }
   }
 }

@@ -2,7 +2,7 @@
 
 The collection separates the work someone requests, the expertise that improves it and the technology chosen for its implementation. I package useful capabilities as plugins. A plugin is an installation and update boundary; it does not define an execution order or require other plugins.
 
-The repository builds 25 independently selectable plugins: 13 generic capability packages and 12 technical packages. The [ownership map](maintainers/sources.md#plugin-ownership) assigns all 122 skills. Development is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. Distribution uses complete built plugins; the legacy local-skill helper is a migration aid.
+The repository builds 25 independently selectable plugins: 13 generic capability packages and 12 technical packages. The [ownership map](maintainers/sources.md#plugin-ownership) assigns all 119 skills. Development is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. Distribution uses complete built plugins; the legacy local-skill helper is a migration aid.
 
 ## Activities, methods and technical expertise
 
@@ -30,6 +30,12 @@ Workflow instructions describe the expertise needed for a decision. They do not 
 | Delivery infrastructure changes | Artifact identity, trust, compatibility and recovery, then provider implementation | Chosen CI, artifact ecosystem, destination and authorization |
 
 Use the client's observed skill inventory or supported discovery to find matches, read the relevant guidance and carry applicable conclusions into the work. Descriptions are the portable selection surface; metadata can help where the client exposes it. This architecture assumes neither semantic search nor metadata filtering. Without inventory access, proceed from available project guidance rather than claiming a specialist was discovered or searching unrelated installations/accounts. Keep discovery proportionate and stop when enough context is available.
+
+### Compose domain, interface and technical guidance
+
+A substantive interface task may require three kinds of judgment concurrently: **application/domain or archetype expertise** defines the objects, workflows, data meaning and relevant candidate patterns; **generic interface design** synthesizes information architecture, interactions, visual direction and evaluation; **technical/platform expertise** contributes existing component contracts, system constraints and implementation feasibility. These are responsibilities, not an invocation chain or dependency tree. A domain specialist can design directly without the generic skill installed; generic design can work without a matching archetype; stack guidance can inform an early design decision, and later verification can send an assumption back for revision.
+
+The activity chooses enough expertise to answer the actual question, reconciling conflicts against accepted product/user outcomes, domain/authority and accessibility invariants, actual platform limits and observed evidence. Reuse accepted solutions for small corrections. Future knowledge blueprints may be referenced conditionally by their owning application specialist; installing one should not require edits to this architecture, a central catalogue or runtime router. Skill descriptions advertise applicability, not absolute precedence. Keep reference atlases, pattern libraries and blueprints separate from execution tasks, and avoid duplicating their whole contents into a generic skill.
 
 A user can still explicitly select a known skill. Help may name actual observed activities, and documentation may catalogue their owners. Those are different from hardcoding optional specialist identities into workflow routing. Internal required resources retain precise links; optional cross-package guidance is selected by capability.
 

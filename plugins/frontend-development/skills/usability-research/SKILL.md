@@ -10,7 +10,7 @@ metadata:
 
 # Investigate usability with observable tasks
 
-Choose research to resolve a user question or inform a decision. Use for requested study preparation or supplied observations; routine UI work can use [interface quality](../interface-quality/SKILL.md) without a study. [Interaction design](../interaction-design/SKILL.md) owns the proposed flow.
+Choose research to resolve a user question or inform a decision. Use for requested study preparation or supplied observations; routine UI work can use [interface design](../interface-design/SKILL.md) for heuristic review without a study. That same interface method owns the proposed flow.
 
 ## Frame the decision and method
 

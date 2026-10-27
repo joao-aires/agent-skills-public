@@ -58,7 +58,7 @@ Turn the selected slice into a small set of outcomes that can be demonstrated. T
 
 Keep the reasoning connected across phases. The product outcome should explain the requirements; the requirements should explain the design; the design should explain the implementation order and verification. Producing separate documents with inconsistent decisions does not establish this continuity. Reuse an existing brief or conversation when it already carries the necessary information.
 
-- For meaningful frontend work establish product-derived visual direction, interaction behavior and affected-surface coverage before coding, using available visual and interaction design expertise.
+- For meaningful frontend work use available integrated interface-design expertise for product-derived structure, interaction, visual direction and affected-surface coverage. Incorporate relevant domain/archetype and platform constraints before coding; carry their accepted conclusions through the existing implementation handoff. A narrow UI fix reuses the accepted direction without reopening it.
 - For backend work establish authority, invariants, state/failure and compatibility contracts using service-contract design expertise when available.
 - Apply only matching accepted-stack conventions; missing optional methods do not remove these decision outcomes.
 - Use text, wireframes or mockups to settle the actual uncertainty. No compulsory document template, design approval per screen or complete scaffold is required.
