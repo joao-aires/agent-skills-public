@@ -109,6 +109,74 @@ def check_links(root):
     return errors, checked
 
 
+
+def check_source_catalogue(root):
+    """Keep the maintained ownership table aligned with real packaged skills."""
+    document = root / "documentation/maintainers/sources.md"
+    if not document.exists():
+        return []
+    body = document.read_text()
+    errors = []
+    upstream = load_sources(root, verify=False)
+    managed = {Path(source["destination"]) for source in upstream}
+    local = {(path.parent.name, "Local", path.parents[2].name)
+             for path in root.glob("plugins/*/skills/*/SKILL.md")
+             if path.parent.relative_to(root) not in managed}
+    expected = local | {(Path(source["destination"]).name, "Upstream", source["plugin"])
+                        for source in upstream}
+    owners = {path.parent.name for path in root.glob("plugins/*/plugin.json")}
+
+    if "| Skill | Origin | Plugin |" not in body or "</details>" not in body:
+        return ["source catalogue: missing skill table"]
+    skill_section = body.split("| Skill | Origin | Plugin |", 1)[1].split("</details>", 1)[0]
+    listed = []
+    for line in skill_section.splitlines():
+        if not line.startswith("|") or line.startswith("| ---"):
+            continue
+        match = re.fullmatch(r"\| \[([^]]+)\]\([^)]+\) \| (Local|Upstream) \| `([^\`]+)` \|", line)
+        if not match:
+            errors.append(f"source catalogue: malformed skill row {line[:120]}")
+        else:
+            listed.append(match.groups())
+    if len(listed) != len(set(listed)):
+        errors.append("source catalogue: duplicate skill rows")
+    if set(listed) != expected:
+        errors.append(f"source catalogue: skills missing={sorted(expected-set(listed))}; extra={sorted(set(listed)-expected)}")
+
+    marker = "| Plugin | Applicability | Skills | Responsibility |"
+    if marker not in body or "### Setup, repository and delivery ownership" not in body:
+        return errors + ["source catalogue: missing package table"]
+    package_section = body.split(marker, 1)[1].split("### Setup, repository and delivery ownership", 1)[0]
+    packages = {}
+    for line in package_section.splitlines():
+        if not line.startswith("|") or line.startswith("| ---"):
+            continue
+        match = re.fullmatch(r"\| `([^\`]+)` \| (Generic(?: support)?|Technical) \| (\d+) \| .* \|", line)
+        if not match:
+            errors.append(f"source catalogue: malformed package row {line[:120]}")
+            continue
+        name, category, count = match.groups()
+        if name in packages:
+            errors.append(f"source catalogue: duplicate package {name}")
+        packages[name] = int(count)
+    if set(packages) != owners:
+        errors.append(f"source catalogue: packages missing={sorted(owners-set(packages))}; extra={sorted(set(packages)-owners)}")
+    actual_counts = Counter(owner for _, _, owner in expected)
+    for package, count in packages.items():
+        if count != actual_counts[package]:
+            errors.append(f"source catalogue: {package} declares {count} skills, has {actual_counts[package]}")
+
+    totals = re.search(r"The collection has (\d+) independent packages and (\d+) skills: (\d+) local and (\d+) acquired\.", body)
+    breakdown = Counter(origin for _, origin, _ in expected)
+    real = (len(owners), len(expected), breakdown["Local"], breakdown["Upstream"])
+    if not totals or tuple(map(int, totals.groups())) != real:
+        errors.append(f"source catalogue: incorrect inventory totals; expected {real}")
+    caption = re.search(r"<summary>All (\d+) skills and their current owners</summary>", body)
+    if not caption or int(caption.group(1)) != len(expected):
+        errors.append(f"source catalogue: incorrect skill catalogue heading; expected {len(expected)}")
+    return errors
+
+
 def check_package_links(package, local_names, notices):
     """Check owned Markdown resource closure without interpreting upstream examples as files."""
     errors, checked, seen = [], 0, set()
@@ -240,7 +308,8 @@ def main():
     if args.plugin and not args.built:
         parser.error('--plugin requires --built')
     errors, count = check_links(ROOT)
-    print(f"Checked {count} maintained relative links/anchors and migration names")
+    errors.extend(check_source_catalogue(ROOT))
+    print(f"Checked {count} maintained relative links/anchors, migration names and source catalogue")
     if args.built:
         build_errors, skills = check_built(ROOT, args.built.resolve(), args.plugin)
         errors.extend(build_errors)
