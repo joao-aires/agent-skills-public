@@ -16,7 +16,7 @@ user-invocable: false
 
 ## Establish the direction
 
-Read the request, `AGENTS.md`, existing components and accepted design decisions. Establish the component system and light/dark/system appearance policy with visual and interaction design expertise before dependent implementation.
+Read the request, `AGENTS.md`, existing components and accepted design decisions. Establish the component system and light/dark/system appearance policy using accepted project decisions and available integrated interface-design expertise before dependent implementation; technical conventions also inform feasibility early.
 
 Preserve the user's choice of plain Tailwind, Tailwind with shadcn/ui, HeroUI or another compatible system. Installed guidance is not a reason to switch libraries. The shadcn-specific conventions below apply when that system is selected; for another library, retain the design/verification outcomes and use its version-matched primary contracts and available implementation expertise.
 
