@@ -16,6 +16,8 @@ The current collection has not received a complete behavioral rerun. Earlier tri
 
 The [authoring and workflow probes](../../evals/results/authoring-methods/assessment.md) record bounded independent checks of feature handoffs, repository-instruction maintenance and purpose-specific skill revision. They include a partial reporting result and do not establish full-suite adherence or improvement over a baseline.
 
+Three software-reference cases define connected source-to-guide explanation, worked learning/transfer and a narrow unavailable-browser update. They are scenario definitions, not executed actor trials; package and author review do not establish skill adherence.
+
 ## Intended flows and execution levels
 
 The specification's flow_matrix connects cases to user outcomes: product-to-design, project setup versus complete applications, UI assessment/repair, design-tool handoff, research, native/private-data applications, AI/session integration, delivery/operations and maintenance. Migration, jobs, incidents, performance, resilience and libraries are also represented. Cross-cutting cases assess identity/access lifecycle, SaaS dashboards and commercial recovery, GDPR/SOC 2 evidence, PostgreSQL, TypeScript and Go contracts, plus absent-specialist fallback. Browser-extension cases cover design-only work, an existing UI system, standalone guidance, real MV3 contexts/lifecycle and store preparation without promotion. A multi-brief design case checks whether task-derived structures adapt to different extension types, hybrids and unavailable surfaces; it accepts alternative valid layouts and is defined rather than executed.

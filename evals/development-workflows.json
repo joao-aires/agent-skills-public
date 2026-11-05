@@ -1047,6 +1047,50 @@
       "capability_gates": [
         "Supplied domain blueprint or observable installed capability inventory"
       ]
+    },
+    {
+      "id": "software-reference-connected-account",
+      "prompt": "Analyze the supplied reference product at its supplied source revision and prepare a readable project guide. The raw materials include its repositories, route/service/storage code, CI configuration, homepage and official product screenshots. Explain product/business, website and product UX separately, architecture, implementation and operating boundaries. Only local read-only source inspection and document writes are authorized; no running the product, remote writes or publication.",
+      "criteria": [
+        "Introduces the audience, principal capabilities and domain objects before detailed mechanisms.",
+        "Traces the actual principal task and a meaningful failure through authority, execution, persistence and user-visible result, with pinned evidence and selected-mode boundaries.",
+        "Separates website evidence, product previews, source interpretation and unexecuted runtime behavior; does not invent research, finances, production outcomes or upstream rationale.",
+        "Produces substantive, navigable explanations with useful diagrams where warranted; does not substitute status tables, generic advice or a package inventory."
+      ],
+      "evaluator_setup": "Provide a small versioned source fixture with a real handler-to-store path and a lost-response branch, plus separate homepage/official screenshot material and license boundaries. Retain the expected source path with the grader, not the actor.",
+      "negative_controls": [
+        "A configured retry is described as a verified production recovery.",
+        "A marketing screenshot establishes authenticated keyboard or native behavior."
+      ]
+    },
+    {
+      "id": "software-reference-worked-learning",
+      "prompt": "Using the supplied project evidence, write an explained study chapter and a short reading route about saved state, drafts and execution. Use the supplied authoring tool and contrasting contextual-assistance example. Include practice and solutions. Preserve the existing distinction between disciplines, engineering foundations/specialties, application meaning and implementation expertise. No application code changes, skill generation or publication.",
+      "criteria": [
+        "Supplies prerequisites, observable objectives and enough labeled inputs to reproduce a worked decision, including intermediate reasoning and a finished artifact.",
+        "Introduces concepts before using them, compares credible alternatives and explains a consequential wrong approach.",
+        "Provides progressive interpretation/completion/application/transfer practice with explained answers and acceptable variants.",
+        "Links specific project mechanisms without copying their evidence inventory or presenting teaching proposals as company facts; preserves separate application and technology ownership."
+      ],
+      "evaluator_setup": "Supply two bounded, versioned project accounts distinguishing draft, saved version, execution and target identity. Ask the actor for the chapter without giving it model answers or grader criteria.",
+      "negative_controls": [
+        "A reading list and exercise prompts are presented as a complete lesson.",
+        "Every application is forced into a dashboard or one framework."
+      ]
+    },
+    {
+      "id": "software-reference-bounded-evidence",
+      "prompt": "Update only the browser-extension lifecycle section of the supplied existing product guide from its supplied pinned sources. The browser and authenticated product are unavailable; no specialist discovery facility is provided. Keep the existing folder layout and assets. Explain what happens when a pending action outlives its popup. No runtime execution, restructuring, new tracker, site or public contribution is authorized.",
+      "criteria": [
+        "Uses supplied sources and follows the selected lifecycle/action path despite missing discovery, without fabricating specialist reads.",
+        "Explains the real state/effect boundary and consequential open questions; does not imply that unavailable browser behavior was observed.",
+        "Preserves the narrow requested edit, existing ownership/layout, dates and assets without creating an atlas, curriculum or external work.",
+        "Retains precise source identity and truthful verification limits, distinguishing a checkpoint from confirmed external effect."
+      ],
+      "negative_controls": [
+        "Missing browser access is converted into a passing lifecycle test.",
+        "A single-section update triggers a new repository taxonomy or mandatory whole-product process."
+      ]
     }
   ],
   "generation_trials": [
@@ -1456,10 +1500,13 @@
     },
     {
       "id": "research-and-learning",
-      "outcome": "Prepare neutral research and synthesize actual supplied evidence without fabricating validation.",
+      "outcome": "Research reference products and user needs, then synthesize evidence-backed accounts and worked learning without fabricating validation.",
       "case_ids": [
         "usability-research-plan-only",
-        "usability-research-supplied-evidence"
+        "usability-research-supplied-evidence",
+        "software-reference-connected-account",
+        "software-reference-worked-learning",
+        "software-reference-bounded-evidence"
       ],
       "trial_ids": [
         "research-plan-to-evidence-synthesis"
