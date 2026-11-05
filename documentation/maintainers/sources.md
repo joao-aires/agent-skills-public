@@ -167,6 +167,8 @@ The Community candidates above remain references. The MIT better-interface repos
 
 I use documentation-writing for authoring quality and architecture-documentation for useful structural, runtime, interface and deployment explanations. Documentation-conventions owns authoritative records and upkeep; system-design owns design choices. These are original local skills; no upstream resources or invocation controls are imported.
 
+[Software reference analysis](../../plugins/documentation/skills/software-reference-analysis/SKILL.md) adds the original multidisciplinary investigation and artifact-preparation method: pinned project evidence, separate website/product accounts, transferable comparisons and worked learning. It owns the analysis deliverable; writing/architecture methods retain their existing responsibilities. Its public references are linked in the skill; no private library access, copied project implementation, assets or new upstream acquisition is required.
+
 The source review compares [Anthropic doc-coauthoring](https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/doc-coauthoring/SKILL.md) and [GitHub documentation-writer](https://github.com/github/awesome-copilot/blob/8bc0f5715b2ddc7901a62fddf144ded30d56de8b/skills/documentation-writer/SKILL.md). Context gathering, reader questions, accuracy and terminology fit; mandatory collaboration/outline approvals do not fit routine authorized upkeep. Diátaxis and Google technical writing inform the authoring method; C4, arc42 and OpenAPI inform architecture coverage. References remain with the skills and do not establish complete standards conformance.
 
 ### Skill-writing references
@@ -249,7 +251,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 25 independent packages and 119 skills: 81 local and 38 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 25 independent packages and 120 skills: 82 local and 38 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
 
 A plugin represents a useful installation choice. Workflow, application discipline and supporting capability describe its purpose; generic versus technical describes its applicability. These groups do not impose an execution order or dependencies. Installing a technical package makes expertise available without accepting its technology for a project. Keep accepted choices, select matching guidance from actual inventory and retain useful outcomes when optional specialists are absent.
 
@@ -267,7 +269,7 @@ The collection has 13 generic capability packages and 12 optional technical pack
 | `backend-development` | Generic | 1 | Service authority, state, failure, durable work and consumer contracts. |
 | `ai-development` | Generic | 3 | AI application/architecture and protocol design; testing/evaluation methods; AI-specific operating decisions and evidence. |
 | `delivery` | Generic | 1 | CI/release/deployment methods, immutable artifacts, promotion, compatibility and recovery. |
-| `documentation` | Generic support | 4 | Writing, architecture explanation, knowledge organization and prose editing. |
+| `documentation` | Generic support | 5 | Product/source analysis, learning material, writing, architecture explanation, knowledge organization and prose editing. |
 | `visualization` | Generic support | 3 | Diagrams, presentations and interactive system explanation; preserve executable resources. |
 | `backend-python-development` | Technical | 3 | Python/FastAPI/persistence and Python automation; no backend service required for CLI work. |
 | `frontend-reactjs-development` | Technical | 5 | React/Next.js/shadcn/Tailwind and their actual component APIs. |
@@ -322,7 +324,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 119 skills and their current owners</summary>
+<summary>All 120 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -394,6 +396,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [architecture-documentation](../../plugins/documentation/skills/architecture-documentation/SKILL.md) | Local | `documentation` |
 | [documentation-conventions](../../plugins/documentation/skills/documentation-conventions/SKILL.md) | Local | `documentation` |
 | [documentation-writing](../../plugins/documentation/skills/documentation-writing/SKILL.md) | Local | `documentation` |
+| [software-reference-analysis](../../plugins/documentation/skills/software-reference-analysis/SKILL.md) | Local | `documentation` |
 | [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) | Upstream | `documentation` |
 | [architecture-diagramming](../../plugins/visualization/skills/architecture-diagramming/SKILL.md) | Local | `visualization` |
 | [presentation-building](../../plugins/visualization/skills/presentation-building/SKILL.md) | Local | `visualization` |
