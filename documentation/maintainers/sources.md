@@ -21,6 +21,8 @@ The [manifest](../../agent-depot.json) declares repositories, accepted artifact 
 | development-tooling | [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | playwright-cli |
 | development-tooling | [trailofbits/skills](https://github.com/trailofbits/skills) | supply-chain-risk-auditor |
 | documentation | [blader/humanizer](https://github.com/blader/humanizer) | humanizer |
+| frontend-development | [pbakaus/impeccable](https://github.com/pbakaus/impeccable) | impeccable |
+| frontend-development | [nextlevelbuilder/ui-ux-pro-max-skill](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | ui-ux-pro-max |
 | frontend-reactjs-development | [shadcn-ui/ui](https://github.com/shadcn-ui/ui) | shadcn |
 | frontend-reactjs-development | [vercel-labs/agent-skills](https://github.com/vercel-labs/agent-skills) | vercel-composition-patterns, vercel-react-best-practices |
 | frontend-reactjs-development | [wshobson/agents](https://github.com/wshobson/agents) | tailwind-design-system |
@@ -40,6 +42,18 @@ The [manifest](../../agent-depot.json) declares repositories, accepted artifact 
 | Visibility and labels | Preserve explicit upstream controls; set support visibility only when absent. Scope/stack/role/invocation labels describe use, not permissions. |
 
 Agent Depot acquires accepted artifact commits and records file identities without executing upstream scripts. Built `UPSTREAM.json`, `UPSTREAM-NOTICES.json` and license files record provenance. Trail of Bits material is CC-BY-SA-4.0; other acquired sources are MIT or Apache-2.0 as recorded at their pins. Bundles have mixed-license notices. Embedded live links/commands can still change despite source pinning. Private installed content is never redistributed.
+
+## Bundled interface methods
+
+`frontend-development` includes Impeccable at `c3bb418ee38ee49a6b999b7752c1368f3123a2bd` (packaged skill version 4.8.0) and UI/UX Pro Max at `b7d5353e0130feb8c5574ef1251f8a1db1873ccb`. Both are accepted fixed commits, without floating tracking. Agent Depot acquired the complete selected skill roots and external legal files through a reviewed plan. Impeccable's plugin agent prompt directory is also mapped into its skill's `agents/` resources; clients do not automatically register these prompts. Original snapshot bytes remain unchanged. Generated output adds only usage labels and support visibility when the native control is absent. Impeccable's explicit user invocation remains intact.
+
+Impeccable is Apache-2.0 with its original `UPSTREAM-LICENSE.txt` and `UPSTREAM-NOTICE.md` (including the upstream platform-reference attribution); UI/UX Pro Max is MIT with its copyright/license retained. The frontend root MIT license covers authored files; the builder marks the distributed bundle mixed-license and generates per-skill notices. No upstream application implementation or paid visual assets are copied.
+
+[interface-design](../../plugins/frontend-development/skills/interface-design/SKILL.md) owns proportional discovery, feedback and the shared brief; it conditionally loads these bundled methods rather than duplicating their style catalogues or critique playbooks. Direct invocation remains supported. Native runtime discovery and adherence require client trials; links are not an invocation engine. The [bundled-method reference](../../plugins/frontend-development/skills/interface-design/references/bundled-design-methods.md) explains installed paths and authority boundaries.
+
+Pro Max's Python search/data runs locally. Its client-specific source examples are resolved against the actual installed skill directory without rewriting upstream prose. Impeccable's launcher pins an engine version/checksums but the platform binary is not vendored; first execution can download it, and operator overrides are possible. The plugin does not install its hooks, register agents or activate live/generation services. Its documented launcher-unavailable fallback remains available. Offline build/snapshot verification therefore differs from complete engine/runtime validation. Review launcher, native controls, external service assumptions and checksum changes during updates. Preserve full resource groups and use the existing [maintenance procedure](upstreams.md), then check effective output and bundled search execution outside the repository.
+
+The original [creative implementation reference](../../plugins/frontend-development/skills/interface-design/references/creative-implementation.md) explains mechanism selection, periodic image rings, shader displacement, motion lifecycle and export. AlignCanvas is a quality reference, not a source-code dependency or a verified private stack; linked component libraries remain reference-only. The [creative UI acceptance protocol](../creative-interface.md) defines behavioral comparisons and evidence limits.
 
 ## Matt Pocock selection
 
@@ -96,7 +110,6 @@ Implementation details and exceptions live beside [frontend conventions](../../p
 | [Vercel web-design-guidelines](https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines) | Reference only: no declared redistribution license at review and a floating guideline fetch. |
 | [Amplitude analyze-feedback](https://github.com/amplitude/builder-skills/tree/51838c2d85560466d1bbc174ea0e645bb9c44ea9/analytics-skills/skills/analyze-feedback) | Reference only: Amplitude MCP dependency and no explicit redistribution license at the reviewed pin. No MCP is configured; the local feedback skill works with existing evidence. |
 | Jezweb tailwind-v4-shadcn | Not acquired: directory absent at reviewed repository HEAD `1260fa7439b36b18dbf16648ccc7fb44783f6c23`; published setup was Vite-specific. |
-| [UI/UX Pro Max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) | Optional installed expertise, constrained by accepted UI direction. No private material is copied. |
 
 Optional [shadcn MCP](https://ui.shadcn.com/docs/mcp) and [Playwright MCP](https://github.com/microsoft/playwright-mcp) require client setup. Hooks use [client extensions](https://agent-plugins.org/specification#8-client-extensions), not a portable hooks field. SigNoz is a replaceable local OTel preference; its [community support is best-effort](https://signoz.io/support/). Provider versions, resources and edition limits require contextual checks; operating/security guidance does not establish compliance.
 
@@ -249,7 +262,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 25 independent packages and 119 skills: 81 local and 38 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 25 independent packages and 121 skills: 81 local and 40 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
 
 A plugin represents a useful installation choice. Workflow, application discipline and supporting capability describe its purpose; generic versus technical describes its applicability. These groups do not impose an execution order or dependencies. Installing a technical package makes expertise available without accepting its technology for a project. Keep accepted choices, select matching guidance from actual inventory and retain useful outcomes when optional specialists are absent.
 
@@ -263,7 +276,7 @@ The collection has 13 generic capability packages and 12 optional technical pack
 | `development` | Generic | 40 | SDLC engagements, project foundations, contribution flow and verification; usable without stack packages. |
 | `security` | Generic | 2 | Application authorization, privacy boundaries and secure feature implementation. |
 | `operations` | Generic | 12 | Service reliability, signals, incidents, recovery, capacity and security upkeep. |
-| `frontend-development` | Generic | 3 | Integrated interface design, UX writing and usability research across web, desktop and mobile. |
+| `frontend-development` | Generic | 5 | Integrated interface design, UX writing and usability research across web, desktop and mobile. |
 | `backend-development` | Generic | 1 | Service authority, state, failure, durable work and consumer contracts. |
 | `ai-development` | Generic | 3 | AI application/architecture and protocol design; testing/evaluation methods; AI-specific operating decisions and evidence. |
 | `delivery` | Generic | 1 | CI/release/deployment methods, immutable artifacts, promotion, compatibility and recovery. |
@@ -322,7 +335,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 119 skills and their current owners</summary>
+<summary>All 121 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -384,6 +397,8 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [runbook-engineering](../../plugins/operations/skills/runbook-engineering/SKILL.md) | Local | `operations` |
 | [vulnerability-management](../../plugins/operations/skills/vulnerability-management/SKILL.md) | Local | `operations` |
 | [interface-design](../../plugins/frontend-development/skills/interface-design/SKILL.md) | Local | `frontend-development` |
+| [impeccable](https://github.com/pbakaus/impeccable/tree/c3bb418ee38ee49a6b999b7752c1368f3123a2bd/plugin/skills/impeccable) | Upstream | `frontend-development` |
+| [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/b7d5353e0130feb8c5574ef1251f8a1db1873ccb/.claude/skills/ui-ux-pro-max) | Upstream | `frontend-development` |
 | [usability-research](../../plugins/frontend-development/skills/usability-research/SKILL.md) | Local | `frontend-development` |
 | [ux-writing](../../plugins/frontend-development/skills/ux-writing/SKILL.md) | Local | `frontend-development` |
 | [backend-design](../../plugins/backend-development/skills/backend-design/SKILL.md) | Local | `backend-development` |

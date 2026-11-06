@@ -26,6 +26,14 @@ Use this skill to support `design`, `develop`, `implement`, `improve` and `revie
 
 Establish audience, task, content, platform, roles, accepted choices and scope. Before settling a new design, inspect existing project constraints and relevant **application-archetype/domain** expertise (tasks, objects, data semantics and candidate patterns), **platform/technical** expertise (native surface, actual component-system behavior, accessibility contracts and feasibility), and accepted product evidence. Those inputs shape the design; they are not downstream implementation details. Select optional specialists by capability and installed descriptions, not a hardcoded catalogue or dependency. Distinguish evidence, hypotheses and reversible proposals. Ask only for material unresolved decisions; do not require a brand-asset hunt or research study for routine UI work.
 
+## Discover direction and select supporting methods
+
+For a new product, substantial redesign or unresolved visual identity, read [Design Discovery](references/design-discovery.md). Offer concrete directions and a recommendation, invite consequential preferences in plain language, and carry decisions into one persistent brief. Existing screens and small repairs reuse accepted decisions without a questionnaire. User delegation permits a stated, reversible recommendation; silence never establishes approval.
+
+This package ships two required supporting resources. Read [bundled design methods](references/bundled-design-methods.md) when selecting them: [UI/UX Pro Max](../ui-ux-pro-max/SKILL.md) supplies searchable design candidates and [Impeccable](../impeccable/SKILL.md) supplies critique/refinement methods. Load only the method needed for the task, preserve native invocation controls and explicit direct invocation, and reconcile its advice against the shared brief. This is agent selection and file loading, not a runtime dependency resolver or guaranteed automatic activation. Optional expertise outside this package remains capability-discovered.
+
+For an expressive web experience, interactive canvas or motion editor, read [creative implementation](references/creative-implementation.md) and its original worked mechanisms. For browser implementation or visual regression, read [rendered QA](references/rendered-qa.md); capture, inspect, repair and recheck actual output rather than treating screenshots as an unchecked deliverable.
+
 ## Decide structure, behavior and appearance in one loop
 
 1. **Organize the work.** Map recurring tasks, objects, entry points, navigation, current context and return paths before inventing screens. Separate operation controls from durable settings. Choose pages, panels or dialogs for task complexity and continuity, not habit. For substantial changes read [navigation and configuration](references/navigation-and-configuration.md).

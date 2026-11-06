@@ -1047,6 +1047,25 @@
       "capability_gates": [
         "Supplied domain blueprint or observable installed capability inventory"
       ]
+    },
+    {
+      "id": "design-feedback-resumption",
+      "prompt": "In the supplied existing React product, continue the image gallery implementation. The design brief records the user choosing warm, quiet styling with no parallax, and an earlier screenshot review asked for denser image captions. Improve the caption layout and verify the result. Use only owned local fixtures; no publish.",
+      "criteria": [
+        "Read and preserve the accepted brief and caption feedback without repeating a style questionnaire.",
+        "Make a scoped change using shared tokens; no new animation or framework migration.",
+        "Inspect rendered output at narrow and desktop widths and report actual checks and unavailable evidence."
+      ]
+    },
+    {
+      "id": "bundled-design-routing",
+      "prompt": "Use the built frontend-development bundle in the supplied fixture. First recommend visual directions for a new image portfolio, then review the supplied rendered prototype without changing sources. Python and browser tools are available; Impeccable engine download and hook installation are unavailable. Later, fix only an existing button alignment using the accepted design.",
+      "criteria": [
+        "Use actual bundled Pro Max resources for the open direction, inspect product fit and retain one brief.",
+        "Load the relevant Impeccable method for review, preserve read-only scope and disclose engine/detector or delegation gaps following upstream fallback rules.",
+        "Resolve installed paths without assuming .claude/skills and do not fetch a floating CLI or install hooks.",
+        "Keep the final small repair scoped without new discovery or unnecessarily loading both upstream methods."
+      ]
     }
   ],
   "generation_trials": [
@@ -1373,6 +1392,74 @@
         "Rendered/state/diagnostic artifacts appropriate to each criterion",
         "Per-boundary pass/fail/partial/blocked/not-run with unexecuted capabilities explicit"
       ]
+    },
+    {
+      "id": "creative-premium-landing",
+      "phases": [
+        {
+          "task": "develop",
+          "prompt": "Build a premium landing page for a local-first research canvas in the supplied React repository with owned assets. The main task is understanding the product and trying a demo. Recommend contrasting visual directions; I delegate the final choice to you. Implement the selected first slice and inspect desktop/narrow output and reduced motion. Local installation, processes and checks are allowed; no remote publishing or paid services."
+        }
+      ],
+      "evaluation": [
+        "A brief records delegated choices and a product-specific hierarchy and focal point.",
+        "The actual demo/CTA, readable content, keyboard path and narrow layout work without depending on decorative motion.",
+        "Screenshots are opened, findings repaired and recaptured; accessibility and named-device performance results have precise limits."
+      ],
+      "capability_gates": [
+        "Owned fixtures and disposable local application repository",
+        "Browser screenshots, local dependency installation and GPU where available"
+      ],
+      "evidence": [
+        "Brief, actual guidance reads, source diff, screenshots/reviewer findings and measured checks",
+        "Runtime/device identity, failures, iterations and precise unverified boundaries"
+      ]
+    },
+    {
+      "id": "creative-existing-dashboard",
+      "phases": [
+        {
+          "task": "develop",
+          "prompt": "Improve the supplied enterprise dashboard caption hierarchy and error/retry panel. Keep its existing compact neutral design, navigation, data semantics and framework. Use owned fixtures and local browser checks only."
+        }
+      ],
+      "evaluation": [
+        "Existing decisions and primary workflows are preserved; no style questionnaire or unrelated library installation.",
+        "Shared typography/spacing owners fix the issue across affected states; keyboard/focus, retry and long/narrow content are exercised.",
+        "Actual before/after screenshots and focused checks substantiate improvements without treating screenshots as behavior proof."
+      ],
+      "capability_gates": [
+        "Owned fixtures and disposable local application repository",
+        "Browser screenshots, local dependency installation and GPU where available"
+      ],
+      "evidence": [
+        "Brief, actual guidance reads, source diff, screenshots/reviewer findings and measured checks",
+        "Runtime/device identity, failures, iterations and precise unverified boundaries"
+      ]
+    },
+    {
+      "id": "creative-motion-workspace",
+      "phases": [
+        {
+          "task": "develop",
+          "prompt": "Build an original image-motion workspace in the supplied React app using owned local images. I want AlignCanvas-level care in depth, controls and motion, not copied assets/templates. Implement one periodic 3D ring, scrub/pause/reset and a static/reduced-motion fallback. Add video export only if the local browser supports a reviewed WebCodecs codec/muxer path; otherwise provide still export and explain the gap. Local dependencies and processes are allowed; no uploads, paid services or publishing."
+        }
+      ],
+      "evaluation": [
+        "Choose appropriate rendering/motion mechanisms and preserve semantic accessible controls and local-image privacy.",
+        "Preview and export use a deterministic periodic scene; loop seam, interruption, failure and cleanup are checked.",
+        "Reduced-motion, no-WebGL and narrow-screen paths remain useful; actual screenshots and live motion are inspected.",
+        "Export capability, backpressure, frame cleanup, cancellation and container validity are verified if implemented; unsupported paths are explicit.",
+        "Report performance on named conditions and actual resource/license choices without claiming the reference private stack was reproduced."
+      ],
+      "capability_gates": [
+        "Owned fixtures and disposable local application repository",
+        "Browser screenshots, local dependency installation and GPU where available"
+      ],
+      "evidence": [
+        "Brief, actual guidance reads, source diff, screenshots/reviewer findings and measured checks",
+        "Runtime/device identity, failures, iterations and precise unverified boundaries"
+      ]
     }
   ],
   "execution_contract": {
@@ -1400,11 +1487,16 @@
         "new-product-license-decision",
         "cross-lifecycle-consequential-findings",
         "consequential-answer-continuation",
-        "interface-design-automatic-design"
+        "interface-design-automatic-design",
+        "design-feedback-resumption",
+        "bundled-design-routing"
       ],
       "trial_ids": [
         "fresh-desktop-from-product-idea",
-        "ai-canvas-product-to-implementation"
+        "ai-canvas-product-to-implementation",
+        "creative-premium-landing",
+        "creative-existing-dashboard",
+        "creative-motion-workspace"
       ]
     },
     {

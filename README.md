@@ -93,3 +93,5 @@ The bundles contain guidance and resources, without generated applications, conf
 ## Contributing
 
 Keep guidance concise and project-independent. Run `python scripts/validate_plugins.py`, `python scripts/check_collection.py` and `python -m unittest discover -s tests -v` after changes. Local material is MIT; upstream resources retain their own licenses. See [AGENTS.md](AGENTS.md), the [maintainer checks](documentation/maintainer-reference.md#maintaining-the-collection) and [adding support for a tech stack](documentation/maintainers/adding-stack-support.md).
+
+For new visual products or expressive web experiences, see [creative interface design](documentation/creative-interface.md): bundled design methods, discovery and feedback, implementation mechanisms and evidence-based acceptance.
