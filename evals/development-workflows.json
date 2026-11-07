@@ -1047,6 +1047,63 @@
       "capability_gates": [
         "Supplied domain blueprint or observable installed capability inventory"
       ]
+    },
+    {
+      "id": "documentation-placement-existing-authority",
+      "prompt": "Document the implemented ability to share saved searches read-only in the supplied existing application. Documentation changes only: preserve the project's established docs layout and current implementation/decision evidence. A suggested new `sharing-overview.md` file is not an approved destination. Do not edit code, deploy, or start a broad docs reorganization.",
+      "evaluator_setup": "Supply a docs index and linked product acceptance, authorization architecture, persistence contract and runbook pages that already own the affected behaviour, plus matching source/decision evidence. There is no new independent decision or audience that requires a separate document. Make the suggested filename look tempting but noncanonical.",
+      "criteria": [
+        "Inspects the documentation index, related authoritative pages and relevant source/decision evidence before choosing where knowledge belongs.",
+        "Updates the existing canonical product, authorization and data/operations documents as actually affected, preserving their separate responsibilities.",
+        "Creates no redundant sharing guide, duplicate contract or unnecessary folder tree; cross-links related pages where useful.",
+        "Checks updated navigation, links, current-versus-proposed status and claims against source evidence without changing the application or inventing deployment verification."
+      ],
+      "evidence": [
+        "Affected-source-to-canonical-document mapping and why no new page is justified",
+        "Focused documentation diff and navigation/link check"
+      ],
+      "negative_controls": [
+        "Creating one new document per changed code component or simply following the suggested filename is a failure.",
+        "A polished new overview that duplicates existing authoritative contracts is not a successful placement decision."
+      ]
+    },
+    {
+      "id": "documentation-placement-distinct-decision",
+      "prompt": "Document an accepted consequential switch from synchronous to queued exports, including rejected alternatives and tradeoffs. The project has current architecture and export operations pages plus a `docs/decisions/` ADR convention and decision index, but no record of the decision. Documentation only; do not implement the proposed queue, rewrite existing architecture as already deployed or restructure the docs tree.",
+      "evaluator_setup": "Supply a docs index, one existing ADR with naming/status conventions, authoritative current architecture and export runbook, and evidence of the accepted design decision. Distinguish accepted target design from implemented runtime behaviour; no deployment evidence exists.",
+      "criteria": [
+        "Inspects existing docs and decision-record conventions, then identifies the missing durable decision rationale as a distinct responsibility rather than merging it into a runtime guide.",
+        "Creates one appropriately scoped ADR in the existing decisions location with context, options, tradeoffs, status and links to relevant records.",
+        "Updates the decisions index and related pages/pointers where their current-versus-target descriptions or navigation are affected, without duplicating the ADR rationale.",
+        "Preserves the implemented/accepted/deployed distinction and verifies links; does not claim the queued design is live."
+      ],
+      "evidence": [
+        "Placement rationale and existing authority review",
+        "One ADR plus focused cross-link/navigation diff and status check"
+      ],
+      "negative_controls": [
+        "Putting historical alternatives into the current operations runbook as its only record loses decision ownership.",
+        "A new universal documentation hierarchy or treating the accepted design as deployed is a failure."
+      ]
+    },
+    {
+      "id": "repository-instructions-document-placement",
+      "prompt": "Create concise AGENTS.md guidance for a supplied existing repository using its actual README, commands, documentation index and canonical product/architecture/operations pages. Future coding agents should maintain docs without proliferating duplicate files. Preserve the repository's own folder names and client-specific instruction constraints; do not rewrite project documentation or add folders.",
+      "evaluator_setup": "Supply an established but nonstandard `docs/` layout with authoritative records, working commands, applicable current instructions and one deliberately tempting generic `documentation/product` template. The project has no instruction about choosing a canonical home before new documents.",
+      "criteria": [
+        "Inspects real documentation structure and authority alongside commands/configuration before writing AGENTS.md.",
+        "Includes a concise applicable instruction to inspect the existing docs map and related canonical sources, update existing owners where possible, and integrate justified new pages into established navigation.",
+        "Uses exact verified paths or a relevant existing policy pointer; preserves existing docs and does not impose the suggested default taxonomy, boilerplate template or duplicated procedures.",
+        "Respects scoped AGENTS/CLAUDE compatibility and separates checked paths/commands from assumptions."
+      ],
+      "evidence": [
+        "Source-to-instruction mapping and concise resulting AGENTS.md diff",
+        "Path/command validation and evidence of preserved documentation ownership"
+      ],
+      "negative_controls": [
+        "A generic 'keep docs updated' sentence without pre-creation discovery and placement is insufficient.",
+        "Forcing `documentation/` or copying the full documentation procedure into AGENTS.md is a failure."
+      ]
     }
   ],
   "generation_trials": [
@@ -1514,7 +1571,7 @@
     },
     {
       "id": "maintenance-and-evidence",
-      "outcome": "Preserve repository contracts, current-head authorization, test integrity and honest completion across runner errors.",
+      "outcome": "Preserve repository contracts, canonical documentation placement, current-head authorization, test integrity and honest completion across runner errors.",
       "case_ids": [
         "dependency-task-current-head-policy",
         "suite-upgrade-and-retirement",
@@ -1523,7 +1580,10 @@
         "architecture-current-target-evidence",
         "bounded-feature-exploration-handoff",
         "repository-instruction-maintenance",
-        "skill-authoring-purpose-fit"
+        "skill-authoring-purpose-fit",
+        "documentation-placement-existing-authority",
+        "documentation-placement-distinct-decision",
+        "repository-instructions-document-placement"
       ],
       "trial_ids": [
         "existing-open-source",

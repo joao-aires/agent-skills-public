@@ -17,6 +17,8 @@ Read [composition guidance](../../COMPOSITION.md) for scope and invocation bound
 
 Help the intended reader understand, decide or act correctly. Readability and navigation support that outcome; brevity or scanability alone does not establish quality. Preserve the project's vocabulary, language, document responsibilities and accepted decisions. A writing request does not authorize changing the product, restructuring folders or implementing a proposal.
 
+Before creating a durable project document or substantially splitting/moving existing material, apply [documentation conventions](../documentation-conventions/SKILL.md) to discover related authoritative pages, decide whether an existing document should be updated, and choose the canonical location and navigation for a justified new one. That skill owns knowledge placement and maintenance; this skill owns reader-focused writing. A standalone draft or a small edit in a known document does not require a repository-wide audit.
+
 ## Establish purpose and sufficient context
 
 Identify the reader, what they already know and what they need from this document. Use existing context instead of repeating settled interviews. Ask only about gaps that affect meaning or correctness; do not require an outline approval for routine authorized revisions.
