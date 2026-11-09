@@ -37,7 +37,7 @@ Placement follows information ownership and how readers navigate the project, no
 
 Before adding a file, be able to explain its independent reader question, why an existing document cannot answer it adequately, its canonical location and how readers will find it. This is an authoring decision, not a mandatory approval ceremony or separate report. For example, implementing saved-search sharing may require edits to existing product acceptance, authorization and data-contract pages, not a new document for each changed component.
 
-For a new project without an established documentation layout, start with a short `documentation/` index and add these areas only as needed:
+For a new project without an established documentation layout, start with a short `docs/` index and add these areas only as needed:
 
 | Area | Useful content |
 | --- | --- |
