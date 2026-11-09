@@ -1,9 +1,9 @@
 ---
 name: documentation-conventions
-description: Organize application knowledge and update affected PRDs, architecture,
-  schemas, plans, decisions and runbooks when implementation or accepted decisions
-  change. Use during planning, feature changes, migrations, deployment changes or
-  documentation reviews.
+description: Decide what project knowledge to document and where its canonical
+  home belongs; maintain affected PRDs, architecture, schemas, decisions and runbooks.
+  Use before adding durable documentation and during planning, implementation,
+  migrations, deployment changes or documentation reviews.
 metadata:
   scope: generic
   invocation: both
@@ -20,7 +20,24 @@ For architecture baselines or substantive architecture/interface changes, read [
 
 When writing or revising prose, read and apply [documentation-writing](../documentation-writing/SKILL.md) for reader purpose, explanations, examples, precision and presentation. This skill owns document responsibilities and maintenance; the writing skill guides authoring and reader review.
 
-Use `documentation/` with a short index and these areas as needed:
+## Find the canonical home before creating a document
+
+When a task would add a durable project document or substantially split or relocate existing material, inspect the applicable repository instructions, README, documentation index/navigation, related pages and their links. Check the relevant source code/contracts and accepted decisions where factual authority matters. Search by the reader's question and project terminology, not just a proposed filename. Keep discovery proportional: a focused edit needs nearby sources, while cross-cutting knowledge may require tracing several owners.
+
+Determine what the reader needs to know, whether the information is implemented behaviour, an accepted decision, a proposal or temporary work, and which existing document is authoritative for that responsibility. Then choose the least duplicative destination:
+
+| Evidence | Action |
+| --- | --- |
+| An existing authoritative page answers the same reader question | Update that page or an appropriate section; link to it from other contexts rather than restating its contract. |
+| The subject has a distinct durable purpose, audience or lifecycle that the existing pages cannot serve clearly | Create a focused document in the established structure, with an index/parent entry and links from related authoritative pages. |
+| The information is provisional, task-specific or short-lived | Keep it in the existing proposal, plan, work record or PR until durable documentation is justified. |
+| The authoritative detail is generated from code or configuration | Update its owning source or generator when authorized, and link the generated result rather than maintaining another copy. |
+
+Placement follows information ownership and how readers navigate the project, not the file an agent happened to edit. A consequential architectural decision can warrant an ADR even when current architecture and operations pages also need updates; an ordinary reversible implementation choice usually does not. If an explicit user-requested file or location conflicts with an established owner, surface the conflict and preserve the requested scope rather than silently reorganizing the repository.
+
+Before adding a file, be able to explain its independent reader question, why an existing document cannot answer it adequately, its canonical location and how readers will find it. This is an authoring decision, not a mandatory approval ceremony or separate report. For example, implementing saved-search sharing may require edits to existing product acceptance, authorization and data-contract pages, not a new document for each changed component.
+
+For a new project without an established documentation layout, start with a short `docs/` index and add these areas only as needed:
 
 | Area | Useful content |
 | --- | --- |
@@ -72,7 +89,7 @@ Keep operations documentation broader than runbooks.
 
 ## Synchronize the affected knowledge
 
-Put this requirement in the application's AGENTS.md: update affected documentation alongside application changes and accepted decisions. Trace the change to the authoritative document:
+Give the application's AGENTS.md a concise, applicable rule to inspect existing documentation and its canonical owners before adding files, then update affected documentation alongside application changes and accepted decisions. Keep the detailed method here or in the project's own documentation policy. Trace the change to the authoritative document:
 
 | Change | Check and update |
 | --- | --- |
@@ -91,7 +108,7 @@ When a change affects repository instructions, use available scoped instruction-
 
 ## Check completion
 
-Read affected docs against the actual change. Check commands, paths, links, boundary diagrams and acceptance criteria for drift. Summarize which knowledge changed, why, and any unresolved discrepancy. If no document is affected, say so briefly; avoid manufacturing documentation work. Prefer explanations of intent and tradeoffs over inventories of code files.
+Read affected docs against the actual change. Check commands, paths, links, boundary diagrams and acceptance criteria for drift. For new or moved pages, verify index/parent discovery, related inbound links, and the absence of competing current baselines; repair stale navigation within scope. Summarize which knowledge changed, why, and any unresolved discrepancy. If no document is affected, say so briefly; avoid manufacturing documentation work. Prefer explanations of intent and tradeoffs over inventories of code files.
 
 Use installed `humanizer` to edit human-readable prose when useful. Preserve the author's voice and technical meaning, including factual caveats; leave code, commands, paths, metadata and link targets intact.
 
