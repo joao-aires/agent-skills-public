@@ -203,7 +203,7 @@ I separate the requested activity, reusable discipline and technical implementat
 | Decision | Ownership and boundary |
 | --- | --- |
 | Business direction | Business-strategy retains its original strategic model and resources. |
-| Product direction | Product-management owns problem evidence, priorities, useful scope, success signals and sequencing. Product-feedback owns evidence synthesis; refine owns engineering requirements. |
+| Product direction | Product-management owns problem evidence, priorities, useful scope, success signals and sequencing. Product-feedback owns evidence synthesis; refine owns the entry point for engineering requirements, supported by requirements-engineering for substantive elicitation, quality constraints and validation. |
 | System and service design | System-design owns architectural boundaries; backend-design owns service authority, state, failure and consumer contracts. Python conventions retain concrete runtime/persistence mechanics. |
 | Interface design | Interface-design owns general information architecture, flows, interaction behavior, visual direction/tokens and evidence-based critique. Application/archetype specialists own domain semantics and product-type patterns; React, native and other technical conventions inform feasible design and implement accepted decisions with compatible primitives. |
 | AI design, testing and operations | Ai-development owns application/capability/protocol design; ai-testing owns evaluation strategy/evidence; ai-operations owns AI operating outcomes. Ai-conventions, ai-deepeval-testing and python-ai-observability supply selected Python implementations. Framework and backend deployment expertise remain separate. |
@@ -356,6 +356,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [property-based-testing](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/property-based-testing/skills/property-based-testing) | Upstream | `development` |
 | [prototype](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/prototype) | Upstream | `development` |
 | [refine](../../plugins/development/skills/refine/SKILL.md) | Local | `development` |
+| [requirements-engineering](../../plugins/development/skills/requirements-engineering/SKILL.md) | Local | `development` |
 | [release](../../plugins/development/skills/release/SKILL.md) | Local | `development` |
 | [research](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/research) | Upstream | `development` |
 | [resilience-testing](../../plugins/development/skills/resilience-testing/SKILL.md) | Local | `development` |
