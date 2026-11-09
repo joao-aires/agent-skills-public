@@ -356,8 +356,8 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [property-based-testing](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/property-based-testing/skills/property-based-testing) | Upstream | `development` |
 | [prototype](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/prototype) | Upstream | `development` |
 | [refine](../../plugins/development/skills/refine/SKILL.md) | Local | `development` |
-| [requirements-engineering](../../plugins/development/skills/requirements-engineering/SKILL.md) | Local | `development` |
 | [release](../../plugins/development/skills/release/SKILL.md) | Local | `development` |
+| [requirements-engineering](../../plugins/development/skills/requirements-engineering/SKILL.md) | Local | `development` |
 | [research](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/research) | Upstream | `development` |
 | [resilience-testing](../../plugins/development/skills/resilience-testing/SKILL.md) | Local | `development` |
 | [retro](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/retro) | Upstream | `development` |

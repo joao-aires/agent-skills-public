@@ -147,7 +147,7 @@
 <text x="800" y="1205" fill="#526681" font-size="13.5" font-weight="400" text-anchor="middle" >Production learning can reopen requirements, design, implementation and product priorities.</text>
 <path d="M 1543 1092 H 1579 V 327 H 1572" fill="none" stroke="#617892" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" stroke-dasharray="8 7"/>
 <text x="1583" y="728" fill="#526681" font-size="12.5" font-weight="500" text-anchor="middle" transform="rotate(-90 1583 728)">Feedback</text>
-<path d="M 287 415 V 526" fill="none" stroke="#617892" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" />
+<path d="M 44 414 V 513 H 287 V 526" fill="none" stroke="#617892" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)" />
 <rect x="32" y="1282" width="1536" height="154" rx="18" fill="#f0f4f9" stroke="#d1dce8" />
 <text x="59" y="1316" fill="#172740" font-size="21" font-weight="700" text-anchor="start" >Shared methods across the lifecycle</text>
 <text x="59" y="1341" fill="#526681" font-size="14" font-weight="400" text-anchor="start" >Use when relevant; they are not additional sequential phases.</text>
