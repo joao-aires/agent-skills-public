@@ -2,13 +2,13 @@
 
 Use the [SDLC overview](../README.md#sdlc-coverage) to orient yourself and the [task menu](usage.md#skills-you-invoke) to start work. This reference links the expertise behind those activities. `develop` spans the useful lifecycle; individual tasks let you enter at any phase. Phases describe outcomes, **not required agent invocations or stage-gate approvals**. For new applications, [new-application flow](../plugins/development/skills/develop/references/new-application-flow.md) defines the dependent decisions; `setup` alone does not establish the full lifecycle.
 
-![Seven-outcome software lifecycle after product direction: requirements engineering, solution design, implementation planning, implementation, verification, release, and operations and evolution; shared methods and matching technical expertise apply across phases](images/sdlc-cycle.svg)
+![Seven-outcome software lifecycle after product direction: requirements engineering, solution design, implementation planning, implementation, verification, release, and maintenance; shared methods and matching technical expertise apply across phases](images/sdlc-cycle.svg)
 
 ## Read the lifecycle map
 
 Product direction answers **what is worth solving and why**. Its [product-management](../plugins/strategy/skills/product-management/SKILL.md), [business-strategy](../plugins/strategy/skills/business-strategy/SKILL.md) and [learn-from-product-feedback](../plugins/strategy/skills/learn-from-product-feedback/SKILL.md) activities sit outside the seven engineering phases. Accepted objectives feed requirements; production and product evidence can reopen affected decisions.
 
-The engineering sequence is **requirements → solution design → implementation planning → implementation → verification → release → operations and evolution**. Its arrows show useful decision dependencies, not seven separate meetings, commands or documents. Work enters at the missing outcome: an existing bug rarely needs product discovery, while a significant rearchitecture may revisit requirements and design several times. `develop` owns the authorized end-to-end engagement when selected; explicit-only phase entry points are not silently invoked as substeps.
+The engineering sequence is **requirements → solution design → implementation planning → implementation → verification → release → maintenance**. Its arrows show useful decision dependencies, not seven separate meetings, commands or documents. Work enters at the missing outcome: an existing bug rarely needs product discovery, while a significant rearchitecture may revisit requirements and design several times. `develop` owns the authorized end-to-end engagement when selected; explicit-only phase entry points are not silently invoked as substeps.
 
 | Part of the diagram | How it contributes |
 | --- | --- |
@@ -106,9 +106,9 @@ Start with [test](../plugins/development/skills/test/SKILL.md), and use [deliver
 
 Start with [release](../plugins/development/skills/release/SKILL.md). [Delivery pipelines](../plugins/delivery/skills/delivery-pipelines/SKILL.md) supports artifacts, CI, publication, promotion, rollout and recovery; actual remote actions require named authorization and target verification.
 
-### 7. Operations & evolution
+### 7. Maintenance
 
-Use operations activities directly when their outcomes are needed; they are **not just a maintenance substep** of `improve` or `dependencies`. React to incidents with [incident-response](../plugins/operations/skills/incident-response/SKILL.md) and appropriate recovery, runbook, [postmortem facilitation](../plugins/operations/skills/postmortem-facilitation/SKILL.md) and [follow-up](../plugins/operations/skills/postmortem-followup/SKILL.md). Proactively manage [reliability and SLOs](../plugins/operations/skills/reliability-design/SKILL.md), [observability](../plugins/operations/skills/observability-operations/SKILL.md), [operational housekeeping](../plugins/operations/skills/operational-housekeeping/SKILL.md), capacity, cost, vulnerability and credentials. `improve` and `dependencies` complement those responsibilities. Reliability and operations expertise also informs requirements, design, implementation and testing before a release.
+Maintenance is one lifecycle outcome with four complementary responsibilities: **respond & restore**, **reliability & signals**, **learn & prevent**, and **maintain & evolve**. Operations activities are direct ways of achieving those outcomes; they are **not just substeps** of `improve` or `dependencies`. React to incidents with [incident-response](../plugins/operations/skills/incident-response/SKILL.md) and appropriate recovery, runbook, [postmortem facilitation](../plugins/operations/skills/postmortem-facilitation/SKILL.md) and [follow-up](../plugins/operations/skills/postmortem-followup/SKILL.md). Proactively manage [reliability and SLOs](../plugins/operations/skills/reliability-design/SKILL.md), [observability](../plugins/operations/skills/observability-operations/SKILL.md), [operational housekeeping](../plugins/operations/skills/operational-housekeeping/SKILL.md), capacity, cost, vulnerability and credentials. `improve` and `dependencies` complement those responsibilities. Reliability and operations expertise also informs requirements, design, implementation and testing before a release.
 
 ## UI/UX methods across activities
 
