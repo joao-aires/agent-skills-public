@@ -53,7 +53,7 @@
 <path d="M 944.7 634.3 Q 921.3 678.5 869.8 714.3" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
 <path d="M 726.5 762.3 Q 710.0 767.2 693.5 762.3" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
 <path d="M 550.2 714.3 Q 498.7 678.5 475.3 620.3" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
-<path d="M 448.0 524.3 Q 448.0 503.0 448.0 474.2" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M 448.0 524.3 Q 448.0 510.0 448.0 496.4" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
 <path d="M 590.8 287.4 Q 599.1 279.8 610.3 278.0" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
 <text x="710" y="495" text-anchor="middle" font-size="22" font-weight="700" fill="#15233b">Iterate on evidence</text>
 <text x="710" y="525" text-anchor="middle" font-size="14" fill="#526580">Evidence can reopen any affected decision</text>
@@ -100,33 +100,25 @@
 <text x="437.0" y="585.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and verify the live target.</text>
 <g data-skill="true" data-use="direct"><rect x="340.0" y="592.3" width="194.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="437.0" y="607.3" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">release</text></g>
 </g>
-<g data-card="true" aria-label="7. Maintenance: incident response and recovery, reliability and signals, postmortems and runbooks, upkeep and evolution">
-<rect x="386.1" y="287.4" width="210" height="186" rx="12" fill="white" stroke="#9aaecb"/>
+<g data-card="true" aria-label="7. Maintenance: Respond and restore, reliability and signals, learn and prevent, maintain and evolve">
+<rect x="386.1" y="287.4" width="210" height="209" rx="12" fill="white" stroke="#9aaecb"/>
 <text x="491.1" y="311" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">7. Maintenance</text>
-<text x="491.1" y="329" text-anchor="middle" font-size="11.3" fill="#526580">Operate · learn · improve</text>
+<text x="491.1" y="327" text-anchor="middle" font-size="11.3" fill="#526580">Operate · recover · improve</text>
 <g aria-label="Respond &amp; restore: incident-response">
-<rect x="397.1" y="338" width="188" height="28" rx="5" fill="#f3f6fb" stroke="#d5dfed"/>
-<rect x="397.1" y="338" width="3.5" height="28" rx="1.7" fill="#81b29e"/>
-<text x="491.1" y="350" text-anchor="middle" font-size="11.6" font-weight="700" fill="#21334e">Respond &amp; restore</text>
-<text x="491.1" y="361" text-anchor="middle" font-size="10.2" fill="#526580">incident-response</text>
+<text x="491.1" y="343" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Respond &amp; restore</text>
+<g data-skill="true" data-use="direct"><rect x="394.1" y="347" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="362" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">incident-response</text></g>
 </g>
-<g aria-label="Reliability &amp; signals: SLOs · observability">
-<rect x="397.1" y="370" width="188" height="28" rx="5" fill="#f3f6fb" stroke="#d5dfed"/>
-<rect x="397.1" y="370" width="3.5" height="28" rx="1.7" fill="#8ca9cc"/>
-<text x="491.1" y="382" text-anchor="middle" font-size="11.6" font-weight="700" fill="#21334e">Reliability &amp; signals</text>
-<text x="491.1" y="393" text-anchor="middle" font-size="10.2" fill="#526580">SLOs · observability</text>
+<g aria-label="Reliability &amp; signals: observability-operations">
+<text x="491.1" y="382" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Reliability &amp; signals</text>
+<g data-skill="true" data-use="direct"><rect x="394.1" y="386" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="401" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">observability-operations</text></g>
 </g>
-<g aria-label="Learn &amp; prevent: postmortems · runbooks">
-<rect x="397.1" y="402" width="188" height="28" rx="5" fill="#f3f6fb" stroke="#d5dfed"/>
-<rect x="397.1" y="402" width="3.5" height="28" rx="1.7" fill="#c5a88d"/>
-<text x="491.1" y="414" text-anchor="middle" font-size="11.6" font-weight="700" fill="#21334e">Learn &amp; prevent</text>
-<text x="491.1" y="425" text-anchor="middle" font-size="10.2" fill="#526580">postmortems · runbooks</text>
+<g aria-label="Learn &amp; prevent: postmortem-followup">
+<text x="491.1" y="421" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Learn &amp; prevent</text>
+<g data-skill="true" data-use="direct"><rect x="394.1" y="425" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="440" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">postmortem-followup</text></g>
 </g>
 <g aria-label="Maintain &amp; evolve: improve · dependencies">
-<rect x="397.1" y="434" width="188" height="28" rx="5" fill="#f3f6fb" stroke="#d5dfed"/>
-<rect x="397.1" y="434" width="3.5" height="28" rx="1.7" fill="#aa9cc9"/>
-<text x="491.1" y="446" text-anchor="middle" font-size="11.6" font-weight="700" fill="#21334e">Maintain &amp; evolve</text>
-<text x="491.1" y="457" text-anchor="middle" font-size="10.2" fill="#526580">improve · dependencies</text>
+<text x="491.1" y="460" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Maintain &amp; evolve</text>
+<g data-skill="true" data-use="direct"><rect x="394.1" y="464" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="479" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">improve · dependencies</text></g>
 </g>
 </g>
 <path d="M 674 714 C 705 660 745 660 777 714" fill="none" stroke="#157466" stroke-width="2.5" marker-end="url(#repair-arrow)"/>
