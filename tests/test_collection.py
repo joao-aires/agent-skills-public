@@ -35,6 +35,25 @@ class CollectionTests(unittest.TestCase):
             errors, _ = collection.check_links(root)
             self.assertTrue(any("maintainers/sources.md: missing absent.md" in error for error in errors))
 
+    def test_svg_sources_must_parse_as_svg_xml(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            images = root / "documentation/images"
+            images.mkdir(parents=True)
+            svg = images / "cycle.svg"
+            svg.write_text('<svg xmlns="http://www.w3.org/2000/svg"><text>A &amp; B</text></svg>')
+            self.assertEqual(collection.check_svg_xml(root), [])
+
+            svg.write_text('<svg xmlns="http://www.w3.org/2000/svg"><text>A & B</text></svg>')
+            self.assertTrue(any("invalid SVG XML" in e for e in collection.check_svg_xml(root)))
+
+            svg.write_text('<svg xmlns="http://www.w3.org/2000/svg"><g></svg>')
+            self.assertTrue(any("invalid SVG XML" in e for e in collection.check_svg_xml(root)))
+
+            svg.write_text('<html xmlns="http://www.w3.org/1999/xhtml"/>')
+            self.assertTrue(any("invalid SVG root element" in e for e in collection.check_svg_xml(root)))
+
+
     def test_retired_skill_names_in_prose_and_link_labels_fail(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
