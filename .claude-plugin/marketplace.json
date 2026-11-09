@@ -69,7 +69,7 @@
       "name": "development",
       "source": "./development",
       "description": "Stack-independent SDLC activities, project foundations, contributions and verification.",
-      "version": "0.3.2"
+      "version": "0.3.3"
     },
     {
       "name": "development-tooling",
@@ -81,7 +81,7 @@
       "name": "documentation",
       "source": "./documentation",
       "description": "Product and engineering writing, architecture explanation, knowledge upkeep and prose editing.",
-      "version": "0.1.3"
+      "version": "0.1.4"
     },
     {
       "name": "frontend-development",

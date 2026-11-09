@@ -18,6 +18,8 @@ Evaluate each candidate instruction by asking what future action it changes. Use
 | Personal preferences or machine-specific details | The user's established local mechanism, only when that location is in scope. |
 | Temporary investigation, work status or a proposed decision | The existing work record or conversation until it becomes durable accepted knowledge. |
 
+For a repository with maintained project documentation, preserve or add a short, scoped instruction that changes future authoring behaviour: before adding a document, inspect its index and related authoritative sources; prefer extending the canonical owner, and create a distinct durable page only in the established structure with discoverable links. Point to an existing documentation policy when available, rather than copying its taxonomy or workflow into AGENTS.md. Where the project has no such documentation, do not introduce a documentation system merely to fill a template.
+
 Confirm the actual client's supported filenames, discovery and instruction precedence before changing compatibility entry points. Do not assume that all clients load the same files or interpret nested files identically. Preserve existing compatibility files and their additional content; introduce a link, import or shared source only when the host supports it and the request needs it. Keep one maintained source for each shared rule where practical.
 
 ## Audit and revise the existing guidance
