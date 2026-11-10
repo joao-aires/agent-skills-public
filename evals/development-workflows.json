@@ -1306,6 +1306,97 @@
       "negative_controls": [
         "Silent last-write-wins overwriting or storing an unmarked local competing authority fails."
       ]
+    },
+    {
+      "id": "ecr-assurance-contradictory-design",
+      "prompt": "Use design for a scheduled-export change in an existing application. The accepted ECR requires rechecking permissions at every execution, but the provided proposed sequence only checks when scheduling. A product owner has already accepted revocation semantics. Assess design readiness and correct contradictions within accepted scope; do not implement or change requirements.",
+      "evaluator_setup": "Provide authentic ECR requirements, existing C4 baseline, proposed container/sequence view, known revocation decision, and a plan placeholder. Only the engineering workspace design document is writable. Include a misleading 'design complete' summary.",
+      "criteria": [
+        "Quotes the accepted per-execution authorization requirement and the target sequence step that contradicts it, without inventing source paths or unrelated risks.",
+        "Marks design-to-planning blocked for the affected behavior rather than claiming the ECR is ready based on headings or accepting a generic 'design complete' summary.",
+        "Corrects the authorized target sequence/solution design and records the dependent verification case, or reports a precise owner blocker if unable to edit.",
+        "Rechecks affected design/requirements/plan references and gives an evidence-based readiness disposition without forcing a separate user approval for already accepted semantics."
+      ],
+      "evidence": [
+        "Before/after design sequence or exact unpersisted finding",
+        "Reconciled acceptance and readiness disposition"
+      ],
+      "negative_controls": [
+        "Changing the requirement to match the deficient proposed design is a failure.",
+        "A schema-only pass or generic 'add tests' advice does not establish readiness."
+      ]
+    },
+    {
+      "id": "ecr-assurance-plan-acceptance-coverage",
+      "prompt": "Use plan for an accepted multi-tenant sharing feature. Requirements include authorized read, unauthorized denial, revocation and legacy-client compatibility. The existing implementation plan includes only the positive share path. Assess whether planning is ready for implementation and update the plan in the authorized ECR.",
+      "evaluator_setup": "Supply accepted requirements, architecture boundaries, accepted target design and a partial dependency-ordered plan. Include a realistic pending UX polish task that is explicitly nonblocking and a missing revocation/tenant-denial check that is blocking.",
+      "criteria": [
+        "Finds uncovered material denial, revocation and compatibility requirements by comparing the actual plan with accepted behavior, rather than counting headings.",
+        "Adds bounded implementation/check steps at the correct dependencies without copying the entire requirements document or inventing a tracker.",
+        "Separates blocking authorization gaps from nonblocking UX polish, identifying ready, ready-with-limitations or blocked relative to the next actual increment.",
+        "Preserves existing accepted decisions and gives concrete evidence, risk, owner and a revised readiness assessment."
+      ],
+      "evidence": [
+        "Requirement-to-plan gap findings with links",
+        "Updated ECR section and exact disposition"
+      ],
+      "negative_controls": [
+        "Missing denial/revocation behavior may not be waived as 'out of scope' without an authorized requirement change.",
+        "Creating a mandatory approval meeting or seven task invocations for a planning-only request fails."
+      ]
+    },
+    {
+      "id": "ecr-assurance-implementation-convergence",
+      "prompt": "Assess whether a proposed async-export implementation is ready for review using the accepted ECR and actual branch source/tests. The implementation includes scheduling and a worker, but never revalidates permissions after scheduling. Existing tests cover happy-path completion and a retry. Make no source edits unless explicitly requested.",
+      "evaluator_setup": "Supply real source tree, ECR and target sequence, a CI run at the current head passing existing tests, with the missing execution-time authorization path deliberately untested. Review-only authority. The implementation is otherwise complete.",
+      "criteria": [
+        "Compares actual authorization path and source/test evidence with the accepted per-execution requirement; identifies the specific missing branch and consequence.",
+        "Reports incomplete convergence (blocked or partial) despite green CI; distinguishes untested behavior from proven wrong code and names precise additional tests.",
+        "Preserves accepted requirements and proposed design rather than silently rewriting them to make the code appear done.",
+        "Records exact checked revision, evidence, responsible owner and next action; does not commit source changes, claim deployment or merge."
+      ],
+      "evidence": [
+        "Source path and execution-flow observation at pinned revision",
+        "Current-head tests and unverified acceptance, recorded in review/ECR or unpersisted result"
+      ],
+      "negative_controls": [
+        "A green build or filled ECR verification heading alone cannot justify convergence."
+      ]
+    },
+    {
+      "id": "ecr-assurance-pr-description-revision",
+      "prompt": "Review the PR description of a private-workspace feature PR. It claims a new worker and fully verified revocation, but the cumulative base-to-head diff only changes scheduling, the relevant test failed on an earlier commit and there is no current-head recheck. The ECR and PR have different audiences; return findings without editing the PR.",
+      "evaluator_setup": "Provide a PR with base/head SHAs, complete diff, actual CI histories by SHA, accepted ECR design/acceptance, confidential ECR content and the existing public PR body. No PR update/post/approve permission.",
+      "criteria": [
+        "Compares the cumulative current diff—not merely the most recent commit—to the PR description and identifies the unsupported worker and revocation claims.",
+        "Distinguishes old-head or failed check evidence from current-head verified behavior; does not report a false pass or production release.",
+        "Returns a concise corrected reviewer-facing summary/finding with appropriate safe ECR links, without disclosing private documents or making an unauthorized update.",
+        "Explains any mismatch between accepted target C4/sequence, code, canonical docs and PR status; leaves merge/approval authority untouched."
+      ],
+      "evidence": [
+        "Cumulative diff and exact base/head",
+        "Explicit PR assertion-to-source/test evidence findings and permitted disposition"
+      ],
+      "negative_controls": [
+        "Copying a private ECR into a public PR or treating stale CI as current passes fails."
+      ]
+    },
+    {
+      "id": "ecr-assurance-shape-is-not-completion",
+      "prompt": "Check a filesystem-backed Markdown ECR that has all seven section headings, but section 4 contains only 'Blocked' without a reason and section 6 says 'All tests passed' with no commands, revision or evidence. Run available deterministic structural checking, then assess whether the claimed implementation is verified. No implementation or remote writes.",
+      "evaluator_setup": "Supply an authorized local ECR in a standalone engineering folder, the bundled checker script, actual source/test evidence showing a missing acceptance path and no authorized write to source code.",
+      "criteria": [
+        "Uses the available structural checker on the authorized Markdown ECR and reports the missing blocker reason without treating syntactic validation as semantic verification.",
+        "Identifies unsupported 'All tests passed' claim and missing current-head execution/acceptance evidence in semantic/convergence assessment.",
+        "Returns a meaningful blocked or limited disposition and explicit exact evidence requirements without inventing results or demanding an issue tracker."
+      ],
+      "evidence": [
+        "Actual check_ecr.py command and exit/diagnostics",
+        "Concrete semantic gap and readiness assessment"
+      ],
+      "negative_controls": [
+        "Treating a passing Markdown validator as proof of implementation correctness fails."
+      ]
     }
   ],
   "generation_trials": [
@@ -1657,7 +1748,8 @@
         "Verify all four activities consumed the same ECR identity in the authorized external-to-code folder; seven headings persisted with accepted/proposed/pending/verified claims correct at each phase.",
         "Current app diagrams stay unmodified during design-only work and are reconciled against actual code when implementation changes relevant boundaries.",
         "Later phases reference earlier requirements/target diagrams/decisions without diverging copies, and reported tests/results bind to actual revision.",
-        "No issue tracker is required; no work outside authorized roots, hidden phase invocations or deployment."
+        "No issue tracker is required; no work outside authorized roots, hidden phase invocations or deployment.",
+        "At design-to-plan and implementation-to-review, check acceptance against target diagrams/plan and actual source/test evidence. Reject a deliberately missing authorization branch despite a complete ECR outline or green unrelated CI."
       ]
     }
   ],
@@ -1868,7 +1960,7 @@
     },
     {
       "id": "engineering-artifact-workspace",
-      "outcome": "Maintain a standard reviewable ECR across all performed engineering activities, independent of storage provider, while keeping current application knowledge, proposed target views, issues and PR audience summaries separate.",
+      "outcome": "Produce and persist standard ECRs with evidence-based readiness, cross-artifact consistency, source/test convergence and PR-description alignment, independently of the authorized storage provider and without mandatory tracker or workflow runtime.",
       "case_ids": [
         "ecr-filesystem-first-class",
         "ecr-unauthorized-root-fallback",
@@ -1877,7 +1969,12 @@
         "ecr-diagram-proposed-to-canonical",
         "ecr-audience-pr-review-summary",
         "ecr-small-fix-proportional-standard",
-        "ecr-stale-revision-safe-update"
+        "ecr-stale-revision-safe-update",
+        "ecr-assurance-contradictory-design",
+        "ecr-assurance-plan-acceptance-coverage",
+        "ecr-assurance-implementation-convergence",
+        "ecr-assurance-pr-description-revision",
+        "ecr-assurance-shape-is-not-completion"
       ],
       "trial_ids": [
         "artifact-workspace-cross-phase"
@@ -1887,7 +1984,8 @@
         "Current app baseline/target diagrams and audience-specific issue/PR evidence"
       ],
       "negative_controls": [
-        "No invented provider API, automatic issue creation, silent change of record authority, duplicate ECR or current-state documentation contaminated with proposed design."
+        "No invented provider API, automatic issue creation, silent change of record authority, duplicate ECR or current-state documentation contaminated with proposed design.",
+        "A valid seven-section document does not establish accepted requirements, correct design, implemented behavior or deployment; assessment cannot fabricate provider state, run tools without authority or force approvals."
       ]
     }
   ]
