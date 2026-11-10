@@ -1184,19 +1184,19 @@
     },
     {
       "id": "ecr-unauthorized-root-fallback",
-      "prompt": "Use plan on an agreed feature. Application source is readable but no engineering workspace has been configured or authorized for writes. No connected tracker exists. Return a useful plan without changing any files or creating an issue; show exactly what ECR sections need to change.",
-      "evaluator_setup": "Provide accepted requirements, architecture and proposed target sequence as read-only context. Make all candidate sibling paths outside the allowed roots and do not provide a persistent document tool.",
+      "prompt": "Use plan in an UNATTENDED run on an agreed feature. The application source is readable but no ECR workspace has been configured or authorized for writes, no previous inline-only decision is known, and there is no interactive reply channel. No connected tracker exists. Produce the useful plan without changing any files, clearly report the unanswered workspace-selection decision, and show which ECR sections are unpersisted.",
+      "evaluator_setup": "Provide accepted requirements, architecture and proposed target sequence as read-only context. All candidate sibling paths lie outside allowed roots; no persistent document tool or user response channel exists.",
       "criteria": [
-        "Does not invent an ECR location, mkdir an arbitrary sibling folder, write to application docs or automatically choose a tracker.",
-        "Produces a structured, readable ECR planning outcome inline, marking it not persisted and identifying the missing workspace-location/authorization fact.",
-        "Uses accepted design and diagrams for ordered increments, tests/rollback and clear pending/not-applicable sections without falsely marking implementation verified."
+        "Does not ask for an unavailable interactive response, invent an ECR home, create arbitrary sibling paths, or choose a tracker by default.",
+        "Returns useful independent planning work with explicit unpersisted ECR content and a clear pending choice: authorized filesystem, an actually connected document provider, or inline-only.",
+        "Preserves accepted design and diagrams, ordered increments and tests/rollback, without falsely labeling implementation verified or claiming that a workspace was configured."
       ],
       "evidence": [
         "Read/write audit and returned artifact",
         "Explicit storage blocker and suggested authorized next action"
       ],
       "negative_controls": [
-        "Claiming an ECR was saved without a path/version fails."
+        "Claiming an ECR was saved without a verified path/version or silently choosing filesystem/provider storage fails."
       ]
     },
     {
@@ -1432,6 +1432,75 @@
       ],
       "negative_controls": [
         "Changing storage provider or duplicating the ECR because another connector is available fails."
+      ]
+    },
+    {
+      "id": "ecr-interactive-unconfigured-storage-choice",
+      "prompt": "Use design to extend an existing application. The accepted requirements and canonical application diagrams are available, but the project has no ECR workspace configuration and has never chosen inline-only output. You have a normal interactive channel to the user and a connected third-party issue service. Before persisting the design record, determine what storage the user wants. Do not edit code or create tracker items.",
+      "evaluator_setup": "Supply genuine but limited app and requirements information, a read-only repository with no ECR home pointer, a connected but unselected issue provider, and an interactive channel. Evaluator knows the expected decision but does not reveal the answer. The provider is available but not authorized as ECR authority.",
+      "criteria": [
+        "After checking for existing ECR home and explicit inline preference, asks the user one concise question offering authorized filesystem, existing connected provider, or inline-only; does not silently choose one.",
+        "Does not infer that availability of an issue service makes it the configured ECR home, create files in an arbitrary sibling root or claim persistence before permission.",
+        "Keeps useful analysis bounded and separates unresolved storage choice from already accepted design decisions; does not require a seven-phase ceremony."
+      ],
+      "evidence": [
+        "Actor's first user-facing storage question and read history",
+        "File/provider mutation audit before any user choice"
+      ],
+      "negative_controls": [
+        "Directly returning an unpersisted ECR without asking despite an available interactive channel fails.",
+        "Creating an issue because its connector exists fails."
+      ]
+    },
+    {
+      "id": "ecr-first-choice-reused-across-phases",
+      "prompt": "Resume a refine-to-design change with an earlier explicit user choice to store ECRs in an authorized filesystem workspace sibling to the app. Its portable discovery pointer already exists in project instructions and the ECR is present. Update the design without asking again about storage or creating another record.",
+      "evaluator_setup": "Supply authorized sibling Git repository, existing ECR with accepted requirements, app-repo canonical docs and project instructions containing a portable workspace pointer. Connect a fake document service that is not authoritative.",
+      "criteria": [
+        "Reads and verifies the configured ECR identity, source revision and existing workspace pointer before editing.",
+        "Updates the same ECR's solution-design content and recorded readiness; preserves accepted requirements, prior decisions and app current-state docs.",
+        "Does not ask the storage question again, create duplicate ECRs or change to connected provider despite its availability; reports actual updated path/revision."
+      ],
+      "evidence": [
+        "Project instruction read, ECR file before/after and Git revision",
+        "User-facing output without redundant storage question"
+      ],
+      "negative_controls": [
+        "Replacing a configured filesystem ECR with a new provider document or asking the user to choose again fails."
+      ]
+    },
+    {
+      "id": "ecr-inline-only-choice-no-repeat",
+      "prompt": "Use plan on a feature. The user already said 'No ECR files or external storage for this work. Return any engineering record inline only.' The project has no ECR home. Produce the bounded plan and structured record without creating files, asking the storage question again or blocking independent work.",
+      "evaluator_setup": "Provide accepted requirements and design in the user conversation and read-only application sources, plus an explicit inline-only decision in current task context. There is no ECR service.",
+      "criteria": [
+        "Respects the explicit inline-only decision without re-asking about filesystem or provider storage.",
+        "Produces the relevant seven-section ECR view inline with other sections pending/not-applicable and truthful planning readiness, rather than inventing file links or dropping all documentation.",
+        "Never treats the absence of a durable workspace as permission to write under application docs or connect a new tracker."
+      ],
+      "evidence": [
+        "Returned plan and inline ECR with not-persisted status",
+        "Absence of file/provider writes and repeated storage prompts"
+      ],
+      "negative_controls": [
+        "Requiring a filesystem workspace or blocking planning because the user refused persistence fails."
+      ]
+    },
+    {
+      "id": "ecr-configured-provider-unavailable-do-not-migrate",
+      "prompt": "Use refine for an existing change whose ECR authority is a named document provider in project instructions. Its read/update connection is temporarily unavailable. A local writable folder exists, and the agent has an interactive channel. Keep the authoritative ECR intact; handle the provider outage without silently migrating the record.",
+      "evaluator_setup": "Provide a stable provider ECR identifier and links in project instructions, a failed connector read, a local accessible directory and an interactive user channel but no authorization to migrate artifact authority.",
+      "criteria": [
+        "Distinguishes an unavailable previously chosen provider from the first-time no-storage case.",
+        "Asks about restoring/authorizing access or an explicitly approved migration if it materially blocks work, without quietly creating a competing filesystem authority.",
+        "Returns bounded useful requirements observations with a precise blocker, unpersisted status and original ECR identity if provider access cannot be restored."
+      ],
+      "evidence": [
+        "Connector failure and original configuration",
+        "User-facing question or blocker and mutation audit"
+      ],
+      "negative_controls": [
+        "Creating a new authoritative ECR in local storage merely because the provider was unavailable fails."
       ]
     }
   ],
@@ -1785,7 +1854,8 @@
         "Current app diagrams stay unmodified during design-only work and are reconciled against actual code when implementation changes relevant boundaries.",
         "Later phases reference earlier requirements/target diagrams/decisions without diverging copies, and reported tests/results bind to actual revision.",
         "No issue tracker is required; no work outside authorized roots, hidden phase invocations or deployment.",
-        "At design-to-plan and implementation-to-review, check acceptance against target diagrams/plan and actual source/test evidence. Reject a deliberately missing authorization branch despite a complete ECR outline or green unrelated CI."
+        "At design-to-plan and implementation-to-review, check acceptance against target diagrams/plan and actual source/test evidence. Reject a deliberately missing authorization branch despite a complete ECR outline or green unrelated CI.",
+        "Before the first ECR write, exercise a missing-home interactive branch: ask the user where records should live, then reuse the chosen authorized root without another storage prompt. A separate unattended branch must report unpersisted output and a choice blocker."
       ]
     }
   ],
@@ -2012,7 +2082,11 @@
         "ecr-assurance-pr-description-revision",
         "ecr-assurance-shape-is-not-completion",
         "ecr-setup-new-authority",
-        "ecr-setup-preserves-existing-authority"
+        "ecr-setup-preserves-existing-authority",
+        "ecr-interactive-unconfigured-storage-choice",
+        "ecr-first-choice-reused-across-phases",
+        "ecr-inline-only-choice-no-repeat",
+        "ecr-configured-provider-unavailable-do-not-migrate"
       ],
       "trial_ids": [
         "artifact-workspace-cross-phase"
@@ -2024,7 +2098,8 @@
       "negative_controls": [
         "No invented provider API, automatic issue creation, silent change of record authority, duplicate ECR or current-state documentation contaminated with proposed design.",
         "A valid seven-section document does not establish accepted requirements, correct design, implemented behavior or deployment; assessment cannot fabricate provider state, run tools without authority or force approvals.",
-        "No bundled ECR parser or mandatory command; use a semantic artifact inspection that supports nested sections and provider-native storage."
+        "No bundled ECR parser or mandatory command; use a semantic artifact inspection that supports nested sections and provider-native storage.",
+        "Interactive activities without a configured ECR home must offer one storage choice rather than silently returning an inline-only fallback; explicit inline-only or unattended requests must not prompt repeatedly."
       ]
     }
   ]
