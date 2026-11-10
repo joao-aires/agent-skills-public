@@ -16,6 +16,8 @@ Read [composition guidance](../../COMPOSITION.md) for skill selection and invoca
 
 # Keep documentation useful
 
+**Separate change records from implemented knowledge.** A standardized ECR and proposed C4/sequence/RFC diagrams belong in the authorized **engineering workspace** (filesystem folder outside the application repo or a connected document provider). The application's canonical documentation owns verified/current architecture, contracts, ADR history, runbooks and release/operations facts. A target design accepted by a team is not automatically implemented or deployed. Read the existing project documentation index, resolve current versus proposed state, and update affected canonical pages only as evidence justifies. The ECR's owner/format is defined by the engineering workflow, not this knowledge-placement skill.
+
 For architecture baselines or substantive architecture/interface changes, read [architecture-documentation](../architecture-documentation/SKILL.md) for views, runtime/lifecycle boundaries, API analysis and source-backed verification.
 
 When writing or revising prose, read and apply [documentation-writing](../documentation-writing/SKILL.md) for reader purpose, explanations, examples, precision and presentation. This skill owns document responsibilities and maintenance; the writing skill guides authoring and reader review.
