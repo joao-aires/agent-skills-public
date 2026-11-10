@@ -13,6 +13,8 @@ user-invocable: false
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
 
+For change-specific ECRs and target design, use [engineering-workspace](../engineering-workspace/SKILL.md) to discover an authorized external-to-code engineering folder or document provider and [engineering-artifacts](../engineering-artifacts/SKILL.md) for contract/content. The app repo retains canonical implemented-state docs. Never create arbitrary sibling paths or remote accounts without authority.
+
 
 # Establish and maintain project conventions
 
