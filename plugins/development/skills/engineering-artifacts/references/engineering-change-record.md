@@ -52,7 +52,7 @@ Every ECR, including a compact single-file fix, has these headings in this order
 | Release | Actual artifact/target, gates, recovery and promotion/verification status stated precisely |
 | Maintenance | Findings, incidents, signals and remediation linked to affected requirements/decisions as needed |
 
-Entry points may stop earlier; no task automatically authorizes later phases. The ECR is updated incrementally and the reader must be able to tell what is pending.
+Entry points may stop earlier; no task automatically authorizes later phases. The ECR is updated incrementally and the reader must be able to tell what is pending. At each completed/attempted handoff, add the readiness disposition and consequential findings in the relevant section (without creating a mandatory eighth section). Follow [artifact assurance](assurance.md) for contradictions, source/test convergence, PR alignment and truthfulness limits. For accessible local Markdown files, [check_ecr.py](../scripts/check_ecr.py) checks seven-section structure only; a passing structural result never proves semantic acceptance or execution.
 
 ## Compact example (small bug)
 
