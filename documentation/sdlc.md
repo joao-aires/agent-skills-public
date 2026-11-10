@@ -49,21 +49,25 @@ Green labels identify entry-point skills or directly requested activities; dashe
 
 A company's portfolio planning, roadmap prioritization or sprint scheduling is **not** the `plan` implementation skill. `plan` converts sufficiently accepted requirements/design into actionable increments, dependencies and tests. It can iterate when implementation discovers a new constraint. The end-to-end `develop` activity does not need to invoke each explicit-only task skill by name to accomplish those outcomes.
 
-## Preserve useful handoff artifacts, not mandatory documents
+## Standard engineering artifacts and workspace handoffs
 
-Standardize the **information contract** between outcomes, not a separate file per phase. Reuse the project's existing issue, brief, ADR, design note, PR and operational records. [Documentation conventions](../plugins/documentation/skills/documentation-conventions/SKILL.md) determine the canonical home before adding durable pages.
+Every **performed** SDLC phase leaves a structured, reviewable result in an Engineering Change Record (ECR). The ECR is a **seven-section, evolving document** in an authorized workspace **parallel to application code**. The workspace may be a local folder, separate Git repository or optionally a connected issue/document provider; **no issue-tracking software is required**. Section expectations and readiness checks are standardized by [engineering-artifacts](../plugins/development/skills/engineering-artifacts/SKILL.md), while [engineering-workspace](../plugins/development/skills/engineering-workspace/SKILL.md) handles discovery, identity, revision and authorized persistence. External provider access is never assumed.
 
-| Outcome | Information a successor must be able to recover | Example existing artifact |
+![Seven engineering phases continuously update one change record while the app repository retains current knowledge and optional issue/PR views serve their readers](images/sdlc-artifact-flow.svg)
+
+| Phase / producer | ECR section or linked artifact | Consumer / handoff |
 | --- | --- | --- |
-| Product direction | Accepted user problem, value, success signal, priority and non-goals | Product brief, decision, roadmap |
-| Requirements | Actors, promised behavior, relevant quality/operating constraints, acceptance and unresolved choices | Issue, requirements section, PRD |
-| Solution design | Consequential choices, rejected alternatives, contracts, migration/operating consequences | Design note, ADR, interface or architecture record |
-| Implementation planning | Dependency-ordered increments, protected existing behavior, verification and release/recovery implications | Bounded plan or work packages |
-| Implementation | Changed code/config/tests and material decisions that evolved | Objective branch, commits, PR |
-| Verification and release | Observed checks, failures and repairs, actual artifact/target, rollout and rollback status | CI, review, release evidence |
-| Operations and learning | Health indicators, incidents, runbooks, remediation outcomes and unresolved risk | Existing monitoring, incident and operating records |
+| Product direction / refine | Problem, scope, requirements, acceptance; PRD linked rather than duplicated | Design consumes accepted user outcomes and quality constraints |
+| Solution design | Proposed future-state C4 / user journey / technical sequence, RFC/decision and alternatives when applicable | Plan consumes accepted design and unresolved compatibility/authority choices |
+| Implementation planning | Ordered slices, tests, migrations, rollback, dependencies | Implementation consumes executable increments and current app contracts |
+| Implementation | Revision, affected code, deviations, updated canonical docs where warranted | Verification compares real behavior with acceptance and target designs |
+| Verification / review | Actual tests, findings, current revision and gaps | Release uses explicit readiness, not a generic green build |
+| Release | Artifact/target, approval and rollout/recovery evidence, actual state | Maintenance consumes observed target health; merged is not deployed |
+| Maintenance | Operational findings, incidents, signals and remediation | Relevant new requirements/design feedback with references |
 
-For a small feature, **one issue and one PR** may carry all these facts. For a cross-system change, distinct canonical contracts and decisions are useful because their audiences and lifecycles differ. Preserve accepted/proposed/verified status, source links and evidence gaps; create stable IDs or traceability matrices only when multi-team coordination, external obligations or substantial requirement sets justify them. A phase label or document filename does not itself prove completion.
+The ECR is **not the current architecture**. Current C4 and critical sequence views remain in the application's stable-branch documentation. Target diagrams are proposed in the ECR/RFC against a known base revision, then reconciled with verified implementation in the application repository. A local fix may justify "diagrams unaffected" without fabricating diagrams. Issues summarize intended work/acceptance for coordinators and implementers; PRs explain actual changes, design variance and evidence for reviewers. Both are optional views of the authoritative record, not competing specifications.
+
+Read [engineering artifact workflow](artifact-workflow.md) for the document structure, filesystem versus external workspace configuration, PRD/RFC/ADR ownership, example flows and audience rules. The same standard applies to an end-to-end `develop` request without invoking explicit-only phase skills as substeps. When the ECR cannot be persisted, return a structured **unpersisted** outcome rather than inventing a saved document.
 
 ## Different starting points
 
