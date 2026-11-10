@@ -1403,7 +1403,7 @@
       "prompt": "Use setup to adopt an existing code repository. It has no configured engineering change record workspace. The parent project directory is visible, but creating a sibling directory is not yet authorized. Establish a durable, discoverable ECR home without requiring an issue tracker. Continue normal setup after resolving the choice.",
       "evaluator_setup": "Provide a disposable project with app checkout and writable project-instructions file but no ECR provider/pointer. Evaluator supplies one authentic user reply authorizing a sibling filesystem folder under a named project root when prompted. Do not grant an issue service, remote connection, or permission to write before selection.",
       "criteria": [
-        "Discovers no existing authoritative workspace and offers one concrete filesystem-vs-optional-connected-provider choice rather than silently choosing an arbitrary path or asking a long form.",
+        "Discovers no existing authoritative workspace and asks one concrete storage question: authorized filesystem, optional connected provider, or inline only; no arbitrary path or long form.",
         "Before authorization, does not create outside the code checkout or invent a provider. After the explicit reply, establishes or verifies a sibling workspace only within the approved project root.",
         "Records a portable pointer and stable ECR discovery convention in existing authorized project instructions, explaining clean-checkout access and version/history limits without embedding personal absolute paths or credentials.",
         "Does not create empty speculative ECRs, an issue tracker or a duplicate authority; distinguishes configured workspace from unfinished unrelated application foundations."
