@@ -72,7 +72,7 @@
 <path d="M152.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
 <rect x="54" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="66" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="152.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR §§2–3</text>
+<text x="152.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 2-3</text>
 <text x="152.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Problem, requirements</text>
 <text x="152.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">&amp; acceptance</text>
 <text x="152.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Outcome · constraints</text>
@@ -80,7 +80,7 @@
 <path d="M365.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
 <rect x="267" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="279" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="365.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR §4</text>
+<text x="365.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 4</text>
 <text x="365.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Proposed solution</text>
 <text x="365.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">&amp; target diagrams</text>
 <text x="365.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">C4 · journeys · contracts</text>
@@ -88,7 +88,7 @@
 <path d="M578.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
 <rect x="480" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="492" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="578.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR §5</text>
+<text x="578.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 5</text>
 <text x="578.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Delivery strategy</text>
 <text x="578.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">&amp; increments</text>
 <text x="578.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Dependencies · migration</text>
@@ -96,7 +96,7 @@
 <path d="M791.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
 <rect x="693" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="705" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="791.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR §§6–7</text>
+<text x="791.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 6-7</text>
 <text x="791.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Implementation</text>
 <text x="791.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">evidence</text>
 <text x="791.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Changed revision · diff</text>
@@ -104,7 +104,7 @@
 <path d="M1004.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
 <rect x="906" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="918" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="1004.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR §6</text>
+<text x="1004.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 6</text>
 <text x="1004.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Verification</text>
 <text x="1004.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">&amp; review evidence</text>
 <text x="1004.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Observed checks · gaps</text>
@@ -112,7 +112,7 @@
 <path d="M1217.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
 <rect x="1119" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="1131" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="1217.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR §6</text>
+<text x="1217.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 6</text>
 <text x="1217.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Release readiness</text>
 <text x="1217.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">&amp; rollout evidence</text>
 <text x="1217.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Artifact · target · checks</text>
@@ -120,7 +120,7 @@
 <path d="M1430.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
 <rect x="1332" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="1344" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="1430.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR §§2, 7</text>
+<text x="1430.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 2 &amp; 7</text>
 <text x="1430.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Operational learning</text>
 <text x="1430.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">&amp; follow-ups</text>
 <text x="1430.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Incidents · signals</text>
@@ -130,7 +130,7 @@
 <rect x="1027" y="661" width="502" height="34" rx="8" fill="#ffffff" stroke="#bad0e4" stroke-width="1.4" />
 <text x="1278" y="684" font-size="13.3" fill="#38688c" font-weight="700" text-anchor="middle">WORKSPACE  ·  filesystem / Git / document service</text>
 <rect x="71" y="730" width="1458" height="35" rx="9" fill="#dfeefa" stroke="#bfd7ec" stroke-width="1.4" />
-<text x="800" y="753" font-size="13.6" fill="#355f82" font-weight="700" text-anchor="middle">Across ALL phases: §1 Overview &amp; lifecycle  +  §7 Decision history &amp; references  ·  pending work stays pending</text>
+<text x="800" y="753" font-size="13.6" fill="#355f82" font-weight="700" text-anchor="middle">All phases update: ECR 1 (overview and status) + ECR 7 (decisions and references); pending work stays pending</text>
 <text x="54" y="815" font-size="14.5" fill="#436986" font-weight="700" >DOWNSTREAM AUTHORITIES &amp; VIEWS</text>
 <path d="M306 849 V785" stroke="#318a79" stroke-width="2.5" fill="none" marker-end="url(#greenArrow)"/>
 <path d="M732 785 V849" stroke="#318a79" stroke-width="2.5" fill="none" marker-end="url(#greenArrow)"/>
