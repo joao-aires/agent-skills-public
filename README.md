@@ -71,6 +71,9 @@ Plugins package capabilities; they are not dependency layers. Read [architecture
 
 ## SDLC coverage
 
+The [engineering artifacts & workspaces guide](documentation/artifact-workflow.md) explains the structured seven-section ECR for **every performed engineering activity**, optional filesystem/connected-provider storage outside the app repository, proposed-versus-current C4/sequence diagrams, and audience-specific issue/PR summaries. No issue tracker or separate document per phase is required.
+
+
 ![Seven engineering outcomes from requirements engineering and solution design through implementation planning, implementation, verification, release and operations; product direction, shared methods and technical expertise are separate and feedback reopens decisions](documentation/images/sdlc-cycle.svg)
 
 `develop` spans the useful cycle. Enter at the activity the work needs, repeat implementation and verification as evidence demands, and reopen affected decisions when product or operational learning changes the context. Project foundations and relevant specialist guidance support the work throughout. The arrows show outcome dependencies and feedback, not required task invocations or permission to release or deploy. Start with `refine` for requirements, or `develop` when you want an authorized end-to-end result; implementation `plan` follows the relevant design decisions.
