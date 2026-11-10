@@ -1104,6 +1104,64 @@
         "A generic 'keep docs updated' sentence without pre-creation discovery and placement is insufficient.",
         "Forcing `documentation/` or copying the full documentation procedure into AGENTS.md is a failure."
       ]
+    },
+    {
+      "id": "requirements-engineering-export-contract",
+      "prompt": "Use refine on a requested self-service data export feature in an existing multi-tenant SaaS. A product brief says 'users can export their data', the existing code has role-specific access and a synchronous download limit, and operators report failed large exports. Define useful requirements and acceptance without implementing the solution or selecting a queue.",
+      "evaluator_setup": "Supply scoped product intent, current role/data contracts, one unresolved stakeholder conflict about external guests, and operations evidence without approved SLO targets. Include a proposed queue design as unaccepted context. Allow the actor to inspect project sources and ask material stakeholder questions.",
+      "criteria": [
+        "Refine invokes or applies requirements-engineering support to distinguish accepted user outcomes, actors and permitted records from a suggested queue implementation.",
+        "Defines meaningful functional, quality and operating constraints: authorization, content scope, pending requests, failure/retry, compatibility, size/latency/recovery and observability as relevant.",
+        "Does not invent numeric targets or permissions; raises the material guest-access and service-target decisions, with concrete options/evidence needs rather than assigning defaults.",
+        "Links each material outcome to observable positive, denied and recovery acceptance evidence and classifies readiness for design separately from readiness for implementation.",
+        "Preserves the existing canonical requirements home; does not manufacture a full PRD/traceability spreadsheet or implement code."
+      ],
+      "evidence": [
+        "Requirements with their evidence and accepted/proposed/unknown status",
+        "Acceptance observations, open decisions and readiness handoff"
+      ],
+      "negative_controls": [
+        "Choosing a queue or arbitrary 99.9% SLO is not requirements validation.",
+        "A generic list of nonfunctional attributes without system-specific observable conditions is not sufficient."
+      ]
+    },
+    {
+      "id": "requirements-refactor-rearchitecture-handoff",
+      "prompt": "Refine a proposed rearchitecture to move an established synchronous payment integration to an asynchronous worker. The company wants lower coupling and stable customer behavior. Investigate affected contracts and constraints, identify consequential design choices, and hand off to design and implementation planning without prematurely executing them.",
+      "evaluator_setup": "Provide actual payment authority/consistency behavior, current API clients, webhook retry contracts, an existing architectural baseline, unresolved migration and rollback choices, and a user business objective. No new architecture is yet accepted.",
+      "criteria": [
+        "Preserves customer-visible and persisted invariants and identifies migration, retries, duplicates, ambiguous outcomes, compatibility and rollback constraints supported by existing evidence.",
+        "Separates desired quality improvement and acceptance from the proposed worker/queue architecture, leaving consequential architecture options for design.",
+        "Distinguishes ready-for-design from ready-for-implementation; doesn't present a dependency-ordered implementation plan as accepted until architecture/migration decisions exist.",
+        "Maintains links to existing authoritative records and supplies targeted, testable contract and non-regression checks, not a separate document for every phase."
+      ],
+      "evidence": [
+        "Current and proposed constraints with stakeholder decision gaps",
+        "Design handoff and resulting planning dependencies"
+      ],
+      "negative_controls": [
+        "A PR or migration execution without authorization is a failure.",
+        "A fixed plan selecting the queue before comparing architectural options is a failure."
+      ]
+    },
+    {
+      "id": "develop-local-idea-proportional-artifacts",
+      "prompt": "Use develop for a local agent-assisted change to add a saved-filter shortcut to an already-running personal project. The user requests an end-to-end verified change and PR, not separate meetings, documents, or manual invocations of every phase. Reuse accepted architecture and tests; a minor UX detail is reversible.",
+      "evaluator_setup": "Supply a small runnable application with a saved-filter model, acceptance context, existing documentation/index, a working test command and one targeted feature gap. Include optional specialists and explicit-only refine/design/plan tasks in the inventory; provide authorized repo-write tools but no deployment permission.",
+      "criteria": [
+        "Develop establishes missing behavior/acceptance and reuses accepted architecture rather than invoking every explicit-only task as a mandatory stage.",
+        "Maintains sufficient traceability of scope, design decisions, implementation and verification through an existing issue/PR without producing distinct requirements/design/plan files by default.",
+        "Implements a bounded change and checks observable behavior, retains affected canonical docs only if needed and reports real test/review evidence.",
+        "Stops before unauthorized deployment and identifies any consequential unresolved decision precisely."
+      ],
+      "evidence": [
+        "Focused issue/PR or equivalent handoff record",
+        "Changed implementation, relevant checks and accurate stopping status"
+      ],
+      "negative_controls": [
+        "Mandatory PRD, ADR, plan and separate test report for a minor feature are gratuitous.",
+        "Describing all seven phase names without actual verified application behavior is not completion."
+      ]
     }
   ],
   "generation_trials": [
@@ -1457,7 +1515,8 @@
         "new-product-license-decision",
         "cross-lifecycle-consequential-findings",
         "consequential-answer-continuation",
-        "interface-design-automatic-design"
+        "interface-design-automatic-design",
+        "requirements-engineering-export-contract"
       ],
       "trial_ids": [
         "fresh-desktop-from-product-idea",
@@ -1469,7 +1528,8 @@
       "outcome": "Prepare runnable foundations without conflating setup with full feature/product completion.",
       "case_ids": [
         "contract-and-config-change",
-        "small-ui-change-proportionality"
+        "small-ui-change-proportionality",
+        "develop-local-idea-proportional-artifacts"
       ],
       "trial_ids": [
         "project-foundations",
@@ -1583,7 +1643,8 @@
         "skill-authoring-purpose-fit",
         "documentation-placement-existing-authority",
         "documentation-placement-distinct-decision",
-        "repository-instructions-document-placement"
+        "repository-instructions-document-placement",
+        "requirements-refactor-rearchitecture-handoff"
       ],
       "trial_ids": [
         "existing-open-source",

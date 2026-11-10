@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 import re
 import unicodedata
+import xml.etree.ElementTree as ET
 from urllib.parse import unquote, urlsplit
 
 try:
@@ -53,6 +54,20 @@ def maintained_documents(root):
     return sorted({root / "README.md", root / "AGENTS.md",
                    *(root / "documentation").rglob("*.md"), *root.glob("plugins/*/*.md"),
                    *root.glob("plugins/*/skills/*/SKILL.md")} - managed)
+
+
+def check_svg_xml(root):
+    """Reject invalid maintained SVG sources before they reach generated docs."""
+    errors = []
+    for asset in sorted((root / "documentation/images").glob("*.svg")):
+        try:
+            document = ET.parse(asset)
+        except ET.ParseError as exc:
+            errors.append(f"{asset.relative_to(root)}: invalid SVG XML: {exc}")
+            continue
+        if document.getroot().tag != "{http://www.w3.org/2000/svg}svg":
+            errors.append(f"{asset.relative_to(root)}: invalid SVG root element")
+    return errors
 
 
 def check_links(root):
@@ -309,6 +324,7 @@ def main():
         parser.error('--plugin requires --built')
     errors, count = check_links(ROOT)
     errors.extend(check_source_catalogue(ROOT))
+    errors.extend(check_svg_xml(ROOT))
     print(f"Checked {count} maintained relative links/anchors, migration names and source catalogue")
     if args.built:
         build_errors, skills = check_built(ROOT, args.built.resolve(), args.plugin)

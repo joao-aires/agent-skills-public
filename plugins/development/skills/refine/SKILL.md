@@ -14,7 +14,7 @@ metadata:
 
 # Refine
 
-Read [task guidance](../../TASKS.md). Read [project-conventions](../project-conventions/SKILL.md) for affected project constraints. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [task guidance](../../TASKS.md). Read [project-conventions](../project-conventions/SKILL.md) for affected project constraints. For new systems, substantial features, refactors, migrations, rearchitecture or work with materially uncertain actors, quality constraints or acceptance, read and apply [requirements-engineering](../requirements-engineering/SKILL.md) as supporting expertise. For a small well-defined fix, use only the applicable requirements checks without requiring a fuller analysis. Load other optional stack/domain guidance selected by task guidance only when relevant and available.
 
 ## Establish the change
 
@@ -28,7 +28,7 @@ If the problem or product priority is still unresolved, use installed product di
 
 ## Define actionable work
 
-Write requirements that another contributor could implement without reconstructing the conversation. Connect each important requirement to an observable result:
+Write requirements that another contributor could implement without reconstructing the conversation. Use the supporting requirements-engineering method when the change warrants elicitation, competing stakeholder needs, quality-attribute analysis, validation, compatibility or traceability. Connect each important requirement to an observable result:
 
 - Describe the action, the conditions in which it is available, and the resulting visible or stored state.
 - Explain what happens when the action is denied, cannot finish, or is attempted again, where those cases affect the requested behavior.
@@ -50,8 +50,8 @@ For UI work, identify interaction decisions using available interaction design e
 
 ## Return readiness and open decisions
 
-Return ready or needs-decisions and explain what that means for the next activity. Ready work has a clear intended result, sufficient scope and a credible verification approach. When a decision is still needed, identify the exact choice, why implementation depends on it, and which independent work can continue. Include the repository or product evidence that led to the question.
+Return **ready for design**, **ready for implementation** or **needs decisions** and explain the next dependency. Ready for design means required behavior, relevant quality constraints and acceptance are clear enough to evaluate solutions; ready for implementation also needs the design choices that materially change that behavior to be settled. Ready work has a clear intended result, sufficient scope and a credible verification approach. When a decision is still needed, identify the exact choice, why implementation depends on it, and which independent work can continue. Include the repository or product evidence that led to the question.
 
-Conversation or Markdown can be sufficient; a tracker item is another input/output when configured and authorized. Labels, status changes and ticket creation stay within task policy. Routine work needs no exhaustive story catalogue or interview.
+Carry accepted/proposed status, material assumptions, source-to-requirement links and verification observations in the existing brief, issue or conversation. Conversation or Markdown can be sufficient; a tracker item is another input/output when configured and authorized. Labels, status changes and ticket creation stay within task policy. Routine work needs no exhaustive story catalogue or interview.
 
 In unattended runs, return blockers rather than inventing product decisions or waiting for an absent person.
