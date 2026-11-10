@@ -6,7 +6,7 @@ Choose this when the project has an authorized directory separate from the appli
 
 1. Read the supplied working directory, applicable repository/project instructions, explicit artifact links, project docs and any already defined engineering root.
 2. If an ECR exists, update it; never regenerate it under a new name because the title changes. Follow established folder conventions over the example below.
-3. If creating a workspace is within scope but no root is known, propose a path and get authorization rather than writing outside the allowed working tree. If only a read-only task is authorized, deliver the structured result inline without persistence.
+3. During explicit setup, **offer one durable workspace location decision** if none exists; propose a sibling under a known parent, clearly subject to approval. Once authorized, establish only the smallest discoverable parent/index needed by the agreed convention; create individual ECR documents when a change actually occurs, not empty speculative phase files. Persist a portable pointer in existing project instructions when authorized, including clean-checkout access/versioning. If no root is selected or writable, report the missing choice and deliver task results inline without claiming persistence. Read-only work never authorizes workspace creation.
 4. Preserve source-control separation: application `docs/` represents canonical implemented knowledge, not the draft ECR. The engineering workspace can be versioned independently (Git preferred for collaboration). A file in an untracked folder has no automatic revision history.
 
 Example layout, **not a required schema**:
