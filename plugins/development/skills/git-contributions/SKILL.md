@@ -52,4 +52,4 @@ For multiline descriptions, use a body file or structured tool argument. Follow 
 
 Keep title and description about the final diff. Remove abandoned approaches and conversational history unless they explain a relevant tradeoff, and use accurate issue links and closing keywords.
 
-Before reporting completion, verify the published head, diff and required checks. Report the PR link and actual state. Keep the worktree available for review fixes until its work is safely preserved and no longer needed.
+Before describing the PR as review-ready, apply [artifact assurance](../engineering-artifacts/references/assurance.md) to compare the *cumulative diff* (base to current head), current-head checks, material ECR design/acceptance, actual architecture/doc changes and reviewer description. Correct authorized discrepancies or report exact blockers; the PR is a projection, not a second ECR. Before reporting completion, verify the published head, diff and required checks. Report the PR link and actual state. Keep the worktree available for review fixes until its work is safely preserved and no longer needed.
