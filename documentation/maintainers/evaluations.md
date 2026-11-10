@@ -2,7 +2,7 @@
 
 [Current status](#current-status) · [Run a scenario](#run-and-grade-a-scenario) · [Generation trials](#generation-trials) · [Evidence limits](#recorded-evidence-and-limits) · [Maintainer guide](../maintainer-reference.md)
 
-The [evaluation specification](../../evals/development-workflows.json) defines behavior cases and generation trials across an eleven-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
+The [evaluation specification](../../evals/development-workflows.json) defines behavior cases and generation trials across a twelve-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
 
 ## Current status
 
@@ -15,6 +15,8 @@ A [Chrome/MV3 evaluation record](../../evals/results/browser-extension/results.j
 The current collection has not received a complete behavioral rerun. Earlier trials used different inventories and configurations; their results cannot be transferred to the current guidance. See [recorded evidence and limits](#recorded-evidence-and-limits) for the boundaries of those observations and [architecture](../architecture.md) for the supported composition model.
 
 The [authoring and workflow probes](../../evals/results/authoring-methods/assessment.md) record bounded independent checks of feature handoffs, repository-instruction maintenance and purpose-specific skill revision. They include a partial reporting result and do not establish full-suite adherence or improvement over a baseline.
+
+A [bounded ECR workspace/convergence walkthrough](../../evals/results/engineering-artifact-workspace/assessment.md) dated 2026-11-10 records an authorized sibling-filesystem change and **actual** Node red/green revocation tests (baseline 2/2, intentionally missing regression 2/3, implementation 3/3), with reproduced source fixture and separate application/engineering Git revisions. The same agent authored the fixture and identified its known contradiction, so this is **self-directed, non-blind evidence**: it does not satisfy the independent-actor behavioral-evaluation requirement, validate provider integrations or demonstrate installed-client routing. The independent ECR generation trial remains unexecuted.
 
 ## Intended flows and execution levels
 
