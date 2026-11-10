@@ -12,6 +12,8 @@ user-invocable: false
 
 Read [workflow framing](../../WORKFLOW.md) for scope and invocation boundaries.
 
+Use [engineering-artifacts](../engineering-artifacts/SKILL.md) for implementation/verification evidence in the ECR and [engineering-workspace](../engineering-workspace/SKILL.md) for authorized persistence. Compare observations at the checked revision with accepted target design, and reconcile changed canonical docs; do not claim unobserved deployment.
+
 # Deliver changes with evidence
 
 Connect the requested outcome to observable acceptance, implement useful increments and verify the affected capability at its real boundary. Choose depth from changed risk and existing project requirements.
