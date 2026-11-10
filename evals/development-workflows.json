@@ -1150,17 +1150,161 @@
       "evaluator_setup": "Supply a small runnable application with a saved-filter model, acceptance context, existing documentation/index, a working test command and one targeted feature gap. Include optional specialists and explicit-only refine/design/plan tasks in the inventory; provide authorized repo-write tools but no deployment permission.",
       "criteria": [
         "Develop establishes missing behavior/acceptance and reuses accepted architecture rather than invoking every explicit-only task as a mandatory stage.",
-        "Maintains sufficient traceability of scope, design decisions, implementation and verification through an existing issue/PR without producing distinct requirements/design/plan files by default.",
+        "Maintains sufficient traceability of scope, design decisions, implementation and verification through one compact seven-section ECR in the configured workspace without producing distinct requirements/design/plan files or mandatory issues by default.",
         "Implements a bounded change and checks observable behavior, retains affected canonical docs only if needed and reports real test/review evidence.",
         "Stops before unauthorized deployment and identifies any consequential unresolved decision precisely."
       ],
       "evidence": [
-        "Focused issue/PR or equivalent handoff record",
+        "Single standardized ECR in authorized workspace, plus optional issue/PR view",
         "Changed implementation, relevant checks and accurate stopping status"
       ],
       "negative_controls": [
-        "Mandatory PRD, ADR, plan and separate test report for a minor feature are gratuitous.",
+        "Separate PRD, ADR, plan, test-report and invented tracker artifacts for a minor feature are gratuitous; a compact ECR remains required.",
         "Describing all seven phase names without actual verified application behavior is not completion."
+      ]
+    },
+    {
+      "id": "ecr-filesystem-first-class",
+      "prompt": "Use refine for a permission-scoped team export change. The app repository is /work/app and the already-authorized, versioned engineering workspace is /work/engineering (a sibling folder). The requester explicitly does not want any issue tracker. Consume current app architecture at the supplied revision; persist an inspectable standard ECR in engineering/changes and stop after refinement.",
+      "evaluator_setup": "Supply two local writable roots with independent Git histories, app current C4 and export sequence, a product brief, one prior accepted decision and a realistic role conflict. There are no third-party plugins or issue accounts. Give only scoped root write access.",
+      "criteria": [
+        "Finds or creates a single ECR under the authorized engineering root, outside the app Git repository, with seven stable sections and pending/not-applicable status for unperformed phases.",
+        "Captures accepted/proposed/unknown actors, authorization, protected behavior, recovery acceptance, evidence, open decision and readiness for design; links the app baseline by real source revision.",
+        "Does not create a GitHub/Plane/Linear issue, empty folders, a duplicate PRD or an invented C4 target design in refine.",
+        "Preserves the existing engineering workspace versioning policy and provides the actual verified ECR path/revision, distinguishing saved files from draft text."
+      ],
+      "evidence": [
+        "Scoped filesystem diff and ECR contents",
+        "Current app doc revision/link and actual output path"
+      ],
+      "negative_controls": [
+        "Creating the ECR under app/docs or using a remote tracker despite explicit refusal fails.",
+        "Seven empty headings without requirement content is not completion."
+      ]
+    },
+    {
+      "id": "ecr-unauthorized-root-fallback",
+      "prompt": "Use plan on an agreed feature. Application source is readable but no engineering workspace has been configured or authorized for writes. No connected tracker exists. Return a useful plan without changing any files or creating an issue; show exactly what ECR sections need to change.",
+      "evaluator_setup": "Provide accepted requirements, architecture and proposed target sequence as read-only context. Make all candidate sibling paths outside the allowed roots and do not provide a persistent document tool.",
+      "criteria": [
+        "Does not invent an ECR location, mkdir an arbitrary sibling folder, write to application docs or automatically choose a tracker.",
+        "Produces a structured, readable ECR planning outcome inline, marking it not persisted and identifying the missing workspace-location/authorization fact.",
+        "Uses accepted design and diagrams for ordered increments, tests/rollback and clear pending/not-applicable sections without falsely marking implementation verified."
+      ],
+      "evidence": [
+        "Read/write audit and returned artifact",
+        "Explicit storage blocker and suggested authorized next action"
+      ],
+      "negative_controls": [
+        "Claiming an ECR was saved without a path/version fails."
+      ]
+    },
+    {
+      "id": "ecr-connected-provider-read-write",
+      "prompt": "Use design for an existing ECR hosted in the connected team's engineering document service. The document includes requirements and a stored revision; use only the authorized connected read/update operations. Do not create implementation issues or edit the app repo. Produce a target design with proposed C4 and relevant sequence links.",
+      "evaluator_setup": "Supply a fake but realistic provider tool interface with read, revisioned-update and link capabilities plus an existing ECR and source-backed app C4/sequence baseline. Include an external-link access restriction and one design decision still awaiting owner acceptance.",
+      "criteria": [
+        "Discovers actual provider capabilities and authoritative ECR identity rather than assuming vendor-specific endpoints or generic API semantics.",
+        "Loads the latest revision, preserves unrelated edits and updates the ECR design section with proposed/accepted distinction, diagram links, alternatives and blocked decision.",
+        "Does not publish private diagrams into public issues or turn a proposed design into a current app architecture claim.",
+        "Reports actual provider result and version, or explicit write failure without claiming persistence."
+      ],
+      "evidence": [
+        "Provider read/update log and version",
+        "ECR design diff, source citations and permission disposition"
+      ],
+      "negative_controls": [
+        "Invented provider URLs, silently replaced ECR content and unauthorized issue creation fail."
+      ]
+    },
+    {
+      "id": "ecr-hybrid-authority-and-audience",
+      "prompt": "Refine a product initiative: the PRD is in a product wiki, ECR and editable target diagrams are in an authorized filesystem workspace, execution tasks use Plane, and application PRs use GitHub. One implementation issue already exists. Update the ECR and, only if permitted, summarize acceptance in the existing issue. Do not copy the PRD/ECR into Plane or GitHub.",
+      "evaluator_setup": "Provide scoped access to product PRD, local ECR, current app baseline, an existing Plane issue and GitHub repository. Give permission to update the existing issue but not to create new projects or post PRs.",
+      "criteria": [
+        "Retains one authoritative home per document with stable PRD, ECR, diagram, issue and app-baseline references.",
+        "Writes detailed requirements/acceptance and decision status in the ECR, gives the issue a concise outcome/acceptance/ownership summary with ECR link.",
+        "Does not duplicate product-wide PRD details, architecture decisions or private ECR content into task bodies; no automatic sync/adapter is invented.",
+        "Respects provider capability limits and reports each actual write separately."
+      ],
+      "evidence": [
+        "ECR and issue before/after snapshots",
+        "Owner/reference mapping and actual write receipts"
+      ],
+      "negative_controls": [
+        "Treating Plane as a universal ECR store or silently changing the authoritative workspace fails."
+      ]
+    },
+    {
+      "id": "ecr-diagram-proposed-to-canonical",
+      "prompt": "Design and then implement an accepted asynchronous export feature. The app stable branch has current C4 context/container and synchronous export sequence, while the ECR (outside the repo) must describe proposed queue/worker changes and retry/permission flows. After implementation, reconcile canonical app diagrams against actual source evidence; stop before deployment.",
+      "evaluator_setup": "Supply real baseline revision/docs, design alternatives, actual worker implementation/test fixtures and two paths separated by root. A proposal claims three workers but the code ultimately uses one scalable worker; no live deployment telemetry.",
+      "criteria": [
+        "At design time, reads current canonical C4/sequence views, adds appropriately scoped proposed target container and sequence views to the ECR/RFC, and marks the app baseline unchanged.",
+        "At implementation/verification, recognizes the divergence from original proposed worker count and updates the ECR decision/rationale and app canonical diagrams to match the implemented code.",
+        "Verifies diagram syntax/render and relationship/sequence consistency where tools are available; reports visual checks separately from architectural fact-checks.",
+        "PR summary distinguishes intended vs actual architecture and tested revision; no claim that a merged/committed artifact is live in production."
+      ],
+      "evidence": [
+        "Current/target diagrams at named revisions",
+        "Code/test evidence, reconciled app docs and ECR/PR references"
+      ],
+      "negative_controls": [
+        "Overwriting current app C4 with unimplemented design at design stage fails.",
+        "Leaving canonical diagrams stale at merge-ready code or claiming deployed state without evidence fails."
+      ]
+    },
+    {
+      "id": "ecr-audience-pr-review-summary",
+      "prompt": "Prepare a pull request description for a completed bounded change. Use the ECR, accepted design and test evidence in a private engineering workspace, an existing optional issue and the actual feature diff. The PR will be visible to external contributors. Do not expose private user data or the ECR body.",
+      "evaluator_setup": "Provide a detailed private ECR, current app docs, actual CI/test results including a failed regression later repaired at a new head, a PR base/head and a visibility policy; allow PR body editing but not merging.",
+      "criteria": [
+        "PR explains why and what actually changed, affected contracts/diagrams, significant design deviations, exact validation at the current head, outstanding risks and safe links.",
+        "Keeps a self-contained reviewer summary while omitting sensitive ECR contents and checking whether private references can be shared.",
+        "Does not copy entire ECR/PRD into the PR or claim a failed/old-head test is green at the new head.",
+        "Updates the authorized PR only and leaves issue/ECR ownership and merge authority intact."
+      ],
+      "evidence": [
+        "Reviewed diff and head SHA",
+        "PR body diff, permissions decision, actual check results"
+      ],
+      "negative_controls": [
+        "An issue/PR containing a contradictory or independently authoritative ECR copy fails."
+      ]
+    },
+    {
+      "id": "ecr-small-fix-proportional-standard",
+      "prompt": "Use develop to fix a minor language-selector save bug in a project with a configured local engineering folder and established app architecture. The change has no service boundary or user journey change. Implement and verify within the authorized repo; do not create issues, PRDs, RFCs or new diagrams.",
+      "evaluator_setup": "Supply the existing bug, writable local ECR workspace, app repo baseline, a regression fixture and exact test command. Keep deployment/publishing unauthorized.",
+      "criteria": [
+        "Produces one concise ECR with the seven standard headings and meaningful problem, acceptance, solution, implementation and actual verification; unperformed release marked pending.",
+        "Records architecture/journey diagram non-impact with evidence instead of inventing a C4, sequence or ADR.",
+        "Preserves app canonical docs when unchanged; executes the authorized fix/checks rather than spending most work on documentation ceremony.",
+        "Does not create tickets or remote PRs, and reports ECR path/revision and code/test evidence separately."
+      ],
+      "evidence": [
+        "Local ECR and code diff",
+        "Actual command output and diagram-impact explanation"
+      ],
+      "negative_controls": [
+        "Skipping all ECR output, or generating a separate file for every phase despite small scope, fails."
+      ]
+    },
+    {
+      "id": "ecr-stale-revision-safe-update",
+      "prompt": "Use design to update an existing ECR shared with another engineer in a versioned document workspace. A concurrent editor changes the acceptance criteria after your initial read. The provider rejects a stale update. Reconcile rather than overwrite accepted changes, while preserving proposed target diagrams.",
+      "evaluator_setup": "Provide provider revision/ETag support, a concurrent edit containing an accepted authorization requirement, a stale write conflict and read-after-conflict capability. No authority to discard collaborator changes.",
+      "criteria": [
+        "Detects and reports the revision conflict; rereads the latest authoritative record before retrying.",
+        "Reconciles the collaborator's accepted constraint with proposed design/sequence changes or marks a consequential conflict unresolved.",
+        "Does not force overwrite, fork an unrequested new authoritative ECR, or claim success until a write receipt/confirmed revision exists."
+      ],
+      "evidence": [
+        "Version conflict/retry transcript",
+        "Reconciled section diff and final provider revision"
+      ],
+      "negative_controls": [
+        "Silent last-write-wins overwriting or storing an unmarked local competing authority fails."
       ]
     }
   ],
@@ -1488,6 +1632,33 @@
         "Rendered/state/diagnostic artifacts appropriate to each criterion",
         "Per-boundary pass/fail/partial/blocked/not-run with unexecuted capabilities explicit"
       ]
+    },
+    {
+      "id": "artifact-workspace-cross-phase",
+      "phases": [
+        {
+          "task": "refine",
+          "prompt": "Use refine to add recurring exports using the authorized filesystem engineering workspace at /work/engineering, parallel to /work/app. Create/update the standard ECR after inspecting the product brief and existing export baseline; no issue tracker, code edits or deployment."
+        },
+        {
+          "task": "design",
+          "prompt": "Resume the same ECR, inspect accepted requirements and current C4/sequence at the supplied app revision, propose the needed target architecture/sequence and decisions, mark target as proposed, update the ECR. No code edits or issues."
+        },
+        {
+          "task": "plan",
+          "prompt": "Resume the same ECR and agreed design; write ordered increments, compatibility/recovery and verification implications without creating duplicate files or tickets."
+        },
+        {
+          "task": "develop",
+          "prompt": "In the same scoped app and engineering workspaces, implement only the accepted useful slice, run real checks, reconcile app current diagrams and ECR proposed design differences, prepare a reviewer-oriented PR summary only if publication is authorized; don't claim deployment."
+        }
+      ],
+      "evaluation": [
+        "Verify all four activities consumed the same ECR identity in the authorized external-to-code folder; seven headings persisted with accepted/proposed/pending/verified claims correct at each phase.",
+        "Current app diagrams stay unmodified during design-only work and are reconciled against actual code when implementation changes relevant boundaries.",
+        "Later phases reference earlier requirements/target diagrams/decisions without diverging copies, and reported tests/results bind to actual revision.",
+        "No issue tracker is required; no work outside authorized roots, hidden phase invocations or deployment."
+      ]
     }
   ],
   "execution_contract": {
@@ -1693,6 +1864,30 @@
       ],
       "capability_gates": [
         "A compatible isolated extension-capable browser/driver is required for runtime claims; publisher/account actions need their own explicit scope."
+      ]
+    },
+    {
+      "id": "engineering-artifact-workspace",
+      "outcome": "Maintain a standard reviewable ECR across all performed engineering activities, independent of storage provider, while keeping current application knowledge, proposed target views, issues and PR audience summaries separate.",
+      "case_ids": [
+        "ecr-filesystem-first-class",
+        "ecr-unauthorized-root-fallback",
+        "ecr-connected-provider-read-write",
+        "ecr-hybrid-authority-and-audience",
+        "ecr-diagram-proposed-to-canonical",
+        "ecr-audience-pr-review-summary",
+        "ecr-small-fix-proportional-standard",
+        "ecr-stale-revision-safe-update"
+      ],
+      "trial_ids": [
+        "artifact-workspace-cross-phase"
+      ],
+      "evidence": [
+        "Verified ECR and related actual workspace/provider revision",
+        "Current app baseline/target diagrams and audience-specific issue/PR evidence"
+      ],
+      "negative_controls": [
+        "No invented provider API, automatic issue creation, silent change of record authority, duplicate ECR or current-state documentation contaminated with proposed design."
       ]
     }
   ]
