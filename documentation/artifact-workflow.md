@@ -69,6 +69,18 @@ Example: the ECR for async exports references `app/docs/architecture/containers.
 
 **Small bug:** "Fix language selection not persisting." The seven sections are concise; the agent records actual cause, acceptance, change and tests. Architecture impact is "not applicable — state owner unchanged", and no new PRD/ADR/diagram/issue is invented.
 
+## Artifact assurance and convergence
+
+The [assurance method](../plugins/development/skills/engineering-artifacts/references/assurance.md) adds three checks to the ECR contract: **structural** (seven sections, dispositions and references where accessible), **semantic** (requirements → proposed C4/sequence/contract → plan consistency), and **convergence** (accepted outcomes against actual checked implementation, test coverage, canonical docs and current PR diff). It includes the readiness dispositions *ready*, *ready with limitations* and *blocked*, applied to the next dependency rather than forcing meetings or an approval at every phase.
+
+A bundled dependency-free [Markdown ECR checker](../plugins/development/skills/engineering-artifacts/scripts/check_ecr.py) can validate section shape locally:
+
+```sh
+python path/to/engineering-artifacts/scripts/check_ecr.py /authorized/engineering/changes/async-exports/ecr.md
+```
+
+It can emit JSON diagnostics with `--json` but **does not** establish correctness, approval or observed application behavior. External document providers are assessed through actual supported reads rather than being forced to copy their content into local files. For consequential contradictions, return explicit evidence, affected artifact/decision owner, fix or blocker, and recheck before claiming readiness. Before PR publication/review, reconcile the cumulative base-to-head diff, ECR/design commitments, actual test results and reviewer-facing description; do not copy a private ECR into a public PR. No workflow runtime, formal provider adapters or arbitrary required gates are introduced here.
+
 ## Verification and limits
 
 A document heading or provider link is not proof the work occurred. Review accepted/proposed claims, current-vs-target consistency, actual source/diagram evidence and referenced status. Structured outputs must state what was persisted, what was merely drafted, and the exact checked revision; CI/plugin checks validate source structure but do not establish that agent behavior meets these standards. [Behavioral cases](../evals/development-workflows.json) include filesystem, external-provider and mixed-workspace flows as definitions to execute, not pre-verified results.
