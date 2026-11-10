@@ -14,7 +14,9 @@ metadata:
 
 # Refine
 
-Read [task guidance](../../TASKS.md). Read [project-conventions](../project-conventions/SKILL.md) for affected project constraints. For new systems, substantial features, refactors, migrations, rearchitecture or work with materially uncertain actors, quality constraints or acceptance, read and apply [requirements-engineering](../requirements-engineering/SKILL.md) as supporting expertise. For a small well-defined fix, use only the applicable requirements checks without requiring a fuller analysis. Load other optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [task guidance](../../TASKS.md).
+
+Read [engineering-artifacts](../engineering-artifacts/SKILL.md) and [engineering-workspace](../engineering-workspace/SKILL.md) for the standard ECR and configured filesystem or document-provider home. Record each performed outcome in the ECR, even within an end-to-end `develop` request; a tracker is optional and publication requires authority. Read [project-conventions](../project-conventions/SKILL.md) for affected project constraints. For new systems, substantial features, refactors, migrations, rearchitecture or work with materially uncertain actors, quality constraints or acceptance, read and apply [requirements-engineering](../requirements-engineering/SKILL.md) as supporting expertise. For a small well-defined fix, use only the applicable requirements checks without requiring a fuller analysis. Load other optional stack/domain guidance selected by task guidance only when relevant and available.
 
 ## Establish the change
 
@@ -52,6 +54,6 @@ For UI work, identify interaction decisions using available interaction design e
 
 Return **ready for design**, **ready for implementation** or **needs decisions** and explain the next dependency. Ready for design means required behavior, relevant quality constraints and acceptance are clear enough to evaluate solutions; ready for implementation also needs the design choices that materially change that behavior to be settled. Ready work has a clear intended result, sufficient scope and a credible verification approach. When a decision is still needed, identify the exact choice, why implementation depends on it, and which independent work can continue. Include the repository or product evidence that led to the question.
 
-Carry accepted/proposed status, material assumptions, source-to-requirement links and verification observations in the existing brief, issue or conversation. Conversation or Markdown can be sufficient; a tracker item is another input/output when configured and authorized. Labels, status changes and ticket creation stay within task policy. Routine work needs no exhaustive story catalogue or interview.
+Record accepted/proposed requirements, acceptance, evidence and readiness in the ECR requirements section. A PRD owns broader product intent; an issue is an optional audience-specific summary, only published when configured and authorized. If the workspace cannot be written, return the ECR content inline with an explicit unpersisted status. Routine work needs no exhaustive story catalogue or interview.
 
 In unattended runs, return blockers rather than inventing product decisions or waiting for an absent person.
