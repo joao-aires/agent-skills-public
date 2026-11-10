@@ -9,7 +9,7 @@ When the user explicitly selects an activity such as design, resolve and read it
 | Task | Use when | Default result |
 | --- | --- | --- |
 | setup | New project foundations or existing-project adoption | Working context/commands and scoped foundations |
-| refine | Rough idea, brief or optional ticket needs definition | Actionable work or decision blockers |
+| refine | Rough idea, brief or optional ticket needs definition | Actionable requirements using requirements-engineering where needed, or decision blockers |
 | plan | Scope is understood; sequencing is useful | Bounded steps and verification |
 | design | UX, contracts or architecture need decisions | Text/visual behavior design before code |
 | implement | Defined work is ready | Implemented/verified change through contribution flow |
@@ -23,6 +23,14 @@ When the user explicitly selects an activity such as design, resolve and read it
 | workflow-help | Choose a task or understand usage | Read-only help with available capabilities and examples |
 
 Implement is acquired from the pinned upstream source with local entry-point framing. All other tasks above are local. Advanced upstream entry points retain their names and native controls. Supporting skill bodies remain available as context when relevant; hidden picker entries can still be requested by name in plain language where supported.
+
+## Choose entry points by the missing outcome
+
+A company roadmap, release calendar or sprint planning exercise does **not** automatically invoke the `plan` implementation skill. Product direction chooses value and priority; `refine` defines the engineering outcome and its acceptance; `design` resolves architecture, UX and contract choices that matter; `plan` sequences agreed implementation and checks. These are dependencies when relevant, not required invocations. For a technical refactor or rearchitecture, first inspect existing behavior and the desired quality or migration outcome; refinement and architecture design may iterate before a credible implementation plan exists.
+
+For a local agent-assisted engagement, `develop` is the end-to-end entry point when implementation is authorized. It performs needed refinement, design, planning, verification and review directly, with supporting expertise selected by applicability; explicit-only task skills are not silently invoked as substeps. Use individual `refine`, `design`, `plan` or `implement` entry points when the user wants a bounded result or stopping point. A known narrow fix may go straight to diagnosis/implementation/tests; an incident starts with the relevant operations activity.
+
+Preserve the smallest useful handoff contract: accepted outcome, affected behavior and quality constraints, consequential design decisions, implementation dependencies, observable acceptance and evidence gaps. Reuse the current issue, design note, PR and authoritative project documentation; do not require one artifact per stage, tracker IDs for every small change, or phase-gate approvals.
 
 ## Scope and decisions
 
