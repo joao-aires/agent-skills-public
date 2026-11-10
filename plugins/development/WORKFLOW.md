@@ -4,6 +4,8 @@ Read the project's AGENTS.md and accepted decisions, then choose skills for the 
 
 Read [task guidance](TASKS.md) for the task menu, end-to-end develop flow and interactive/unattended execution. Explicit-only tasks are not automatic substeps; supporting guidance supplies methods within the authorized objective.
 
+Every performed engineering activity uses [engineering-artifacts](skills/engineering-artifacts/SKILL.md) for ECR content and [engineering-workspace](skills/engineering-workspace/SKILL.md) for storage; canonical application docs remain separately authoritative for implemented reality.
+
 ## Invocation
 
 User-invoked activities begin on request. Agent-invoked guidance supports work already requested. Local skills marked `both` can do either; their descriptions still define scope. For example, `project-conventions` starts full setup/reorganization only on request and guides focused upkeep during ordinary work. A plain-language request can express intent; client command syntax and enforcement vary.
