@@ -13,7 +13,7 @@ user-invocable: false
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
 
-For change-specific ECRs and target design, use [engineering-workspace](../engineering-workspace/SKILL.md) to discover an authorized external-to-code engineering folder or document provider and [engineering-artifacts](../engineering-artifacts/SKILL.md) for contract/content. The app repo retains canonical implemented-state docs. Never create arbitrary sibling paths or remote accounts without authority.
+For change-specific ECRs and target design, use [engineering-workspace](../engineering-workspace/SKILL.md) to discover an authorized external-to-code engineering folder or document provider and [engineering-artifacts](../engineering-artifacts/SKILL.md) for contract/content. During **explicit setup/adoption**, if no authority exists, present a single workspace-home choice; don't automatically choose a remote service or create arbitrary sibling paths. Once selected and authorized, record a portable discovery pointer in existing project contributor instructions, not a machine-local absolute directory. The app repo retains canonical implemented-state docs. Neither installing the skill nor discovering a repository grants filesystem/provider write access.
 
 
 # Establish and maintain project conventions
