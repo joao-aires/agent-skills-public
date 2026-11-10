@@ -43,6 +43,20 @@ For filesystem mode, an example *after authorization* is `workspace/engineering/
 
 Workspaces have different actual capabilities. They do not share an assumed adapter SDK, revision primitive or synchronization engine. The [filesystem guide](../plugins/development/skills/engineering-workspace/references/filesystem.md) and [provider integration guide](../plugins/development/skills/engineering-workspace/references/providers.md) describe read/write/update/link semantics without inventing APIs. Agent access/authorization is distinct from a document link.
 
+### Configure it once during project setup
+
+The explicit `setup` activity checks for an existing ECR home and preserves it. When missing, the agent offers one choice: **an authorized filesystem workspace** (for example, a separately versioned folder alongside the application) or **an existing connected document provider**. It may propose a nearby filesystem directory, but must **not** create it without permission outside the allowed tree. After selection, it verifies actual access and stores a **portable discovery pointer** in existing project instructions if authorized: workspace backend, how to resolve its root on a fresh checkout, ECR discovery convention, history/permissions, and links to the application repository. Example project instruction:
+
+```text
+Engineering change records: filesystem workspace
+Discovery: engineering folder alongside the app checkout, under our approved project root
+ECRs: reuse existing change record; new changes under changes/<slug>/ecr.md
+History: independent Git repository when available
+Architecture baseline: app docs/architecture (implemented state)
+```
+
+These are example instructions, **not a required configuration schema or a mandate to create the example folder**. If setup cannot establish authority/access, it names the unresolved choice and continues unrelated authorized foundations; future development must not pretend a durable ECR exists.
+
 ## Adjacent artifacts and their authoritative homes
 
 - **PRD:** product/project-level intent, audience, value, priorities and success; in an authorized product workspace or existing authority.
