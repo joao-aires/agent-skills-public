@@ -14,7 +14,9 @@ metadata:
 
 # Design
 
-Read [task guidance](../../TASKS.md). Use [system-design](../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent planning/implementation. When data or authority boundaries change, seek relevant security/privacy design expertise from available descriptions; retain the affected authority, data-flow and verification reasoning when a specialist is absent. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [task guidance](../../TASKS.md).
+
+Read [engineering-artifacts](../engineering-artifacts/SKILL.md) and [engineering-workspace](../engineering-workspace/SKILL.md) for the standard ECR and configured filesystem or document-provider home. Record each performed outcome in the ECR, even within an end-to-end `develop` request; a tracker is optional and publication requires authority. Use [system-design](../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent planning/implementation. When data or authority boundaries change, seek relevant security/privacy design expertise from available descriptions; retain the affected authority, data-flow and verification reasoning when a specialist is absent. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
 
 Establish the audience, intended outcome, accepted decisions and affected boundaries from supplied references and repository evidence. Choose the supporting methods through task guidance; keep the result proportionate to the uncertainty.
 
@@ -36,7 +38,7 @@ Work through the main user task before polishing a screen. Determine what the us
 
 Develop a representative part of the experience far enough to judge the direction. If navigation is uncertain, a wireframe may answer the question; if typography, density or visual identity is uncertain, inspect a rendered design. Explain why the chosen direction suits the product and what an alternative would cost. Once it works, carry its layout, tokens and component behavior into the other affected surfaces.
 
-The handoff should preserve the **combined** domain, interaction, visual and technical decisions in the existing task/design record: which objects and authority rules matter, chosen flow and states, tokens/components to reuse, how the layout adapts, and what needs verification. Reuse specialist findings rather than asking implementation to reconcile competing drafts or requiring a new document. Stack conventions map the accepted choices to code; Storybook can verify implemented component states later.
+The handoff should preserve the **combined** domain, interaction, visual and technical decisions in the ECR design section or linked RFC: which objects and authority rules matter, chosen flow and states, tokens/components to reuse, how the layout adapts, and what needs verification. Reuse specialist findings rather than asking implementation to reconcile competing drafts or requiring a new document. Stack conventions map the accepted choices to code; Storybook can verify implemented component states later.
 
 
 ## Establish service behavior
@@ -57,6 +59,6 @@ Connect the selected design to the application that will implement it. Use the a
 
 Explain the intended flow from the caller through decisions and effects to the observed result. Name relevant code locations when known, keep proposed additions distinct from existing files, and leave routine implementation details open.
 
-Carry the behavior, consequential choices and evidence needed to verify them into planning. The handoff should let someone explain where to start and which assumption could change the approach. A small local change may need only a short explanation beside its acceptance criteria; a cross-component change benefits from an implementation map or sequence when that clarifies dependencies.
+For new applications and boundary-changing changes, inspect current C4/sequence baselines at an explicit code revision and create relevant **proposed target** diagrams in the ECR/RFC. For local changes, give a reason diagrams are unaffected. Only verified implementation updates the canonical current-state baseline. Carry the behavior, consequential choices and evidence needed to verify them into planning. The handoff should let someone explain where to start and which assumption could change the approach. A small local change may need only a short explanation beside its acceptance criteria; a cross-component change benefits from an implementation map or sequence when that clarifies dependencies.
 
 Return the agreed/proposed design, acceptance evidence and explicit unknowns. A design request does not silently authorize implementation or impose a design-document approval gate on trivial edits.
