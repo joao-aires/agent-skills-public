@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1095" viewBox="0 0 1600 1095" role="img" aria-labelledby="title description">
 <title id="title">SDLC phases and their direct engineering artifact handoffs</title>
-<desc id="description">Seven SDLC phase cards each have an individual vertical arrow to their specific contribution in one shared Engineering Change Record: requirements, proposed design/C4 diagrams, implementation strategy, implementation evidence, verification, release evidence and operational learning. All stages also update record lifecycle status and decision history. The record is stored in an authorized filesystem or external document workspace separate from the application repository. Current architecture stays in the application repository. Optional issues and pull requests are audience-specific views.</desc>
+<desc id="description">Seven SDLC phase cards each have an individual vertical arrow to their specific contribution in one shared Engineering Change Record: requirements, proposed design/C4 diagrams, implementation strategy, implementation evidence, verification, release evidence and operational learning. Each arrow has a lightweight evidence-based assurance check: requirements quality, design consistency, acceptance coverage, implementation alignment, convergence evidence, release readiness or operational feedback. Assurance checks are assessments at consequential dependencies, not an obligatory approval gate or forced sequence. All stages also update record lifecycle status and decision history. The record is stored in an authorized filesystem or external document workspace separate from the application repository. Current architecture stays in the application repository. Optional issues and pull requests are audience-specific views.</desc>
 <defs>
 <marker id="arrow" viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L7 4 L1 7 Z" fill="#6086a9"/></marker>
 <marker id="greenArrow" viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L7 4 L1 7 Z" fill="#318a79"/></marker>
@@ -70,6 +70,8 @@
 <text x="1430.5" y="349" font-size="12.1" fill="#317e70" font-weight="700" text-anchor="middle">operations</text>
 <rect x="43" y="419" width="1514" height="364" rx="17" fill="#e9f2fb" stroke="#a4bfdc" stroke-width="1.4" />
 <path d="M152.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="59.5" y="385" width="186" height="28" rx="14" fill="#f0f6fb" stroke="#c5dbea" stroke-width="1.3"/>
+<text x="152.5" y="403.5" font-size="12.3" fill="#315e83" font-weight="700" text-anchor="middle">Requirements quality</text>
 <rect x="54" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="66" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
 <text x="152.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 2-3</text>
@@ -78,6 +80,8 @@
 <text x="152.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Outcome · constraints</text>
 <text x="152.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">observable success</text>
 <path d="M365.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="272.5" y="385" width="186" height="28" rx="14" fill="#f0f6fb" stroke="#c5dbea" stroke-width="1.3"/>
+<text x="365.5" y="403.5" font-size="12.3" fill="#315e83" font-weight="700" text-anchor="middle">Design consistency</text>
 <rect x="267" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="279" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
 <text x="365.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 4</text>
@@ -86,6 +90,8 @@
 <text x="365.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">C4 · journeys · contracts</text>
 <text x="365.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">alternatives · risks</text>
 <path d="M578.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="485.5" y="385" width="186" height="28" rx="14" fill="#f0f6fb" stroke="#c5dbea" stroke-width="1.3"/>
+<text x="578.5" y="403.5" font-size="12.3" fill="#315e83" font-weight="700" text-anchor="middle">Acceptance coverage</text>
 <rect x="480" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="492" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
 <text x="578.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 5</text>
@@ -94,6 +100,8 @@
 <text x="578.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Dependencies · migration</text>
 <text x="578.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">checks · recovery</text>
 <path d="M791.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="698.5" y="385" width="186" height="28" rx="14" fill="#edf8f4" stroke="#b8dbcf" stroke-width="1.3"/>
+<text x="791.5" y="403.5" font-size="12.1" fill="#2c7564" font-weight="700" text-anchor="middle">Implementation alignment</text>
 <rect x="693" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="705" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
 <text x="791.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 6-7</text>
@@ -102,6 +110,8 @@
 <text x="791.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Changed revision · diff</text>
 <text x="791.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">decision deviations</text>
 <path d="M1004.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="911.5" y="385" width="186" height="28" rx="14" fill="#edf8f4" stroke="#b8dbcf" stroke-width="1.3"/>
+<text x="1004.5" y="403.5" font-size="12.3" fill="#2c7564" font-weight="700" text-anchor="middle">Convergence evidence</text>
 <rect x="906" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="918" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
 <text x="1004.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 6</text>
@@ -110,6 +120,8 @@
 <text x="1004.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Observed checks · gaps</text>
 <text x="1004.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">acceptance coverage</text>
 <path d="M1217.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1124.5" y="385" width="186" height="28" rx="14" fill="#fff6ed" stroke="#ecd6b8" stroke-width="1.3"/>
+<text x="1217.5" y="403.5" font-size="12.3" fill="#8a603b" font-weight="700" text-anchor="middle">Release readiness</text>
 <rect x="1119" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="1131" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
 <text x="1217.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 6</text>
@@ -118,6 +130,8 @@
 <text x="1217.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Artifact · target · checks</text>
 <text x="1217.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">promotion · recovery</text>
 <path d="M1430.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
+<rect x="1337.5" y="385" width="186" height="28" rx="14" fill="#f0f5f8" stroke="#d1dde6" stroke-width="1.3"/>
+<text x="1430.5" y="403.5" font-size="12.3" fill="#4c6f88" font-weight="700" text-anchor="middle">Operational feedback</text>
 <rect x="1332" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
 <rect x="1344" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
 <text x="1430.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 2 &amp; 7</text>
@@ -127,6 +141,7 @@
 <text x="1430.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">new decisions / risks</text>
 <text x="71" y="687" font-size="21.5" fill="#143b5e" font-weight="700" >ENGINEERING CHANGE RECORD (ECR)</text>
 <text x="71" y="711" font-size="14.5" fill="#5c7994"  >One authoritative document or linked set · stored outside the application repository</text>
+<text x="555" y="683" font-size="13.1" fill="#406580" font-weight="600">Assurance: shape → consistency → convergence</text>
 <rect x="1027" y="661" width="502" height="34" rx="8" fill="#ffffff" stroke="#bad0e4" stroke-width="1.4" />
 <text x="1278" y="684" font-size="13.3" fill="#38688c" font-weight="700" text-anchor="middle">WORKSPACE  ·  filesystem / Git / document service</text>
 <rect x="71" y="730" width="1458" height="35" rx="9" fill="#dfeefa" stroke="#bfd7ec" stroke-width="1.4" />
@@ -149,5 +164,5 @@
 <text x="1044" y="952" font-size="14.4" fill="#836746"  >PR  ·  actual change, checks, deviation, risks</text>
 <text x="1044" y="985" font-size="14" fill="#957953"  >Summaries link to ECR; they never replace it.</text>
 <rect x="54" y="1041" width="1488" height="32" rx="9" fill="#ecf2f8" stroke="#ecf2f8" stroke-width="1.4" />
-<text x="800" y="1063" font-size="14" fill="#536e87" font-weight="700" text-anchor="middle">Every vertical arrow is a direct phase-to-artifact handoff. Cross-cutting ECR status and decisions span all phases.</text>
+<text x="800" y="1063" font-size="14" fill="#536e87" font-weight="700" text-anchor="middle">Readiness: ready / limited / blocked — only consequential gaps block dependent work; no mandatory stage gates.</text>
 </g></svg>
