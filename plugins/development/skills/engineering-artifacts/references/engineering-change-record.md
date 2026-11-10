@@ -2,11 +2,7 @@
 
 An ECR is the **durable, reader-oriented specification of one coherent engineering change**, not a commit log, a ticket dump, or the current application architecture. An engineering workspace owns its location; the application's repository owns actual implementation and canonical current-state documentation. A project ECR may cover several work packages, each with its own links and review status. The ECR's format is Markdown-like prose with stable headings; **no YAML/JSON manifest or prescribed file tree is required**.
 
-## Write for the next reader
-
-Open the overview with the current outcome, the strongest evidence or evidence gap, and the next action or decision with its owner when known. State the scope and disposition together so a reader can understand them before opening supporting material. Use short paragraphs for rationale, lists for acceptance and actions, and tables when alternatives share meaningful comparison dimensions. Give links descriptive labels.
-
-Update superseded status and evidence in place. Keep consequential choices and their reasons in decision history. Use the existing title, short work-item key or descriptive link for navigation. Keep provider IDs in tool operations and full source revisions beside the checks they identify. Put lengthy commands, output and reproducibility material after the conclusions or in an authorized linked record.
+Apply the shared [engineering presentation guidance](../SKILL.md#present-engineering-outcomes) when authoring the record.
 
 ## Seven required sections
 

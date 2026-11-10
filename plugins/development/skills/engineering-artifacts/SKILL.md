@@ -29,6 +29,12 @@ Read [the ECR content contract](references/engineering-change-record.md) for sev
 - **Persist through the [engineering workspace](../engineering-workspace/SKILL.md).** Follow its storage choice and access rules. Report the verified record location or the reason the outcome is unpersisted.
 - **Update related summaries** (issue or PR) only where configured and authorized, reconciling their statuses with the ECR. A PR is a reviewer view over the implementation, not a replacement specification.
 
+## Present engineering outcomes
+
+Open a change record or research report with the current outcome, the strongest evidence or evidence gap, and the next action or decision with its owner when known. State the scope and disposition together so a reader can understand them before opening supporting material. Use short paragraphs for rationale, lists for acceptance and actions, and tables when alternatives share meaningful comparison dimensions. Give links descriptive labels.
+
+Update superseded status and evidence in place. Keep consequential choices and their reasons in decision history. Use a subject-based title, short work-item key or descriptive link for navigation. Keep execution bookkeeping with the verification details. Keep provider IDs in tool operations and full source revisions beside the checks they identify. Put lengthy commands, output and reproducibility material after the conclusions or in an authorized linked record.
+
 ## Quality gates, without phase-gate theatre
 
 Every performed outcome identifies who/what it affects, material choices, their acceptance status, actual evidence and unresolved blockers. Before claiming a complete implementation, compare its actual source/test behavior with accepted requirements and the target design (including failure/authorization paths), record uncovered outcomes as nonconverged, and avoid rewriting requirements to make incomplete code appear correct. Before PR readiness, reconcile the cumulative base-to-head diff, reviewer summary and current-head checks. These are agent-assisted assessments unless separately wired into an executable gate. Validate references and contradictions, not just headings; avoid invented check results, diagram nodes, file paths, stakeholder signoffs or SLOs. Link decisions to affected requirements, implementation slices and verification where useful, but do not require synthetic numeric IDs or a traceability spreadsheet for a small feature.
