@@ -43,7 +43,7 @@ class TestEcrContract(unittest.TestCase):
         damaged = example().replace("## 4. Solution design\n\nPending", "## 4. Solution design\n\nNot applicable")
         self.assertTrue(any("needs a reason" in msg for msg in check_ecr.validate(damaged)))
         damaged = example().replace("## 5. Implementation strategy\n\nPending", "## 5. Implementation strategy\n\nBlocked")
-        self.assertTrue(check_ecr.validate(damaged) == [] or any("reason" in msg for msg in check_ecr.validate(damaged)))
+        self.assertTrue(any("reason" in msg for msg in check_ecr.validate(damaged)))
 
     def test_ignore_fake_headers_in_code_fences(self):
         content = example().replace(
