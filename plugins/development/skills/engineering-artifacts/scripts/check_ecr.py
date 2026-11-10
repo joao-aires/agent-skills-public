@@ -16,7 +16,7 @@ SECTIONS = (
     "Decision history and references",
 )
 HEADING = re.compile(r"^#{2,4}\s+([1-7])\.\s+(.+?)\s*#*\s*$")
-FENCE = re.compile(r"^\s*('''|\`\`\`|~~~)")
+FENCE = re.compile(r"^\s*(```|~~~)")
 DISPOSITION = re.compile(r"^\s*(not applicable|blocked)\s*[:\u2014\u2013-]\s*(.*)$", re.I)
 
 
@@ -73,7 +73,12 @@ def validate(markdown):
                 f"Line {section['line']}: section {number} needs content or an explicit Pending/Not applicable disposition."
             )
         disposition = DISPOSITION.match(body)
-        if disposition and not disposition.group(2).strip():
+        first_line = body.splitlines()[0].strip().lower()
+        if first_line in ("not applicable", "blocked") and len(body.splitlines()) == 1:
+            diagnostics.append(
+                f"Line {section['line']}: {first_line} needs a reason."
+            )
+        elif disposition and not disposition.group(2).strip() and len(body.splitlines()) == 1:
             diagnostics.append(
                 f"Line {section['line']}: {disposition.group(1)} needs a reason."
             )
