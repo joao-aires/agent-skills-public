@@ -46,4 +46,4 @@ Support a defect with the path through the changed code, the condition that make
 - Leave source unchanged by default, apart from owned test/runtime artifacts.
 - Post comments, apply fixes, approve or merge only under the request or trusted job policy.
 - Reassess affected conclusions after a head change; earlier review and test evidence does not establish the new revision's behavior.
-- Compare PR claims against accepted ECR/target diagrams, actual implementation, tests and canonical app documentation. Report inconsistencies as revision-scoped findings; read-only review does not authorize ECR edits or posting.
+- Apply [artifact assurance](../engineering-artifacts/references/assurance.md) to compare accepted ECR requirements and target design with cumulative base-to-current-head changes, verification evidence and canonical application documentation. Assess implementation convergence and PR-summary accuracy separately; report concrete revision-scoped contradictions, gaps and risk. Do not make unsupported approval/merge-readiness claims; read-only review does not authorize ECR edits or posting.
