@@ -2,7 +2,9 @@
 
 [SDLC overview](sdlc.md) · [Artifact contract](../plugins/development/skills/engineering-artifacts/SKILL.md) · [Workspace method](../plugins/development/skills/engineering-workspace/SKILL.md) · [Usage](usage.md)
 
-![Lifecycle phases, living change record, canonical application knowledge, and optional audience views](images/sdlc-artifact-flow.svg)
+![Lifecycle phases each map directly to their ECR output through an evidence-based assurance check, with canonical application knowledge and optional issue/PR views separated](images/sdlc-artifact-flow.svg)
+
+The assessment labels on the phase-to-artifact arrows show **where missing acceptance, inconsistent designs, uncovered implementation behavior or unreliable release evidence should be caught**. They are not seven mandatory execution gates: each check is proportionate to changed risk and the next requested work. Common ECR identity/status and decision history remain cross-cutting; no tracker or workflow orchestrator is required.
 
 ## Two kinds of knowledge, three audiences
 
