@@ -70,7 +70,7 @@ Return enough for `refine` to hand off:
 - Acceptance observations, verification gaps and protected existing behavior.
 - Evidence, material assumptions, conflicts, open decisions and the next dependency (design, investigation or implementation).
 
-Distinguish **accepted**, **proposed** and **unknown** requirements. Declare readiness for design or implementation separately: a feature may have clear user behavior and still need an architectural choice before implementation. A short inline issue or conversation can be sufficient for a small change; a longer-lived cross-team contract belongs in an existing authoritative document. Follow established documentation placement rather than creating a PRD, traceability ledger, ADR or test matrix solely because this skill was loaded.
+Distinguish **accepted**, **proposed** and **unknown** requirements. Declare readiness for design or implementation separately: a feature may have clear user behavior and still need an architectural choice before implementation. A short inline issue or conversation can be sufficient for a small change; a longer-lived cross-team contract belongs in an existing authoritative document. Write the requirements contract in the ECR's required requirements section using [engineering-artifacts](../engineering-artifacts/SKILL.md) and authorized [engineering-workspace](../engineering-workspace/SKILL.md). A separate PRD, traceability ledger, ADR or test matrix remains conditional; the standard ECR requirements outcome is not.
 
 ### Worked example: data export
 
