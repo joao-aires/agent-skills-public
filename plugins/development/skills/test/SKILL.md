@@ -39,4 +39,4 @@ Select the evidence for the claim:
 
 A bare test request does not authorize deployed load or fault injection. Execute supported checks and diagnose failures, distinguishing application defects, fixture/environment issues and unexecuted checks.
 
-Record observations at the checked revision/target, evidence gaps and design/diagram differences in ECR section 6 when authorized, or return a structured unpersisted record. Return results, artifacts, actual boundaries and the next action. A green build alone does not establish behavior.
+Apply [artifact assurance](../engineering-artifacts/references/assurance.md) to compare actual checked behavior with accepted requirements, protected existing behavior and proposed design. Missing or failed acceptance evidence remains explicit nonconvergence, not an automatic green result. Record observations at the checked revision/target, evidence gaps and design/diagram differences in ECR section 6 when authorized, or return a structured unpersisted record. Return results, artifacts, actual boundaries and the next action. A green build alone does not establish behavior.
