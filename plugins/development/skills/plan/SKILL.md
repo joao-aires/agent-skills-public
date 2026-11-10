@@ -13,7 +13,9 @@ metadata:
 
 # Plan
 
-Read [task guidance](../../TASKS.md). Reuse existing plans and commands; scale the plan to the agreed work.
+Read [task guidance](../../TASKS.md).
+
+Apply [engineering-artifacts](../engineering-artifacts/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Reuse existing plans and commands; scale the plan to the agreed work.
 
 ## Establish the planning basis
 
@@ -45,6 +47,6 @@ Label new components as proposals; do not invent existing files or function name
 
 ## Return an executable plan
 
-Return steps in the order they can actually be carried out. Make it clear which work is ready, which depends on a decision, and which can proceed independently. For changes to persisted data or deployed consumers, explain the order in which old and new versions can coexist and when cleanup becomes safe.
+Record dependency-ordered increments, accepted design/target diagram references and verification/release implications in ECR section 5. Do not copy the RFC or create an issue graph by default. Return steps in the order they can actually be carried out. Make it clear which work is ready, which depends on a decision, and which can proceed independently. For changes to persisted data or deployed consumers, explain the order in which old and new versions can coexist and when cleanup becomes safe.
 
 Keep the plan easy to revise when implementation produces new evidence. The reader should be able to start the next step and recognize when it is done without requiring a separate planning ceremony. A tracker, a document per slice and parallel agents are optional. Planning alone does not implement or deploy the work.
