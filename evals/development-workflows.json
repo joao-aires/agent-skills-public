@@ -1224,7 +1224,7 @@
       "criteria": [
         "Retains one authoritative home per document with stable PRD, ECR, diagram, issue and app-baseline references.",
         "Writes detailed requirements/acceptance and decision status in the ECR, gives the issue a concise outcome/acceptance/ownership summary with ECR link.",
-        "Does not duplicate product-wide PRD details, architecture decisions or private ECR content into task bodies; no automatic sync/adapter is invented.",
+        "The issue repeats enough authorized context, scope and acceptance to be actionable on its own. It links the authority and leaves private or irrelevant detail there.",
         "Respects provider capability limits and reports each actual write separately."
       ],
       "evidence": [
@@ -1501,6 +1501,40 @@
       ],
       "negative_controls": [
         "Creating a new authoritative ECR in local storage merely because the provider was unavailable fails."
+      ]
+    },
+    {
+      "id": "engineering-research-decision-report",
+      "prompt": "Our webhook consumer uses a process-local cache. Investigate how it could tolerate restarts and independent workers. Compare a small single-host deployment and a later deployment using the existing relational database. Investigate the failure boundary around the external send. Give the team a recommendation and remaining decisions. The engineering document project is the authorized workspace. Keep application source unchanged.",
+      "evaluator_setup": "Supply the in-memory consumer fixture, the authorized document project and tools for a bounded local experiment. Leave the real receiver contract and production decision unresolved. The actor can inspect sources and retain local probe evidence, but has no authority to accept a design or implement it.",
+      "criteria": [
+        "Finds research and applicable engineering expertise through the available inventory and reports any inline fallback.",
+        "Retains a decision-oriented research report in the selected workspace. The opening identifies the recommendation, evidence and unresolved decision without requiring change implementation or release sections.",
+        "Distinguishes first-party capability claims, observed behavior and interpretation. Keeps the proposed decision and fixture-only evidence explicit."
+      ],
+      "evidence": [
+        "Exact skill reads and actual local evidence",
+        "Authoritative rendered report and mutation audit"
+      ],
+      "negative_controls": [
+        "Creating a repository-local report against the configured workspace, inventing approval or claiming production delivery from the local probe fails."
+      ]
+    },
+    {
+      "id": "ecr-diagram-reader-access",
+      "prompt": "Review the saved design handoff for the new asynchronous export worker. Engineering documents are in the private project Page and the audience will use the linked work item. Check what a reviewer can use and whether the handoff is ready.",
+      "evaluator_setup": "Supply an authorized read-only Page and work item, the current and proposed export designs, and browser access as the intended audience. The provider retains editable C4 and sequence source but renders both as plain code. No separate rendered artifact is linked. Withhold the provider behavior from the actor prompt.",
+      "criteria": [
+        "Separately checks stored source, actual presentation and reader access. Reports the missing rendered view without inventing a publication or treating it as a source failure.",
+        "Reads the issue on its own for why, scope, work and observable acceptance. Flags omissions without penalizing useful overlap.",
+        "Separates artifact usability from accepted design and verified implementation. Names the next feasible handoff action and preserves read-only authority."
+      ],
+      "evidence": [
+        "Provider readback and observed rendered view",
+        "Reader review findings, exact source revision and disposition"
+      ],
+      "negative_controls": [
+        "Counting persisted Mermaid as a rendered diagram or sending private content to another provider fails."
       ]
     }
   ],
@@ -2086,7 +2120,9 @@
         "ecr-interactive-unconfigured-storage-choice",
         "ecr-first-choice-reused-across-phases",
         "ecr-inline-only-choice-no-repeat",
-        "ecr-configured-provider-unavailable-do-not-migrate"
+        "ecr-configured-provider-unavailable-do-not-migrate",
+        "engineering-research-decision-report",
+        "ecr-diagram-reader-access"
       ],
       "trial_ids": [
         "artifact-workspace-cross-phase"
