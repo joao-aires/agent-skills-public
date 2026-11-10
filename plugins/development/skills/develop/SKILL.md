@@ -14,7 +14,9 @@ metadata:
 
 # Develop
 
-Read [task guidance](../../TASKS.md). Use [system-design](../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent planning/implementation. Read [git-contributions](../git-contributions/SKILL.md) for the objective's feature worktree, [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for verification and completion. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [task guidance](../../TASKS.md).
+
+Read [engineering-artifacts](../engineering-artifacts/SKILL.md) and [engineering-workspace](../engineering-workspace/SKILL.md) for the standard ECR and configured filesystem or document-provider home. Record each performed outcome in the ECR, even within an end-to-end `develop` request; a tracker is optional and publication requires authority. Use [system-design](../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent planning/implementation. Read [git-contributions](../git-contributions/SKILL.md) for the objective's feature worktree, [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for verification and completion. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
 
 ## When starting a new application
 
@@ -56,18 +58,18 @@ Clarify material user/business outcomes, data/authority boundaries and high-impa
 
 Turn the selected slice into a small set of outcomes that can be demonstrated. Then identify the design choices that could change those outcomes or force substantial rework. Resolve those before coding their dependents, while leaving ordinary implementation details to the implementation work.
 
-Keep the reasoning connected across phases. The product outcome should explain the requirements; the requirements should explain the design; the design should explain the implementation order and verification. Producing separate documents with inconsistent decisions does not establish this continuity. Reuse an existing brief or conversation when it already carries the necessary information.
+Keep the reasoning connected across phases. The product outcome should explain the requirements; the requirements should explain the design; the design should explain the implementation order and verification. Producing separate documents with inconsistent decisions does not establish this continuity. Keep one ECR current across performed outcomes, link the product/design authorities, and leave unperformed sections pending. The end-to-end flow needs neither separate phase invocations nor an issue tracker.
 
 - For meaningful frontend work use available integrated interface-design expertise for product-derived structure, interaction, visual direction and affected-surface coverage. Incorporate relevant domain/archetype and platform constraints before coding; carry their accepted conclusions through the existing implementation handoff. A narrow UI fix reuses the accepted direction without reopening it.
 - For backend work establish authority, invariants, state/failure and compatibility contracts using service-contract design expertise when available.
 - Apply only matching accepted-stack conventions; missing optional methods do not remove these decision outcomes.
-- Use text, wireframes or mockups to settle the actual uncertainty. No compulsory document template, design approval per screen or complete scaffold is required.
+- Use text, wireframes or mockups to settle the actual uncertainty. The ECR's standard sections are compulsory, but separate documents per phase, screen approvals and complete scaffolds are not.
 
 ## Implement and verify
 
 Implement in increments that can be exercised, using relevant supporting skills directly and preserving native invocation controls. After each meaningful change, run the checks that observe its behavior, inspect the result, and repair defects before extending the same approach elsewhere. If implementation disproves an assumption, revisit the affected design or requirement and carry that change through the remaining work.
 
-Deliver-reliable-changes owns this scenario/test/inspect/repair loop and the evidence needed to claim completion; Git contributions owns isolation and publication. Keep the accepted decisions and affected documentation consistent with what was built. For UI work, inspect the running experience; for stored behavior, check what can be read back through the real application path.
+Deliver-reliable-changes owns this scenario/test/inspect/repair loop and the evidence needed to claim completion; Git contributions owns isolation and publication. Reconcile accepted ECR decisions and proposed C4/sequence diagrams with code, test evidence and canonical current-state docs. A merged revision does not establish production deployment. For UI work, inspect the running experience; for stored behavior, check what can be read back through the real application path.
 
 ## Review and close
 
