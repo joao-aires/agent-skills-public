@@ -14,9 +14,9 @@ metadata:
 
 # Release
 
-Read [task guidance](../../TASKS.md).
+Read [development workflow](../../WORKFLOW.md).
 
-Apply [engineering-artifacts](../engineering-artifacts/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Seek available delivery expertise for readiness, promotion and recovery. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Apply [engineering-artifacts](../engineering-artifacts/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Seek available delivery expertise for readiness, promotion and recovery. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
 
 ## Establish the release boundary
 

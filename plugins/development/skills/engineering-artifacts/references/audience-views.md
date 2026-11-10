@@ -1,6 +1,6 @@
 # Issue, PR and stakeholder views: preserve audience ownership
 
-An ECR owns the evolving engineering account; an issue owns the **intended work and coordination**; a PR owns **the submitted implementation and review evidence**. Status, summaries and deep links must agree, but bodies are not bidirectional replicas. Only publish/edit when explicitly authorized and when the provider is configured/accessible.
+An ECR owns the evolving engineering account; an issue owns the **intended work and coordination**; a PR owns **the submitted implementation and review evidence**. Repeat the context, constraints, acceptance and evidence the reader needs to act independently. Keep material decisions and statuses consistent across views and link to the record that owns them. Only publish/edit when explicitly authorized and when the provider is configured/accessible.
 
 ## Issue / work item — product and implementer audience
 
@@ -11,7 +11,7 @@ A bounded issue should normally include:
 4. **Ownership/coordination:** priority, responsibility, dependencies and blocker/decision status when known.
 5. **References:** ECR, parent PRD, accepted design and target diagrams when applicable, implementation PR(s).
 
-It may be created before design. Do not demand planned architecture, a code estimate or acceptance signoff at issue intake. On refinement, update issue acceptance without copying the complete ECR. For a project/initiative, keep shared product/design documents at the parent and per-slice work in child issues. Filesystem-only workflows need no issue.
+It may be created before design. State what someone can do now and leave unknown ownership or dependencies explicit. At closure, keep the original intent and applicable acceptance criteria and add the actual result, evidence and remaining work. Read the issue on its own before handoff and check whether an implementer can tell what to do, what is outside scope and how to verify success. For a project/initiative, keep shared product/design documents at the parent and per-slice work in child issues. Filesystem-only workflows need no issue.
 
 ## PR — reviewer audience
 

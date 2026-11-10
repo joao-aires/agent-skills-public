@@ -13,7 +13,7 @@ metadata:
 
 # Engineer requirements from evidence to acceptance
 
-Support the user-facing [refine](../refine/SKILL.md) activity. This skill owns the **quality of requirements analysis**, not product prioritization, solution architecture, implementation planning or a separate mandatory approval process. Read [task guidance](../../TASKS.md) for authorization, decisions and capability selection. For a narrow, already-defined correction, use only the applicable checks rather than generating a specification.
+Support the user-facing [refine](../refine/SKILL.md) activity. This skill owns the **quality of requirements analysis**, not product prioritization, solution architecture, implementation planning or a separate mandatory approval process. Read [development workflow](../../WORKFLOW.md) for authorization, decisions and capability selection. For a narrow, already-defined correction, use only the applicable checks rather than generating a specification.
 
 ## Establish purpose, authorities and what is already known
 

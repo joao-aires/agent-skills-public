@@ -13,7 +13,7 @@ metadata:
 
 # Plan
 
-Read [task guidance](../../TASKS.md).
+Read [development workflow](../../WORKFLOW.md).
 
 Apply [engineering-artifacts](../engineering-artifacts/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Reuse existing plans and commands; scale the plan to the agreed work.
 
@@ -22,7 +22,7 @@ Apply [engineering-artifacts](../engineering-artifacts/SKILL.md) to the ECR sect
 - Agree on the outcome and completion evidence. Refine material gaps before assuming scope.
 - Inspect affected architecture and contracts. Use [system-design](../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent planning or implementation.
 - Read [project conventions](../project-conventions/SKILL.md) for existing constraints and [delivery guidance](../deliver-reliable-changes/SKILL.md) for acceptance and verification.
-- Load optional stack/domain guidance selected by task guidance only when relevant and available. Use service-contract design expertise for changed service behavior.
+- Load optional stack/domain guidance selected through the development workflow only when relevant and available. Use service-contract design expertise for changed service behavior.
 
 ## Order the work by its dependencies
 

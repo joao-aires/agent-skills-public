@@ -8,6 +8,10 @@ Apply this method whenever an engineering activity uses or updates an ECR. The a
 2. **Semantic cross-artifact consistency** (evidence-based engineering analysis): compare accepted problem/requirements and acceptance against proposed UX, C4/sequence/contracts, decisions, implementation slices and planned verification. Name the actual contradictory statements and affected artifacts; a polished diagram or "all sections filled" is not sufficient. Specialist architecture/security/UX expertise owns deeper domain reasoning.
 3. **Implementation convergence** (source/test/runtime evidence): compare accepted behavior, design invariants and failure cases against the checked code diff, tests and actual observations. Check that relevant current-state application diagrams/ADRs match implemented source. A check passed at an old commit does not establish a later head. Explicitly distinguish *implemented*, *verified*, *merged*, *released* and *observed in target*.
 
+## Inspect the reader's result
+
+Read the current outcome, evidence and next action in the actual artifact. For an issue, check that someone can identify scope, work and observable acceptance before opening the ECR. For research, check that the reader can find the recommendation, comparison and open decision without reading the raw probe. Inspect native headings, lists and links after provider normalization. When an important view is part of the handoff, verify what readers can open using the [diagram lifecycle](diagram-lifecycle.md). Report a presentation or access limitation separately from verified persistence and implementation.
+
 ## Use at dependencies, not artificial meetings
 
 | Boundary | Required reasoning and evidence |

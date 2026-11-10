@@ -14,9 +14,9 @@ metadata:
 
 # Design
 
-Read [task guidance](../../TASKS.md).
+Read [development workflow](../../WORKFLOW.md).
 
-Read [engineering-artifacts](../engineering-artifacts/SKILL.md) and [engineering-workspace](../engineering-workspace/SKILL.md) for the standard ECR and configured filesystem or document-provider home. Record each performed outcome in the ECR, even within an end-to-end `develop` request; a tracker is optional and publication requires authority. Use [system-design](../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent planning/implementation. When data or authority boundaries change, seek relevant security/privacy design expertise from available descriptions; retain the affected authority, data-flow and verification reasoning when a specialist is absent. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [engineering-artifacts](../engineering-artifacts/SKILL.md) and [engineering-workspace](../engineering-workspace/SKILL.md) for the standard ECR and configured filesystem or document-provider home. Record each performed outcome in the ECR, even within an end-to-end `develop` request; a tracker is optional and publication requires authority. Use [system-design](../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent planning/implementation. When data or authority boundaries change, seek relevant security/privacy design expertise from available descriptions; retain the affected authority, data-flow and verification reasoning when a specialist is absent. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
 
 Establish the audience, intended outcome, accepted decisions and affected boundaries from supplied references and repository evidence. Choose the supporting methods through task guidance; keep the result proportionate to the uncertainty.
 

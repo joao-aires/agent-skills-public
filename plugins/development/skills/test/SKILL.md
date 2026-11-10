@@ -13,9 +13,9 @@ metadata:
 
 # Test
 
-Read [task guidance](../../TASKS.md).
+Read [development workflow](../../WORKFLOW.md).
 
-Apply [engineering-artifacts](../engineering-artifacts/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Read [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for evidence and suite health, [journey-testing](../journey-testing/SKILL.md) for changed user journeys. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Apply [engineering-artifacts](../engineering-artifacts/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Read [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for evidence and suite health, [journey-testing](../journey-testing/SKILL.md) for changed user journeys. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
 
 ## Select meaningful coverage
 

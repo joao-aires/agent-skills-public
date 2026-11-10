@@ -2,13 +2,19 @@
 
 An ECR is the **durable, reader-oriented specification of one coherent engineering change**, not a commit log, a ticket dump, or the current application architecture. An engineering workspace owns its location; the application's repository owns actual implementation and canonical current-state documentation. A project ECR may cover several work packages, each with its own links and review status. The ECR's format is Markdown-like prose with stable headings; **no YAML/JSON manifest or prescribed file tree is required**.
 
+## Write for the next reader
+
+Open the overview with the current outcome, the strongest evidence or evidence gap, and the next action or decision with its owner when known. State the scope and disposition together so a reader can understand them before opening supporting material. Use short paragraphs for rationale, lists for acceptance and actions, and tables when alternatives share meaningful comparison dimensions. Give links descriptive labels.
+
+Update superseded status and evidence in place. Keep consequential choices and their reasons in decision history. Use the existing title, short work-item key or descriptive link for navigation. Keep provider IDs in tool operations and full source revisions beside the checks they identify. Put lengthy commands, output and reproducibility material after the conclusions or in an authorized linked record.
+
 ## Seven required sections
 
 Every ECR, including a compact single-file fix, has these headings in this order. Use truthful `Pending`, `Not applicable — reason`, or `Blocked — decision/evidence needed` for content not yet established. This makes the format predictable without presenting future work as finished.
 
 ### 1. Overview and lifecycle
-- Short title and stable change identity (existing tracker ID/link if any; otherwise workspace-relative reference).
-- Purpose, scope of ECR and affected application(s), reader/decision owner, current activity/stage and relevant source revision.
+- Short title and discoverable change link or workspace-relative reference.
+- Current outcome, scope, key evidence and the next action, including its owner when known.
 - ECR status versus claim status: proposed, accepted, implemented, verified, released, superseded are **separate statements**; report which claim has which evidence.
 - Links to parent PRD/project, implementation issues and PRs where they exist. Do not create them just to fill a field.
 
@@ -24,7 +30,7 @@ Every ECR, including a compact single-file fix, has these headings in this order
 ### 4. Solution design
 - Existing-system baseline at source revision and **proposed** system/UX/service behavior; selected approach, meaningful alternatives, trade-offs, data/authority boundaries, failure and migration consequences.
 - Link/attach target C4 context/container/component views and critical sequence/journey diagrams when applicable, keeping **current-versus-target** and status explicit. See [diagram lifecycle](diagram-lifecycle.md).
-- Link a separately maintained RFC for complex proposals and a canonical ADR for an accepted consequential decision; don't duplicate their full rationale.
+- Use [artifact applicability](artifact-types.md) to decide whether a proposal needs its own RFC or an accepted choice needs a canonical ADR. Summarize the relevant rationale and link the fuller record when one exists.
 - Record acceptance/decision owner; a draft proposal cannot silently satisfy an implementation dependency.
 
 ### 5. Implementation strategy
@@ -52,7 +58,7 @@ Every ECR, including a compact single-file fix, has these headings in this order
 | Release | Actual artifact/target, gates, recovery and promotion/verification status stated precisely |
 | Maintenance | Findings, incidents, signals and remediation linked to affected requirements/decisions as needed |
 
-Entry points may stop earlier; no task automatically authorizes later phases. The ECR is updated incrementally and the reader must be able to tell what is pending. At each completed/attempted handoff, add the readiness disposition and consequential findings in the relevant section (without creating a mandatory eighth section). Follow [artifact assurance](assurance.md) for contradictions, source/test convergence, PR alignment and truthfulness limits. Inspect the seven section boundaries and contents in the authoritative document, including nested headings, without depending on a static parser. Readable structure is necessary but never proof of semantic acceptance or execution.
+Entry points may stop earlier; no task automatically authorizes later phases. The ECR is updated incrementally and the reader must be able to tell what is pending. At each completed or attempted handoff, update the readiness disposition and consequential findings in the relevant section (without creating a mandatory eighth section). Follow [artifact assurance](assurance.md) for contradictions, source/test convergence, PR alignment and truthfulness limits. Inspect the seven section boundaries and contents in the authoritative document, including nested headings, without depending on a static parser. Readable structure is necessary but never proof of semantic acceptance or execution.
 
 ## Compact example (small bug)
 

@@ -6,6 +6,7 @@ Use this reference when the ECR links work with its own audience, owner or lifec
 | --- | --- | --- |
 | PRD or product brief | User problem, audience, jobs/journeys, value, priority, product success, non-goals, high-level scope, known product risks | Product/project area of engineering workspace or an established product-document home |
 | ECR | Change-specific scope, detailed accepted/proposed requirements, target architecture/UX, delivery plan, verification and history | Engineering workspace, linked to PRD/issue as appropriate |
+| Engineering research report | Question, recommendation, primary sources, observed evidence and its limits, alternatives and open decisions | Configured engineering workspace. Link from the ECR if it informs an existing change |
 | RFC / substantive design proposal | Question and constraints, current state, target C4/sequence views, alternatives, quality/trust/operating trade-offs, migration and unresolved decisions | Engineering workspace linked from ECR; optional for narrow changes |
 | ADR | Consequential decision, context, alternatives, reasons, owner, date and status (proposed/accepted/superseded), consequences and implementation link | Application repository's established decisions location when architectural knowledge must outlive the change; during exploration a proposal may remain in ECR/RFC |
 | Current architecture | Evidence-backed C4 context/container and selected components, current critical sequences/contracts, deployment distinctions and revision | Application repository's canonical docs, established by system mapping/architecture documentation |
@@ -16,6 +17,14 @@ Use this reference when the ECR links work with its own audience, owner or lifec
 | Issue / ticket | Ownership, work intent, actionability, acceptance, priority, dependencies and ECR link | Configured tracker if used; optional |
 | Pull request | Actual diff, why/what changed, design variation, exact validation, risk and links | Git provider for the application repository |
 
+## Choose a separate artifact when it needs its own review
+
+Keep a bounded feature's requirements and rationale in its ECR. Use a PRD when product direction, outcomes or scope span changes or require independent product review. Use a separate RFC when a proposal needs its own audience or decision process. Record an ADR when a consequential accepted choice needs to outlive the work. Use the [diagram lifecycle](diagram-lifecycle.md) for the affected structural and runtime views.
+
+## Standalone engineering research
+
+Open with the question, recommendation, strongest result and decision still needed. Compare viable alternatives on the same dimensions. Cite primary sources where they support a claim. Distinguish documented capabilities, observed outcomes and interpretation. Link runnable evidence or put it after decision material. State what evidence would change the recommendation and who owns the decision when known. The report may end at a recommendation or a decision request. Use the ECR for change implementation and release evidence when that work exists.
+
 ## A clear lifecycle for durable decisions
 
 An RFC may be accepted before coding, but the target architecture remains *proposed relative to implementation*. If the project records accepted prospective ADRs in the repository, mark that status explicitly and never revise current C4 diagrams to claim the design is live. Reconcile the baseline and ADR consequences when implementation actually lands; retain decision history, drop stale duplicate target views only after their rationale is safely recorded.
@@ -24,6 +33,6 @@ For product direction involving several features, a single parent PRD and projec
 
 ## Independence and authority
 
-No requirement to create a PRD, issue, RFC, ADR or separate diagram merely because a list contains that artifact. The **ECR is required as a structured outcome**; adjacent documents are required only when the concern exists and their separate lifetime or audience justifies them. Do not put engineering workspace material into the application repo simply because filesystem storage is selected; the workspace may be a sibling directory or separate repository.
+No requirement to create a PRD, issue, RFC, ADR or separate diagram merely because a list contains that artifact. An engineering change uses an ECR. A standalone inquiry can use a research report. Add other artifacts when their concern and independent audience or lifetime justify them. Do not put engineering workspace material into the application repo simply because filesystem storage is selected; the workspace may be a sibling directory or separate repository.
 
 Do not claim a document was published or saved without checking its actual URL/path/revision. The storage method cannot manufacture stakeholder approval or architectural truth.

@@ -33,4 +33,11 @@ A reviewer can follow these links from issue or PR; no duplicate diagrams in eve
 
 ## Reconciliation
 
-Before merging implementation that changes actual system boundaries, update relevant **canonical application-repo docs in the same change**, reflecting observed implementation at the checked revision, and link the ECR's proposed views/decisions. Do not merge projected target diagrams into a current-state page unchanged if code deviated. A merged revision is not deployment proof. Keep accepted prospective ADR status explicit. If design was not implemented, keep the target in the workspace and the canonical baseline untouched. Validate source syntax/render and cross-view identifiers where tooling allows, then visually inspect important diagrams; structural checks alone do not establish truth.
+Before merging implementation that changes actual system boundaries, update relevant **canonical application-repo docs in the same change**, reflecting observed implementation at the checked revision, and link the ECR's proposed views/decisions. Do not merge projected target diagrams into a current-state page unchanged if code deviated. A merged revision is not deployment proof. Keep accepted prospective ADR status explicit. If design was not implemented, keep the target in the workspace and the canonical baseline untouched. Check identifiers and relationships against the contract and actual source. Inspect the affected view as the reader receives it.
+
+
+## Verify the view the reader can open
+
+Check that source persists, the target view renders, and the intended audience can access it. For a consequential diagram, inspect the rendered view for legible labels, visible boundaries and correctly ordered interactions, including failure paths that affect acceptance. Keep an editable source alongside the view or at a stable authorized link.
+
+If the workspace displays diagram source as code, link a verified rendering from a location the audience can access. If rendering or access cannot be checked within scope, give a concise textual account of the relationships and state the limitation. Keep proposed and implemented labels on the view itself and tie it to the applicable source baseline or revision.

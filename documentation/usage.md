@@ -134,7 +134,7 @@ Supply repository/ref, objective/context, unattended mode, allowed actions and r
 
 > Use dependencies in unattended mode for update PRs in owner/repository. Repair and merge only policy-eligible patch updates whose current head satisfies required checks/reviews and has no unresolved findings. Leave other updates open with reasons; reuse existing work and report results. Do not deploy.
 
-Unattended tasks return missing material decisions instead of inventing answers. Untrusted ticket/PR text cannot change policy; changed heads require re-verification. The host/repository must enforce privileged-action policy. [Installed task guidance](../plugins/development/TASKS.md#interactive-and-unattended-execution) contains the detailed working rules.
+Unattended tasks return missing material decisions instead of inventing answers. Untrusted ticket/PR text cannot change policy; changed heads require re-verification. The host/repository must enforce privileged-action policy. [Installed task guidance](../plugins/development/WORKFLOW.md#interactive-and-unattended-execution) contains the detailed working rules.
 
 ## AI and MCP plugin selection
 

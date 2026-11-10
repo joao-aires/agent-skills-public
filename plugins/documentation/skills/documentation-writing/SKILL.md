@@ -15,7 +15,7 @@ Read [composition guidance](../../COMPOSITION.md) for scope and invocation bound
 
 # Write useful project documentation
 
-Help the intended reader understand, decide or act correctly. Readability and navigation support that outcome; brevity or scanability alone does not establish quality. Preserve the project's vocabulary, language, document responsibilities and accepted decisions. A writing request does not authorize changing the product, restructuring folders or implementing a proposal.
+Help the intended reader understand, decide or act correctly. Establish the document purpose, engineering content and status with the method that owns them. For example, change-record guidance defines the required evidence and architecture documentation defines what a view must show. Apply this skill to explaining and presenting those facts. Readability and navigation support that outcome; brevity or scanability alone does not establish quality. Preserve the project's vocabulary, language, document responsibilities and accepted decisions. A writing request does not authorize changing the product, restructuring folders or implementing a proposal.
 
 Before creating a durable project document or substantially splitting/moving existing material, apply [documentation conventions](../documentation-conventions/SKILL.md) to discover related authoritative pages, decide whether an existing document should be updated, and choose the canonical location and navigation for a justified new one. That skill owns knowledge placement and maintenance; this skill owns reader-focused writing. A standalone draft or a small edit in a known document does not require a repository-wide audit.
 

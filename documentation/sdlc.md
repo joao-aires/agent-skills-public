@@ -51,25 +51,11 @@ A company's portfolio planning, roadmap prioritization or sprint scheduling is *
 
 ## Standard engineering artifacts and workspace handoffs
 
-Every **performed** SDLC phase leaves a structured, reviewable result in an Engineering Change Record (ECR). The ECR is a **seven-section, evolving document** in an authorized workspace **parallel to application code**. The workspace may be a local folder, separate Git repository or optionally a connected issue/document provider; **no issue-tracking software is required**. Section expectations and readiness checks are standardized by [engineering-artifacts](../plugins/development/skills/engineering-artifacts/SKILL.md), while [engineering-workspace](../plugins/development/skills/engineering-workspace/SKILL.md) handles discovery, identity, revision and authorized persistence. External provider access is never assumed.
+An Engineering Change Record (ECR) carries the outcome of each performed activity on a change. A standalone inquiry can finish with a research report in the chosen workspace. Use [engineering artifacts](../plugins/development/skills/engineering-artifacts/SKILL.md) for the content and evidence, and [engineering workspace](../plugins/development/skills/engineering-workspace/SKILL.md) for discovery and persistence. The application repository owns implemented architecture and operating documentation.
 
-![Seven phases hand off to their ECR artifacts through evidence-based assurance assessments; separate canonical application knowledge and issue/PR views remain independently owned](images/sdlc-artifact-flow.svg)
+![Seven phases contribute evidence to the shared ECR, alongside canonical application knowledge and issue and PR views](images/sdlc-artifact-flow.svg)
 
-The labels on the **seven direct phase-to-artifact arrows** indicate a relevant assurance assessment, not a mandatory human approval or a new phase command. Requirements quality, design consistency and plan coverage check whether decisions and dependencies agree; implementation alignment and convergence compare actual source/tests with accepted behavior; release readiness and operational feedback use actual target evidence. A handoff is **ready**, **ready with limitations** or **blocked** relative to the next dependent action. Document structure, semantic consistency and implementation convergence remain proportional, evidence-based engineering assessments, not bundled parser checks or executable workflow enforcement.
-
-| Phase / producer | ECR section or linked artifact | Consumer / handoff |
-| --- | --- | --- |
-| Product direction / refine | Problem, scope, requirements, acceptance; PRD linked rather than duplicated | Design consumes accepted user outcomes and quality constraints |
-| Solution design | Proposed future-state C4 / user journey / technical sequence, RFC/decision and alternatives when applicable | Plan consumes accepted design and unresolved compatibility/authority choices |
-| Implementation planning | Ordered slices, tests, migrations, rollback, dependencies | Implementation consumes executable increments and current app contracts |
-| Implementation | Revision, affected code, deviations, updated canonical docs where warranted | Verification compares real behavior with acceptance and target designs |
-| Verification / review | Actual tests, findings, current revision and gaps | Release uses explicit readiness, not a generic green build |
-| Release | Artifact/target, approval and rollout/recovery evidence, actual state | Maintenance consumes observed target health; merged is not deployed |
-| Maintenance | Operational findings, incidents, signals and remediation | Relevant new requirements/design feedback with references |
-
-The ECR is **not the current architecture**. Current C4 and critical sequence views remain in the application's stable-branch documentation. Target diagrams are proposed in the ECR/RFC against a known base revision, then reconciled with verified implementation in the application repository. A local fix may justify "diagrams unaffected" without fabricating diagrams. Issues summarize intended work/acceptance for coordinators and implementers; PRs explain actual changes, design variance and evidence for reviewers. Both are optional views of the authoritative record, not competing specifications.
-
-Read [engineering artifact workflow](artifact-workflow.md) for the document structure, filesystem versus external workspace configuration, PRD/RFC/ADR ownership, example flows and audience rules. The same standard applies to an end-to-end `develop` request without invoking explicit-only phase skills as substeps. If no ECR home or explicit inline-only preference is known, **ask the user for their storage choice in interactive work** before persisting. When the user opts out or the choice cannot be resolved (for example unattended execution), return a structured **unpersisted** outcome rather than inventing a saved document.
+The arrows show evidence a later activity depends on. Requirements, designs, plans, checked behavior and release claims need to agree at the relevant handoff. See the [worked examples](artifact-workflow.md) for how this looks to the reader and the [development workflow](../plugins/development/WORKFLOW.md) for activity selection.
 
 ## Different starting points
 

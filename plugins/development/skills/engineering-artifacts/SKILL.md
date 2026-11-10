@@ -1,6 +1,6 @@
 ---
 name: engineering-artifacts
-description: Maintain structured engineering change records, phase outcomes and audience-appropriate issue/PR views without duplicating canonical application knowledge. Apply for every engineering SDLC activity, including end-to-end develop and small fixes.
+description: Maintain engineering change records, research reports and issue or PR views. Use to decide which engineering artifacts a change or inquiry needs and assess their consistency with decisions, implementation and evidence.
 user-invocable: false
 metadata:
   scope: generic
@@ -10,7 +10,7 @@ metadata:
 
 # Engineering artifacts: one change, reviewable outcomes
 
-Apply this method to **every performed engineering activity**, whether it starts at `refine`, `design`, `plan`, `implement`, `test`, `review`, `release` or a single `develop` engagement. The entry-point task owns engineering execution; this method owns artifact shape, semantic completeness, continuity and audience-specific presentation. Read [engineering-workspace](../engineering-workspace/SKILL.md) for locating and persisting records. Neither method invokes explicit-only task skills nor grants repository, tracker, publication or deployment authority.
+Record each performed activity on an engineering change in its ECR or a linked artifact. For a standalone inquiry, produce a [research report](references/artifact-types.md#standalone-engineering-research) suited to the decision. Use [the development workflow](../../WORKFLOW.md) for activity selection and [engineering-workspace](../engineering-workspace/SKILL.md) for discovery and persistence. The requested activity sets the stopping point and write authority.
 
 ## The authoritative layers
 
@@ -20,13 +20,13 @@ Apply this method to **every performed engineering activity**, whether it starts
 
 Read [the ECR content contract](references/engineering-change-record.md) for seven required sections, status semantics, stage-specific readiness and a compact example. Apply [artifact assurance](references/assurance.md) at consequential dependency boundaries: structural integrity, requirement/design/plan consistency, evidence-based convergence and PR/diff alignment. Validate the standard seven sections and honest dispositions directly from the authoritative document, allowing legitimate nested Markdown headings and provider-native formats. No bundled parser, mandatory command or external service is required. Read [adjacent artifacts](references/artifact-types.md) when product documents, a technical RFC, ADR, diagrams or verification records have independent ownership. Read [audience views](references/audience-views.md) for issues, PRs and stakeholder updates. For architecture or user journeys, read [diagram lifecycle](references/diagram-lifecycle.md).
 
-## Within every SDLC activity
+## Maintain a change record
 
 - **Discover** the ECR and referenced PRD, requirements, current architecture and existing work/PR first. Never create an unrelated second authority or reconstruct agreed decisions from memory alone.
 - **Read the relevant sections and baseline at the known revision**, identifying accepted, proposed, unknown, implemented, verified and released claims. Treat evidence in the code/repo and runtime separately from text in the workspace.
 - **Produce the phase outcome** in the standard ECR section(s) or an explicit linked supporting document. Even a narrow fix records the problem, change, checks and diagram-impact disposition; it may use compact prose, but missing sections must say *not applicable* or *pending*, not disappear.
 - **Check handoff readiness** using the assurance method and the **next actual consumer**, not a ceremonial phase gate. Assess structural shape when possible, then compare accepted requirements, proposed designs/diagrams, plan coverage and evidence. Report **ready**, **ready with limitations** or **blocked**, supported by precise contradictions, missing decisions and actual revisions. Correct contradictions within accepted constraints and recheck dependent artifacts; do not implement a behavior whose consequential premise is blocked.
-- **Resolve storage preference before persistence.** When an ECR outcome is needed but no home or explicit no-storage preference exists, the interactive agent must ask the user which storage to use via [engineering-workspace](../engineering-workspace/SKILL.md) (filesystem, existing connected provider, or inline only). Do not silently choose an unpersisted fallback without offering the choice. After authorization, persist/report precisely with verified links/revisions. If the user selects inline only, or an unattended task cannot get the choice, return the structured artifact inline, mark it **not persisted** and name the outstanding decision. Never invent a saved ticket/file/PR.
+- **Persist through the [engineering workspace](../engineering-workspace/SKILL.md).** Follow its storage choice and access rules. Report the verified record location or the reason the outcome is unpersisted.
 - **Update related summaries** (issue or PR) only where configured and authorized, reconciling their statuses with the ECR. A PR is a reviewer view over the implementation, not a replacement specification.
 
 ## Quality gates, without phase-gate theatre
@@ -37,4 +37,4 @@ Standardization means **consistent sections and statuses**, not identical word c
 
 ## Composition
 
-Engineering specialists remain responsible for actual domain content: [requirements-engineering](../requirements-engineering/SKILL.md), [system-design](../system-design/SKILL.md), [system-mapping](../system-mapping/SKILL.md), and available architecture-documentation/interface design methods. This skill validates their outputs and relationships; it does not regenerate diagrams or independently decide architecture. Storage and provider-specific mechanics belong solely to engineering-workspace. Contribution/publishing actions remain with the entry point and git-contributions.
+The engineering artifact method owns applicability, content contracts, status and evidence checks. [Requirements engineering](../requirements-engineering/SKILL.md) derives the acceptance contract. [System design](../system-design/SKILL.md) owns proposed architecture and tradeoffs, and [system mapping](../system-mapping/SKILL.md) traces the implemented baseline. Use available architecture documentation expertise to select and maintain useful views. Use reader-oriented writing expertise for structure, wording, comparisons and navigation once the engineering content and ownership are clear. Review the outcome against both the reader's task and the actual source or evidence. [Engineering workspace](../engineering-workspace/SKILL.md) owns provider mechanics, and the entry point and Git contribution method own authorized publishing.
