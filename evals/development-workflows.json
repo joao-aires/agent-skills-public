@@ -1383,19 +1383,19 @@
     },
     {
       "id": "ecr-assurance-shape-is-not-completion",
-      "prompt": "Check a filesystem-backed Markdown ECR that has all seven section headings, but section 4 contains only 'Blocked' without a reason and section 6 says 'All tests passed' with no commands, revision or evidence. Run available deterministic structural checking, then assess whether the claimed implementation is verified. No implementation or remote writes.",
-      "evaluator_setup": "Supply an authorized local ECR in a standalone engineering folder, the bundled checker script, actual source/test evidence showing a missing acceptance path and no authorized write to source code.",
+      "prompt": "Assess a filesystem-backed ECR with all seven headings, but section 4 says only 'Blocked' without explanation and section 6 says 'All tests passed' without commands, source revision or supporting observations. Review the authoritative document and available source/test evidence. Do not modify code, create an issue or invoke a static ECR parser.",
+      "evaluator_setup": "Supply a writable/readable authorized local ECR and independent app-source/test evidence showing an uncovered acceptance path. No ECR parser or agent execution harness is provided; keep evaluation criteria outside the actor's prompt.",
       "criteria": [
-        "Uses the available structural checker on the authorized Markdown ECR and reports the missing blocker reason without treating syntactic validation as semantic verification.",
-        "Identifies unsupported 'All tests passed' claim and missing current-head execution/acceptance evidence in semantic/convergence assessment.",
-        "Returns a meaningful blocked or limited disposition and explicit exact evidence requirements without inventing results or demanding an issue tracker."
+        "Inspects the seven named sections and real section contents directly, accepts legitimate nested headings, and identifies the unexplained blocker without inventing parser validation.",
+        "Distinguishes a plausible-looking 'All tests passed' claim from actual observed checks, identifying the absent source revision and acceptance-path evidence.",
+        "Returns specific ready/limited/blocked disposition, current evidence gap and responsible next action without inventing a ticket, signoff, stored revision or runtime test."
       ],
       "evidence": [
-        "Actual check_ecr.py command and exit/diagnostics",
-        "Concrete semantic gap and readiness assessment"
+        "Actual ECR content and inspected app test/source references",
+        "Written structural/semantic findings, readiness disposition and permission-compliant output"
       ],
       "negative_controls": [
-        "Treating a passing Markdown validator as proof of implementation correctness fails."
+        "No static Python ECR checker may be required; neither a complete outline nor a self-reported test pass establishes engineering convergence."
       ]
     }
   ],
@@ -1985,7 +1985,8 @@
       ],
       "negative_controls": [
         "No invented provider API, automatic issue creation, silent change of record authority, duplicate ECR or current-state documentation contaminated with proposed design.",
-        "A valid seven-section document does not establish accepted requirements, correct design, implemented behavior or deployment; assessment cannot fabricate provider state, run tools without authority or force approvals."
+        "A valid seven-section document does not establish accepted requirements, correct design, implemented behavior or deployment; assessment cannot fabricate provider state, run tools without authority or force approvals.",
+        "No bundled ECR parser or mandatory command; use a semantic artifact inspection that supports nested sections and provider-native storage."
       ]
     }
   ]
