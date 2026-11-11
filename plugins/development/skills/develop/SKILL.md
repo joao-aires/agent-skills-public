@@ -2,13 +2,11 @@
 name: develop
 description: Take a rough business idea, feature, refactor or improvement through
   clarification, design, implementation, testing and review in one requested engagement.
-  Use for end-to-end development with consequential questions and explicit assumptions,
-  not a promise of zero interaction or automatic deployment.
+  Use when the user asks to build a feature, including after a discussion of its requirements or design. Reuse agreed decisions and fill only gaps needed to implement safely.
 user-invocable: true
-disable-model-invocation: true
 metadata:
   scope: generic
-  invocation: user
+  invocation: both
   role: task
 ---
 

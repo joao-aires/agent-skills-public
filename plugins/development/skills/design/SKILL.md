@@ -1,14 +1,13 @@
 ---
 name: design
 description: Design UI interactions, backend contracts or architecture for a requested
-  change before implementation. Use for flows, navigation, shared components, API/data/state
+  change before implementation. Use when the user wants to settle a solution or review a proposal, including a continuation of an exploratory conversation. Use for flows, navigation, shared components, API/data/state
   behavior or consequential design alternatives; produce concise text and useful wireframes/mockups
   when needed.
 user-invocable: true
-disable-model-invocation: true
 metadata:
   scope: generic
-  invocation: user
+  invocation: both
   role: task
 ---
 

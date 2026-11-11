@@ -28,6 +28,7 @@ The [installation guide](installation.md#load-them-in-your-client) links the cli
 | Need evidence of behavior | `test` | Checks, results and coverage gaps |
 | PR or diff ready for assessment | `review` | Findings against intended behavior and standards |
 | Want improvements | `improve` | Prioritized opportunities, or a specified improvement |
+| Reported defect with repair requested | `fix` | Reproduced or evidenced defect, focused repair and verification |
 | Security/privacy weakness | `harden` | Scoped assessment, fixes and remaining risks |
 | Dependencies need attention | `dependencies` | Compatibility, release-note and CI review; permitted remediation |
 | Preparing delivery | `release` | Readiness, or a named authorized delivery action |

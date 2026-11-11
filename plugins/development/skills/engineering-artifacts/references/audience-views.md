@@ -15,12 +15,12 @@ Write a task title that names the intended outcome. Lead with the problem, then 
 
 Use the repository's existing contribution template where present. Explain concisely:
 1. **Why and linked intent:** ECR/issue/PRD if accessible.
-2. **What actually changed:** functional behavior and affected boundaries, not an aspirational plan.
+2. **What actually changed:** functional behavior, affected boundaries and caller compatibility. Name changed defaults, accepted inputs or failure behavior when they matter to a reviewer.
 3. **Design impact:** significant current-vs-target differences, actual diagram/ADR changes, rationale and departures from accepted proposal.
 4. **Validation performed:** exact revision/commands and observations, failures/coverage limits and linked evidence.
 5. **Release/operating effects and remaining risks:** migration, compatibility, observability/recovery, follow-ups where relevant.
 
-Link the target diagrams for reviewers; also point to reconciled canonical docs where changed. Keep PR information useful if the external workspace is temporarily unavailable (a short scope/acceptance summary and test evidence). Do not paste all ECR sections or attach private workspace content to a public PR; respect access tiers and minimize sensitive details. A proposed state must not appear under "implemented".
+Verify each link in the intended publication context. A local relative link needs an accessible destination before publication. Link the target diagrams for reviewers; also point to reconciled canonical docs where changed. Keep PR information useful if the external workspace is temporarily unavailable (a short scope/acceptance summary and test evidence). Do not paste all ECR sections or attach private workspace content to a public PR; respect access tiers and minimize sensitive details. A proposed state must not appear under "implemented".
 
 ## Product/leadership and operations readers
 

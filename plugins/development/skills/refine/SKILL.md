@@ -2,13 +2,11 @@
 name: refine
 description: Refine a rough idea, brief, conversation or optional tracker item into
   repository-aware actionable work. Use to establish scope, acceptance criteria, affected
-  UX/API/data boundaries and material questions before implementation, including unattended
-  refinement jobs.
+  UX/API/data boundaries and material questions before implementation, including when a conversation moves from ideation to defining an actionable feature without authorizing code.
 user-invocable: true
-disable-model-invocation: true
 metadata:
   scope: generic
-  invocation: user
+  invocation: both
   role: task
 ---
 

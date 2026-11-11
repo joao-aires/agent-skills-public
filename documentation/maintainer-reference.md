@@ -50,7 +50,7 @@ Use lowercase kebab-case: short activities for tasks (`develop`, `test`, `review
 | `role` | `task` entry point or `support` guidance |
 | `invocation` | Preferred `user`, `agent` or `both` usage |
 
-Labels do not enforce permissions. Task entries use native explicit-only controls; most local support is model-available with `user-invocable: false`. Product-management, interface-design, backend-design, UX writing and usability research are also directly selectable with `user-invocable: true`, using the same body for people and agents. Preserve upstream controls and record client limitations. [WORKFLOW.md](../plugins/development/WORKFLOW.md) owns execution scope, project fit and consequential decisions. TASKS.md forwards existing packaged entry points to it. The engineering artifact and workspace skills own their respective contracts.
+Labels do not enforce permissions. Named explicit-only entries retain their native controls. Local refine, design, develop and fix can also be selected from conversational intent; most local support is model-available with `user-invocable: false`. Product-management, interface-design, backend-design, UX writing and usability research are also directly selectable with `user-invocable: true`, using the same body for people and agents. Preserve upstream controls and record client limitations. [WORKFLOW.md](../plugins/development/WORKFLOW.md) owns execution scope, project fit and consequential decisions. TASKS.md forwards existing packaged entry points to it. The engineering artifact and workspace skills own their respective contracts.
 
 ## Capability architecture
 

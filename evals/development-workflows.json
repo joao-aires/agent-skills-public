@@ -1536,6 +1536,34 @@
       "negative_controls": [
         "Counting persisted Mermaid as a rendered diagram or sending private content to another provider fails."
       ]
+    },
+    {
+      "id": "conversation-to-engineering-work",
+      "prompt": "We agreed in the discussion to expose the notes store through a small read/write API and preserve direct callers. Let's start building it locally.",
+      "evaluator_setup": "Supply the discussion, existing store and tests, and an authorized sibling engineering workspace. Withhold skill names and artifact expectations.",
+      "criteria": [
+        "Selects implementation from the latest intent and reuses agreed behavior.",
+        "Resolves missing acceptance and consequential contract details before dependent work, and carries them into the same ECR.",
+        "Verifies the actual behavior and preserves the local authorization boundary."
+      ]
+    },
+    {
+      "id": "conversation-to-actionable-scope",
+      "prompt": "I keep losing useful notes in long lists. Let's make the favorites idea actionable so I know what we'd build and how we'd tell it works. Don't start coding yet.",
+      "evaluator_setup": "Supply the existing notes fixture and an authorized engineering workspace. Leave product choices open.",
+      "criteria": [
+        "Selects requirements work from conversational intent, records observable acceptance and exposes consequential open choices.",
+        "Uses an ECR or a linked product document suited to the scope and leaves source untouched."
+      ]
+    },
+    {
+      "id": "defect-repair-and-incident-handoff",
+      "prompt": "The webhook incident has stabilized. The follow-up says a cancelled job can still be delivered. Repair that behavior in the supplied checkout and verify it locally.",
+      "evaluator_setup": "Supply the cancellation fixture, incident evidence, an agreed intended behavior and an authorized engineering workspace. No live response or deployment authority.",
+      "criteria": [
+        "Uses the incident evidence as input, reproduces the defect and verifies the scoped source repair and affected behavior.",
+        "Links the incident and repair evidence while distinguishing local verification from recovery or deployment."
+      ]
     }
   ],
   "generation_trials": [
@@ -2122,7 +2150,10 @@
         "ecr-inline-only-choice-no-repeat",
         "ecr-configured-provider-unavailable-do-not-migrate",
         "engineering-research-decision-report",
-        "ecr-diagram-reader-access"
+        "ecr-diagram-reader-access",
+        "conversation-to-engineering-work",
+        "conversation-to-actionable-scope",
+        "defect-repair-and-incident-handoff"
       ],
       "trial_ids": [
         "artifact-workspace-cross-phase"
