@@ -31,9 +31,13 @@ Read [the ECR content contract](references/engineering-change-record.md) for sev
 
 ## Present engineering outcomes
 
-Open a change record or research report with the current outcome, the strongest evidence or evidence gap, and the next action or decision with its owner when known. State the scope and disposition together so a reader can understand them before opening supporting material. Use short paragraphs for rationale, lists for acceptance and actions, and tables when alternatives share meaningful comparison dimensions. Give links descriptive labels.
+Open a change record or research report with the current outcome, the strongest evidence or evidence gap, and the next action or decision with its owner when known. State the scope and disposition together so a reader can understand them before opening supporting material. Use short paragraphs for rationale, lists for acceptance and actions, and tables when alternatives share meaningful comparison dimensions. Give links descriptive labels. Use inline code for identifiers, paths and commands, and verify that the published format preserves it.
 
 Update superseded status and evidence in place. Keep consequential choices and their reasons in decision history. Use a subject-based title, short work-item key or descriptive link for navigation. Keep execution bookkeeping with the verification details. Keep provider IDs in tool operations and full source revisions beside the checks they identify. Put lengthy commands, output and reproducibility material after the conclusions or in an authorized linked record.
+
+## Review each artifact before handoff
+
+Review every artifact you create or materially update for both content and presentation. Check claims, decisions, status and evidence against their authoritative sources. Read an issue or PR from its own reader's perspective and verify that it contains enough context to do the work or review the change. For saved artifacts, read back the published result and inspect the actual reader view where supported. Check headings, lists, tables, links and code formatting that matter to the handoff. For diagrams, compare saved and intended source, open the preview or linked rendering, and inspect it for semantic accuracy. Fix defects within scope and recheck. If any part cannot be verified, name that limitation and identify which handoff claim remains unverified.
 
 ## Quality gates, without phase-gate theatre
 
