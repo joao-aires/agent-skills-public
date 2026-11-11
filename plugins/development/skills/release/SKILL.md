@@ -38,4 +38,4 @@ Establish what success will look like in the target and how a failed rollout wil
 2. Verify the served revision, critical journeys and async/cache paths. A successful job alone does not establish customer success.
 3. Report prepared, locally checked, released, deployed and target-verified states separately.
 
-Record prepared, released, deployed and target-verified states separately in ECR section 6 with actual artifact/target evidence when authorized. A generic release request does not automatically authorize merging, production deployment or data restoration.
+Record prepared, released, deployed and target-verified states separately in the change record with actual artifact/target evidence when authorized. A generic release request does not automatically authorize merging, production deployment or data restoration.

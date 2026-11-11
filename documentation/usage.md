@@ -22,7 +22,7 @@ The [installation guide](installation.md#load-them-in-your-client) links the cli
 | Rough idea to working software | `develop` | Clarification, design, implementation, tests and review |
 | Starting or adopting a project | `setup` | Useful foundations, context and working commands |
 | Requirements need definition | `refine` | Functional and relevant quality constraints, observable acceptance or concrete questions; requirements-engineering supports substantial analysis |
-| Scope agreed; sequencing needed | `plan` | Bounded steps and verification |
+| Scope agreed and only a breakdown is requested | Ask for implementation preparation | Bounded steps and verification |
 | Architecture, UX or contracts undecided | `design` | System/platform decisions and interaction contracts before implementation |
 | Defined work ready to build | `implement` | Implemented and verified change |
 | Need evidence of behavior | `test` | Checks, results and coverage gaps |

@@ -249,7 +249,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 25 independent packages and 122 skills: 84 local and 38 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 25 independent packages and 121 skills: 83 local and 38 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
 
 A plugin represents a useful installation choice. Workflow, application discipline and supporting capability describe its purpose; generic versus technical describes its applicability. These groups do not impose an execution order or dependencies. Installing a technical package makes expertise available without accepting its technology for a project. Keep accepted choices, select matching guidance from actual inventory and retain useful outcomes when optional specialists are absent.
 
@@ -260,7 +260,7 @@ The collection has 13 generic capability packages and 12 optional technical pack
 | Plugin | Applicability | Skills | Responsibility |
 | --- | --- | --- | --- |
 | `strategy` | Generic | 4 | Business direction, product priorities and evidence-based feedback. |
-| `development` | Generic | 43 | SDLC engagements, project foundations, contribution flow and verification; usable without stack packages. |
+| `development` | Generic | 42 | SDLC engagements, project foundations, contribution flow and verification; usable without stack packages. |
 | `security` | Generic | 2 | Application authorization, privacy boundaries and secure feature implementation. |
 | `operations` | Generic | 12 | Service reliability, signals, incidents, recovery, capacity and security upkeep. |
 | `frontend-development` | Generic | 3 | Integrated interface design, UX writing and usability research across web, desktop and mobile. |
@@ -322,7 +322,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 122 skills and their current owners</summary>
+<summary>All 121 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -353,7 +353,6 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [improve](../../plugins/development/skills/improve/SKILL.md) | Local | `development` |
 | [improve-codebase-architecture](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/improve-codebase-architecture) | Upstream | `development` |
 | [journey-testing](../../plugins/development/skills/journey-testing/SKILL.md) | Local | `development` |
-| [plan](../../plugins/development/skills/plan/SKILL.md) | Local | `development` |
 | [project-conventions](../../plugins/development/skills/project-conventions/SKILL.md) | Local | `development` |
 | [property-based-testing](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/property-based-testing/skills/property-based-testing) | Upstream | `development` |
 | [prototype](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/prototype) | Upstream | `development` |
@@ -461,7 +460,7 @@ Figma remains optional tooling declared by frontend-development; the React techn
 
 ### Verification coverage
 
-The assignment covers 84 local skills and 38 distinct acquired skills exactly once, with no omissions or duplicate owners.
+The assignment covers 83 local skills and 38 distinct acquired skills exactly once, with no omissions or duplicate owners.
 
 All packages build together with `--all` and independently with explicit selection. Package checks verify inventories, local-resource parity, notices, required framing, and transitive owned Markdown links staying inside their bundle. CI also checks the default development-only build. These checks do not establish agent behavior; behavioral evaluations remain deferred.
 

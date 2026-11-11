@@ -1,168 +1,169 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1095" viewBox="0 0 1600 1095" role="img" aria-labelledby="title description">
-<title id="title">SDLC phases and their direct engineering artifact handoffs</title>
-<desc id="description">Seven SDLC phases contribute to one Engineering Change Record. Issues and pull requests project information for implementers and reviewers. Current architecture stays with the application.</desc>
-<defs>
-<marker id="arrow" viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L7 4 L1 7 Z" fill="#6086a9"/></marker>
-<marker id="greenArrow" viewBox="0 0 8 8" refX="6.5" refY="4" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1 L7 4 L1 7 Z" fill="#318a79"/></marker>
-</defs>
-<rect width="1600" height="1095" fill="#f8fafc"/>
-<g font-family="Arial, Helvetica, sans-serif">
-<text x="54" y="52" font-size="30" fill="#142c47" font-weight="700" >From SDLC phase to engineering artifact</text>
-<text x="54" y="82" font-size="15" fill="#536e8b"  >Each phase updates a specific part of one evolving change record — without duplicating canonical application knowledge.</text>
-<rect x="54" y="105" width="730" height="67" rx="12" fill="#f2eefb" stroke="#dcd4ee" stroke-width="1.4" />
-<text x="76" y="132" font-size="14.5" fill="#614d90" font-weight="700" >PRODUCT DIRECTION</text>
-<text x="76" y="154" font-size="14.3" fill="#655a7b"  >Problem · value · PRD · priorities · desired outcome</text>
-<rect x="800" y="105" width="742" height="67" rx="12" fill="#edf3f9" stroke="#d1dfec" stroke-width="1.4" />
-<text x="822" y="132" font-size="14.5" fill="#34638a" font-weight="700" >SELECTIVE ENTRY POINTS</text>
-<text x="822" y="154" font-size="14.3" fill="#4b6c85"  >Start where needed; develop can carry the whole engagement.</text>
-<path d="M1544 285 H1572 V204 H154 V233" fill="none" stroke="#6687a5" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="592" y="184" width="439" height="29" rx="5" fill="#f8fafc" stroke="#f8fafc" stroke-width="1.4" />
-<text x="811" y="204" font-size="14" fill="#51708a" font-weight="700" text-anchor="middle">Maintenance learning can reopen requirements</text>
-<text x="54" y="220" font-size="14" fill="#406580" font-weight="700" >SDLC PHASES</text>
-<path d="M251 299 H265" fill="none" stroke="#6086a9" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="54" y="241" width="197" height="120" rx="12" fill="#ffffff" stroke="#b5c7d9" stroke-width="1.4" />
-<circle cx="76" cy="263" r="13" fill="#2c537a"/>
-<text x="76" y="268" font-size="13" fill="#fff" font-weight="700" text-anchor="middle">1</text>
-<text x="152.5" y="296" font-size="15.9" fill="#18334f" font-weight="700" text-anchor="middle">Project planning</text>
-<text x="152.5" y="330" font-size="12.4" fill="#516d85"  text-anchor="middle">Outcome · feasibility</text>
-<text x="152.5" y="349" font-size="12.1" fill="#317e70" font-weight="700" text-anchor="middle">product-management</text>
-<path d="M464 299 H478" fill="none" stroke="#6086a9" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="267" y="241" width="197" height="120" rx="12" fill="#ffffff" stroke="#b5c7d9" stroke-width="1.4" />
-<circle cx="289" cy="263" r="13" fill="#2c537a"/>
-<text x="289" y="268" font-size="13" fill="#fff" font-weight="700" text-anchor="middle">2</text>
-<text x="365.5" y="296" font-size="15.9" fill="#18334f" font-weight="700" text-anchor="middle">Requirements analysis</text>
-<text x="365.5" y="330" font-size="12.4" fill="#516d85"  text-anchor="middle">Actors · acceptance</text>
-<text x="365.5" y="349" font-size="12.1" fill="#317e70" font-weight="700" text-anchor="middle">refine</text>
-<path d="M677 299 H691" fill="none" stroke="#6086a9" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="480" y="241" width="197" height="120" rx="12" fill="#ffffff" stroke="#b5c7d9" stroke-width="1.4" />
-<circle cx="502" cy="263" r="13" fill="#2c537a"/>
-<text x="502" y="268" font-size="13" fill="#fff" font-weight="700" text-anchor="middle">3</text>
-<text x="578.5" y="286" font-size="15.7" fill="#18334f" font-weight="700" text-anchor="middle"></text>
-<text x="578.5" y="305" font-size="15.7" fill="#18334f" font-weight="700" text-anchor="middle">Design</text>
-<text x="578.5" y="330" font-size="12.4" fill="#516d85"  text-anchor="middle">C4 · sequences</text>
-<text x="578.5" y="349" font-size="12.1" fill="#317e70" font-weight="700" text-anchor="middle">design</text>
-<path d="M890 299 H904" fill="none" stroke="#6086a9" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="693" y="241" width="197" height="120" rx="12" fill="#ffffff" stroke="#b5c7d9" stroke-width="1.4" />
-<circle cx="715" cy="263" r="13" fill="#2c537a"/>
-<text x="715" y="268" font-size="13" fill="#fff" font-weight="700" text-anchor="middle">4</text>
-<text x="791.5" y="296" font-size="15.9" fill="#18334f" font-weight="700" text-anchor="middle">Implementation</text>
-<text x="791.5" y="330" font-size="12.4" fill="#516d85"  text-anchor="middle">Breakdown · code · checks</text>
-<text x="791.5" y="349" font-size="12.1" fill="#317e70" font-weight="700" text-anchor="middle">implement · plan if useful</text>
-<path d="M1103 299 H1117" fill="none" stroke="#6086a9" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="906" y="241" width="197" height="120" rx="12" fill="#ffffff" stroke="#b5c7d9" stroke-width="1.4" />
-<circle cx="928" cy="263" r="13" fill="#2c537a"/>
-<text x="928" y="268" font-size="13" fill="#fff" font-weight="700" text-anchor="middle">5</text>
-<text x="1004.5" y="296" font-size="15.9" fill="#18334f" font-weight="700" text-anchor="middle">Testing</text>
-<text x="1004.5" y="330" font-size="12.4" fill="#516d85"  text-anchor="middle">Tests · review evidence</text>
-<text x="1004.5" y="349" font-size="12.1" fill="#317e70" font-weight="700" text-anchor="middle">test / review</text>
-<path d="M1316 299 H1330" fill="none" stroke="#6086a9" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="1119" y="241" width="197" height="120" rx="12" fill="#ffffff" stroke="#b5c7d9" stroke-width="1.4" />
-<circle cx="1141" cy="263" r="13" fill="#2c537a"/>
-<text x="1141" y="268" font-size="13" fill="#fff" font-weight="700" text-anchor="middle">6</text>
-<text x="1217.5" y="296" font-size="15.9" fill="#18334f" font-weight="700" text-anchor="middle">Deployment</text>
-<text x="1217.5" y="330" font-size="12.4" fill="#516d85"  text-anchor="middle">Rollout · recovery</text>
-<text x="1217.5" y="349" font-size="12.1" fill="#317e70" font-weight="700" text-anchor="middle">release</text>
-<rect x="1332" y="241" width="197" height="120" rx="12" fill="#ffffff" stroke="#b5c7d9" stroke-width="1.4" />
-<circle cx="1354" cy="263" r="13" fill="#2c537a"/>
-<text x="1354" y="268" font-size="13" fill="#fff" font-weight="700" text-anchor="middle">7</text>
-<text x="1430.5" y="296" font-size="15.9" fill="#18334f" font-weight="700" text-anchor="middle">Maintenance</text>
-<text x="1430.5" y="330" font-size="12.4" fill="#516d85"  text-anchor="middle">Operate · learn</text>
-<text x="1430.5" y="349" font-size="12.1" fill="#317e70" font-weight="700" text-anchor="middle">operations</text>
-<rect x="43" y="419" width="1514" height="364" rx="17" fill="#e9f2fb" stroke="#a4bfdc" stroke-width="1.4" />
-<path d="M152.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="59.5" y="385" width="186" height="28" rx="14" fill="#f0f6fb" stroke="#c5dbea" stroke-width="1.3"/>
-<text x="152.5" y="403.5" font-size="12.3" fill="#315e83" font-weight="700" text-anchor="middle">Scope and feasibility</text>
-<rect x="54" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
-<rect x="66" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="152.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 1–2</text>
-<text x="152.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Intent and scope</text>
-<text x="152.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">&amp; decision to proceed</text>
-<text x="152.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Outcome · feasibility</text>
-<text x="152.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">brief or PRD link</text>
-<path d="M365.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="272.5" y="385" width="186" height="28" rx="14" fill="#f0f6fb" stroke="#c5dbea" stroke-width="1.3"/>
-<text x="365.5" y="403.5" font-size="12.3" fill="#315e83" font-weight="700" text-anchor="middle">Requirements quality</text>
-<rect x="267" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
-<rect x="279" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="365.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 2–3</text>
-<text x="365.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Requirements</text>
-<text x="365.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">&amp; acceptance</text>
-<text x="365.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Behavior · constraints</text>
-<text x="365.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">observable success</text>
-<path d="M578.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="485.5" y="385" width="186" height="28" rx="14" fill="#f0f6fb" stroke="#c5dbea" stroke-width="1.3"/>
-<text x="578.5" y="403.5" font-size="12.3" fill="#315e83" font-weight="700" text-anchor="middle">Design consistency</text>
-<rect x="480" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
-<rect x="492" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="578.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 4</text>
-<text x="578.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Proposed solution</text>
-<text x="578.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">&amp; target diagrams</text>
-<text x="578.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Views · alternatives</text>
-<text x="578.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">contracts · decisions</text>
-<path d="M791.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="698.5" y="385" width="186" height="28" rx="14" fill="#edf8f4" stroke="#b8dbcf" stroke-width="1.3"/>
-<text x="791.5" y="403.5" font-size="12.1" fill="#2c7564" font-weight="700" text-anchor="middle">Implementation alignment</text>
-<rect x="693" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
-<rect x="705" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="791.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 5–7</text>
-<text x="791.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Tasks and checks</text>
-<text x="791.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">&amp; actual changes</text>
-<text x="791.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Dependencies · diff</text>
-<text x="791.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">decision deviations</text>
-<path d="M1004.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="911.5" y="385" width="186" height="28" rx="14" fill="#edf8f4" stroke="#b8dbcf" stroke-width="1.3"/>
-<text x="1004.5" y="403.5" font-size="12.3" fill="#2c7564" font-weight="700" text-anchor="middle">Convergence evidence</text>
-<rect x="906" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
-<rect x="918" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="1004.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 6</text>
-<text x="1004.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Verification</text>
-<text x="1004.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">&amp; review evidence</text>
-<text x="1004.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Observed checks · gaps</text>
-<text x="1004.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">acceptance coverage</text>
-<path d="M1217.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="1124.5" y="385" width="186" height="28" rx="14" fill="#fff6ed" stroke="#ecd6b8" stroke-width="1.3"/>
-<text x="1217.5" y="403.5" font-size="12.3" fill="#8a603b" font-weight="700" text-anchor="middle">Release readiness</text>
-<rect x="1119" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
-<rect x="1131" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="1217.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 6</text>
-<text x="1217.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Release readiness</text>
-<text x="1217.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">&amp; rollout evidence</text>
-<text x="1217.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Artifact · target · checks</text>
-<text x="1217.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">promotion · recovery</text>
-<path d="M1430.5 363 V464" fill="none" stroke="#5e90b5" stroke-width="2.7" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<rect x="1337.5" y="385" width="186" height="28" rx="14" fill="#f0f5f8" stroke="#d1dde6" stroke-width="1.3"/>
-<text x="1430.5" y="403.5" font-size="12.3" fill="#4c6f88" font-weight="700" text-anchor="middle">Operational feedback</text>
-<rect x="1332" y="474" width="197" height="171" rx="12" fill="#ffffff" stroke="#b8cee2" stroke-width="1.4" />
-<rect x="1344" y="488" width="173" height="25" rx="7" fill="#ebf3fb" stroke="#ebf3fb" stroke-width="1.4" />
-<text x="1430.5" y="506" font-size="12.7" fill="#366b92" font-weight="700" text-anchor="middle">ECR 2 &amp; 7</text>
-<text x="1430.5" y="538" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">Operational learning</text>
-<text x="1430.5" y="559" font-size="14.3" fill="#183b58" font-weight="700" text-anchor="middle">&amp; follow-ups</text>
-<text x="1430.5" y="593" font-size="12.3" fill="#607b91"  text-anchor="middle">Incidents · signals</text>
-<text x="1430.5" y="612" font-size="12.3" fill="#607b91"  text-anchor="middle">new decisions / risks</text>
-<text x="71" y="687" font-size="21.5" fill="#143b5e" font-weight="700" >ENGINEERING CHANGE RECORD (ECR)</text>
-<text x="71" y="711" font-size="14.5" fill="#5c7994"  >One authoritative document or linked set · stored outside the application repository</text>
-<text x="555" y="683" font-size="13.1" fill="#406580" font-weight="600">Assurance: shape → consistency → convergence</text>
-<rect x="1027" y="661" width="502" height="34" rx="8" fill="#ffffff" stroke="#bad0e4" stroke-width="1.4" />
-<text x="1278" y="684" font-size="13.3" fill="#38688c" font-weight="700" text-anchor="middle">WORKSPACE  ·  filesystem / Git / document service</text>
-<rect x="71" y="730" width="1458" height="35" rx="9" fill="#dfeefa" stroke="#bfd7ec" stroke-width="1.4" />
-<text x="800" y="753" font-size="13.6" fill="#355f82" font-weight="700" text-anchor="middle">All phases update: ECR 1 (overview and status) + ECR 7 (decisions and references); pending work stays pending</text>
-<text x="54" y="815" font-size="14.5" fill="#436986" font-weight="700" >DOWNSTREAM AUTHORITIES &amp; VIEWS</text>
-<path d="M306 849 V785" stroke="#318a79" stroke-width="2.5" fill="none" marker-end="url(#greenArrow)"/>
-<path d="M732 785 V849" stroke="#318a79" stroke-width="2.5" fill="none" marker-end="url(#greenArrow)"/>
-<path d="M1305 783 V849" fill="none" stroke="#6086a9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" marker-end="url(#arrow)"/>
-<text x="325" y="827" font-size="12.4" fill="#367c70" font-weight="700" >Read baseline</text>
-<text x="749" y="827" font-size="12.4" fill="#367c70" font-weight="700" >Reconcile actual changes</text>
-<text x="1322" y="827" font-size="12.4" fill="#436986" font-weight="700" >Project to audience</text>
-<rect x="54" y="856" width="950" height="163" rx="14" fill="#e9f6ee" stroke="#abd3be" stroke-width="1.4" />
-<text x="77" y="888" font-size="18" fill="#266452" font-weight="700" >APPLICATION REPOSITORY  ·  implemented knowledge</text>
-<text x="77" y="922" font-size="15" fill="#3c7060" font-weight="700" >Current C4 context/container and critical sequences</text>
-<text x="77" y="952" font-size="14.5" fill="#4d7869"  >Code · tests · accepted ADRs · contracts · runbooks</text>
-<text x="77" y="985" font-size="14" fill="#4d7869"  >Only evidenced implementation updates canonical current-state views.</text>
-<rect x="1022" y="856" width="520" height="163" rx="14" fill="#fff6ed" stroke="#ead0ad" stroke-width="1.4" />
-<text x="1044" y="888" font-size="18" fill="#8d6634" font-weight="700" >OPTIONAL ISSUE &amp; PR VIEWS</text>
-<text x="1044" y="922" font-size="14.4" fill="#836746"  >Issue  ·  intent, scope, acceptance, ownership</text>
-<text x="1044" y="952" font-size="14.4" fill="#836746"  >PR  ·  actual change, checks, deviation, risks</text>
-<text x="1044" y="985" font-size="14" fill="#957953"  >Summaries link to ECR; they never replace it.</text>
-<rect x="54" y="1041" width="1488" height="32" rx="9" fill="#ecf2f8" stroke="#ecf2f8" stroke-width="1.4" />
-<text x="800" y="1063" font-size="14" fill="#536e87" font-weight="700" text-anchor="middle">Readiness: ready / limited / blocked — only consequential gaps block dependent work; no mandatory stage gates.</text>
-</g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="1540" height="753" viewBox="0 0 1540 753" role="img" aria-labelledby="title desc" font-family="system-ui, sans-serif">
+<title id="title">Engineering artifacts and roles across the SDLC</title>
+<desc id="desc">Seven phase columns align optional handoff artifacts, one continuous ECR and six overlapping role rows. Issues and PRs are audience views. Project evidence can reopen earlier decisions.</desc>
+<rect x="0" y="0" width="1540" height="753" rx="0" fill="#f5f8fc" stroke="none"/>
+<text x="28" y="47" font-size="30" fill="#172c49" font-weight="700" text-anchor="start">Engineering artifacts and roles across the SDLC</text>
+<text x="28" y="74" font-size="16" fill="#475a71" font-weight="400" text-anchor="start">One change record follows the work. Each phase contributes an outcome, a decision or a link to its evidence.</text>
+<defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#7186a0"/></marker></defs>
+<path d="M1495 125V109H225V125" fill="none" stroke="#7186a0" stroke-width="1.5" marker-end="url(#arrow)"/>
+<rect x="655" y="97" width="415" height="23" rx="0" fill="#f5f8fc" stroke="none"/>
+<text x="862" y="114" font-size="13" fill="#475a71" font-weight="600" text-anchor="middle">Test and operational evidence can reopen earlier decisions</text>
+<rect x="20" y="294" width="1500" height="79" rx="10" fill="#e7eff9" stroke="#b8cadf"/>
+<text x="32" y="165" font-size="17" fill="#243d5d" font-weight="700" text-anchor="start">Handoff artifacts</text>
+<text x="32" y="187" font-size="13" fill="#52657d" font-weight="400" text-anchor="start">Keep or link as needed</text>
+<text x="32" y="251" font-size="16" fill="#243d5d" font-weight="700" text-anchor="start">SDLC phase</text>
+<text x="32" y="326" font-size="17" fill="#243d5d" font-weight="700" text-anchor="start">One evolving ECR</text>
+<text x="32" y="348" font-size="13" fill="#52657d" font-weight="400" text-anchor="start">Contribution by phase</text>
+<text x="32" y="404" font-size="16" fill="#243d5d" font-weight="700" text-anchor="start">Typical contributors</text>
+<rect x="223" y="136" width="176" height="66" rx="8" fill="#fff" stroke="#d3deec"/>
+<text x="311" y="161" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">Opportunity brief</text>
+<text x="311" y="182" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">when useful</text>
+<rect x="223" y="221" width="176" height="56" rx="8" fill="#275080" stroke="none"/>
+<text x="311" y="255" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">1. Project planning</text>
+<path d="M311 277V290" stroke="#7186a0" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="311" y="325" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">Outcome, scope</text>
+<text x="311" y="346" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">and feasibility</text>
+<rect x="407" y="136" width="176" height="66" rx="8" fill="#fff" stroke="#d3deec"/>
+<text x="495" y="161" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">PRD or requirements</text>
+<text x="495" y="182" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">specification</text>
+<rect x="407" y="221" width="176" height="56" rx="8" fill="#255e69" stroke="none"/>
+<text x="495" y="255" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">2. Requirements</text>
+<path d="M495 277V290" stroke="#7186a0" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="495" y="325" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">Agreed behavior</text>
+<text x="495" y="346" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">and acceptance</text>
+<path d="M403 306V361" stroke="#b8cadf" stroke-width="1"/>
+<rect x="591" y="136" width="176" height="66" rx="8" fill="#fff" stroke="#d3deec"/>
+<text x="679" y="161" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">RFC, C4, API spec</text>
+<text x="679" y="182" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">or prototype</text>
+<rect x="591" y="221" width="176" height="56" rx="8" fill="#5b496f" stroke="none"/>
+<text x="679" y="255" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">3. Design</text>
+<path d="M679 277V290" stroke="#7186a0" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="679" y="325" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">Proposed solution</text>
+<text x="679" y="346" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">and decisions</text>
+<path d="M587 306V361" stroke="#b8cadf" stroke-width="1"/>
+<rect x="775" y="136" width="176" height="66" rx="8" fill="#fff" stroke="#d3deec"/>
+<text x="863" y="161" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">Source and test changes</text>
+<text x="863" y="182" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">Issue and PR views</text>
+<rect x="775" y="221" width="176" height="56" rx="8" fill="#7c4832" stroke="none"/>
+<text x="863" y="255" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">4. Implementation</text>
+<path d="M863 277V290" stroke="#7186a0" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="863" y="325" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">Tasks, planned checks</text>
+<text x="863" y="346" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">and actual changes</text>
+<path d="M771 306V361" stroke="#b8cadf" stroke-width="1"/>
+<rect x="959" y="136" width="176" height="66" rx="8" fill="#fff" stroke="#d3deec"/>
+<text x="1047" y="161" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">Test run or checked</text>
+<text x="1047" y="182" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">build evidence</text>
+<rect x="959" y="221" width="176" height="56" rx="8" fill="#3b604a" stroke="none"/>
+<text x="1047" y="255" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">5. Testing</text>
+<path d="M1047 277V290" stroke="#7186a0" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1047" y="325" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">Acceptance coverage</text>
+<text x="1047" y="346" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">and remaining gaps</text>
+<path d="M955 306V361" stroke="#b8cadf" stroke-width="1"/>
+<rect x="1143" y="136" width="176" height="66" rx="8" fill="#fff" stroke="#d3deec"/>
+<text x="1231" y="161" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">Release or rollout</text>
+<text x="1231" y="182" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">record</text>
+<rect x="1143" y="221" width="176" height="56" rx="8" fill="#5a4b76" stroke="none"/>
+<text x="1231" y="255" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">6. Deployment</text>
+<path d="M1231 277V290" stroke="#7186a0" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1231" y="325" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">Target, rollout</text>
+<text x="1231" y="346" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">and observed result</text>
+<path d="M1139 306V361" stroke="#b8cadf" stroke-width="1"/>
+<rect x="1327" y="136" width="176" height="66" rx="8" fill="#fff" stroke="#d3deec"/>
+<text x="1415" y="161" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">Incident review or</text>
+<text x="1415" y="182" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">experiment result</text>
+<rect x="1327" y="221" width="176" height="56" rx="8" fill="#514d69" stroke="none"/>
+<text x="1415" y="255" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">7. Maintenance</text>
+<path d="M1415 277V290" stroke="#7186a0" stroke-width="1.5" marker-end="url(#arrow)"/>
+<text x="1415" y="325" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">Learning and</text>
+<text x="1415" y="346" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">follow-up</text>
+<path d="M1323 306V361" stroke="#b8cadf" stroke-width="1"/>
+<rect x="20" y="416" width="1500" height="31" rx="5" fill="#fff" stroke="none"/>
+<text x="32" y="437" font-size="14" fill="#243d5d" font-weight="650" text-anchor="start">Product manager</text>
+<rect x="223" y="419" width="176" height="25" rx="5" fill="#cfdeef" stroke="none"/>
+<text x="311" y="436" font-size="13" fill="#173f67" font-weight="700" text-anchor="middle">Lead</text>
+<rect x="407" y="419" width="176" height="25" rx="5" fill="#cfdeef" stroke="none"/>
+<text x="495" y="436" font-size="13" fill="#173f67" font-weight="700" text-anchor="middle">Lead</text>
+<rect x="591" y="419" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="679" y="436" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Review</text>
+<rect x="959" y="419" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="1047" y="436" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Review</text>
+<rect x="1143" y="419" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="1231" y="436" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Support</text>
+<rect x="1327" y="419" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="1415" y="436" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Outcomes</text>
+<rect x="20" y="451" width="1500" height="31" rx="5" fill="#f0f4f9" stroke="none"/>
+<text x="32" y="472" font-size="14" fill="#243d5d" font-weight="650" text-anchor="start">UI / UX designer</text>
+<rect x="223" y="454" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="311" y="471" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Discovery</text>
+<rect x="407" y="454" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="495" y="471" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Support</text>
+<rect x="591" y="454" width="176" height="25" rx="5" fill="#cfdeef" stroke="none"/>
+<text x="679" y="471" font-size="13" fill="#173f67" font-weight="700" text-anchor="middle">Lead</text>
+<rect x="775" y="454" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="863" y="471" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Design QA</text>
+<rect x="959" y="454" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="1047" y="471" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Review</text>
+<rect x="20" y="486" width="1500" height="31" rx="5" fill="#fff" stroke="none"/>
+<text x="32" y="507" font-size="14" fill="#243d5d" font-weight="650" text-anchor="start">System architect</text>
+<rect x="223" y="489" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="311" y="506" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Feasibility</text>
+<rect x="407" y="489" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="495" y="506" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Support</text>
+<rect x="591" y="489" width="176" height="25" rx="5" fill="#cfdeef" stroke="none"/>
+<text x="679" y="506" font-size="13" fill="#173f67" font-weight="700" text-anchor="middle">Lead</text>
+<rect x="775" y="489" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="863" y="506" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Review</text>
+<rect x="959" y="489" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="1047" y="506" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Support</text>
+<rect x="20" y="521" width="1500" height="31" rx="5" fill="#f0f4f9" stroke="none"/>
+<text x="32" y="542" font-size="14" fill="#243d5d" font-weight="650" text-anchor="start">Software engineer</text>
+<rect x="223" y="524" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="311" y="541" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Feasibility</text>
+<rect x="407" y="524" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="495" y="541" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Support</text>
+<rect x="591" y="524" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="679" y="541" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Design review</text>
+<rect x="775" y="524" width="176" height="25" rx="5" fill="#cfdeef" stroke="none"/>
+<text x="863" y="541" font-size="13" fill="#173f67" font-weight="700" text-anchor="middle">Lead</text>
+<rect x="959" y="524" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="1047" y="541" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Verify</text>
+<rect x="1143" y="524" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="1231" y="541" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Support</text>
+<rect x="1327" y="524" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="1415" y="541" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Maintain</text>
+<rect x="20" y="556" width="1500" height="31" rx="5" fill="#fff" stroke="none"/>
+<text x="32" y="577" font-size="14" fill="#243d5d" font-weight="650" text-anchor="start">QA engineer</text>
+<rect x="407" y="559" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="495" y="576" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Acceptance</text>
+<rect x="591" y="559" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="679" y="576" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Testability</text>
+<rect x="775" y="559" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="863" y="576" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Test design</text>
+<rect x="959" y="559" width="176" height="25" rx="5" fill="#cfdeef" stroke="none"/>
+<text x="1047" y="576" font-size="13" fill="#173f67" font-weight="700" text-anchor="middle">Lead</text>
+<rect x="1143" y="559" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="1231" y="576" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Smoke checks</text>
+<rect x="20" y="591" width="1500" height="31" rx="5" fill="#f0f4f9" stroke="none"/>
+<text x="32" y="612" font-size="14" fill="#243d5d" font-weight="650" text-anchor="start">SRE / operations</text>
+<rect x="223" y="594" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="311" y="611" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Risk input</text>
+<rect x="407" y="594" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="495" y="611" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">SLO input</text>
+<rect x="591" y="594" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="679" y="611" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Ops review</text>
+<rect x="775" y="594" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="863" y="611" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Support</text>
+<rect x="959" y="594" width="176" height="25" rx="5" fill="#e8edf4" stroke="none"/>
+<text x="1047" y="611" font-size="13" fill="#405671" font-weight="500" text-anchor="middle">Reliability</text>
+<rect x="1143" y="594" width="176" height="25" rx="5" fill="#cfdeef" stroke="none"/>
+<text x="1231" y="611" font-size="13" fill="#173f67" font-weight="700" text-anchor="middle">Lead / support</text>
+<rect x="1327" y="594" width="176" height="25" rx="5" fill="#cfdeef" stroke="none"/>
+<text x="1415" y="611" font-size="13" fill="#173f67" font-weight="700" text-anchor="middle">Lead / support</text>
+<rect x="20" y="643" width="730" height="54" rx="8" fill="#fff7eb" stroke="#dfcaa9"/>
+<rect x="768" y="643" width="752" height="54" rx="8" fill="#edf7f2" stroke="#c4dcd1"/>
+<text x="34" y="666" font-size="15" fill="#664b29" font-weight="700" text-anchor="start">Issue view · Intended work for an implementer</text>
+<text x="34" y="685" font-size="13" fill="#594c3c" font-weight="400" text-anchor="start">Task, scope and observable acceptance</text>
+<text x="783" y="666" font-size="15" fill="#315648" font-weight="700" text-anchor="start">PR view · Actual change for a reviewer</text>
+<text x="783" y="685" font-size="13" fill="#425c53" font-weight="400" text-anchor="start">Reasoning, diff, tests and review focus</text>
+<text x="28" y="728" font-size="14" fill="#475a71" font-weight="400" text-anchor="start">Roles overlap. People own consequential decisions. Agents draft, implement and verify within the agreed scope.</text>
+</svg>

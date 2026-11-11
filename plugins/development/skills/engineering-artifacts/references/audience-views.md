@@ -4,14 +4,12 @@ An ECR owns the evolving engineering account; an issue owns the **intended work 
 
 ## Issue / work item — product and implementer audience
 
-A bounded issue should normally include:
-1. **Why/outcome:** the affected actor and value/defect.
-2. **Scope/non-goals:** one deliverable, protected behavior and limitations.
-3. **Acceptance:** observable success and important denial/failure outcomes, derived from the ECR or authoritative product requirement.
-4. **Ownership/coordination:** priority, responsibility, dependencies and blocker/decision status when known.
-5. **References:** ECR, parent PRD, accepted design and target diagrams when applicable, implementation PR(s).
+Write a task title that names the intended outcome. Lead with the problem, then give the work, scope boundaries and observable acceptance. Include ownership, dependencies and blockers when they affect pickup. Use descriptive links to the ECR or design for details. Format commands and code identifiers as inline code.
 
-It may be created before design. State what someone can do now and leave unknown ownership or dependencies explicit. At closure, keep the original intent and applicable acceptance criteria and add the actual result, evidence and remaining work. Read the issue on its own before handoff and check whether an implementer can tell what to do, what is outside scope and how to verify success. For a project/initiative, keep shared product/design documents at the parent and per-slice work in child issues. Filesystem-only workflows need no issue.
+- **Draft.** Use this view when someone needs to pick up or coordinate a bounded piece of work. Requirements analysis can produce an issue for an agreed outcome. Implementation preparation can identify independently actionable slices when coordination warrants them.
+- **Publish.** Locate the existing issue through [engineering workspace](../../engineering-workspace/SKILL.md). Reuse it when its scope matches. Use the configured tracker to create or update an issue within authorized scope. If publishing is outside scope, return the draft when useful.
+- **Review.** Read the saved issue on its own. Check that the reader can identify what to do, what is outside scope and how to verify success. Apply the [content and presentation review](../SKILL.md#review-each-artifact-before-handoff) and retain the verified link.
+- **Close.** Preserve intent and applicable acceptance. Add the actual result, evidence and remaining work.
 
 ## PR — reviewer audience
 

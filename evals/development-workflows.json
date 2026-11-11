@@ -1184,7 +1184,7 @@
     },
     {
       "id": "ecr-unauthorized-root-fallback",
-      "prompt": "Use plan in an UNATTENDED run on an agreed feature. The application source is readable but no ECR workspace has been configured or authorized for writes, no previous inline-only decision is known, and there is no interactive reply channel. No connected tracker exists. Produce the useful plan without changing any files, clearly report the unanswered workspace-selection decision, and show which ECR sections are unpersisted.",
+      "prompt": "Prepare an implementation breakdown in an UNATTENDED run on an agreed feature. The application source is readable but no ECR workspace has been configured or authorized for writes, no previous inline-only decision is known, and there is no interactive reply channel. No connected tracker exists. Produce the useful plan without changing any files, clearly report the unanswered workspace-selection decision, and show which ECR sections are unpersisted.",
       "evaluator_setup": "Provide accepted requirements, architecture and proposed target sequence as read-only context. All candidate sibling paths lie outside allowed roots; no persistent document tool or user response channel exists.",
       "criteria": [
         "Does not ask for an unavailable interactive response, invent an ECR home, create arbitrary sibling paths, or choose a tracker by default.",
@@ -1328,7 +1328,7 @@
     },
     {
       "id": "ecr-assurance-plan-acceptance-coverage",
-      "prompt": "Use plan for an accepted multi-tenant sharing feature. Requirements include authorized read, unauthorized denial, revocation and legacy-client compatibility. The existing implementation plan includes only the positive share path. Assess whether planning is ready for implementation and update the plan in the authorized ECR.",
+      "prompt": "Prepare an implementation breakdown for an accepted multi-tenant sharing feature. Requirements include authorized read, unauthorized denial, revocation and legacy-client compatibility. The existing implementation plan includes only the positive share path. Assess whether planning is ready for implementation and update the plan in the authorized ECR.",
       "evaluator_setup": "Supply accepted requirements, architecture boundaries, accepted target design and a partial dependency-ordered plan. Include a realistic pending UX polish task that is explicitly nonblocking and a missing revocation/tenant-denial check that is blocking.",
       "criteria": [
         "Finds uncovered material denial, revocation and compatibility requirements by comparing the actual plan with accepted behavior, rather than counting headings.",
@@ -1471,7 +1471,7 @@
     },
     {
       "id": "ecr-inline-only-choice-no-repeat",
-      "prompt": "Use plan on a feature. The user already said 'No ECR files or external storage for this work. Return any engineering record inline only.' The project has no ECR home. Produce the bounded plan and structured record without creating files, asking the storage question again or blocking independent work.",
+      "prompt": "Prepare an implementation breakdown for a feature. The user already said 'No ECR files or external storage for this work. Return any engineering record inline only.' The project has no ECR home. Produce the bounded plan and structured record without creating files, asking the storage question again or blocking independent work.",
       "evaluator_setup": "Provide accepted requirements and design in the user conversation and read-only application sources, plus an explicit inline-only decision in current task context. There is no ECR service.",
       "criteria": [
         "Respects the explicit inline-only decision without re-asking about filesystem or provider storage.",
@@ -1875,7 +1875,7 @@
           "prompt": "Resume the same ECR, inspect accepted requirements and current C4/sequence at the supplied app revision, propose the needed target architecture/sequence and decisions, mark target as proposed, update the ECR. No code edits or issues."
         },
         {
-          "task": "plan",
+          "task": "implementation breakdown",
           "prompt": "Resume the same ECR and agreed design; write ordered increments, compatibility/recovery and verification implications without creating duplicate files or tickets."
         },
         {

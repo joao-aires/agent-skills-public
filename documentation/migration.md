@@ -86,3 +86,7 @@ Security/privacy design now belongs to the independently selected `security` pac
 Upstream skills are committed inside their owning plugin folders. The build command stays the same and uses those snapshots without fetching repositories; its old `--cache` option is removed. Snapshot acquisition and updates now use Agent Depot, with explicit artifact commits and destinations in `agent-depot.json` and file identities in `agent-depot.lock.json`. These replace `upstream.lock.json`. See [upstream maintenance](maintainers/upstreams.md) before changing a managed folder.
 
 Continue loading complete built bundles, since raw acquired skills do not yet contain the collection’s adaptations or generated notices. The legacy skills-only helper continues to expose authored skills only. Rebuild bundles when updating; avoid overlaying them onto edited client installations.
+
+## Implementation preparation
+
+Ask for an implementation breakdown when work should stop before edits. Implementation and end-to-end development use the same [preparation method](../plugins/development/skills/deliver-reliable-changes/references/implementation-preparation.md) when they need to order tasks and checks. Update saved prompts that select the former planning entry.

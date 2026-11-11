@@ -8,7 +8,7 @@ Use the [SDLC overview](../README.md#sdlc-coverage) to orient yourself and the [
 
 The lifecycle uses seven phases: **project planning → requirements analysis → design → implementation → testing → deployment → maintenance**. Enter where an outcome is missing and revisit earlier decisions when evidence changes them. A known bug can start with reproduction. A new initiative may need feasibility work before requirements. Product direction helps choose the outcome and priority, and feedback can reopen either.
 
-Every phase starts by checking the inputs, deciding what work is needed and identifying the evidence or decision the next person will need. Scale that preparation to the uncertainty. During implementation, break agreed requirements and design into deliverable tasks, dependencies and checks. The [plan skill](../plugins/development/skills/plan/SKILL.md) can produce that breakdown as a standalone deliverable when requested.
+Every phase starts by checking the inputs, deciding what work is needed and identifying the evidence or decision the next person will need. Scale that preparation to the uncertainty. During implementation, break agreed requirements and design into deliverable tasks, dependencies and checks. The [implementation preparation method](../plugins/development/skills/deliver-reliable-changes/references/implementation-preparation.md) supports requests that stop at a breakdown.
 
 | Part of the diagram | How it contributes |
 | --- | --- |
@@ -27,7 +27,7 @@ Green labels identify entry-point skills or directly requested activities; dashe
 | Business direction and product priority | `business-strategy`, `product-management` |
 | Engineering requirements and acceptance | [refine](../plugins/development/skills/refine/SKILL.md), supported by [requirements-engineering](../plugins/development/skills/requirements-engineering/SKILL.md) when substantive |
 | Architecture, user experience or interface contracts | `design`, with `system-design`, `interface-design` or `backend-design` expertise when applicable |
-| Agreed implementation needs dependency ordering | `plan` |
+| Agreed implementation needs dependency ordering | Request an implementation breakdown |
 | Build an already-defined change | `implement` |
 | Rough idea through implementation, tests and review | `develop` |
 | Behavior checks and source assessment | `test`, `review`; review also applies earlier |
@@ -42,20 +42,27 @@ Green labels identify entry-point skills or directly requested activities; dashe
 | --- | --- |
 | Company product request | Product direction establishes priority → `refine` defines behavior and quality constraints → `design` settles consequential solution choices → `implement` breaks down and builds the change, `test`, `review`, `release` as authorized |
 | Company refactor / rearchitecture | Inspect current behavior and maintenance pain → `refine` the preserved contracts, migration constraints and expected outcome → `design` alternatives and migration boundary → authorized implementation in compatible increments with rollback and checks |
-| Local agent-assisted feature or new app | Select `develop` for an authorized end-to-end slice; it establishes the missing decisions directly with relevant supporting expertise. Select `refine`, `design`, `plan` or `implement` individually when a bounded artifact or stopping point is desired |
+| Local agent-assisted feature or new app | Select `develop` for an authorized end-to-end slice; it establishes the missing decisions directly with relevant supporting expertise. Select `refine`, `design` or `implement` individually when a bounded artifact or stopping point is desired |
 | Known bug or narrow change | Reproduce/diagnose → implement and verify the affected behavior. No required planning or new specification ceremony |
 | Incident, recovery or operational drift | Start with the matching operations activity; follow causal evidence and actual operating policy. Turn confirmed learning into a requirement/design/improvement only when warranted |
 | Exploration, security review or architecture question | Request research, `harden`, `review`, design or specialist expertise; stop at the requested analysis rather than beginning implementation |
 
-A company's portfolio planning, roadmap prioritization or sprint scheduling is **not** the `plan` implementation skill. `plan` converts sufficiently accepted requirements/design into actionable increments, dependencies and tests. It can iterate when implementation discovers a new constraint. The end-to-end `develop` activity does not need to invoke each explicit-only task skill by name to accomplish those outcomes.
+Implementation preparation converts agreed requirements and design into actionable increments, dependencies and tests. It can iterate when implementation discovers a new constraint. The end-to-end `develop` activity does not need to invoke each explicit-only task skill by name to accomplish those outcomes.
 
 ## Standard engineering artifacts and workspace handoffs
 
 An Engineering Change Record (ECR) carries the outcome of each performed activity on a change. A standalone inquiry can finish with a research report in the chosen workspace. Use [engineering artifacts](../plugins/development/skills/engineering-artifacts/SKILL.md) for the content and evidence, and [engineering workspace](../plugins/development/skills/engineering-workspace/SKILL.md) for discovery and persistence. The application repository owns implemented architecture and operating documentation.
 
-![Seven phases contribute evidence to the shared ECR, alongside canonical application knowledge and issue and PR views](images/sdlc-artifact-flow.svg)
+![Seven phase columns align handoff artifacts, contributions to one ECR, and typical roles. Issue and PR views serve implementers and reviewers.](images/sdlc-artifact-flow.svg)
 
-The arrows show evidence a later activity depends on. Requirements, designs, plans, checked behavior and release claims need to agree at the relevant handoff. See the [worked examples](artifact-workflow.md) for how this looks to the reader and the [development workflow](../plugins/development/WORKFLOW.md) for activity selection.
+Read each column for the phase, its possible handoff artifacts, its contribution to the ECR and the roles involved. The feedback arrow shows where test and operational evidence can reopen earlier decisions.
+
+The phase view above shows who contributes and which documents the work may produce. Phase contributors author supporting documents, and the ECR captures their outcome or links the authoritative artifact. Issues and PR descriptions use that information to serve their own readers.
+
+The contribution view below follows the evidence into the ECR and shows how it relates to current application documentation and the issue and PR views.
+
+![Each phase contributes to a shared ECR, with checks at handoff and connections to application documentation, issues and PRs](images/sdlc-ecr-contributions.svg)
+ See the [worked examples](artifact-workflow.md) for how this looks to the reader and the [development workflow](../plugins/development/WORKFLOW.md) for activity selection.
 
 ## Different starting points
 
@@ -104,7 +111,7 @@ Use [design](../plugins/development/skills/design/SKILL.md) with [system-design]
 
 ### 4. Implementation
 
-Start by breaking agreed work into bounded increments and choosing the verification for each. Use [plan](../plugins/development/skills/plan/SKILL.md) when dependencies, migration, recovery or coordination warrant an explicit breakdown. Keep it in the ECR implementation strategy or link the existing plan.
+Start by breaking agreed work into bounded increments and choosing the verification for each. Use [implementation preparation](../plugins/development/skills/deliver-reliable-changes/references/implementation-preparation.md) when dependencies, migration, recovery or coordination warrant an explicit breakdown. Keep it in the ECR implementation strategy or link the existing plan.
 
 Start with the bundled upstream `implement` when explicitly selected, or use `develop` for the broader end-to-end engagement. Use [git-contributions](../plugins/development/skills/git-contributions/SKILL.md) for the objective worktree, plus matching frontend/backend/AI/database/native-client and operating expertise. Carry tests and affected documentation with the change.
 

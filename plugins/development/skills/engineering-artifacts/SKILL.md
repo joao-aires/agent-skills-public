@@ -27,7 +27,7 @@ Read [the ECR content contract](references/engineering-change-record.md) for sev
 - **Produce the phase outcome** in the standard ECR section(s) or an explicit linked supporting document. Even a narrow fix records the problem, change, checks and diagram-impact disposition; it may use compact prose, but missing sections must say *not applicable* or *pending*, not disappear.
 - **Check handoff readiness** using the assurance method and the **next actual consumer**, not a ceremonial phase gate. Assess structural shape when possible, then compare accepted requirements, proposed designs/diagrams, plan coverage and evidence. Report **ready**, **ready with limitations** or **blocked**, supported by precise contradictions, missing decisions and actual revisions. Correct contradictions within accepted constraints and recheck dependent artifacts; do not implement a behavior whose consequential premise is blocked.
 - **Persist through the [engineering workspace](../engineering-workspace/SKILL.md).** Follow its storage choice and access rules. Report the verified record location or the reason the outcome is unpersisted.
-- **Update related summaries** (issue or PR) only where configured and authorized, reconciling their statuses with the ECR. A PR is a reviewer view over the implementation, not a replacement specification.
+- **Prepare reader views.** Use the [issue and PR guidance](references/audience-views.md) for work that needs coordination or a diff that needs review. Reconcile material claims with the ECR and use the configured publishing capability within authorized scope.
 
 ## Present engineering outcomes
 

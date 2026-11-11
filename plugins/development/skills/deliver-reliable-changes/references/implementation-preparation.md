@@ -1,27 +1,12 @@
----
-name: plan
-description: Plan implementation of agreed work using repository context, dependencies,
-  verification and release consequences. Use for a bounded feature/refactor plan;
-  do not turn a small fix into a mandatory planning workflow.
-user-invocable: true
-disable-model-invocation: true
-metadata:
-  scope: generic
-  invocation: user
-  role: task
----
+# Prepare implementation
 
-# Plan
-
-Read [development workflow](../../WORKFLOW.md).
-
-Apply [engineering-artifacts](../engineering-artifacts/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Reuse existing plans and commands; scale the plan to the agreed work.
+Use the accepted scope and existing breakdown. For a small change, identify the next action and its check. Expand the breakdown when dependencies, compatibility, recovery or verification need coordination. If the request stops at a breakdown, return that result within the authorized scope before changing application code.
 
 ## Establish the planning basis
 
 - Agree on the outcome and completion evidence. Refine material gaps before assuming scope.
-- Inspect affected architecture and contracts. Use [system-design](../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent planning or implementation.
-- Read [project conventions](../project-conventions/SKILL.md) for existing constraints and [delivery guidance](../deliver-reliable-changes/SKILL.md) for acceptance and verification.
+- Inspect affected architecture and contracts. Use [system-design](../../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent planning or implementation.
+- Read [project conventions](../../project-conventions/SKILL.md) for existing constraints and [delivery guidance](../SKILL.md) for acceptance and verification.
 - Load optional stack/domain guidance selected through the development workflow only when relevant and available. Use service-contract design expertise for changed service behavior.
 
 ## Order the work by its dependencies
@@ -45,8 +30,8 @@ Make each step specific enough for another contributor to begin it:
 
 Label new components as proposals; do not invent existing files or function names. Leave ordinary local choices to implementation so the plan can accommodate new evidence without losing its intended outcome.
 
-## Return an executable plan
+## Check the breakdown before dependent work
 
-Before planning-to-implementation readiness, apply [artifact assurance](../engineering-artifacts/references/assurance.md): map material accepted requirements and failure/denial paths to concrete increments and observable verification, check design/sequence/plan contradictions, and mark consequential dependencies blocked until resolved. Record dependency-ordered increments, accepted design/target diagram references and verification/release implications in ECR section 5. Do not copy the RFC or create an issue graph by default. Return steps in the order they can actually be carried out. Make it clear which work is ready, which depends on a decision, and which can proceed independently. For changes to persisted data or deployed consumers, explain the order in which old and new versions can coexist and when cleanup becomes safe.
+Before starting a dependent increment, apply [artifact assurance](../../engineering-artifacts/references/assurance.md): map material accepted requirements and failure/denial paths to concrete increments and observable verification, check design/sequence/plan contradictions, and mark consequential dependencies blocked until resolved. Record dependency-ordered increments, accepted design/target diagram references and verification/release implications in the ECR implementation strategy. Link the relevant design. When a slice needs pickup or coordination, follow the [issue view](../../engineering-artifacts/references/audience-views.md#issue--work-item--product-and-implementer-audience). Return steps in the order they can actually be carried out. Make it clear which work is ready, which depends on a decision, and which can proceed independently. For changes to persisted data or deployed consumers, explain the order in which old and new versions can coexist and when cleanup becomes safe.
 
 Keep the plan easy to revise when implementation produces new evidence. The reader should be able to start the next step and recognize when it is done without requiring a separate planning ceremony. A tracker, a document per slice and parallel agents are optional. Planning alone does not implement or deploy the work.
