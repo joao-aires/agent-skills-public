@@ -46,9 +46,10 @@ Every ECR, including a compact single-file fix, has these headings in this order
 
 | Completed activity | ECR evidence required before describing it as ready |
 | --- | --- |
+| Project planning | Desired outcome, scope, feasibility and the next decision are clear or linked |
 | Refine | Outcome, acceptance and constraints are sufficient for design; missing decision owner named |
 | Design | Proposed target and relevant diagram changes are understood, material alternatives resolved or blocked |
-| Plan | Dependency-ordered increments reference accepted requirements/design; verification and migration covered |
+| Implementation preparation | Dependency-ordered increments reference accepted requirements/design; verification and migration covered |
 | Implement | Actual change/revision, deviations, relevant canonical-doc edits and checks reported |
 | Test/review | Observations and findings tied to the checked revision; untested claims not promoted |
 | Release | Actual artifact/target, gates, recovery and promotion/verification status stated precisely |
