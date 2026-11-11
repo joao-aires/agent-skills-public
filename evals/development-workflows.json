@@ -1559,10 +1559,10 @@
     {
       "id": "defect-repair-and-incident-handoff",
       "prompt": "The webhook incident has stabilized. The follow-up says a cancelled job can still be delivered. Repair that behavior in the supplied checkout and verify it locally.",
-      "evaluator_setup": "Supply the cancellation fixture, incident evidence, an agreed intended behavior and an authorized engineering workspace. No live response or deployment authority.",
+      "evaluator_setup": "Supply the cancellation fixture with a receiver that can reject, incident evidence, an agreed intended behavior and an authorized engineering workspace. No live response or deployment authority.",
       "criteria": [
         "Uses the incident evidence as input, reproduces the defect and verifies the scoped source repair and affected behavior.",
-        "Links the incident and repair evidence while distinguishing local verification from recovery or deployment."
+        "Checks the existing retry path through the changed state transition and distinguishes local verification from live recovery or deployment."
       ]
     }
   ],
