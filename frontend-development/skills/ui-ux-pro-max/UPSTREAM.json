@@ -1,0 +1,20 @@
+{
+  "plugin": "frontend-development",
+  "license": "MIT",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "usage-labels",
+    "support-visibility"
+  ],
+  "labels": {
+    "scope": "generic",
+    "invocation": "both",
+    "role": "support"
+  },
+  "artifact": "frontend-development--ui-ux-pro-max",
+  "destination": "plugins/frontend-development/skills/ui-ux-pro-max",
+  "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git",
+  "commit": "b7d5353e0130feb8c5574ef1251f8a1db1873ccb",
+  "path": ".claude/skills/ui-ux-pro-max",
+  "installed_skill": "ui-ux-pro-max"
+}

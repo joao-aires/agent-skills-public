@@ -1,0 +1,20 @@
+{
+  "plugin": "frontend-development",
+  "license": "Apache-2.0",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "usage-labels",
+    "support-visibility"
+  ],
+  "labels": {
+    "scope": "generic",
+    "invocation": "both",
+    "role": "support"
+  },
+  "artifact": "frontend-development--impeccable",
+  "destination": "plugins/frontend-development/skills/impeccable",
+  "repository": "https://github.com/pbakaus/impeccable.git",
+  "commit": "c3bb418ee38ee49a6b999b7752c1368f3123a2bd",
+  "path": "plugin/skills/impeccable",
+  "installed_skill": "impeccable"
+}

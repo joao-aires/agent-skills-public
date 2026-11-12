@@ -87,7 +87,7 @@
       "name": "frontend-development",
       "source": "./frontend-development",
       "description": "Integrated interface design and visual craft, UX writing and usability research across application types.",
-      "version": "0.4.1"
+      "version": "0.5.0"
     },
     {
       "name": "frontend-native-development",
