@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1540" height="753" viewBox="0 0 1540 753" role="img" aria-labelledby="title desc" font-family="system-ui, sans-serif">
 <title id="title">Engineering artifacts and roles across the SDLC</title>
-<desc id="desc">Seven phase columns align optional handoff artifacts, one continuous ECR and six overlapping role rows. Issues and PRs are audience views. Project evidence can reopen earlier decisions.</desc>
+<desc id="desc">Seven phase columns align optional handoff artifacts, one continuous ECR and six overlapping role rows. Planning can produce a brief, PRD, roadmap or actionable issue. Issues and PRs are audience views. Project evidence can reopen earlier decisions.</desc>
 <rect x="0" y="0" width="1540" height="753" rx="0" fill="#f5f8fc" stroke="none"/>
 <text x="28" y="47" font-size="30" fill="#172c49" font-weight="700" text-anchor="start">Engineering artifacts and roles across the SDLC</text>
 <text x="28" y="74" font-size="16" fill="#475a71" font-weight="400" text-anchor="start">One change record follows the work. Each phase contributes an outcome, a decision or a link to its evidence.</text>
@@ -16,16 +16,16 @@
 <text x="32" y="348" font-size="13" fill="#52657d" font-weight="400" text-anchor="start">Contribution by phase</text>
 <text x="32" y="404" font-size="16" fill="#243d5d" font-weight="700" text-anchor="start">Typical contributors</text>
 <rect x="223" y="136" width="176" height="66" rx="8" fill="#fff" stroke="#d3deec"/>
-<text x="311" y="161" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">Opportunity brief</text>
-<text x="311" y="182" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">when useful</text>
+<text x="311" y="161" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">Brief or PRD</text>
+<text x="311" y="182" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">Roadmap for sequencing</text>
 <rect x="223" y="221" width="176" height="56" rx="8" fill="#275080" stroke="none"/>
 <text x="311" y="255" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">1. Project planning</text>
 <path d="M311 277V290" stroke="#7186a0" stroke-width="1.5" marker-end="url(#arrow)"/>
 <text x="311" y="325" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">Outcome, scope</text>
 <text x="311" y="346" font-size="15" fill="#233f5d" font-weight="650" text-anchor="middle">and feasibility</text>
 <rect x="407" y="136" width="176" height="66" rx="8" fill="#fff" stroke="#d3deec"/>
-<text x="495" y="161" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">PRD or requirements</text>
-<text x="495" y="182" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">specification</text>
+<text x="495" y="161" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">Requirements spec</text>
+<text x="495" y="182" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">Actionable issue</text>
 <rect x="407" y="221" width="176" height="56" rx="8" fill="#255e69" stroke="none"/>
 <text x="495" y="255" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">2. Requirements</text>
 <path d="M495 277V290" stroke="#7186a0" stroke-width="1.5" marker-end="url(#arrow)"/>
@@ -43,7 +43,7 @@
 <path d="M587 306V361" stroke="#b8cadf" stroke-width="1"/>
 <rect x="775" y="136" width="176" height="66" rx="8" fill="#fff" stroke="#d3deec"/>
 <text x="863" y="161" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">Source and test changes</text>
-<text x="863" y="182" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">Issue and PR views</text>
+<text x="863" y="182" font-size="14" fill="#344963" font-weight="550" text-anchor="middle">PR description</text>
 <rect x="775" y="221" width="176" height="56" rx="8" fill="#7c4832" stroke="none"/>
 <text x="863" y="255" font-size="15" fill="#fff" font-weight="700" text-anchor="middle">4. Implementation</text>
 <path d="M863 277V290" stroke="#7186a0" stroke-width="1.5" marker-end="url(#arrow)"/>
@@ -162,7 +162,7 @@
 <rect x="20" y="643" width="730" height="54" rx="8" fill="#fff7eb" stroke="#dfcaa9"/>
 <rect x="768" y="643" width="752" height="54" rx="8" fill="#edf7f2" stroke="#c4dcd1"/>
 <text x="34" y="666" font-size="15" fill="#664b29" font-weight="700" text-anchor="start">Issue view · Intended work for an implementer</text>
-<text x="34" y="685" font-size="13" fill="#594c3c" font-weight="400" text-anchor="start">Task, scope and observable acceptance</text>
+<text x="34" y="685" font-size="13" fill="#594c3c" font-weight="400" text-anchor="start">Can start in planning when the investigation or change has clear acceptance</text>
 <text x="783" y="666" font-size="15" fill="#315648" font-weight="700" text-anchor="start">PR view · Actual change for a reviewer</text>
 <text x="783" y="685" font-size="13" fill="#425c53" font-weight="400" text-anchor="start">Reasoning, diff, tests and review focus</text>
 <text x="28" y="728" font-size="14" fill="#475a71" font-weight="400" text-anchor="start">Roles overlap. People own consequential decisions. Agents draft, implement and verify within the agreed scope.</text>
