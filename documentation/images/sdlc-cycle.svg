@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1690" viewBox="0 0 1440 1690" role="img" aria-labelledby="title desc">
 <title id="title">Product direction and the circular seven-outcome software lifecycle</title>
-<desc id="desc">A seven-phase circular software development lifecycle between Product direction and Product feedback, with shared methods and technical expertise below. Maintenance remains a single phase-seven card in the original circle. Its four visible sections are respond and restore, reliability and signals, learn and prevent, and maintain and evolve. These facets cover incident response, SLOs and observability, postmortems and runbooks, and ongoing improvement and dependency work. They are responsibilities within one Maintenance phase, not a separate stage or mandatory skill sequence. The original phase card positions, clockwise flow, product-feedback loop, and shared expertise sections are retained.</desc>
+<desc id="desc">Seven phases run clockwise from project planning through requirements analysis, design, implementation, testing, deployment and maintenance. Plan is the entry point for project planning. Product direction and feedback inform the cycle. Shared expertise supports each phase.</desc>
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#526580"/></marker><marker id="repair-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#157466"/></marker></defs>
 <rect width="1440" height="1690" fill="#f8fafc"/>
 <g font-family="Arial, Helvetica, sans-serif">
@@ -44,7 +44,7 @@
 <text x="140.0" y="166" text-anchor="middle" font-size="14" fill="#526580">Discovery and priorities</text>
 <rect x="280" y="110" width="860" height="820" rx="18" fill="#eef2ff" stroke="#cbd5e1"/>
 <text x="710.0" y="147" text-anchor="middle" font-size="18" font-weight="700" fill="#15233b">Software development</text>
-<text x="710.0" y="166" text-anchor="middle" font-size="14" fill="#526580">Seven-outcome engineering cycle</text>
+<text x="710.0" y="166" text-anchor="middle" font-size="14" fill="#526580">Seven SDLC phases</text>
 <rect x="1160" y="110" width="260" height="820" rx="18" fill="#fff4e7" stroke="#cbd5e1"/>
 <text x="1290.0" y="147" text-anchor="middle" font-size="18" font-weight="700" fill="#15233b">Product feedback</text>
 <text x="1290.0" y="166" text-anchor="middle" font-size="14" fill="#526580">Learn from real use</text>
@@ -60,42 +60,42 @@
 <text x="710" y="549" text-anchor="middle" font-size="14" fill="#526580">End-to-end entry point: develop</text>
 <g data-card="true">
 <rect x="605" y="182" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
-<text x="710.0" y="204" text-anchor="middle" font-size="13.3" font-weight="700" fill="#15233b" >1. Requirements engineering</text>
-<text x="710.0" y="226" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Define behavior, constraints</text>
-<text x="710.0" y="243" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and acceptance.</text>
-<g data-skill="true" data-use="direct"><rect x="613" y="250" width="60" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="643.0" y="265.0" text-anchor="middle" font-size="12" font-weight="500" fill="#176044">refine</text></g><g data-skill="true" data-use="support"><rect x="681" y="250" width="126" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="744.0" y="265.0" text-anchor="middle" font-size="9.25" font-weight="500" fill="#903e3e" textLength="112" lengthAdjust="spacingAndGlyphs">requirements-engineering</text></g>
+<text x="710.0" y="204" text-anchor="middle" font-size="13.3" font-weight="700" fill="#15233b" >1. Project planning</text>
+<text x="710.0" y="226" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Agree outcome, scope</text>
+<text x="710.0" y="243" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and feasibility.</text>
+<g data-skill="true" data-use="direct"><rect x="613" y="250" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="710.0" y="265.0" text-anchor="middle" font-size="12" font-weight="500" fill="#176044">plan</text></g>
 </g>
 <g data-card="true">
 <rect x="823.9" y="287.4" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
-<text x="928.9" y="309.4" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b" >2. Solution design</text>
-<text x="928.9" y="331.4" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Decide architecture,</text>
-<text x="928.9" y="348.4" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >experience and contracts.</text>
-<g data-skill="true" data-use="direct"><rect x="832" y="355.4" width="80" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="872.0" y="370.4" text-anchor="middle" font-size="12" font-weight="500" fill="#176044">design</text></g><g data-skill="true" data-use="support"><rect x="920" y="355.4" width="106" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="973.0" y="370.4" text-anchor="middle" font-size="11.2" font-weight="500" fill="#903e3e">system-design</text></g>
+<text x="928.9" y="309.4" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b" >2. Requirements analysis</text>
+<text x="928.9" y="331.4" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Define behavior, constraints</text>
+<text x="928.9" y="348.4" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and observable acceptance.</text>
+<g data-skill="true" data-use="direct"><rect x="832" y="355.4" width="80" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="872.0" y="370.4" text-anchor="middle" font-size="12" font-weight="500" fill="#176044">refine</text></g><g data-skill="true" data-use="support"><rect x="920" y="355.4" width="106" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="973.0" y="370.4" text-anchor="middle" font-size="9" font-weight="500" fill="#903e3e" textLength="94" lengthAdjust="spacingAndGlyphs">requirements-engineering</text></g>
 </g>
 <g data-card="true">
 <rect x="878" y="524.3" width="210" height="110" rx="12" fill="white" stroke="#9aaecb"/>
-<text x="983.0" y="546.3" text-anchor="middle" font-size="14.1" font-weight="700" fill="#15233b" >3. Implementation planning</text>
-<text x="983.0" y="568.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Sequence increments after</text>
-<text x="983.0" y="585.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >key design decisions.</text>
-<g data-skill="true" data-use="direct"><rect x="886" y="606.3" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="983.0" y="621.3" text-anchor="middle" font-size="12" font-weight="500" fill="#176044">plan</text></g>
+<text x="983.0" y="546.3" text-anchor="middle" font-size="14.1" font-weight="700" fill="#15233b" >3. Design</text>
+<text x="983.0" y="568.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Decide architecture,</text>
+<text x="983.0" y="585.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >experience and contracts.</text>
+<g data-skill="true" data-use="direct"><rect x="886" y="606.3" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="983.0" y="621.3" text-anchor="middle" font-size="12" font-weight="500" fill="#176044">design</text></g>
 </g>
 <g data-card="true">
 <rect x="726.5" y="714.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
 <text x="831.5" y="736.3" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b" >4. Implementation</text>
-<text x="831.5" y="758.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Build a useful increment</text>
+<text x="831.5" y="758.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Break down and build</text>
 <text x="831.5" y="775.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >with tests and documentation.</text>
 <g data-skill="true" data-use="direct"><rect x="734.5" y="782.3" width="194.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="831.5" y="797.3" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">implement</text></g>
 </g>
 <g data-card="true">
 <rect x="483.5" y="714.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
-<text x="588.5" y="736.3" text-anchor="middle" font-size="15" font-weight="700" fill="#15233b" >5. Verification &amp; testing</text>
+<text x="588.5" y="736.3" text-anchor="middle" font-size="15" font-weight="700" fill="#15233b" >5. Testing</text>
 <text x="588.5" y="758.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Verify promised outcomes</text>
 <text x="588.5" y="775.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and repair discrepancies.</text>
 <g data-skill="true" data-use="direct"><rect x="491.5" y="782.3" width="194.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="588.5" y="797.3" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">test</text></g>
 </g>
 <g data-card="true">
 <rect x="332" y="524.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
-<text x="437.0" y="546.3" text-anchor="middle" font-size="15" font-weight="700" fill="#15233b" >6. Release &amp; deployment</text>
+<text x="437.0" y="546.3" text-anchor="middle" font-size="15" font-weight="700" fill="#15233b" >6. Deployment</text>
 <text x="437.0" y="568.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Release the chosen revision</text>
 <text x="437.0" y="585.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and verify the live target.</text>
 <g data-skill="true" data-use="direct"><rect x="340.0" y="592.3" width="194.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="437.0" y="607.3" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">release</text></g>

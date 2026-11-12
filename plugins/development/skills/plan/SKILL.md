@@ -1,50 +1,31 @@
 ---
 name: plan
-description: Plan implementation of agreed work using repository context, dependencies,
-  verification and release consequences. Use for a bounded feature/refactor plan;
-  do not turn a small fix into a mandatory planning workflow.
+description: Decide whether and what to pursue for a feature, structural change, product area
+  or new application. Use when discussion turns to what to ship first, what is in scope,
+  whether it is feasible, or how to sequence and coordinate multiple changes.
 user-invocable: true
-disable-model-invocation: true
 metadata:
   scope: generic
-  invocation: user
+  invocation: both
   role: task
 ---
 
 # Plan
 
-Read [task guidance](../../TASKS.md). Reuse existing plans and commands; scale the plan to the agreed work.
+Read [development workflow](../../WORKFLOW.md). Use this method for an open decision about pursuing or shaping work. When the outcome and scope are settled and the request is to break delivery into tasks and checks, use [implementation preparation](../deliver-reliable-changes/references/implementation-preparation.md) and stop at the requested breakdown.
 
-## Establish the planning basis
+## Decide what to pursue
 
-- Agree on the outcome and completion evidence. Refine material gaps before assuming scope.
-- Inspect affected architecture and contracts. Use [system-design](../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent planning or implementation.
-- Read [project conventions](../project-conventions/SKILL.md) for existing constraints and [delivery guidance](../deliver-reliable-changes/SKILL.md) for acceptance and verification.
-- Load optional stack/domain guidance selected by task guidance only when relevant and available. Use service-contract design expertise for changed service behavior.
+Use the conversation, accepted product direction, relevant repository facts and feedback as evidence. Reuse settled decisions. Scale the investigation to what could change the decision.
 
-## Order the work by its dependencies
+- **Outcome and scope.** Identify who benefits, the problem or engineering outcome, what would count as success, the smallest useful slice and what to defer. Seek installed product discovery and prioritization expertise when user value, priority or the first slice is open. For structural work, ground the outcome in the affected behavior or operating constraint.
+- **Feasibility.** Check constraints, current system boundaries and dependencies that could change the scope or decision to proceed. Identify what is known and what needs investigation. Compare options at the depth needed for that decision. Carry solution choices into design when they require deeper work.
+- **Coordination.** Where delivery depends on several owners or changes, identify sequencing, prerequisites, likely owners and milestones. Distinguish proposals from commitments. A single feature may only need one prerequisite and a next decision.
 
-Start from a useful observable result and work backward to its prerequisites. A good increment joins enough of the application to prove something meaningful: a caller can exercise the operation, the necessary data changes occur, and a check can distinguish success from failure. Organizing the plan only by folders or technical layers can postpone discovery that those parts do not work together.
+Recommend proceeding, investigating or deferring. State the evidence behind the recommendation, unresolved decisions and the next action with its owner if known. Carry accepted context forward when the user requests another phase.
 
-Put uncertain or constraining work early enough that it can change the remaining plan. For each increment, name the behavior it delivers, the important prerequisite and the evidence needed before moving on. Reuse the project's technical conventions to choose implementation detail. Include the consequences that apply:
+## Record the handoff
 
-| Affected concern | Include in the plan |
-| --- | --- |
-| UI or interaction behavior | UI/behavior design before dependent implementation |
-| Persistence or consumers | Migration and compatibility work |
-| Acceptance and regression risk | Focused tests and their evidence |
-| Delivery and failure | Release and recovery consequences |
+Use [engineering-artifacts](../engineering-artifacts/SKILL.md) for artifact selection and content/presentation review, and [engineering-workspace](../engineering-workspace/SKILL.md) for discovery and authorized persistence. For a coherent change being carried forward, record the outcome, scope, feasibility and next decision in its ECR or link the existing authority. Keep exploratory ideas together in their existing home until there is a change to carry forward.
 
-Make each step specific enough for another contributor to begin it:
-
-- Identify the affected component or verified code location.
-- Name the existing mechanism to reuse and the responsibility being added or changed.
-- Identify the integration check that connects the increment to its consumer.
-
-Label new components as proposals; do not invent existing files or function names. Leave ordinary local choices to implementation so the plan can accommodate new evidence without losing its intended outcome.
-
-## Return an executable plan
-
-Return steps in the order they can actually be carried out. Make it clear which work is ready, which depends on a decision, and which can proceed independently. For changes to persisted data or deployed consumers, explain the order in which old and new versions can coexist and when cleanup becomes safe.
-
-Keep the plan easy to revise when implementation produces new evidence. The reader should be able to start the next step and recognize when it is done without requiring a separate planning ceremony. A tracker, a document per slice and parallel agents are optional. Planning alone does not implement or deploy the work.
+A brief or PRD can serve independent product review. A roadmap can coordinate several changes. A ticket can hand off a concrete feasibility investigation or defined change once its work and acceptance are clear. Use [refine](../refine/SKILL.md) when the intended behavior or acceptance needs definition. A planning request stops at the planning decision and any in-scope handoff.
