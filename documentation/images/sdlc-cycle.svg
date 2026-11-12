@@ -1,6 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 1690" role="img" aria-labelledby="title desc">
-<title id="title">Project baseline, the SDLC cycle and supporting expertise</title>
-<desc id="desc">The project baseline contains accepted decisions, working conventions and reproducible foundations. Read it as input to relevant work across product direction, development and feedback; establish missing foundations after sufficient decisions and update the baseline as the project evolves. Shared methods and matching technical expertise support the flow rather than form additional lifecycle stages. Technical guidance informs feasibility and requirements and applies through design, implementation, testing, delivery and maintenance; select it for the accepted stack. Connecting rails point into all three parts of the flow. Product discovery and priorities feed planning, with business strategy supporting unresolved business direction. The SDLC cycles through planning, requirements analysis, design, implementation, testing, deployment and maintenance. Testing loops back to implementation for repair and rechecking. Design includes architecture, experience, visual direction and contracts. Detailed implementation planning follows those decisions. Live product feedback informs discovery and the next development cycle; evidence can reopen any affected decision. Each card explains its purpose in plain language; Green filled labels show skills as direct requests; red outlined labels show skills supporting requested work. Neutral labels name project records. These indicate usage in this diagram, not exclusive skill types; a skill can serve both roles. A visible legend and distinct filled versus dashed-outline styles accompany the colors. Planning uses product-management for goals and priorities; refine owns detailed requirements, and plan sequences implementation after design. Skills shown are representative; research, explicit clarification, documentation, Git, security, reliability and observability support discovery, development and feedback.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="1690" viewBox="0 0 1440 1690" role="img" aria-labelledby="title desc">
+<title id="title">Product direction and the circular seven-outcome software lifecycle</title>
+<desc id="desc">Seven phases run clockwise from project planning through requirements analysis, design, implementation, testing, deployment and maintenance. Plan is the entry point for project planning. Product direction and feedback inform the cycle. Shared expertise supports each phase.</desc>
 <defs><marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#526580"/></marker><marker id="repair-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#157466"/></marker></defs>
 <rect width="1440" height="1690" fill="#f8fafc"/>
 <g font-family="Arial, Helvetica, sans-serif">
@@ -44,7 +44,7 @@
 <text x="140.0" y="166" text-anchor="middle" font-size="14" fill="#526580">Discovery and priorities</text>
 <rect x="280" y="110" width="860" height="820" rx="18" fill="#eef2ff" stroke="#cbd5e1"/>
 <text x="710.0" y="147" text-anchor="middle" font-size="18" font-weight="700" fill="#15233b">Software development</text>
-<text x="710.0" y="166" text-anchor="middle" font-size="14" fill="#526580">Seven-phase SDLC cycle</text>
+<text x="710.0" y="166" text-anchor="middle" font-size="14" fill="#526580">Seven SDLC phases</text>
 <rect x="1160" y="110" width="260" height="820" rx="18" fill="#fff4e7" stroke="#cbd5e1"/>
 <text x="1290.0" y="147" text-anchor="middle" font-size="18" font-weight="700" fill="#15233b">Product feedback</text>
 <text x="1290.0" y="166" text-anchor="middle" font-size="14" fill="#526580">Learn from real use</text>
@@ -53,59 +53,73 @@
 <path d="M 944.7 634.3 Q 921.3 678.5 869.8 714.3" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
 <path d="M 726.5 762.3 Q 710.0 767.2 693.5 762.3" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
 <path d="M 550.2 714.3 Q 498.7 678.5 475.3 620.3" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
-<path d="M 448.0 524.3 Q 442.9 449.0 480.1 383.4" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
+<path d="M 448.0 524.3 Q 448.0 510.0 448.0 496.4" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
 <path d="M 590.8 287.4 Q 599.1 279.8 610.3 278.0" fill="none" stroke="#526580" stroke-width="2.5" marker-end="url(#arrow)"/>
 <text x="710" y="495" text-anchor="middle" font-size="22" font-weight="700" fill="#15233b">Iterate on evidence</text>
 <text x="710" y="525" text-anchor="middle" font-size="14" fill="#526580">Evidence can reopen any affected decision</text>
-<text x="710" y="549" text-anchor="middle" font-size="14" fill="#526580">End-to-end skill: develop</text>
+<text x="710" y="549" text-anchor="middle" font-size="14" fill="#526580">End-to-end entry point: develop</text>
 <g data-card="true">
 <rect x="605" y="182" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
-<text x="710.0" y="204" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b" >1. Planning</text>
-<text x="710.0" y="226" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Set goals, constraints</text>
-<text x="710.0" y="243" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and feasible scope.</text>
-<g data-skill="true" data-use="direct"><rect x="613.0" y="250.0" width="194.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="710.0" y="265.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">product-management</text></g>
+<text x="710.0" y="204" text-anchor="middle" font-size="13.3" font-weight="700" fill="#15233b" >1. Project planning</text>
+<text x="710.0" y="226" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Agree outcome, scope</text>
+<text x="710.0" y="243" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and feasibility.</text>
+<g data-skill="true" data-use="direct"><rect x="613" y="250" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="710.0" y="265.0" text-anchor="middle" font-size="12" font-weight="500" fill="#176044">plan</text></g>
 </g>
 <g data-card="true">
 <rect x="823.9" y="287.4" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
 <text x="928.9" y="309.4" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b" >2. Requirements analysis</text>
-<text x="928.9" y="331.4" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Define behavior and</text>
-<text x="928.9" y="348.4" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >observable acceptance.</text>
-<g data-skill="true" data-use="direct"><rect x="831.9" y="355.4" width="194.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="928.9" y="370.4" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">refine</text></g>
+<text x="928.9" y="331.4" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Define behavior, constraints</text>
+<text x="928.9" y="348.4" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and observable acceptance.</text>
+<g data-skill="true" data-use="direct"><rect x="832" y="355.4" width="80" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="872.0" y="370.4" text-anchor="middle" font-size="12" font-weight="500" fill="#176044">refine</text></g><g data-skill="true" data-use="support"><rect x="920" y="355.4" width="106" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="973.0" y="370.4" text-anchor="middle" font-size="9" font-weight="500" fill="#903e3e" textLength="94" lengthAdjust="spacingAndGlyphs">requirements-engineering</text></g>
 </g>
 <g data-card="true">
 <rect x="878" y="524.3" width="210" height="110" rx="12" fill="white" stroke="#9aaecb"/>
-<text x="983.0" y="546.3" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b" >3. Design</text>
-<text x="983.0" y="568.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Decide system structure,</text>
-<text x="983.0" y="585.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >interactions and contracts.</text>
-<g data-skill="true" data-use="direct"><rect x="886.0" y="606.3" width="194.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="983.0" y="621.3" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">design, then plan</text></g>
+<text x="983.0" y="546.3" text-anchor="middle" font-size="14.1" font-weight="700" fill="#15233b" >3. Design</text>
+<text x="983.0" y="568.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Decide architecture,</text>
+<text x="983.0" y="585.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >experience and contracts.</text>
+<g data-skill="true" data-use="direct"><rect x="886" y="606.3" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="983.0" y="621.3" text-anchor="middle" font-size="12" font-weight="500" fill="#176044">design</text></g>
 </g>
 <g data-card="true">
 <rect x="726.5" y="714.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
 <text x="831.5" y="736.3" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b" >4. Implementation</text>
-<text x="831.5" y="758.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Build a useful increment</text>
+<text x="831.5" y="758.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Break down and build</text>
 <text x="831.5" y="775.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >with tests and documentation.</text>
 <g data-skill="true" data-use="direct"><rect x="734.5" y="782.3" width="194.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="831.5" y="797.3" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">implement</text></g>
 </g>
 <g data-card="true">
 <rect x="483.5" y="714.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
-<text x="588.5" y="736.3" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b" >5. Testing</text>
-<text x="588.5" y="758.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Check intended behavior</text>
-<text x="588.5" y="775.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and expose discrepancies.</text>
+<text x="588.5" y="736.3" text-anchor="middle" font-size="15" font-weight="700" fill="#15233b" >5. Testing</text>
+<text x="588.5" y="758.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Verify promised outcomes</text>
+<text x="588.5" y="775.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and repair discrepancies.</text>
 <g data-skill="true" data-use="direct"><rect x="491.5" y="782.3" width="194.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="588.5" y="797.3" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">test</text></g>
 </g>
 <g data-card="true">
 <rect x="332" y="524.3" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
-<text x="437.0" y="546.3" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b" >6. Deployment</text>
-<text x="437.0" y="568.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Deliver the chosen revision</text>
-<text x="437.0" y="585.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and verify it in the target.</text>
+<text x="437.0" y="546.3" text-anchor="middle" font-size="15" font-weight="700" fill="#15233b" >6. Deployment</text>
+<text x="437.0" y="568.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Release the chosen revision</text>
+<text x="437.0" y="585.3" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and verify the live target.</text>
 <g data-skill="true" data-use="direct"><rect x="340.0" y="592.3" width="194.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="437.0" y="607.3" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">release</text></g>
 </g>
-<g data-card="true">
-<rect x="386.1" y="287.4" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
-<text x="491.1" y="309.4" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b" >7. Maintenance</text>
-<text x="491.1" y="331.4" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Keep the service healthy;</text>
-<text x="491.1" y="348.4" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >restore and improve it.</text>
-<g data-skill="true" data-use="direct"><rect x="394.1" y="355.4" width="194.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="370.4" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">improve, dependencies</text></g>
+<g data-card="true" aria-label="7. Maintenance: Respond and restore, reliability and signals, learn and prevent, maintain and evolve">
+<rect x="386.1" y="287.4" width="210" height="209" rx="12" fill="white" stroke="#9aaecb"/>
+<text x="491.1" y="311" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">7. Maintenance</text>
+<text x="491.1" y="327" text-anchor="middle" font-size="11.3" fill="#526580">Operate · recover · improve</text>
+<g aria-label="Respond &amp; restore: incident-response">
+<text x="491.1" y="343" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Respond &amp; restore</text>
+<g data-skill="true" data-use="direct"><rect x="394.1" y="347" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="362" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">incident-response</text></g>
+</g>
+<g aria-label="Reliability &amp; signals: observability-operations">
+<text x="491.1" y="382" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Reliability &amp; signals</text>
+<g data-skill="true" data-use="direct"><rect x="394.1" y="386" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="401" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">observability-operations</text></g>
+</g>
+<g aria-label="Learn &amp; prevent: postmortem-followup">
+<text x="491.1" y="421" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Learn &amp; prevent</text>
+<g data-skill="true" data-use="direct"><rect x="394.1" y="425" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="440" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">postmortem-followup</text></g>
+</g>
+<g aria-label="Maintain &amp; evolve: improve · dependencies">
+<text x="491.1" y="460" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Maintain &amp; evolve</text>
+<g data-skill="true" data-use="direct"><rect x="394.1" y="464" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="479" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">improve · dependencies</text></g>
+</g>
 </g>
 <path d="M 674 714 C 705 660 745 660 777 714" fill="none" stroke="#157466" stroke-width="2.5" marker-end="url(#repair-arrow)"/>
 <text x="720" y="661" text-anchor="middle" font-size="13" fill="#157466">Repair and recheck</text>
@@ -132,7 +146,7 @@
 <g data-skill="true" data-use="direct"><rect x="1183.0" y="498.0" width="214.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="1290.0" y="513.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">learn-from-product-feedback</text></g>
 </g>
 <path d="M 245 440 C 300 440 310 230 600 230" fill="none" stroke="#526580" stroke-width="2" marker-end="url(#arrow)"/>
-<text x="380" y="207" font-size="13" fill="#526580">Agreed problem / scope</text>
+<text x="380" y="207" font-size="13" fill="#526580">Accepted product outcome</text>
 <path d="M 386 335 H 305 V 852 H 1148 V 454 H 1172" fill="none" stroke="#526580" stroke-width="2" marker-end="url(#arrow)"/>
 <text x="1125" y="839" text-anchor="end" font-size="13" fill="#526580">Operational and product evidence</text>
 <path d="M 1290 528 V 896 H 28 V 570 H 140 V 528" fill="none" stroke="#526580" stroke-width="2" marker-end="url(#arrow)"/>
@@ -164,33 +178,33 @@
 </g>
 <g data-card="true">
 <rect x="960" y="1320" width="440" height="110" rx="12" fill="white" stroke="#c5d2df"/>
-<text x="1180.0" y="1344" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">Reliability &amp; observability</text>
-<text x="1180.0" y="1367" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Use service signals and recovery</text>
-<text x="1180.0" y="1386" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">evidence to guide the next change.</text>
-<g data-skill="true" data-use="support"><rect x="970.0" y="1401.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="1180.0" y="1416.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">reliability-design · observability-operations</text></g>
+<text x="1180.0" y="1344" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">Architecture &amp; quality methods</text>
+<text x="1180.0" y="1367" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Bring system choices and test</text>
+<text x="1180.0" y="1386" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">evidence into relevant work.</text>
+<g data-skill="true" data-use="support"><rect x="970.0" y="1401.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="1180.0" y="1416.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">system-design · journey-testing</text></g>
 </g>
-<text x="40" y="1463" text-anchor="start" font-size="21" font-weight="700" fill="#15233b">Technical expertise for the accepted stack</text>
+<text x="40" y="1463" text-anchor="start" font-size="21" font-weight="700" fill="#15233b">Technical &amp; domain expertise for the accepted stack</text>
 <text x="40" y="1486" text-anchor="start" font-size="14" font-weight="400" fill="#526580">Inform feasibility and requirements; apply through design, implementation, testing, delivery and maintenance.</text>
 <g data-card="true">
 <rect x="40" y="1500" width="440" height="126" rx="12" fill="white" stroke="#c5d2df"/>
-<text x="260.0" y="1524" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">Web, desktop &amp; mobile</text>
-<text x="260.0" y="1547" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Map the experience to the selected client.</text>
-<text x="260.0" y="1566" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Examples: React/Next.js/shadcn · Tauri · Expo</text>
-<g data-skill="true" data-use="support"><rect x="50.0" y="1597.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="260.0" y="1612.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">frontend-conventions · native-client-development</text></g>
+<text x="260.0" y="1524" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">Clients &amp; interfaces</text>
+<text x="260.0" y="1547" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Match interaction and platform constraints.</text>
+<text x="260.0" y="1566" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Web · native clients · browser extensions</text>
+<g data-skill="true" data-use="support"><rect x="50.0" y="1597.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="260.0" y="1612.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">interface-design · native-client-development</text></g>
 </g>
 <g data-card="true">
 <rect x="500" y="1500" width="440" height="126" rx="12" fill="white" stroke="#c5d2df"/>
-<text x="720.0" y="1524" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">Python services</text>
-<text x="720.0" y="1547" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Apply service and persistence contracts.</text>
-<text x="720.0" y="1566" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Examples: FastAPI · SQLAlchemy · PostgreSQL</text>
-<g data-skill="true" data-use="support"><rect x="510.0" y="1597.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="720.0" y="1612.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">backend-conventions</text></g>
+<text x="720.0" y="1524" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">Services &amp; data</text>
+<text x="720.0" y="1547" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Preserve APIs, state and data integrity.</text>
+<text x="720.0" y="1566" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Backend · persistence · runtime choices</text>
+<g data-skill="true" data-use="support"><rect x="510.0" y="1597.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="720.0" y="1612.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">backend-design · database-design</text></g>
 </g>
 <g data-card="true">
 <rect x="960" y="1500" width="440" height="126" rx="12" fill="white" stroke="#c5d2df"/>
-<text x="1180.0" y="1524" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">AI &amp; MCP integration</text>
-<text x="1180.0" y="1547" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Apply accepted model and tool contracts.</text>
-<text x="1180.0" y="1566" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Examples: Gemini · ADK/LangGraph · FastMCP</text>
-<g data-skill="true" data-use="support"><rect x="970.0" y="1597.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="1180.0" y="1612.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">ai-conventions</text></g>
+<text x="1180.0" y="1524" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">AI &amp; delivery platforms</text>
+<text x="1180.0" y="1547" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Match AI tasks and delivery constraints.</text>
+<text x="1180.0" y="1566" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Agents · evaluation · CI &amp; infrastructure</text>
+<g data-skill="true" data-use="support"><rect x="970.0" y="1597.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="1180.0" y="1612.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">ai-development · delivery-pipelines</text></g>
 </g>
 <text x="720" y="1653" text-anchor="middle" font-size="14" font-weight="400" fill="#526580">Specialists are optional; preserve the outcome and verification standard when guidance is absent.</text>
 </g>

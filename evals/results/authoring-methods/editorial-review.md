@@ -42,7 +42,7 @@ The follow-up revises **40 entrypoints** and retains **43** after review. “Ret
 | [harden](../../../plugins/development/skills/harden/SKILL.md) | Revised | Keep positive/denial verification together and separate specialist routing from the verification method. |
 | [improve](../../../plugins/development/skills/improve/SKILL.md) | Revised | Expose proposal evidence, bounded change, measurement, protected behavior and cost comparison. |
 | [journey-testing](../../../plugins/development/skills/journey-testing/SKILL.md) | Retained | Retain platform/evidence distinctions, observable journey method and component-versus-runtime limits. |
-| [plan](../../../plugins/development/skills/plan/SKILL.md) | Revised | Expose component, reuse and integration-check planning alongside the explanation of useful increments. |
+| The former planning entry | Revised | Expose component, reuse and integration-check planning alongside the explanation of useful increments. |
 | [project-conventions](../../../plugins/development/skills/project-conventions/SKILL.md) | Retained | Retain foundation comparison and focused quality-check method; conditional instruction maintenance remains linked. |
 | [refine](../../../plugins/development/skills/refine/SKILL.md) | Revised | Expose consequential-failure questions before explaining functional and quality consequences. |
 | [release](../../../plugins/development/skills/release/SKILL.md) | Retained | Retain release-boundary discovery and delivery-owner handoff without introducing another release procedure. |

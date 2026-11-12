@@ -71,9 +71,12 @@ Plugins package capabilities; they are not dependency layers. Read [architecture
 
 ## SDLC coverage
 
-![Seven-phase SDLC: planning, requirements analysis, design, implementation, testing, deployment and maintenance; product discovery feeds the cycle, repair returns to implementation, and product feedback informs discovery, supported by a maintained project baseline, shared methods and matching stack expertise](documentation/images/sdlc-cycle.svg)
+The [engineering artifacts and workspaces guide](documentation/artifact-workflow.md) shows how to record an engineering change, share a standalone research result and hand off work through an issue or PR. It links the ECR contract, workspace choices and proposed versus implemented diagram guidance.
 
-`develop` spans the useful cycle. Enter at the activity the work needs, repeat implementation and verification as evidence demands, and reopen affected decisions when product or operational learning changes the context. Project foundations and relevant specialist guidance support the work throughout. The arrows show relationships, not required task invocations or permission to release or deploy.
+
+![Seven SDLC phases from project planning through maintenance, with feedback and shared expertise](documentation/images/sdlc-cycle.svg)
+
+`develop` spans the useful cycle. Enter at the activity the work needs, repeat implementation and verification as evidence demands, and reopen affected decisions when product or operational learning changes the context. Project foundations and relevant specialist guidance support the work throughout. The arrows show outcome dependencies and feedback, not required task invocations or permission to release or deploy. Start with `plan` when deciding what to pursue, `refine` for requirements, or `develop` when you want an authorized end-to-end result; implementation preparation follows the relevant design decisions.
 
 [Compare typical starting points](documentation/sdlc.md#different-starting-points), [choose an activity](documentation/usage.md#skills-you-invoke) or explore the [linked skill map](documentation/sdlc.md).
 

@@ -1,97 +1,131 @@
 # SDLC coverage
 
-Use the [SDLC overview](../README.md#sdlc-coverage) to orient yourself and the [task menu](usage.md#skills-you-invoke) to start work. This reference links the expertise behind those activities. `develop` spans the useful lifecycle; individual tasks let you enter at any phase. Phases are a map, not required handoffs. For a new application, [new-application flow](../plugins/development/skills/develop/references/new-application-flow.md) defines the decision outcomes develop must establish before dependent work; setup alone does not establish the lifecycle.
+Use the [SDLC overview](../README.md#sdlc-coverage) to orient yourself and the [task menu](usage.md#skills-you-invoke) to start work. This reference links the expertise behind those activities. `develop` spans the useful lifecycle; individual tasks let you enter at any phase. Phases describe outcomes, **not required agent invocations or stage-gate approvals**. For new applications, [new-application flow](../plugins/development/skills/develop/references/new-application-flow.md) defines the dependent decisions; `setup` alone does not establish the full lifecycle.
 
-![Circular SDLC with product direction, seven development phases and feedback, supported by project context and relevant expertise](images/sdlc-cycle.svg)
+![Seven SDLC phases from project planning to maintenance, with feedback and shared expertise](images/sdlc-cycle.svg)
 
 ## Read the lifecycle map
 
-The circle names seven phases and their intended outcomes. Enter where the work needs attention and return to affected decisions when evidence changes. Detailed implementation planning (`plan`) follows the relevant requirements and design decisions; the initial Planning phase establishes goals, constraints and feasibility.
+The lifecycle uses seven phases: **project planning → requirements analysis → design → implementation → testing → deployment → maintenance**. Enter where an outcome is missing and revisit earlier decisions when evidence changes them. A known bug can start with reproduction. A new initiative may need feasibility work before requirements. Product direction helps choose the outcome and priority, and feedback can reopen either.
+
+Every phase starts by checking the inputs, deciding what work is needed and identifying the evidence or decision the next person will need. Scale that preparation to the uncertainty. During implementation, break agreed requirements and design into deliverable tasks, dependencies and checks. The [implementation preparation method](../plugins/development/skills/deliver-reliable-changes/references/implementation-preparation.md) supports requests that stop at a breakdown.
 
 | Part of the diagram | How it contributes |
 | --- | --- |
-| Product direction and feedback | Choose useful scope and success signals; learn from delivered value |
-| SDLC cycle | Turn accepted needs into designed, verified and operated software |
-| Project baseline above the flow | Carry accepted decisions, working conventions and reproducible foundations into relevant work; update them as decisions change |
-| Shared methods below the flow | Apply research, documentation, review, protection and reliability expertise where needed |
-| Technical expertise below the flow | Inform feasibility and requirements, then realize and verify decisions using the accepted stack throughout delivery and maintenance |
+| Product direction | Select users, problems, value, priorities and success signals; learn from delivered value |
+| Engineering lifecycle | Establish and deliver required behavior, design, implementation, evidence, release and long-lived operational health |
+| Project baseline | Reuse accepted decisions, existing contracts, instructions and evidence; update their canonical owners as they change |
+| Shared methods | Research, documentation, security and review provide conditional expertise across phases |
+| Technical/domain expertise | Choose by actual engineering concern and accepted stack rather than assuming Python, React or a particular framework |
 
-Green filled labels show direct requests; red outlined labels show supporting use; neutral labels identify project records. These are uses within the diagram: a skill can serve both direct and supporting roles. The named examples identify available skills for readers; workflows discover optional expertise by capability. Plugins are independent installation bundles, with generic methods and accepted-stack technical packages selected separately. The arrows do not authorize execution, release or deployment.
+Green labels identify entry-point skills or directly requested activities; dashed warm labels identify specialist support. Some expertise can also be requested directly. These are explanatory examples, not a fixed dependency graph. An agent must still respect user scope, runtime access, credentials and separate authorization for deployment or production actions.
 
 ## User-facing entry points
 
-| Need or phase | Entry point |
+| Need or missing outcome | Appropriate entry point |
 | --- | --- |
-| Business direction | business-strategy |
-| Product discovery, priorities and success | product-management |
-| Requirements and scope | refine |
-| System, experience or contract design | design; focused interface-design or backend-design when installed |
-| Implementation sequencing | plan |
-| Implementation | implement; develop for the broader engagement |
-| Verification and assessment | test; review across phases |
-| Delivery | release |
-| Maintenance and learning | improve, dependencies, relevant operations; learn-from-product-feedback |
-| Foundations or choosing an activity | setup / workflow-help |
+| Business direction and product priority | `business-strategy`, `product-management` |
+| Engineering requirements and acceptance | [refine](../plugins/development/skills/refine/SKILL.md), supported by [requirements-engineering](../plugins/development/skills/requirements-engineering/SKILL.md) when substantive |
+| Architecture, user experience or interface contracts | `design`, with `system-design`, `interface-design` or `backend-design` expertise when applicable |
+| Agreed implementation needs dependency ordering | Request an implementation breakdown |
+| Build an already-defined change | `implement` |
+| Rough idea through implementation, tests and review | `develop` |
+| Behavior checks and source assessment | `test`, `review`; review also applies earlier |
+| Delivery readiness or named authorized deployment | `release` |
+| Live incident or restoration | [incident-response](../plugins/operations/skills/incident-response/SKILL.md), recovery expertise as applicable |
+| Proactive operation, maintenance and improvement | `improve`, `dependencies`, [observability-operations](../plugins/operations/skills/observability-operations/SKILL.md), and other targeted operating skills |
+| Project foundation or activity selection | `setup`, `workflow-help` |
 
-Some disciplines are directly selectable and also support requested work. Entry points may span phases; they do not imply a mandatory invocation chain.
+### Which entry point should you use?
+
+| Starting situation | Typical work and stopping points |
+| --- | --- |
+| Company product request | Product direction establishes priority → `refine` defines behavior and quality constraints → `design` settles consequential solution choices → `implement` breaks down and builds the change, `test`, `review`, `release` as authorized |
+| Company refactor / rearchitecture | Inspect current behavior and maintenance pain → `refine` the preserved contracts, migration constraints and expected outcome → `design` alternatives and migration boundary → authorized implementation in compatible increments with rollback and checks |
+| Local agent-assisted feature or new app | Select `develop` for an authorized end-to-end slice; it establishes the missing decisions directly with relevant supporting expertise. Select `plan`, `refine`, `design` or `implement` individually when a bounded artifact or stopping point is desired |
+| Known bug or narrow change | Use `fix` to reproduce, repair and verify the affected behavior. No required planning or new specification ceremony |
+| Incident, recovery or operational drift | Start with the matching operations activity; follow causal evidence and actual operating policy. Turn confirmed learning into a requirement/design/improvement only when warranted |
+| Exploration, security review or architecture question | Request research, `harden`, `review`, design or specialist expertise; stop at the requested analysis rather than beginning implementation |
+
+Implementation preparation converts agreed requirements and design into actionable increments, dependencies and tests. It can iterate when implementation discovers a new constraint. The end-to-end `develop` activity does not need to invoke each explicit-only task skill by name to accomplish those outcomes.
+
+## Standard engineering artifacts and workspace handoffs
+
+An Engineering Change Record (ECR) carries the outcome of each performed activity on a change. A standalone inquiry can finish with a research report in the chosen workspace. Use [engineering artifacts](../plugins/development/skills/engineering-artifacts/SKILL.md) for the content and evidence, and [engineering workspace](../plugins/development/skills/engineering-workspace/SKILL.md) for discovery and persistence. The application repository owns implemented architecture and operating documentation.
+
+![Seven phase columns align handoff artifacts, contributions to one ECR, and typical roles. Issue and PR views serve implementers and reviewers.](images/sdlc-artifact-flow.svg)
+
+Read each column for the phase, its possible handoff artifacts, its contribution to the ECR and the roles involved. The feedback arrow shows where test and operational evidence can reopen earlier decisions.
+
+The phase view above shows who contributes and which documents the work may produce. Phase contributors author supporting documents, and the ECR captures their outcome or links the authoritative artifact. Issues and PR descriptions use that information to serve their own readers.
+
+The contribution view below follows the evidence into the ECR and shows how it relates to current application documentation and the issue and PR views.
+
+![Each phase contributes to a shared ECR, with checks at handoff and connections to application documentation, issues and PRs](images/sdlc-ecr-contributions.svg)
+ See the [worked examples](artifact-workflow.md) for how this looks to the reader and the [development workflow](../plugins/development/WORKFLOW.md) for activity selection.
 
 ## Different starting points
 
 ![Six representative paths for a new product, existing feature, bug, assessment, operations or specialist question, with contextual methods and bounded outcomes](images/sdlc-use-cases.svg)
 
-The same cycle supports a whole product and a small change. A new product needs enough refinement, feasibility and design evidence before dependent implementation; an existing feature reuses accepted context and revisits only affected decisions. Bug repair starts with reproduction and diagnosis. A scoped review returns findings and gaps; fixes require the corresponding request. Operations can enter through an incident, recovery exercise, capacity question or routine upkeep, with outcomes verified in the named environment.
+The same capability collection serves full applications and bounded changes. Reuse accepted context and reopen only affected decisions. A new product needs enough outcome, feasibility, requirements and design evidence before irreversible commitments; a bug fix starts with reproduction. Operational incidents begin with response and recovery, not a product-planning ritual.
 
-Direct strategy, design, documentation and other specialist requests can end at their own useful result. They need no full development engagement. Representative task names in the map describe supported entry points, not universal client commands or automatic invocation of explicit-only workflows. People and trusted automation can request the same activities; the host supplies triggering, credentials, tools, limits and allowed actions.
-
-Implementation and verification form a repeated loop inside the broader SDLC. Product feedback, incident learning and test evidence can reopen the relevant requirement, design or increment. Local checks, real-platform behavior and deployed outcomes establish different claims; a finished diagram, successful build or passing component test cannot establish them all. Follow the [shared consequential-decision policy](../plugins/development/WORKFLOW.md#resolve-consequential-findings) when new evidence requires a user choice, and continue independent work within the existing scope.
+Direct strategy, design, documentation and specialist requests can end at their own useful results. People and trusted automation can request the same activities; the host supplies triggering, tools, credentials, limits and action scope. Implementation and verification iterate; an actual deployment or recovery is not established by a passing unit test.
 
 ## Before and around the cycle
 
-- Product discovery and direction: [product-management](../plugins/strategy/skills/product-management/SKILL.md) owns user problems, priorities, useful scope and success signals. [Business strategy](../plugins/strategy/skills/business-strategy/SKILL.md) owns business direction, competitive position and value capture. These decisions begin before development and evolve with evidence.
-- Project foundations: `setup` uses [project-conventions](../plugins/development/skills/project-conventions/SKILL.md) and relevant [delivery-pipelines](../plugins/delivery/skills/delivery-pipelines/SKILL.md) guidance. Establish them after sufficient product and architecture decisions for a new project, then maintain affected parts as it evolves.
-- Product feedback: [learn-from-product-feedback](../plugins/strategy/skills/learn-from-product-feedback/SKILL.md) examines delivered value and feeds discovery and future work. Incident learning addresses reliability and is a separate feedback source.
+- Product discovery and direction: [product-management](../plugins/strategy/skills/product-management/SKILL.md) owns user problems, priorities, useful scope and success signals; business-strategy owns viability and positioning. These decisions inform project planning and may be reopened by evidence.
+- Foundations: `setup` uses [project-conventions](../plugins/development/skills/project-conventions/SKILL.md) and relevant [delivery-pipelines](../plugins/delivery/skills/delivery-pipelines/SKILL.md). Establish foundations after sufficient product and architecture decisions for a new project; maintain them as conditions change.
+- Feedback: [learn-from-product-feedback](../plugins/strategy/skills/learn-from-product-feedback/SKILL.md) informs product direction; incident learning addresses reliability and may also expose missing requirements or design protections.
+- Changes to consequential decisions: follow [the shared decision policy](../plugins/development/WORKFLOW.md#resolve-consequential-findings) and continue independent authorized work. Do not invent acceptance or account permissions.
+
+## Roles across the phases
+
+These are typical contributions. In a small team, one person can cover several roles. Involve specialists when the change affects their decisions or the evidence they need.
+
+| Phase | Typical lead and contributors | ECR contribution |
+| --- | --- | --- |
+| Project planning | Product manager or change owner leads. Engineering advises on feasibility and SRE advises on material operating risks. | Outcome, scope, feasibility and next decision, with links to the brief, PRD or roadmap when useful |
+| Requirements analysis | Product and engineering define behavior with stakeholders. Design contributes journeys, QA helps make acceptance observable, and SRE checks relevant reliability requirements and SLOs. | Agreed behavior, quality constraints and acceptance |
+| Design | Architect, designer and engineers lead their respective concerns. QA reviews testability and SRE reviews operating and recovery implications. | Proposed design, alternatives, affected diagrams and accepted decisions |
+| Implementation | Engineers break down the work, build it and add tests. Design, architecture, QA and SRE support affected areas. | Task breakdown, planned checks, actual changes and deviations |
+| Testing | Engineers and QA verify acceptance. Product and design review user outcomes, and SRE helps verify affected reliability paths. | Checked behavior, actual results and remaining gaps |
+| Deployment | Engineering and release or SRE owners coordinate delivery and recovery. QA contributes smoke checks. | Target, rollout or rollback evidence and observed result |
+| Maintenance | SRE and engineering maintain service health. Product uses feedback to revisit priorities. | Operational learning and linked follow-up decisions |
+
+See the [reference role diagram](https://share.google/aimode/PpTjDsdFrpSGyXtZq) for the illustration that informed these overlaps.
 
 ## Skills by phase
 
-Product discovery and refinement establish the outcome. System design makes architectural decisions before dependent implementation planning; revisit it for features that change consequential boundaries. Phases can recur and do not require separate task invocations.
+### 1. Project planning
 
-### 1. Planning
-
-Establish the goals, feasibility, constraints and rough scope needed to decide whether and how to proceed. Product-management supplies product priorities and evidence for this decision; business-strategy supports unresolved business choices. Revisit the initial plan as requirements and design become clearer; detailed implementation planning follows the decisions it depends on.
+Use [plan](../plugins/development/skills/plan/SKILL.md) to agree why a change is worth doing, its first useful scope and whether it is feasible. Draw on product expertise for discovery and priority, engineering for feasibility, and delivery coordination when several changes or owners share prerequisites. Record the decision in the ECR or link the existing product brief or roadmap. A planning ticket can hand off a concrete investigation or a change with clear acceptance.
 
 ### 2. Requirements analysis
 
-Start with [refine](../plugins/development/skills/refine/SKILL.md). Establish actor authority, scope, observable acceptance and material unknowns. Reuse accepted product direction; product-management supports unresolved product priorities without replacing engineering requirements.
+Start with [refine](../plugins/development/skills/refine/SKILL.md). For new systems, significant changes, rearchitecture or uncertain requirements, use its supporting [requirements-engineering](../plugins/development/skills/requirements-engineering/SKILL.md) method to elicit needs, define functional and measurable quality constraints, validate conflicts and link acceptance to evidence. Preserve accepted product intent; product-management is not repeated as a development phase. Requirements may be ready for solution design before implementation architecture is decided.
 
 ### 3. Design
 
-#### Architecture and system design
-
-Use [design](../plugins/development/skills/design/SKILL.md) with [system-design](../plugins/development/skills/system-design/SKILL.md). Compare consequential architecture/platform options against the product and operating constraints, map boundaries and critical flows, and carry the decisions into setup and feature plans. Reuse installed codebase-design/domain-modeling where applicable.
-
-#### Interaction, visual and contract design
-
-Use [design](../plugins/development/skills/design/SKILL.md) for the requested design activity. For meaningful UI work, compose [interface-design](../plugins/frontend-development/skills/interface-design/SKILL.md) with applicable application/domain expertise and matching technical guidance **from the outset**: domain semantics and platform feasibility shape flows, components and visual decisions together. Seek [backend-design](../plugins/backend-development/skills/backend-design/SKILL.md) when service authority, state, failure or API contracts are affected, not as a prerequisite for all UI design. Integrated creative visual-craft guidance supports an open aesthetic direction; preserve the accepted design during ordinary changes. Establish the accepted component system and light/dark/system appearance policy before dependent UI mockups. Carry the chosen interaction, visual, domain and technical decisions through to implementation and verification, preserving existing foundations during small changes. A technical package is optional expertise, not a framework selection.
-
-#### Implementation planning and foundations
-
-Start with [plan](../plugins/development/skills/plan/SKILL.md). Produce bounded dependency-ordered increments, tests and delivery/recovery consequences from the accepted system and experience design. Reconcile earlier rough plans after material decisions; establish complete applicable project foundations.
+Use [design](../plugins/development/skills/design/SKILL.md) with [system-design](../plugins/development/skills/system-design/SKILL.md) for consequential system choices. For UI work compose [interface-design](../plugins/frontend-development/skills/interface-design/SKILL.md) with relevant domain patterns and selected platform constraints **from the outset**. Use [backend-design](../plugins/backend-development/skills/backend-design/SKILL.md) for service behavior, authority, state and API contracts. Preserve current-versus-target status, meaningful alternatives, and verification consequences. No comprehensive design document is required for a trivial local fix.
 
 ### 4. Implementation
 
-Start with bundled upstream implement. Use [git-contributions](../plugins/development/skills/git-contributions/SKILL.md) for the actual objective worktree and applicable frontend/backend/AI/native-client guidance. For repository instruction authoring, the bundled Sentry agents-md complements project-conventions and writing-for-agents. Keep source, configuration, tests and docs in that objective.
+Start by breaking agreed work into bounded increments and choosing the verification for each. Use [implementation preparation](../plugins/development/skills/deliver-reliable-changes/references/implementation-preparation.md) when dependencies, migration, recovery or coordination warrant an explicit breakdown. Keep it in the ECR implementation strategy or link the existing plan.
+
+Start with the bundled upstream `implement` when explicitly selected, or use `develop` for the broader end-to-end engagement. Use [git-contributions](../plugins/development/skills/git-contributions/SKILL.md) for the objective worktree, plus matching frontend/backend/AI/database/native-client and operating expertise. Carry tests and affected documentation with the change.
 
 ### 5. Testing
 
-Start with [test](../plugins/development/skills/test/SKILL.md). Use [deliver-reliable-changes](../plugins/development/skills/deliver-reliable-changes/SKILL.md), [journey-testing](../plugins/development/skills/journey-testing/SKILL.md), and performance/resilience methods when relevant. Commit meaningful tests, inspect failures, repair and recheck the real behavior.
+Start with [test](../plugins/development/skills/test/SKILL.md), and use [deliver-reliable-changes](../plugins/development/skills/deliver-reliable-changes/SKILL.md), [journey-testing](../plugins/development/skills/journey-testing/SKILL.md), performance/resilience and other specialist methods where relevant. `review` may apply in any phase. Observe real behavior, repair failures and recheck without weakening acceptance.
 
 ### 6. Deployment
 
-Start with [release](../plugins/development/skills/release/SKILL.md). Use [delivery-pipelines](../plugins/delivery/skills/delivery-pipelines/SKILL.md) for CI, artifacts, registry publication, promotion and recovery. Setup authors applicable delivery foundations; live release/deployment requires a named authorized action.
+Start with [release](../plugins/development/skills/release/SKILL.md). [Delivery pipelines](../plugins/delivery/skills/delivery-pipelines/SKILL.md) supports artifacts, CI, publication, promotion, rollout and recovery; actual remote actions require named authorization and target verification.
 
 ### 7. Maintenance
 
-Start with improve/dependencies or the requested operations activity. Use relevant upkeep, vulnerability, credential, capacity/cost and data-recovery guidance. Feed product evidence and incident learning into the next refinement/design decision.
+Maintenance is one lifecycle outcome with four complementary responsibilities: **respond & restore**, **reliability & signals**, **learn & prevent**, and **maintain & evolve**. Operations activities are direct ways of achieving those outcomes; they are **not just substeps** of `improve` or `dependencies`. React to incidents with [incident-response](../plugins/operations/skills/incident-response/SKILL.md) and appropriate recovery, runbook, [postmortem facilitation](../plugins/operations/skills/postmortem-facilitation/SKILL.md) and [follow-up](../plugins/operations/skills/postmortem-followup/SKILL.md). Proactively manage [reliability and SLOs](../plugins/operations/skills/reliability-design/SKILL.md), [observability](../plugins/operations/skills/observability-operations/SKILL.md), [operational housekeeping](../plugins/operations/skills/operational-housekeeping/SKILL.md), capacity, cost, vulnerability and credentials. `improve` and `dependencies` complement those responsibilities. Reliability and operations expertise also informs requirements, design, implementation and testing before a release.
 
 ## UI/UX methods across activities
 

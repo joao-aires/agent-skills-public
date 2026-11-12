@@ -11,7 +11,7 @@ metadata:
 user-invocable: true
 ---
 
-Read [composition guidance](../../COMPOSITION.md) and apply [documentation-writing](../documentation-writing/SKILL.md) for authoring quality.
+Read [composition guidance](../../COMPOSITION.md). Use [documentation writing](../documentation-writing/SKILL.md) to present the views and their meaning clearly. This method owns view selection, system boundaries and verification against sources.
 
 # Explain architecture through useful views
 

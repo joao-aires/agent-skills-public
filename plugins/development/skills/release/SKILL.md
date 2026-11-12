@@ -14,7 +14,9 @@ metadata:
 
 # Release
 
-Read [task guidance](../../TASKS.md). Seek available delivery expertise for readiness, promotion and recovery. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [development workflow](../../WORKFLOW.md).
+
+Apply [engineering-artifacts](../engineering-artifacts/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Seek available delivery expertise for readiness, promotion and recovery. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
 
 ## Establish the release boundary
 
@@ -36,4 +38,4 @@ Establish what success will look like in the target and how a failed rollout wil
 2. Verify the served revision, critical journeys and async/cache paths. A successful job alone does not establish customer success.
 3. Report prepared, locally checked, released, deployed and target-verified states separately.
 
-A generic release request does not automatically authorize merging, production deployment or data restoration.
+Record prepared, released, deployed and target-verified states separately in the change record with actual artifact/target evidence when authorized. A generic release request does not automatically authorize merging, production deployment or data restoration.

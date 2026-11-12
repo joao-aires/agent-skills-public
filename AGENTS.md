@@ -21,6 +21,7 @@ For acquisition and updates, follow [upstream maintenance](documentation/maintai
 
 ## Documentation and contributions
 
+- Before adding a document, inspect existing indexes and authoritative pages; update the canonical owner where possible, otherwise add a focused document in the established location with navigable links. Follow [documentation conventions](plugins/documentation/skills/documentation-conventions/SKILL.md) for the placement method.
 - Update affected documentation alongside source changes and accepted decisions. Keep manifests, README, ownership/source catalogue and pins aligned; bump the owning version for packaged changes.
 - Keep user guides organized by reader need and the maintainer entry short. Put source/evaluation detail in the existing maintainer references rather than a report per change. Add focused how-tos for recurring tasks. Keep implementation task/work-package status and PR chronology in the tracker or Git history; repository docs describe current behavior, source decisions, actionable migration and evidence limits.
 - Use Humanizer when available for prose edits, preserving technical meaning, caveats, commands and links. Verify client-specific examples against primary documentation and distinguish documented setup from exercised behavior.
