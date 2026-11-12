@@ -39,3 +39,7 @@ Pin compatible tool versions and dependencies, align local/CI command semantics,
 Inspect startup, representative behavior, emitted/received signals, failure status and cleanup where those are the claim. A YAML parse, image build, healthy collector or static component catalogue establishes only that stage.
 
 Preserve credentials, data ownership, partial staging and protected CI trust boundaries. Record authored, locally checked, remotely run and unavailable capabilities separately.
+
+## Author GitHub Actions workflows
+
+Read [workflow authoring](references/github-actions-authoring.md) when creating or substantially changing a GitHub Actions workflow. Use the package's Actions security guidance for trust boundaries and Bash engineering guidance for reusable shell scripts.

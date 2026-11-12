@@ -262,7 +262,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 25 independent packages and 125 skills: 85 local and 40 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 25 independent packages and 126 skills: 86 local and 40 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local composition framing and the Python MCP wrapper uses Python-local conventions.
 
 A plugin represents a useful installation choice. Workflow, application discipline and supporting capability describe its purpose; generic versus technical describes its applicability. These groups do not impose an execution order or dependencies. Installing a technical package makes expertise available without accepting its technology for a project. Keep accepted choices, select matching guidance from actual inventory and retain useful outcomes when optional specialists are absent.
 
@@ -280,7 +280,7 @@ The collection has 13 generic capability packages and 12 optional technical pack
 | `backend-development` | Generic | 1 | Service authority, state, failure, durable work and consumer contracts. |
 | `ai-development` | Generic | 3 | AI application/architecture and protocol design; testing/evaluation methods; AI-specific operating decisions and evidence. |
 | `delivery` | Generic | 1 | CI/release/deployment methods, immutable artifacts, promotion, compatibility and recovery. |
-| `documentation` | Generic support | 4 | Writing, architecture explanation, knowledge organization and prose editing. |
+| `documentation` | Generic support | 5 | README and documentation writing, architecture explanation, knowledge organization and prose editing. |
 | `visualization` | Generic support | 3 | Diagrams, presentations and interactive system explanation; preserve executable resources. |
 | `backend-python-development` | Technical | 3 | Python/FastAPI/persistence and Python automation; no backend service required for CLI work. |
 | `frontend-reactjs-development` | Technical | 5 | React/Next.js/shadcn/Tailwind and their actual component APIs. |
@@ -335,7 +335,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 125 skills and their current owners</summary>
+<summary>All 126 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -412,6 +412,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [delivery-pipelines](../../plugins/delivery/skills/delivery-pipelines/SKILL.md) | Local | `delivery` |
 | [architecture-documentation](../../plugins/documentation/skills/architecture-documentation/SKILL.md) | Local | `documentation` |
 | [documentation-conventions](../../plugins/documentation/skills/documentation-conventions/SKILL.md) | Local | `documentation` |
+| [open-source-readme](../../plugins/documentation/skills/open-source-readme/SKILL.md) | Local | `documentation` |
 | [documentation-writing](../../plugins/documentation/skills/documentation-writing/SKILL.md) | Local | `documentation` |
 | [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) | Upstream | `documentation` |
 | [architecture-diagramming](../../plugins/visualization/skills/architecture-diagramming/SKILL.md) | Local | `visualization` |
@@ -477,7 +478,7 @@ Figma remains optional tooling declared by frontend-development; the React techn
 
 ### Verification coverage
 
-The assignment covers 85 local skills and 40 distinct acquired skills exactly once, with no omissions or duplicate owners.
+The assignment covers 86 local skills and 40 distinct acquired skills exactly once, with no omissions or duplicate owners.
 
 All packages build together with `--all` and independently with explicit selection. Package checks verify inventories, local-resource parity, notices, required framing, and transitive owned Markdown links staying inside their bundle. CI also checks the default development-only build. These checks do not establish agent behavior; behavioral evaluations remain deferred.
 
