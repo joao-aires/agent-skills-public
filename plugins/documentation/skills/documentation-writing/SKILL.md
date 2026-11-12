@@ -36,6 +36,24 @@ PRDs, design proposals and decision records also need their own product/decision
 
 Open with the subject, useful scope and relevant status. Supply the background a new reader needs without reproducing another document. Define unfamiliar acronyms and domain distinctions before relying on them. Keep editorial dates separate from implementation reviews.
 
+## Order the document around the reader's job
+
+Use these starting orders and adapt them to the project. Put prerequisites and conditions immediately before the decisions or actions they affect.
+
+| Document | Recommended sequence |
+| --- | --- |
+| Tutorial | Outcome and prerequisites → guided exercise → expected result → next exercise |
+| How-to | Task and starting conditions → ordered actions → verification → recovery |
+| Reference | Scope and lookup key → contract → defaults and constraints → examples and errors |
+| Architecture overview | Purpose and boundary → main flow → responsibilities and interfaces → failure and deployment |
+| ADR | Decision and status → constraints → credible options → consequences and revisit trigger |
+| Requirements or PRD | User problem and desired outcome → scope → observable requirements and acceptance → open decisions |
+| Runbook | Trigger and impact → access and prerequisites → diagnostic branches → mitigation → verification and escalation |
+
+Use a table when each row answers the same questions. Use bullets for independent facts and numbers when later steps depend on earlier ones. For branching decisions, give each condition its action and expected result. Use a sequence diagram when the reader needs to trace messages, responsibility or timing. Caption it with the consequence the reader should understand. Keep causal explanations in paragraphs.
+
+A useful edit replaces “Validate the deployment” with the actor, signal and consequence: “After promotion, the operator checks the health endpoint. If it returns a non-success status, stop promotion and follow the rollback steps.” Explain a term at its first useful occurrence and reuse the same name throughout.
+
 ## Explain the subject, not just its inventory
 
 Build from the reader's question to the answer. For systems, connect responsibilities, data flow, ownership and failure boundaries. Explain why a distinction matters and what follows from it; a component list alone rarely teaches the design.

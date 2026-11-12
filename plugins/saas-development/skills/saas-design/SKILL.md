@@ -56,6 +56,10 @@ Define usable onboarding and offboarding, including import/export, retention/del
 
 Specify customer administration, self-service and support boundaries. Include useful task/activation signals with deliberate privacy/retention. Seek applicable security, governance, reliability and delivery expertise by capability; their absence does not imply readiness or require installation.
 
+## Design supporting services around the customer journey
+
+Read [supporting service design](references/supporting-services.md) when selecting vendors or adding integrations. Trace signup, activation, payment, support and closure. For every external effect, identify its tenant, data owner, source of truth, expected behavior during an outage and recovery path. Keep vendor selections contingent on the product's commitments and the team's ability to operate the integration.
+
 ## Verify transitions and deliver the requested slice
 
 Connect representative allowed/denied journeys, concurrent/replayed operations, interrupted processing, stale entitlements and tenant closure/recovery to observable outcomes.

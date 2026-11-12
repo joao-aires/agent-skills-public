@@ -28,7 +28,7 @@ Establish audience, task, content, platform, roles, accepted choices and scope. 
 
 ## Discover direction and select supporting methods
 
-When a consequential design choice is open, read [Design Discovery](references/design-discovery.md). Show materially different directions using the same representative task and realistic content. Use wireframes for a structural choice and rendered mockups for a visual choice. Explain the tradeoff, recommend a direction and ask for the user's decision in plain language. If the user delegates, state the choice and its assumptions. Keep unanswered decisions visible.
+When a consequential design choice is open, read [Design Discovery](references/design-discovery.md). Show the user at least two materially different directions using the same representative task and realistic content. Use wireframes for a structural choice and rendered mockups for a visual choice. Explain the tradeoff, recommend a direction and ask for the user's decision in plain language. If the user delegates, state the choice and its assumptions. Keep unanswered decisions visible.
 
 When the direction is settled, reuse it. For a routine repair, go directly to the affected behavior and its verification.
 
