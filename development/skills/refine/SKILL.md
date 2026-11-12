@@ -2,19 +2,19 @@
 name: refine
 description: Refine a rough idea, brief, conversation or optional tracker item into
   repository-aware actionable work. Use to establish scope, acceptance criteria, affected
-  UX/API/data boundaries and material questions before implementation, including unattended
-  refinement jobs.
+  UX/API/data boundaries and material questions before implementation, including when a conversation moves from ideation to defining an actionable feature without authorizing code.
 user-invocable: true
-disable-model-invocation: true
 metadata:
   scope: generic
-  invocation: user
+  invocation: both
   role: task
 ---
 
 # Refine
 
-Read [task guidance](../../TASKS.md). Read [project-conventions](../project-conventions/SKILL.md) for affected project constraints. For new systems, substantial features, refactors, migrations, rearchitecture or work with materially uncertain actors, quality constraints or acceptance, read and apply [requirements-engineering](../requirements-engineering/SKILL.md) as supporting expertise. For a small well-defined fix, use only the applicable requirements checks without requiring a fuller analysis. Load other optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [development workflow](../../WORKFLOW.md).
+
+Record the agreed behavior, constraints and observable acceptance. When the next contributor needs a ticket, use the issue guidance in [engineering artifacts](../engineering-artifacts/SKILL.md) for the handoff and [engineering workspace](../engineering-workspace/SKILL.md) for persistence. Read [project-conventions](../project-conventions/SKILL.md) for affected project constraints. For new systems, substantial features, refactors, migrations, rearchitecture or work with materially uncertain actors, quality constraints or acceptance, read and apply [requirements-engineering](../requirements-engineering/SKILL.md) as supporting expertise. For a small well-defined fix, use only the applicable requirements checks without requiring a fuller analysis. Load other optional stack/domain guidance selected through the development workflow only when relevant and available.
 
 ## Establish the change
 
@@ -24,7 +24,7 @@ Describe the change in the user's terms: who needs to do what, why the present b
 
 Resolve implementation facts from the repository. Ask the user about choices only they can settle, such as which users may perform an action or whether an existing behavior should change. For a reversible assumption, say what you are assuming and which part of the result depends on it.
 
-If the problem or product priority is still unresolved, use installed product discovery and prioritization expertise to shape that decision within scope before detailing the change. Accepted product context needs no new discovery cycle.
+If the outcome, scope or product priority is still unresolved, apply the [planning method](../plan/SKILL.md) within scope before detailing dependent requirements. Accepted product context needs no new discovery cycle.
 
 ## Define actionable work
 
@@ -50,8 +50,8 @@ For UI work, identify interaction decisions using available interaction design e
 
 ## Return readiness and open decisions
 
-Return **ready for design**, **ready for implementation** or **needs decisions** and explain the next dependency. Ready for design means required behavior, relevant quality constraints and acceptance are clear enough to evaluate solutions; ready for implementation also needs the design choices that materially change that behavior to be settled. Ready work has a clear intended result, sufficient scope and a credible verification approach. When a decision is still needed, identify the exact choice, why implementation depends on it, and which independent work can continue. Include the repository or product evidence that led to the question.
+Apply the requirement-quality boundary from [artifact assurance](../engineering-artifacts/references/assurance.md): confirm each consequential actor, permission, failure/quality constraint and observable acceptance has coherent evidence; do not treat a proposed solution as a requirement. Give a scoped readiness disposition and resolve contradictions with existing accepted decisions before dependent design. Return **ready for design**, **ready for implementation** or **needs decisions** and explain the next dependency. Ready for design means required behavior, relevant quality constraints and acceptance are clear enough to evaluate solutions; ready for implementation also needs the design choices that materially change that behavior to be settled. Ready work has a clear intended result, sufficient scope and a credible verification approach. When a decision is still needed, identify the exact choice, why implementation depends on it, and which independent work can continue. Include the repository or product evidence that led to the question.
 
-Carry accepted/proposed status, material assumptions, source-to-requirement links and verification observations in the existing brief, issue or conversation. Conversation or Markdown can be sufficient; a tracker item is another input/output when configured and authorized. Labels, status changes and ticket creation stay within task policy. Routine work needs no exhaustive story catalogue or interview.
+Record accepted/proposed requirements, acceptance, evidence and readiness in the ECR requirements section. A PRD owns broader product intent; an issue is an optional audience-specific summary, only published when configured and authorized. Routine work needs no exhaustive story catalogue or interview.
 
 In unattended runs, return blockers rather than inventing product decisions or waiting for an absent person.

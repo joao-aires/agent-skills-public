@@ -37,6 +37,10 @@ Consult [references/response-guide.md](references/response-guide.md) for deeper 
 7. Verify recovery through the original user/business path and independent signals, including served version/cache/async completion. Observe stability and track temporary controls.
 8. Handover or close: current impact, timeline, proven/unknown cause, rejected hypotheses, pending jobs/controls, next action and owner. Feed evidence to postmortem facilitation after stabilization.
 
+## Carry a durable repair forward
+
+When a source repair is warranted, hand off the intended behavior, observed failure, affected scope, supporting signals and verification targets. Use available engineering defect-repair expertise for reproduction, design, implementation and regression checks within its authorized scope. Keep incident mitigation, live recovery verification and communications with the incident response. Link the durable repair and its evidence from the incident record.
+
 ## Evidence discipline
 
 Classify fact, hypothesis and unavailable information. Missing/sampled telemetry is unknown, not healthy. Compare numerator and denominator semantics before interpreting error/availability. Include silent failure, authentication/expiry, routing/cache and event-subscription changes in the investigation; avoid overfitting everything to deployments.

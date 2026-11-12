@@ -16,6 +16,8 @@ Read [composition guidance](../../COMPOSITION.md) for skill selection and invoca
 
 # Keep documentation useful
 
+**Separate change records from implemented knowledge.** ECRs, standalone engineering research and proposed architecture or RFCs belong in the authorized **engineering workspace** (filesystem folder outside the application repo or a connected document provider). The application's canonical documentation owns verified/current architecture, contracts, ADR history, runbooks and release/operations facts. A target design accepted by a team is not automatically implemented or deployed. Read the existing project documentation index, resolve current versus proposed state, and update affected canonical pages only as evidence justifies. The engineering artifact method defines when a change record, research report or supporting document is needed and what evidence it carries. Use this skill for canonical placement and upkeep.
+
 For architecture baselines or substantive architecture/interface changes, read [architecture-documentation](../architecture-documentation/SKILL.md) for views, runtime/lifecycle boundaries, API analysis and source-backed verification.
 
 When writing or revising prose, read and apply [documentation-writing](../documentation-writing/SKILL.md) for reader purpose, explanations, examples, precision and presentation. This skill owns document responsibilities and maintenance; the writing skill guides authoring and reader review.

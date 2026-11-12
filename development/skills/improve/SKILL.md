@@ -14,7 +14,7 @@ metadata:
 
 # Improve
 
-Read [task guidance](../../TASKS.md). Read [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for baseline and verification, [git-contributions](../git-contributions/SKILL.md) for implementation when requested. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [development workflow](../../WORKFLOW.md). Read [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for baseline and verification, [git-contributions](../git-contributions/SKILL.md) for implementation when requested. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
 
 ## Assess opportunities
 

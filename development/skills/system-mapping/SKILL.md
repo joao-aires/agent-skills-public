@@ -47,7 +47,7 @@ Distinguish the current behavior from a proposed extension. Pass the trace into 
 3. Derive hosting/target topology from actual infrastructure and delivery definitions. Resolve rendered overrides where relevant; use live state as a cross-check, not an assumption that desired state is deployed.
 4. Identify ownership, operational docs and signal identities. Record evidence source/revision/time for each node and edge.
 5. Model representative critical journeys from user intent to outcome. Include client-only work, external systems, caches, failures, retries, async completion and optional/degraded paths.
-6. Draw Mermaid context/container and sequence/dataflow views at the depth needed. Do not force components into microservices or create unsupported acronym expansions.
+6. Inspect the canonical existing context/container and critical sequence/dataflow views at a known app revision. Create/update **implemented-state** diagrams in the app's established docs when missing or changed, and keep **proposed target** diagrams in the change ECR/RFC until reconciliation. Use editable Mermaid or existing notation at appropriate depth. Do not force components into microservices or create unsupported acronym expansions.
 7. Reconcile conflicting docs/code/live evidence with dates and explicit unresolved decisions. Absence from sampled traces does not prove no dependency.
 
 ## Output

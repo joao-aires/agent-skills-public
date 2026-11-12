@@ -13,7 +13,9 @@ metadata:
 
 # Test
 
-Read [task guidance](../../TASKS.md). Read [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for evidence and suite health, [journey-testing](../journey-testing/SKILL.md) for changed user journeys. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [development workflow](../../WORKFLOW.md).
+
+Apply [engineering-artifacts](../engineering-artifacts/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Read [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for evidence and suite health, [journey-testing](../journey-testing/SKILL.md) for changed user journeys. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
 
 ## Select meaningful coverage
 
@@ -37,4 +39,4 @@ Select the evidence for the claim:
 
 A bare test request does not authorize deployed load or fault injection. Execute supported checks and diagnose failures, distinguishing application defects, fixture/environment issues and unexecuted checks.
 
-Return results, artifacts, actual boundaries and the next action. A green build alone does not establish behavior.
+Apply [artifact assurance](../engineering-artifacts/references/assurance.md) to compare actual checked behavior with accepted requirements, protected existing behavior and proposed design. Missing or failed acceptance evidence remains explicit nonconvergence, not an automatic green result. Record observations at the checked revision/target, evidence gaps and design/diagram differences in the change record when authorized, or return a structured unpersisted record. Return results, artifacts, actual boundaries and the next action. A green build alone does not establish behavior.

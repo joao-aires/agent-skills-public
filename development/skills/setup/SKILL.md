@@ -14,7 +14,7 @@ metadata:
 
 # Setup
 
-Read [task guidance](../../TASKS.md). Read [git-contributions](../git-contributions/SKILL.md) before foundation writes. Seek available delivery expertise for CI, artifact and recovery decisions. Read [project-conventions](../project-conventions/SKILL.md) for repository foundations and working commands. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [development workflow](../../WORKFLOW.md). Read [git-contributions](../git-contributions/SKILL.md) before foundation writes. Seek available delivery expertise for CI, artifact and recovery decisions. Read [project-conventions](../project-conventions/SKILL.md) for repository foundations and working commands. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
 
 Setup is technical foundation work, not a substitute for product discovery. Before architecture-dependent writes, establish the intended usage, bounded journey and material platform/licensing/budget constraints. For a rough idea needing end-to-end development, use the outcomes in [new-application flow](../develop/references/new-application-flow.md) within the requested scope; a setup-only request does not authorize feature implementation or an unsolicited full business study.
 
@@ -26,6 +26,10 @@ Use project-conventions to discover the repository, accepted stack, commands, id
 | --- | --- |
 | New project | Establish useful foundations for the requested first slice. Satisfy the [applicable foundation contract](../project-conventions/SKILL.md#complete-new-project-foundations), including authored onboarding, checks/tests, packaging and delivery artifacts. |
 | Existing project | Preserve working foundations, identify missing context and address the requested gaps without restructuring the application. |
+
+## Select a durable engineering workspace (only if not already configured)
+
+During setup or adoption, use [engineering workspace](../engineering-workspace/SKILL.md) to establish or confirm the chosen home and its portable discovery pointer. Apply its storage choice and access rules, including an inline-only preference. Surface any unresolved storage choice while completing unrelated authorized foundations.
 
 Connect the foundations into a usable development path. A contributor should be able to obtain the required configuration, install dependencies, start the application and run its checks using the documented commands. Where persistence is part of the slice, include how the local data store is prepared and how schema changes are applied. Use sample configuration that explains required values without containing secrets.
 

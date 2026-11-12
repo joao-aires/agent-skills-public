@@ -48,7 +48,7 @@ Cover the affected design:
 - Contracts, authority checks, persistence/transaction ownership, retries/idempotency, failure/cancellation, compatibility and configuration.
 - Test seams, diagnostic signals, artifact/release strategy and recovery.
 
-Use relevant backend, frontend/native-client, AI and operations guidance when installed. Diagrams or a flow explorer can clarify a decision; a drawing alone is not a design.
+Use relevant backend, frontend/native-client, AI and operations guidance when installed. For new apps/services and boundary-changing work, inspect the canonical implemented-state C4 and critical sequences and produce affected **proposed target** C4 and sequence views in the ECR/RFC engineering workspace. An unchanged local boundary warrants an explicit non-impact disposition. Reconcile application current-state docs after verified implementation, not upon design acceptance. A drawing alone is not a design.
 
 ### Account for changes between observation and effect
 

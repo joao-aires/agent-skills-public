@@ -13,7 +13,7 @@ metadata:
 
 # Harden
 
-Read [task guidance](../../TASKS.md). Use [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for verified remediation and seek matching security/privacy expertise when available. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [development workflow](../../WORKFLOW.md). Use [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for verified remediation and seek matching security/privacy expertise when available. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
 
 ## Assess and remediate within scope
 

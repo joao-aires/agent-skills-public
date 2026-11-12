@@ -13,6 +13,8 @@ user-invocable: false
 
 Read [workflow framing](../../WORKFLOW.md) for scope and invocation boundaries.
 
+Use [engineering-artifacts](../engineering-artifacts/SKILL.md) for the PR reviewer view: why, actual changes, design/diagram departures, observed checks, risk and canonical ECR/issue links. Use [engineering-workspace](../engineering-workspace/SKILL.md) only to resolve verified ECR destinations. Do not publish private workspace content to public PRs.
+
 # Make reviewable contributions
 
 Make the contribution easy to inspect and reproduce. Keep the objective's implementation, tests and documentation together in its worktree, and preserve unrelated work. Before publishing, check that the branch contains the intended change against the intended base and that the description explains the result to someone who has not read the conversation.
@@ -50,4 +52,4 @@ For multiline descriptions, use a body file or structured tool argument. Follow 
 
 Keep title and description about the final diff. Remove abandoned approaches and conversational history unless they explain a relevant tradeoff, and use accurate issue links and closing keywords.
 
-Before reporting completion, verify the published head, diff and required checks. Report the PR link and actual state. Keep the worktree available for review fixes until its work is safely preserved and no longer needed.
+Before describing the PR as review-ready, apply [artifact assurance](../engineering-artifacts/references/assurance.md) to compare the *cumulative diff* (base to current head), current-head checks, material ECR design/acceptance, actual architecture/doc changes and reviewer description. Correct authorized discrepancies or report exact blockers; the PR is a projection, not a second ECR. Before reporting completion, verify the published head, diff and required checks. Report the PR link and actual state. Keep the worktree available for review fixes until its work is safely preserved and no longer needed.
