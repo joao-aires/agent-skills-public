@@ -39,6 +39,12 @@
     },
     "getsentry-skills": {
       "repository": "https://github.com/getsentry/skills.git"
+    },
+    "pbakaus-impeccable": {
+      "repository": "https://github.com/pbakaus/impeccable.git"
+    },
+    "nextlevelbuilder-ui-ux-pro-max": {
+      "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git"
     }
   },
   "artifacts": {
@@ -1179,6 +1185,72 @@
             "workflow-framing",
             "instruction-authoring-framing",
             "usage-labels"
+          ],
+          "labels": {
+            "scope": "generic",
+            "invocation": "both",
+            "role": "support"
+          }
+        }
+      }
+    },
+    "frontend-development--impeccable": {
+      "source": "pbakaus-impeccable",
+      "commit": "c3bb418ee38ee49a6b999b7752c1368f3123a2bd",
+      "kind": "skill",
+      "path": "plugin/skills/impeccable",
+      "destination": "plugins/frontend-development/skills/impeccable",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "destination": "UPSTREAM-LICENSE.txt"
+        },
+        {
+          "path": "NOTICE.md",
+          "destination": "UPSTREAM-NOTICE.md"
+        },
+        {
+          "path": "plugin/agents",
+          "destination": "agents"
+        }
+      ],
+      "metadata": {
+        "packaging": {
+          "plugin": "frontend-development",
+          "license": "Apache-2.0",
+          "license_path": "LICENSE",
+          "adaptations": [
+            "usage-labels",
+            "support-visibility"
+          ],
+          "labels": {
+            "scope": "generic",
+            "invocation": "both",
+            "role": "support"
+          }
+        }
+      }
+    },
+    "frontend-development--ui-ux-pro-max": {
+      "source": "nextlevelbuilder-ui-ux-pro-max",
+      "commit": "b7d5353e0130feb8c5574ef1251f8a1db1873ccb",
+      "kind": "skill",
+      "path": ".claude/skills/ui-ux-pro-max",
+      "destination": "plugins/frontend-development/skills/ui-ux-pro-max",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "destination": "UPSTREAM-LICENSE.txt"
+        }
+      ],
+      "metadata": {
+        "packaging": {
+          "plugin": "frontend-development",
+          "license": "MIT",
+          "license_path": "LICENSE",
+          "adaptations": [
+            "usage-labels",
+            "support-visibility"
           ],
           "labels": {
             "scope": "generic",
