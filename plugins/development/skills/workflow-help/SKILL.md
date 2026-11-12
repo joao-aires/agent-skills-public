@@ -16,7 +16,7 @@ metadata:
 
 ## Explain the next useful activity
 
-Read [development workflow](../../WORKFLOW.md). Use its activity catalogue and the client's observed skill/plugin inventory when available. If the stopping point is unclear, distinguish product direction, design/plan, implementation and assessment. Explain how to seek product discovery and prioritization expertise for an unresolved product problem, or develop when working software is requested; reuse accepted context for a defined feature or defect.
+Read [development workflow](../../WORKFLOW.md). Use its activity catalogue and the client's observed skill/plugin inventory when available. If the stopping point is unclear, distinguish deciding what to pursue with `plan`, defining behavior with `refine`, settling a solution with `design`, preparing an implementation breakdown, building and assessing. Explain how to seek product discovery and prioritization expertise for an unresolved product problem, or develop when working software is requested; reuse accepted context for a defined feature or defect.
 
 1. Choose the activity whose stopping point matches the request. Explain what the user will have afterward: a product decision, requirements, a design, working code, or an assessment. This is more useful than presenting every activity as a compulsory sequence.
 2. Describe the expertise that would help with that work and identify an actual matching skill only after observing its availability. Explain which guidance supports the activity without expanding its scope.

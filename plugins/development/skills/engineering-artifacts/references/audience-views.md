@@ -6,7 +6,7 @@ An ECR owns the evolving engineering account; an issue owns the **intended work 
 
 Write a task title that names the intended outcome. Lead with the problem, then give the work, scope boundaries and observable acceptance. Include ownership, dependencies and blockers when they affect pickup. Use descriptive links to the ECR or design for details. Format commands and code identifiers as inline code.
 
-- **Draft.** Use this view when someone needs to pick up or coordinate a bounded piece of work. Requirements analysis can produce an issue for an agreed outcome. Implementation preparation can identify independently actionable slices when coordination warrants them.
+- **Draft.** Use this view when someone needs to pick up or coordinate a bounded piece of work. Planning can hand off a concrete feasibility investigation or an agreed change with clear acceptance. Use requirements analysis when the behavior or acceptance needs definition. Implementation preparation can identify independently actionable slices when coordination warrants them.
 - **Publish.** Locate the existing issue through [engineering workspace](../../engineering-workspace/SKILL.md). Reuse it when its scope matches. Use the configured tracker to create or update an issue within authorized scope. If publishing is outside scope, return the draft when useful.
 - **Review.** Read the saved issue on its own. Check that the reader can identify what to do, what is outside scope and how to verify success. Apply the [content and presentation review](../SKILL.md#review-each-artifact-before-handoff) and retain the verified link.
 - **Close.** Preserve intent and applicable acceptance. Add the actual result, evidence and remaining work.

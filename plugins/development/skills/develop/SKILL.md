@@ -40,8 +40,7 @@ For existing behavior, use [system mapping](../system-mapping/SKILL.md#trace-a-f
 Use that evidence to answer technical questions and expose material unknowns before designing the extension. Keep the trace narrow enough for the slice; a new application needs its constraints and intended journey rather than an invented existing architecture.
 
 - For a new product select a useful coherent first slice; for existing work preserve architecture, identity, UI and operations constraints.
-- When users, product value or priorities are uncertain, use installed product discovery and prioritization expertise to establish the product decision before dependent requirements/design.
-- Use business strategy when business direction or viability is actually unresolved.
+- When outcome, scope, feasibility or priority is open, apply the [planning method](../plan/SKILL.md) before dependent requirements or design. Use business strategy expertise if business direction or viability is unresolved.
 - Reuse accepted context for defined work.
 
 ## Resolve decisions before dependent work
@@ -52,7 +51,7 @@ Clarify material user/business outcomes, data/authority boundaries and high-impa
 - State reversible assumptions for ordinary details and proceed within scope.
 - In unattended mode return the concrete blocking decisions and useful independent findings instead of fabricating them.
 
-## Design and plan the slice
+## Design and prepare the slice
 
 Turn the selected slice into a small set of outcomes that can be demonstrated. Then identify the design choices that could change those outcomes or force substantial rework. Resolve those before coding their dependents, while leaving ordinary implementation details to the implementation work.
 

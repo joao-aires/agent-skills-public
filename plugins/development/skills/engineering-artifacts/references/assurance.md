@@ -16,9 +16,10 @@ Read the current outcome, evidence and next action in the actual artifact. For a
 
 | Boundary | Required reasoning and evidence |
 | --- | --- |
+| Planning → requirements or investigation | Outcome, scope and evidence support the next action. Record feasibility gaps, prerequisites and ownership where known. A ticket must be actionable for its stated scope. |
 | Requirements → design | Actor, permission, outcome and quality constraints have observable acceptance. Material product/authority conflicts are decided by their owner or blocked; implementation suggestions aren't mistaken for requirements. |
-| Design → planning | Proposed flow/C4/sequence covers accepted requirements, including important denied/failure paths; affected current baseline identified; material design choices accepted or clearly blocked. |
-| Planning → implementation | Each material acceptance and critical failure path has an implementable increment and credible verification; migrations/compatibility/recovery addressed if applicable. No work proceeds that depends on an unresolved consequential decision. |
+| Design → implementation preparation | Proposed flow/C4/sequence covers accepted requirements, including important denied/failure paths; affected current baseline identified; material design choices accepted or clearly blocked. |
+| Implementation preparation → implementation | Each material acceptance and critical failure path has an implementable increment and credible verification; migrations/compatibility/recovery addressed if applicable. No work proceeds that depends on an unresolved consequential decision. |
 | Implementation → verification/review | Actual changed revision, protected behavior, proposed-vs-implemented deviations, corresponding canonical-doc reconciliation and real tests/known gaps are available. |
 | Review → merge readiness | PR *actual diff*, ECR accepted intent, claims about tests/diagrams/release and latest-head evidence agree; findings are explicit. Approval/merge remains with repository policy and authorized human/host. |
 | Release → operations | Real artifact, environment, verification, rollout/recovery and observed target state are separated. A merge or passing CI cannot be labeled production verified. |
@@ -42,7 +43,7 @@ For each consequential finding, record in the relevant ECR section or return inl
 - **Disposition**: fixed and rechecked; ready with stated limitation; or blocked with responsible decision owner and next required evidence.
 - **Dependent impact**: other ECR sections, proposed views, issue/PR summaries or application docs that must be updated. Do not create an additional assurance document by default.
 
-Example: an accepted requirement revokes export permission on every execution, but the target sequence authorizes only schedule creation. Mark design → plan **blocked** for that path, update the proposed sequence and acceptance coverage, then recheck. If implementation tests never execute the revocation path, report it as **unverified**, not converged; don't soften the accepted requirement to match the code.
+Example: an accepted requirement revokes export permission on every execution, but the target sequence authorizes only schedule creation. Mark design → implementation preparation **blocked** for that path, update the proposed sequence and acceptance coverage, then recheck. If implementation tests never execute the revocation path, report it as **unverified**, not converged; don't soften the accepted requirement to match the code.
 
 ## Separate PR alignment from an ECR copy
 

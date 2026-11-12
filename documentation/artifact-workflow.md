@@ -5,7 +5,7 @@ Use an engineering change record (ECR) to carry a change from agreed scope to ch
 | Need | Owning guidance |
 | --- | --- |
 | Choose an activity and its stopping point | [Development workflow](../plugins/development/WORKFLOW.md) |
-| Choose a PRD, RFC, ADR or research report | [Artifact types](../plugins/development/skills/engineering-artifacts/references/artifact-types.md) |
+| Choose a PRD, roadmap, RFC, ADR or research report | [Artifact types](../plugins/development/skills/engineering-artifacts/references/artifact-types.md) |
 | Record an engineering change and check its evidence | [ECR content](../plugins/development/skills/engineering-artifacts/references/engineering-change-record.md) and [artifact assurance](../plugins/development/skills/engineering-artifacts/references/assurance.md) |
 | Find a home and persist the record | [Engineering workspace](../plugins/development/skills/engineering-workspace/SKILL.md) |
 | Hand work to an implementer or reviewer | [Issue and PR views](../plugins/development/skills/engineering-artifacts/references/audience-views.md) |

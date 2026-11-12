@@ -5,6 +5,7 @@ Use this reference when the ECR links work with its own audience, owner or lifec
 | Artifact | Owns / expected content | Authoritative home |
 | --- | --- | --- |
 | PRD or product brief | User problem, audience, jobs/journeys, value, priority, product success, non-goals, high-level scope, known product risks | Product/project area of engineering workspace or an established product-document home |
+| Roadmap | Outcomes and sequencing across changes, prerequisites, owners and milestones when known, with proposed versus committed work visible | Established product/project workspace, linked to the relevant ECRs |
 | ECR | Change-specific scope, detailed accepted/proposed requirements, target architecture/UX, delivery plan, verification and history | Engineering workspace, linked to PRD/issue as appropriate |
 | Engineering research report | Question, recommendation, primary sources, observed evidence and its limits, alternatives and open decisions | Configured engineering workspace. Link from the ECR if it informs an existing change |
 | RFC / substantive design proposal | Question and constraints, current state, target C4/sequence views, alternatives, quality/trust/operating trade-offs, migration and unresolved decisions | Engineering workspace linked from ECR; optional for narrow changes |
@@ -14,12 +15,12 @@ Use this reference when the ECR links work with its own audience, owner or lifec
 | Implementation plan | Dependency-ordered increments, tests, compatibility, migration/rollout | ECR section or linked workspace document if separately actionable |
 | Verification record | Observed checks at explicit revision/target, result, coverage gap and unresolved risk | ECR section or linked CI/review evidence; executable tests live in app repo |
 | Runbooks/SLOs | Operating procedures and monitored service behavior/targets with owner and evidence | Canonical application/operations documentation or actual monitoring system; ECR tracks proposed operational change |
-| Issue / ticket | Ownership, work intent, actionability, acceptance, priority, dependencies and ECR link | Configured tracker if used; optional |
+| Issue / ticket | Ownership, work intent, actionability, acceptance, priority, dependencies and ECR link where applicable | Configured tracker if used; optional |
 | Pull request | Actual diff, why/what changed, design variation, exact validation, risk and links | Git provider for the application repository |
 
 ## Choose a separate artifact when it needs its own review
 
-Keep a bounded feature's requirements and rationale in its ECR. Use a PRD when product direction, outcomes or scope span changes or require independent product review. Use a separate RFC when a proposal needs its own audience or decision process. Record an ADR when a consequential accepted choice needs to outlive the work. Use the [diagram lifecycle](diagram-lifecycle.md) for the affected structural and runtime views.
+Keep a bounded feature's requirements and rationale in its ECR. Use a PRD when product direction, outcomes or scope span changes or require independent product review. Use a roadmap when several changes need shared sequencing or ownership. Link each ECR to the relevant roadmap decision. Use a separate RFC when a proposal needs its own audience or decision process. Record an ADR when a consequential accepted choice needs to outlive the work. Use the [diagram lifecycle](diagram-lifecycle.md) for the affected structural and runtime views.
 
 ## Standalone engineering research
 

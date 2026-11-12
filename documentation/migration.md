@@ -89,4 +89,4 @@ Continue loading complete built bundles, since raw acquired skills do not yet co
 
 ## Implementation preparation
 
-Ask for an implementation breakdown when work should stop before edits. Implementation and end-to-end development use the same [preparation method](../plugins/development/skills/deliver-reliable-changes/references/implementation-preparation.md) when they need to order tasks and checks. Update saved prompts that select the former planning entry.
+Ask for an implementation breakdown when work should stop before edits. Implementation and end-to-end development use the same [preparation method](../plugins/development/skills/deliver-reliable-changes/references/implementation-preparation.md) when they need to order tasks and checks. Update saved prompts that used the former `plan` for implementation breakdowns. The current [plan](../plugins/development/skills/plan/SKILL.md) starts earlier and establishes what to pursue, its scope and feasibility.

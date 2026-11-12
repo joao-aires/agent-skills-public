@@ -21,6 +21,7 @@ The [installation guide](installation.md#load-them-in-your-client) links the cli
 | Unsure what to use | `workflow-help` | Relevant capabilities, examples and next activity |
 | Rough idea to working software | `develop` | Clarification, design, implementation, tests and review |
 | Starting or adopting a project | `setup` | Useful foundations, context and working commands |
+| Outcome, first slice or feasibility is open | `plan` | Scoped decision and next action, with a linked brief, roadmap or actionable ticket when warranted |
 | Requirements need definition | `refine` | Functional and relevant quality constraints, observable acceptance or concrete questions; requirements-engineering supports substantial analysis |
 | Scope agreed and only a breakdown is requested | Ask for implementation preparation | Bounded steps and verification |
 | Architecture, UX or contracts undecided | `design` | System/platform decisions and interaction contracts before implementation |
@@ -33,7 +34,7 @@ The [installation guide](installation.md#load-them-in-your-client) links the cli
 | Dependencies need attention | `dependencies` | Compatibility, release-note and CI review; permitted remediation |
 | Preparing delivery | `release` | Readiness, or a named authorized delivery action |
 
-`refine` and `design` stop at their respective outcomes. `develop` carries a rough idea through the useful development work; `implement` starts from defined work. Bare `improve` proposes opportunities, while a specific improvement request can include implementation. `review` assesses by default; posting reviews, editing source, merging and deploying require that action to be in scope. A routine test request does not authorize deployed load or faults.
+`plan`, `refine` and `design` stop at their respective outcomes. `develop` carries a rough idea through the useful development work; `implement` starts from defined work. Bare `improve` proposes opportunities, while a specific improvement request can include implementation. `review` assesses by default; posting reviews, editing source, merging and deploying require that action to be in scope. A routine test request does not authorize deployed load or faults.
 
 `implement` comes from the pinned upstream set with local framing. Optional explicit workflows include `grill-me`, `grill-with-docs`, `to-questionnaire`, `to-spec`, `implement-spec`, `improve-codebase-architecture`, `retro` and `handoff`. Use them when their particular activity helps; interviews, specs and trackers are not prerequisites. [Upstream selection](maintainers/sources.md#matt-pocock-selection) explains their fit and dependencies.
 

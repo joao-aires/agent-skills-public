@@ -24,7 +24,7 @@ Describe the change in the user's terms: who needs to do what, why the present b
 
 Resolve implementation facts from the repository. Ask the user about choices only they can settle, such as which users may perform an action or whether an existing behavior should change. For a reversible assumption, say what you are assuming and which part of the result depends on it.
 
-If the problem or product priority is still unresolved, use installed product discovery and prioritization expertise to shape that decision within scope before detailing the change. Accepted product context needs no new discovery cycle.
+If the outcome, scope or product priority is still unresolved, apply the [planning method](../plan/SKILL.md) within scope before detailing dependent requirements. Accepted product context needs no new discovery cycle.
 
 ## Define actionable work
 

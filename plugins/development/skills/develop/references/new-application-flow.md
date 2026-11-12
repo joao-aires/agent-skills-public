@@ -1,6 +1,6 @@
 # Start a new application from the intended outcome
 
-Use this when develop starts from a new application idea. For an existing feature, resume at the affected decisions and preserve accepted work. Scale the depth: a personal tool needs a short purpose/constraints assessment, not a fabricated startup business plan. Use installed product discovery and prioritization expertise when the problem, useful scope or priorities need shaping; use business strategy expertise for unresolved commercial direction or viability. Keep these decisions separate from engineering requirements and implementation sequencing; supporting methods do not automatically invoke explicit-only tasks.
+Use this when develop starts from a new application idea. For an existing feature, resume at the affected decisions and preserve accepted work. Scale the depth: a personal tool needs a short purpose/constraints assessment, not a fabricated startup business plan. Use the [planning method](../../plan/SKILL.md) when outcome, scope or feasibility is open, and business strategy expertise for unresolved commercial direction or viability. Keep these decisions separate from engineering requirements and implementation sequencing; supporting methods do not automatically invoke explicit-only tasks.
 
 ## Establish enough evidence before dependent work
 

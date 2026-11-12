@@ -99,7 +99,7 @@ See the [reference role diagram](https://share.google/aimode/PpTjDsdFrpSGyXtZq) 
 
 ### 1. Project planning
 
-Agree why the work is worth doing, its initial scope, and whether it is feasible within the relevant constraints. Use product and engineering expertise as needed. Record the outcome in the ECR or link the existing product brief.
+Use [plan](../plugins/development/skills/plan/SKILL.md) to agree why a change is worth doing, its first useful scope and whether it is feasible. Draw on product expertise for discovery and priority, engineering for feasibility, and delivery coordination when several changes or owners share prerequisites. Record the decision in the ECR or link the existing product brief or roadmap. A planning ticket can hand off a concrete investigation or a change with clear acceptance.
 
 ### 2. Requirements analysis
 

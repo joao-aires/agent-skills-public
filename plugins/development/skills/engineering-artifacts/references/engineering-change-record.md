@@ -12,10 +12,10 @@ Every ECR, including a compact single-file fix, has these headings in this order
 - Short title and discoverable change link or workspace-relative reference.
 - Current outcome, scope, key evidence and the next action, including its owner when known.
 - ECR status versus claim status: proposed, accepted, implemented, verified, released, superseded are **separate statements**; report which claim has which evidence.
-- Links to parent PRD/project, implementation issues and PRs where they exist. Do not create them just to fill a field.
+- Links to parent PRD/project, relevant roadmap, implementation issues and PRs where they exist. Do not create them just to fill a field.
 
 ### 2. Problem and scope
-- Current observed problem, actor/customer impact, intended outcome, inclusions/exclusions, important existing behavior and assumptions.
+- Current observed problem, actor/customer impact, intended outcome, inclusions/exclusions, important existing behavior, feasibility evidence and assumptions. Capture delivery prerequisites when they affect the decision to proceed.
 - Distinguish supplied evidence from hypotheses and approved product direction. Link to PRD for product-wide value/priority; do not copy the entire PRD.
 
 ### 3. Requirements and acceptance
@@ -46,7 +46,7 @@ Every ECR, including a compact single-file fix, has these headings in this order
 
 | Completed activity | ECR evidence required before describing it as ready |
 | --- | --- |
-| Project planning | Desired outcome, scope, feasibility and the next decision are clear or linked |
+| Project planning | Desired outcome, scope, feasibility, relevant prerequisites and next action or decision are clear or linked |
 | Refine | Outcome, acceptance and constraints are sufficient for design; missing decision owner named |
 | Design | Proposed target and relevant diagram changes are understood, material alternatives resolved or blocked |
 | Implementation preparation | Dependency-ordered increments reference accepted requirements/design; verification and migration covered |
