@@ -71,7 +71,7 @@ Plugins package capabilities; they are not dependency layers. Read [architecture
 
 ## SDLC coverage
 
-The [engineering artifacts and workspaces guide](documentation/artifact-workflow.md) shows how to record an engineering change, share a standalone research result and hand off work through an issue or PR. It links the ECR contract, workspace choices and proposed versus implemented diagram guidance.
+The [engineering artifacts and workspaces guide](documentation/artifact-workflow.md) shows how to record an engineering change, share a standalone research result and hand off work through an issue or PR. It links the artifact model, planes, homes, contracts, shared quality bar, workspace choices and proposed versus implemented diagram guidance. The [artifact system design note](plugins/development/README.md) explains why code, tests, docs and change records are all artifacts with distinct authority, homes and evidence.
 
 
 ![Seven SDLC phases from project planning through maintenance, with feedback and shared expertise](documentation/images/sdlc-cycle.svg)

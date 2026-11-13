@@ -13,7 +13,7 @@ user-invocable: false
 
 Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
 
-For change-specific ECRs and target design, use [engineering-workspace](../engineering-workspace/SKILL.md) to discover an authorized external-to-code engineering folder or document provider and [engineering-artifacts](../engineering-artifacts/SKILL.md) for contract/content. During **any interactive ECR-producing activity**, if neither an authority nor an explicit inline-only preference exists, ask one storage question with filesystem, existing connected provider and inline-only choices; don't automatically choose a remote service or create arbitrary sibling paths. Once selected and authorized, record a portable discovery pointer in existing project contributor instructions, not a machine-local absolute directory. The app repo retains canonical implemented-state docs. Neither installing the skill nor discovering a repository grants filesystem/provider write access.
+For change-specific ECRs and target design, use [engineering-workspace](../engineering-workspace/SKILL.md) to discover an authorized external-to-code engineering folder or document provider and [artifact-system](../artifact-system/SKILL.md) for contract/content. During **any interactive ECR-producing activity**, if neither an authority nor an explicit inline-only preference exists, ask one storage question with filesystem, existing connected provider and inline-only choices; don't automatically choose a remote service or create arbitrary sibling paths. Once selected and authorized, record a portable discovery pointer in existing project contributor instructions, not a machine-local absolute directory. The app repo retains canonical implemented-state docs. Neither installing the skill nor discovering a repository grants filesystem/provider write access.
 
 
 # Establish and maintain project conventions
@@ -49,12 +49,26 @@ Select verification through [deliver-reliable-changes](../deliver-reliable-chang
 ## Establish a small, navigable repository
 
 - Keep code, migrations, tests, dependencies, configuration and scoped instructions discoverable within actual application/component boundaries. Preserve an established layout; choose a simple documented structure for a new repository. Keep provider-required entrypoints in their required locations.
-- For new projects, put **canonical application knowledge** (implemented architecture, contracts, onboarding and operational docs) in the application's established `docs/`; preserve existing paths and indexes. Keep ECRs and **proposed target designs** in the separately authorized engineering workspace, and PRDs in their accepted product authority. Before adding a durable document, inspect existing authoritative homes and use available knowledge-organization expertise to avoid duplicate ownership.
+- For new projects, put **canonical application knowledge** (implemented architecture, contracts, onboarding and operational docs) in the application's established `docs/`; preserve existing paths and indexes. Keep ECRs and **proposed target designs** in the separately authorized engineering workspace, and PRDs in their accepted product authority. Before adding a durable document, inspect existing authoritative homes and use the [artifact system](../artifact-system/SKILL.md) and its [artifact homes](../artifact-system/references/homes.md) to avoid duplicate ownership.
 - Keep root AGENTS.md focused on purpose, stack, startup/test commands, shared conventions and a concise rule to discover the canonical documentation home before adding pages and to synchronize affected docs with code and decisions. Put component-specific commands and exceptions beside that component. Link authoritative information instead of duplicating it. For instruction-file creation, audit or pruning, read [repository instruction maintenance](references/repository-instructions.md) and seek available concise, scoped authoring expertise.
 - Record compatible dependencies and lockfiles, required configuration and a safe local setup. Make it possible to start and verify the first slice without guessing secrets or commands.
 - Add boundaries, services and infrastructure when a concrete requirement justifies them. Prefer domain-oriented code over layers with no present responsibility.
 
 Use the relevant backend/frontend/AI skills and installed upstream expertise; do not assume a reference is installed. Preserve compatible installed UI/UX guidance without redistributing private material. Investigate repeated corrections for a durable cause, then place a useful instruction, canonical procedure or executable check with its owner. A session workaround alone does not establish a project convention.
+
+## Establish the artifact home map
+
+Use the [artifact system](../artifact-system/SKILL.md) and its [artifact homes](../artifact-system/references/homes.md) to establish or verify where durable artifacts live. The map is project-specific; the resolution method is generic.
+
+- Read `AGENTS.md`, the docs index and the existing layout before proposing a home.
+- List the artifact types the project actually uses: README, guides, product brief, architecture set, ADRs, API reference, runbooks, release notes, code and tests.
+- For each, record the authoritative home, owner, update trigger and access boundary.
+- Put a short pointer in `AGENTS.md` and the full map in `docs/README.md` or `docs/artifact-homes.md`.
+- Start with what exists. Do not create empty folders or a theoretical portfolio.
+- Update the map when an artifact type, home or owner changes, or when a home moves.
+- If the map is missing, setup establishes it. During implementation, resolve the home from the map before creating or moving a durable artifact; do not choose an arbitrary `docs/` path.
+
+This map is the one-stop shop for “where does this artifact live in this repository?” It points to the artifact contracts; it does not duplicate them.
 
 ## Complete new-project foundations
 
@@ -63,6 +77,7 @@ For a requested new application setup, create and validate the following applica
 | Foundation | Prepare | Verify or distinguish |
 | --- | --- | --- |
 | Human onboarding | Authored root README linking each component README: purpose, architecture, prerequisites, configuration and install/start/migrate/test/build/shutdown/reset commands. | Replace starter text and empty files; AGENTS.md complements user-facing docs. |
+| Artifact homes | A short pointer in AGENTS.md and a repository artifact home map in the docs index covering the artifact types the project uses, their authority, owner and update trigger. | The map is discoverable, current and does not create competing authorities; empty folder checklists and theoretical portfolios are not completion. |
 | Dependencies and configuration | Compatible manifests/lockfiles, safe .env examples, typed settings, and lint/format/type/schema checks for code and configuration. | Validate the actual configuration and scripts with compatible checks, including secret detection; document scoped exceptions. |
 | Behavior verification | Runnable focused backend and frontend/component tests plus the first useful journey scaffold/fixtures. | Setup tests establish startup/configuration; develop adds feature acceptance/regression. A build or empty suite is insufficient. |
 | Build, packaging and local services | Reproducible definitions per deployable component; isolated real dependencies, initialization and readiness. | Containers use container build definitions when agreed; native clients use platform packaging. |

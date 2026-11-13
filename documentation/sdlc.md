@@ -51,7 +51,9 @@ Implementation preparation converts agreed requirements and design into actionab
 
 ## Standard engineering artifacts and workspace handoffs
 
-An Engineering Change Record (ECR) carries the outcome of each performed activity on a change. A standalone inquiry can finish with a research report in the chosen workspace. Use [engineering artifacts](../plugins/development/skills/engineering-artifacts/SKILL.md) for the content and evidence, and [engineering workspace](../plugins/development/skills/engineering-workspace/SKILL.md) for discovery and persistence. The application repository owns implemented architecture and operating documentation.
+An Engineering Change Record (ECR) carries the outcome of each performed activity on a change. A standalone inquiry can finish with a research report in the chosen workspace. Use the [artifact system](../plugins/development/skills/artifact-system/SKILL.md) for the shared artifact model, contracts, homes, quality and assurance, and [engineering workspace](../plugins/development/skills/engineering-workspace/SKILL.md) for coordination-artifact discovery and persistence. The application repository owns implemented architecture and operating documentation.
+
+Every durable output is an artifact with a type, primary plane, home, authority, maturity and relations. The ECR is the coordination spine for a change, not the only artifact: architecture views, runbooks, code, tests, issues and PRs are artifacts too. `setup` establishes the repository artifact home map; `project-conventions` maintains its placement method; `develop`, implementation and release read or update it.
 
 ![Seven phase columns align handoff artifacts, contributions to one ECR, and typical roles. Issue and PR views serve implementers and reviewers.](images/sdlc-artifact-flow.svg)
 
@@ -62,7 +64,10 @@ The phase view above shows who contributes and which documents the work may prod
 The contribution view below follows the evidence into the ECR and shows how it relates to current application documentation and the issue and PR views.
 
 ![Each phase contributes to a shared ECR, with checks at handoff and connections to application documentation, issues and PRs](images/sdlc-ecr-contributions.svg)
- See the [worked examples](artifact-workflow.md) for how this looks to the reader and the [development workflow](../plugins/development/WORKFLOW.md) for activity selection.
+
+The diagram shows the ECR as the coordination spine for one change. The [artifact system](../plugins/development/skills/artifact-system/SKILL.md) treats the surrounding application documentation, code, tests, issues, PRs and release records as first-class artifacts with their own authority, homes and evidence; the ECR links and reconciles them rather than absorbing them.
+
+See the [worked examples](artifact-workflow.md) for how this looks to the reader and the [development workflow](../plugins/development/WORKFLOW.md) for activity selection.
 
 ## Different starting points
 
@@ -133,11 +138,11 @@ Maintenance is one lifecycle outcome with four complementary responsibilities: *
 
 ## Across phases
 
-[Documentation writing](../plugins/documentation/skills/documentation-writing/SKILL.md) guides authoring and reader review. [Architecture documentation](../plugins/documentation/skills/architecture-documentation/SKILL.md) explains structural/runtime/interface/deployment views with source evidence. They complement documentation-conventions and system-design rather than replacing their ownership.
+[Documentation writing](../plugins/documentation/skills/documentation-writing/SKILL.md) supplies cross-type writing craft and reader review. [Architecture documentation](../plugins/documentation/skills/architecture-documentation/SKILL.md) explains structural/runtime/interface/deployment views with source evidence. The [artifact system](../plugins/development/skills/artifact-system/SKILL.md) owns artifact contracts, homes, quality and assurance; system-design owns design choices.
 
 Research, explicit clarification, prose editing, documentation, Git contributions, security and operating constraints can support any relevant phase. `review` is not confined to a final gate. Design and verification can recur during implementation; a phase label does not restrict when guidance is useful.
 
-[reliability-design](../plugins/operations/skills/reliability-design/SKILL.md) connects outcomes and SLIs/SLOs to design and operation. [observability-operations](../plugins/operations/skills/observability-operations/SKILL.md) supplies signal implementation; [documentation-conventions](../plugins/documentation/skills/documentation-conventions/SKILL.md) keeps affected knowledge current. Upstream research, Humanizer and clarification techniques are listed below. [grill-me](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grill-me) and other explicit workflows still require a request.
+[reliability-design](../plugins/operations/skills/reliability-design/SKILL.md) connects outcomes and SLIs/SLOs to design and operation. [observability-operations](../plugins/operations/skills/observability-operations/SKILL.md) supplies signal implementation; the [artifact system](../plugins/development/skills/artifact-system/SKILL.md) and [project conventions](../plugins/development/skills/project-conventions/SKILL.md) keep affected knowledge and its homes current. Upstream research, Humanizer and clarification techniques are listed below. [grill-me](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grill-me) and other explicit workflows still require a request.
 
 ## Skills by area
 
@@ -158,7 +163,8 @@ Generic means reusable across stacks; stack-specific means select it only for ma
 | Product direction | Generic | [product-management](../plugins/strategy/skills/product-management/SKILL.md) | Existing research and feedback; no tracker required |
 | Business strategy | Generic | [business-strategy](../plugins/strategy/skills/business-strategy/SKILL.md) | Preserved strategy references |
 | Project foundations | Generic | [project-conventions](../plugins/development/skills/project-conventions/SKILL.md) for affected structure, commands and constraints | None required |
-| Documentation | Generic | [documentation-conventions](../plugins/documentation/skills/documentation-conventions/SKILL.md) | [writing-for-agents](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/writing-for-agents) for agent instructions |
+| Artifact system | Generic | [artifact-system](../plugins/development/skills/artifact-system/SKILL.md) | [writing-for-agents](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/writing-for-agents) for agent instructions |
+| Writing craft | Generic | [documentation-writing](../plugins/documentation/skills/documentation-writing/SKILL.md) | Reader fit, explanation, structure and presentation; [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) for prose polish |
 | Prose editing | No local skill | Follow the document's author and technical claims | [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) |
 | Frontend development | Generic + stack-specific | [frontend-conventions](../plugins/frontend-reactjs-development/skills/frontend-conventions/SKILL.md), [interface-design](../plugins/frontend-development/skills/interface-design/SKILL.md) for unified UX design and full-surface coverage | Built-in visual craft in interface-design; official shadcn, Tailwind design system, Vercel React/composition for matching implementations |
 | Browser extensions | Stack-specific | [browser-extension-development](../plugins/browser-extension-development/skills/browser-extension-development/SKILL.md), [browser-extension-security](../plugins/browser-extension-development/skills/browser-extension-security/SKILL.md), [browser-extension-ui](../plugins/browser-extension-development/skills/browser-extension-ui/SKILL.md), [browser-extension-testing](../plugins/browser-extension-development/skills/browser-extension-testing/SKILL.md), [browser-extension-delivery](../plugins/browser-extension-development/skills/browser-extension-delivery/SKILL.md) | Chrome/MV3 and current compatible framework, driver and store contracts |

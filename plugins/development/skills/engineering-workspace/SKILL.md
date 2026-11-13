@@ -10,7 +10,7 @@ metadata:
 
 # Engineering workspace: storage independent of application code
 
-The engineering workspace is the **authoritative home for change-oriented engineering knowledge and standalone engineering research**, parallel to the application's source repository. It does not prescribe an issue tracker, wiki, folder tree, API schema, or synchronized duplicate store. Use [engineering artifacts](../engineering-artifacts/SKILL.md) to choose the record and its content; this skill handles discovery, identity, persistence, revision and cross-system references only. The requested activity controls when and whether writes are authorized.
+The engineering workspace is the **authoritative home for change-oriented engineering knowledge and standalone engineering research**, parallel to the application's source repository. It does not prescribe an issue tracker, wiki, folder tree, API schema, or synchronized duplicate store. Use [artifact system](../artifact-system/SKILL.md) to choose the record and its content; this skill handles discovery, identity, persistence, revision and cross-system references only. The requested activity controls when and whether writes are authorized.
 
 ## Resolve the workspace before editing
 
@@ -36,6 +36,6 @@ The entry-point task still owns the requested engineering output, source edits a
 
 ## Provider fidelity
 
-Different backends have different capabilities. Do not claim uniform transactional writes, comments, revision history or embedded diagram rendering. Verify source storage and reviewer access separately using the [diagram lifecycle](../engineering-artifacts/references/diagram-lifecycle.md). Filesystem storage needs an explicit durability strategy (prefer an existing Git-backed workspace for teams; otherwise report the absence of revisions). A path outside the app repo remains distinct even when it is on the same disk.
+Different backends have different capabilities. Do not claim uniform transactional writes, comments, revision history or embedded diagram rendering. Verify source storage and reviewer access separately using the [diagram lifecycle](../artifact-system/references/diagram-lifecycle.md). Filesystem storage needs an explicit durability strategy (prefer an existing Git-backed workspace for teams; otherwise report the absence of revisions). A path outside the app repo remains distinct even when it is on the same disk.
 
 **No mandatory external service.** A local agent should be fully able to maintain an ECR and related Markdown/diagram files in a configured folder without creating an issue, project or remote document.

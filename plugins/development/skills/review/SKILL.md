@@ -16,7 +16,7 @@ metadata:
 
 Read [development workflow](../../WORKFLOW.md).
 
-Apply [engineering-artifacts](../engineering-artifacts/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Read [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for completion evidence and scope. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
+Apply [artifact-system](../artifact-system/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Read [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for completion evidence and scope. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
 
 ## Establish and assess the review target
 
@@ -46,4 +46,4 @@ Support a defect with the path through the changed code, the condition that make
 - Leave source unchanged by default, apart from owned test/runtime artifacts.
 - Post comments, apply fixes, approve or merge only under the request or trusted job policy.
 - Reassess affected conclusions after a head change; earlier review and test evidence does not establish the new revision's behavior.
-- Apply [artifact assurance](../engineering-artifacts/references/assurance.md) to compare accepted ECR requirements and target design with cumulative base-to-current-head changes, verification evidence and canonical application documentation. Assess implementation convergence and PR-summary accuracy separately; report concrete revision-scoped contradictions, gaps and risk. Do not make unsupported approval/merge-readiness claims; read-only review does not authorize ECR edits or posting.
+- Apply [artifact assurance](../artifact-system/references/assurance.md) to compare accepted ECR requirements and target design with cumulative base-to-current-head changes, verification evidence and canonical application documentation. Assess implementation convergence and PR-summary accuracy separately; report concrete revision-scoped contradictions, gaps and risk. Do not make unsupported approval/merge-readiness claims; read-only review does not authorize ECR edits or posting.

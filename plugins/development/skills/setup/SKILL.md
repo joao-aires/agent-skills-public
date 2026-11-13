@@ -31,6 +31,12 @@ Use project-conventions to discover the repository, accepted stack, commands, id
 
 During setup or adoption, use [engineering workspace](../engineering-workspace/SKILL.md) to establish or confirm the chosen home and its portable discovery pointer. Apply its storage choice and access rules, including an inline-only preference. Surface any unresolved storage choice while completing unrelated authorized foundations.
 
+## Establish the repository artifact home map
+
+Use the [artifact system](../artifact-system/SKILL.md) and its [artifact homes](../artifact-system/references/homes.md) to establish or verify where durable repository artifacts live. Record a short pointer in `AGENTS.md` and the full map in `docs/README.md` or `docs/artifact-homes.md`, covering the artifact types the project actually uses: README, guides, product brief, architecture set, ADRs, API reference, runbooks, release notes, code and tests.
+
+For each type, record the authoritative home, owner, update trigger and access boundary. Start with what exists; do not create empty folders or a theoretical documentation portfolio. If an established map already exists, verify it instead of replacing it. This map is the repository’s one-stop shop for artifact placement; the generic method stays in the artifact system.
+
 Connect the foundations into a usable development path. A contributor should be able to obtain the required configuration, install dependencies, start the application and run its checks using the documented commands. Where persistence is part of the slice, include how the local data store is prepared and how schema changes are applied. Use sample configuration that explains required values without containing secrets.
 
 Ask about consequential product/platform choices, then record the accepted choices and working commands in existing instructions/docs. Run the available startup, migration and test paths far enough to expose missing dependencies or mismatched configuration. Distinguish artifacts prepared for a future target from a path actually exercised on that target. Name unresolved targets, missing prerequisites and unavailable tools.

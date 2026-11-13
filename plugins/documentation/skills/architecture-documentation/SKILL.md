@@ -1,9 +1,10 @@
 ---
 name: architecture-documentation
-description: Explain and maintain a software system's architecture through structural
-  views, runtime and lifecycle scenarios, interface analysis, deployment boundaries
-  and evidence. Use for architecture documentation, system breakdowns and technical
-  architecture reviews; preserve current versus target design and existing project scope.
+description: Document a software system's architecture as a coherent document set
+  through structural views, runtime and lifecycle scenarios, interface analysis,
+  deployment boundaries and evidence. Use for architecture documentation, system
+  breakdowns and architecture reviews; the artifact system owns the set contract,
+  status and home.
 metadata:
   scope: generic
   invocation: both
@@ -11,11 +12,17 @@ metadata:
 user-invocable: true
 ---
 
-Read [composition guidance](../../COMPOSITION.md). Use [documentation writing](../documentation-writing/SKILL.md) to present the views and their meaning clearly. This method owns view selection, system boundaries and verification against sources.
+Read [composition guidance](../../COMPOSITION.md). Use [documentation writing](../documentation-writing/SKILL.md) to present the views and their meaning clearly. This method owns the architecture subject: view selection, system boundaries, runtime/interface/deployment explanation and verification against sources. Use available artifact-system expertise for the architecture-set contract, status, home and quality bar.
 
 # Explain architecture through useful views
 
 Make the system's structure, behaviour and consequences understandable from evidence. Topic mentions, technology lists and diagrams alone are insufficient. Work within the requested documentation/design scope; findings do not authorize refactoring or deploying a system.
+
+## Architecture document set
+
+The set usually includes a context view, container view, selected component views, critical runtime/sequence views, data and ownership, interfaces, deployment, quality/failure and links to decisions and a glossary. The artifact system owns the architecture-set contract: the required document list, status, evidence, home and maintenance triggers. This method owns how to explain each view and how to verify it against sources.
+
+Add a document only when its independent reader question or lifecycle justifies it. A small system may need only a context view, a container view and one critical runtime sequence; a large system may need component, deployment and quality views.
 
 ## Establish the baseline and questions
 

@@ -1,16 +1,37 @@
 # Artifact assurance: readiness, consistency, convergence
 
-Apply this method whenever an engineering activity uses or updates an ECR. The activity and domain specialist own the actual engineering; assurance checks whether the **claims and handoffs** are justified by artifact and implementation evidence. These checks are **not** a compulsory seven-command sequence, a new user-facing task, an autonomous approver, or permission to publish/merge/deploy.
+Apply this method whenever an engineering activity uses or updates an artifact. The activity and domain specialist own the actual engineering; assurance checks whether the **claims and handoffs** are justified by artifact and implementation evidence. Apply the [artifact quality bar](quality-bar.md) to every artifact in the handoff; this method checks consistency and convergence, not presentation alone. Use the [artifact model](model.md) and [artifact homes](homes.md) to understand the artifact graph and the authority of each home. These checks are **not** a compulsory seven-command sequence, a new user-facing task, an autonomous approver, or permission to publish/merge/deploy.
 
 ## Three levels of checks
 
-1. **Structural and reference integrity** (agent-guided): inspect the ECR's seven named sections and pending/not-applicable/blocked dispositions, real source and artifact references, proposed/current labels and evidence identifiers. Allow normal nested sections and the configured provider's native document structure; do not attempt to validate arbitrary Markdown with a simplified parser, demand a custom schema, or move private content to another workspace. This check establishes only document organization, **not** correctness, owner approval, implementation or testing.
+1. **Structural and reference integrity** (agent-guided): inspect the ECR's seven named sections and pending/not-applicable/blocked dispositions, real source and artifact references (a resolvable link or an explicit local-only label), proposed/current labels and evidence identifiers. Allow normal nested sections and the configured provider's native document structure; do not attempt to validate arbitrary Markdown with a simplified parser, demand a custom schema, or move private content to another workspace. This check establishes only document organization, **not** correctness, owner approval, implementation or testing.
 2. **Semantic cross-artifact consistency** (evidence-based engineering analysis): compare accepted problem/requirements and acceptance against proposed UX, C4/sequence/contracts, decisions, implementation slices and planned verification. Name the actual contradictory statements and affected artifacts; a polished diagram or "all sections filled" is not sufficient. Specialist architecture/security/UX expertise owns deeper domain reasoning.
 3. **Implementation convergence** (source/test/runtime evidence): compare accepted behavior, design invariants and failure cases against the checked code diff, tests and actual observations. Check that relevant current-state application diagrams/ADRs match implemented source. A check passed at an old commit does not establish a later head. Explicitly distinguish *implemented*, *verified*, *merged*, *released* and *observed in target*.
 
+## Artifact graph and home integrity
+
+Check the graph, not only the ECR:
+
+- Every artifact has one authority and a resolved home. A view links its authority; it does not become a second authority.
+- Relations resolve in both directions where the reader will move: PRD → ECR → issue/PR → work product → evidence → release → runbook.
+- A proposed target remains proposed in the coordination artifact; it does not appear as current system knowledge before implementation evidence.
+- A work product is not treated as a second ECR, and an issue or PR is not treated as the ECR.
+- The repository artifact home map covers the types the project actually uses, with owners and update triggers. A missing or stale map is a foundation gap, not a reason to choose an arbitrary path.
+- Cross-plane coverage is proportionate: intent, coordination, system knowledge, implementation, delivery and entry artifacts exist where their reader and lifecycle justify them.
+
 ## Inspect the reader's result
 
-Read the current outcome, evidence and next action in the actual artifact. For an issue, check that someone can identify scope, work and observable acceptance before opening the ECR. For research, check that the reader can find the recommendation, comparison and open decision without reading the raw probe. Inspect native headings, lists and links after provider normalization. When an important view is part of the handoff, verify what readers can open using the [diagram lifecycle](diagram-lifecycle.md). Report a presentation or access limitation separately from verified persistence and implementation.
+Read the current outcome, evidence and next action in the actual artifact. For an issue, use the [issue contract](contracts/issue.md) and check that someone can identify scope, work and observable acceptance before opening the ECR. For research, check that the reader can find the recommendation, comparison and open decision without reading the raw probe. Inspect native headings, lists and links after provider normalization. When an important view is part of the handoff, verify what readers can open using the [diagram lifecycle](diagram-lifecycle.md). Report a presentation or access limitation separately from verified persistence and implementation.
+
+## Reader handoff and navigation
+
+Apply these checks to every artifact that crosses a handoff boundary. They are part of the [quality bar](quality-bar.md), not a separate approval.
+
+- **Cold reader.** Can a reader who was not in the conversation explain the change, list the acceptance cases, identify the next action and find the evidence? Every unanswered question is a content gap, not a formatting issue.
+- **Link resolution.** Is every commit, PR, issue, page, file, diagram and source a resolvable URL or an explicit local-only reference? Does every view link back to its authority? A bare SHA or "the ECR" fails.
+- **Render fidelity.** Does the saved view preserve headings, lists, tables, code blocks, links and diagrams? Read the rendered result, not only the tool response. A successful write call is not proof that the reader can use the artifact.
+- **Cross-view consistency.** Do the ECR, issue, PR and any published summary agree on scope, status, revision and next action? Resolve a contradiction or report the precise mismatch; do not silently create a second authority.
+- **Maturity honesty.** Does each artifact claim only what its evidence supports? A proposed design is not implemented; a merged change is not deployed; a local probe is not production behavior.
 
 ## Use at dependencies, not artificial meetings
 

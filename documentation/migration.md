@@ -41,6 +41,8 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `interface-craft`, `interface-quality`, `visual-design` | `interface-design` |
 | `write-scannable-documentation`, `write-project-documentation` | `documentation-writing` |
 | `document-software-architecture` | `architecture-documentation` |
+| `engineering-artifacts` | `artifact-system` |
+| `documentation-conventions` | No direct replacement. Placement and home resolution move to `artifact-system`; the project-specific artifact home map is established by `setup` and `project-conventions`. |
 | `test-end-to-end` | `journey-testing` |
 | `test-application-performance` | `performance-testing` |
 | `test-application-resilience` | `resilience-testing` |
@@ -51,6 +53,8 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `architecture-diagraming` | `architecture-diagramming` |
 | Standalone `backup-recovery` | `protect-and-restore-data` |
 | Standalone `cicd-release-management` | `delivery-pipelines` |
+
+The artifact-system rename reflects a broader model, not just a new name. The skill now covers artifact types across intent, coordination, system knowledge, implementation, delivery and entry planes. `documentation-conventions` is retired: its generic placement method moved into the artifact system's artifact-homes reference, and its project-specific map is now a repository artifact established by `setup` and `project-conventions`. Update saved prompts to use `artifact-system` and the repository artifact home map.
 
 The separately acquired Anthropic `frontend-design` entry point is also retired from frontend-development. It is replaced by `interface-design` for applicable design work, with [visual craft](../plugins/frontend-development/skills/interface-design/references/visual-craft.md) loaded conditionally when an open creative direction warrants it. This is a migration of the packaged capability, not a rename of the upstream project's original skill.
 

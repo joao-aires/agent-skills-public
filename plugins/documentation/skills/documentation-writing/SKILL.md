@@ -1,9 +1,9 @@
 ---
 name: documentation-writing
-description: Write and review clear, accurate, useful product and engineering
-  documentation, including PRDs, requirements, architecture, decisions, feature
-  specifications and operational guides. Use for new documents and substantive
-  documentation revisions, adapting explanations, examples and presentation to readers.
+description: Cross-type writing craft for product and engineering documents, including
+  PRDs, requirements, architecture, decisions, guides and runbooks. Use when reader
+  fit, explanation, structure, examples or presentation need work; artifact contracts,
+  status and homes remain with the artifact system.
 metadata:
   scope: generic
   invocation: both
@@ -15,9 +15,22 @@ Read [composition guidance](../../COMPOSITION.md) for scope and invocation bound
 
 # Write useful project documentation
 
-Help the intended reader understand, decide or act correctly. Establish the document purpose, engineering content and status with the method that owns them. For example, change-record guidance defines the required evidence and architecture documentation defines what a view must show. Apply this skill to explaining and presenting those facts. Readability and navigation support that outcome; brevity or scanability alone does not establish quality. Preserve the project's vocabulary, language, document responsibilities and accepted decisions. A writing request does not authorize changing the product, restructuring folders or implementing a proposal.
+Help the intended reader understand, decide or act correctly. This is a cross-type writing-craft skill: it owns reader fit, explanation, structure, examples, precision, navigation and presentation. It does not own artifact content contracts, authority, status or placement.
 
-Before creating a durable project document or substantially splitting/moving existing material, apply [documentation conventions](../documentation-conventions/SKILL.md) to discover related authoritative pages, decide whether an existing document should be updated, and choose the canonical location and navigation for a justified new one. That skill owns knowledge placement and maintenance; this skill owns reader-focused writing. A standalone draft or a small edit in a known document does not require a repository-wide audit.
+The artifact contract states what the document must contain and for whom; the project artifact home map states where it lives. Use available artifact-system and project-conventions expertise for those decisions. This skill teaches how to make the required content understandable. Readability and navigation support the outcome; brevity or scanability alone does not establish quality. Preserve the project's vocabulary, language, document responsibilities and accepted decisions. A writing request does not authorize changing the product, restructuring folders or implementing a proposal.
+
+## Craft and artifact requirements
+
+Do not centralize every document requirement here. Separate the layers:
+
+| Layer | Examples | Owner |
+| --- | --- | --- |
+| Functional artifact requirements | Purpose, authority, required sections, status, evidence, relations, update rules | Artifact contract + domain method |
+| Shared non-functional floor | Self-contained context, readable structure, resolvable links, render fidelity, one authority | Artifact quality bar |
+| Writing craft | Reader modeling, explanation, examples, precision, tone, navigation | This skill |
+| Artifact-specific non-functional parameters | ADR conciseness and immutability; runbook scannability under pressure; PRD evidence-based persuasion; architecture-view precision | Contract parameters + domain method |
+
+Apply the craft to the artifact's audience and purpose. A runbook, a PRD, an ADR and an architecture view need different structure and tone, even when the underlying writing principles are shared.
 
 ## Establish purpose and sufficient context
 
