@@ -7,15 +7,15 @@ Every durable engineering output is an artifact: an ECR, PRD, roadmap, RFC, ADR,
 | Understand the artifact model, planes and relations | [Artifact model](../plugins/development/skills/artifact-system/references/model.md) |
 | Choose the type, plane and contract | [Artifact catalog](../plugins/development/skills/artifact-system/references/catalog.md) |
 | Resolve where an artifact lives, or establish the repository map | [Artifact homes](../plugins/development/skills/artifact-system/references/homes.md) and [project conventions](../plugins/development/skills/project-conventions/SKILL.md) |
-| Choose an activity and its stopping point | [Development workflow](../plugins/development/WORKFLOW.md) |
+| Choose an activity and its stopping point | [Activity system](../plugins/development/skills/activity-system/SKILL.md) |
 | Record an engineering change and check its evidence | [ECR contract](../plugins/development/skills/artifact-system/references/contracts/ecr.md) and [artifact assurance](../plugins/development/skills/artifact-system/references/assurance.md) |
 | Persist a coordination record | [Engineering workspace](../plugins/development/skills/engineering-workspace/SKILL.md) |
 | Hand work to an implementer or reviewer | [Issue contract](../plugins/development/skills/artifact-system/references/contracts/issue.md) and [PR contract](../plugins/development/skills/artifact-system/references/contracts/pr.md) |
-| Document architecture as a set | [Architecture-set contract](../plugins/development/skills/artifact-system/references/contracts/architecture-set.md) and [architecture documentation](../plugins/documentation/skills/architecture-documentation/SKILL.md) |
+| Document architecture as a set | [Architecture-set contract](../plugins/development/skills/artifact-system/references/contracts/architecture-set.md) and [system mapping](../plugins/development/skills/system-mapping/SKILL.md) |
 | Write a runbook, README, guide or release note | [Runbook](../plugins/development/skills/artifact-system/references/contracts/runbook.md), [README](../plugins/development/skills/artifact-system/references/contracts/readme.md), [guide](../plugins/development/skills/artifact-system/references/contracts/guide.md), [release note](../plugins/development/skills/artifact-system/references/contracts/release-note.md) |
 | Check sufficiency, links and rendered output | [Artifact quality bar](../plugins/development/skills/artifact-system/references/quality-bar.md) |
 | Explain structure and interactions with accurate views | [Diagram lifecycle](../plugins/development/skills/artifact-system/references/diagram-lifecycle.md) |
-| Improve wording, navigation or presentation | [Documentation writing](../plugins/documentation/skills/documentation-writing/SKILL.md) |
+| Improve wording, navigation or presentation | [Technical writing](../plugins/documentation/skills/technical-writing/SKILL.md) |
 
 See the [SDLC overview](sdlc.md) for the seven outcomes and how evidence passes between them.
 

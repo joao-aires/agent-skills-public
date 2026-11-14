@@ -39,8 +39,11 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `build-python-backend` | `backend-conventions` |
 | `design-interactions`, `interaction-design` | `interface-design` |
 | `interface-craft`, `interface-quality`, `visual-design` | `interface-design` |
-| `write-scannable-documentation`, `write-project-documentation` | `documentation-writing` |
-| `document-software-architecture` | `architecture-documentation` |
+| `write-scannable-documentation`, `write-project-documentation` | `technical-writing` |
+| `document-software-architecture`, `architecture-documentation` | `system-mapping` for current-state architecture documentation; `system-design` for proposed architecture; the artifact system owns the architecture-set contract |
+| `documentation-writing` | `technical-writing` |
+| `deliver-reliable-changes` | `test` (verification and completion evidence) |
+| `workflow-help` | `activity-system` (help mode) |
 | `engineering-artifacts` | `artifact-system` |
 | `documentation-conventions` | No direct replacement. Placement and home resolution move to `artifact-system`; the project-specific artifact home map is established by `setup` and `project-conventions`. |
 | `test-end-to-end` | `journey-testing` |
@@ -55,6 +58,10 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | Standalone `cicd-release-management` | `delivery-pipelines` |
 
 The artifact-system rename reflects a broader model, not just a new name. The skill now covers artifact types across intent, coordination, system knowledge, implementation, delivery and entry planes. `documentation-conventions` is retired: its generic placement method moved into the artifact system's artifact-homes reference, and its project-specific map is now a repository artifact established by `setup` and `project-conventions`. Update saved prompts to use `artifact-system` and the repository artifact home map.
+
+Activity routing moved into the `activity-system` skill. `WORKFLOW.md`, `TASKS.md`, `workflow-help` and the per-plugin `COMPOSITION.md` files are retired. Use `activity-system` for activity selection, stopping points, composition and authority; use `test` for verification and completion evidence; use the repository artifact home map for placement.
+
+The documentation plugin now carries cross-type technical writing and prose editing only. Architecture documentation moved into `system-mapping` for current-state explanation, with `system-design` retaining proposed architecture and the artifact system owning the architecture-set contract.
 
 The separately acquired Anthropic `frontend-design` entry point is also retired from frontend-development. It is replaced by `interface-design` for applicable design work, with [visual craft](../plugins/frontend-development/skills/interface-design/references/visual-craft.md) loaded conditionally when an open creative direction warrants it. This is a migration of the packaged capability, not a rename of the upstream project's original skill.
 
@@ -93,4 +100,4 @@ Continue loading complete built bundles, since raw acquired skills do not yet co
 
 ## Implementation preparation
 
-Ask for an implementation breakdown when work should stop before edits. Implementation and end-to-end development use the same [preparation method](../plugins/development/skills/deliver-reliable-changes/references/implementation-preparation.md) when they need to order tasks and checks. Update saved prompts that used the former `plan` for implementation breakdowns. The current [plan](../plugins/development/skills/plan/SKILL.md) starts earlier and establishes what to pursue, its scope and feasibility.
+Ask for an implementation breakdown when work should stop before edits. Implementation and end-to-end development use the same [preparation method](../plugins/development/skills/activity-system/references/implementation-preparation.md) when they need to order tasks and checks. Update saved prompts that used the former `plan` for implementation breakdowns. The current [plan](../plugins/development/skills/plan/SKILL.md) starts earlier and establishes what to pursue, its scope and feasibility.

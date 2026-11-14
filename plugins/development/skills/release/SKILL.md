@@ -14,7 +14,7 @@ metadata:
 
 # Release
 
-Read [development workflow](../../WORKFLOW.md).
+Read [activity system](../activity-system/SKILL.md).
 
 Apply [artifact-system](../artifact-system/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. Resolve and update the mapped release note, changelog, runbook or SLO using [artifact homes](../artifact-system/references/homes.md) and the repository artifact home map. This does not require an issue or permit unrelated writes. Seek available delivery expertise for readiness, promotion and recovery. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
 

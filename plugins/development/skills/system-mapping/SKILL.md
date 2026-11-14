@@ -1,14 +1,16 @@
 ---
 name: system-mapping
-description: Discover and document an application's services, dependencies, deployment
-  topology and user/request/data journeys from repository, documentation and runtime
-  evidence for setup, feature analysis or recurring architecture updates.
+description: >-
+  Discover and document an application's current architecture: services,
+  dependencies, deployment topology, journeys, C4/sequence views and interfaces from
+  repository, documentation and runtime evidence. Use for setup, feature analysis,
+  architecture documentation and recurring architecture updates.
 metadata:
   scope: generic
   invocation: both
   version: '1.0'
   role: support
-user-invocable: false
+user-invocable: true
 ---
 
 # System mapping
@@ -59,4 +61,28 @@ Choose the output for the requested scope. A bounded feature can use the compact
 
 Validate references and diagram participant names against the evidence; mark inferred/proposed edges with explicit labels. Hand journey definitions to reliability expertise, incident scope to incident investigation expertise, and procedure gaps to operating-procedure expertise when appropriate; the model remains useful without those installed.
 
-For an explicitly requested interactive HTML walkthrough, hand the evidence to interactive system explanation expertise when available. Static maps and inventories do not require its JSON contract or renderer.
+## Document the architecture set
+
+When the output is durable architecture documentation, maintain the coherent set defined by the [architecture-set contract](../artifact-system/references/contracts/architecture-set.md). The set usually includes:
+
+- a context view: system boundary, actors, external systems and responsibilities;
+- a container view: applications, data stores, protocols, responsibilities and trust boundaries;
+- selected component views where internal responsibility or coupling needs explanation;
+- critical runtime/sequence views: authority, validation, state, external effect, failure and recovery;
+- data and ownership: canonical stores, lifecycle, consistency and migration boundaries;
+- interface views: important consumer contracts, errors, idempotency and compatibility;
+- deployment: environments, nodes/processes, storage, networks, release jobs and trust boundaries;
+- quality/failure: relevant scenarios, observability, recovery and open gaps;
+- links to accepted decisions and a glossary.
+
+Each diagram declares its type, scope and status. Use understandable element types, responsibilities, technologies and directed relationships. Label protocols and optional boundaries; add a legend where notation needs one. Explain what the reader should infer and what the view does not establish. Keep a text equivalent for important relationships.
+
+Keep **current** and **proposed** explicit. Current means implemented and evidenced at a linked revision; proposed means a target view in an ECR or RFC. Do not update the canonical current view to match a proposal. Reconcile it after implementation and link the decision that authorized the change.
+
+Analyse important interfaces rather than listing endpoints: resource identity, operations/lifecycle, actor/tenant scope, request/response schemas, validation, side effects, errors, concurrency, idempotency, pagination, time/units, events and compatibility. Inspect generated contracts against code; a declared response or media type may omit runtime behavior.
+
+Connect requirements to design mechanisms and verification. Explain tradeoffs and operational consequences: security/privacy, availability, recovery, observability, performance/cost, process-local state and scaling. Link ADRs and service definitions; unknown rationale or unapproved SLOs remain open facts.
+
+Check source mappings, exact interfaces, cross-view names and current/target consistency. Parse and render diagrams with the project's available tooling; inspect readability as well as syntax. Generated schemas and link checks cannot prove architectural truth, full authorization or provider behavior.
+
+Test reader questions: can a contributor trace a critical operation, identify authority/state/commit boundaries, explain a failure/retry and locate the evidence? Use proportionate checks. For an explicitly requested interactive HTML walkthrough, hand the evidence to interactive system explanation expertise when available; static maps and inventories do not require its JSON contract or renderer.

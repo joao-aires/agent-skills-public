@@ -12,7 +12,6 @@ metadata:
 
 # Postmortem facilitation
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 Reconstruct how the system and response produced the observed impact. Separate the event that triggered the incident from the conditions that let it propagate, the signals that revealed it, and the actions that restored service. Preserve what responders knew at the time so hindsight does not turn a reasonable decision under uncertainty into an unsupported account of individual failure.
 

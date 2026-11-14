@@ -6,7 +6,7 @@ Use the accepted scope and existing breakdown. For a small change, identify the 
 
 - Agree on the outcome and completion evidence. Refine material gaps before assuming scope.
 - Inspect affected architecture and contracts. Use [system-design](../../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent planning or implementation.
-- Read [project conventions](../../project-conventions/SKILL.md) for existing constraints and [delivery guidance](../SKILL.md) for acceptance and verification.
+- Read [project conventions](../../project-conventions/SKILL.md) for existing constraints and [verification guidance](../../test/SKILL.md) for acceptance and evidence.
 - Load optional stack/domain guidance selected through the development workflow only when relevant and available. Use service-contract design expertise for changed service behavior.
 
 ## Order the work by its dependencies

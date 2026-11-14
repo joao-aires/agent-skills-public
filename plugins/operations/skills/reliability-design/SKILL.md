@@ -12,7 +12,6 @@ metadata:
 
 # Reliability design
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 Start with what the user depends on and decide what counts as completing it successfully. Define a service-level indicator (SLI) that measures that outcome over a known population, then establish an accepted service-level objective (SLO) and the monitoring needed to assess it. Infrastructure and request metrics help explain failure, but the indicator needs to retain the meaning of the user outcome.
 

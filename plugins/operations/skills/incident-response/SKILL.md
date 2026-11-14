@@ -12,7 +12,6 @@ metadata:
 
 # Incident response
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 Reduce current user harm and preserve enough evidence to make the next decision. Establish what is failing now, who is affected, and which parts still work. Compare that impact with available signals so an old alert or a broken telemetry path does not define the incident by itself.
 

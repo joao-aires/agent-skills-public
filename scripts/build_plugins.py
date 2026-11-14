@@ -51,7 +51,7 @@ def adapt_skill(target, source):
                         raise ValueError('Implementation framing requires implement')
                     metadata.setdefault('user-invocable', True)
                     metadata['description'] = 'Implement agreed work from a conversation, local spec or optional tracker, with repository conventions, design readiness, verification and contribution flow.'
-                    parts[2] = '\n\nRead [task guidance](../../TASKS.md) for scope, unattended blockers, design readiness and feature-worktree contributions. Use the agreed request without requiring tickets; commit to the objective\'s feature branch, preserving unrelated work. Significant UI interactions and backend behavior contracts must be established before implementation. Read [Git contributions](../git-contributions/SKILL.md) for the objective worktree and [change verification](../deliver-reliable-changes/SKILL.md) for scenario-led verification after meaningful increments: run affected checks/journeys, inspect telemetry/state, repair and recheck without weakening acceptance.\n' + parts[2]
+                    parts[2] = '\n\nRead [activity system](../activity-system/SKILL.md) for scope, stopping points, unattended blockers, design readiness and artifact homes. Use the agreed request without requiring tickets; commit to the objective\'s feature branch, preserving unrelated work. Significant UI interactions and backend behavior contracts must be established before implementation. Read [Git contributions](../git-contributions/SKILL.md) for the objective worktree and [verification](../test/SKILL.md) for scenario-led verification after meaningful increments: run affected checks/journeys, inspect telemetry/state, repair and recheck without weakening acceptance.\n' + parts[2]
                 text = '---\n' + yaml.safe_dump(metadata, sort_keys=False, allow_unicode=True) + '---' + parts[2]
             if 'usage-labels' in adaptations or 'tracker-neutral' in adaptations:
                 import yaml
@@ -101,12 +101,12 @@ def adapt_skill(target, source):
                     'This portable bundle does not register a named subagent.\n', text, flags=re.DOTALL)
                 if count != 1 or 'adversarial-modeler' in text:
                     raise ValueError('Unexpected differential-review agent instructions')
-        if document.name == 'SKILL.md' and document.parent == target and 'workflow-framing' in adaptations:
+        if document.name == 'SKILL.md' and document.parent == target and 'workflow-framing' in adaptations and 'implementation-entrypoint' not in adaptations:
             parts = text.split('---', 2)
-            text = '---' + parts[1] + '---\n\nRead [workflow framing](../../WORKFLOW.md) before applying this skill.\n' + parts[2]
+            text = '---' + parts[1] + '---\n\nRead [activity system](../activity-system/SKILL.md) before applying this skill.\n' + parts[2]
         if document.name == 'SKILL.md' and document.parent == target and 'composition-framing' in adaptations:
             parts = text.split('---', 2)
-            text = '---' + parts[1] + '---\n\nRead [composition guidance](../../COMPOSITION.md) for scope, optional expertise and fallback.\n' + parts[2]
+            text = '---' + parts[1] + '---\n\nRead [package guidance](../../README.md) for scope, optional expertise and fallback.\n' + parts[2]
         if document.name == 'SKILL.md' and document.parent == target and 'instruction-authoring-framing' in adaptations:
             parts = text.split('---', 2)
             text = '---' + parts[1] + '---\n\nApply this method to the actual repository and request. Preserve necessary project constraints when shortening instructions; size and formatting targets are editing heuristics. Sample commands and attribution blocks illustrate structure, not project policy. Follow the host\'s instruction hierarchy and retain applicable parent rules; narrower instructions override only their conflicting scoped details. Create compatibility files only when needed within scope, preserving existing files.\n' + parts[2]

@@ -546,7 +546,7 @@
     },
     {
       "id": "documentation-reader-and-contract",
-      "prompt": "Use documentation-writing to revise the supplied export procedure for a new contributor. Preserve its actual commands, permissions, placeholders, recovery limits and accepted product terminology. Local document edits are allowed; no command execution, implementation, publishing or changes to product behavior.",
+      "prompt": "Use technical-writing to revise the supplied export procedure for a new contributor. Preserve its actual commands, permissions, placeholders, recovery limits and accepted product terminology. Local document edits are allowed; no command execution, implementation, publishing or changes to product behavior.",
       "evaluator_setup": "Supply a confusing procedure and authoritative command/contract excerpts. Include a queued acknowledgement misdescribed as completed export, a missing prerequisite and a deliberate provider placeholder. Keep exact contract and allowed-action baseline with the evaluator.",
       "criteria": [
         "Explains purpose, prerequisites, actions and expected outcomes in reader-appropriate order without reducing the task to headings or a file inventory.",
@@ -563,7 +563,7 @@
     },
     {
       "id": "architecture-current-target-evidence",
-      "prompt": "Use architecture-documentation to explain the supplied service and its proposed worker migration. Use the supplied code, OpenAPI excerpts and deployment configuration. Preserve mixed current implementations and explain the main write/failure flow. Documentation only; no refactor, deployment or invented hosted evidence.",
+      "prompt": "Use system-mapping to explain the supplied service and its proposed worker migration. Use the supplied code, OpenAPI excerpts and deployment configuration. Preserve mixed current implementations and explain the main write/failure flow. Documentation only; no refactor, deployment or invented hosted evidence.",
       "evaluator_setup": "Supply an in-process FastAPI handler/store, a proposed future worker boundary, OpenAPI missing a runtime error, and a post-commit acknowledgement failure. Configuration exists but no hosted execution evidence. Keep expected current/target distinctions separate from actor input.",
       "criteria": [
         "Structural and runtime views map to actual source responsibilities and do not turn in-process modules or target workers into deployed services.",

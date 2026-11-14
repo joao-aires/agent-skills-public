@@ -4,7 +4,7 @@ Diagrams are **source-controlled knowledge and proposed designs**, not decoratio
 
 ## Who owns what
 
-- **system-mapping** traces current entry points, runtime relations, data journeys and evidence; architecture-documentation expertise establishes/maintains canonical C4 context/container and relevant component views, sequences, state/dataflow and deployment boundaries. These are evidence-backed descriptions of **what currently exists**, not intended design.
+- **system-mapping** traces current entry points, runtime relations, data journeys and evidence, and establishes or maintains canonical C4 context/container and relevant component views, sequences, state/dataflow and deployment boundaries. These are evidence-backed descriptions of **what currently exists**, not intended design.
 - **requirements-engineering / interface-design** define user intent, journey/wireflows, actors, branches and observable outcomes; they do not turn a proposed queue or database into a requirement.
 - **system-design / design** own proposed responsibilities/architecture, tradeoffs, affected C4 context/container/component views and critical user-to-system sequence diagrams. Diagrams must label *proposed* and the baseline revision.
 - **plan** uses accepted target views to order slices, migrations and verification; it references them instead of copying them.

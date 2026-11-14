@@ -10,7 +10,7 @@ metadata:
 user-invocable: false
 ---
 
-Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
+Read [activity system](../activity-system/SKILL.md) for skill selection and invocation boundaries.
 
 
 # Test what users depend on
@@ -85,11 +85,11 @@ Match local and CI configuration. Capture failure traces/screenshots and useful 
 
 Report commands, environment, journeys and actual results, plus mocked boundaries and important gaps. If the browser/database environment is unavailable, supply the tests or plan and say execution is blocked; do not claim full-stack verification. Expand coverage when changed risk warrants it rather than duplicating every unit test in the browser.
 
-For suite upkeep, follow deliver-reliable-changes: temporary flaky-test quarantine has accountable repair and explicit coverage implications. Preserve useful traces and fixture ownership, and remove redundant browser checks only when the affected journey remains established at an appropriate boundary.
+For suite upkeep, follow verification: temporary flaky-test quarantine has accountable repair and explicit coverage implications. Preserve useful traces and fixture ownership, and remove redundant browser checks only when the affected journey remains established at an appropriate boundary.
 
 
 ## Carry results into implementation
 
-Use deliver-reliable-changes for scenario selection and the implement/test/inspect/repair loop. This skill supplies platform and outcome evidence, including actual callers of shared components. Reconcile observed results with accepted interactions and visual references; investigate differences before changing a baseline. Preserve incomplete coverage and unresolved human judgments in the result.
+Use verification for scenario selection and the implement/test/inspect/repair loop. This skill supplies platform and outcome evidence, including actual callers of shared components. Reconcile observed results with accepted interactions and visual references; investigate differences before changing a baseline. Preserve incomplete coverage and unresolved human judgments in the result.
 
 For the implementation feedback loop and evidence methods use [journey references](references/journey-references.md). For demand/load claims read [performance claims](references/performance-claims.md); actual driver/tool setup belongs to matching installed technical expertise. Core decisions above should suffice for ordinary work.

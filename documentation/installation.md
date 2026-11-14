@@ -35,7 +35,7 @@ claude plugin marketplace add joao-aires/agent-skills-public#claude-marketplace
 claude plugin install development@agent-skills-public
 ```
 
-Choose `/development:develop` in a new session, or `/development:workflow-help` for help choosing an activity. Install additional bundles by qualified name, such as `strategy@agent-skills-public`.
+Choose `/development:develop` in a new session, or `/development:activity-system` for help choosing an activity. Install additional bundles by qualified name, such as `strategy@agent-skills-public`.
 
 Third-party marketplaces have automatic updates disabled by default. In `/plugin`, open Marketplaces, select this marketplace and enable auto-update if desired. To update manually:
 

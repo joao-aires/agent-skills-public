@@ -50,13 +50,13 @@ Use lowercase kebab-case: short activities for tasks (`develop`, `test`, `review
 | `role` | `task` entry point or `support` guidance |
 | `invocation` | Preferred `user`, `agent` or `both` usage |
 
-Labels do not enforce permissions. Named explicit-only entries retain their native controls. Local refine, design, develop and fix can also be selected from conversational intent; most local support is model-available with `user-invocable: false`. Product-management, interface-design, backend-design, UX writing and usability research are also directly selectable with `user-invocable: true`, using the same body for people and agents. Preserve upstream controls and record client limitations. [WORKFLOW.md](../plugins/development/WORKFLOW.md) owns execution scope, project fit and consequential decisions. TASKS.md forwards existing packaged entry points to it. The engineering artifact and workspace skills own their respective contracts.
+Labels do not enforce permissions. Named explicit-only entries retain their native controls. Local refine, design, develop and fix can also be selected from conversational intent; most local support is model-available with `user-invocable: false`. Product-management, interface-design, backend-design, UX writing and usability research are also directly selectable with `user-invocable: true`, using the same body for people and agents. Preserve upstream controls and record client limitations. [activity-system](../plugins/development/skills/activity-system/SKILL.md) owns activity selection, execution scope, project fit and consequential decisions. The engineering artifact and workspace skills own their respective contracts.
 
 ## Capability architecture
 
 | Responsibility | Owner |
 | --- | --- |
-| Engagement, stopping point and requested execution | Activity entry point and WORKFLOW.md |
+| Engagement, stopping point and requested execution | Activity entry point and activity-system |
 | Product priorities, useful scope and success signal | product-management; business-strategy owns business direction |
 | Architecture / service behavior | system-design / backend-design |
 | Visual direction / interaction behavior / critique | interface-design |
@@ -77,18 +77,18 @@ Select only relevant expertise, reuse accepted decisions and preserve existing s
 
 | Rule | Owner |
 | --- | --- |
-| Request and automation scope | WORKFLOW.md |
-| Upstream project fit and consequential user decisions | WORKFLOW.md |
+| Request and automation scope | activity-system |
+| Upstream project fit and consequential user decisions | activity-system |
 | Repository foundations | project-conventions |
 | Worktrees, commits and PRs | git-contributions |
-| Verification and completion evidence | deliver-reliable-changes |
+| Verification and completion evidence | verification |
 | Domain methods and exceptions | Relevant specialist skill |
 
 Link the owner instead of copying its rules. Optional guidance is selected from actual inventory and relevance; it does not require a dependency engine. Consolidate further only after [behavior trials](maintainers/evaluations.md#compare-and-simplify) show what agents actually read or miss.
 
 When revising a skill, start from the decision it helps make and the evidence that marks completion. Keep the principle, its applicability and the required outcome together. State the desired behavior directly; reserve strict sequences for dependencies and operational invariants that require them. Use Matt's pinned `writing-for-agents` for instruction hierarchy and pruning.
 
-Use [structured instructions](../plugins/documentation/skills/documentation-writing/references/structured-instructions.md) to choose the form of guidance and its explanatory depth. A workflow needs useful transitions; craft guidance needs judgment and critique; technical reference needs precise mechanisms; maintenance needs criteria for retaining, changing and removing information. These are authoring choices, not new metadata or required sections. Explain consequential decisions without expanding a narrow, already usable skill into a playbook.
+Use [structured instructions](../plugins/documentation/skills/technical-writing/references/structured-instructions.md) to choose the form of guidance and its explanatory depth. A workflow needs useful transitions; craft guidance needs judgment and critique; technical reference needs precise mechanisms; maintenance needs criteria for retaining, changing and removing information. These are authoring choices, not new metadata or required sections. Explain consequential decisions without expanding a narrow, already usable skill into a playbook.
 
 Assess each authored skill against its actual job:
 

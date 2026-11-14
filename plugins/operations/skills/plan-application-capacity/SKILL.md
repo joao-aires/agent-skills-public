@@ -12,7 +12,6 @@ metadata:
 
 # Plan application capacity
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 ## Start from demand and service behavior
 

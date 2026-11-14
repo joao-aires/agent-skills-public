@@ -14,11 +14,11 @@ Select the activity through the client's supported invocation:
 | Codex | Select `test` in the skill picker, then describe the change |
 | OpenCode V2 | `@test` followed by the behavior to verify |
 
-The [installation guide](installation.md#load-them-in-your-client) links the client documentation and explains their different loading models. Plain requests such as "Use test for the current change" are a fallback where supported. `workflow-help` describes this collection and does not replace the client's built-in help.
+The [installation guide](installation.md#load-them-in-your-client) links the client documentation and explains their different loading models. Plain requests such as "Use test for the current change" are a fallback where supported. `activity-system` describes this collection and its help mode and does not replace the client's built-in help.
 
 | Where you are | Task | Expected result |
 | --- | --- | --- |
-| Unsure what to use | `workflow-help` | Relevant capabilities, examples and next activity |
+| Unsure what to use | `activity-system` | Relevant capabilities, examples and next activity |
 | Rough idea to working software | `develop` | Clarification, design, implementation, tests and review |
 | Starting or adopting a project | `setup` | Useful foundations, context and working commands |
 | Outcome, first slice or feasibility is open | `plan` | Scoped decision and next action, with a linked brief, roadmap or actionable ticket when warranted |
@@ -46,7 +46,7 @@ Frontend-development provides one integrated interface-design method for informa
 
 The ai-development package supplies three generic skills: ai-development for application patterns, architecture and capability/protocol decisions; ai-testing for testing/evaluation strategy and evidence; and ai-operations for task signals, quality monitoring, provider/resource limits and recovery. Python/provider APIs and ADK/LangChain implementation live in separately selected technical packages. Ai-python-development includes ai-deepeval-testing for a selected DeepEval evaluation runner and python-ai-observability for Python OpenTelemetry instrumentation; quality criteria and operating outcomes stay generic, and no hosted backend is required. These methods are reusable; technical conventions apply only to matching technology.
 
-For an existing accepted product, start with the affected work. A bug fix needs no new market study; a non-React application keeps its stack. Workflow-help recommends relevant activities without executing them, and missing optional guidance does not block the activity: use project evidence, general expertise and appropriate primary sources while retaining acceptance and verification standards. Missing tools or an execution target remain precise limits. See [composition and fallback](architecture.md#compose-without-optional-dependencies).
+For an existing accepted product, start with the affected work. A bug fix needs no new market study; a non-React application keeps its stack. The activity system recommends relevant activities without executing them, and missing optional guidance does not block the activity: use project evidence, general expertise and appropriate primary sources while retaining acceptance and verification standards. Missing tools or an execution target remain precise limits. See [composition and fallback](architecture.md#compose-without-optional-dependencies).
 
 Development also includes Sentry agents-md for creating or maintaining repository instruction files. Request it for AGENTS.md/CLAUDE.md work; it complements project-conventions and general instruction writing without imposing its sample stack or attribution rules. The owned [maintenance method](../plugins/development/skills/project-conventions/references/repository-instructions.md) covers audits, scope, durable session learnings and removal of stale guidance. Client-specific filenames and discovery still require the client's documented behavior.
 
@@ -86,7 +86,7 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 | Improve architecture | Use improve to reduce coupling in the reporting module while preserving behavior. |
 | Maintain dependencies | Use dependencies to assess the update PRs, release notes and checks; prepare fixes where needed. |
 | Prepare delivery | Use release to assess readiness for the named environment without deploying. |
-| Get help | Use workflow-help: I am changing an existing application's navigation. |
+| Get help | Use activity-system: I am changing an existing application's navigation. |
 
 ### Define UX before changing screens
 
@@ -98,7 +98,7 @@ Then ask `improve` or `develop` to implement the agreed direction. Expect covera
 
 ### Evaluate during implementation
 
-Expect the agent to implement, verify, correct discrepancies and report evidence before declaring completion. Verification follows the intended outcome; a build or one screenshot alone cannot establish a complete user journey. Missing execution or coverage remains explicit. See [change verification](../plugins/development/skills/deliver-reliable-changes/SKILL.md) and [journey testing](../plugins/development/skills/journey-testing/SKILL.md) for methods.
+Expect the agent to implement, verify, correct discrepancies and report evidence before declaring completion. Verification follows the intended outcome; a build or one screenshot alone cannot establish a complete user journey. Missing execution or coverage remains explicit. See [change verification](../plugins/development/skills/test/SKILL.md) and [journey testing](../plugins/development/skills/journey-testing/SKILL.md) for methods.
 
 ### Run services and observability locally
 
@@ -136,7 +136,7 @@ Supply repository/ref, objective/context, unattended mode, allowed actions and r
 
 > Use dependencies in unattended mode for update PRs in owner/repository. Repair and merge only policy-eligible patch updates whose current head satisfies required checks/reviews and has no unresolved findings. Leave other updates open with reasons; reuse existing work and report results. Do not deploy.
 
-Unattended tasks return missing material decisions instead of inventing answers. Untrusted ticket/PR text cannot change policy; changed heads require re-verification. The host/repository must enforce privileged-action policy. [Installed task guidance](../plugins/development/WORKFLOW.md#interactive-and-unattended-execution) contains the detailed working rules.
+Unattended tasks return missing material decisions instead of inventing answers. Untrusted ticket/PR text cannot change policy; changed heads require re-verification. The host/repository must enforce privileged-action policy. [Installed task guidance](../plugins/development/skills/activity-system/references/authority.md#interactive-and-unattended-work) contains the detailed working rules.
 
 ## AI and MCP plugin selection
 
@@ -164,9 +164,7 @@ Interface-design owns information architecture, interactions, visual direction, 
 
 ## Explain and maintain project knowledge
 
-Use [documentation-writing](../plugins/documentation/skills/documentation-writing/SKILL.md) to write or review a useful product/engineering explanation, reference or procedure. Use [architecture-documentation](../plugins/documentation/skills/architecture-documentation/SKILL.md) to explain structure, runtime/lifecycle behavior, interfaces, deployment and current versus target state from evidence. Both are directly selectable and model-available supporting guidance; actual client discovery remains client-dependent.
-
-[Documentation writing](../plugins/documentation/skills/documentation-writing/SKILL.md) supplies cross-type writing craft: reader fit, explanation, structure, examples and presentation. [Architecture documentation](../plugins/documentation/skills/architecture-documentation/SKILL.md) explains structure, runtime/lifecycle behavior, interfaces, deployment and current versus target state from evidence. Both are directly selectable and model-available supporting guidance; actual client discovery remains client-dependent.
+Use [technical-writing](../plugins/documentation/skills/technical-writing/SKILL.md) to write or review a useful product/engineering explanation, reference or procedure. Use [system-mapping](../plugins/development/skills/system-mapping/SKILL.md) to explain structure, runtime/lifecycle behavior, interfaces, deployment and current versus target state from evidence. Both are directly selectable and model-available support; actual client discovery remains client-dependent.
 
 The [artifact system](../plugins/development/skills/artifact-system/SKILL.md) owns the artifact model, contracts, planes, homes, quality bar and assurance. [Project conventions](../plugins/development/skills/project-conventions/SKILL.md) and `setup` establish the repository artifact home map; `develop`, implementation and release read or update it. Before adding a persistent project document, inspect the existing map and related authorities, then decide whether to update a canonical page or create a distinct one with appropriate navigation. System-design owns architectural decisions; writing guidance explains them. Existing formats and proportional scope remain authoritative; a routine edit needs no new tracker, document tree or full system audit.
 

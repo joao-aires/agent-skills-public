@@ -12,7 +12,6 @@ metadata:
 
 # Postmortem follow-up
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 Start with the supported failure pathway from the incident review. Identify which condition a proposed action changes and why changing it should prevent recurrence, improve detection or reduce harm. This keeps the action tied to the incident's mechanism instead of turning the follow-up into a general backlog of desirable improvements.
 

@@ -12,7 +12,6 @@ metadata:
 
 # Credential lifecycle
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 Treat a credential as access that is issued, distributed, used and eventually removed. Map each consumer from the authoritative store through synchronization and reload to actual use. That path determines whether a rotation has reached every consumer and when revoking the old access becomes safe.
 

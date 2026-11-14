@@ -10,7 +10,6 @@ metadata:
 
 # Decide which product outcome to pursue
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 Help decide which user problem to address, what to deliver first and how to find out whether it helped. Apply directly to a product question or as support in an authorized development engagement.
 

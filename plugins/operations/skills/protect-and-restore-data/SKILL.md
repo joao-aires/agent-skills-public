@@ -12,7 +12,6 @@ metadata:
 
 # Protect and restore application data
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 ## Recover the user capability
 

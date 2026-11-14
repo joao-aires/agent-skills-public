@@ -12,7 +12,7 @@ metadata:
 
 An **engineering artifact** is a durable, addressable unit of engineering intent, knowledge, implementation or evidence. ECRs, PRDs, roadmaps, RFCs, ADRs, issues, PRs, architecture views, runbooks, READMEs, code and tests are all artifacts. The ECR is the coordination spine for a change, not the only artifact.
 
-Use [the development workflow](../../WORKFLOW.md) for activity selection. The requested activity sets the stopping point and write authority.
+Use [the development workflow](../activity-system/SKILL.md) for activity selection. The requested activity sets the stopping point and write authority.
 
 ## Reading path
 

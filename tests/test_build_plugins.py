@@ -44,9 +44,9 @@ class InstallationTests(unittest.TestCase):
             self.assertEqual(metadata['name'], 'implement')
             self.assertTrue(metadata['user-invocable'])
             self.assertTrue(metadata['disable-model-invocation'])
-            self.assertIn('../../TASKS.md', text)
+            self.assertIn('../activity-system/SKILL.md', text)
             self.assertIn('../git-contributions/SKILL.md', text)
-            self.assertIn('../deliver-reliable-changes/SKILL.md', text)
+            self.assertIn('../test/SKILL.md', text)
             self.assertTrue(text.endswith('\nOriginal implementation workflow\n'))
 
     def test_frontend_framing_preserves_metadata_and_body(self):
@@ -163,16 +163,16 @@ class InstallationTests(unittest.TestCase):
                              'policy:\n  allow_implicit_invocation: false\n')
             # Build adapted output without changing the pinned source or native metadata.
             source['adaptations'] = ['string-metadata', 'workflow-framing', 'documentation-paths']
-            (package / 'WORKFLOW.md').write_text('Project workflow guidance')
+
             write_depot(root, [source])
             adapted = root / 'adapted'
             installer.build(root, ['test'], adapted)
             skill_text = (adapted / 'test/skills/example/SKILL.md').read_text()
-            self.assertIn('../../WORKFLOW.md', skill_text)
+            self.assertIn('../activity-system/SKILL.md', skill_text)
             self.assertIn('documentation/engineering/config.md', skill_text)
             self.assertIn('documentation/decisions/adr/', skill_text)
             self.assertIn('disable-model-invocation: true', skill_text)
-            self.assertTrue((adapted / 'test/WORKFLOW.md').exists())
+
             self.assertEqual((adapted / 'test/skills/example/agents/openai.yaml').read_text(),
                              (skill / 'agents/openai.yaml').read_text())
             self.assertNotIn('workflow framing', (skill / 'SKILL.md').read_text())
@@ -266,7 +266,7 @@ class InstallationTests(unittest.TestCase):
             installer.adapt_skill(skill, {'adaptations': ['composition-framing']})
             result = (skill / 'SKILL.md').read_text()
             self.assertEqual(yaml.safe_load(result.split('---', 2)[1]), yaml.safe_load(original.split('---', 2)[1]))
-            self.assertIn('../../COMPOSITION.md', result)
+            self.assertIn('../../README.md', result)
             self.assertNotIn('../../WORKFLOW.md', result)
             self.assertTrue(result.endswith(original.split('---', 2)[2]))
 

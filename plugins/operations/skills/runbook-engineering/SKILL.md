@@ -12,7 +12,6 @@ metadata:
 
 # Runbook engineering
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 Write for a responder who needs to choose the next action under pressure. Give them a starting condition they can recognize, a check whose result distinguishes plausible causes, and a next decision for each relevant observation. Explain what the check establishes so someone can recognize when the evidence does not fit the documented branch.
 

@@ -75,11 +75,11 @@ For a critical dependency or integration, verify a coherent version, required ca
 - Test uncertain contract boundaries with a bounded authorized spike before committing dependent work.
 - Examples, starter kits and protocol labels establish only the capabilities/terms they actually cover; verify the component and intended use separately.
 
-Use supported interfaces and the named disposable target for capability checks, following [integration discovery boundaries](../../WORKFLOW.md#working-boundaries). A proposed adapter or demo cannot establish access to an existing runtime/session. Carry unresolved support into the alternatives comparison.
+Use supported interfaces and the named disposable target for capability checks, following [integration discovery boundaries](../activity-system/references/authority.md#working-boundaries). A proposed adapter or demo cannot establish access to an existing runtime/session. Carry unresolved support into the alternatives comparison.
 
 ## Resolve consequential dependency constraints
 
-Use the shared [consequential finding policy](../../WORKFLOW.md#resolve-consequential-findings) to decide when a finding requires the user and which work depends on it. Architecture evidence should connect actual licensing/distribution terms, security/privacy, reliability, cost and platform support to intended personal, internal or commercial use. Keep these checks proportionate to the critical dependency and changed boundary.
+Use the shared [consequential finding policy](../activity-system/references/authority.md#consequential-findings) to decide when a finding requires the user and which work depends on it. Architecture evidence should connect actual licensing/distribution terms, security/privacy, reliability, cost and platform support to intended personal, internal or commercial use. Keep these checks proportionate to the critical dependency and changed boundary.
 
 - Where a fact or restriction changes an accepted constraint, present supported alternatives and the concrete decision.
 - Continue independent work while dependent work waits.

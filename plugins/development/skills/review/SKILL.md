@@ -14,9 +14,9 @@ metadata:
 
 # Review
 
-Read [development workflow](../../WORKFLOW.md).
+Read [activity system](../activity-system/SKILL.md).
 
-Apply [artifact-system](../artifact-system/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Read [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) for completion evidence and scope. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
+Apply [artifact-system](../artifact-system/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Read [verification](../test/SKILL.md) for completion evidence and scope. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
 
 ## Establish and assess the review target
 

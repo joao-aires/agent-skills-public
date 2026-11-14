@@ -8,7 +8,7 @@ Use the [SDLC overview](../README.md#sdlc-coverage) to orient yourself and the [
 
 The lifecycle uses seven phases: **project planning → requirements analysis → design → implementation → testing → deployment → maintenance**. Enter where an outcome is missing and revisit earlier decisions when evidence changes them. A known bug can start with reproduction. A new initiative may need feasibility work before requirements. Product direction helps choose the outcome and priority, and feedback can reopen either.
 
-Every phase starts by checking the inputs, deciding what work is needed and identifying the evidence or decision the next person will need. Scale that preparation to the uncertainty. During implementation, break agreed requirements and design into deliverable tasks, dependencies and checks. The [implementation preparation method](../plugins/development/skills/deliver-reliable-changes/references/implementation-preparation.md) supports requests that stop at a breakdown.
+Every phase starts by checking the inputs, deciding what work is needed and identifying the evidence or decision the next person will need. Scale that preparation to the uncertainty. During implementation, break agreed requirements and design into deliverable tasks, dependencies and checks. The [implementation preparation method](../plugins/development/skills/activity-system/references/implementation-preparation.md) supports requests that stop at a breakdown.
 
 | Part of the diagram | How it contributes |
 | --- | --- |
@@ -34,7 +34,7 @@ Green labels identify entry-point skills or directly requested activities; dashe
 | Delivery readiness or named authorized deployment | `release` |
 | Live incident or restoration | [incident-response](../plugins/operations/skills/incident-response/SKILL.md), recovery expertise as applicable |
 | Proactive operation, maintenance and improvement | `improve`, `dependencies`, [observability-operations](../plugins/operations/skills/observability-operations/SKILL.md), and other targeted operating skills |
-| Project foundation or activity selection | `setup`, `workflow-help` |
+| Project foundation or activity selection | `setup`, `activity-system` |
 
 ### Which entry point should you use?
 
@@ -67,7 +67,7 @@ The contribution view below follows the evidence into the ECR and shows how it r
 
 The diagram shows the ECR as the coordination spine for one change. The [artifact system](../plugins/development/skills/artifact-system/SKILL.md) treats the surrounding application documentation, code, tests, issues, PRs and release records as first-class artifacts with their own authority, homes and evidence; the ECR links and reconciles them rather than absorbing them.
 
-See the [worked examples](artifact-workflow.md) for how this looks to the reader and the [development workflow](../plugins/development/WORKFLOW.md) for activity selection.
+See the [worked examples](artifact-workflow.md) for how this looks to the reader and the [activity system](../plugins/development/skills/activity-system/SKILL.md) for activity selection.
 
 ## Different starting points
 
@@ -82,7 +82,7 @@ Direct strategy, design, documentation and specialist requests can end at their 
 - Product discovery and direction: [product-management](../plugins/strategy/skills/product-management/SKILL.md) owns user problems, priorities, useful scope and success signals; business-strategy owns viability and positioning. These decisions inform project planning and may be reopened by evidence.
 - Foundations: `setup` uses [project-conventions](../plugins/development/skills/project-conventions/SKILL.md) and relevant [delivery-pipelines](../plugins/delivery/skills/delivery-pipelines/SKILL.md). Establish foundations after sufficient product and architecture decisions for a new project; maintain them as conditions change.
 - Feedback: [learn-from-product-feedback](../plugins/strategy/skills/learn-from-product-feedback/SKILL.md) informs product direction; incident learning addresses reliability and may also expose missing requirements or design protections.
-- Changes to consequential decisions: follow [the shared decision policy](../plugins/development/WORKFLOW.md#resolve-consequential-findings) and continue independent authorized work. Do not invent acceptance or account permissions.
+- Changes to consequential decisions: follow [the shared decision policy](../plugins/development/skills/activity-system/references/authority.md#consequential-findings) and continue independent authorized work. Do not invent acceptance or account permissions.
 
 ## Roles across the phases
 
@@ -116,13 +116,13 @@ Use [design](../plugins/development/skills/design/SKILL.md) with [system-design]
 
 ### 4. Implementation
 
-Start by breaking agreed work into bounded increments and choosing the verification for each. Use [implementation preparation](../plugins/development/skills/deliver-reliable-changes/references/implementation-preparation.md) when dependencies, migration, recovery or coordination warrant an explicit breakdown. Keep it in the ECR implementation strategy or link the existing plan.
+Start by breaking agreed work into bounded increments and choosing the verification for each. Use [implementation preparation](../plugins/development/skills/activity-system/references/implementation-preparation.md) when dependencies, migration, recovery or coordination warrant an explicit breakdown. Keep it in the ECR implementation strategy or link the existing plan.
 
 Start with the bundled upstream `implement` when explicitly selected, or use `develop` for the broader end-to-end engagement. Use [git-contributions](../plugins/development/skills/git-contributions/SKILL.md) for the objective worktree, plus matching frontend/backend/AI/database/native-client and operating expertise. Carry tests and affected documentation with the change.
 
 ### 5. Testing
 
-Start with [test](../plugins/development/skills/test/SKILL.md), and use [deliver-reliable-changes](../plugins/development/skills/deliver-reliable-changes/SKILL.md), [journey-testing](../plugins/development/skills/journey-testing/SKILL.md), performance/resilience and other specialist methods where relevant. `review` may apply in any phase. Observe real behavior, repair failures and recheck without weakening acceptance.
+Start with [verification](../plugins/development/skills/test/SKILL.md), and use [journey-testing](../plugins/development/skills/journey-testing/SKILL.md), performance/resilience and other specialist methods where relevant. `review` may apply in any phase. Observe real behavior, repair failures and recheck without weakening acceptance.
 
 ### 6. Deployment
 
@@ -138,7 +138,7 @@ Maintenance is one lifecycle outcome with four complementary responsibilities: *
 
 ## Across phases
 
-[Documentation writing](../plugins/documentation/skills/documentation-writing/SKILL.md) supplies cross-type writing craft and reader review. [Architecture documentation](../plugins/documentation/skills/architecture-documentation/SKILL.md) explains structural/runtime/interface/deployment views with source evidence. The [artifact system](../plugins/development/skills/artifact-system/SKILL.md) owns artifact contracts, homes, quality and assurance; system-design owns design choices.
+[Technical writing](../plugins/documentation/skills/technical-writing/SKILL.md) supplies cross-type writing craft and reader review. [System mapping](../plugins/development/skills/system-mapping/SKILL.md) explains structural/runtime/interface/deployment views with source evidence. The [artifact system](../plugins/development/skills/artifact-system/SKILL.md) owns artifact contracts, homes, quality and assurance; system-design owns design choices.
 
 Research, explicit clarification, prose editing, documentation, Git contributions, security and operating constraints can support any relevant phase. `review` is not confined to a final gate. Design and verification can recur during implementation; a phase label does not restrict when guidance is useful.
 
@@ -164,7 +164,7 @@ Generic means reusable across stacks; stack-specific means select it only for ma
 | Business strategy | Generic | [business-strategy](../plugins/strategy/skills/business-strategy/SKILL.md) | Preserved strategy references |
 | Project foundations | Generic | [project-conventions](../plugins/development/skills/project-conventions/SKILL.md) for affected structure, commands and constraints | None required |
 | Artifact system | Generic | [artifact-system](../plugins/development/skills/artifact-system/SKILL.md) | [writing-for-agents](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/writing-for-agents) for agent instructions |
-| Writing craft | Generic | [documentation-writing](../plugins/documentation/skills/documentation-writing/SKILL.md) | Reader fit, explanation, structure and presentation; [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) for prose polish |
+| Writing craft | Generic | [technical-writing](../plugins/documentation/skills/technical-writing/SKILL.md) | Reader fit, explanation, structure and presentation; [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) for prose polish |
 | Prose editing | No local skill | Follow the document's author and technical claims | [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) |
 | Frontend development | Generic + stack-specific | [frontend-conventions](../plugins/frontend-reactjs-development/skills/frontend-conventions/SKILL.md), [interface-design](../plugins/frontend-development/skills/interface-design/SKILL.md) for unified UX design and full-surface coverage | Built-in visual craft in interface-design; official shadcn, Tailwind design system, Vercel React/composition for matching implementations |
 | Browser extensions | Stack-specific | [browser-extension-development](../plugins/browser-extension-development/skills/browser-extension-development/SKILL.md), [browser-extension-security](../plugins/browser-extension-development/skills/browser-extension-security/SKILL.md), [browser-extension-ui](../plugins/browser-extension-development/skills/browser-extension-ui/SKILL.md), [browser-extension-testing](../plugins/browser-extension-development/skills/browser-extension-testing/SKILL.md), [browser-extension-delivery](../plugins/browser-extension-development/skills/browser-extension-delivery/SKILL.md) | Chrome/MV3 and current compatible framework, driver and store contracts |
@@ -177,7 +177,7 @@ Generic means reusable across stacks; stack-specific means select it only for ma
 | AI observability implementation | Stack-specific | [python-ai-observability](../plugins/ai-python-development/skills/python-ai-observability/SKILL.md) for Python OpenTelemetry; generic AI operations and service operations own signal/target decisions | Compatible provider/framework instrumentation and chosen exporter/backend |
 | MCP interfaces | Generic + stack-specific | MCP section of [ai-development](../plugins/ai-development/skills/ai-development/SKILL.md), [ai-conventions](../plugins/ai-python-development/skills/ai-conventions/SKILL.md); reuse authorized application services | [mcp-builder](https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/mcp-builder), in ai-python-development for an accepted Python MCP implementation |
 | Selected development tools | Stack-specific | [tooling-conventions](../plugins/development-tooling/skills/tooling-conventions/SKILL.md) for accepted CI/container/checker, telemetry-backend and web-driver mechanics | Existing provider/tool documentation and installed matching specialists |
-| Testing | Generic | [deliver-reliable-changes](../plugins/development/skills/deliver-reliable-changes/SKILL.md), [journey-testing](../plugins/development/skills/journey-testing/SKILL.md) for web/desktop/mobile journeys | [tdd](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/tdd), [property-based-testing](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/property-based-testing/skills/property-based-testing), [playwright-cli](https://github.com/microsoft/playwright-cli/tree/b85c7a736bb473bf55b584e54a09ffa698d6d871/skills/playwright-cli) |
+| Testing | Generic | [verification](../plugins/development/skills/test/SKILL.md), [journey-testing](../plugins/development/skills/journey-testing/SKILL.md) for web/desktop/mobile journeys | [tdd](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/tdd), [property-based-testing](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/property-based-testing/skills/property-based-testing), [playwright-cli](https://github.com/microsoft/playwright-cli/tree/b85c7a736bb473bf55b584e54a09ffa698d6d871/skills/playwright-cli) |
 | Failure testing | Generic | [resilience-testing](../plugins/development/skills/resilience-testing/SKILL.md) for scoped fixtures and controlled experiments | Project-native test tools; optional isolated fault proxy |
 | Performance testing | Stack-specific | [performance-testing](../plugins/development-tooling/skills/performance-testing/SKILL.md) for local, CI-runner and deployed non-production k6 checks | Official k6 references; no cloud account required |
 | Code review | No local skill | Requested behavior and project standards | [code-review](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/code-review); [differential-review](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/differential-review/skills/differential-review) for security-sensitive diffs |
@@ -214,4 +214,4 @@ For the complete acquired set, licenses and precise source pins, use the [upstre
 
 The skills describe ways of working across the lifecycle; installing them does not establish application correctness, production readiness or compliance. Tooling, credentials, devices and platform-specific procedures must exist in the target environment. Package and discovery checks are recorded separately from application evidence in the [maintainer reference](maintainers/evaluations.md#recorded-evidence-and-limits).
 
-Specialist methods and diagrams live with their skills: [change evaluation](../plugins/development/skills/deliver-reliable-changes/SKILL.md), [journey testing](../plugins/development/skills/journey-testing/SKILL.md), [performance](../plugins/development-tooling/skills/performance-testing/SKILL.md), [resilience](../plugins/development/skills/resilience-testing/SKILL.md) and [observability](../plugins/operations/skills/observability-operations/SKILL.md).
+Specialist methods and diagrams live with their skills: [verification](../plugins/development/skills/test/SKILL.md), [journey testing](../plugins/development/skills/journey-testing/SKILL.md), [performance](../plugins/development-tooling/skills/performance-testing/SKILL.md), [resilience](../plugins/development/skills/resilience-testing/SKILL.md) and [observability](../plugins/operations/skills/observability-operations/SKILL.md).

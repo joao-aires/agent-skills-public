@@ -1,17 +1,15 @@
 ---
-name: documentation-writing
-description: Cross-type writing craft for product and engineering documents, including
-  PRDs, requirements, architecture, decisions, guides and runbooks. Use when reader
-  fit, explanation, structure, examples or presentation need work; artifact contracts,
-  status and homes remain with the artifact system.
+name: technical-writing
+description: Cross-type technical writing craft for product and engineering documents,
+  including PRDs, requirements, architecture, decisions, guides and runbooks. Use
+  when reader fit, explanation, structure, examples or presentation need work;
+  artifact contracts, status and homes remain with the artifact system.
 metadata:
   scope: generic
   invocation: both
   role: support
 user-invocable: true
 ---
-
-Read [composition guidance](../../COMPOSITION.md) for scope and invocation boundaries.
 
 # Write useful project documentation
 

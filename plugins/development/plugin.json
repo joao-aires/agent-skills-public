@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "development",
-  "version": "0.4.0",
-  "description": "Stack-independent SDLC activities, artifact contracts and homes, project foundations, contributions and verification.",
+  "version": "0.5.0",
+  "description": "Stack-independent SDLC activities, activity and artifact systems, project foundations, contributions and verification.",
   "author": {
     "name": "João Aires"
   },

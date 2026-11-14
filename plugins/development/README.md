@@ -1,25 +1,19 @@
-# Development plugin: the artifact system and the work that changes it
+# Development plugin: activities, artifacts and evidence
 
-The `development` plugin is the default bundle for SDLC work. It carries the activity entry points, project foundations, contribution flow, verification methods and the **artifact system** that gives every durable engineering output a shared model.
+The `development` plugin is the default bundle for SDLC work. It carries the activity entry points, project foundations, contribution flow, verification methods and two shared systems:
 
-This README explains the reasoning behind that structure. It is the design note for the plugin, not a replacement for the skills.
+- the **activity system**, which routes the work;
+- the **artifact system**, which gives every durable output a shared model.
 
-## The core insight
+> **Artifact system in one sentence:** every durable engineering output is an artifact with a type, plane, home, authority, maturity, relations and evidence; the artifact system is the shared model that keeps those artifacts sufficient, navigable and consistent.
 
-Every durable engineering output is an **artifact**: an ECR, PRD, roadmap, RFC, ADR, issue, PR, architecture view, runbook, README, guide, code module, test suite or release note. Each has a type, a primary role, a home, an authority, a maturity and relations to other artifacts. The ECR is the coordination spine for one change, not the center of the system.
+> **Activity system in one sentence:** every requested engagement is an activity with an intent, entry conditions, output, stopping point, authority, artifacts and evidence; the activity system is the router that keeps work scoped and composable.
 
-This insight came from a concrete problem: the earlier skills were split on different axes.
+These are peers. The activity system decides **what work is being done and where it stops**. The artifact system decides **what durable outputs are produced, where they live, and what evidence they carry**.
 
-- The former engineering artifacts skill was split by artifact type and lifecycle.
-- `architecture-documentation` was split by subject matter (architecture).
-- `documentation-writing` was split by craft (how to write).
-- The former documentation conventions skill was split by placement (where documents live).
+## Why the plugin is organized this way
 
-Those are orthogonal dimensions, so the skills overlapped. `architecture-documentation` felt too narrow for “all documentation,” while `documentation-writing` felt like a separate skill for something every artifact needs.
-
-> The skills were split on different axes: artifact type and lifecycle, subject matter, writing craft and storage placement. Overlap is inevitable because those are orthogonal dimensions. Functional requirements are per artifact type; non-functional requirements are mostly cross-cutting. Writing is not a “dimension inside each artifact” — it is the craft that produces the non-functional outcome.
->
-> — Design discussion, preserved as the rationale for this structure.
+The earlier skills were split on different axes: artifact type and lifecycle, subject matter, writing craft and storage placement. Those are orthogonal dimensions, so the skills overlapped. The former architecture and writing skills felt too narrow for “all documentation,” or too separate from the artifacts that need them.
 
 The correction is to separate the dimensions:
 
@@ -47,7 +41,27 @@ An engineering artifact is a durable, addressable unit of engineering intent, kn
 | Freshness | When must it be updated or retired? |
 | Access | Public, private, audience-specific? |
 
-Read the full model in [artifact model](skills/artifact-system/references/model.md).
+Read the full model in [artifact model](skills/artifact-system/references/model.md). Choose a type in the [artifact catalog](skills/artifact-system/references/catalog.md). Resolve its location with [artifact homes](skills/artifact-system/references/homes.md).
+
+## The activity model
+
+An activity is a requested engagement. It has the same kind of explicit shape as an artifact:
+
+| Field | Question |
+| --- | --- |
+| Identity | What activity is this? |
+| Intent | What outcome does the requester want? |
+| Entry conditions | What must be known or decided before it starts? |
+| Output | What does the requester have afterward? |
+| Stopping point | Where does this activity deliberately stop? |
+| Authority | What may it read, write, publish, merge or deploy? |
+| Artifacts | Which artifact types does it produce or consume? |
+| Supporting methods | Which disciplines may deepen the work? |
+| Evidence | What shows the activity is complete? |
+| Transitions | What can follow, and what must not be silently invoked? |
+| Invocation | User-facing, agent-support or explicit-only? |
+
+Read [activity system](skills/activity-system/SKILL.md) for the routing model. The [activity catalog](skills/activity-system/references/catalog.md) lists the activities, default results and stopping points. [Transitions](skills/activity-system/references/transitions.md) explains handoffs. [Composition](skills/activity-system/references/composition.md) explains how supporting methods are selected. [Authority](skills/activity-system/references/authority.md) explains action scope and unattended work. [Project fit](skills/activity-system/references/project-fit.md) keeps the work proportionate.
 
 ## The plane model
 
@@ -70,8 +84,6 @@ Planes are a navigation view, not an exclusive taxonomy. An artifact has a **pri
 - A test suite is implementation-first but is also verification evidence.
 - A README is entry-first but also describes the system.
 
-The model is deliberately not “one artifact, one plane.” The graph handles cross-plane relations; the plane is the default reading direction.
-
 ## Homes are attributes
 
 A home is where the authoritative copy lives. It is separate from the plane. An architecture view is system knowledge and usually lives in the application repository under `docs/architecture/`; a runbook is also system knowledge but may live in `ops/<application>/runbooks/`. An ECR lives in the engineering workspace.
@@ -83,7 +95,7 @@ The same artifact type can move homes without changing its contract. The model t
 - **Authority** — truth for a concern.
 - **Maturity** — what claim the artifact may make.
 
-Read [artifact homes](skills/artifact-system/references/homes.md) for the default homes, alternates, resolution method and repository map template.
+Read [artifact homes](skills/artifact-system/references/homes.md) for default homes, alternates, the resolution method and the repository map template.
 
 ### The repository artifact home map
 
@@ -118,8 +130,6 @@ Relations use a small, stable vocabulary:
 
 The graph is the real structure. Planes are a view over it.
 
-A typical change looks like this:
-
 ```text
 PRD ──informs──▶ ECR ──proposes──▶ RFC
                    │                 │
@@ -134,26 +144,22 @@ PRD ──informs──▶ ECR ──proposes──▶ RFC
 
 The ECR is the coordination spine, but every node is an artifact with its own authority and evidence. Code and tests are not appendices to the ECR; repo documents are not copies of it.
 
-This is the correction to an ECR-centric diagram. The third SDLC diagram in [the SDLC overview](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/sdlc.md#standard-engineering-artifacts-and-workspace-handoffs) shows the ECR at the center of a change. That is accurate for coordination, but the surrounding code, tests, architecture views, runbooks and release records are first-class artifacts too.
-
 ## Functional and non-functional requirements
 
 | Layer | Examples | Owner |
 | --- | --- | --- |
 | Functional artifact requirements | Purpose, authority, required sections, status, evidence, relations, update rules | Artifact contract + domain method |
 | Shared non-functional floor | Self-contained context, readable structure, resolvable links, render fidelity, one authority | Artifact quality bar |
-| Writing craft | Reader modeling, explanation, examples, precision, tone, navigation | Writing-craft expertise |
+| Writing craft | Reader modeling, explanation, examples, precision, tone, navigation | Technical writing craft |
 | Artifact-specific non-functional parameters | ADR conciseness and immutability; runbook scannability under pressure; PRD persuasive but evidence-based; architecture-view precision | Contract parameters + domain method |
 
 The contract states the outcome; the craft skill teaches how to achieve it. This is why writing is not a section inside every contract and not a separate artifact system.
 
 ## Skills organization
 
-The plugin is organized around the artifact model, not around a universal document template.
-
 ### `artifact-system`
 
-The shared core. It owns:
+The shared artifact model. It owns:
 
 - the artifact model, planes and relations;
 - the catalog of artifact types and default homes;
@@ -164,6 +170,19 @@ The shared core. It owns:
 
 Start at [artifact system](skills/artifact-system/SKILL.md). Use the [catalog](skills/artifact-system/references/catalog.md) to choose a type, the [homes](skills/artifact-system/references/homes.md) reference to resolve a location, the relevant [contract](skills/artifact-system/references/contracts/README.md) for content, and the [quality bar](skills/artifact-system/references/quality-bar.md) before handoff.
 
+### `activity-system`
+
+The shared routing model. It owns:
+
+- the activity catalog, default results and stopping points;
+- transitions and handoffs;
+- composition and fallback;
+- action authority and unattended execution;
+- project fit and proportionality;
+- the user-facing help mode.
+
+Start at [activity system](skills/activity-system/SKILL.md). Use the [catalog](skills/activity-system/references/catalog.md) to choose an activity, [transitions](skills/activity-system/references/transitions.md) for handoffs, [composition](skills/activity-system/references/composition.md) for supporting methods, [authority](skills/activity-system/references/authority.md) for action scope and [project fit](skills/activity-system/references/project-fit.md) for proportionality.
+
 ### `engineering-workspace`
 
 The storage mechanics for coordination artifacts: discovery, identity, persistence, revisions, provider limits and access. It owns **how** to publish an ECR or research report; the artifact system owns **what** it contains and **where** it belongs.
@@ -172,37 +191,34 @@ The storage mechanics for coordination artifacts: discovery, identity, persisten
 
 `project-conventions` owns repository foundations, including the artifact home map. `setup` establishes or verifies the map and records a portable pointer. This is how the phases become aware of placement: setup creates the map, implementation reads it, release updates the mapped records.
 
-### `architecture-documentation`
+### `system-mapping` and `system-design`
 
-A domain method for the architecture subject: C4 views, runtime and lifecycle scenarios, interface analysis, deployment boundaries and source-backed verification. It is **not** a generic documentation portfolio. The artifact system owns the architecture-set contract, status, evidence, home and maintenance triggers; this skill owns how to explain and verify the views.
+`system-mapping` discovers and documents the **current** system: entry points, runtime relations, data journeys, deployment topology and the architecture document set. It absorbed the former architecture documentation method. `system-design` owns **proposed** architecture and consequential choices. The artifact system owns the architecture-set contract, status, evidence and home.
 
-### `documentation-writing`
+### `test`
 
-Cross-type writing craft: reader fit, explanation, structure, examples, precision, navigation and presentation. It takes audience, purpose and required sections from the artifact contract. It does not own placement, status, evidence or content contracts.
+`test` is the **verification** activity. It selects and runs checks, observes real behavior, reviews completion evidence and reports coverage gaps. It absorbed the former completion method. It does not merge, deploy or publish.
 
 ### Domain methods
 
-Requirements engineering, system design, system mapping, security, operations, database, frontend, backend and AI skills own their subject methods. The artifact contracts link to them by capability; the artifact system does not duplicate them.
+Requirements engineering, system design, system mapping, security, operations, database, frontend, backend and AI skills own their subject methods. The artifact contracts link to them by capability; the activity system composes them without duplicating their content.
 
-### Retired: the former documentation conventions skill
+### Writing craft
 
-The former documentation conventions skill has been dissolved. Its content split into:
+Technical writing lives in the documentation plugin. It owns reader fit, explanation, structure, examples, precision, navigation and presentation. It takes audience, purpose and required sections from the artifact contract. It does not own placement, status, evidence or content contracts.
 
-- **generic home resolution** → [artifact homes](skills/artifact-system/references/homes.md);
-- **freshness and synchronization** → [artifact assurance](skills/artifact-system/references/assurance.md) and the map’s update triggers;
-- **the project-specific document map** → a repository artifact established by `setup` and maintained by `project-conventions`;
-- **document responsibilities** → the artifact contracts and domain methods.
+### Explicit upstream workflows
 
-Keeping a separate generic conventions skill would duplicate the artifact system and create a second place to update placement rules. The repository map is the one-stop shop for “where does this live here?” The artifact system is the one-stop shop for “what is it and what must it contain?”
+`grill-me`, `grill-with-docs`, `grilling`, `to-spec`, `to-questionnaire`, `retro`, `handoff` and `improve-codebase-architecture` remain explicit workflows. Their names, bodies and native controls are preserved. The activity catalog lists them separately from default activities.
 
 ## Composability and reusability rules
 
-1. **One owner per rule.** Link navigation lives in the quality bar, not in every contract. C4 coverage lives in architecture documentation, not in the ECR contract. Prose craft lives in writing, not in the issue template.
+1. **One owner per rule.** Link navigation lives in the quality bar, not in every contract. C4 coverage lives in system mapping, not in the ECR contract. Prose craft lives in technical writing, not in the issue template.
 2. **Contracts are thin routers, not methods.** A contract says what the artifact must contain and which domain/craft capability to use. It does not re-teach architecture, product strategy or prose.
-3. **Progressive disclosure.** The artifact-system `SKILL.md` carries the model and reading path. Contracts and domain skills load only when relevant.
+3. **Progressive disclosure.** The system skill carries the model and reading path. Contracts, activity references and domain skills load only when relevant.
 4. **Capability-based composition.** Use available subject and craft expertise by description, not a hardcoded dependency graph.
-5. **Stable vocabulary.** Artifact, type, plane, home, authority, maturity, contract, relation, evidence and freshness mean the same thing in every skill.
-6. **Separate what / how / where / whether.** What = contract. How = domain method and craft. Where = homes and repository map. Whether = quality bar and assurance.
+5. **Stable vocabulary.** Artifact, type, plane, home, authority, maturity, contract, relation, evidence, activity, stopping point and transition mean the same thing in every skill.
+6. **Separate what / how / where / whether.** What = artifact contract. How = domain method and craft. Where = homes and repository map. Whether = quality bar and assurance.
 7. **No universal template.** A PRD, ADR, runbook and ECR have different functional requirements. The shared model is fields and relations, not identical sections.
 8. **Evaluate composition, not just individual skills.** A change should be judged by whether the PRD, ECR, RFC/ADR, issue, PR, code, tests, architecture view and runbook agree on scope, status, revision and evidence.
 
@@ -210,7 +226,7 @@ Keeping a separate generic conventions skill would duplicate the artifact system
 
 ### For a change
 
-1. Choose the activity in [WORKFLOW.md](WORKFLOW.md).
+1. Choose the activity in [activity system](skills/activity-system/SKILL.md).
 2. Use the [artifact catalog](skills/artifact-system/references/catalog.md) to select the ECR and any linked types.
 3. Resolve the ECR home with [artifact homes](skills/artifact-system/references/homes.md) and [engineering workspace](skills/engineering-workspace/SKILL.md).
 4. Read the [ECR contract](skills/artifact-system/references/contracts/ecr.md).
@@ -221,7 +237,7 @@ Keeping a separate generic conventions skill would duplicate the artifact system
 1. Read the repository artifact home map.
 2. Choose the type: architecture set, ADR, runbook, README, guide, release note or API reference.
 3. Read its [contract](skills/artifact-system/references/contracts/README.md).
-4. Use the domain method for the subject and [documentation writing](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/documentation/skills/documentation-writing/SKILL.md) for craft.
+4. Use the domain method for the subject and [technical writing](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/documentation/skills/technical-writing/SKILL.md) for craft.
 5. Apply the quality bar and update the map if the type, home or owner changed.
 
 ### For a work product
@@ -232,22 +248,15 @@ Keeping a separate generic conventions skill would duplicate the artifact system
 4. Reconcile affected architecture views, contracts, runbooks and API reference.
 5. Do not turn the work product into a second ECR.
 
-## What changed in this revision
-
-- Renamed the former engineering artifacts skill to `artifact-system` and expanded it to cover intent, coordination, system knowledge, implementation, delivery and entry artifacts.
-- Added the [artifact model](skills/artifact-system/references/model.md), [artifact homes](skills/artifact-system/references/homes.md), [catalog](skills/artifact-system/references/catalog.md), [quality bar](skills/artifact-system/references/quality-bar.md) and [assurance](skills/artifact-system/references/assurance.md).
-- Added contracts for architecture sets, runbooks, work products, release notes, READMEs, guides and roadmaps; retained the ECR, issue, PR, research, RFC, ADR and PRD contracts.
-- Dissolved the former documentation conventions skill into artifact homes, assurance, the repository artifact home map, and the setup/project-conventions integration.
-- Rescoped `architecture-documentation` as the architecture subject method, with the artifact system owning the architecture-set contract.
-- Reframed `documentation-writing` as cross-type writing craft, not a second contract system.
-- Wired `setup`, `project-conventions`, `develop`, `plan`, `refine`, `design`, `release` and `WORKFLOW.md` to artifact homes and the repository map.
-- Added evaluation cases for cold-reader sufficiency, thin structure, link resolution, issue-only pickup, cross-view consistency and render fidelity.
-
 ## Boundaries
 
-This is guidance, not an executable gate. Package checks establish structure, links and packaging; they do not establish agent adherence, application behavior or deployment. The artifact system does not grant permission to create issues, publish documents, merge, deploy or access providers beyond the requested scope.
+This is guidance, not an executable gate. Package checks establish structure, links and packaging; they do not establish agent adherence, application behavior or deployment. The activity and artifact systems do not grant permission to create issues, publish documents, merge, deploy or access providers beyond the requested scope.
 
 A compact artifact can pass; a long artifact can fail. The test is whether the reader can decide and act, not whether every heading exists.
+
+## Migration
+
+The former workflow, task, help, completion and per-plugin composition files are retired. Use `activity-system` for routing, `test` for verification, and the repository artifact home map for placement. `system-mapping` absorbed current-state architecture documentation. See the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
 
 ## References
 
@@ -257,7 +266,8 @@ A compact artifact can pass; a long artifact can fail. The test is whether the r
 | Type selection and contracts | [artifact catalog](skills/artifact-system/references/catalog.md) |
 | Home resolution and repository map | [artifact homes](skills/artifact-system/references/homes.md) |
 | Readiness, consistency and convergence | [artifact assurance](skills/artifact-system/references/assurance.md) |
-| Activity selection | [development workflow](WORKFLOW.md) |
+| Activity selection and stopping points | [activity system](skills/activity-system/SKILL.md) |
+| Composition and fallback | [activity composition](skills/activity-system/references/composition.md) |
 | Coordination storage | [engineering workspace](skills/engineering-workspace/SKILL.md) |
 | Repository foundations | [project conventions](skills/project-conventions/SKILL.md) |
 | User-facing guide | [engineering artifacts and workspaces](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/artifact-workflow.md) |

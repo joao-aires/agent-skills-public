@@ -12,7 +12,6 @@ metadata:
 
 # Operational housekeeping
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 Review the operating conditions that drift between feature changes: capacity, retention, expiry, ownership and procedures. For each check, establish which decision its result can trigger and the evidence needed to make that decision. A check with no useful response creates recurring reporting work without improving the system.
 

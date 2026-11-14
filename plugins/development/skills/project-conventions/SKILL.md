@@ -11,7 +11,7 @@ metadata:
 user-invocable: false
 ---
 
-Read [workflow framing](../../WORKFLOW.md) for skill selection and invocation boundaries.
+Read [activity system](../activity-system/SKILL.md) for skill selection and invocation boundaries.
 
 For change-specific ECRs and target design, use [engineering-workspace](../engineering-workspace/SKILL.md) to discover an authorized external-to-code engineering folder or document provider and [artifact-system](../artifact-system/SKILL.md) for contract/content. During **any interactive ECR-producing activity**, if neither an authority nor an explicit inline-only preference exists, ask one storage question with filesystem, existing connected provider and inline-only choices; don't automatically choose a remote service or create arbitrary sibling paths. Once selected and authorized, record a portable discovery pointer in existing project contributor instructions, not a machine-local absolute directory. The app repo retains canonical implemented-state docs. Neither installing the skill nor discovering a repository grants filesystem/provider write access.
 
@@ -44,7 +44,7 @@ During a feature or fix, trace the affected paths and identify changed contracts
 - Keep this assessment inline for ordinary changes and record consequential decisions in the project's existing notes.
 - Unrelated legacy debt remains separate unless it prevents the requested behavior.
 
-Select verification through [deliver-reliable-changes](../deliver-reliable-changes/SKILL.md) and establish the objective workspace through [Git contributions](../git-contributions/SKILL.md) before foundation/feature writes. Those skills own the verification loop and worktree mechanics.
+Select verification through [verification](../test/SKILL.md) and establish the objective workspace through [Git contributions](../git-contributions/SKILL.md) before foundation/feature writes. Those skills own the verification loop and worktree mechanics.
 
 ## Establish a small, navigable repository
 
@@ -125,7 +125,7 @@ Start a full setup or structural review only when requested. Apply existing conv
 
 ## Prove the affected capability
 
-Verify the first slice through its real entrypoint, user-visible outcome and persistent/authority boundaries. Use the agreed scope to defer unrelated capabilities. Demonstrate startup/migration and affected platform/API paths, with fixture/live boundaries explicit. A scaffold or successful build establishes a narrower result than a working application. Keep commands and first-slice knowledge current and report missing checks through deliver-reliable-changes.
+Verify the first slice through its real entrypoint, user-visible outcome and persistent/authority boundaries. Use the agreed scope to defer unrelated capabilities. Demonstrate startup/migration and affected platform/API paths, with fixture/live boundaries explicit. A scaffold or successful build establishes a narrower result than a working application. Keep commands and first-slice knowledge current and report missing checks through verification.
 
 ## Maintain configuration and supported dependencies
 

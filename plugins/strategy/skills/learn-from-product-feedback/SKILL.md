@@ -12,7 +12,6 @@ metadata:
 
 # Learn from product feedback
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 ## Ask a decision question
 

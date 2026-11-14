@@ -13,7 +13,7 @@ metadata:
 
 # Dependencies
 
-Read [development workflow](../../WORKFLOW.md). Read [project-conventions](../project-conventions/SKILL.md) for supported dependencies, [git-contributions](../git-contributions/SKILL.md) for authorized update changes. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [activity system](../activity-system/SKILL.md). Read [project-conventions](../project-conventions/SKILL.md) for supported dependencies, [git-contributions](../git-contributions/SKILL.md) for authorized update changes. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
 
 ## Review the proposed update
 

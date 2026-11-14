@@ -14,7 +14,7 @@ flowchart TD
     F -->|Yes| G["Verified result and remaining gaps"]
 ```
 
-Use the main skill's platform/evidence rules alongside deliver-reliable-changes. Run affected checks during meaningful increments and broader regression before completion. Keep intended outcomes and reviewed baselines stable; report missing capability or repeated unexplained failures. Versioned AI quality cases complement deterministic application handling.
+Use the main skill's platform/evidence rules alongside verification. Run affected checks during meaningful increments and broader regression before completion. Keep intended outcomes and reviewed baselines stable; report missing capability or repeated unexplained failures. Versioned AI quality cases complement deterministic application handling.
 
 ## Evidence and accessibility
 

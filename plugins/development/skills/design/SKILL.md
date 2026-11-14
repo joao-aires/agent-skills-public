@@ -13,7 +13,7 @@ metadata:
 
 # Design
 
-Read [development workflow](../../WORKFLOW.md).
+Read [activity system](../activity-system/SKILL.md).
 
 Record the proposed solution, consequential decisions and evidence needed to review the affected behavior or boundaries. Use the [artifact system](../artifact-system/SKILL.md) for the handoff and [engineering workspace](../engineering-workspace/SKILL.md) for persistence. Resolve the artifact home with [artifact homes](../artifact-system/references/homes.md) before writing, and use the [architecture-set contract](../artifact-system/references/contracts/architecture-set.md) when the design changes a system boundary. Use [system-design](../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent implementation. When data or authority boundaries change, seek relevant security/privacy design expertise from available descriptions; retain the affected authority, data-flow and verification reasoning when a specialist is absent. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
 

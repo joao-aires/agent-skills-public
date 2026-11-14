@@ -61,7 +61,7 @@ Choose the activity explicitly: `/development:develop` in Claude Code, or `devel
 | Existing application | Use develop to add read-only sharing to saved searches. Preserve the existing architecture, UI and private defaults. |
 | Assess current work | Use test to verify the changed journey, then review the diff against the agreed behavior. |
 
-The agent should clarify consequential unknowns, define relevant behavior before coding, verify the result and report evidence or gaps. It proceeds within the requested scope; merge and deployment are separate actions. Use `workflow-help` when unsure where to start.
+The agent should clarify consequential unknowns, define relevant behavior before coding, verify the result and report evidence or gaps. It proceeds within the requested scope; merge and deployment are separate actions. Use the `activity-system` help mode when unsure where to start.
 
 ## How the guidance fits together
 

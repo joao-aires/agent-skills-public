@@ -12,7 +12,6 @@ metadata:
 
 # Optimize application cost
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 ## Attribute the real bill
 

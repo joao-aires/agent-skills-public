@@ -1,55 +1,42 @@
-# Documentation plugin: architecture subject and writing craft
+# Documentation plugin: technical writing and prose craft
 
-The `documentation` plugin no longer owns a separate documentation-placement system. It supplies two focused capabilities:
+The `documentation` plugin is a focused writing bundle. It supplies the cross-type craft for making product and engineering documents understandable, plus optional prose editing.
 
-- **Architecture explanation** — the subject method for structural, runtime, interface and deployment views, with source-backed evidence.
-- **Writing craft** — the cross-type method for reader fit, explanation, structure, examples, precision, navigation and presentation.
+It does not own documentation placement, artifact contracts or architecture coverage. Those belong to the artifact system, the activity system and the repository’s artifact home map.
 
-It also includes the optional Humanizer prose-editing skill.
+## What it owns
 
-## What moved out
+| Skill | Owns |
+| --- | --- |
+| [Technical writing](skills/technical-writing/SKILL.md) | Reader fit, explanation, structure, examples, precision, navigation and presentation for product and engineering documents |
+| [Humanizer](skills/humanizer/SKILL.md) | Optional prose polish that preserves technical meaning, caveats, commands and links |
 
-The former documentation conventions skill has been dissolved into the artifact system:
+The plugin is useful when the question is “how should this be written for its reader?” It is not the place to decide what the document must contain, where it lives or what status it carries.
 
-- Generic home resolution and the repository map method → [artifact homes](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/artifact-system/references/homes.md).
-- Freshness, synchronization and cross-artifact consistency → [artifact assurance](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/artifact-system/references/assurance.md).
-- The project-specific artifact map → a repository artifact established by `setup` and maintained by [project conventions](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/project-conventions/SKILL.md).
-- Document responsibilities and required content → the artifact contracts in [artifact system](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/artifact-system/references/contracts/README.md).
-
-Keeping a separate generic conventions skill would duplicate the artifact system and create a second place to update placement rules.
-
-## How the remaining skills compose
+## How it composes
 
 | Need | Use |
 | --- | --- |
 | What artifact is this, what must it contain, where does it live? | [Artifact system](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/artifact-system/SKILL.md) |
-| How do I explain the system architecture? | [Architecture documentation](skills/architecture-documentation/SKILL.md) |
-| How do I make a document understandable for its reader? | [Documentation writing](skills/documentation-writing/SKILL.md) |
-| How do I polish prose without changing technical meaning? | [Humanizer](skills/humanizer/SKILL.md) |
+| What activity applies, and where does it stop? | [Activity system](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/activity-system/SKILL.md) |
+| How do I explain the current system architecture? | [System mapping](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/system-mapping/SKILL.md) |
+| How do I write or revise the document? | [Technical writing](skills/technical-writing/SKILL.md) |
+| How do I polish the prose? | [Humanizer](skills/humanizer/SKILL.md) |
 
-The artifact contract supplies the audience, purpose, required sections and status. The architecture method supplies the subject explanation. The writing skill supplies the craft. None of them should become a second contract or a second placement system.
+The artifact contract supplies the audience, purpose, required sections and status. The domain method supplies the subject explanation. This plugin supplies the craft.
 
-## Architecture documentation is not “all documentation”
+## Technical writing is craft, not a contract system
 
-`architecture-documentation` explains the architecture **document set**: context, containers, selected components, critical runtime sequences, data ownership, interfaces, deployment, quality/failure and links to decisions. It does not own READMEs, guides, runbooks, product briefs or the repository's whole documentation portfolio.
-
-The artifact system owns the architecture-set contract, status, evidence, home and maintenance triggers. The architecture skill owns view selection, C4/arc42 reasoning, interface analysis, deployment explanation and source-backed verification.
-
-## Writing craft is not a contract system
-
-`documentation-writing` is the craft that produces the non-functional outcome. It does not own artifact-specific functional requirements such as required sections, status, evidence or authority. Those belong to the artifact contract and domain method.
+`technical-writing` is the craft that produces the non-functional outcome. It does not own artifact-specific functional requirements such as required sections, status, evidence or authority. Those belong to the artifact contract and domain method.
 
 A PRD, ADR, runbook and architecture view need different structure, tone and level of detail. The shared craft is reader modeling, explanation, examples, precision and presentation; the contract supplies the parameters.
 
+## Architecture explanation
+
+Current-state architecture explanation lives with [system mapping](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/system-mapping/SKILL.md) in the development plugin. Proposed architecture lives with `system-design`. The artifact system owns the architecture-set contract, status, evidence, home and maintenance triggers.
+
+This plugin does not own an architecture document set, a documentation portfolio or repository placement.
+
 ## Migration
 
-The former documentation conventions skill is retired, not renamed. Update saved prompts to use `artifact-system` for contracts, homes and assurance, and the repository artifact home map for placement. See the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
-
-## References
-
-| Need | Source |
-| --- | --- |
-| User-facing artifact guide | [Engineering artifacts and workspaces](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/artifact-workflow.md) |
-| Artifact model and homes | [Artifact system](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/artifact-system/SKILL.md) |
-| Repository foundations | [Project conventions](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/project-conventions/SKILL.md) |
-| Migration | [Migrating existing installations](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md) |
+The former architecture and writing skills are retired names. Use `system-mapping` for current-state architecture documentation and `technical-writing` for writing craft. The former package composition file is retired; composition guidance lives in the activity system. See the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
