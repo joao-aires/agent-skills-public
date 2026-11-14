@@ -14,7 +14,7 @@ except ModuleNotFoundError:
     from scripts.skill_metadata import validate_skill_metadata
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_PLUGINS = ('development',)
+DEFAULT_PLUGINS = ('sdlc',)
 
 
 def select_plugins(root, requested=None, all_plugins=False):
@@ -51,7 +51,7 @@ def adapt_skill(target, source):
                         raise ValueError('Implementation framing requires implement')
                     metadata.setdefault('user-invocable', True)
                     metadata['description'] = 'Implement agreed work from a conversation, local spec or optional tracker, with repository conventions, design readiness, verification and contribution flow.'
-                    parts[2] = '\n\nRead [task guidance](../../TASKS.md) for scope, unattended blockers, design readiness and feature-worktree contributions. Use the agreed request without requiring tickets; commit to the objective\'s feature branch, preserving unrelated work. Significant UI interactions and backend behavior contracts must be established before implementation. Read [Git contributions](../git-contributions/SKILL.md) for the objective worktree and [change verification](../deliver-reliable-changes/SKILL.md) for scenario-led verification after meaningful increments: run affected checks/journeys, inspect telemetry/state, repair and recheck without weakening acceptance.\n' + parts[2]
+                    parts[2] = '\n\nRead [activity system](../activity-system/SKILL.md) for scope, stopping points, unattended blockers, design readiness and artifact homes. Use the agreed request without requiring tickets; commit to the objective\'s feature branch, preserving unrelated work. Significant UI interactions and backend behavior contracts must be established before implementation. Read [Git contributions](../git-contributions/SKILL.md) for the objective worktree and [verification](../test/SKILL.md) for scenario-led verification after meaningful increments: run affected checks/journeys, inspect telemetry/state, repair and recheck without weakening acceptance.\n' + parts[2]
                 text = '---\n' + yaml.safe_dump(metadata, sort_keys=False, allow_unicode=True) + '---' + parts[2]
             if 'usage-labels' in adaptations or 'tracker-neutral' in adaptations:
                 import yaml
@@ -59,7 +59,7 @@ def adapt_skill(target, source):
                 metadata = yaml.safe_load(parts[1])
                 if 'usage-labels' in adaptations:
                     labels = source['labels']
-                    if labels.get('scope') not in {'generic', 'stack-specific'} or labels.get('invocation') not in {'user', 'agent', 'both'} or any(not isinstance(value, str) for value in labels.values()):
+                    if labels.get('scope') not in {'generic', 'stack-specific'} or labels.get('invocation') not in {'user', 'agent', 'both'} or labels.get('kind') not in {'system', 'activity', 'method', 'workflow', 'reference'} or labels.get('origin') not in {'local', 'upstream'} or labels.get('pack') not in {'sdlc', 'technical', 'craft', 'product'} or labels.get('phase') not in {'planning', 'requirements', 'design', 'implementation', 'verification', 'release', 'maintenance', 'cross-phase'} or labels.get('domain') not in {'development', 'delivery', 'operations', 'security', 'governance', 'product', 'saas', 'frontend', 'backend', 'database', 'ai', 'tooling', 'platform', 'documentation', 'visualization', 'browser-extension', 'native', 'go', 'typescript'} or any(not isinstance(value, str) for value in labels.values()):
                         raise ValueError('Invalid usage labels')
                     metadata.setdefault('metadata', {}).update(labels)
                 if 'tracker-neutral' in adaptations:
@@ -101,12 +101,12 @@ def adapt_skill(target, source):
                     'This portable bundle does not register a named subagent.\n', text, flags=re.DOTALL)
                 if count != 1 or 'adversarial-modeler' in text:
                     raise ValueError('Unexpected differential-review agent instructions')
-        if document.name == 'SKILL.md' and document.parent == target and 'workflow-framing' in adaptations:
+        if document.name == 'SKILL.md' and document.parent == target and 'workflow-framing' in adaptations and 'implementation-entrypoint' not in adaptations:
             parts = text.split('---', 2)
-            text = '---' + parts[1] + '---\n\nRead [workflow framing](../../WORKFLOW.md) before applying this skill.\n' + parts[2]
+            text = '---' + parts[1] + '---\n\nRead [activity system](../activity-system/SKILL.md) before applying this skill.\n' + parts[2]
         if document.name == 'SKILL.md' and document.parent == target and 'composition-framing' in adaptations:
             parts = text.split('---', 2)
-            text = '---' + parts[1] + '---\n\nRead [composition guidance](../../COMPOSITION.md) for scope, optional expertise and fallback.\n' + parts[2]
+            text = '---' + parts[1] + '---\n\nRead [package guidance](../../README.md) for scope, optional expertise and fallback.\n' + parts[2]
         if document.name == 'SKILL.md' and document.parent == target and 'instruction-authoring-framing' in adaptations:
             parts = text.split('---', 2)
             text = '---' + parts[1] + '---\n\nApply this method to the actual repository and request. Preserve necessary project constraints when shortening instructions; size and formatting targets are editing heuristics. Sample commands and attribution blocks illustrate structure, not project policy. Follow the host\'s instruction hierarchy and retain applicable parent rules; narrower instructions override only their conflicting scoped details. Create compatibility files only when needed within scope, preserving existing files.\n' + parts[2]
@@ -184,7 +184,7 @@ def build(root, selected, destination):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     selection = parser.add_mutually_exclusive_group()
-    selection.add_argument('--plugin', action='append', help='Plugin to bundle, repeatable; default: development only')
+    selection.add_argument('--plugin', action='append', help='Plugin to bundle, repeatable; default: sdlc only')
     selection.add_argument('--all', action='store_true', help='Build every plugin discovered from its manifest')
     parser.add_argument('--destination', type=Path, required=True)
     args = parser.parse_args()

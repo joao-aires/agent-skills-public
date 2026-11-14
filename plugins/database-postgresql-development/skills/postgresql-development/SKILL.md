@@ -5,6 +5,11 @@ description: Develop or review PostgreSQL schemas, transactions, migrations and 
   behavior with the actual application roles and server version.
 license: MIT
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: database
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   role: support

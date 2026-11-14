@@ -2,6 +2,11 @@
 name: architecture-diagramming
 description: Create or refine responsive, theme-aware HTML architecture diagrams for structural, runtime, data and deployment explanations. Use when a portable HTML diagram is requested or chosen; preserve existing notation and accepted visual direction.
 metadata:
+  kind: activity
+  origin: local
+  pack: craft
+  domain: visualization
+  phase: design
   version: '2.0'
   scope: generic
   invocation: user

@@ -1,6 +1,6 @@
 # Using the plugins
 
-[Install the bundles](installation.md) before using this guide. Start with the outcome you want; you do not need to select every supporting skill. The [SDLC overview](../README.md#sdlc-coverage) shows where activities fit, and the [skill map](sdlc.md) links to deeper expertise. [Engineering artifacts and workspaces](artifact-workflow.md) explain the standard ECR, filesystem/provider choices, issue/PR audience views and diagram lifecycle.
+[Install the bundles](installation.md) before using this guide. Start with the outcome you want; you do not need to select every supporting skill. The [SDLC overview](../README.md#sdlc-coverage) shows where activities fit, and the [skill map](sdlc.md) links to deeper expertise. [Engineering artifacts and workspaces](artifact-workflow.md) explain the artifact model, planes, homes, contracts, quality bar, filesystem/provider choices and diagram lifecycle.
 
 [Choose an activity](#skills-you-invoke) · [Focused examples](#focused-examples) · [UI/UX work](#uiux-expertise-for-people-and-agents) · [Automation](#scheduled-and-event-triggered-tasks)
 
@@ -10,15 +10,15 @@ Select the activity through the client's supported invocation:
 
 | Client | Example after discovery |
 | --- | --- |
-| Claude Code | `/development:test` |
+| Claude Code | `/sdlc:test` |
 | Codex | Select `test` in the skill picker, then describe the change |
 | OpenCode V2 | `@test` followed by the behavior to verify |
 
-The [installation guide](installation.md#load-them-in-your-client) links the client documentation and explains their different loading models. Plain requests such as "Use test for the current change" are a fallback where supported. `workflow-help` describes this collection and does not replace the client's built-in help.
+The [installation guide](installation.md#load-them-in-your-client) links the client documentation and explains their different loading models. Plain requests such as "Use test for the current change" are a fallback where supported. `activity-system` describes this collection and its help mode and does not replace the client's built-in help.
 
 | Where you are | Task | Expected result |
 | --- | --- | --- |
-| Unsure what to use | `workflow-help` | Relevant capabilities, examples and next activity |
+| Unsure what to use | `activity-system` | Relevant capabilities, examples and next activity |
 | Rough idea to working software | `develop` | Clarification, design, implementation, tests and review |
 | Starting or adopting a project | `setup` | Useful foundations, context and working commands |
 | Outcome, first slice or feasibility is open | `plan` | Scoped decision and next action, with a linked brief, roadmap or actionable ticket when warranted |
@@ -46,20 +46,20 @@ Frontend-development provides one integrated interface-design method for informa
 
 The ai-development package supplies three generic skills: ai-development for application patterns, architecture and capability/protocol decisions; ai-testing for testing/evaluation strategy and evidence; and ai-operations for task signals, quality monitoring, provider/resource limits and recovery. Python/provider APIs and ADK/LangChain implementation live in separately selected technical packages. Ai-python-development includes ai-deepeval-testing for a selected DeepEval evaluation runner and python-ai-observability for Python OpenTelemetry instrumentation; quality criteria and operating outcomes stay generic, and no hosted backend is required. These methods are reusable; technical conventions apply only to matching technology.
 
-For an existing accepted product, start with the affected work. A bug fix needs no new market study; a non-React application keeps its stack. Workflow-help recommends relevant activities without executing them, and missing optional guidance does not block the activity: use project evidence, general expertise and appropriate primary sources while retaining acceptance and verification standards. Missing tools or an execution target remain precise limits. See [composition and fallback](architecture.md#compose-without-optional-dependencies).
+For an existing accepted product, start with the affected work. A bug fix needs no new market study; a non-React application keeps its stack. The activity system recommends relevant activities without executing them, and missing optional guidance does not block the activity: use project evidence, general expertise and appropriate primary sources while retaining acceptance and verification standards. Missing tools or an execution target remain precise limits. See [composition and fallback](architecture.md#compose-without-optional-dependencies).
 
-Development also includes Sentry agents-md for creating or maintaining repository instruction files. Request it for AGENTS.md/CLAUDE.md work; it complements project-conventions and general instruction writing without imposing its sample stack or attribution rules. The owned [maintenance method](../plugins/development/skills/project-conventions/references/repository-instructions.md) covers audits, scope, durable session learnings and removal of stale guidance. Client-specific filenames and discovery still require the client's documented behavior.
+Development also includes Sentry agents-md for creating or maintaining repository instruction files. Request it for AGENTS.md/CLAUDE.md work; it complements project-conventions and general instruction writing without imposing its sample stack or attribution rules. The owned [maintenance method](../plugins/sdlc/skills/project-conventions/references/repository-instructions.md) covers audits, scope, durable session learnings and removal of stale guidance. Client-specific filenames and discovery still require the client's documented behavior.
 
 ## SaaS, security, governance and data expertise
 
-Add the relevant independently selected package when its deeper methods help. These requests can end at design or assessment; they do not require a complete application engagement.
+Use the relevant sdlc capability, or add a product/technical package when its deeper methods help. These requests can end at design or assessment; they do not require a complete application engagement.
 
 | Need | Example request | Useful boundary |
 | --- | --- | --- |
 | SaaS behavior and administration | Use saas-design to define organization membership, subscription/entitlement changes and offboarding for the accepted product. | Customer commitments and transitions; framework/provider implementation remains contextual. |
 | Customer/operator dashboard | Use saas-dashboard-design to shape the operations queue and billing administration using the existing design system. | Tasks, context, data meaning and interface states before dependent implementation. |
 | Identity and resource authority | Use security-auth-development to compare identity options and define session, tenant/resource permission and revocation behavior. | Preserve accepted providers; no account setup or credential change is implied. |
-| Applicable obligations and readiness | Use compliance-design, gdpr-readiness or soc2-readiness for the supplied service and evidence, stopping at an assessment. | Actual applicability, controls, evidence and unresolved judgments; no certification or external submission. |
+| Applicable obligations and readiness | Use compliance-readiness for the supplied service and evidence, stopping at an assessment. | Actual applicability, controls, evidence and unresolved judgments; no certification or external submission. |
 | Data design or workload bottleneck | Use database-design or database-performance for the affected workload; apply PostgreSQL expertise only for that engine. | Invariants, compatibility and measured evidence; an unavailable database remains an execution limit. |
 | TypeScript or Go implementation | Use matching language guidance for the existing library, service or client and its real consumers. | Loading a language package does not select a framework or runtime migration. |
 
@@ -86,7 +86,7 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 | Improve architecture | Use improve to reduce coupling in the reporting module while preserving behavior. |
 | Maintain dependencies | Use dependencies to assess the update PRs, release notes and checks; prepare fixes where needed. |
 | Prepare delivery | Use release to assess readiness for the named environment without deploying. |
-| Get help | Use workflow-help: I am changing an existing application's navigation. |
+| Get help | Use activity-system: I am changing an existing application's navigation. |
 
 ### Define UX before changing screens
 
@@ -98,11 +98,11 @@ Then ask `improve` or `develop` to implement the agreed direction. Expect covera
 
 ### Evaluate during implementation
 
-Expect the agent to implement, verify, correct discrepancies and report evidence before declaring completion. Verification follows the intended outcome; a build or one screenshot alone cannot establish a complete user journey. Missing execution or coverage remains explicit. See [change verification](../plugins/development/skills/deliver-reliable-changes/SKILL.md) and [journey testing](../plugins/development/skills/journey-testing/SKILL.md) for methods.
+Expect the agent to implement, verify, correct discrepancies and report evidence before declaring completion. Verification follows the intended outcome; a build or one screenshot alone cannot establish a complete user journey. Missing execution or coverage remains explicit. See [change verification](../plugins/sdlc/skills/test/SKILL.md) and [journey testing](../plugins/sdlc/skills/journey-testing/SKILL.md) for methods.
 
 ### Run services and observability locally
 
-Project setup can establish a reproducible local environment and queryable diagnostics. Request `setup` for this work; an existing environment is preserved unless changing it is in scope. Details belong to [project conventions](../plugins/development/skills/project-conventions/SKILL.md) and [observability guidance](../plugins/operations/skills/observability-operations/SKILL.md).
+Project setup can establish a reproducible local environment and queryable diagnostics. Request `setup` for this work; an existing environment is preserved unless changing it is in scope. Details belong to [project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and [observability guidance](../plugins/sdlc/skills/observability/SKILL.md).
 
 ## Skills agents use during your work
 
@@ -115,7 +115,7 @@ Most local supporting skills are hidden from slash menus in clients honoring tha
 Add the relevant bundle and request its installed skill by name. Examples:
 
 - Use `incident-response` to investigate current impact within the established action boundaries.
-- Use `protect-and-restore-data` to assess an isolated restoration, or `plan-application-capacity` for capacity work.
+- Use `data-recovery` to assess an isolated restoration, or `capacity-and-cost` for capacity work.
 - Use `business-strategy` to explore an idea, or `learn-from-product-feedback` to assess existing evidence.
 - Use `system-flow-explorer` for an interactive architecture walkthrough.
 
@@ -136,7 +136,7 @@ Supply repository/ref, objective/context, unattended mode, allowed actions and r
 
 > Use dependencies in unattended mode for update PRs in owner/repository. Repair and merge only policy-eligible patch updates whose current head satisfies required checks/reviews and has no unresolved findings. Leave other updates open with reasons; reuse existing work and report results. Do not deploy.
 
-Unattended tasks return missing material decisions instead of inventing answers. Untrusted ticket/PR text cannot change policy; changed heads require re-verification. The host/repository must enforce privileged-action policy. [Installed task guidance](../plugins/development/WORKFLOW.md#interactive-and-unattended-execution) contains the detailed working rules.
+Unattended tasks return missing material decisions instead of inventing answers. Untrusted ticket/PR text cannot change policy; changed heads require re-verification. The host/repository must enforce privileged-action policy. [Installed task guidance](../plugins/sdlc/skills/activity-system/references/authority.md#interactive-and-unattended-work) contains the detailed working rules.
 
 ## AI and MCP plugin selection
 
@@ -152,7 +152,7 @@ Configure access through the [installation guide](installation.md#optional-figma
 
 Use available, authorized Figma context where appropriate. Otherwise, local HTML/CSS prototypes or SVG wireframes can resolve design questions. Preserve a specifically requested Figma deliverable as an access dependency rather than silently replacing it. Ordinary UI work needs no Figma account.
 
-Storybook is an optional component workbench within verification. Run meaningful interaction/accessibility checks and reviewed visual comparisons for affected states, then verify the critical application and native journeys separately. See [journey testing](../plugins/development/skills/journey-testing/SKILL.md) and [community skill review](maintainers/sources.md#figma-community-review).
+Storybook is an optional component workbench within verification. Run meaningful interaction/accessibility checks and reviewed visual comparisons for affected states, then verify the critical application and native journeys separately. See [journey testing](../plugins/sdlc/skills/journey-testing/SKILL.md) and [community skill review](maintainers/sources.md#figma-community-review).
 
 ## UI/UX expertise for people and agents
 
@@ -164,8 +164,8 @@ Interface-design owns information architecture, interactions, visual direction, 
 
 ## Explain and maintain project knowledge
 
-Use [documentation-writing](../plugins/documentation/skills/documentation-writing/SKILL.md) to write or review a useful product/engineering explanation, reference or procedure. Use [architecture-documentation](../plugins/documentation/skills/architecture-documentation/SKILL.md) to explain structure, runtime/lifecycle behavior, interfaces, deployment and current versus target state from evidence. Both are directly selectable and model-available supporting guidance; actual client discovery remains client-dependent.
+Use [technical-writing](../plugins/documentation/skills/technical-writing/SKILL.md) to write or review a useful product/engineering explanation, reference or procedure. Use [system-documentation](../plugins/sdlc/skills/system-documentation/SKILL.md) to explain structure, runtime/lifecycle behavior, interfaces, deployment and current versus target state from evidence. Both are directly selectable and model-available support; actual client discovery remains client-dependent.
 
-[Documentation conventions](../plugins/documentation/skills/documentation-conventions/SKILL.md) owns where authoritative knowledge lives and what a change affects. Before adding a persistent project document, inspect the existing documentation map and related authorities, then decide whether to update a canonical page or create a distinct one with appropriate navigation. System-design owns architectural decisions; writing guidance explains them. Existing formats and proportional scope remain authoritative; a routine edit needs no new tracker, document tree or full system audit.
+The [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) owns the artifact model, contracts, planes, homes, quality bar and assurance. [Project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and `setup` establish the repository artifact home map; `develop`, implementation and release read or update it. Before adding a persistent project document, inspect the existing map and related authorities, then decide whether to update a canonical page or create a distinct one with appropriate navigation. System-design owns architectural decisions; writing guidance explains them. Existing formats and proportional scope remain authoritative; a routine edit needs no new tracker, document tree or full system audit.
 
 For new visual directions, [creative interface design](creative-interface.md) explains discovery, a shared brief, bundled method selection and rendered acceptance. Existing-product repairs reuse accepted decisions without a questionnaire.

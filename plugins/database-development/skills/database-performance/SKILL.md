@@ -5,6 +5,11 @@ description: Investigate database workload performance and compare improvements 
   connection or resource bottlenecks before choosing engine-specific tuning.
 license: MIT
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: database
+  phase: cross-phase
   scope: generic
   invocation: both
   role: support

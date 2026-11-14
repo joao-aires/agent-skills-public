@@ -5,6 +5,11 @@ description: Build, extend or review React/Next.js interfaces using the selected
   storefronts, content sites, navigation, styling, forms and frontend architecture;
   preserve accepted project choices during ordinary feature work.
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: frontend
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: React, Next.js, Tailwind, shadcn

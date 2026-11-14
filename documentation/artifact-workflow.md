@@ -1,16 +1,21 @@
 # Engineering artifacts and workspaces
 
-Use an engineering change record (ECR) to carry a change from agreed scope to checked outcome. Use a standalone research report to answer a question and support a decision. Keep implemented architecture and operating knowledge with the application. An issue helps someone coordinate or do the work, and a PR helps someone review the actual contribution.
+Every durable engineering output is an artifact: an ECR, PRD, roadmap, RFC, ADR, issue, PR, architecture view, runbook, README, guide, code module, test suite or release note. Each has a type, a primary plane, a home, an authority, a maturity and relations. The ECR is the coordination spine for a change, not the only artifact.
 
 | Need | Owning guidance |
 | --- | --- |
-| Choose an activity and its stopping point | [Development workflow](../plugins/development/WORKFLOW.md) |
-| Choose a PRD, roadmap, RFC, ADR or research report | [Artifact types](../plugins/development/skills/engineering-artifacts/references/artifact-types.md) |
-| Record an engineering change and check its evidence | [ECR content](../plugins/development/skills/engineering-artifacts/references/engineering-change-record.md) and [artifact assurance](../plugins/development/skills/engineering-artifacts/references/assurance.md) |
-| Find a home and persist the record | [Engineering workspace](../plugins/development/skills/engineering-workspace/SKILL.md) |
-| Hand work to an implementer or reviewer | [Issue and PR views](../plugins/development/skills/engineering-artifacts/references/audience-views.md) |
-| Explain structure and interactions with accurate views | [Diagram lifecycle](../plugins/development/skills/engineering-artifacts/references/diagram-lifecycle.md) and [architecture documentation](../plugins/documentation/skills/architecture-documentation/SKILL.md) |
-| Improve wording, navigation or presentation | [Documentation writing](../plugins/documentation/skills/documentation-writing/SKILL.md) |
+| Understand the artifact model, planes and relations | [Artifact model](../plugins/sdlc/skills/artifact-system/references/model.md) |
+| Choose the type, plane and contract | [Artifact catalog](../plugins/sdlc/skills/artifact-system/references/catalog.md) |
+| Resolve where an artifact lives, or establish the repository map | [Artifact homes](../plugins/sdlc/skills/artifact-system/references/homes.md) and [project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) |
+| Choose an activity and its stopping point | [Activity system](../plugins/sdlc/skills/activity-system/SKILL.md) |
+| Record an engineering change and check its evidence | [ECR contract](../plugins/sdlc/skills/artifact-system/references/contracts/ecr.md) and [artifact assurance](../plugins/sdlc/skills/artifact-system/references/assurance.md) |
+| Persist a coordination record | [Coordination storage](../plugins/sdlc/skills/artifact-system/references/storage/coordination.md) |
+| Hand work to an implementer or reviewer | [Issue contract](../plugins/sdlc/skills/artifact-system/references/contracts/issue.md) and [PR contract](../plugins/sdlc/skills/artifact-system/references/contracts/pr.md) |
+| Document architecture as a set | [Architecture-set contract](../plugins/sdlc/skills/artifact-system/references/contracts/architecture-set.md) and [system documentation](../plugins/sdlc/skills/system-documentation/SKILL.md) |
+| Write a runbook, README, guide or release note | [Runbook](../plugins/sdlc/skills/artifact-system/references/contracts/runbook.md), [Repository README](../plugins/sdlc/skills/artifact-system/references/contracts/repository-readme.md), [guide](../plugins/sdlc/skills/artifact-system/references/contracts/guide.md), [release note](../plugins/sdlc/skills/artifact-system/references/contracts/release-note.md) |
+| Check sufficiency, links and rendered output | [Artifact quality bar](../plugins/sdlc/skills/artifact-system/references/quality-bar.md) |
+| Explain structure and interactions with accurate views | [Diagram lifecycle](../plugins/sdlc/skills/artifact-system/references/diagram-lifecycle.md) |
+| Improve wording, navigation or presentation | [Technical writing](../plugins/documentation/skills/technical-writing/SKILL.md) |
 
 See the [SDLC overview](sdlc.md) for the seven outcomes and how evidence passes between them.
 
@@ -27,6 +32,38 @@ History: the engineering folder is independently versioned.
 ```
 
 A connected document project can serve the same purpose. For the first storage choice, provider limits and access failures, follow the workspace method. In a mixed setup, an issue can repeat acceptance criteria and link the authoritative record even when the issue and record live in different tools.
+
+## Planes and homes
+
+Every artifact has a **primary plane** and a **home**:
+
+- Intent: PRD, roadmap, product decision.
+- Coordination: ECR, research report, RFC, issue, PR.
+- System knowledge: architecture set, ADR, API reference, runbook, SLO.
+- Implementation: code, tests, migrations, configuration.
+- Delivery and operations: release note, deployment record, incident, postmortem.
+- Entry and knowledge: README, guide, tutorial, glossary.
+
+The plane is the artifact's role. The home is where its authoritative copy lives. They are different: an architecture view is system knowledge that usually lives in the application repository; a runbook is system knowledge that may live in an operations repository; an ECR is coordination knowledge that lives in the engineering workspace.
+
+Read [artifact homes](../plugins/sdlc/skills/artifact-system/references/homes.md) for the default homes, alternates and resolution method.
+
+## Example repository artifact home map
+
+A repository should record where its durable artifacts live. Put a short pointer in `AGENTS.md` and the full map in `docs/README.md` or `docs/artifact-homes.md`.
+
+| Artifact | Home | Authority | Owner | Update when |
+| --- | --- | --- | --- | --- |
+| Product brief / PRD | `docs/product/` | Canonical product intent | Product lead | Outcome, scope or priority changes |
+| Architecture set | `docs/architecture/` | Canonical implemented architecture | Architect | Boundary, interface or deployment changes |
+| ADRs | `docs/decisions/` | Canonical decision history | Architect / tech lead | A consequential decision is accepted or superseded |
+| Runbooks | `ops/<application>/runbooks/` | Canonical operations | SRE | Failure, recovery or escalation changes |
+| Guides | `docs/guides/` | Canonical how-to | Docs owner | Workflow or command changes |
+| ECR | `../engineering/changes/<name>/ecr.md` | Canonical change record | Change owner | Each phase |
+| Issue / PR | Tracker / Git provider | Views of the change | Change owner | Status or diff changes |
+| Code / tests | `src/`, `tests/` | Canonical implementation | Engineering | Every change |
+
+`setup` establishes or verifies the map. Implementation reads it before creating or moving a durable artifact and updates it when a type, home or owner changes. A missing map is a project-foundation gap, not permission to choose an arbitrary path.
 
 ## Example research report
 
@@ -48,17 +85,25 @@ This example concerns a synthetic webhook consumer. Its question is whether the 
 
 ### Investigate durable webhook deduplication
 
-**Why.** The consumer's in-process cache loses event identity on restart and cannot coordinate independent workers.
+**Context.** The consumer's in-process cache loses event identity on restart and cannot coordinate independent workers. The failing restart case and the current consumer baseline are linked in the research record.
 
-**Scope.** Compare local and shared durable stores. Exercise restart, worker contention and the uncertain result of an external send. Keep the investigation separate from a production implementation.
+**Intended outcome.** The team has a recommended durable storage approach for one host and a clear decision about the multi-host case, supported by observed evidence.
+
+**Scope.** Compare local and shared durable stores. Exercise restart, worker contention and the uncertain result of an external send. Keep the investigation separate from a production implementation. Out of scope: changing the production consumer or deploying a database.
 
 **Acceptance**
 
-- Compare plausible storage options for one host and multiple hosts.
+- Compare plausible storage options for one host and multiple hosts on the same dimensions.
 - Reproduce at least one durable claim and a crash around the receiver effect.
 - Explain what the probe establishes, what remains unverified and which decision the team needs next.
 
+**Verification.** Run the local probe at the recorded fixture revision and retain its source and output. Record the exact environment and the cases the simulated receiver does not establish.
+
+**References.** Research report, consumer baseline, receiver contract documentation and the related ECR if implementation follows.
+
 **Result.** The local SQLite probe exercised the crash boundary. A production choice still depends on the receiver contract. Link the research report and preserve the acceptance criteria.
+
+**Status.** Ready for investigation; owner to be assigned. The production choice remains blocked on the receiver contract.
 
 ## Example architecture handoff
 

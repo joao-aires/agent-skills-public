@@ -9,6 +9,11 @@ description: Develop, evaluate, compare, and continuously update business and pr
   strategy frameworks, or when the user wants to determine what a product or company
   should become. Treat the user's initial concept as a hypothesis, not the strategy.
 metadata:
+  kind: activity
+  origin: local
+  pack: product
+  domain: product
+  phase: planning
   version: '2.3'
   scope: generic
   invocation: user
@@ -17,7 +22,6 @@ metadata:
 
 # Business Strategy
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 Use this skill as a **strategy-thinking system**, not a consulting-report checklist.
 
@@ -134,7 +138,7 @@ Use as relevant:
 
 - `references/decision-framing.md`
 - `references/research-protocol.md`
-- `references/market-system-mapping.md`
+- `references/market-system-documentation.md`
 - `references/customer-behavior-and-culture.md`
 - `references/competitive-dynamics.md`
 - `references/market-sizing.md`
@@ -161,7 +165,7 @@ Separate the **first market** from the **long-term destination**.
 Use as relevant:
 
 - `references/wedge-selection.md`
-- `references/market-system-mapping.md`
+- `references/market-system-documentation.md`
 - `references/customer-behavior-and-culture.md`
 - `references/market-sizing.md`
 
@@ -389,7 +393,7 @@ Load references selectively.
 
 ### Market reality
 
-- `references/market-system-mapping.md` — actors, value chain, budgets, profit pools, bottlenecks
+- `references/market-system-documentation.md` — actors, value chain, budgets, profit pools, bottlenecks
 - `references/customer-behavior-and-culture.md` — workflow, trust, behavior change, organizational/geographic context
 - `references/competitive-dynamics.md` — three competition levels, trajectories, bundling, internal build/OSS
 

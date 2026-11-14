@@ -546,7 +546,7 @@
     },
     {
       "id": "documentation-reader-and-contract",
-      "prompt": "Use documentation-writing to revise the supplied export procedure for a new contributor. Preserve its actual commands, permissions, placeholders, recovery limits and accepted product terminology. Local document edits are allowed; no command execution, implementation, publishing or changes to product behavior.",
+      "prompt": "Use technical-writing to revise the supplied export procedure for a new contributor. Preserve its actual commands, permissions, placeholders, recovery limits and accepted product terminology. Local document edits are allowed; no command execution, implementation, publishing or changes to product behavior.",
       "evaluator_setup": "Supply a confusing procedure and authoritative command/contract excerpts. Include a queued acknowledgement misdescribed as completed export, a missing prerequisite and a deliberate provider placeholder. Keep exact contract and allowed-action baseline with the evaluator.",
       "criteria": [
         "Explains purpose, prerequisites, actions and expected outcomes in reader-appropriate order without reducing the task to headings or a file inventory.",
@@ -563,7 +563,7 @@
     },
     {
       "id": "architecture-current-target-evidence",
-      "prompt": "Use architecture-documentation to explain the supplied service and its proposed worker migration. Use the supplied code, OpenAPI excerpts and deployment configuration. Preserve mixed current implementations and explain the main write/failure flow. Documentation only; no refactor, deployment or invented hosted evidence.",
+      "prompt": "Use system-documentation to explain the supplied service and its proposed worker migration. Use the supplied code, OpenAPI excerpts and deployment configuration. Preserve mixed current implementations and explain the main write/failure flow. Documentation only; no refactor, deployment or invented hosted evidence.",
       "evaluator_setup": "Supply an in-process FastAPI handler/store, a proposed future worker boundary, OpenAPI missing a runtime error, and a post-commit acknowledgement failure. Configuration exists but no hosted execution evidence. Keep expected current/target distinctions separate from actor input.",
       "criteria": [
         "Structural and runtime views map to actual source responsibilities and do not turn in-process modules or target workers into deployed services.",
@@ -1587,6 +1587,193 @@
         "Keep the final small repair scoped without new discovery or unnecessarily loading both upstream methods.",
         "Verify the final alignment repair in the running fixture and retain before/after evidence without reopening the accepted direction."
       ]
+    },
+    {
+      "id": "artifact-quality-cold-reader",
+      "prompt": "You are reviewing a bounded change record and issue produced in an earlier session. You have the saved ECR and issue only, plus the linked baseline revision. Using only those artifacts, explain the change, its acceptance cases, the current status, the next action and the evidence. Report every question you cannot answer from the artifacts. Do not edit source or create new artifacts.",
+      "evaluator_setup": "Supply a saved ECR and issue with all seven headings and a complete-looking structure but thin sections: requirements point to the issue, the issue points back, acceptance lacks denial or failure cases, and verification says only 'tests pass' without a command, environment or revision. Provide the baseline link and one open decision. No conversation history.",
+      "criteria": [
+        "Attempts the reader task from the artifacts alone and does not invent missing context or use unstated session knowledge.",
+        "Identifies specific unanswered reader questions such as baseline behavior, observable acceptance, verification command and revision, and next action or owner, rather than judging only heading presence.",
+        "Distinguishes what the artifacts establish from what they merely assert or link to.",
+        "Returns a concrete gap list and does not rewrite the artifacts or claim the change is ready."
+      ],
+      "evidence": [
+        "Reader answers and explicit unanswered questions",
+        "Artifacts inspected and any source or baseline links used"
+      ],
+      "negative_controls": [
+        "A pass based on seven headings or a claim that tests pass is sufficient fails.",
+        "Using conversation context or inventing acceptance fails."
+      ]
+    },
+    {
+      "id": "artifact-quality-thin-structure",
+      "prompt": "Assess whether the supplied ECR is ready to hand to an implementer. It has all seven headings, but each section is one or two sentences and several sections link to an issue for the substance. The issue is a one-line roadmap item. Return a disposition and the specific content gaps. Do not edit code or create tickets.",
+      "evaluator_setup": "Supply a seven-heading ECR with skeletal sections, a one-line issue, a real baseline revision and one genuine open decision. Do not provide a hidden acceptance table or a richer source artifact.",
+      "criteria": [
+        "Rejects the artifact as a handoff despite complete headings and identifies the index-to-index pattern.",
+        "Names the missing baseline and actor impact, observable acceptance, design alternatives and consequences, and verification detail.",
+        "Does not demand more sections or ceremony; asks for the missing content within the existing sections.",
+        "Gives a blocked or ready-with-limitations disposition with precise next evidence rather than generic advice to improve detail."
+      ],
+      "evidence": [
+        "Section-by-section gap findings",
+        "Disposition and next action"
+      ],
+      "negative_controls": [
+        "Equating structural completeness with readiness fails.",
+        "Rewriting the requirement to match the thin artifact fails."
+      ]
+    },
+    {
+      "id": "artifact-quality-link-resolution",
+      "prompt": "Review the saved issue and ECR for handoff. Every revision is written as a bare short SHA, the ECR is referred to as 'the record', and the PR is called 'the PR'. The repository is public and the baseline is available. Identify navigation defects and produce the corrected reference block for both artifacts. Do not publish.",
+      "evaluator_setup": "Supply an ECR and issue with bare SHAs, one private page link, one public repository and a local-only fixture branch. Include a correct PR link as a contrast. Grant no permission to edit the tracker.",
+      "criteria": [
+        "Flags every bare SHA, branch, 'the ECR' and 'the PR' as ambiguous and distinguishes public, private and local-only references.",
+        "Produces resolvable commit, PR and file links for the public repository and an explicit local-only form for the fixture.",
+        "Checks whether private links are accessible to the intended audience and does not leak private content.",
+        "Preserves the original references meaning and does not invent a repository, SHA or URL."
+      ],
+      "evidence": [
+        "Reference inventory with before and after forms",
+        "Link resolution and access decision"
+      ],
+      "negative_controls": [
+        "Accepting a bare SHA or replacing a local-only revision with a fabricated URL fails."
+      ]
+    },
+    {
+      "id": "artifact-quality-issue-only",
+      "prompt": "An implementer receives only the supplied issue, with no access to the ECR or the conversation. They must start the work. Assess whether the issue is independently actionable and identify the minimum additions needed. Do not implement or publish.",
+      "evaluator_setup": "Supply an issue with a clear title and two sentences of context, but no scope or non-goals, acceptance, verification or links. The ECR exists but is withheld from the implementer. Include a real baseline revision and one dependency.",
+      "criteria": [
+        "Tests the issue against scope, first action, observable acceptance, verification and evidence location.",
+        "Identifies the missing context, non-goals, denial or failure acceptance, verification and authority link.",
+        "Proposes the minimum additions within the issue contract rather than copying the ECR.",
+        "Distinguishes an actionable issue from a roadmap idea and does not mark it ready prematurely."
+      ],
+      "evidence": [
+        "Issue-only reader answers and gaps",
+        "Proposed additions with links"
+      ],
+      "negative_controls": [
+        "Assuming the implementer can open the ECR or conversation fails.",
+        "Turning the issue into a full ECR copy fails."
+      ]
+    },
+    {
+      "id": "artifact-quality-cross-view",
+      "prompt": "Compare a saved ECR, its linked issue and a PR description for the same change. The ECR says verification is pending; the issue says completed; the PR claims tests pass at an older head. Identify the contradictions and produce a corrected status and revision block. Do not edit the PR or merge.",
+      "evaluator_setup": "Supply the three views with a shared change identity, different status and revision claims, a current head and an older passing CI run. One claim is genuinely unverified.",
+      "criteria": [
+        "Maps the same change across ECR, issue and PR and identifies the status and revision contradiction.",
+        "Distinguishes older-head evidence from current-head evidence and implemented from verified.",
+        "Produces one consistent status and link block for each view without creating a second authority.",
+        "Leaves merge and approval authority untouched and reports any edit limitation."
+      ],
+      "evidence": [
+        "Cross-view comparison table",
+        "Corrected status and revision block with disposition"
+      ],
+      "negative_controls": [
+        "Accepting tests pass from an old head or silently rewriting the ECR to match the PR fails."
+      ]
+    },
+    {
+      "id": "artifact-quality-render-fidelity",
+      "prompt": "Review a published project Page and work item for reader usability. The Page contains headings, a table, a Mermaid diagram and commit references. The saved HTML looks correct in the tool response, but the rendered Page may normalise or degrade content. Inspect the actual reader view and report defects. Do not publish or delete anything.",
+      "evaluator_setup": "Supply a connected Page with editor-normalised HTML, a Mermaid code block that renders as plain text, a table that collapses and one link whose destination is wrong. Provide read-only access and the intended outline. Withhold the specific defects from the actor.",
+      "criteria": [
+        "Reads the rendered view or the provider semantic text, not only the write response or raw HTML equality.",
+        "Identifies heading, list, table, link and diagram defects against the intended outline and distinguishes source from presentation.",
+        "Provides a text equivalent or verified rendering for the diagram and corrects the link target.",
+        "Reports persistence separately from readability and does not claim the artifact is usable until the rendered view is checked."
+      ],
+      "evidence": [
+        "Rendered-readback findings",
+        "Corrected source or outline and access limitation"
+      ],
+      "negative_controls": [
+        "Treating a successful update response or stored Mermaid source as proof of a readable rendered view fails."
+      ]
+    },
+    {
+      "id": "artifact-system-plane-and-home",
+      "prompt": "You are given an application with a current architecture view, a runbook in an operations repository, an ECR in an engineering workspace and a test suite in the application repository. Classify each artifact by type, primary plane, home, authority and maturity, then state which contract governs it and what evidence it needs. Do not edit or publish anything.",
+      "evaluator_setup": "Supply real paths for the four artifacts, an existing repository artifact home map, and a source revision. Include one artifact that spans planes (the ECR links the others) and one proposed architecture view that is not implemented. No hidden answer key in the actor prompt.",
+      "criteria": [
+        "Distinguishes plane (role) from home (storage) and does not infer one from the other.",
+        "Classifies the architecture view, runbook, ECR and test suite with the correct contract and authority.",
+        "Identifies the ECR as a coordination spine with cross-plane relations, not as the only artifact or the owner of the others.",
+        "Separates current from proposed claims and names the evidence needed at the checked revision."
+      ],
+      "evidence": [
+        "Classification table with type, plane, home, authority, maturity and contract",
+        "Cross-plane relation and evidence findings"
+      ],
+      "negative_controls": [
+        "Treating the ECR as the owner of every artifact or treating storage as the plane fails.",
+        "Classifying a proposed architecture view as current fails."
+      ]
+    },
+    {
+      "id": "artifact-system-repo-home-map",
+      "prompt": "Use setup to adopt an existing application repository. It has a docs directory with product, architecture and operations pages, a README, no artifact home map, and no explicit placement policy. Establish a useful repository artifact home map, record a discoverable pointer, and verify the result. Do not restructure existing documents or create empty folders.",
+      "evaluator_setup": "Supply a real but small repository tree, existing docs pages, a README and an AGENTS.md. Provide no map. The actor may write only within the repository. Include one artifact type that lives outside the repo (the ECR workspace) and one that has no current home.",
+      "criteria": [
+        "Reads the existing layout and authoritative pages before choosing homes; preserves them instead of reorganizing.",
+        "Creates a map covering the artifact types actually present, with home, authority, owner and update trigger.",
+        "Records a short pointer in AGENTS.md and the full map in the docs index, with a verified path.",
+        "Does not create empty folders, a theoretical full portfolio or a competing authority; names the unresolved home if one cannot be established."
+      ],
+      "evidence": [
+        "Repository diff and actual map contents",
+        "Discoverable pointer, verified path and unresolved boundaries"
+      ],
+      "negative_controls": [
+        "Creating a folder checklist or silently moving existing docs fails.",
+        "Claiming a map was recorded without a verified path or discoverable pointer fails."
+      ]
+    },
+    {
+      "id": "artifact-system-implementation-reads-map",
+      "prompt": "Implement a bounded change that adds a new failure mode. The repository has an artifact home map: architecture views in docs/architecture, runbooks in an operations repository, release notes in the git provider. Update the affected architecture view and runbook, add the release-note requirement, and keep the ECR current. Do not deploy.",
+      "evaluator_setup": "Supply the map, a current architecture view, an existing runbook in the operations repository, a release-note home, the ECR and a source revision. Allow writes to the mapped homes and no production access.",
+      "criteria": [
+        "Reads the map before writing and uses the mapped home for each artifact rather than an arbitrary docs path.",
+        "Updates the architecture view and runbook with the new failure/recovery behavior and keeps the ECR's status and evidence consistent.",
+        "Records the release-note requirement in the mapped delivery home or marks it pending with the exact target.",
+        "Reports actual changed paths/revisions and any home that could not be reached; does not claim deployment."
+      ],
+      "evidence": [
+        "Diff or write receipts per mapped home",
+        "ECR, architecture and runbook consistency at a named revision"
+      ],
+      "negative_controls": [
+        "Creating a new runbook in the application docs when the map points to the operations repository fails.",
+        "Leaving the architecture or runbook stale while claiming the change complete fails."
+      ]
+    },
+    {
+      "id": "artifact-system-retired-conventions-no-second-authority",
+      "prompt": "A project still has saved instructions that say 'use documentation-conventions for placement.' The documentation-conventions skill is no longer installed. The project has an existing artifact home map and an artifact-system skill. Update the instructions and placement guidance without inventing a new conventions skill or moving existing documents.",
+      "evaluator_setup": "Supply stale project instructions, an existing repository artifact home map, the artifact-system skill and artifact homes reference, and read/write access to project instructions only. No documentation-conventions skill is installed.",
+      "criteria": [
+        "Recognizes the retired skill and routes placement to artifact homes plus the repository map.",
+        "Updates stale instructions to the artifact-system and map terms without duplicating the generic placement rules.",
+        "Preserves existing homes and authorities; does not create a new parallel placement system or move documents.",
+        "Reports the actual instruction diff and any remaining stale reference."
+      ],
+      "evidence": [
+        "Instructions diff and routing decision",
+        "Preserved map/homes and absence of a second authority"
+      ],
+      "negative_controls": [
+        "Recreating a conventions-like skill or copying the map into a second generic document fails.",
+        "Moving existing documents merely to satisfy the new wording fails."
+      ]
     }
   ],
   "generation_trials": [
@@ -2249,7 +2436,13 @@
         "ecr-diagram-reader-access",
         "conversation-to-engineering-work",
         "conversation-to-actionable-scope",
-        "defect-repair-and-incident-handoff"
+        "defect-repair-and-incident-handoff",
+        "artifact-quality-cold-reader",
+        "artifact-quality-thin-structure",
+        "artifact-quality-link-resolution",
+        "artifact-quality-issue-only",
+        "artifact-quality-cross-view",
+        "artifact-quality-render-fidelity"
       ],
       "trial_ids": [
         "artifact-workspace-cross-phase"
@@ -2263,6 +2456,24 @@
         "A valid seven-section document does not establish accepted requirements, correct design, implemented behavior or deployment; assessment cannot fabricate provider state, run tools without authority or force approvals.",
         "No bundled ECR parser or mandatory command; use a semantic artifact inspection that supports nested sections and provider-native storage.",
         "Interactive activities without a configured ECR home must offer one storage choice rather than silently returning an inline-only fallback; explicit inline-only or unattended requests must not prompt repeatedly."
+      ]
+    },
+    {
+      "id": "artifact-system-planes-and-homes",
+      "outcome": "Classify artifacts by type, plane and home; establish and use a repository artifact home map; preserve authority and evidence across the artifact graph.",
+      "case_ids": [
+        "artifact-system-plane-and-home",
+        "artifact-system-repo-home-map",
+        "artifact-system-implementation-reads-map",
+        "artifact-system-retired-conventions-no-second-authority"
+      ],
+      "trial_ids": [],
+      "evidence": [
+        "Artifact classification and actual home/write evidence",
+        "Repository map and cross-plane consistency at a named revision"
+      ],
+      "negative_controls": [
+        "No storage-as-plane confusion, second authority, empty portfolio or unverified map claim."
       ]
     }
   ]

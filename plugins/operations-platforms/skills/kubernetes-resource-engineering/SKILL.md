@@ -4,6 +4,11 @@ description: Design, generate, review and maintain Kubernetes application/infras
   resources, Helm charts and Kustomize overlays with secure defaults, reliable lifecycle,
   controller ownership and rendered validation.
 metadata:
+  kind: activity
+  origin: local
+  pack: technical
+  domain: platform
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Kubernetes, Helm, Kustomize

@@ -3,6 +3,11 @@ name: browser-extension-ui
 description: Design, implement or assess Chrome extension experiences by matching user tasks to suitable UI patterns and browser surfaces. Use for extension information architecture, surface lifecycle, injected UI, permission states and assets; preserve the product's design system.
 user-invocable: false
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: browser-extension
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   role: support

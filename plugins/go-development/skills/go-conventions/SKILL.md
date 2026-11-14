@@ -5,6 +5,11 @@ description: Build, extend or review Go services, libraries and command-line app
   and meaningful Go verification without requiring a framework.
 license: MIT
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: go
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   role: support

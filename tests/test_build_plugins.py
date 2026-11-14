@@ -44,9 +44,9 @@ class InstallationTests(unittest.TestCase):
             self.assertEqual(metadata['name'], 'implement')
             self.assertTrue(metadata['user-invocable'])
             self.assertTrue(metadata['disable-model-invocation'])
-            self.assertIn('../../TASKS.md', text)
+            self.assertIn('../activity-system/SKILL.md', text)
             self.assertIn('../git-contributions/SKILL.md', text)
-            self.assertIn('../deliver-reliable-changes/SKILL.md', text)
+            self.assertIn('../test/SKILL.md', text)
             self.assertTrue(text.endswith('\nOriginal implementation workflow\n'))
 
     def test_frontend_framing_preserves_metadata_and_body(self):
@@ -84,7 +84,7 @@ class InstallationTests(unittest.TestCase):
             skill.mkdir()
             path = skill / 'SKILL.md'
             path.write_text('---\nname: example\ndescription: Example\ndisable-model-invocation: true\nmetadata:\n  author: Original Author\n---\nOriginal body\n')
-            installer.adapt_skill(skill, {'adaptations': ['usage-labels'], 'labels': {'scope': 'generic', 'invocation': 'user'}})
+            installer.adapt_skill(skill, {'adaptations': ['usage-labels'], 'labels': {'scope': 'generic', 'invocation': 'user', 'kind': 'method', 'origin': 'upstream', 'pack': 'sdlc', 'domain': 'development', 'phase': 'cross-phase'}})
             result = path.read_text()
             data = yaml.safe_load(result.split('---', 2)[1])
             self.assertTrue(data['disable-model-invocation'])
@@ -92,7 +92,7 @@ class InstallationTests(unittest.TestCase):
             self.assertEqual(data['metadata']['scope'], 'generic')
             self.assertTrue(result.endswith('\nOriginal body\n'))
             with self.assertRaisesRegex(ValueError, 'Invalid usage labels'):
-                installer.adapt_skill(skill, {'adaptations': ['usage-labels'], 'labels': {'scope': 'universal', 'invocation': 'user'}})
+                installer.adapt_skill(skill, {'adaptations': ['usage-labels'], 'labels': {'scope': 'universal', 'invocation': 'user', 'kind': 'method', 'origin': 'upstream', 'pack': 'sdlc', 'domain': 'development', 'phase': 'cross-phase'}})
 
     def test_tracker_neutral_adaptation_and_upstream_drift_guard(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -163,16 +163,16 @@ class InstallationTests(unittest.TestCase):
                              'policy:\n  allow_implicit_invocation: false\n')
             # Build adapted output without changing the pinned source or native metadata.
             source['adaptations'] = ['string-metadata', 'workflow-framing', 'documentation-paths']
-            (package / 'WORKFLOW.md').write_text('Project workflow guidance')
+
             write_depot(root, [source])
             adapted = root / 'adapted'
             installer.build(root, ['test'], adapted)
             skill_text = (adapted / 'test/skills/example/SKILL.md').read_text()
-            self.assertIn('../../WORKFLOW.md', skill_text)
+            self.assertIn('../activity-system/SKILL.md', skill_text)
             self.assertIn('documentation/engineering/config.md', skill_text)
             self.assertIn('documentation/decisions/adr/', skill_text)
             self.assertIn('disable-model-invocation: true', skill_text)
-            self.assertTrue((adapted / 'test/WORKFLOW.md').exists())
+
             self.assertEqual((adapted / 'test/skills/example/agents/openai.yaml').read_text(),
                              (skill / 'agents/openai.yaml').read_text())
             self.assertNotIn('workflow framing', (skill / 'SKILL.md').read_text())
@@ -241,17 +241,17 @@ class InstallationTests(unittest.TestCase):
             self.assertEqual((installed / 'render.py').read_text(), 'print("example")\n')
             self.assertFalse((installed / '__pycache__').exists())
 
-    def test_selection_defaults_to_development_and_all_discovers_manifests(self):
+    def test_selection_defaults_to_sdlc_and_all_discovers_manifests(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            for name in ('development', 'technical'):
+            for name in ('sdlc', 'technical'):
                 package = root / 'plugins' / name
                 package.mkdir(parents=True)
                 (package / 'plugin.json').write_text('{}')
             (root / 'plugins/not-a-package').mkdir()
-            self.assertEqual(installer.select_plugins(root), ['development'])
+            self.assertEqual(installer.select_plugins(root), ['sdlc'])
             self.assertEqual(installer.select_plugins(root, ['technical', 'technical']), ['technical'])
-            self.assertEqual(installer.select_plugins(root, all_plugins=True), ['development', 'technical'])
+            self.assertEqual(installer.select_plugins(root, all_plugins=True), ['sdlc', 'technical'])
             with self.assertRaisesRegex(ValueError, 'cannot be combined'):
                 installer.select_plugins(root, ['technical'], True)
             with self.assertRaisesRegex(ValueError, 'Unknown plugin'):
@@ -266,7 +266,7 @@ class InstallationTests(unittest.TestCase):
             installer.adapt_skill(skill, {'adaptations': ['composition-framing']})
             result = (skill / 'SKILL.md').read_text()
             self.assertEqual(yaml.safe_load(result.split('---', 2)[1]), yaml.safe_load(original.split('---', 2)[1]))
-            self.assertIn('../../COMPOSITION.md', result)
+            self.assertIn('../../README.md', result)
             self.assertNotIn('../../WORKFLOW.md', result)
             self.assertTrue(result.endswith(original.split('---', 2)[2]))
 
@@ -279,7 +279,7 @@ class InstallationTests(unittest.TestCase):
                 (skill / 'SKILL.md').write_text(original)
                 (skill / 'SPEC.md').write_text('Upstream supporting specification\n')
                 installer.adapt_skill(skill, {'adaptations': [adaptation, 'usage-labels'],
-                    'labels': {'scope': 'generic', 'invocation': 'both', 'role': 'support'}})
+                    'labels': {'scope': 'generic', 'invocation': 'both', 'role': 'support', 'kind': 'method', 'origin': 'upstream', 'pack': 'sdlc', 'domain': 'development', 'phase': 'cross-phase'}})
                 result = (skill / 'SKILL.md').read_text()
                 metadata = yaml.safe_load(result.split('---', 2)[1])
                 source_metadata = yaml.safe_load(original.split('---', 2)[1])
@@ -291,8 +291,8 @@ class InstallationTests(unittest.TestCase):
 
     def test_generic_packages_do_not_acquire_technical_skills(self):
         root = Path(__file__).resolve().parents[1]
-        generic = {'development', 'strategy', 'operations', 'frontend-development',
-                   'backend-development', 'ai-development', 'delivery', 'documentation', 'visualization'}
+        generic = {'sdlc', 'strategy', 'frontend-development', 'backend-development',
+                   'ai-development', 'documentation', 'visualization', 'database-development', 'saas-development'}
         sources = installer.load_sources(root)
         for plugin in generic:
             with self.subTest(plugin=plugin):

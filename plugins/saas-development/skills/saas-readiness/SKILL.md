@@ -5,6 +5,11 @@ description: Assess a SaaS launch, customer rollout or capability expansion agai
   prioritized gaps, without assuming every enterprise feature or authorizing release.
 license: MIT
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: saas
+  phase: cross-phase
   scope: generic
   invocation: both
   role: support

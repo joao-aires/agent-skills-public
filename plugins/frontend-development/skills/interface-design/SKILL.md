@@ -3,6 +3,11 @@ name: interface-design
 description: Design, inspect and improve complete user interfaces across navigation, visual hierarchy, behavior, shared composition and accessibility. Use for new UI, cross-screen changes, visual refinements, design reviews and design-to-implementation handoffs; preserve accepted product direction and authorized scope.
 user-invocable: true
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: frontend
+  phase: design
   scope: generic
   invocation: both
   role: support

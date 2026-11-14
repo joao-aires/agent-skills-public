@@ -4,6 +4,11 @@ description: Create, refactor and audit reliable Bash CLI utilities, build/opera
   scripts and CI action entrypoints with safe argument handling, explicit failure
   semantics, portability, testable side effects and useful documentation.
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: tooling
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Bash
