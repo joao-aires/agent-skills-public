@@ -13,7 +13,9 @@ metadata:
 
 # Engineer requirements from evidence to acceptance
 
-Support the user-facing [refine](../refine/SKILL.md) activity. This skill owns the **quality of requirements analysis**, not product prioritization, solution architecture, implementation planning or a separate mandatory approval process. Read [activity system](../activity-system/SKILL.md) for authorization, decisions and capability selection. For a narrow, already-defined correction, use only the applicable checks rather than generating a specification.
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
+
+Support the user-facing [refine](../refine/SKILL.md) activity. This skill owns the **quality of requirements analysis**, not product prioritization, solution architecture, implementation planning or a separate mandatory approval process. For a narrow, already-defined correction, use only the applicable checks rather than generating a specification.
 
 ## Establish purpose, authorities and what is already known
 
@@ -70,7 +72,7 @@ Return enough for `refine` to hand off:
 - Acceptance observations, verification gaps and protected existing behavior.
 - Evidence, material assumptions, conflicts, open decisions and the next dependency (design, investigation or implementation).
 
-Distinguish **accepted**, **proposed** and **unknown** requirements. Declare readiness for design or implementation separately: a feature may have clear user behavior and still need an architectural choice before implementation. A short inline issue or conversation can be sufficient for a small change; a longer-lived cross-team contract belongs in an existing authoritative document. Write the requirements contract in the ECR's required requirements section using [artifact-system](../artifact-system/SKILL.md) and authorized [engineering-workspace](../engineering-workspace/SKILL.md). A separate PRD, traceability ledger, ADR or test matrix remains conditional; the standard ECR requirements outcome is not.
+Distinguish **accepted**, **proposed** and **unknown** requirements. Declare readiness for design or implementation separately: a feature may have clear user behavior and still need an architectural choice before implementation. A short inline issue or conversation can be sufficient for a small change; a longer-lived cross-team contract belongs in an existing authoritative document. Write the requirements contract in the ECR's required requirements section using [artifact-system](../artifact-system/SKILL.md) and authorized [coordination storage](../artifact-system/references/storage/coordination.md). A separate PRD, traceability ledger, ADR or test matrix remains conditional; the standard ECR requirements outcome is not.
 
 ### Worked example: data export
 

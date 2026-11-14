@@ -25,7 +25,7 @@ Use [the development workflow](../activity-system/SKILL.md) for activity selecti
 | Is it sufficient, navigable and readable? | [Artifact quality bar](references/quality-bar.md) |
 | Are the artifacts consistent and ready? | [Artifact assurance](references/assurance.md) |
 | Does it need a diagram or view? | [Diagram lifecycle](references/diagram-lifecycle.md) |
-| Where and how do I publish a coordination artifact? | [Engineering workspace](../engineering-workspace/SKILL.md) |
+| Where and how do I publish a coordination artifact? | [Coordination storage](references/storage/coordination.md) |
 
 Read the contract before authoring the artifact. Resolve the home before creating or moving it. Apply the quality bar to every artifact you create or materially update.
 
@@ -90,4 +90,4 @@ Standardization means **consistent fields and statuses**, not identical word cou
 
 ## Composition
 
-The artifact system owns applicability, contracts, status, evidence, home resolution, link navigation and cross-artifact consistency. Domain methods own the subject: requirements engineering, system design, architecture explanation, operations, security and API contracts. Writing-craft expertise owns reader fit, explanation, structure and presentation. [Engineering workspace](../engineering-workspace/SKILL.md) owns coordination-artifact storage mechanics. [Project conventions](../project-conventions/SKILL.md) owns repository foundations and the artifact home map. The entry point and Git contribution method own authorized publishing.
+The artifact system owns applicability, contracts, status, evidence, home resolution, link navigation and cross-artifact consistency. Domain methods own the subject: requirements engineering, system design, architecture explanation, operations, security and API contracts. Writing-craft expertise owns reader fit, explanation, structure and presentation. [Coordination storage](references/storage/coordination.md) owns coordination-artifact storage mechanics. [Project conventions](../project-conventions/SKILL.md) owns repository foundations and the artifact home map. The entry point and Git contribution method own authorized publishing.

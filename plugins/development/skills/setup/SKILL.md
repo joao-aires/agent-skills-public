@@ -29,7 +29,7 @@ Use project-conventions to discover the repository, accepted stack, commands, id
 
 ## Select a durable engineering workspace (only if not already configured)
 
-During setup or adoption, use [engineering workspace](../engineering-workspace/SKILL.md) to establish or confirm the chosen home and its portable discovery pointer. Apply its storage choice and access rules, including an inline-only preference. Surface any unresolved storage choice while completing unrelated authorized foundations.
+During setup or adoption, use [engineering workspace](../artifact-system/references/storage/coordination.md) to establish or confirm the chosen home and its portable discovery pointer. Apply its storage choice and access rules, including an inline-only preference. Surface any unresolved storage choice while completing unrelated authorized foundations.
 
 ## Establish the repository artifact home map
 

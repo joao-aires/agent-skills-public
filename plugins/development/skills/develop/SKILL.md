@@ -14,7 +14,6 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md).
 
-Read [artifact-system](../artifact-system/SKILL.md) and [engineering-workspace](../engineering-workspace/SKILL.md) for the artifact model, contracts and configured filesystem or document-provider home. Record each performed outcome in the ECR, even within an end-to-end `develop` request; a tracker is optional and publication requires authority. Before creating or moving a durable artifact, read the repository artifact home map and [artifact homes](../artifact-system/references/homes.md). Use [system-design](../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent implementation. Read [git-contributions](../git-contributions/SKILL.md) for the objective's feature worktree, [verification](../test/SKILL.md) for verification and completion. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
 
 ## When starting a new application
 
@@ -35,7 +34,7 @@ A named stack or starter kit does not supply missing decisions. Defined existing
 
 Treat the rough idea as an outcome to shape, not an instruction to build every imagined feature. Inspect the repository and supplied references first.
 
-For existing behavior, use [system mapping](../system-mapping/SKILL.md#trace-a-feature-before-changing-it) to follow the relevant path and a comparable implementation. Establish how users enter the feature, where decisions and state changes happen, and which tests observe the result.
+For existing behavior, use [system documentation](../system-documentation/SKILL.md#trace-a-feature-before-changing-it) to follow the relevant path and a comparable implementation. Establish how users enter the feature, where decisions and state changes happen, and which tests observe the result.
 
 Use that evidence to answer technical questions and expose material unknowns before designing the extension. Keep the trace narrow enough for the slice; a new application needs its constraints and intended journey rather than an invented existing architecture.
 
@@ -73,3 +72,7 @@ The verification activity owns this scenario/test/inspect/repair loop and the ev
 Use verification for final review of the integrated change and resolution of material findings. Check convergence against accepted requirements and design at the current implementation revision, and verify PR-summary claims against the cumulative diff and actual latest-head checks; record any unresolved acceptance gap before reporting completion. Carry the accepted outcome and actual verification evidence into that review; identify an independent review as such only when it occurred. Revisit the affected design or check if a finding changes its premise.
 
 Finish with the implemented user outcome, the checks actually performed, and any unfinished or blocked part. Delivery and learning are part of considering the result, but publishing, deploying or contacting users still follows the established contribution/delivery scope.
+
+## Composition
+
+Read [artifact-system](../artifact-system/SKILL.md) and [coordination storage](../artifact-system/references/storage/coordination.md) for the artifact model, contracts and configured filesystem or document-provider home. Record each performed outcome in the ECR, even within an end-to-end `develop` request; a tracker is optional and publication requires authority. Before creating or moving a durable artifact, read the repository artifact home map and [artifact homes](../artifact-system/references/homes.md). Use [system-design](../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent implementation. Read [git-contributions](../git-contributions/SKILL.md) for the objective's feature worktree, [verification](../test/SKILL.md) for verification and completion. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.

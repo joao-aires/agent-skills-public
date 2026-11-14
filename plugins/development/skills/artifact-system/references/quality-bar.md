@@ -108,4 +108,4 @@ Every view agrees on scope, status, revision and next action. When one changes, 
 - Cross-artifact readiness and convergence: [artifact assurance](assurance.md).
 - Prose, explanation and document order: use available reader-oriented writing expertise.
 - Current architecture and ADR coverage: use available architecture documentation expertise.
-- Publication mechanics and provider limits: [engineering workspace](../../engineering-workspace/SKILL.md) and its [provider reference](../../engineering-workspace/references/providers.md).
+- Publication mechanics and provider limits: [engineering workspace](storage/coordination.md) and its [provider reference](storage/providers.md).

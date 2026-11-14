@@ -563,7 +563,7 @@
     },
     {
       "id": "architecture-current-target-evidence",
-      "prompt": "Use system-mapping to explain the supplied service and its proposed worker migration. Use the supplied code, OpenAPI excerpts and deployment configuration. Preserve mixed current implementations and explain the main write/failure flow. Documentation only; no refactor, deployment or invented hosted evidence.",
+      "prompt": "Use system-documentation to explain the supplied service and its proposed worker migration. Use the supplied code, OpenAPI excerpts and deployment configuration. Preserve mixed current implementations and explain the main write/failure flow. Documentation only; no refactor, deployment or invented hosted evidence.",
       "evaluator_setup": "Supply an in-process FastAPI handler/store, a proposed future worker boundary, OpenAPI missing a runtime error, and a post-commit acknowledgement failure. Configuration exists but no hosted execution evidence. Keep expected current/target distinctions separate from actor input.",
       "criteria": [
         "Structural and runtime views map to actual source responsibilities and do not turn in-process modules or target workers into deployed services.",

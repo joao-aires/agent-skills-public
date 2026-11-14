@@ -10,10 +10,9 @@ metadata:
 user-invocable: false
 ---
 
-Read [activity system](../activity-system/SKILL.md) for skill selection and invocation boundaries.
-
-
 # Test what users depend on
+
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
 
 ## Define the claim and boundary
 

@@ -183,17 +183,17 @@ The shared routing model. It owns:
 
 Start at [activity system](skills/activity-system/SKILL.md). Use the [catalog](skills/activity-system/references/catalog.md) to choose an activity, [transitions](skills/activity-system/references/transitions.md) for handoffs, [composition](skills/activity-system/references/composition.md) for supporting methods, [authority](skills/activity-system/references/authority.md) for action scope and [project fit](skills/activity-system/references/project-fit.md) for proportionality.
 
-### `engineering-workspace`
+### Coordination storage
 
-The storage mechanics for coordination artifacts: discovery, identity, persistence, revisions, provider limits and access. It owns **how** to publish an ECR or research report; the artifact system owns **what** it contains and **where** it belongs.
+The storage mechanics for coordination artifacts now live inside `artifact-system` under `references/storage/`: discovery, identity, persistence, revisions, provider limits and access. The reference owns **how** to publish an ECR or research report; the artifact system owns **what** it contains and **where** it belongs.
 
 ### `project-conventions` and `setup`
 
 `project-conventions` owns repository foundations, including the artifact home map. `setup` establishes or verifies the map and records a portable pointer. This is how the phases become aware of placement: setup creates the map, implementation reads it, release updates the mapped records.
 
-### `system-mapping` and `system-design`
+### `system-documentation` and `system-design`
 
-`system-mapping` discovers and documents the **current** system: entry points, runtime relations, data journeys, deployment topology and the architecture document set. It absorbed the former architecture documentation method. `system-design` owns **proposed** architecture and consequential choices. The artifact system owns the architecture-set contract, status, evidence and home.
+`system-documentation` discovers and documents the **current** system: entry points, runtime relations, data journeys, deployment topology and the architecture document set. It absorbed the former architecture documentation method. `system-design` owns **proposed** architecture and consequential choices. The artifact system owns the architecture-set contract, status, evidence and home.
 
 ### `test`
 
@@ -201,7 +201,7 @@ The storage mechanics for coordination artifacts: discovery, identity, persisten
 
 ### Domain methods
 
-Requirements engineering, system design, system mapping, security, operations, database, frontend, backend and AI skills own their subject methods. The artifact contracts link to them by capability; the activity system composes them without duplicating their content.
+Requirements engineering, system design, system documentation, security, operations, database, frontend, backend and AI skills own their subject methods. The artifact contracts link to them by capability; the activity system composes them without duplicating their content.
 
 ### Writing craft
 
@@ -213,7 +213,7 @@ Technical writing lives in the documentation plugin. It owns reader fit, explana
 
 ## Composability and reusability rules
 
-1. **One owner per rule.** Link navigation lives in the quality bar, not in every contract. C4 coverage lives in system mapping, not in the ECR contract. Prose craft lives in technical writing, not in the issue template.
+1. **One owner per rule.** Link navigation lives in the quality bar, not in every contract. C4 coverage lives in system documentation, not in the ECR contract. Prose craft lives in technical writing, not in the issue template.
 2. **Contracts are thin routers, not methods.** A contract says what the artifact must contain and which domain/craft capability to use. It does not re-teach architecture, product strategy or prose.
 3. **Progressive disclosure.** The system skill carries the model and reading path. Contracts, activity references and domain skills load only when relevant.
 4. **Capability-based composition.** Use available subject and craft expertise by description, not a hardcoded dependency graph.
@@ -228,7 +228,7 @@ Technical writing lives in the documentation plugin. It owns reader fit, explana
 
 1. Choose the activity in [activity system](skills/activity-system/SKILL.md).
 2. Use the [artifact catalog](skills/artifact-system/references/catalog.md) to select the ECR and any linked types.
-3. Resolve the ECR home with [artifact homes](skills/artifact-system/references/homes.md) and [engineering workspace](skills/engineering-workspace/SKILL.md).
+3. Resolve the ECR home with [artifact homes](skills/artifact-system/references/homes.md) and [coordination storage](skills/artifact-system/references/storage/coordination.md).
 4. Read the [ECR contract](skills/artifact-system/references/contracts/ecr.md).
 5. Apply the [quality bar](skills/artifact-system/references/quality-bar.md) and [assurance](skills/artifact-system/references/assurance.md).
 
@@ -256,7 +256,7 @@ A compact artifact can pass; a long artifact can fail. The test is whether the r
 
 ## Migration
 
-The former workflow, task, help, completion and per-plugin composition files are retired. Use `activity-system` for routing, `test` for verification, and the repository artifact home map for placement. `system-mapping` absorbed current-state architecture documentation. See the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
+The former workflow, task, help, completion and per-plugin composition files are retired. Use `activity-system` for routing, `test` for verification, and the repository artifact home map for placement. `system-documentation` absorbed current-state architecture documentation. See the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
 
 ## References
 
@@ -268,7 +268,7 @@ The former workflow, task, help, completion and per-plugin composition files are
 | Readiness, consistency and convergence | [artifact assurance](skills/artifact-system/references/assurance.md) |
 | Activity selection and stopping points | [activity system](skills/activity-system/SKILL.md) |
 | Composition and fallback | [activity composition](skills/activity-system/references/composition.md) |
-| Coordination storage | [engineering workspace](skills/engineering-workspace/SKILL.md) |
+| Coordination storage | [coordination storage](skills/artifact-system/references/storage/coordination.md) |
 | Repository foundations | [project conventions](skills/project-conventions/SKILL.md) |
 | User-facing guide | [engineering artifacts and workspaces](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/artifact-workflow.md) |
 | Migration from old names | [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md) |

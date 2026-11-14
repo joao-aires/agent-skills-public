@@ -133,7 +133,7 @@ Use as relevant:
 
 - `references/decision-framing.md`
 - `references/research-protocol.md`
-- `references/market-system-mapping.md`
+- `references/market-system-documentation.md`
 - `references/customer-behavior-and-culture.md`
 - `references/competitive-dynamics.md`
 - `references/market-sizing.md`
@@ -160,7 +160,7 @@ Separate the **first market** from the **long-term destination**.
 Use as relevant:
 
 - `references/wedge-selection.md`
-- `references/market-system-mapping.md`
+- `references/market-system-documentation.md`
 - `references/customer-behavior-and-culture.md`
 - `references/market-sizing.md`
 
@@ -388,7 +388,7 @@ Load references selectively.
 
 ### Market reality
 
-- `references/market-system-mapping.md` — actors, value chain, budgets, profit pools, bottlenecks
+- `references/market-system-documentation.md` — actors, value chain, budgets, profit pools, bottlenecks
 - `references/customer-behavior-and-culture.md` — workflow, trust, behavior change, organizational/geographic context
 - `references/competitive-dynamics.md` — three competition levels, trajectories, bundling, internal build/OSS
 

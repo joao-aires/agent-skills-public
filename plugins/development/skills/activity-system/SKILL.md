@@ -26,7 +26,7 @@ The [artifact system](../artifact-system/SKILL.md) owns the durable outputs. Thi
 | Check action scope, unattended work and consequential decisions | [Authority](references/authority.md) |
 | Keep the work proportionate to the project | [Project fit](references/project-fit.md) |
 | Understand an artifact type, home or contract | [Artifact system](../artifact-system/SKILL.md) |
-| Persist a coordination artifact | [Engineering workspace](../engineering-workspace/SKILL.md) |
+| Persist a coordination artifact | [Coordination storage](../artifact-system/references/storage/coordination.md) |
 
 ## Activity model
 

@@ -75,7 +75,7 @@ These views may summarise and link, but they must not claim checks based on summ
 
 ## Publication and synchronization
 
-The entry-point task or Git contribution capability performs authorized publishing. This catalog chooses which information matters to a reader; [engineering workspace](../../engineering-workspace/SKILL.md) resolves change-artifact storage; [artifact homes](homes.md) and the repository map resolve repository artifacts. None grants permission to create issues or post PR comments.
+The entry-point task or Git contribution capability performs authorized publishing. This catalog chooses which information matters to a reader; [engineering workspace](storage/coordination.md) resolves change-artifact storage; [artifact homes](homes.md) and the repository map resolve repository artifacts. None grants permission to create issues or post PR comments.
 
 When an artifact evolves, update affected published summaries only if their meaning changed and edits are authorized. Preserve canonical links and avoid two authoritative copies. Use the [quality bar](quality-bar.md) for link access and render checks.
 

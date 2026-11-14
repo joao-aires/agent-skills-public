@@ -16,7 +16,6 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md).
 
-Apply [artifact-system](../artifact-system/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. Resolve and update the mapped release note, changelog, runbook or SLO using [artifact homes](../artifact-system/references/homes.md) and the repository artifact home map. This does not require an issue or permit unrelated writes. Seek available delivery expertise for readiness, promotion and recovery. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
 
 ## Establish the release boundary
 
@@ -39,3 +38,7 @@ Establish what success will look like in the target and how a failed rollout wil
 3. Report prepared, locally checked, released, deployed and target-verified states separately.
 
 Record prepared, released, deployed and target-verified states separately in the change record with actual artifact/target evidence when authorized. A generic release request does not automatically authorize merging, production deployment or data restoration.
+
+## Composition
+
+Apply [artifact-system](../artifact-system/SKILL.md) to the ECR sections used or produced by this activity, and [coordination storage](../artifact-system/references/storage/coordination.md) to locate the authorized filesystem or connected-provider authority. Resolve and update the mapped release note, changelog, runbook or SLO using [artifact homes](../artifact-system/references/homes.md) and the repository artifact home map. This does not require an issue or permit unrelated writes. Seek available delivery expertise for readiness, promotion and recovery. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.

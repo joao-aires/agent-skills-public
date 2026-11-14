@@ -13,9 +13,11 @@ metadata:
 
 # Design the system around the outcome
 
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
+
 Use this phase after business/product refinement and before dependent implementation planning. Revisit it when a new feature changes boundaries, persistence, identity, integrations, deployment or important quality attributes. For a small change, a brief assessment of the affected contract can be sufficient. Preserve accepted architecture in existing projects.
 
-Read the product context and repository evidence. Use [system-mapping](../system-mapping/SKILL.md) for the current system and seek available security/privacy expertise for authority and data flows. Distinguish the current architecture, proposed changes and unresolved assumptions. Ask about missing product/authority decisions; investigate technical facts and make reversible choices within scope.
+Read the product context and repository evidence. Use [system-documentation](../system-documentation/SKILL.md) for the current system and seek available security/privacy expertise for authority and data flows. Distinguish the current architecture, proposed changes and unresolved assumptions. Ask about missing product/authority decisions; investigate technical facts and make reversible choices within scope.
 
 ## Make decisions the user can assess
 

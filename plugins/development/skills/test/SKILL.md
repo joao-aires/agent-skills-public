@@ -11,9 +11,10 @@ metadata:
 
 # Verification
 
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
+
 Verification connects the requested outcome to observable acceptance, selects checks that can observe it, and reports what was actually established at the stated boundary. It includes the completion review that was formerly separate: evidence, suite health, delivery consequences and the remaining gaps.
 
-Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Apply [artifact-system](../artifact-system/SKILL.md) to the ECR sections used or produced by this activity, and [engineering-workspace](../engineering-workspace/SKILL.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Read [project conventions](../project-conventions/SKILL.md) for the project's checks and [journey-testing](../journey-testing/SKILL.md) for changed user journeys. Load optional stack/domain guidance only when relevant and available.
 
 ## Establish the claim before implementation
 
@@ -103,3 +104,7 @@ When work crosses actors or sessions, retain the provenance needed to interpret 
 Apply [artifact assurance](../artifact-system/references/assurance.md) to compare actual checked behavior with accepted requirements, protected existing behavior and proposed design. Missing or failed acceptance evidence remains explicit nonconvergence, not an automatic green result.
 
 Record observations at the checked revision/target, the command or scenario, environment, result, evidence path, failed/skipped/unavailable checks, coverage gaps and design/diagram differences in the change record when authorized, or return a structured unpersisted record. Return results, artifacts, actual boundaries and the next action. A green build alone does not establish behavior.
+
+## Composition
+
+Apply [artifact-system](../artifact-system/SKILL.md) to the ECR sections used or produced by this activity, and [coordination storage](../artifact-system/references/storage/coordination.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Read [project conventions](../project-conventions/SKILL.md) for the project's checks and [journey-testing](../journey-testing/SKILL.md) for changed user journeys. Load optional stack/domain guidance only when relevant and available.

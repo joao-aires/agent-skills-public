@@ -51,7 +51,7 @@ Implementation preparation converts agreed requirements and design into actionab
 
 ## Standard engineering artifacts and workspace handoffs
 
-An Engineering Change Record (ECR) carries the outcome of each performed activity on a change. A standalone inquiry can finish with a research report in the chosen workspace. Use the [artifact system](../plugins/development/skills/artifact-system/SKILL.md) for the shared artifact model, contracts, homes, quality and assurance, and [engineering workspace](../plugins/development/skills/engineering-workspace/SKILL.md) for coordination-artifact discovery and persistence. The application repository owns implemented architecture and operating documentation.
+An Engineering Change Record (ECR) carries the outcome of each performed activity on a change. A standalone inquiry can finish with a research report in the chosen workspace. Use the [artifact system](../plugins/development/skills/artifact-system/SKILL.md) for the shared artifact model, contracts, homes, quality and assurance, and [coordination storage](../plugins/development/skills/artifact-system/references/storage/coordination.md) for coordination-artifact discovery and persistence. The application repository owns implemented architecture and operating documentation.
 
 Every durable output is an artifact with a type, primary plane, home, authority, maturity and relations. The ECR is the coordination spine for a change, not the only artifact: architecture views, runbooks, code, tests, issues and PRs are artifacts too. `setup` establishes the repository artifact home map; `project-conventions` maintains its placement method; `develop`, implementation and release read or update it.
 
@@ -138,7 +138,7 @@ Maintenance is one lifecycle outcome with four complementary responsibilities: *
 
 ## Across phases
 
-[Technical writing](../plugins/documentation/skills/technical-writing/SKILL.md) supplies cross-type writing craft and reader review. [System mapping](../plugins/development/skills/system-mapping/SKILL.md) explains structural/runtime/interface/deployment views with source evidence. The [artifact system](../plugins/development/skills/artifact-system/SKILL.md) owns artifact contracts, homes, quality and assurance; system-design owns design choices.
+[Technical writing](../plugins/documentation/skills/technical-writing/SKILL.md) supplies cross-type writing craft and reader review. [System documentation](../plugins/development/skills/system-documentation/SKILL.md) explains structural/runtime/interface/deployment views with source evidence. The [artifact system](../plugins/development/skills/artifact-system/SKILL.md) owns artifact contracts, homes, quality and assurance; system-design owns design choices.
 
 Research, explicit clarification, prose editing, documentation, Git contributions, security and operating constraints can support any relevant phase. `review` is not confined to a final gate. Design and verification can recur during implementation; a phase label does not restrict when guidance is useful.
 
@@ -190,7 +190,7 @@ Generic means reusable across stacks; stack-specific means select it only for ma
 | Data recovery | Generic | [protect-and-restore-data](../plugins/operations/skills/protect-and-restore-data/SKILL.md) | Current platform/database references |
 | Capacity | Generic | [plan-application-capacity](../plugins/operations/skills/plan-application-capacity/SKILL.md) | Current platform references |
 | Cost | Generic | [optimize-application-cost](../plugins/operations/skills/optimize-application-cost/SKILL.md) | [aks-cost-optimization](https://github.com/Azure/AKS-Skills/tree/20bf35201a79b324d2ca3e00e5c82020ff362024/skills/aks-cost-optimization) only for Azure AKS |
-| System discovery | Generic | [system-mapping](../plugins/development/skills/system-mapping/SKILL.md) for evidence, topology and journeys | No particular platform required |
+| System discovery | Generic | [system-documentation](../plugins/development/skills/system-documentation/SKILL.md) for evidence, topology and journeys | No particular platform required |
 | Interactive architecture | Generic | [system-flow-explorer](../plugins/visualization/skills/system-flow-explorer/SKILL.md) on request; evidence-backed HTML and JSON | Bundled offline renderer; optional existing Playwright for browser checks |
 | Shell automation | Stack-specific | [bash-engineering](../plugins/development-tooling/skills/bash-engineering/SKILL.md) | Bash-specific; no new task framework required |
 | Python automation | Stack-specific | [python-automation-engineering](../plugins/backend-python-development/skills/python-automation-engineering/SKILL.md) for CLI/API jobs | [modern-python](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/modern-python/skills/modern-python) where useful; separate from FastAPI service conventions |

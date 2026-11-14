@@ -1,16 +1,6 @@
----
-name: engineering-workspace
-description: Discover and manage external-to-code engineering change and research artifacts using an authorized filesystem folder or optional tracker/document platform, with stable links, ownership and revisions.
-user-invocable: false
-metadata:
-  scope: generic
-  invocation: agent
-  role: support
----
+# Coordination storage: the engineering workspace
 
-# Engineering workspace: storage independent of application code
-
-The engineering workspace is the **authoritative home for change-oriented engineering knowledge and standalone engineering research**, parallel to the application's source repository. It does not prescribe an issue tracker, wiki, folder tree, API schema, or synchronized duplicate store. Use [artifact system](../artifact-system/SKILL.md) to choose the record and its content; this skill handles discovery, identity, persistence, revision and cross-system references only. The requested activity controls when and whether writes are authorized.
+The engineering workspace is the **authoritative home for change-oriented engineering knowledge and standalone engineering research**, parallel to the application's source repository. It does not prescribe an issue tracker, wiki, folder tree, API schema, or synchronized duplicate store. Use [artifact system](../../SKILL.md) to choose the record and its content; this reference handles discovery, identity, persistence, revision and cross-system references only. The requested activity controls when and whether writes are authorized.
 
 ## Resolve the workspace before editing
 
@@ -21,7 +11,7 @@ The engineering workspace is the **authoritative home for change-oriented engine
 5. **Without interactive feedback** (unattended/event task) or when the user has not yet answered, continue independent authorized analysis, return the structured outcome **unpersisted**, and surface the precise storage-choice blocker; do not claim durable completion or write to a guessed root. If a configured authority is temporarily unavailable, preserve that authority and ask about restoring access rather than silently migrating providers.
 6. Distinguish authority (where the primary record is edited) from visibility (links/previews in tickets, PRs or docs). Never silently switch authorities on provider failure, or create divergent authoritative copies.
 
-Read [filesystem workspace](references/filesystem.md) for discovery and minimal layout; read [provider-neutral integrations](references/providers.md) when using external documents, trackers or mixed backends. After a first-time choice in **setup or any SDLC phase**, establish a **portable discovery pointer** in existing project instructions when authorized: chosen backend, how to resolve/access the root from a fresh checkout, record discovery convention and history/permissions. Prefer relative-to-shared-root references or stable remote URLs over personal machine paths. The pointer only describes an existing authorized authority; it is not a request to create or synchronize a second authority.
+Read [filesystem workspace](filesystem.md) for discovery and minimal layout; read [provider-neutral integrations](providers.md) when using external documents, trackers or mixed backends. After a first-time choice in **setup or any SDLC phase**, establish a **portable discovery pointer** in existing project instructions when authorized: chosen backend, how to resolve/access the root from a fresh checkout, record discovery convention and history/permissions. Prefer relative-to-shared-root references or stable remote URLs over personal machine paths. The pointer only describes an existing authorized authority; it is not a request to create or synchronize a second authority.
 
 ## Portable operations — semantics, not an invented API
 
@@ -36,6 +26,6 @@ The entry-point task still owns the requested engineering output, source edits a
 
 ## Provider fidelity
 
-Different backends have different capabilities. Do not claim uniform transactional writes, comments, revision history or embedded diagram rendering. Verify source storage and reviewer access separately using the [diagram lifecycle](../artifact-system/references/diagram-lifecycle.md). Filesystem storage needs an explicit durability strategy (prefer an existing Git-backed workspace for teams; otherwise report the absence of revisions). A path outside the app repo remains distinct even when it is on the same disk.
+Different backends have different capabilities. Do not claim uniform transactional writes, comments, revision history or embedded diagram rendering. Verify source storage and reviewer access separately using the [diagram lifecycle](../diagram-lifecycle.md). Filesystem storage needs an explicit durability strategy (prefer an existing Git-backed workspace for teams; otherwise report the absence of revisions). A path outside the app repo remains distinct even when it is on the same disk.
 
 **No mandatory external service.** A local agent should be fully able to maintain an ECR and related Markdown/diagram files in a configured folder without creating an issue, project or remote document.

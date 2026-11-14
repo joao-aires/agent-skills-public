@@ -38,7 +38,7 @@ The table gives a default, not a mandate. Preserve an established home. A second
 6. **Verify read/write access** and report the actual verified path, URL or revision. A tool call is not proof that the reader can open the artifact.
 7. **Never create a competing authority** because another home is available or the configured one is temporarily unavailable. Report the blocker.
 
-For coordination artifacts, [engineering workspace](../../engineering-workspace/SKILL.md) owns the storage mechanics and provider behavior. For repository artifacts, [project conventions](../../project-conventions/SKILL.md) owns the repository structure that contains them.
+For coordination artifacts, [engineering workspace](storage/coordination.md) owns the storage mechanics and provider behavior. For repository artifacts, [project conventions](../../project-conventions/SKILL.md) owns the repository structure that contains them.
 
 ## Repository artifact home map
 

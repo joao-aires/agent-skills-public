@@ -83,7 +83,7 @@ If the tracker is the agreed roadmap home, that is enough. Do not give an idea a
 
 ## Publish
 
-1. Locate the existing issue through the [engineering workspace](../../../engineering-workspace/SKILL.md). Reuse it when its scope matches.
+1. Locate the existing issue through the [engineering workspace](../storage/coordination.md). Reuse it when its scope matches.
 2. Use the configured tracker to create or update an issue only within authorized scope. If publishing is outside scope, return the draft.
 3. If the issue and ECR live in different tools, repeat the acceptance criteria and link the authoritative record. Do not copy the whole ECR.
 4. Respect visibility. Do not paste private workspace content into a public issue; link it only if the audience can access it.

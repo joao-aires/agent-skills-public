@@ -11,11 +11,9 @@ metadata:
 user-invocable: false
 ---
 
-Read [activity system](../activity-system/SKILL.md) for scope and invocation boundaries.
-
-Use [artifact-system](../artifact-system/SKILL.md) for the PR reviewer view: why, actual changes, design/diagram departures, observed checks, risk and canonical ECR/issue links. Use [engineering-workspace](../engineering-workspace/SKILL.md) only to resolve verified ECR destinations. Do not publish private workspace content to public PRs.
-
 # Make reviewable contributions
+
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
 
 Make the contribution easy to inspect and reproduce. Keep the objective's implementation, tests and documentation together in its worktree, and preserve unrelated work. Before publishing, check that the branch contains the intended change against the intended base and that the description explains the result to someone who has not read the conversation.
 
@@ -43,13 +41,12 @@ Inspect the intended remote/base and existing PR before publishing. Within estab
 
 For multiline descriptions, use a body file or structured tool argument. Follow fork/head conventions and repository draft/readiness rules. Commit/push authority remains separate from merging or deploying.
 
-## Explain the result to a reviewer
+## Publish the reader view
 
-- Lead with the concrete problem and resulting behavior for someone outside the conversation.
-- Explain why the change is needed, how it works where that aids review, and the actual validation and remaining limits.
-- Follow the repository template; scale structure to complexity.
-- Include risks/migrations only when material, and a diagram only when it clarifies a changed relationship.
-
-Keep title and description about the final diff. Remove abandoned approaches and conversational history unless they explain a relevant tradeoff, and use accurate issue links and closing keywords.
+Create or update the PR body using the [PR contract](../artifact-system/references/contracts/pr.md) and the [quality bar](../artifact-system/references/quality-bar.md). The workflow owns isolation, commits, push and publication mechanics; the contract owns the reviewer-facing why, what changed, design impact, validation at the current head, risk, links and visibility.
 
 Before describing the PR as review-ready, apply [artifact assurance](../artifact-system/references/assurance.md) to compare the *cumulative diff* (base to current head), current-head checks, material ECR design/acceptance, actual architecture/doc changes and reviewer description. Correct authorized discrepancies or report exact blockers; the PR is a projection, not a second ECR. Before reporting completion, verify the published head, diff and required checks. Report the PR link and actual state. Keep the worktree available for review fixes until its work is safely preserved and no longer needed.
+
+## Composition
+
+Use [artifact-system](../artifact-system/SKILL.md) for the PR reviewer view: why, actual changes, design/diagram departures, observed checks, risk and canonical ECR/issue links. Use [coordination storage](../artifact-system/references/storage/coordination.md) only to resolve verified ECR destinations. Do not publish private workspace content to public PRs.

@@ -11,12 +11,11 @@ metadata:
 user-invocable: false
 ---
 
-Read [activity system](../activity-system/SKILL.md) for skill selection and invocation boundaries.
-
-For change-specific ECRs and target design, use [engineering-workspace](../engineering-workspace/SKILL.md) to discover an authorized external-to-code engineering folder or document provider and [artifact-system](../artifact-system/SKILL.md) for contract/content. During **any interactive ECR-producing activity**, if neither an authority nor an explicit inline-only preference exists, ask one storage question with filesystem, existing connected provider and inline-only choices; don't automatically choose a remote service or create arbitrary sibling paths. Once selected and authorized, record a portable discovery pointer in existing project contributor instructions, not a machine-local absolute directory. The app repo retains canonical implemented-state docs. Neither installing the skill nor discovering a repository grants filesystem/provider write access.
-
-
 # Establish and maintain project conventions
+
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
+
+For change-specific ECRs and target design, use [coordination storage](../artifact-system/references/storage/coordination.md) to discover an authorized external-to-code engineering folder or document provider and [artifact-system](../artifact-system/SKILL.md) for contract/content. During **any interactive ECR-producing activity**, if neither an authority nor an explicit inline-only preference exists, ask one storage question with filesystem, existing connected provider and inline-only choices; don't automatically choose a remote service or create arbitrary sibling paths. Once selected and authorized, record a portable discovery pointer in existing project contributor instructions, not a machine-local absolute directory. The app repo retains canonical implemented-state docs. Neither installing the skill nor discovering a repository grants filesystem/provider write access.
 
 Inspect what each configured check actually covers. Formatting, linting, typechecking and behavior tests establish different properties; a command or configuration filename alone does not prove coverage of the affected source. In mixed-language projects, verify file inclusion and compatible tool versions before treating a clean build as sufficient foundation evidence. Preserve an adequate existing toolchain rather than adding another tool for the same check.
 

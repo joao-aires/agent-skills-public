@@ -40,8 +40,9 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `design-interactions`, `interaction-design` | `interface-design` |
 | `interface-craft`, `interface-quality`, `visual-design` | `interface-design` |
 | `write-scannable-documentation`, `write-project-documentation` | `technical-writing` |
-| `document-software-architecture`, `architecture-documentation` | `system-mapping` for current-state architecture documentation; `system-design` for proposed architecture; the artifact system owns the architecture-set contract |
+| `document-software-architecture`, `architecture-documentation`, `system-mapping` | `system-documentation` for current-state architecture documentation; `system-design` for proposed architecture; the artifact system owns the architecture-set contract |
 | `documentation-writing` | `technical-writing` |
+| `engineering-workspace` | `artifact-system` storage references (`coordination`, `filesystem`, `providers`) |
 | `deliver-reliable-changes` | `test` (verification and completion evidence) |
 | `workflow-help` | `activity-system` (help mode) |
 | `engineering-artifacts` | `artifact-system` |
@@ -61,7 +62,7 @@ The artifact-system rename reflects a broader model, not just a new name. The sk
 
 Activity routing moved into the `activity-system` skill. `WORKFLOW.md`, `TASKS.md`, `workflow-help` and the per-plugin `COMPOSITION.md` files are retired. Use `activity-system` for activity selection, stopping points, composition and authority; use `test` for verification and completion evidence; use the repository artifact home map for placement.
 
-The documentation plugin now carries cross-type technical writing and prose editing only. Architecture documentation moved into `system-mapping` for current-state explanation, with `system-design` retaining proposed architecture and the artifact system owning the architecture-set contract.
+The documentation plugin now carries cross-type technical writing and prose editing only. Architecture documentation moved into `system-documentation` for current-state explanation, with `system-design` retaining proposed architecture and the artifact system owning the architecture-set contract.
 
 The separately acquired Anthropic `frontend-design` entry point is also retired from frontend-development. It is replaced by `interface-design` for applicable design work, with [visual craft](../plugins/frontend-development/skills/interface-design/references/visual-craft.md) loaded conditionally when an open creative direction warrants it. This is a migration of the packaged capability, not a rename of the upstream project's original skill.
 
