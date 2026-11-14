@@ -5,6 +5,8 @@ description: Create or review provider-independent CI/CD and release contracts f
   when delivery infrastructure changes, within the requested repository and environment
   scope.
 metadata:
+  kind: workflow
+  origin: local
   scope: generic
   invocation: both
   role: support

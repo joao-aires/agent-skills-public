@@ -4,6 +4,8 @@ description: Analyze user journeys and system dependencies to define, implement,
   review SLIs, SLOs, error budgets, dashboards and actionable monitoring for new systems,
   features or recurring reliability reviews.
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   version: '1.0'

@@ -5,6 +5,8 @@ description: Design, implement or review features with security and privacy buil
   user data, external inputs, dependencies or new trust boundaries; revisit protections
   as the application evolves.
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

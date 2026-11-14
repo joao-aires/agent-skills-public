@@ -5,6 +5,8 @@ description: Build, extend or review Python/FastAPI systems with SQLAlchemy, Ale
   backend architecture, endpoints, migrations, transactions, integrations and verification;
   accept reference systems and preserve established project constraints.
 metadata:
+  kind: method
+  origin: local
   scope: stack-specific
   invocation: both
   stack: Python, FastAPI, SQLAlchemy, Alembic, PostgreSQL

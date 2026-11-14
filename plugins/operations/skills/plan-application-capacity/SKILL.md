@@ -5,6 +5,8 @@ description: Design or review application capacity, concurrency and scaling for 
   bottlenecks and architecture changes using measured demand and current platform-specific
   guidance.
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   role: task

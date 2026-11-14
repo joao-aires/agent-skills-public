@@ -3,6 +3,8 @@ name: ai-deepeval-testing
 description: Implement Python AI evaluation suites with DeepEval for model, retrieval, agent trajectory, conversation and end-to-end quality. Use when DeepEval is selected or being evaluated; preserve existing evaluation tools and do not introduce model calls, hosted reporting or synthetic generation without scope.
 user-invocable: false
 metadata:
+  kind: method
+  origin: local
   scope: stack-specific
   invocation: both
   stack: Python, DeepEval, pytest

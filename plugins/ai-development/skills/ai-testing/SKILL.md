@@ -2,6 +2,8 @@
 name: ai-testing
 description: Design and assess AI testing and evaluation across components, retrieval, agent trajectories, conversations, protocols and product journeys. Use for quality criteria, datasets, graders, regression gates and evaluation evidence independently of an implementation library or application language.
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

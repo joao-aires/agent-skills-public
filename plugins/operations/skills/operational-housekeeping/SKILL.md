@@ -4,6 +4,8 @@ description: Plan and run recurring operational reviews of capacity, artifact re
   backup activity, dependency queues, expiring access, scheduled environments, and
   runbook ownership.
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   version: '2.0'

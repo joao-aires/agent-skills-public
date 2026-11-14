@@ -4,6 +4,8 @@ description: Define, automate, explore and evaluate user journeys across web, de
   and mobile applications, including browser extensions. Use for UI/API/persistence changes, interaction and visual
   consistency, authentication, authorization, lifecycle behavior and failing journey checks.
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

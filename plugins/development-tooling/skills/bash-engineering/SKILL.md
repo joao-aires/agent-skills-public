@@ -4,6 +4,8 @@ description: Create, refactor and audit reliable Bash CLI utilities, build/opera
   scripts and CI action entrypoints with safe argument handling, explicit failure
   semantics, portability, testable side effects and useful documentation.
 metadata:
+  kind: method
+  origin: local
   scope: stack-specific
   invocation: both
   stack: Bash

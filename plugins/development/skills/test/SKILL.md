@@ -4,6 +4,8 @@ description: Select, add, run and review checks; establish completion evidence f
 user-invocable: true
 disable-model-invocation: true
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: user
   role: task

@@ -136,7 +136,7 @@ class SnapshotTests(unittest.TestCase):
             self.fixture(root)
             source = dict(plugin='example', repository=str(root / 'upstream'), commit='a'*40,
                           path='.', license='MIT', license_path=None, adaptations=['usage-labels'],
-                          labels={'scope': 'generic', 'invocation': 'both', 'role': 'support'})
+                          labels={'scope': 'generic', 'invocation': 'both', 'role': 'support', 'kind': 'method', 'origin': 'upstream'})
             write_depot(root, [source])
             build(root, ['example'], root / 'output')
             target = root / 'output/example/skills/example'

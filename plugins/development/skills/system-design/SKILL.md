@@ -6,6 +6,8 @@ description: Choose and evolve application architecture from product outcomes, e
   boundaries; avoid architecture ceremony for small local edits.
 user-invocable: false
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

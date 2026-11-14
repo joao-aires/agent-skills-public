@@ -3,6 +3,8 @@ name: python-ai-observability
 description: Set up and verify Python AI observability with OpenTelemetry and compatible model/framework instrumentation. Use for AI task/tool/retrieval traces, usage and latency signals, export/privacy configuration and operational diagnosis; keep the chosen backend and quality evaluation separate.
 user-invocable: false
 metadata:
+  kind: method
+  origin: local
   scope: stack-specific
   invocation: both
   stack: Python, OpenTelemetry, OTLP

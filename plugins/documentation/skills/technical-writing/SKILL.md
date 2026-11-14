@@ -5,6 +5,8 @@ description: Cross-type technical writing craft for product and engineering docu
   when reader fit, explanation, structure, examples or presentation need work;
   artifact contracts, status and homes remain with the artifact system.
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

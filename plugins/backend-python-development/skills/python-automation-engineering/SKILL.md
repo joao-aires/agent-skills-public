@@ -4,6 +4,8 @@ description: Design, implement, review and maintain useful Python operational au
   and reporting tools with ergonomic CLIs, typed boundaries, reproducible projects,
   complete API collection, resumable mutations and verified outcomes.
 metadata:
+  kind: method
+  origin: local
   scope: stack-specific
   invocation: both
   stack: Python

@@ -84,7 +84,7 @@ class InstallationTests(unittest.TestCase):
             skill.mkdir()
             path = skill / 'SKILL.md'
             path.write_text('---\nname: example\ndescription: Example\ndisable-model-invocation: true\nmetadata:\n  author: Original Author\n---\nOriginal body\n')
-            installer.adapt_skill(skill, {'adaptations': ['usage-labels'], 'labels': {'scope': 'generic', 'invocation': 'user'}})
+            installer.adapt_skill(skill, {'adaptations': ['usage-labels'], 'labels': {'scope': 'generic', 'invocation': 'user', 'kind': 'method', 'origin': 'upstream'}})
             result = path.read_text()
             data = yaml.safe_load(result.split('---', 2)[1])
             self.assertTrue(data['disable-model-invocation'])
@@ -92,7 +92,7 @@ class InstallationTests(unittest.TestCase):
             self.assertEqual(data['metadata']['scope'], 'generic')
             self.assertTrue(result.endswith('\nOriginal body\n'))
             with self.assertRaisesRegex(ValueError, 'Invalid usage labels'):
-                installer.adapt_skill(skill, {'adaptations': ['usage-labels'], 'labels': {'scope': 'universal', 'invocation': 'user'}})
+                installer.adapt_skill(skill, {'adaptations': ['usage-labels'], 'labels': {'scope': 'universal', 'invocation': 'user', 'kind': 'method', 'origin': 'upstream'}})
 
     def test_tracker_neutral_adaptation_and_upstream_drift_guard(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -279,7 +279,7 @@ class InstallationTests(unittest.TestCase):
                 (skill / 'SKILL.md').write_text(original)
                 (skill / 'SPEC.md').write_text('Upstream supporting specification\n')
                 installer.adapt_skill(skill, {'adaptations': [adaptation, 'usage-labels'],
-                    'labels': {'scope': 'generic', 'invocation': 'both', 'role': 'support'}})
+                    'labels': {'scope': 'generic', 'invocation': 'both', 'role': 'support', 'kind': 'method', 'origin': 'upstream'}})
                 result = (skill / 'SKILL.md').read_text()
                 metadata = yaml.safe_load(result.split('---', 2)[1])
                 source_metadata = yaml.safe_load(original.split('---', 2)[1])

@@ -6,6 +6,8 @@ description: Assess GDPR applicability and engineering readiness for an actual s
   the regulation.
 license: MIT
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

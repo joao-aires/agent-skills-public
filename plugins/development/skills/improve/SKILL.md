@@ -7,6 +7,8 @@ description: Assess codebase improvement opportunities or implement a specified 
 user-invocable: true
 disable-model-invocation: true
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: user
   role: task

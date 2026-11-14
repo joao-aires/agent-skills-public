@@ -5,6 +5,8 @@ description: Design or improve SaaS customer and operator dashboards around deci
   metrics, tables, administration and realistic interface states across frontend stacks.
 license: MIT
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

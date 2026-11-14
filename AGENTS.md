@@ -36,6 +36,7 @@ Use the virtual environment and dependencies in [installation](documentation/ins
 | Manifests, metadata, pins and containment | `python scripts/validate_plugins.py` |
 | Maintained links and names | `python scripts/check_collection.py` |
 | Scenario definitions | `python scripts/validate_evaluations.py` |
+| Skill classification inventory | `python scripts/skill_inventory.py` |
 | Packaging and validation regressions | `python -m unittest discover -s tests -v` |
 
 - Run relevant checks above; for packaging/resource changes also build into a new destination and check complete output. CI checks the default, full collection and each package independently. Add focused tests for changed packaging behavior; render/inspect changed diagrams and run affected resource checks.

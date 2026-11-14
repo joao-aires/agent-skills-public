@@ -7,6 +7,8 @@ description: Review a PR, branch or current diff against its intended behavior a
 user-invocable: true
 disable-model-invocation: true
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: user
   role: task

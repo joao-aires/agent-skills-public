@@ -5,6 +5,8 @@ description: Refine a rough idea, brief, conversation or optional tracker item i
   UX/API/data boundaries and material questions before implementation, including when a conversation moves from ideation to defining an actionable feature without authorizing code.
 user-invocable: true
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   role: task

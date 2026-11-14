@@ -6,6 +6,8 @@ description: Deprecated legacy compatibility skill. Use only when explicitly inv
   OSS commercialization, unit economics, moats, and valuation. Prefer business-strategy
   for all new strategy work.
 metadata:
+  kind: activity
+  origin: local
   version: 2.0-compat
   deprecated: 'true'
   scope: generic

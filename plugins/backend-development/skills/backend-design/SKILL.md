@@ -3,6 +3,8 @@ name: backend-design
 description: Define application-service behavior, authority, state and interface contracts independently of a framework. Use for APIs, durable jobs, stored data or integration changes before dependent implementation; preserve accepted behavior for local fixes.
 user-invocable: true
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

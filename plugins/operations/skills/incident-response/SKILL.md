@@ -4,6 +4,8 @@ description: Coordinate and investigate active service incidents using impact-le
   triage, reversible stabilization, causal evidence, escalation, communication and
   independent recovery verification across any application stack.
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   version: '1.0'

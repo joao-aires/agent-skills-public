@@ -68,7 +68,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "React, Next.js, Tailwind, shadcn",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -93,7 +95,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "React, Next.js, Tailwind, shadcn",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -124,7 +128,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "React, Next.js, Tailwind, shadcn",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -154,7 +160,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "Playwright CLI",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -184,7 +192,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "GitHub Actions",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -215,7 +225,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "Python",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -244,7 +256,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "agent",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -274,7 +288,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "agent",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -305,7 +321,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "Python, standalone FastMCP, MCP",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -335,7 +353,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "Google ADK",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -365,7 +385,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "Google ADK",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -395,7 +417,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "LangChain",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -425,7 +449,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "LangGraph",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -455,7 +481,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "LangGraph",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -485,7 +513,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "LangChain, LangGraph",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -517,7 +547,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "agent",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -548,7 +580,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "agent",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -579,7 +613,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "agent",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -610,7 +646,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "agent",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -640,7 +678,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "user",
-            "role": "task"
+            "role": "task",
+            "kind": "workflow",
+            "origin": "upstream"
           }
         }
       }
@@ -671,7 +711,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "user",
-            "role": "task"
+            "role": "task",
+            "kind": "activity",
+            "origin": "upstream"
           }
         }
       }
@@ -702,7 +744,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "user",
-            "role": "task"
+            "role": "task",
+            "kind": "activity",
+            "origin": "upstream"
           }
         }
       }
@@ -732,7 +776,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "user",
-            "role": "task"
+            "role": "task",
+            "kind": "workflow",
+            "origin": "upstream"
           }
         }
       }
@@ -763,7 +809,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "agent",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -794,7 +842,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "agent",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -824,7 +874,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "user",
-            "role": "task"
+            "role": "task",
+            "kind": "workflow",
+            "origin": "upstream"
           }
         }
       }
@@ -855,7 +907,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "agent",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -886,7 +940,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "user",
-            "role": "task"
+            "role": "task",
+            "kind": "workflow",
+            "origin": "upstream"
           }
         }
       }
@@ -916,7 +972,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "user",
-            "role": "task"
+            "role": "task",
+            "kind": "workflow",
+            "origin": "upstream"
           }
         }
       }
@@ -947,7 +1005,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "agent",
-            "role": "support"
+            "role": "support",
+            "kind": "workflow",
+            "origin": "upstream"
           }
         }
       }
@@ -977,7 +1037,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "user",
-            "role": "task"
+            "role": "task",
+            "kind": "workflow",
+            "origin": "upstream"
           }
         }
       }
@@ -1007,7 +1069,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "user",
-            "role": "task"
+            "role": "task",
+            "kind": "workflow",
+            "origin": "upstream"
           }
         }
       }
@@ -1038,7 +1102,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "agent",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -1068,7 +1134,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "Supported dependency lockfile ecosystems",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -1098,7 +1166,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "Azure AKS",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -1129,7 +1199,9 @@
             "scope": "stack-specific",
             "invocation": "agent",
             "stack": "React, Next.js, Tailwind, shadcn",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -1159,7 +1231,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "agent",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -1189,7 +1263,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "both",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -1226,7 +1302,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "both",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }
@@ -1255,7 +1333,9 @@
           "labels": {
             "scope": "generic",
             "invocation": "both",
-            "role": "support"
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream"
           }
         }
       }

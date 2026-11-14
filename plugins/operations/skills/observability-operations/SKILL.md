@@ -4,6 +4,8 @@ description: Implement, audit and maintain application/infrastructure logs, metr
   traces, client telemetry and collection pipelines during setup, feature work or
   recurring instrumentation improvements.
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   version: '2.1'

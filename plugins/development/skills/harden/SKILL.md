@@ -6,6 +6,8 @@ description: Assess and address security/privacy weaknesses in the supplied feat
 user-invocable: true
 disable-model-invocation: true
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: user
   role: task

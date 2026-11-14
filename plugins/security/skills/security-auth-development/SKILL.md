@@ -5,6 +5,8 @@ description: Design, implement or review authentication, authorization and ident
   identity, tenant/resource access and contextual identity-framework selection.
 license: MIT
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

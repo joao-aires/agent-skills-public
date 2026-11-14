@@ -3,6 +3,8 @@ name: activity-system
 description: Route development work across activities, stopping points and supporting methods. Use to choose what activity applies, what it produces, where it stops, what may follow, and which artifact or method to use.
 user-invocable: true
 metadata:
+  kind: system
+  origin: local
   scope: generic
   invocation: both
   role: task

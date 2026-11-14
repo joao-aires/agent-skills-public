@@ -5,6 +5,8 @@ description: Analyze user feedback and product usage to evaluate outcomes, ident
   investigating adoption/usability or prioritizing evidence; do not start surveys,
   contact users or install analytics without a request.
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   role: task

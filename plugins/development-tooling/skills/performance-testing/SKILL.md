@@ -5,6 +5,8 @@ description: Design, implement, run or review k6 load and performance checks for
   non-production environment. Use for latency, concurrency, throughput, saturation
   and performance regressions; preserve target authority and existing tooling.
 metadata:
+  kind: method
+  origin: local
   scope: stack-specific
   invocation: both
   stack: Grafana k6

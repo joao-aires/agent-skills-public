@@ -5,6 +5,8 @@ description: Diagnose and improve PostgreSQL query, locking, connection and main
   plan regressions and resource bottlenecks.
 license: MIT
 metadata:
+  kind: method
+  origin: local
   scope: stack-specific
   invocation: both
   role: support

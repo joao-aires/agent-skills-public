@@ -6,6 +6,8 @@ description: >-
   repository, documentation and runtime evidence. Use for setup, feature analysis,
   architecture documentation and recurring architecture updates.
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   version: '1.0'

@@ -5,6 +5,8 @@ description: Build and verify TypeScript Tauri desktop clients and iOS/Android c
   preserve established client frameworks.
 user-invocable: false
 metadata:
+  kind: method
+  origin: local
   scope: stack-specific
   invocation: both
   stack: TypeScript, Tauri, React Native, Expo, iOS, Android

@@ -5,6 +5,8 @@ description: Plan, implement or review database backups, restore verification an
   or recovery requirements change; use the actual database, Kubernetes operator and
   cloud provider guidance.
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   role: task

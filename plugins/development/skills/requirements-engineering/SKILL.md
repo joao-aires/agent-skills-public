@@ -6,6 +6,8 @@ description: Elicit, analyze, validate and maintain verifiable functional and qu
   cross-system constraints or acceptance are materially uncertain.
 user-invocable: false
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: agent
   role: support

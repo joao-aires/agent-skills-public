@@ -3,6 +3,8 @@ name: artifact-system
 description: Maintain engineering artifacts across intent, change, system knowledge, implementation, delivery and entry planes. Use to choose an artifact type, resolve its home, apply its contract and quality bar, and check cross-artifact consistency.
 user-invocable: false
 metadata:
+  kind: system
+  origin: local
   scope: generic
   invocation: agent
   role: support

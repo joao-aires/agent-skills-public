@@ -59,7 +59,7 @@ def adapt_skill(target, source):
                 metadata = yaml.safe_load(parts[1])
                 if 'usage-labels' in adaptations:
                     labels = source['labels']
-                    if labels.get('scope') not in {'generic', 'stack-specific'} or labels.get('invocation') not in {'user', 'agent', 'both'} or any(not isinstance(value, str) for value in labels.values()):
+                    if labels.get('scope') not in {'generic', 'stack-specific'} or labels.get('invocation') not in {'user', 'agent', 'both'} or labels.get('kind') not in {'system', 'activity', 'method', 'workflow', 'reference'} or labels.get('origin') not in {'local', 'upstream'} or any(not isinstance(value, str) for value in labels.values()):
                         raise ValueError('Invalid usage labels')
                     metadata.setdefault('metadata', {}).update(labels)
                 if 'tracker-neutral' in adaptations:

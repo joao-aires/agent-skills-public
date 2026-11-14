@@ -5,6 +5,8 @@ description: Design, implement, run or review controlled failure tests for appli
   verify bounded failure handling and recovery in an authorized isolated or non-production
   target; choose proportionate fixtures or experiments without requiring a chaos platform.
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

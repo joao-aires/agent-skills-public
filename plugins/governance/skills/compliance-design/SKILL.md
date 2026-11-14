@@ -6,6 +6,8 @@ description: Translate applicable legal, contractual and assurance requirements 
   and independent assurance.
 license: MIT
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

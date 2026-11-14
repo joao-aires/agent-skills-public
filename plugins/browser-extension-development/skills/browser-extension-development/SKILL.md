@@ -3,6 +3,8 @@ name: browser-extension-development
 description: Design, implement, debug or migrate Chrome Manifest V3 extensions. Use for extension entrypoints, background lifecycle, messaging, persistence and WXT/CRXJS integration; preserve the accepted UI framework and backend.
 user-invocable: false
 metadata:
+  kind: method
+  origin: local
   scope: stack-specific
   invocation: both
   role: support

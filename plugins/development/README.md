@@ -42,6 +42,16 @@ The same distinction applies elsewhere: `release` is an activity, while readines
 
 If the same ordered sequence is reused across several activities, it can become a formal reference under `activity-system/references/workflows/`. Until then, “workflow” remains a useful label for a method’s internal sequence, not a separate system.
 
+### Skill metadata
+
+Skills carry a small classification layer:
+
+- `kind`: `system`, `activity`, `method`, `workflow` or `reference`.
+- `origin`: `local` or `upstream`.
+- `scope`, `invocation` and `role`: existing generic/stack-specific, user/agent/both and task/support labels.
+
+The full artifact and activity catalogs remain the source of truth for artifact types, homes, phases and evidence. Skill metadata is for discovery and maintenance, not execution routing. `python scripts/skill_inventory.py` prints the generated maintainer matrix.
+
 ## Why the plugin is organized this way
 
 The earlier skills were split on different axes: artifact type and lifecycle, subject matter, writing craft and storage placement. Those are orthogonal dimensions, so the skills overlapped. The former architecture and writing skills felt too narrow for “all documentation,” or too separate from the artifacts that need them.

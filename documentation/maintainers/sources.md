@@ -264,6 +264,8 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 The collection has 25 independent packages and 121 skills: 81 local and 40 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
 
+Skills carry a small classification layer: `kind` (system, activity, method, workflow or reference), `origin` (local or upstream), `scope`, `invocation` and `role`. Local skills are validated for the required fields; acquired labels come from `agent-depot.json` and are injected at build time without editing upstream bytes. Run `python scripts/skill_inventory.py` for the generated maintainer matrix.
+
 A plugin represents a useful installation choice. Workflow, application discipline and supporting capability describe its purpose; generic versus technical describes its applicability. These groups do not impose an execution order or dependencies. Installing a technical package makes expertise available without accepting its technology for a project. Keep accepted choices, select matching guidance from actual inventory and retain useful outcomes when optional specialists are absent.
 
 ### Package boundaries

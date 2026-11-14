@@ -5,6 +5,8 @@ description: Configure selected GitHub Actions, Docker/Compose, local quality to
   details after the project selects those tools; preserve existing alternatives.
 user-invocable: false
 metadata:
+  kind: method
+  origin: local
   scope: stack-specific
   invocation: both
   role: support

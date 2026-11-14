@@ -3,6 +3,8 @@ name: browser-extension-testing
 description: Plan and execute Chrome MV3 unit, component and real-extension tests. Use for worker restart, popup/panel lifecycle, site permissions, messaging and production-package verification with a compatible browser driver.
 user-invocable: false
 metadata:
+  kind: method
+  origin: local
   scope: stack-specific
   invocation: both
   role: support

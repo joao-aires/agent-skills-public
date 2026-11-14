@@ -9,6 +9,8 @@ description: Develop, evaluate, compare, and continuously update business and pr
   strategy frameworks, or when the user wants to determine what a product or company
   should become. Treat the user's initial concept as a hypothesis, not the strategy.
 metadata:
+  kind: activity
+  origin: local
   version: '2.3'
   scope: generic
   invocation: user

@@ -5,6 +5,8 @@ description: Decide whether and what to pursue for a feature, structural change,
   whether it is feasible, or how to sequence and coordinate multiple changes.
 user-invocable: true
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   role: task

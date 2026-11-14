@@ -3,6 +3,8 @@ name: ux-writing
 description: Review, write or harmonize interface labels, instructions, validation, errors, empty states and confirmations in their task context. Use directly for UI copy or during relevant design and implementation; preserve product behavior, established voice, localization and consequential meaning.
 user-invocable: true
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

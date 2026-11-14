@@ -2,6 +2,8 @@
 name: ai-operations
 description: Define and improve AI operating behavior across task observability, quality monitoring, latency/cost, provider limits, drift, rollout and recovery. Use for AI production readiness, operational diagnosis or learning from live behavior independently of a language, telemetry SDK or monitoring backend.
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

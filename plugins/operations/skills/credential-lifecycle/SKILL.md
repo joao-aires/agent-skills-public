@@ -4,6 +4,8 @@ description: Inventory, issue, rotate, revoke, and retire operational secrets, A
   keys, deploy keys, service-account credentials, and certificates, including response
   to leaked credentials.
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   version: '2.0'

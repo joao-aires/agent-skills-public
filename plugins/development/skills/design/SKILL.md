@@ -6,6 +6,8 @@ description: Design UI interactions, backend contracts or architecture for a req
   when needed.
 user-invocable: true
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   role: task

@@ -2,6 +2,8 @@
 name: ai-development
 description: Design, build and operate AI-enabled applications and agent integrations independently of a provider. Use for model/tool workflows, context and retrieval, skills, harnesses, MCP, agent interaction or generated UI, and their evaluation and delivery; apply technical guidance only to the accepted stack.
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

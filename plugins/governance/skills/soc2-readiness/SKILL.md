@@ -5,6 +5,8 @@ description: Prepare or assess SOC 2 readiness for a defined service, commitment
   and remediation priorities; does not perform an independent attestation.
 license: MIT
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

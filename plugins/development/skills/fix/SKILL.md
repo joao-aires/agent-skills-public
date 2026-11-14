@@ -3,6 +3,8 @@ name: fix
 description: Investigate and repair reported incorrect software behavior when the user asks for a fix. Compare observed behavior with intent, reproduce the defect, apply a focused repair, verify it and hand off the evidence. Use for local or authorized engineering repair after an incident.
 user-invocable: true
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   role: task

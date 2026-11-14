@@ -5,6 +5,8 @@ description: Establish or maintain an application repository's structure, stack 
   to start, organize or review a project, or when the requested change affects those
   foundations; keep ordinary feature work within existing conventions.
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

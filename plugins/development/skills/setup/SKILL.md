@@ -7,6 +7,8 @@ description: Establish a new application or adopt an existing repository, discov
 user-invocable: true
 disable-model-invocation: true
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: user
   role: task

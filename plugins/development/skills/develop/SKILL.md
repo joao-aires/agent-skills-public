@@ -5,6 +5,8 @@ description: Take a rough business idea, feature, refactor or improvement throug
   Use when the user asks to build a feature, including after a discussion of its requirements or design. Reuse agreed decisions and fill only gaps needed to implement safely.
 user-invocable: true
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   role: task

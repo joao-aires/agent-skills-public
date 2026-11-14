@@ -5,6 +5,8 @@ description: Estimate or improve application infrastructure and service cost, in
   tradeoffs, budget reviews or architecture choices using regional pricing, measured
   usage and reliability constraints.
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   role: task

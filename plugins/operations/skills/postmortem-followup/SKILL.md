@@ -4,6 +4,8 @@ description: Review incident histories and postmortems to derive, prioritize, im
   and verify learning actions, track overdue or ineffective fixes, and identify recurring
   failure patterns across incidents.
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   version: '1.1'

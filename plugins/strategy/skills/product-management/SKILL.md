@@ -3,6 +3,8 @@ name: product-management
 description: Shape product direction from user problems, evidence and constraints. Use for discovery, prioritization, useful first slices, success measures and product sequencing before development or when new evidence changes priorities; reuse accepted decisions for defined changes.
 user-invocable: true
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

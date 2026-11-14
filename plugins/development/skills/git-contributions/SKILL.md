@@ -5,6 +5,8 @@ description: Develop a feature in an isolated Git worktree, make Conventional Co
   starting feature work, continuing a feature branch, committing changes or preparing
   a PR; respect plan-only requests and existing contribution conventions.
 metadata:
+  kind: workflow
+  origin: local
   scope: generic
   invocation: both
   role: support

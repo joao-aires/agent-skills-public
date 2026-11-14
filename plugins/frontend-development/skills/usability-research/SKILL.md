@@ -3,6 +3,8 @@ name: usability-research
 description: Plan task-based usability studies and analyze supplied observations for a specific interface or flow. Use for research questions, participant tasks, neutral discussion guides or evidence synthesis; distinguish proposed studies, heuristic review and actual participant findings.
 user-invocable: true
 metadata:
+  kind: method
+  origin: local
   scope: generic
   invocation: both
   role: support

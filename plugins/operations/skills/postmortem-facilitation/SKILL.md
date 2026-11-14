@@ -4,6 +4,8 @@ description: Reconstruct incident history, conduct a focused blameless evidence-
   interview and generate or review a postmortem with causal analysis, uncertainty,
   impact and measurable learning actions.
 metadata:
+  kind: activity
+  origin: local
   scope: generic
   invocation: both
   version: '1.1'
