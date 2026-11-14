@@ -53,7 +53,7 @@ class SkillMetadataTests(unittest.TestCase):
             skill.mkdir()
             path = skill / 'SKILL.md'
             metadata = dict(name='example', description='Example', metadata={
-                'scope': 'generic', 'invocation': 'agent', 'role': 'support'})
+                'scope': 'generic', 'invocation': 'agent', 'role': 'support', 'pack': 'sdlc', 'domain': 'development', 'phase': 'cross-phase'})
             path.write_text('---\n' + yaml.safe_dump(metadata) + '---\nGuide\n')
             with self.assertRaises(ValueError):
                 validate_local_skill_classification(path)

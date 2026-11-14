@@ -5,6 +5,9 @@ user-invocable: false
 metadata:
   kind: method
   origin: local
+  pack: technical
+  domain: ai
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Python, DeepEval, pytest

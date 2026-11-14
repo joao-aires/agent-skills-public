@@ -36,6 +36,12 @@ def validate_skill_metadata(skill):
             raise ValueError(f'Invalid skill kind: {skill}')
         if 'origin' in labels and labels['origin'] not in {'local', 'upstream'}:
             raise ValueError(f'Invalid skill origin: {skill}')
+        if 'pack' in labels and labels['pack'] not in {'sdlc', 'technical', 'craft', 'product'}:
+            raise ValueError(f'Invalid skill pack: {skill}')
+        if 'phase' in labels and labels['phase'] not in {'planning', 'requirements', 'design', 'implementation', 'verification', 'release', 'maintenance', 'cross-phase'}:
+            raise ValueError(f'Invalid skill phase: {skill}')
+        if 'domain' in labels and labels['domain'] not in {'development', 'delivery', 'operations', 'security', 'governance', 'product', 'saas', 'frontend', 'backend', 'database', 'ai', 'tooling', 'platform', 'documentation', 'visualization', 'browser-extension', 'native', 'go', 'typescript'}:
+            raise ValueError(f'Invalid skill domain: {skill}')
     if 'compatibility' in metadata:
         value = metadata['compatibility']
         if not isinstance(value, str) or not value.strip() or len(value) > 500:
@@ -63,7 +69,7 @@ def validate_local_skill_classification(skill):
     """Require the small local classification layer without constraining acquired snapshots."""
     metadata = validate_skill_metadata(skill)
     labels = metadata.get('metadata', {})
-    required = ('scope', 'invocation', 'kind', 'role', 'origin')
+    required = ('scope', 'invocation', 'kind', 'pack', 'domain', 'phase', 'role', 'origin')
     missing = [field for field in required if not labels.get(field)]
     if missing:
         raise ValueError(f'Missing local skill classification {missing}: {skill}')

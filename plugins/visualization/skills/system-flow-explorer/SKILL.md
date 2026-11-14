@@ -10,6 +10,9 @@ description: Build an explorable, standalone HTML architecture and message-flow 
 metadata:
   kind: activity
   origin: local
+  pack: craft
+  domain: visualization
+  phase: cross-phase
   scope: generic
   invocation: user
   role: task

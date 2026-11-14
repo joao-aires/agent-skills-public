@@ -11,6 +11,9 @@ description: Develop, evaluate, compare, and continuously update business and pr
 metadata:
   kind: activity
   origin: local
+  pack: product
+  domain: product
+  phase: planning
   version: '2.3'
   scope: generic
   invocation: user

@@ -14,19 +14,19 @@ Building does not install or remove client plugins, configure tools or connect a
 
 ## Plugin package split
 
-Choose replacements for the capabilities you use. Plugin-qualified invocations change with their owning package: for example, `/development-workflow:test` becomes `/development:test` where supported. Most skill names remain the same; use [Local skill naming](#local-skill-naming) for renames.
+Choose replacements for the capabilities you use. Plugin-qualified invocations change with their owning package: for example, `/development-workflow:test` becomes `/sdlc:test` where supported. Most skill names remain the same; use [Local skill naming](#local-skill-naming) for renames.
 
 | Previous bundle | Replacement choices |
 | --- | --- |
-| development-workflow | development; backend-development, delivery, documentation and development-tooling for their respective capabilities |
+| development-workflow | sdlc; backend-development, documentation and development-tooling for their respective capabilities |
 | business-strategy | strategy |
-| application-operations | operations; operations-platforms for JVM, Kubernetes and AKS expertise |
+| application-operations | sdlc; operations-platforms for JVM, Kubernetes and AKS expertise |
 | web-frontend | frontend-development; frontend-reactjs-development or frontend-native-development for matching implementations |
 | python-backend | backend-python-development |
 | ai-development with combined methods and implementation | ai-development for generic methods; ai-python-development, ai-adk-development or ai-langchain-development for selected implementations |
 | visual-communication | visualization |
 
-The ai-development plugin keeps its package name but contains only generic methods. Replace its complete directory to remove stale technical skills. The default build contains development alone; select additional capabilities explicitly.
+The ai-development plugin keeps its package name but contains only generic methods. Replace its complete directory to remove stale technical skills. The default build contains sdlc alone; select additional capabilities explicitly.
 
 ## Local skill naming
 
@@ -43,6 +43,16 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `document-software-architecture`, `architecture-documentation`, `system-mapping` | `system-documentation` for current-state architecture documentation; `system-design` for proposed architecture; the artifact system owns the architecture-set contract |
 | `documentation-writing` | `technical-writing` |
 | `engineering-workspace` | `artifact-system` storage references (`coordination`, `filesystem`, `providers`) |
+| `reliability-design` | `system-design` reliability reference |
+| `delivery-pipelines` | `release` delivery-pipelines reference |
+| `plan-application-capacity`, `optimize-application-cost` | `capacity-and-cost` |
+| `credential-lifecycle`, `vulnerability-management` | `security-maintenance` |
+| `postmortem-facilitation`, `postmortem-followup` | `postmortem` |
+| `compliance-design`, `gdpr-readiness`, `soc2-readiness` | `compliance-readiness` |
+| `operational-housekeeping` | `operations-review` |
+| `runbook-engineering` | `runbook-authoring` |
+| `observability-operations` | `observability` |
+| `protect-and-restore-data` | `data-recovery` |
 | `deliver-reliable-changes` | `test` (verification and completion evidence) |
 | `workflow-help` | `activity-system` (help mode) |
 | `engineering-artifacts` | `artifact-system` |
@@ -55,7 +65,7 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `design-secure-features` | `security-and-privacy-design` |
 | `contribute-code` | `git-contributions` |
 | `architecture-diagraming` | `architecture-diagramming` |
-| Standalone `backup-recovery` | `protect-and-restore-data` |
+| Standalone `backup-recovery` | `data-recovery` |
 | Standalone `cicd-release-management` | `delivery-pipelines` |
 
 The artifact-system rename reflects a broader model, not just a new name. The skill now covers artifact types across intent, coordination, system knowledge, implementation, delivery and entry planes. `documentation-conventions` is retired: its generic placement method moved into the artifact system's artifact-homes reference, and its project-specific map is now a repository artifact established by `setup` and `project-conventions`. Update saved prompts to use `artifact-system` and the repository artifact home map.
@@ -101,4 +111,4 @@ Continue loading complete built bundles, since raw acquired skills do not yet co
 
 ## Implementation preparation
 
-Ask for an implementation breakdown when work should stop before edits. Implementation and end-to-end development use the same [preparation method](../plugins/development/skills/activity-system/references/implementation-preparation.md) when they need to order tasks and checks. Update saved prompts that used the former `plan` for implementation breakdowns. The current [plan](../plugins/development/skills/plan/SKILL.md) starts earlier and establishes what to pursue, its scope and feasibility.
+Ask for an implementation breakdown when work should stop before edits. Implementation and end-to-end development use the same [preparation method](../plugins/sdlc/skills/activity-system/references/implementation-preparation.md) when they need to order tasks and checks. Update saved prompts that used the former `plan` for implementation breakdowns. The current [plan](../plugins/sdlc/skills/plan/SKILL.md) starts earlier and establishes what to pursue, its scope and feasibility.

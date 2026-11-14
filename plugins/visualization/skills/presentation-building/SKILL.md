@@ -4,6 +4,9 @@ description: Create or refine portable single-file HTML slide decks, including n
 metadata:
   kind: activity
   origin: local
+  pack: craft
+  domain: visualization
+  phase: cross-phase
   version: '1.0'
   scope: generic
   invocation: user

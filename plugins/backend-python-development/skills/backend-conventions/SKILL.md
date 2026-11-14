@@ -7,6 +7,9 @@ description: Build, extend or review Python/FastAPI systems with SQLAlchemy, Ale
 metadata:
   kind: method
   origin: local
+  pack: technical
+  domain: backend
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Python, FastAPI, SQLAlchemy, Alembic, PostgreSQL

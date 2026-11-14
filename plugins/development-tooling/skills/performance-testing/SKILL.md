@@ -7,6 +7,9 @@ description: Design, implement, run or review k6 load and performance checks for
 metadata:
   kind: method
   origin: local
+  pack: technical
+  domain: tooling
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Grafana k6

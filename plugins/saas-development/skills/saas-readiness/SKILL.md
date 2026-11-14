@@ -7,6 +7,9 @@ license: MIT
 metadata:
   kind: method
   origin: local
+  pack: technical
+  domain: saas
+  phase: cross-phase
   scope: generic
   invocation: both
   role: support

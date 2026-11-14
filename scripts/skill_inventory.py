@@ -38,15 +38,18 @@ def main():
         origin = 'upstream' if relative in acquired else local_labels.get('origin', 'local')
         rows.append((
             metadata.get('name', path.parent.name),
+            labels.get('pack', ''),
+            labels.get('domain', ''),
             labels.get('kind', ''),
+            labels.get('phase', ''),
             origin,
             labels.get('scope', ''),
             labels.get('invocation', ''),
             labels.get('role', ''),
             path.parents[2].name,
         ))
-    print('| Skill | Kind | Origin | Scope | Invocation | Role | Plugin |')
-    print('| --- | --- | --- | --- | --- | --- | --- |')
+    print('| Skill | Pack | Domain | Kind | Phase | Origin | Scope | Invocation | Role | Plugin |')
+    print('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |')
     for row in rows:
         print('| ' + ' | '.join(row) + ' |')
 

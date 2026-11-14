@@ -6,6 +6,9 @@ description: Design, implement, review and maintain useful Python operational au
 metadata:
   kind: method
   origin: local
+  pack: technical
+  domain: backend
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Python

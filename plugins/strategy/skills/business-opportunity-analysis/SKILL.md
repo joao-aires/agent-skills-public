@@ -8,6 +8,9 @@ description: Deprecated legacy compatibility skill. Use only when explicitly inv
 metadata:
   kind: activity
   origin: local
+  pack: product
+  domain: product
+  phase: planning
   version: 2.0-compat
   deprecated: 'true'
   scope: generic

@@ -7,6 +7,9 @@ description: Build, extend or review React/Next.js interfaces using the selected
 metadata:
   kind: method
   origin: local
+  pack: technical
+  domain: frontend
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: React, Next.js, Tailwind, shadcn

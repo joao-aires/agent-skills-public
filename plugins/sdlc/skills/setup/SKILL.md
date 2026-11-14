@@ -1,0 +1,49 @@
+---
+name: setup
+description: Establish a new application or adopt an existing repository, discover
+  working commands and accepted constraints, and prepare a useful first slice. Use
+  for explicit project setup or adoption; preserve an existing project layout and
+  tooling.
+user-invocable: true
+disable-model-invocation: true
+metadata:
+  kind: activity
+  origin: local
+  pack: sdlc
+  domain: development
+  phase: planning
+  scope: generic
+  invocation: user
+  role: task
+---
+
+# Setup
+
+Read [activity system](../activity-system/SKILL.md). Read [git-contributions](../git-contributions/SKILL.md) before foundation writes. Seek available delivery expertise for CI, artifact and recovery decisions. Read [project-conventions](../project-conventions/SKILL.md) for repository foundations and working commands. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+
+Setup is technical foundation work, not a substitute for product discovery. Before architecture-dependent writes, establish the intended usage, bounded journey and material platform/licensing/budget constraints. For a rough idea needing end-to-end development, use the outcomes in [new-application flow](../develop/references/new-application-flow.md) within the requested scope; a setup-only request does not authorize feature implementation or an unsolicited full business study.
+
+## Establish useful foundations
+
+Use project-conventions to discover the repository, accepted stack, commands, identity model, environments and critical journey.
+
+| Project context | Foundation work |
+| --- | --- |
+| New project | Establish useful foundations for the requested first slice. Satisfy the [applicable foundation contract](../project-conventions/SKILL.md#complete-new-project-foundations), including authored onboarding, checks/tests, packaging and delivery artifacts. |
+| Existing project | Preserve working foundations, identify missing context and address the requested gaps without restructuring the application. |
+
+## Select a durable engineering workspace (only if not already configured)
+
+During setup or adoption, use [engineering workspace](../artifact-system/references/storage/coordination.md) to establish or confirm the chosen home and its portable discovery pointer. Apply its storage choice and access rules, including an inline-only preference. Surface any unresolved storage choice while completing unrelated authorized foundations.
+
+## Establish the repository artifact home map
+
+Use the [artifact system](../artifact-system/SKILL.md) and its [artifact homes](../artifact-system/references/homes.md) to establish or verify where durable repository artifacts live. Record a short pointer in `AGENTS.md` and the full map in `docs/README.md` or `docs/artifact-homes.md`, covering the artifact types the project actually uses: README, guides, product brief, architecture set, ADRs, API reference, runbooks, release notes, code and tests.
+
+For each type, record the authoritative home, owner, update trigger and access boundary. Start with what exists; do not create empty folders or a theoretical documentation portfolio. If an established map already exists, verify it instead of replacing it. This map is the repository’s one-stop shop for artifact placement; the generic method stays in the artifact system.
+
+Connect the foundations into a usable development path. A contributor should be able to obtain the required configuration, install dependencies, start the application and run its checks using the documented commands. Where persistence is part of the slice, include how the local data store is prepared and how schema changes are applied. Use sample configuration that explains required values without containing secrets.
+
+Ask about consequential product/platform choices, then record the accepted choices and working commands in existing instructions/docs. Run the available startup, migration and test paths far enough to expose missing dependencies or mismatched configuration. Distinguish artifacts prepared for a future target from a path actually exercised on that target. Name unresolved targets, missing prerequisites and unavailable tools.
+
+Setup does not establish that an application feature is complete. Use develop when the request is to build the application end to end.

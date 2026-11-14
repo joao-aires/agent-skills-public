@@ -4,6 +4,9 @@ description: Define and improve AI operating behavior across task observability,
 metadata:
   kind: method
   origin: local
+  pack: technical
+  domain: ai
+  phase: cross-phase
   scope: generic
   invocation: both
   role: support

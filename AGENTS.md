@@ -21,11 +21,11 @@ For acquisition and updates, follow [upstream maintenance](documentation/maintai
 
 ## Documentation and contributions
 
-- Before adding a document, inspect existing indexes and authoritative pages; update the canonical owner where possible, otherwise add a focused document in the established location with navigable links. Use the artifact system's [artifact homes](plugins/development/skills/artifact-system/references/homes.md) and the repository artifact home map for placement.
+- Before adding a document, inspect existing indexes and authoritative pages; update the canonical owner where possible, otherwise add a focused document in the established location with navigable links. Use the artifact system's [artifact homes](plugins/sdlc/skills/artifact-system/references/homes.md) and the repository artifact home map for placement.
 - Update affected documentation alongside source changes and accepted decisions. Keep manifests, README, ownership/source catalogue and pins aligned; bump the owning version for packaged changes.
 - Keep user guides organized by reader need and the maintainer entry short. Put source/evaluation detail in the existing maintainer references rather than a report per change. Add focused how-tos for recurring tasks. Keep implementation task/work-package status and PR chronology in the tracker or Git history; repository docs describe current behavior, source decisions, actionable migration and evidence limits.
 - Use Humanizer when available for prose edits, preserving technical meaning, caveats, commands and links. Verify client-specific examples against primary documentation and distinguish documented setup from exercised behavior.
-- Follow [Git contributions](plugins/development/skills/git-contributions/SKILL.md) for objective worktrees, Conventional Commits and structured PRs. Commit/push authority is separate from merge or deployment authority.
+- Follow [Git contributions](plugins/sdlc/skills/git-contributions/SKILL.md) for objective worktrees, Conventional Commits and structured PRs. Commit/push authority is separate from merge or deployment authority.
 
 ## Verification
 
@@ -47,7 +47,8 @@ Use the virtual environment and dependencies in [installation](documentation/ins
 | Need | Source |
 | --- | --- |
 | Composition, discovery and fallback | [Architecture](documentation/architecture.md) |
-| Artifact model, planes and homes | [Development plugin README](plugins/development/README.md) |
+| Artifact model, planes and homes | [SDLC plugin README](plugins/sdlc/README.md) |
+| Skill, pack and phase metadata | [Metadata contract](documentation/metadata.md) |
 | Contribution procedure, naming and build/check commands | [Maintainer guide](documentation/maintainer-reference.md) |
 | Sources, licenses, adaptations and ownership | [Source catalogue](documentation/maintainers/sources.md) |
 | Behavioral scenarios and recorded limits | [Evaluation guide](documentation/maintainers/evaluations.md) |

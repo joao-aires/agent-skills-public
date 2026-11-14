@@ -7,6 +7,9 @@ description: Cross-type technical writing craft for product and engineering docu
 metadata:
   kind: method
   origin: local
+  pack: craft
+  domain: documentation
+  phase: cross-phase
   scope: generic
   invocation: both
   role: support

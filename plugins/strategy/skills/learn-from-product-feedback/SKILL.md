@@ -7,6 +7,9 @@ description: Analyze user feedback and product usage to evaluate outcomes, ident
 metadata:
   kind: activity
   origin: local
+  pack: product
+  domain: product
+  phase: cross-phase
   scope: generic
   invocation: both
   role: task

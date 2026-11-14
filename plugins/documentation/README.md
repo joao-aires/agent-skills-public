@@ -17,9 +17,9 @@ The plugin is useful when the question is “how should this be written for its 
 
 | Need | Use |
 | --- | --- |
-| What artifact is this, what must it contain, where does it live? | [Artifact system](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/artifact-system/SKILL.md) |
-| What activity applies, and where does it stop? | [Activity system](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/activity-system/SKILL.md) |
-| How do I explain the current system architecture? | [System mapping](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/system-documentation/SKILL.md) |
+| What artifact is this, what must it contain, where does it live? | [Artifact system](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/sdlc/skills/artifact-system/SKILL.md) |
+| What activity applies, and where does it stop? | [Activity system](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/sdlc/skills/activity-system/SKILL.md) |
+| How do I explain the current system architecture? | [System mapping](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/sdlc/skills/system-documentation/SKILL.md) |
 | How do I write or revise the document? | [Technical writing](skills/technical-writing/SKILL.md) |
 | How do I polish the prose? | [Humanizer](skills/humanizer/SKILL.md) |
 
@@ -33,7 +33,7 @@ A PRD, ADR, runbook and architecture view need different structure, tone and lev
 
 ## Architecture explanation
 
-Current-state architecture explanation lives with [system mapping](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/development/skills/system-documentation/SKILL.md) in the development plugin. Proposed architecture lives with `system-design`. The artifact system owns the architecture-set contract, status, evidence, home and maintenance triggers.
+Current-state architecture explanation lives with [system mapping](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/sdlc/skills/system-documentation/SKILL.md) in the development plugin. Proposed architecture lives with `system-design`. The artifact system owns the architecture-set contract, status, evidence, home and maintenance triggers.
 
 This plugin does not own an architecture document set, a documentation portfolio or repository placement.
 

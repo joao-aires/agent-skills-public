@@ -14,7 +14,7 @@ except ModuleNotFoundError:
     from scripts.skill_metadata import validate_skill_metadata
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_PLUGINS = ('development',)
+DEFAULT_PLUGINS = ('sdlc',)
 
 
 def select_plugins(root, requested=None, all_plugins=False):
@@ -59,7 +59,7 @@ def adapt_skill(target, source):
                 metadata = yaml.safe_load(parts[1])
                 if 'usage-labels' in adaptations:
                     labels = source['labels']
-                    if labels.get('scope') not in {'generic', 'stack-specific'} or labels.get('invocation') not in {'user', 'agent', 'both'} or labels.get('kind') not in {'system', 'activity', 'method', 'workflow', 'reference'} or labels.get('origin') not in {'local', 'upstream'} or any(not isinstance(value, str) for value in labels.values()):
+                    if labels.get('scope') not in {'generic', 'stack-specific'} or labels.get('invocation') not in {'user', 'agent', 'both'} or labels.get('kind') not in {'system', 'activity', 'method', 'workflow', 'reference'} or labels.get('origin') not in {'local', 'upstream'} or labels.get('pack') not in {'sdlc', 'technical', 'craft', 'product'} or labels.get('phase') not in {'planning', 'requirements', 'design', 'implementation', 'verification', 'release', 'maintenance', 'cross-phase'} or labels.get('domain') not in {'development', 'delivery', 'operations', 'security', 'governance', 'product', 'saas', 'frontend', 'backend', 'database', 'ai', 'tooling', 'platform', 'documentation', 'visualization', 'browser-extension', 'native', 'go', 'typescript'} or any(not isinstance(value, str) for value in labels.values()):
                         raise ValueError('Invalid usage labels')
                     metadata.setdefault('metadata', {}).update(labels)
                 if 'tracker-neutral' in adaptations:
@@ -184,7 +184,7 @@ def build(root, selected, destination):
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     selection = parser.add_mutually_exclusive_group()
-    selection.add_argument('--plugin', action='append', help='Plugin to bundle, repeatable; default: development only')
+    selection.add_argument('--plugin', action='append', help='Plugin to bundle, repeatable; default: sdlc only')
     selection.add_argument('--all', action='store_true', help='Build every plugin discovered from its manifest')
     parser.add_argument('--destination', type=Path, required=True)
     args = parser.parse_args()

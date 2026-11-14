@@ -18,7 +18,7 @@ python scripts/build_plugins.py --destination ./built-plugins
 export AGENT_PLUGINS_DIR="$(pwd)/built-plugins"
 ```
 
-If you already have a checkout, start there instead of cloning again. The builder uses committed upstream skills and their resources for the selected plugin (development by default), applying adaptations only in its output. It does not fetch upstream repositories. The destination must be new. [Additional bundles and rebuilds](#select-additional-bundles) use the same builder.
+If you already have a checkout, start there instead of cloning again. The builder uses committed upstream skills and their resources for the selected plugin (sdlc by default), applying adaptations only in its output. It does not fetch upstream repositories. The destination must be new. [Additional bundles and rebuilds](#select-additional-bundles) use the same builder.
 
 ## Load them in your client
 
@@ -32,16 +32,16 @@ Add the published marketplace and install a bundle:
 
 ```bash
 claude plugin marketplace add joao-aires/agent-skills-public#claude-marketplace
-claude plugin install development@agent-skills-public
+claude plugin install sdlc@agent-skills-public
 ```
 
-Choose `/development:develop` in a new session, or `/development:activity-system` for help choosing an activity. Install additional bundles by qualified name, such as `strategy@agent-skills-public`.
+Choose `/sdlc:develop` in a new session, or `/sdlc:activity-system` for help choosing an activity. Install additional bundles by qualified name, such as `strategy@agent-skills-public`.
 
 Third-party marketplaces have automatic updates disabled by default. In `/plugin`, open Marketplaces, select this marketplace and enable auto-update if desired. To update manually:
 
 ```bash
 claude plugin marketplace update agent-skills-public
-claude plugin update development@agent-skills-public
+claude plugin update sdlc@agent-skills-public
 ```
 
 Refreshing the marketplace catalog alone does not update installed plugins. Run `/reload-plugins` in the active session, or start a new session, after an update. See [Claude Code's installation and update guide](https://code.claude.com/docs/en/discover-plugins#keep-plugins-updated).
@@ -49,7 +49,7 @@ Refreshing the marketplace catalog alone does not update installed plugins. Run 
 For a local build, from the application workspace in the terminal where `AGENT_PLUGINS_DIR` is set:
 
 ```bash
-claude --plugin-dir "$AGENT_PLUGINS_DIR/development"
+claude --plugin-dir "$AGENT_PLUGINS_DIR/sdlc"
 ```
 
 Repeat `--plugin-dir` for additional bundles. Pass each complete plugin directory, not its parent build directory. The [manifest reference](https://code.claude.com/docs/en/plugins-reference) documents standard `skills/` discovery without a Claude-specific manifest. This loads skills; it does not translate portable `mcp.json` into Claude's `.mcp.json` configuration.
@@ -63,7 +63,7 @@ codex plugin marketplace add joao-aires/agent-skills-public --ref claude-marketp
 codex plugin marketplace list
 ```
 
-In a supported client, open the Plugins Directory, choose Agent Skills Public and install development. Codex CLI also provides `/plugins`. Start a new chat/session and select `develop`. Supported ChatGPT desktop Work/Codex surfaces can use repo or personal marketplaces; registering a source does not publish it to the universal directory or your organization's managed catalog. Workspace-wide GitHub imports follow the administrator's separate setup.
+In a supported client, open the Plugins Directory, choose Agent Skills Public and install sdlc. Codex CLI also provides `/plugins`. Start a new chat/session and select `develop`. Supported ChatGPT desktop Work/Codex surfaces can use repo or personal marketplaces; registering a source does not publish it to the universal directory or your organization's managed catalog. Workspace-wide GitHub imports follow the administrator's separate setup.
 
 Refresh the registered Git marketplace with:
 
@@ -77,7 +77,7 @@ For a local build, copy the complete bundle to a new directory in the applicatio
 
 ```bash
 mkdir -p .local-agent-plugins
-cp -R "$AGENT_PLUGINS_DIR/development" .local-agent-plugins/development
+cp -R "$AGENT_PLUGINS_DIR/sdlc" .local-agent-plugins/sdlc
 ```
 
 Add or merge the following into `.agents/plugins/marketplace.json`, preserving existing entries:
@@ -88,8 +88,8 @@ Add or merge the following into `.agents/plugins/marketplace.json`, preserving e
   "interface": { "displayName": "Project guidance" },
   "plugins": [
     {
-      "name": "development",
-      "source": { "source": "local", "path": "./.local-agent-plugins/development" },
+      "name": "sdlc",
+      "source": { "source": "local", "path": "./.local-agent-plugins/sdlc" },
       "policy": { "installation": "AVAILABLE", "authentication": "ON_INSTALL" },
       "category": "Productivity"
     }
@@ -97,7 +97,7 @@ Add or merge the following into `.agents/plugins/marketplace.json`, preserving e
 }
 ```
 
-Paths are relative to the marketplace root, not `.agents/plugins/`. Restart the desktop app, install development from Project guidance and start a new chat. For local updates, replace only a preserved, deliberately managed bundle copy and restart as described in the official guide. Add entries for other chosen bundles. Raw source directories contain unadapted upstream snapshots; expose built packages instead.
+Paths are relative to the marketplace root, not `.agents/plugins/`. Restart the desktop app, install sdlc from Project guidance and start a new chat. For local updates, replace only a preserved, deliberately managed bundle copy and restart as described in the official guide. Add entries for other chosen bundles. Raw source directories contain unadapted upstream snapshots; expose built packages instead.
 
 ### OpenCode
 
@@ -108,7 +108,7 @@ For **OpenCode V2**, merge absolute directories into the `skills` array in `open
 ```json
 {
   "$schema": "https://opencode.ai/config.json",
-  "skills": ["/absolute/path/built-plugins/development/skills"]
+  "skills": ["/absolute/path/built-plugins/sdlc/skills"]
 }
 ```
 
@@ -122,7 +122,7 @@ Pi can read skill directories without converting these bundles into executable e
 
 ```json
 {
-  "skills": ["/absolute/path/built-plugins/development/skills"]
+  "skills": ["/absolute/path/built-plugins/sdlc/skills"]
 }
 ```
 
@@ -138,14 +138,14 @@ VS Code is the editor; the selected agent harness determines which customization
 }
 ```
 
-Open the Agent Customizations editor or search `@agentPlugins` in Extensions, then find and install development. Marketplace settings are experimental and may be controlled by your organization. VS Code uses the Claude-compatible catalog on this branch; it does not require the Codex catalog.
+Open the Agent Customizations editor or search `@agentPlugins` in Extensions, then find and install sdlc. Marketplace settings are experimental and may be controlled by your organization. VS Code uses the Claude-compatible catalog on this branch; it does not require the Codex catalog.
 
 For local builds, register complete plugin directories instead:
 
 ```json
 {
   "chat.pluginLocations": {
-    "/absolute/path/built-plugins/development": true
+    "/absolute/path/built-plugins/sdlc": true
   }
 }
 ```
@@ -154,19 +154,19 @@ Check discovery in the selected harness. For updates, use Extensions: Check for 
 
 ### Other clients
 
-For Copilot CLI, load a built package with `copilot --plugin-dir "$AGENT_PLUGINS_DIR/development"` and inspect available skills with the [CLI's plugin commands](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference).
+For Copilot CLI, load a built package with `copilot --plugin-dir "$AGENT_PLUGINS_DIR/sdlc"` and inspect available skills with the [CLI's plugin commands](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-plugin-reference).
 
-For Antigravity CLI, the prior trial route was `agy plugin install "$AGENT_PLUGINS_DIR/development"`, followed by `agy plugin list --json`. Confirm these commands against the installed version before relying on them. Client authentication and discovery do not establish workflow adherence.
+For Antigravity CLI, the prior trial route was `agy plugin install "$AGENT_PLUGINS_DIR/sdlc"`, followed by `agy plugin list --json`. Confirm these commands against the installed version before relying on them. Client authentication and discovery do not establish workflow adherence.
 
 For any skill-only client, retain the complete built package and use supported directory sources or links. Copying a skill away from package-root framing can break relative references. Check explicit invocation controls rather than treating metadata as enforcement. Read [migration](migration.md) before replacing old installations.
 
 ## Select additional bundles
 
-Explicit `--plugin` arguments replace the default selection; repeat development when you want it included. For a Python/React application with generic interface/service/delivery methods:
+Explicit `--plugin` arguments replace the default selection; repeat sdlc when you want it included. For a Python/React application with generic interface/service/delivery methods:
 
 ```bash
 python scripts/build_plugins.py \
-  --plugin development \
+  --plugin sdlc \
   --plugin frontend-development \
   --plugin backend-development \
   --plugin delivery \
@@ -175,7 +175,7 @@ python scripts/build_plugins.py \
   --destination ./built-python-react
 ```
 
-Add strategy for product/business work, documentation or visualization for those capabilities, and operations for operating work. AI-development supplies generic AI methods without a provider framework; select ai-python-development, ai-adk-development or ai-langchain-development only for an accepted implementation. Tool and infrastructure expertise are explicit additions too. See the [plugin catalogue](../README.md#choose-your-plugins).
+Add strategy for product/business work, and documentation or visualization for those capabilities. Operations, delivery, security and governance are included in sdlc. AI-development supplies generic AI methods without a provider framework; select ai-python-development, ai-adk-development or ai-langchain-development only for an accepted implementation. Tool and infrastructure expertise are explicit additions too. See the [plugin catalogue](../README.md#choose-your-plugins).
 
 To inspect every package rather than choose an application stack:
 
@@ -188,7 +188,7 @@ python scripts/build_plugins.py --all --destination ./built-all-plugins
 For structural verification of the default build:
 
 ```bash
-python scripts/check_collection.py --built ./built-plugins --plugin development
+python scripts/check_collection.py --built ./built-plugins --plugin sdlc
 ```
 
 For a selected multi-plugin build, repeat the checker's `--plugin` arguments to match it. With no checker selection, `--built` expects the full collection. These checks establish resources/inventory, not client discovery or agent adherence.

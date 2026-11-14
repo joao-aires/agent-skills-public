@@ -7,6 +7,9 @@ user-invocable: false
 metadata:
   kind: method
   origin: local
+  pack: technical
+  domain: tooling
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   role: support

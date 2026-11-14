@@ -6,6 +6,9 @@ description: Create, refactor and audit reliable Bash CLI utilities, build/opera
 metadata:
   kind: method
   origin: local
+  pack: technical
+  domain: tooling
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Bash

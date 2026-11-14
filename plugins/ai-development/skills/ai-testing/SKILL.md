@@ -4,6 +4,9 @@ description: Design and assess AI testing and evaluation across components, retr
 metadata:
   kind: method
   origin: local
+  pack: technical
+  domain: ai
+  phase: cross-phase
   scope: generic
   invocation: both
   role: support

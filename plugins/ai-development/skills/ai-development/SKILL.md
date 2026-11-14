@@ -4,6 +4,9 @@ description: Design, build and operate AI-enabled applications and agent integra
 metadata:
   kind: method
   origin: local
+  pack: technical
+  domain: ai
+  phase: cross-phase
   scope: generic
   invocation: both
   role: support

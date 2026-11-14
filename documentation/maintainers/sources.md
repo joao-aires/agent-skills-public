@@ -14,9 +14,9 @@ The [manifest](../../agent-depot.json) declares repositories, accepted artifact 
 | ai-langchain-development | [langchain-ai/langchain-skills](https://github.com/langchain-ai/langchain-skills) | langchain-fundamentals, langgraph-fundamentals, langgraph-persistence, langchain-dependencies |
 | ai-python-development | [anthropics/skills](https://github.com/anthropics/skills) | mcp-builder |
 | backend-python-development | [trailofbits/skills](https://github.com/trailofbits/skills) | modern-python |
-| development | [mattpocock/skills](https://github.com/mattpocock/skills) | code-review, codebase-design, diagnosing-bugs, domain-modeling, grill-with-docs, implement, implement-spec, improve-codebase-architecture, prototype, research, retro, tdd, to-spec, grill-me, grilling, handoff, to-questionnaire, writing-for-agents |
-| development | [getsentry/skills](https://github.com/getsentry/skills) | agents-md |
-| development | [trailofbits/skills](https://github.com/trailofbits/skills) | property-based-testing, differential-review |
+| sdlc | [mattpocock/skills](https://github.com/mattpocock/skills) | code-review, codebase-design, diagnosing-bugs, domain-modeling, grill-with-docs, implement, implement-spec, improve-codebase-architecture, prototype, research, retro, tdd, to-spec, grill-me, grilling, handoff, to-questionnaire, writing-for-agents |
+| sdlc | [getsentry/skills](https://github.com/getsentry/skills) | agents-md |
+| sdlc | [trailofbits/skills](https://github.com/trailofbits/skills) | property-based-testing, differential-review |
 | development-tooling | [github/awesome-copilot](https://github.com/github/awesome-copilot) | github-actions-hardening |
 | development-tooling | [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | playwright-cli |
 | development-tooling | [trailofbits/skills](https://github.com/trailofbits/skills) | supply-chain-risk-auditor |
@@ -34,7 +34,7 @@ The [manifest](../../agent-depot.json) declares repositories, accepted artifact 
 | --- | --- |
 | Frontend and Python | Pointers to local conventions; accepted project choices take precedence. Tailwind v4 is the new-project default; existing versions need no automatic migration. shadcn guidance applies to compatible installed primitives. |
 | MCP and AI | Local framing prefers Python/standalone FastMCP for new servers and distinguishes it from MCP SDK examples. Existing choices remain authoritative; MCP-only work needs no LLM evaluation. |
-| Matt workflows | Preserve dependency groups, resources and native controls. Add [activity system](../../plugins/development/skills/activity-system/SKILL.md); tickets remain optional and setup is explicit. Map `docs/agents/` to `documentation/engineering/` and `docs/adr/` to `documentation/decisions/adr/`, respecting existing paths. |
+| Matt workflows | Preserve dependency groups, resources and native controls. Add [activity system](../../plugins/sdlc/skills/activity-system/SKILL.md); tickets remain optional and setup is explicit. Map `docs/agents/` to `documentation/engineering/` and `docs/adr/` to `documentation/decisions/adr/`, respecting existing paths. |
 | Targeted Matt changes | Remove stale setup prerequisites from three skills; give implement-spec a tracker-neutral description. Implement receives pointers to activity, contribution and verification guidance without replacing its body. |
 | Review and supply chain | differential-review uses its included method without an unavailable registered agent. The pinned supply-chain parser does not cover pnpm/yarn; missing coverage is not a clean audit. |
 | AKS cost | Azure AKS only, with its six references. Other platforms use contextual first-party guidance. |
@@ -57,7 +57,7 @@ The original [creative implementation reference](../../plugins/frontend-developm
 
 ## Matt Pocock selection
 
-The selection below covers 27 upstream skills at [the pinned revision](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d) and includes 18 in development, with their dependencies. Exclusions keep the bundle focused; they do not judge upstream quality.
+The selection below covers 27 upstream skills at [the pinned revision](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d) and includes 18 in sdlc, with their dependencies. Exclusions keep the bundle focused; they do not judge upstream quality.
 
 | Skill | Decision | Reason or constraint |
 | --- | --- | --- |
@@ -115,7 +115,7 @@ Optional [shadcn MCP](https://ui.shadcn.com/docs/mcp) and [Playwright MCP](https
 
 ## Repository-instruction and visual-craft selection
 
-[getsentry/skills agents-md](https://github.com/getsentry/skills/tree/f57ada2d0b640406ea7e25b11d636c530e77c58b/skills/agents-md) adds focused repository-instruction authoring to development. Its inspect-first method, exact command/path checks, scoped instructions and reference-backed editing complement project foundations and general instruction writing. The reviewed source is Apache-2.0; acquisition preserves SKILL.md, SPEC.md and SOURCES.md. GitHub's create-agentsmd was also reviewed; its comprehensive section/template approach adds less to this collection's concise, conditional guidance. Sentry's sample package manager and attribution blocks do not become project policy, and shortening must preserve required information. Use it for instruction-file work rather than every documentation change.
+[getsentry/skills agents-md](https://github.com/getsentry/skills/tree/f57ada2d0b640406ea7e25b11d636c530e77c58b/skills/agents-md) adds focused repository-instruction authoring to sdlc. Its inspect-first method, exact command/path checks, scoped instructions and reference-backed editing complement project foundations and general instruction writing. The reviewed source is Apache-2.0; acquisition preserves SKILL.md, SPEC.md and SOURCES.md. GitHub's create-agentsmd was also reviewed; its comprehensive section/template approach adds less to this collection's concise, conditional guidance. Sentry's sample package manager and attribution blocks do not become project policy, and shortening must preserve required information. Use it for instruction-file work rather than every documentation change.
 
 The previous Anthropic [frontend-design](https://github.com/anthropics/skills/tree/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/frontend-design) snapshot (Apache-2.0) has been retired from the packaged catalogue to avoid a competing generic UI entry point. Its useful creative-direction, typography and critique ideas were re-expressed as original guidance in [interface design](../../plugins/frontend-development/skills/interface-design/SKILL.md) and [visual craft](../../plugins/frontend-development/skills/interface-design/references/visual-craft.md), without redistributing the upstream instruction text or assets. The external pinned source remains a provenance and quality-comparison reference, not an acquired package. Domain specialists contribute semantics and archetype decisions, general interface design reconciles IA, interactions and visual craft, and technical specialists shape feasible design and implement accepted choices.
 
@@ -137,11 +137,10 @@ The supplied portable operations guidance is local material under this repositor
 
 | Current package | Material |
 | --- | --- |
-| development | System documentation and shared development methods |
+| sdlc | Full lifecycle: development, delivery, operations, security and governance |
 | backend-python-development | Python automation engineering |
-| operations | Reliability, observability, incidents, runbooks, postmortems, recovery, capacity, cost, vulnerabilities, credentials and upkeep |
 | operations-platforms | JVM, Kubernetes and AKS expertise |
-| delivery and development-tooling | Delivery methods and selected implementation tools |
+| development-tooling | Selected implementation tools |
 | visualization | The supplied system-flow-explorer with its renderer, validator, examples and checks; diagram and presentation resources |
 
 Platform boundaries and native invocation controls remain explicit. Numerical examples are contextual. The [SDLC map](../sdlc.md) owns phase and capability coverage.
@@ -178,7 +177,7 @@ The Community candidates above remain references. The MIT better-interface repos
 
 ## Documentation methods
 
-I use technical-writing for cross-type writing craft. System documentation in development explains current architecture, including structural, runtime, interface and deployment views; system-design owns proposed architecture. The artifact system owns artifact contracts, planes, homes, quality and assurance. These are original local skills; no upstream resources or invocation controls are imported.
+I use technical-writing for cross-type writing craft. System documentation in sdlc explains current architecture, including structural, runtime, interface and deployment views; system-design owns proposed architecture. The artifact system owns artifact contracts, planes, homes, quality and assurance. These are original local skills; no upstream resources or invocation controls are imported.
 
 The source review compares [Anthropic doc-coauthoring](https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/doc-coauthoring/SKILL.md) and [GitHub documentation-writer](https://github.com/github/awesome-copilot/blob/8bc0f5715b2ddc7901a62fddf144ded30d56de8b/skills/documentation-writer/SKILL.md). Context gathering, reader questions, accuracy and terminology fit; mandatory collaboration/outline approvals do not fit routine authorized upkeep. Diátaxis and Google technical writing inform the authoring method; C4, arc42 and OpenAPI inform architecture coverage. References remain with the skills and do not establish complete standards conformance.
 
@@ -205,7 +204,7 @@ The following official plugins were reviewed at [5826794](https://github.com/ant
 | [feature-dev](https://github.com/anthropics/claude-plugins-official/tree/58267944f92187b7d6a1c822165c96c81c864806/plugins/feature-dev) | Evidence-backed feature tracing and a concrete design-to-implementation handoff. | No prescribed agent counts, model/tool bindings, repeated approval gates or numerical review-confidence threshold are imported. Existing verification and delivery methods retain ownership. |
 | [claude-md-management](https://github.com/anthropics/claude-plugins-official/tree/58267944f92187b7d6a1c822165c96c81c864806/plugins/claude-md-management) | Assess instructions against the repository and retain only useful durable knowledge. | Sentry agents-md remains the acquired authoring method. Owned maintenance guidance complements it without importing scoring templates, client-specific discovery assumptions or a second authoring skill. |
 
-These are source references for original guidance, not newly acquired dependencies. Workflow, craft, technical reference, diagnosis, analysis, artifact production and maintenance need different amounts and forms of explanation. [Structured instructions](../../plugins/documentation/skills/technical-writing/references/structured-instructions.md) describes how to choose those forms; [repository instruction maintenance](../../plugins/development/skills/project-conventions/references/repository-instructions.md) owns the repository audit and durable-learning method.
+These are source references for original guidance, not newly acquired dependencies. Workflow, craft, technical reference, diagnosis, analysis, artifact production and maintenance need different amounts and forms of explanation. [Structured instructions](../../plugins/documentation/skills/technical-writing/references/structured-instructions.md) describes how to choose those forms; [repository instruction maintenance](../../plugins/sdlc/skills/project-conventions/references/repository-instructions.md) owns the repository audit and durable-learning method.
 
 ## Product and capability architecture
 
@@ -238,7 +237,7 @@ Database methods are original and engine-independent. The three original Postgre
 
 ## Identity and access sources
 
-Original identity/access guidance uses inspected Keycloak, Better Auth, Ory Kratos and OpenFGA paths plus current protocol/OWASP references. The [package source review](../../plugins/security/skills/security-auth-development/references/sources.md) records revisions, applicability and limitations. No identity framework or external connection is installed. Security/privacy design moves to security; development retains essential reasoning and capability-based selection.
+Original identity/access guidance uses inspected Keycloak, Better Auth, Ory Kratos and OpenFGA paths plus current protocol/OWASP references. The [package source review](../../plugins/sdlc/skills/security-auth-development/references/sources.md) records revisions, applicability and limitations. No identity framework or external connection is installed. Security/privacy design lives in sdlc; the lifecycle retains essential reasoning and capability-based selection.
 
 ## SaaS research sources
 
@@ -246,7 +245,7 @@ The original SaaS methods use selected public Next.js SaaS starter and Wasp Open
 
 ## Governance source approach
 
-The original governance skills connect applicability, system/control decisions and evidence. [Official source references](../../plugins/governance/references/sources.md) identify when to consult GDPR/EDPB and AICPA material. Regulations and restricted criteria are not copied, and no vendor checklist or project template establishes compliance or an attestation outcome.
+The original governance skills connect applicability, system/control decisions and evidence. [Official source references](../../plugins/sdlc/skills/compliance-readiness/references/sources.md) identify when to consult GDPR/EDPB and AICPA material. Regulations and restricted criteria are not copied, and no vendor checklist or project template establishes compliance or an attestation outcome.
 
 ## TypeScript source selection
 
@@ -262,7 +261,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 25 independent packages and 121 skills: 81 local and 40 acquired. Development is the default build; 13 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 21 independent packages and 114 skills: 74 local and 40 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
 
 Skills carry a small classification layer: `kind` (system, activity, method, workflow or reference), `origin` (local or upstream), `scope`, `invocation` and `role`. Local skills are validated for the required fields; acquired labels come from `agent-depot.json` and are injected at build time without editing upstream bytes. Run `python scripts/skill_inventory.py` for the generated maintainer matrix.
 
@@ -270,18 +269,15 @@ A plugin represents a useful installation choice. Workflow, application discipli
 
 ### Package boundaries
 
-The collection has 13 generic capability packages and 12 optional technical packages. I group specialist tools and operating platforms into two explicit optional packages rather than create a plugin for every tool. Split a package only when independent installation is useful.
+The collection has 9 generic capability packages and 12 optional technical packages. I group specialist tools and operating platforms into two explicit optional packages rather than create a plugin for every tool. Split a package only when independent installation is useful.
 
 | Plugin | Applicability | Skills | Responsibility |
 | --- | --- | --- | --- |
 | `strategy` | Generic | 4 | Business direction, product priorities and evidence-based feedback. |
-| `development` | Generic | 42 | SDLC engagements, project foundations, contribution flow and verification; usable without stack packages. |
-| `security` | Generic | 2 | Application authorization, privacy boundaries and secure feature implementation. |
-| `operations` | Generic | 12 | Service reliability, signals, incidents, recovery, capacity and security upkeep. |
+| `sdlc` | Generic | 53 | Full SDLC: activities, artifact model, delivery, operations, security, governance, project foundations and verification. |
 | `frontend-development` | Generic | 5 | Integrated interface design, UX writing and usability research across web, desktop and mobile. |
 | `backend-development` | Generic | 1 | Service authority, state, failure, durable work and consumer contracts. |
 | `ai-development` | Generic | 3 | AI application/architecture and protocol design; testing/evaluation methods; AI-specific operating decisions and evidence. |
-| `delivery` | Generic | 1 | CI/release/deployment methods, immutable artifacts, promotion, compatibility and recovery. |
 | `documentation` | Generic support | 2 | Cross-type technical writing craft and prose editing. |
 | `visualization` | Generic support | 3 | Diagrams, presentations and interactive system explanation; preserve executable resources. |
 | `backend-python-development` | Technical | 3 | Python/FastAPI/persistence and Python automation; no backend service required for CLI work. |
@@ -296,7 +292,6 @@ The collection has 13 generic capability packages and 12 optional technical pack
 | `database-development` | Generic | 2 | Data contracts, consistency, schema evolution and evidence-led performance methods. |
 | `database-postgresql-development` | Technical | 3 | PostgreSQL development, diagnostics and operating mechanics. |
 | `saas-development` | Generic | 3 | Tenant/customer and commercial lifecycle, SaaS dashboard design and scoped readiness. |
-| `governance` | Generic | 3 | Applicability, accountable controls and GDPR/SOC 2 readiness evidence. |
 | `typescript-development` | Technical | 1 | Runtime/module/package contracts and TypeScript implementation verification without React. |
 | `go-development` | Technical | 1 | Go module/package, lifecycle, error and verification contracts for services, libraries and CLIs. |
 
@@ -306,16 +301,16 @@ Generic means no required language, framework, provider or platform selection. C
 
 | Decision or work | Owner | Boundary |
 | --- | --- | --- |
-| Requested project setup/adoption | setup in development | Coordinates the agreed foundation work; does not replace product/architecture decisions or authorize feature implementation. |
-| Repository structure, configuration contract, local commands, onboarding and applicable checks | project-conventions in development | Owns the foundation outcomes; accepted layout and tooling take precedence. |
-| Worktree, branch, staging, commit and PR mechanics | git-contributions in development | Keeps the objective reviewable; does not own runtime/package setup. |
-| Product-to-design-to-implementation engagement | develop in development | Establishes needed outcomes within scope; optional discipline packages deepen the method. |
-| CI, versioned artifacts, release/deployment compatibility, promotion and recovery | delivery-pipelines in delivery | Owns provider-neutral delivery decisions and evidence; an unknown target remains an unresolved boundary. |
-| Explicit release/readiness engagement | release in development | Coordinates the requested action and stopping point; delivery expertise is optional, not an automatic installation. |
+| Requested project setup/adoption | setup in sdlc | Coordinates the agreed foundation work; does not replace product/architecture decisions or authorize feature implementation. |
+| Repository structure, configuration contract, local commands, onboarding and applicable checks | project-conventions in sdlc | Owns the foundation outcomes; accepted layout and tooling take precedence. |
+| Worktree, branch, staging, commit and PR mechanics | git-contributions in sdlc | Keeps the objective reviewable; does not own runtime/package setup. |
+| Product-to-design-to-implementation engagement | develop in sdlc | Establishes needed outcomes within scope; optional discipline packages deepen the method. |
+| CI, versioned artifacts, release/deployment compatibility, promotion and recovery | release in sdlc (delivery domain) | Owns provider-neutral delivery decisions and evidence through the delivery pipeline reference; an unknown target remains an unresolved boundary. |
+| Explicit release/readiness engagement | release in sdlc | Coordinates the requested action and stopping point; delivery expertise is optional, not an automatic installation. |
 | Python/React/native/AI build, package and configuration mechanics | Matching technical package | Implements accepted decisions with compatible APIs and tools. |
 | GitHub Actions, Docker/Compose, registry and checker configuration | development-tooling | Supplies selected implementation details; no implied provider adoption or publication. |
-| Signal/recovery requirements, incidents and restoration exercises | operations | Owns running-system outcomes; platform and telemetry-backend configuration is optional technical expertise. |
-| Artifact contracts, homes and authoritative knowledge | artifact-system in development; project-conventions for the repository map | Keeps artifact types, homes, quality and assurance current; architecture explanation and writing craft are separate domain/craft methods. |
+| Signal/recovery requirements, incidents and restoration exercises | sdlc (operations domain) | Owns running-system outcomes; platform and telemetry-backend configuration is optional technical expertise. |
+| Artifact contracts, homes and authoritative knowledge | artifact-system in sdlc; project-conventions for the repository map | Keeps artifact types, homes, quality and assurance current; architecture explanation and writing craft are separate domain/craft methods. |
 
 A workflow-only setup still establishes applicable onboarding, reproducible commands, meaningful checks and artifact/delivery/recovery expectations. It uses available project facts and tools without promising specialist depth. Missing optional guidance neither deletes these outcomes nor requires installation. Methods are selected by needed capability against observed descriptions, with no cross-plugin filesystem links or automatic explicit-only task invocations.
 
@@ -337,7 +332,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 121 skills and their current owners</summary>
+<summary>All 114 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -345,61 +340,58 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [business-strategy](../../plugins/strategy/skills/business-strategy/SKILL.md) | Local | `strategy` |
 | [learn-from-product-feedback](../../plugins/strategy/skills/learn-from-product-feedback/SKILL.md) | Local | `strategy` |
 | [product-management](../../plugins/strategy/skills/product-management/SKILL.md) | Local | `strategy` |
-| [agents-md](https://github.com/getsentry/skills/tree/f57ada2d0b640406ea7e25b11d636c530e77c58b/skills/agents-md) | Upstream | `development` |
-| [code-review](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/code-review) | Upstream | `development` |
-| [codebase-design](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/codebase-design) | Upstream | `development` |
-| [dependencies](../../plugins/development/skills/dependencies/SKILL.md) | Local | `development` |
-| [design](../../plugins/development/skills/design/SKILL.md) | Local | `development` |
-| [develop](../../plugins/development/skills/develop/SKILL.md) | Local | `development` |
-| [fix](../../plugins/development/skills/fix/SKILL.md) | Local | `development` |
-| [diagnosing-bugs](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/diagnosing-bugs) | Upstream | `development` |
-| [differential-review](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/differential-review/skills/differential-review) | Upstream | `development` |
-| [domain-modeling](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/domain-modeling) | Upstream | `development` |
-| [artifact-system](../../plugins/development/skills/artifact-system/SKILL.md) | Local | `development` |
-| [activity-system](../../plugins/development/skills/activity-system/SKILL.md) | Local | `development` |
-| [git-contributions](../../plugins/development/skills/git-contributions/SKILL.md) | Local | `development` |
-| [grill-me](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grill-me) | Upstream | `development` |
-| [grill-with-docs](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/grill-with-docs) | Upstream | `development` |
-| [grilling](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grilling) | Upstream | `development` |
-| [handoff](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/handoff) | Upstream | `development` |
-| [harden](../../plugins/development/skills/harden/SKILL.md) | Local | `development` |
-| [implement](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/implement) | Upstream | `development` |
-| [implement-spec](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/implement-spec) | Upstream | `development` |
-| [improve](../../plugins/development/skills/improve/SKILL.md) | Local | `development` |
-| [improve-codebase-architecture](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/improve-codebase-architecture) | Upstream | `development` |
-| [journey-testing](../../plugins/development/skills/journey-testing/SKILL.md) | Local | `development` |
-| [plan](../../plugins/development/skills/plan/SKILL.md) | Local | `development` |
-| [project-conventions](../../plugins/development/skills/project-conventions/SKILL.md) | Local | `development` |
-| [property-based-testing](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/property-based-testing/skills/property-based-testing) | Upstream | `development` |
-| [prototype](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/prototype) | Upstream | `development` |
-| [refine](../../plugins/development/skills/refine/SKILL.md) | Local | `development` |
-| [release](../../plugins/development/skills/release/SKILL.md) | Local | `development` |
-| [requirements-engineering](../../plugins/development/skills/requirements-engineering/SKILL.md) | Local | `development` |
-| [research](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/research) | Upstream | `development` |
-| [resilience-testing](../../plugins/development/skills/resilience-testing/SKILL.md) | Local | `development` |
-| [retro](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/retro) | Upstream | `development` |
-| [review](../../plugins/development/skills/review/SKILL.md) | Local | `development` |
-| [security-and-privacy-design](../../plugins/security/skills/security-and-privacy-design/SKILL.md) | Local | `security` |
-| [setup](../../plugins/development/skills/setup/SKILL.md) | Local | `development` |
-| [system-design](../../plugins/development/skills/system-design/SKILL.md) | Local | `development` |
-| [system-documentation](../../plugins/development/skills/system-documentation/SKILL.md) | Local | `development` |
-| [tdd](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/tdd) | Upstream | `development` |
-| [test](../../plugins/development/skills/test/SKILL.md) | Local | `development` |
-| [to-questionnaire](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/to-questionnaire) | Upstream | `development` |
-| [to-spec](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/to-spec) | Upstream | `development` |
-| [writing-for-agents](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/writing-for-agents) | Upstream | `development` |
-| [credential-lifecycle](../../plugins/operations/skills/credential-lifecycle/SKILL.md) | Local | `operations` |
-| [incident-response](../../plugins/operations/skills/incident-response/SKILL.md) | Local | `operations` |
-| [observability-operations](../../plugins/operations/skills/observability-operations/SKILL.md) | Local | `operations` |
-| [operational-housekeeping](../../plugins/operations/skills/operational-housekeeping/SKILL.md) | Local | `operations` |
-| [optimize-application-cost](../../plugins/operations/skills/optimize-application-cost/SKILL.md) | Local | `operations` |
-| [plan-application-capacity](../../plugins/operations/skills/plan-application-capacity/SKILL.md) | Local | `operations` |
-| [postmortem-facilitation](../../plugins/operations/skills/postmortem-facilitation/SKILL.md) | Local | `operations` |
-| [postmortem-followup](../../plugins/operations/skills/postmortem-followup/SKILL.md) | Local | `operations` |
-| [protect-and-restore-data](../../plugins/operations/skills/protect-and-restore-data/SKILL.md) | Local | `operations` |
-| [reliability-design](../../plugins/operations/skills/reliability-design/SKILL.md) | Local | `operations` |
-| [runbook-engineering](../../plugins/operations/skills/runbook-engineering/SKILL.md) | Local | `operations` |
-| [vulnerability-management](../../plugins/operations/skills/vulnerability-management/SKILL.md) | Local | `operations` |
+| [agents-md](https://github.com/getsentry/skills/tree/f57ada2d0b640406ea7e25b11d636c530e77c58b/skills/agents-md) | Upstream | `sdlc` |
+| [code-review](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/code-review) | Upstream | `sdlc` |
+| [codebase-design](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/codebase-design) | Upstream | `sdlc` |
+| [dependencies](../../plugins/sdlc/skills/dependencies/SKILL.md) | Local | `sdlc` |
+| [design](../../plugins/sdlc/skills/design/SKILL.md) | Local | `sdlc` |
+| [develop](../../plugins/sdlc/skills/develop/SKILL.md) | Local | `sdlc` |
+| [fix](../../plugins/sdlc/skills/fix/SKILL.md) | Local | `sdlc` |
+| [diagnosing-bugs](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/diagnosing-bugs) | Upstream | `sdlc` |
+| [differential-review](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/differential-review/skills/differential-review) | Upstream | `sdlc` |
+| [domain-modeling](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/domain-modeling) | Upstream | `sdlc` |
+| [artifact-system](../../plugins/sdlc/skills/artifact-system/SKILL.md) | Local | `sdlc` |
+| [capacity-and-cost](../../plugins/sdlc/skills/capacity-and-cost/SKILL.md) | Local | `sdlc` |
+| [compliance-readiness](../../plugins/sdlc/skills/compliance-readiness/SKILL.md) | Local | `sdlc` |
+| [postmortem](../../plugins/sdlc/skills/postmortem/SKILL.md) | Local | `sdlc` |
+| [security-maintenance](../../plugins/sdlc/skills/security-maintenance/SKILL.md) | Local | `sdlc` |
+| [activity-system](../../plugins/sdlc/skills/activity-system/SKILL.md) | Local | `sdlc` |
+| [git-contributions](../../plugins/sdlc/skills/git-contributions/SKILL.md) | Local | `sdlc` |
+| [grill-me](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grill-me) | Upstream | `sdlc` |
+| [grill-with-docs](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/grill-with-docs) | Upstream | `sdlc` |
+| [grilling](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grilling) | Upstream | `sdlc` |
+| [handoff](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/handoff) | Upstream | `sdlc` |
+| [harden](../../plugins/sdlc/skills/harden/SKILL.md) | Local | `sdlc` |
+| [implement](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/implement) | Upstream | `sdlc` |
+| [implement-spec](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/implement-spec) | Upstream | `sdlc` |
+| [improve](../../plugins/sdlc/skills/improve/SKILL.md) | Local | `sdlc` |
+| [improve-codebase-architecture](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/improve-codebase-architecture) | Upstream | `sdlc` |
+| [journey-testing](../../plugins/sdlc/skills/journey-testing/SKILL.md) | Local | `sdlc` |
+| [plan](../../plugins/sdlc/skills/plan/SKILL.md) | Local | `sdlc` |
+| [project-conventions](../../plugins/sdlc/skills/project-conventions/SKILL.md) | Local | `sdlc` |
+| [property-based-testing](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/property-based-testing/skills/property-based-testing) | Upstream | `sdlc` |
+| [prototype](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/prototype) | Upstream | `sdlc` |
+| [refine](../../plugins/sdlc/skills/refine/SKILL.md) | Local | `sdlc` |
+| [release](../../plugins/sdlc/skills/release/SKILL.md) | Local | `sdlc` |
+| [requirements-engineering](../../plugins/sdlc/skills/requirements-engineering/SKILL.md) | Local | `sdlc` |
+| [research](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/research) | Upstream | `sdlc` |
+| [resilience-testing](../../plugins/sdlc/skills/resilience-testing/SKILL.md) | Local | `sdlc` |
+| [retro](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/retro) | Upstream | `sdlc` |
+| [review](../../plugins/sdlc/skills/review/SKILL.md) | Local | `sdlc` |
+| [security-and-privacy-design](../../plugins/sdlc/skills/security-and-privacy-design/SKILL.md) | Local | `sdlc` |
+| [setup](../../plugins/sdlc/skills/setup/SKILL.md) | Local | `sdlc` |
+| [system-design](../../plugins/sdlc/skills/system-design/SKILL.md) | Local | `sdlc` |
+| [system-documentation](../../plugins/sdlc/skills/system-documentation/SKILL.md) | Local | `sdlc` |
+| [tdd](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/tdd) | Upstream | `sdlc` |
+| [test](../../plugins/sdlc/skills/test/SKILL.md) | Local | `sdlc` |
+| [to-questionnaire](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/to-questionnaire) | Upstream | `sdlc` |
+| [to-spec](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/to-spec) | Upstream | `sdlc` |
+| [writing-for-agents](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/writing-for-agents) | Upstream | `sdlc` |
+| [incident-response](../../plugins/sdlc/skills/incident-response/SKILL.md) | Local | `sdlc` |
+| [observability](../../plugins/sdlc/skills/observability/SKILL.md) | Local | `sdlc` |
+| [operations-review](../../plugins/sdlc/skills/operations-review/SKILL.md) | Local | `sdlc` |
+| [data-recovery](../../plugins/sdlc/skills/data-recovery/SKILL.md) | Local | `sdlc` |
+| [runbook-authoring](../../plugins/sdlc/skills/runbook-authoring/SKILL.md) | Local | `sdlc` |
 | [interface-design](../../plugins/frontend-development/skills/interface-design/SKILL.md) | Local | `frontend-development` |
 | [impeccable](https://github.com/pbakaus/impeccable/tree/c3bb418ee38ee49a6b999b7752c1368f3123a2bd/plugin/skills/impeccable) | Upstream | `frontend-development` |
 | [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/b7d5353e0130feb8c5574ef1251f8a1db1873ccb/.claude/skills/ui-ux-pro-max) | Upstream | `frontend-development` |
@@ -409,7 +401,6 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [ai-development](../../plugins/ai-development/skills/ai-development/SKILL.md) | Local | `ai-development` |
 | [ai-testing](../../plugins/ai-development/skills/ai-testing/SKILL.md) | Local | `ai-development` |
 | [ai-operations](../../plugins/ai-development/skills/ai-operations/SKILL.md) | Local | `ai-development` |
-| [delivery-pipelines](../../plugins/delivery/skills/delivery-pipelines/SKILL.md) | Local | `delivery` |
 | [technical-writing](../../plugins/documentation/skills/technical-writing/SKILL.md) | Local | `documentation` |
 | [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) | Upstream | `documentation` |
 | [architecture-diagramming](../../plugins/visualization/skills/architecture-diagramming/SKILL.md) | Local | `visualization` |
@@ -453,13 +444,10 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [postgresql-development](../../plugins/database-postgresql-development/skills/postgresql-development/SKILL.md) | Local | `database-postgresql-development` |
 | [postgresql-operations](../../plugins/database-postgresql-development/skills/postgresql-operations/SKILL.md) | Local | `database-postgresql-development` |
 | [postgresql-performance](../../plugins/database-postgresql-development/skills/postgresql-performance/SKILL.md) | Local | `database-postgresql-development` |
-| [security-auth-development](../../plugins/security/skills/security-auth-development/SKILL.md) | Local | `security` |
+| [security-auth-development](../../plugins/sdlc/skills/security-auth-development/SKILL.md) | Local | `sdlc` |
 | [saas-dashboard-design](../../plugins/saas-development/skills/saas-dashboard-design/SKILL.md) | Local | `saas-development` |
 | [saas-design](../../plugins/saas-development/skills/saas-design/SKILL.md) | Local | `saas-development` |
 | [saas-readiness](../../plugins/saas-development/skills/saas-readiness/SKILL.md) | Local | `saas-development` |
-| [compliance-design](../../plugins/governance/skills/compliance-design/SKILL.md) | Local | `governance` |
-| [gdpr-readiness](../../plugins/governance/skills/gdpr-readiness/SKILL.md) | Local | `governance` |
-| [soc2-readiness](../../plugins/governance/skills/soc2-readiness/SKILL.md) | Local | `governance` |
 | [typescript-conventions](../../plugins/typescript-development/skills/typescript-conventions/SKILL.md) | Local | `typescript-development` |
 | [go-conventions](../../plugins/go-development/skills/go-conventions/SKILL.md) | Local | `go-development` |
 
@@ -475,9 +463,9 @@ Figma remains optional tooling declared by frontend-development; the React techn
 
 ### Verification coverage
 
-The assignment covers 81 local skills and 40 distinct acquired skills exactly once, with no omissions or duplicate owners.
+The assignment covers 74 local skills and 40 distinct acquired skills exactly once, with no omissions or duplicate owners.
 
-All packages build together with `--all` and independently with explicit selection. Package checks verify inventories, local-resource parity, notices, required framing, and transitive owned Markdown links staying inside their bundle. CI also checks the default development-only build. These checks do not establish agent behavior; behavioral evaluations remain deferred.
+All packages build together with `--all` and independently with explicit selection. Package checks verify inventories, local-resource parity, notices, required framing, and transitive owned Markdown links staying inside their bundle. CI also checks the default sdlc-only build. These checks do not establish agent behavior; behavioral evaluations remain deferred.
 
 ### Capability-based composition
 

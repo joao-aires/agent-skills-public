@@ -5,6 +5,9 @@ user-invocable: true
 metadata:
   kind: method
   origin: local
+  pack: technical
+  domain: frontend
+  phase: design
   scope: generic
   invocation: both
   role: support

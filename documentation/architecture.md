@@ -1,8 +1,8 @@
 # Plugin and skill architecture
 
-The collection separates the work someone requests, the expertise that improves it and the technology chosen for its implementation. I package useful capabilities as plugins. A plugin is an installation and update boundary; it does not define an execution order or require other plugins.
+The collection separates the work someone requests, the expertise that improves it and the technology chosen for its implementation. I package useful capabilities as plugins. A plugin is an installation and update boundary; it does not define an execution order or require other plugins. The [metadata contract](metadata.md) records the skill, pack, domain and phase classification used across the collection.
 
-The repository builds 25 independently selectable plugins: 13 generic capability packages and 12 technical packages. The [ownership map](maintainers/sources.md#plugin-ownership) assigns all 121 skills. Development is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. Distribution uses complete built plugins; the legacy local-skill helper is a migration aid.
+The repository builds 21 independently selectable plugins: 9 generic capability packages and 12 technical packages. The [ownership map](maintainers/sources.md#plugin-ownership) assigns all 114 skills. SDLC is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. Distribution uses complete built plugins; the legacy local-skill helper is a migration aid.
 
 ## Activities, methods and technical expertise
 
@@ -85,7 +85,7 @@ Adding stack expertise should improve matching through its description and imple
 
 ## Implementation and evidence
 
-The builder supports independent packages and a development-only default; workflow guidance defines capability selection and fallback. Required internal Markdown resources and injected upstream framing are checked within each package. Every package is built and checked independently, in addition to the complete build. The [installation guide](installation.md) describes selection and client-specific loading; documented setup does not establish client discovery or correct agent behavior.
+The builder supports independent packages and an SDLC-only default; workflow guidance defines capability selection and fallback. Required internal Markdown resources and injected upstream framing are checked within each package. Every package is built and checked independently, in addition to the complete build. The [installation guide](installation.md) describes selection and client-specific loading; documented setup does not establish client discovery or correct agent behavior.
 
 Metadata, link, containment, inventory and resource checks establish packaging integrity. They do not establish that an agent discovers the right expertise, uses it well or produces a working application. Behavioral coverage is incomplete. Evaluation should exercise matching specialists present, absent and partially available, plus an existing different stack, a client without discovery and a genuinely unavailable execution target. Judge preserved outcomes, scope and evidence rather than particular skill names or read counts. See [evaluation procedures and limits](maintainers/evaluations.md).
 

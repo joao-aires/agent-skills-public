@@ -4,6 +4,9 @@ description: Create or refine responsive, theme-aware HTML architecture diagrams
 metadata:
   kind: activity
   origin: local
+  pack: craft
+  domain: visualization
+  phase: design
   version: '2.0'
   scope: generic
   invocation: user

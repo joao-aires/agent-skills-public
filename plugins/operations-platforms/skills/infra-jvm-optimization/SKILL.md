@@ -6,6 +6,9 @@ description: Measure and improve application/infrastructure resource efficiency,
 metadata:
   kind: activity
   origin: local
+  pack: technical
+  domain: platform
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Java, JVM, Kubernetes
