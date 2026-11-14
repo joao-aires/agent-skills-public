@@ -1,15 +1,46 @@
 # Development plugin: activities, artifacts and evidence
 
-The `development` plugin is the default bundle for SDLC work. It carries the activity entry points, project foundations, contribution flow, verification methods and two shared systems:
+The `development` plugin is the default bundle for SDLC work. It carries the activity entry points, project foundations, contribution flow, verification methods and two core models:
 
-- the **activity system**, which routes the work;
-- the **artifact system**, which gives every durable output a shared model.
+- the **activity model**, which routes the work;
+- the **artifact model**, which gives every durable output a shared shape.
 
 > **Artifact system in one sentence:** every durable engineering output is an artifact with a type, plane, home, authority, maturity, relations and evidence; the artifact system is the shared model that keeps those artifacts sufficient, navigable and consistent.
 
 > **Activity system in one sentence:** every requested engagement is an activity with an intent, entry conditions, output, stopping point, authority, artifacts and evidence; the activity system is the router that keeps work scoped and composable.
 
-These are peers. The activity system decides **what work is being done and where it stops**. The artifact system decides **what durable outputs are produced, where they live, and what evidence they carry**.
+These are the two core models. The activity system decides **what work is being done and where it stops**. The artifact system decides **what durable outputs are produced, where they live, and what evidence they carry**.
+
+## The conceptual model
+
+The rest of the plugin is composed from a small set of concepts. Two are core models; the others are composition layers or dimensions.
+
+| Concept | Question it answers | Status |
+| --- | --- | --- |
+| **Artifact** | What durable output is produced? | Core model — `artifact-system` |
+| **Activity** | What work is requested, and where does it stop? | Core model — `activity-system` |
+| **Method** | What reusable expertise deepens the work? | Supporting capability — TDD, code review, requirements engineering |
+| **Workflow** | What ordered sequence carries the work out? | Composition pattern — e.g. the contribution workflow |
+| **Role** | Who participates? | Dimension — product, implementer, reviewer, operator |
+| **Phase** | Where in the SDLC lifecycle? | Dimension — planning, requirements, design, implementation, verification, release, maintenance |
+| **Home** | Where does the artifact live? | Dimension — engineering workspace, repo, tracker, provider, operations repo |
+| **Evidence** | What supports the claim? | Quality and assurance — quality bar, artifact assurance |
+
+Artifact and activity are the core. Method, workflow, role, phase, home and evidence are not competing top-level systems; they are layers or dimensions applied to those two models.
+
+### Workflow is a composition, not a third core model
+
+A workflow is an **ordered execution path inside or around an activity**. It is not a new core object.
+
+- An **activity** is “implement the agreed change” or “verify this behavior.”
+- A **workflow** is “create a worktree → verify → commit → push → open or update the PR.”
+- A **method** is “how to review a diff” or “how to design a test.”
+
+`git-contributions` is the clearest workflow-shaped method in the current plugin. It sequences contribution mechanics and produces or updates artifacts, but it does not own the PR artifact. The PR contract owns the reviewer-facing content; the workflow owns the mechanics.
+
+The same distinction applies elsewhere: `release` is an activity, while readiness → promotion → verification → observation is a workflow; `system-documentation` is an activity-shaped method, while trace → evidence → view is its internal sequence.
+
+If the same ordered sequence is reused across several activities, it can become a formal reference under `activity-system/references/workflows/`. Until then, “workflow” remains a useful label for a method’s internal sequence, not a separate system.
 
 ## Why the plugin is organized this way
 
@@ -199,6 +230,10 @@ The storage mechanics for coordination artifacts now live inside `artifact-syste
 
 `test` is the **verification** activity. It selects and runs checks, observes real behavior, reviews completion evidence and reports coverage gaps. It absorbed the former completion method. It does not merge, deploy or publish.
 
+### Contribution workflow
+
+`git-contributions` is a workflow-shaped support method. It owns the ordered mechanics: establish the objective worktree, verify and commit, push, and create or update the pull request. It does not own the PR artifact’s content; the [PR contract](skills/artifact-system/references/contracts/pr.md) owns the reviewer-facing why, what, design impact, validation at the current head, risk, links and visibility. The workflow produces the artifact; the contract defines it.
+
 ### Domain methods
 
 Requirements engineering, system design, system documentation, security, operations, database, frontend, backend and AI skills own their subject methods. The artifact contracts link to them by capability; the activity system composes them without duplicating their content.
@@ -217,7 +252,7 @@ Technical writing lives in the documentation plugin. It owns reader fit, explana
 2. **Contracts are thin routers, not methods.** A contract says what the artifact must contain and which domain/craft capability to use. It does not re-teach architecture, product strategy or prose.
 3. **Progressive disclosure.** The system skill carries the model and reading path. Contracts, activity references and domain skills load only when relevant.
 4. **Capability-based composition.** Use available subject and craft expertise by description, not a hardcoded dependency graph.
-5. **Stable vocabulary.** Artifact, type, plane, home, authority, maturity, contract, relation, evidence, activity, stopping point and transition mean the same thing in every skill.
+5. **Stable vocabulary.** Artifact, type, plane, home, authority, maturity, contract, relation, evidence, activity, stopping point, transition, method, workflow, role and phase mean the same thing in every skill.
 6. **Separate what / how / where / whether.** What = artifact contract. How = domain method and craft. Where = homes and repository map. Whether = quality bar and assurance.
 7. **No universal template.** A PRD, ADR, runbook and ECR have different functional requirements. The shared model is fields and relations, not identical sections.
 8. **Evaluate composition, not just individual skills.** A change should be judged by whether the PRD, ECR, RFC/ADR, issue, PR, code, tests, architecture view and runbook agree on scope, status, revision and evidence.
