@@ -69,6 +69,20 @@ For a coordination change, the ECR remains the evolving account. For repository 
 
 The [catalog](references/catalog.md) owns selection, authority and default homes. The [ECR contract](references/contracts/ecr.md) owns the seven sections, status semantics and phase readiness. The [design-proposal contract](references/contracts/design-proposal.md) owns the options, representations, seam and decision content wherever the proposal is materialized. The [issue](references/contracts/issue.md) and [PR](references/contracts/pr.md) contracts own their reader views. The [architecture-set](references/contracts/architecture-set.md), [runbook](references/contracts/runbook.md), [work-product](references/contracts/work-product.md), [release-note](references/contracts/release-note.md), [Repository README](references/contracts/repository-readme.md) and [guide](references/contracts/guide.md) contracts own their artifact types. The [research report](references/contracts/research-report.md), [RFC](references/contracts/rfc.md), [decision record](references/contracts/adr.md), [product brief](references/contracts/prd.md) and [roadmap](references/contracts/roadmap.md) contracts own the adjacent artifact types.
 
+## View and artifact guides
+
+View artifacts are artifacts too. They usually inherit authority from the design proposal or architecture set; these guides own their structure, notation, fidelity and review:
+
+| Guide | Use for |
+| --- | --- |
+| [Wireframe](../guide-wireframe/SKILL.md) | Screen structure, navigation, task flow and states |
+| [Figma file](../guide-figma-file/SKILL.md) | File structure, components, revisions, permissions and handoff |
+| [C4 view](../guide-c4-view/SKILL.md) | Boundaries, actors, responsibilities and dependencies |
+| [Sequence view](../guide-sequence-view/SKILL.md) | Ordering, async work, failure, retry and recovery |
+| [State machine](../guide-state-machine/SKILL.md) | States, triggers, guards and denied transitions |
+| [Evaluation plan](../guide-evaluation-plan/SKILL.md) | AI cases, graders, baselines and regression |
+| [Compatibility matrix](../guide-compatibility-matrix/SKILL.md) | Versions, platforms, consumers and deprecation |
+
 ## Present outcomes
 
 Open with the current outcome, the strongest evidence or evidence gap, and the next action or decision with its owner when known. State scope and disposition together. Use short paragraphs for rationale, lists for acceptance and actions, and tables when alternatives share meaningful comparison dimensions.

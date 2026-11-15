@@ -27,6 +27,20 @@ The ECR is the default coordination artifact for a coherent engineering change. 
 | Entry | Guide / tutorial | Bounded task or learning path with verification and recovery | `docs/guides/` or docs site | [Guide](contracts/guide.md) |
 | Entry | Glossary | Shared domain and system terms | `docs/glossary.md` or docs site | Use the docs index; keep terms consistent across artifacts. |
 
+## View artifacts
+
+Wireframes, Figma files, C4 views, sequence views, state machines, evaluation plans and compatibility matrices are **artifacts** with identity, home, authority, maturity, relations and evidence. They usually use the design proposal or architecture set as their authority rather than a separate contract type. Read the matching guide for structure, notation and review.
+
+| View artifact | Reader question | Authority | Guide |
+| --- | --- | --- | --- |
+| Wireframe / wireflow | What does the user see, in what order, and what changes? | Design proposal | [Wireframe](../../guide-wireframe/SKILL.md) |
+| Figma file | What is the inspectable design, its revision and its access boundary? | Design proposal or accepted design system | [Figma file](../../guide-figma-file/SKILL.md) |
+| C4 view | What is the boundary, responsibility and dependency? | Architecture set, or proposed target in the design record | [C4 view](../../guide-c4-view/SKILL.md) |
+| Sequence view | What happens in what order, including failure? | Architecture set or design proposal | [Sequence view](../../guide-sequence-view/SKILL.md) |
+| State machine | Which states, transitions, guards and denied paths exist? | Design proposal or architecture set | [State machine](../../guide-state-machine/SKILL.md) |
+| Evaluation plan | Which cases, graders and baselines judge the AI behavior? | Design proposal and AI testing | [Evaluation plan](../../guide-evaluation-plan/SKILL.md) |
+| Compatibility matrix | Which versions, platforms and consumers are supported? | API/public-surface contract | [Compatibility matrix](../../guide-compatibility-matrix/SKILL.md) |
+
 ## Maturity and evidence by artifact
 
 Each artifact states its own maturity. Do not promote a later phase's claim into an earlier artifact.

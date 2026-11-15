@@ -89,14 +89,14 @@ unknown or undecided.
 
 ## Representation by software type
 
-A representation is sufficient when a reviewer can judge the option's behavior for the active type. It is a view or evidence, not a new artifact type.
+A representation is sufficient when a reviewer can judge the option's behavior for the active type. It is a **view artifact**, not the decision or a separate contract type. Read the matching guide for structure, notation, fidelity and review.
 
-| Type | Acceptable representations |
-| --- | --- |
-| [Frontend](../software-types/frontend.md) | Wireframe, mockup, Figma frame, rendered slice, interactive prototype, component-state view |
-| [Backend](../software-types/backend.md) | API/event contract, sequence, C4 context/container/component, data/ownership view, state machine |
-| [AI](../software-types/ai.md) | Context/retrieval/tool flow, data contract, evaluation plan and case matrix, harness view |
-| [Library/CLI](../software-types/library-cli.md) | API or command surface, compatibility matrix, dependency surface, usage and failure examples |
+| Type | Acceptable representations | Guide |
+| --- | --- | --- |
+| [Frontend](../software-types/frontend.md) | Wireframe, mockup, Figma frame, rendered slice, interactive prototype, component-state view | [Wireframe](../../../guide-wireframe/SKILL.md), [Figma file](../../../guide-figma-file/SKILL.md) |
+| [Backend](../software-types/backend.md) | API/event contract, sequence, C4 context/container/component, data/ownership view, state machine | [C4](../../../guide-c4-view/SKILL.md), [sequence](../../../guide-sequence-view/SKILL.md), [state machine](../../../guide-state-machine/SKILL.md) |
+| [AI](../software-types/ai.md) | Context/retrieval/tool flow, data contract, evaluation plan and case matrix, harness view | [Evaluation plan](../../../guide-evaluation-plan/SKILL.md) |
+| [Library/CLI](../software-types/library-cli.md) | API or command surface, compatibility matrix, dependency surface, usage and failure examples | [Compatibility matrix](../../../guide-compatibility-matrix/SKILL.md) |
 
 Use the [architecture-set contract](architecture-set.md) when a C4, sequence or data view becomes durable system knowledge. Use the [diagram lifecycle](../diagram-lifecycle.md) to keep current and proposed views distinct.
 

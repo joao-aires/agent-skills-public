@@ -19,7 +19,7 @@ The rest of the plugin is composed from a small set of concepts. Two are core mo
 | --- | --- | --- |
 | **Artifact** | What durable output is produced? | Core model — `artifact-system` |
 | **Activity** | What work is requested, and where does it stop? | Core model — `activity-system` |
-| **Method** | What reusable expertise deepens the work? | Supporting capability — TDD, code review, requirements engineering |
+| **Method** | What reusable expertise deepens the work? | Supporting capability — TDD, code review, requirements engineering, `guide-*` artifact guides |
 | **Workflow** | What ordered sequence carries the work out? | Composition pattern — e.g. the contribution workflow |
 | **Role** | Who participates? | Dimension — product, implementer, reviewer, operator |
 | **Phase** | Where in the SDLC lifecycle? | Dimension — planning, requirements, design, implementation, verification, release, maintenance |
@@ -255,6 +255,22 @@ Start at [activity system](skills/activity-system/SKILL.md). Use the [catalog](s
 `design` is the design activity. It frames the decision and affected software types, generates three or more materially different options for consequential choices, requires type-appropriate representations, decides the seam when several types meet, validates the direction when uncertainty is material and hands off without implementing.
 
 Use the [design activity](skills/design/SKILL.md), the [option set](skills/design/references/option-set.md), [design validation](skills/design/references/design-validation.md), [design review](skills/design/references/design-review.md), [software types](skills/artifact-system/references/software-types.md) and the [design proposal contract](skills/artifact-system/references/contracts/design-proposal.md).
+
+### `guide-*` artifact guides
+
+Seven support methods own the craft of a view artifact. They can be used inside `design` or requested directly outside a full lifecycle:
+
+| Guide | Artifact |
+| --- | --- |
+| [guide-wireframe](skills/guide-wireframe/SKILL.md) | Wireframes and wireflows |
+| [guide-figma-file](skills/guide-figma-file/SKILL.md) | Figma files, components, revisions and access |
+| [guide-c4-view](skills/guide-c4-view/SKILL.md) | C4 context, container and component views |
+| [guide-sequence-view](skills/guide-sequence-view/SKILL.md) | Sequence and interaction views |
+| [guide-state-machine](skills/guide-state-machine/SKILL.md) | State machines and denied transitions |
+| [guide-evaluation-plan](skills/guide-evaluation-plan/SKILL.md) | AI evaluation plans |
+| [guide-compatibility-matrix](skills/guide-compatibility-matrix/SKILL.md) | Versions, platforms and consumers |
+
+The artifact system owns the view artifact's identity, home, authority and maturity; the guide owns structure, notation, fidelity and review. This is the split that keeps one contract per artifact type and one guide per artifact.
 
 ### Coordination storage
 

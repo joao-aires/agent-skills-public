@@ -120,6 +120,18 @@ Use [system-design](../plugins/sdlc/skills/system-design/SKILL.md) for architect
 
 Design may run in parallel with requirements or implementation. Use [engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) to keep one focus, several threads and explicit reopens. A greenfield design can be entirely proposed with no implementation; mark the type as assumed when it is not yet settled. No comprehensive design document is required for a trivial local fix.
 
+The `guide-*` support methods own the craft of each view artifact. They can be used inside `design` or requested directly outside a full lifecycle:
+
+| Guide | Artifact |
+| --- | --- |
+| [Wireframe](../plugins/sdlc/skills/guide-wireframe/SKILL.md) | Screen structure, navigation, task flow and states |
+| [Figma file](../plugins/sdlc/skills/guide-figma-file/SKILL.md) | File structure, components, revisions and access |
+| [C4 view](../plugins/sdlc/skills/guide-c4-view/SKILL.md) | Boundaries, actors, responsibilities and dependencies |
+| [Sequence view](../plugins/sdlc/skills/guide-sequence-view/SKILL.md) | Ordering, async work, failure and recovery |
+| [State machine](../plugins/sdlc/skills/guide-state-machine/SKILL.md) | States, triggers, guards and denied transitions |
+| [Evaluation plan](../plugins/sdlc/skills/guide-evaluation-plan/SKILL.md) | AI cases, graders, baselines and regression |
+| [Compatibility matrix](../plugins/sdlc/skills/guide-compatibility-matrix/SKILL.md) | Versions, platforms, consumers and deprecation |
+
 ### 4. Implementation
 
 Start by breaking agreed work into bounded increments and choosing the verification for each. Use [implementation preparation](../plugins/sdlc/skills/activity-system/references/implementation-preparation.md) when dependencies, migration, recovery or coordination warrant an explicit breakdown. Keep it in the ECR implementation strategy or link the existing plan.

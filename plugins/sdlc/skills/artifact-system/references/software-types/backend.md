@@ -17,14 +17,14 @@ Software that serves other software: APIs, services, workers, cron jobs, queue c
 
 ## Representation set
 
-- API or event contract sketch, OpenAPI/protobuf/schema;
-- sequence for a critical operation, retry or failure path;
-- C4 context/container/component views when the boundary changes;
-- data ownership or entity relationship view;
-- state machine for long-running or multi-step work;
-- deployment or topology view when the runtime changes.
+Use the guide for the view that answers the question:
 
-Use the [architecture-set contract](../contracts/architecture-set.md) for durable proposed or current C4/sequence views.
+- [C4 view](../../../guide-c4-view/SKILL.md) for boundaries and responsibilities;
+- [sequence view](../../../guide-sequence-view/SKILL.md) for ordering, retry and failure;
+- [state machine](../../../guide-state-machine/SKILL.md) for long-running or multi-step work;
+- [compatibility matrix](../../../guide-compatibility-matrix/SKILL.md) for consumers, versions and platforms.
+
+Typical representations also include an API or event contract sketch, OpenAPI/protobuf/schema, data ownership or entity relationship view, and deployment or topology view. Use the [architecture-set contract](../contracts/architecture-set.md) for durable proposed or current C4/sequence views.
 
 ## Seam decisions
 

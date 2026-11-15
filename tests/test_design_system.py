@@ -2,6 +2,8 @@
 from pathlib import Path
 import unittest
 
+import yaml
+
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / 'plugins/sdlc/skills/artifact-system/references'
 DESIGN = ROOT / 'plugins/sdlc/skills/design'
@@ -97,6 +99,32 @@ class DesignSystemTests(unittest.TestCase):
         guide = (ROOT / 'documentation/sdlc.md').read_text()
         self.assertIn('software-types.md', guide)
         self.assertIn('design-proposal.md', guide)
+
+    def test_artifact_guides_are_prefixed_sdlc_methods(self):
+        guides = sorted((ROOT / 'plugins/sdlc/skills').glob('guide-*/SKILL.md'))
+        self.assertEqual(len(guides), 7)
+        for path in guides:
+            with self.subTest(guide=path.parent.name):
+                self.assertTrue(path.parent.name.startswith('guide-'))
+                front = path.read_text().split('---', 2)[1]
+                metadata = yaml.safe_load(front)
+                labels = metadata['metadata']
+                self.assertEqual(labels['kind'], 'method')
+                self.assertEqual(labels['pack'], 'sdlc')
+                self.assertEqual(labels['role'], 'support')
+                self.assertEqual(labels['invocation'], 'both')
+                text = path.read_text()
+                for heading in ('## Reader question', '## Minimum content',
+                                '## Common failures', '## Authority, home and review'):
+                    self.assertIn(heading, text)
+
+    def test_skill_map_includes_guides_and_counts(self):
+        text = (ROOT / 'documentation/skills-map.md').read_text()
+        self.assertIn('121 skills', text)
+        for name in ('guide-wireframe', 'guide-figma-file', 'guide-c4-view',
+                     'guide-sequence-view', 'guide-state-machine',
+                     'guide-evaluation-plan', 'guide-compatibility-matrix'):
+            self.assertIn(name, text)
 
 
 if __name__ == '__main__':

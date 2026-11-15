@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "sdlc",
-  "version": "0.6.0",
-  "description": "Full SDLC activities, artifact and activity systems, delivery, operations, security and governance assurance.",
+  "version": "0.7.0",
+  "description": "Full SDLC activities, artifact and activity systems, design and artifact guides, delivery, operations, security and governance assurance.",
   "author": {
     "name": "João Aires"
   },

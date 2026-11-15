@@ -36,6 +36,20 @@ Design is one activity with several modes. They are not separate activities or p
 
 Use the modes proportionately. A small local change may need only a short decision and review. Read [engagement state](engagement-state.md) when design threads run in parallel with requirements or implementation.
 
+## View and artifact guides
+
+These are `guide-*` support methods, not activities. Use one when a design decision needs a specific view artifact; they can also be requested directly outside a full design engagement.
+
+| Guide | Use when | Authority |
+| --- | --- | --- |
+| [guide-wireframe](../../guide-wireframe/SKILL.md) | Screen structure, navigation, task flow or states need a structural representation | Design proposal |
+| [guide-figma-file](../../guide-figma-file/SKILL.md) | A Figma file needs structure, source-of-truth, revision or access rules | Design proposal or accepted design system |
+| [guide-c4-view](../../guide-c4-view/SKILL.md) | System boundaries, actors, responsibilities or dependencies need a view | Architecture set or proposed design record |
+| [guide-sequence-view](../../guide-sequence-view/SKILL.md) | Ordering, async work, failure, retry or recovery needs a view | Architecture set or design proposal |
+| [guide-state-machine](../../guide-state-machine/SKILL.md) | States, triggers, guards or denied transitions need a model | Design proposal or architecture set |
+| [guide-evaluation-plan](../../guide-evaluation-plan/SKILL.md) | AI quality needs cases, graders, baselines and regression | Design proposal and AI testing |
+| [guide-compatibility-matrix](../../guide-compatibility-matrix/SKILL.md) | Versions, platforms, consumers or deprecation need a bounded claim | API/public-surface contract |
+
 ## Operate and learn
 
 | Activity | Use when | Default result | Stopping point | Artifacts | Supporting methods |

@@ -19,12 +19,7 @@ An AI-backed application, agent or model feature: a system whose useful behavior
 
 ## Representation set
 
-- context, retrieval and tool flow;
-- data contract for inputs, outputs and stored context;
-- evaluation plan and case matrix;
-- harness or agent-loop view;
-- prompt/version and model/provider matrix;
-- sequence for a tool call, retrieval or failure path.
+Read [evaluation plan](../../../guide-evaluation-plan/SKILL.md) for cases, graders, baselines and failure behavior. Typical representations also include context/retrieval/tool flow, a data contract for inputs and stored context, a harness or agent-loop view, a prompt/version and model/provider matrix, and a sequence for a tool call or failure path.
 
 ## Seam decisions
 
