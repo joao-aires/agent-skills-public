@@ -8,7 +8,7 @@
       "skills": [
         "activity-system", "artifact-system", "plan", "refine",
         "requirements-engineering", "design", "system-design", "implement",
-        "test", "review", "guide-ecr", "guide-prd",
+        "test", "change-review", "guide-ecr", "guide-prd",
         "guide-design-proposal", "guide-issue", "guide-pr", "guide-readme"
       ],
       "expectations": [
@@ -32,7 +32,7 @@
       "prompt": "Add tags and list-by-tag filtering to the task CLI while preserving existing JSON compatibility and behavior.",
       "skills": [
         "activity-system", "artifact-system", "system-documentation", "refine",
-        "design", "implement", "test", "review", "guide-ecr",
+        "design", "implement", "test", "change-review", "guide-ecr",
         "guide-design-proposal", "guide-issue", "guide-pr", "guide-readme"
       ],
       "expectations": [
@@ -56,7 +56,7 @@
       "prompt": "Reproduce and fix the pagination off-by-one with the smallest correct change, preserve the public contract and add regression coverage.",
       "skills": [
         "activity-system", "artifact-system", "fix", "diagnosing-bugs",
-        "test", "review", "guide-ecr", "guide-pr"
+        "test", "change-review", "guide-ecr", "guide-pr"
       ],
       "expectations": [
         "The original failure is reproduced before the repair",
@@ -79,7 +79,7 @@
       "prompt": "Turn a rough habit-tracker idea into a useful local CLI slice with explicit streak and missed-day behavior, then implement, test and review it.",
       "skills": [
         "activity-system", "artifact-system", "plan", "refine",
-        "requirements-engineering", "design", "implement", "test", "review",
+        "requirements-engineering", "design", "implement", "test", "change-review",
         "guide-prd", "guide-ecr", "guide-design-proposal",
         "guide-design-spec", "guide-issue", "guide-pr", "guide-readme"
       ],

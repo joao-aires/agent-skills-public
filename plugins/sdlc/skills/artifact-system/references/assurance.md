@@ -4,6 +4,9 @@ Apply this method whenever an engineering activity uses or updates an artifact. 
 
 ## Three levels of checks
 
+This reference owns cross-artifact consistency and convergence. Artifact-specific review questions live in the matching guide; shared quality properties live in the [quality bar](quality-bar.md#review-ownership). Do not duplicate those checklists here.
+
+
 1. **Structural and reference integrity** (agent-guided): inspect the ECR's seven named sections and pending/not-applicable/blocked dispositions, real source and artifact references (a resolvable link or an explicit local-only label), proposed/current labels and evidence identifiers. Allow normal nested sections and the configured provider's native document structure; do not attempt to validate arbitrary Markdown with a simplified parser, demand a custom schema, or move private content to another workspace. This check establishes only document organization, **not** correctness, owner approval, implementation or testing.
 2. **Semantic cross-artifact consistency** (evidence-based engineering analysis): compare accepted problem/requirements and acceptance against proposed UX, C4/sequence/contracts, decisions, implementation slices and planned verification. Name the actual contradictory statements and affected artifacts; a polished diagram or "all sections filled" is not sufficient. Specialist architecture/security/UX expertise owns deeper domain reasoning.
 3. **Implementation convergence** (source/test/runtime evidence): compare accepted behavior, design invariants and failure cases against the checked code diff, tests and actual observations. Check that relevant current-state application diagrams/ADRs match implemented source. A check passed at an old commit does not establish a later head. Explicitly distinguish *implemented*, *verified*, *merged*, *released* and *observed in target*.

@@ -35,7 +35,7 @@ Green labels identify entry-point skills or directly requested activities; dashe
 | Agreed implementation needs dependency ordering | Request an implementation breakdown |
 | Build an already-defined change | `implement` |
 | Rough idea through implementation, tests and review | `develop` |
-| Behavior checks and source assessment | `test`, `review`; review also applies earlier |
+| Behavior checks and change assessment | `test`, `change-review`; change review also applies earlier |
 | Delivery readiness or named authorized deployment | `release` |
 | Live incident or restoration | [incident-response](../plugins/sdlc/skills/incident-response/SKILL.md), recovery expertise as applicable |
 | Proactive operation, maintenance and improvement | `improve`, `dependencies`, [observability](../plugins/sdlc/skills/observability/SKILL.md), and other targeted operating skills |
@@ -45,12 +45,12 @@ Green labels identify entry-point skills or directly requested activities; dashe
 
 | Starting situation | Typical work and stopping points |
 | --- | --- |
-| Company product request | Product direction establishes priority → `refine` defines behavior and quality constraints → `design` settles consequential solution choices → `implement` breaks down and builds the change, `test`, `review`, `release` as authorized |
+| Company product request | Product direction establishes priority → `refine` defines behavior and quality constraints → `design` settles consequential solution choices → `implement` breaks down and builds the change, `test`, `change-review`, `release` as authorized |
 | Company refactor / rearchitecture | Inspect current behavior and maintenance pain → `refine` the preserved contracts, migration constraints and expected outcome → `design` alternatives and migration boundary → authorized implementation in compatible increments with rollback and checks |
 | Local agent-assisted feature or new app | Select `develop` for an authorized end-to-end slice; it establishes the missing decisions directly with relevant supporting expertise. Select `plan`, `refine`, `design` or `implement` individually when a bounded artifact or stopping point is desired |
 | Known bug or narrow change | Use `fix` to reproduce, repair and verify the affected behavior. No required planning or new specification ceremony |
 | Incident, recovery or operational drift | Start with the matching operations activity; follow causal evidence and actual operating policy. Turn confirmed learning into a requirement/design/improvement only when warranted |
-| Exploration, security review or architecture question | Request research, `harden`, `review`, design or specialist expertise; stop at the requested analysis rather than beginning implementation |
+| Exploration, security review or architecture question | Request research, `harden`, `change-review`, design or specialist expertise; stop at the requested analysis rather than beginning implementation |
 
 Implementation preparation converts agreed requirements and design into actionable increments, dependencies and tests. It can iterate when implementation discovers a new constraint. The end-to-end `develop` activity does not need to invoke each explicit-only task skill by name to accomplish those outcomes.
 
@@ -137,7 +137,7 @@ Start with the bundled upstream `implement` when explicitly selected, or use `de
 
 ### 5. Testing
 
-Start with [verification](../plugins/sdlc/skills/test/SKILL.md), and use [journey-testing](../plugins/sdlc/skills/journey-testing/SKILL.md), performance/resilience and other specialist methods where relevant. `review` may apply in any phase. Observe real behavior, repair failures and recheck without weakening acceptance.
+Start with [verification](../plugins/sdlc/skills/test/SKILL.md), and use [journey-testing](../plugins/sdlc/skills/journey-testing/SKILL.md), performance/resilience and other specialist methods where relevant. `change-review` may apply in any phase. Observe real behavior, repair failures and recheck without weakening acceptance.
 
 ### 6. Deployment
 
@@ -155,7 +155,7 @@ Maintenance is one lifecycle outcome with four complementary responsibilities: *
 
 [Technical writing](../plugins/documentation/skills/technical-writing/SKILL.md) supplies cross-type writing craft and reader review. [System documentation](../plugins/sdlc/skills/system-documentation/SKILL.md) explains structural/runtime/interface/deployment views with source evidence. The [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) owns artifact contracts, homes, quality and assurance; system-design owns design choices.
 
-Research, explicit clarification, prose editing, documentation, Git contributions, security and operating constraints can support any relevant phase. `review` is not confined to a final gate. Requirements and design can run as parallel threads, and design and verification can recur during implementation; a phase label does not restrict when guidance is useful. Use [engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) to keep the current focus, open threads and reopens explicit.
+Research, explicit clarification, prose editing, documentation, Git contributions, security and operating constraints can support any relevant phase. `change-review` is not confined to a final gate. Requirements and design can run as parallel threads, and design and verification can recur during implementation; a phase label does not restrict when guidance is useful. Use [engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) to keep the current focus, open threads and reopens explicit.
 
 [reliability design](../plugins/sdlc/skills/system-design/references/reliability.md) connects outcomes and SLIs/SLOs to design and operation. [observability](../plugins/sdlc/skills/observability/SKILL.md) supplies signal implementation; the [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) and [project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) keep affected knowledge and its homes current. Upstream research, Humanizer and clarification techniques are listed below. [grill-me](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grill-me) and other explicit workflows still require a request.
 

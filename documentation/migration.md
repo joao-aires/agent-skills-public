@@ -55,6 +55,9 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `observability-operations` | `observability` |
 | `protect-and-restore-data` | `data-recovery` |
 | `deliver-reliable-changes` | `test` (verification and completion evidence) |
+| Upstream `implement` | Local `implement` activity; upstream body and license retained under `references/` |
+
+The local `review` activity is now `change-review`. Because “review” is an ordinary word used throughout the documentation, it is intentionally not listed as a retired skill identity in the table above.
 | `workflow-help` | `activity-system` (help mode) |
 | `engineering-artifacts` | `artifact-system` |
 | `documentation-conventions` | No direct replacement. Placement and home resolution move to `artifact-system`; the project-specific artifact home map is established by `setup` and `project-conventions`. |

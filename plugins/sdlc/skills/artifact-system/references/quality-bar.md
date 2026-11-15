@@ -101,6 +101,21 @@ Every view agrees on scope, status, revision and next action. When one changes, 
 - A link to private content in a public artifact without an access check.
 - A one-line issue in a ready or todo state.
 
+## Review ownership
+
+The review layers have different jobs. Do not duplicate the same checklist across them.
+
+| Layer | Owns | Does not own |
+| --- | --- | --- |
+| Contract | Required content, status and sufficiency floor | Craft preferences or cross-artifact convergence |
+| Guide | Artifact-specific structure, examples, common failures and review questions | Shared quality properties or change-level code review |
+| Quality bar | Shared properties: self-contained context, evidence, navigation, render fidelity, one authority | Artifact-specific sections or code standards |
+| Artifact assurance | Cross-artifact consistency, dependency checks, convergence and readiness | Artifact-specific craft or code-diff review |
+| `code-review` | Code-diff standards and spec axes | Design/artifact convergence or release readiness |
+| `change-review` | The in-review step: change-level findings, test evidence, PR accuracy and remaining risk | Rewriting source, posting, merging or deploying without authority |
+
+Use the guide for “is this artifact good?” Use assurance for “do these artifacts agree?” Use `change-review` for “is this change ready for the next step?”
+
 ## Relationship to other guidance
 
 - Artifact fields, planes and relations: [artifact model](model.md).

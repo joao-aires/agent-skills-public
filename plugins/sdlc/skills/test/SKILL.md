@@ -1,8 +1,7 @@
 ---
 name: test
-description: Select, add, run and review checks; establish completion evidence for a change, journey, component or application. Use for unit/integration/contract/web/desktop/mobile verification, completion review and relevant performance or resilience checks within the authorized target scope.
+description: Select, add, run and review checks; establish completion evidence for a change, journey, component or application. Use as part of implementation or the in-review step, or for an explicit verification request, within the authorized target scope.
 user-invocable: true
-disable-model-invocation: true
 metadata:
   kind: activity
   origin: local
@@ -10,7 +9,7 @@ metadata:
   domain: development
   phase: verification
   scope: generic
-  invocation: user
+  invocation: both
   role: task
 ---
 

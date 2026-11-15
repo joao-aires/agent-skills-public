@@ -16,10 +16,10 @@ A phase can also reopen an earlier decision when new evidence invalidates its pr
 | Design validation | Design | Evidence supports, limits or contradicts the direction | Updated proposal, accepted or reopened decision |
 | Design | Implementation preparation | Proposed target, affected software types, seam, alternatives and consequential decisions are understood or blocked | ECR solution design or design proposal, target views, RFC/ADR when independent |
 | Implementation preparation | Implementation | Dependency-ordered increments, verification, migration and rollback are covered | ECR implementation strategy, implementation-preparation reference |
-| Implementation | Verification and review | Actual change revision, protected behavior, deviations and planned checks are known | Work products, tests, ECR implementation/verification |
+| Implementation | Verification and change review | Actual change revision, protected behavior, deviations and planned checks are known | Work products, tests, ECR implementation/verification |
 | Implementation | Design (reopen) | Implementation reveals a missing state, an invalid contract or a contradicted premise | Reopened design thread, updated seam, dependent work paused |
-| Verification and review | Design (reopen) | Observed behavior contradicts the accepted design or an assumption | Updated design proposal, ECR, recheck of dependents |
-| Verification and review | Release | Actual checked behavior, findings, coverage gaps and current-head evidence are available | ECR verification/review, PR, release readiness |
+| Verification and change review | Design (reopen) | Observed behavior contradicts the accepted design or an assumption | Updated design proposal, ECR, recheck of dependents |
+| Verification and change review | Release | Actual checked behavior, findings, coverage gaps and current-head evidence are available | ECR verification/change review, PR, release readiness |
 | Release | Operate | Actual artifact, target, gates, rollout/recovery and observed state are separated | Release note, deployment record, runbook/SLO updates |
 | Operate | Incident or improvement | A signal, user impact or review finding warrants action | Incident record, operations review, change proposal |
 | Incident | Recovery and postmortem | Impact is stabilized and evidence is preserved | Recovery evidence, incident record, postmortem draft |
@@ -85,7 +85,7 @@ Do not let an aside silently change the phase. If it changes a design premise, s
 - **Implementation preparation** stops at the breakdown when that is the request.
 - **Implement**, **fix** and **harden** include the authorized code, checks and commits within their flow; they do not silently merge, deploy or publish.
 - **Test** stops at the verification result and evidence gaps.
-- **Review** stops at findings; source edits, posting and merge require their own authority.
+- **Change review** stops at findings; source edits, posting and merge require their own authority.
 - **Release** stops at readiness or the named authorized delivery action.
 - **Develop** can carry multiple activities in one engagement when implementation is authorized; it still reports the actual outcome and unfinished parts.
 

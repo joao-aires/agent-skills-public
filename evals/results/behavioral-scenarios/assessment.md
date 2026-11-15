@@ -133,8 +133,12 @@ Applied after the evaluation, without changing the recorded results:
 - Corrected the library/CLI backing-package summary to `backend-python-development` for Python automation.
 - Added a non-versioned local revision form to the quality bar.
 - Added a small-greenfield proportionality rule and a compact design-proposal example.
-- Clarified that a separate verification record may be the evidence authority for ECR §6.
+- Removed the separate verification-record requirement; ECR §6 or existing test/CI evidence is the authority. The fixture prompts that required `docs/verification.md` were evaluation artifacts, not skill requirements.
 - Added an explicit no-license state to the README guide.
 - Added a local implementation flow for environments without slash commands, a typechecker or a Git commit.
+- Replaced the upstream `implement` entry point with a local SDLC activity; the upstream body and license remain a reference.
+- Renamed `review` to `change-review`; both `test` and `change-review` are now model-invocable.
+- Added compact ECR mode and quick-fix/self-fix rules.
+- Added review ownership to the quality bar and assurance.
 
 Open: the model-invocation policy for `test` and `review` remains an explicit decision. The evaluation used them because the task explicitly named them; a real autonomous run may not be able to select them.

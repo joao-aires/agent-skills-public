@@ -1942,67 +1942,6 @@
         "diagnostics": []
       }
     },
-    "development--implement": {
-      "source": "mattpocock-skills",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "kind": "skill",
-      "path": "skills/engineering/implement",
-      "destination": "plugins/sdlc/skills/implement",
-      "resources": [
-        {
-          "path": "LICENSE",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "sdlc",
-          "license": "MIT",
-          "license_path": "LICENSE",
-          "adaptations": [
-            "workflow-framing",
-            "documentation-paths",
-            "usage-labels",
-            "implementation-entrypoint"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "user",
-            "role": "task",
-            "kind": "activity",
-            "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
-            "phase": "implementation"
-          }
-        }
-      },
-      "files": {
-        "SKILL.md": {
-          "sha256": "6d3fd9e83b8f36e5213854779db49b256a457a7ebb4a503e53fa7dcff696adc3",
-          "mode": "100644"
-        },
-        "agents/openai.yaml": {
-          "sha256": "8970a8596ade0c28ab427f41a4ea242d6bdf6186c59ebf55e1238dbecaab79dc",
-          "mode": "100644"
-        },
-        "UPSTREAM-LICENSE.txt": {
-          "sha256": "0e7ac423bf2c6e223b7c5b156f8cf72da49d748e56a1641402c31f22ad07dbb5",
-          "mode": "100644"
-        }
-      },
-      "digest": "5e30bba102fab458ebb208562e04d6e676cc55e816b651f5544c60fc37f82b39",
-      "inspection": {
-        "format": "skill",
-        "validation": "valid",
-        "skills": [
-          "SKILL.md"
-        ],
-        "mcpServers": [],
-        "extensions": [],
-        "diagnostics": []
-      }
-    },
     "development--implement-spec": {
       "source": "mattpocock-skills",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",

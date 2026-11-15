@@ -745,42 +745,6 @@
         }
       }
     },
-    "development--implement": {
-      "source": "mattpocock-skills",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "kind": "skill",
-      "path": "skills/engineering/implement",
-      "destination": "plugins/sdlc/skills/implement",
-      "resources": [
-        {
-          "path": "LICENSE",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "sdlc",
-          "license": "MIT",
-          "license_path": "LICENSE",
-          "adaptations": [
-            "workflow-framing",
-            "documentation-paths",
-            "usage-labels",
-            "implementation-entrypoint"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "user",
-            "role": "task",
-            "kind": "activity",
-            "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
-            "phase": "implementation"
-          }
-        }
-      }
-    },
     "development--implement-spec": {
       "source": "mattpocock-skills",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",

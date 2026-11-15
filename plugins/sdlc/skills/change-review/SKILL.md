@@ -1,11 +1,10 @@
 ---
-name: review
-description: Review a PR, branch or current diff against its intended behavior and
-  engineering standards, checking appropriate test evidence. Use for explicit reviews
-  or configured PR-review jobs; default to assessment rather than source changes,
-  publication or merge.
+name: change-review
+description: Review a change in the in-review step against intended behavior, design,
+  test evidence and artifact consistency. Use for a PR, branch or current diff;
+  use code-review for the code-diff standards/spec axes. Default to assessment
+  rather than source changes, publication or merge.
 user-invocable: true
-disable-model-invocation: true
 metadata:
   kind: activity
   origin: local
@@ -13,15 +12,15 @@ metadata:
   domain: development
   phase: verification
   scope: generic
-  invocation: user
+  invocation: both
   role: task
 ---
 
-# Review
+# Change review
 
 Read [activity system](../activity-system/SKILL.md).
 
-For writing the artifact this activity produces, read [guide-pr](../guide-pr/SKILL.md) for structure, conventions and review.
+This is the change-level in-review step, not a code-only review. Use [code-review](../code-review/SKILL.md) for the code-diff standards/spec axes; use [test](../test/SKILL.md) for verification evidence.
 
 ## Establish and assess the review target
 

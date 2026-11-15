@@ -46,7 +46,7 @@ The generated `claude-marketplace` branch is distribution output; never edit it 
 
 ## Naming and invocation
 
-Use lowercase kebab-case: short activities for tasks (`develop`, `test`, `review`) and recognizable disciplines for support (`interface-design`, `performance-testing`). Preserve upstream names and established operations terminology. Rename folders, frontmatter and maintained references together; record old names in [migration](migration.md#local-skill-naming), without duplicate aliases.
+Use lowercase kebab-case: short activities for tasks (`develop`, `test`, `change-review`) and recognizable disciplines for support (`interface-design`, `performance-testing`). Preserve upstream names and established operations terminology. Rename folders, frontmatter and maintained references together; record old names in [migration](migration.md#local-skill-naming), without duplicate aliases.
 
 | Metadata | Meaning |
 | --- | --- |

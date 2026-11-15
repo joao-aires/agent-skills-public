@@ -40,6 +40,8 @@ When the work interleaves requirements, design and implementation, keep [engagem
 
 When client-specific implementation commands, a typechecker or a Git commit are unavailable, use the [local implementation flow](references/implementation-flow.md). It preserves the implementation outcome without inventing a command surface or an unrequested repository.
 
+Use [test](../test/SKILL.md) and [change review](../change-review/SKILL.md) as part of the engagement when implementation is authorized; both are model-invocable activities. Their authority still stops at local verification and assessment.
+
 
 ## Establish a useful slice
 

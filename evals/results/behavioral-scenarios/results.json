@@ -12,51 +12,122 @@
   "scenarios": [
     {
       "id": "new-application",
-      "tests": {"passed": 56, "total": 56},
+      "tests": {
+        "passed": 56,
+        "total": 56
+      },
       "expectations_met": 5,
       "expectations_total": 5,
       "outcome": "complete",
-      "artifacts": ["README.md", "docs/ecr.md", "docs/design.md", "docs/verification.md", "notes.py", "notes_store.py", "notes_search.py", "tests"],
+      "artifacts": [
+        "README.md",
+        "docs/ecr.md",
+        "docs/design.md",
+        "docs/verification.md",
+        "notes.py",
+        "notes_store.py",
+        "notes_search.py",
+        "tests"
+      ],
       "notable": "Subprocess CLI evidence, denial paths and explicit untested boundaries; no fabricated issue or PR."
     },
     {
       "id": "existing-feature",
-      "tests": {"passed": 22, "total": 22},
+      "tests": {
+        "passed": 22,
+        "total": 22
+      },
       "expectations_met": 5,
       "expectations_total": 5,
       "outcome": "complete",
-      "artifacts": ["README.md", "docs/ecr.md", "docs/design.md", "docs/verification.md", "taskcli.py", "test_taskcli.py"],
+      "artifacts": [
+        "README.md",
+        "docs/ecr.md",
+        "docs/design.md",
+        "docs/verification.md",
+        "taskcli.py",
+        "test_taskcli.py"
+      ],
       "notable": "Legacy JSON and existing test behavior preserved; tags and filtering verified."
     },
     {
       "id": "bug-fix",
-      "tests": {"passed": 9, "total": 9},
+      "tests": {
+        "passed": 9,
+        "total": 9
+      },
       "expectations_met": 5,
       "expectations_total": 5,
       "outcome": "complete",
-      "artifacts": ["docs/ecr.md", "docs/verification.md", "inventory.py", "test_inventory.py"],
+      "artifacts": [
+        "docs/ecr.md",
+        "docs/verification.md",
+        "inventory.py",
+        "test_inventory.py"
+      ],
       "notable": "Reproduced 3 failures before the fix and 5 failures with the strengthened suite; minimal one-expression repair."
     },
     {
       "id": "idea-to-implementation",
-      "tests": {"passed": 33, "total": 33},
+      "tests": {
+        "passed": 33,
+        "total": 33
+      },
       "expectations_met": 5,
       "expectations_total": 5,
       "outcome": "complete",
-      "artifacts": ["README.md", "docs/product.md", "docs/ecr.md", "docs/design.md", "docs/verification.md", "habits.py", "test_habits.py"],
+      "artifacts": [
+        "README.md",
+        "docs/product.md",
+        "docs/ecr.md",
+        "docs/design.md",
+        "docs/verification.md",
+        "habits.py",
+        "test_habits.py"
+      ],
       "notable": "Explicit grace-streak semantics, at-risk state and reset rule; product, design, ECR and verification agree."
     }
   ],
   "friction": [
-    {"severity": "high", "finding": "implement assumes slash commands, typechecking, code review and a commit; unusable in an unattended non-git fixture"},
-    {"severity": "medium", "finding": "no sanctioned local-only revision form for non-versioned fixtures"},
-    {"severity": "medium", "finding": "test and review are disable-model-invocation; agents relied on explicit task instruction"},
-    {"severity": "medium", "finding": "ECR and design ceremony is heavy for small greenfield CLI work"},
-    {"severity": "medium", "finding": "refine links the wrong guides for its ECR requirements output"},
-    {"severity": "low", "finding": "overlapping guide review checklists"},
-    {"severity": "low", "finding": "software-type backing-package names disagree for Python CLI automation"},
-    {"severity": "low", "finding": "separate docs/verification.md is not a catalog artifact type"},
-    {"severity": "low", "finding": "README guide does not model a no-license local project"},
-    {"severity": "known", "finding": "no independent review, CI, cross-platform or crash/concurrency evidence"}
+    {
+      "severity": "high",
+      "finding": "implement assumes slash commands, typechecking, code review and a commit; unusable in an unattended non-git fixture"
+    },
+    {
+      "severity": "medium",
+      "finding": "no sanctioned local-only revision form for non-versioned fixtures"
+    },
+    {
+      "severity": "medium",
+      "finding": "test and review were disable-model-invocation at the time of the run; both are now model-invocable (review renamed change-review)"
+    },
+    {
+      "severity": "medium",
+      "finding": "ECR and design ceremony is heavy for small greenfield CLI work"
+    },
+    {
+      "severity": "medium",
+      "finding": "refine links the wrong guides for its ECR requirements output"
+    },
+    {
+      "severity": "low",
+      "finding": "overlapping guide review checklists"
+    },
+    {
+      "severity": "low",
+      "finding": "software-type backing-package names disagree for Python CLI automation"
+    },
+    {
+      "severity": "low",
+      "finding": "separate docs/verification.md is not a catalog artifact type"
+    },
+    {
+      "severity": "low",
+      "finding": "README guide does not model a no-license local project"
+    },
+    {
+      "severity": "known",
+      "finding": "no independent review, CI, cross-platform or crash/concurrency evidence"
+    }
   ]
 }

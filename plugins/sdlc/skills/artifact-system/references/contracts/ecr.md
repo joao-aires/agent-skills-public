@@ -16,9 +16,40 @@ A change participant or reviewer must be able to answer:
 6. What has been released, and what remains pending?
 7. Which decisions were made, and what remains open?
 
+## Modes
+
+Use a **full record** when the change introduces or changes behavior across components, a boundary, a migration, security or compatibility, a consequential design choice, or coordination with another person or change.
+
+Use a **compact record** only when all are true: local and reversible; one component; one evident approach; no boundary, migration, security or compatibility change; no new consequential decision; and no cross-change coordination.
+
+```markdown
+# <Change>
+
+## Overview
+What changes, for whom, why and the current status.
+
+## Change and acceptance
+The implemented behavior, preserved behavior and observable acceptance.
+
+## Verification
+What ran, at which revision, with what result and what remains unverified.
+
+## Decisions and open items
+Any decision made, its owner and what remains open.
+```
+
+A compact record is still an ECR. If the change reveals a decision or a boundary, promote it to the full record and reopen the affected sections.
+
+## When not to create an ECR
+
+- A typo, comment, formatting or dependency bump with no decision or behavior change: use the commit or PR note.
+- An unrelated defect found mid-change: create a separate issue or ECR; do not bundle it.
+- An agent repairing its own implementation or testing mistake inside the current change: record it in the current ECR implementation/verification sections as a deviation or repair, not a new ECR.
+- A behavior change that needs durable evidence: use a compact ECR, or the issue/PR plus the actual test evidence.
+
 ## Contract
 
-Every ECR, including a compact single-file fix, has these headings in this order. Use truthful `Pending`, `Not applicable — reason`, or `Blocked — decision/evidence needed` for content not yet established. This makes the format predictable without presenting future work as finished.
+A full ECR has these seven headings in this order. Use truthful `Pending`, `Not applicable — reason`, or `Blocked — decision/evidence needed` for content not yet established. This makes the format predictable without presenting future work as finished.
 
 ### 1. Overview and lifecycle
 
@@ -62,7 +93,7 @@ Every ECR, including a compact single-file fix, has these headings in this order
 - Failed, skipped, unavailable and blocked checks. Variance from the proposed design. Material review findings. Remaining risk.
 - Documentation reconciliation and release or readiness versus actual deployed state.
 - Link CI, review and run evidence and the PR. Never turn a green build into proof of user-visible behavior.
-- A separate verification record may be the evidence authority for this section. Summarize the result and link it; do not duplicate the same evidence in both places.
+- A CI run, test report or PR check may be the evidence authority. Link it; do not create a separate Markdown copy unless the project already uses one.
 
 Write evidence in the past tense. "Will verify", "should pass" and "create/read/update will confirm" are plans. Put a planned check in the implementation strategy or mark it "not yet verified" here until it runs.
 
