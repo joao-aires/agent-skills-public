@@ -55,6 +55,8 @@ An Engineering Change Record (ECR) carries the outcome of each performed activit
 
 Every durable output is an artifact with a type, primary plane, home, authority, maturity and relations. The ECR is the coordination spine for a change, not the only artifact: architecture views, runbooks, code, tests, issues and PRs are artifacts too. `setup` establishes the repository artifact home map; `project-conventions` maintains its placement method; `develop`, implementation and release read or update it.
 
+A handoff is **content, not a document**. The next phase may need a decision, a design specification, a contract, a test result and an open decision from different artifacts. Read [handoff](../plugins/sdlc/skills/artifact-system/references/handoff.md) for the phase matrix; the ECR is the index, not a copy of every artifact.
+
 ![Seven phase columns align handoff artifacts, contributions to one ECR, and typical roles. Issue and PR views serve implementers and reviewers.](images/sdlc-artifact-flow.svg)
 
 Read each column for the phase, its possible handoff artifacts, its contribution to the ECR and the roles involved. The feedback arrow shows where test and operational evidence can reopen earlier decisions.
@@ -124,12 +126,10 @@ The `guide-*` support methods own the craft of each view artifact. They can be u
 
 | Guide | Artifact |
 | --- | --- |
-| [Wireframe](../plugins/sdlc/skills/guide-wireframe/SKILL.md) | Screen structure, navigation, task flow and states |
-| [Figma file](../plugins/sdlc/skills/guide-figma-file/SKILL.md) | File structure, components, revisions and access |
+| [Design specification](../plugins/sdlc/skills/guide-design-spec/SKILL.md) | Flows, wireframes, mockups, prototypes, states, content, accessibility, assets and handoff |
 | [C4 view](../plugins/sdlc/skills/guide-c4-view/SKILL.md) | Boundaries, actors, responsibilities and dependencies |
 | [Sequence view](../plugins/sdlc/skills/guide-sequence-view/SKILL.md) | Ordering, async work, failure and recovery |
 | [State machine](../plugins/sdlc/skills/guide-state-machine/SKILL.md) | States, triggers, guards and denied transitions |
-| [Evaluation plan](../plugins/sdlc/skills/guide-evaluation-plan/SKILL.md) | AI cases, graders, baselines and regression |
 | [Compatibility matrix](../plugins/sdlc/skills/guide-compatibility-matrix/SKILL.md) | Versions, platforms, consumers and deprecation |
 
 ### 4. Implementation

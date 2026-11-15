@@ -6,6 +6,44 @@ The plane is the artifact's primary role, not its storage. A contract can be use
 
 There is one contract per artifact **type**, not one per software type. A software type changes the representation and evidence an artifact needs; it does not create a parallel contract. Create a new artifact type only when the reader, authority, lifecycle or home differs. Read [software types](../software-types.md) for the four supported types and their constraints.
 
+## Contract, guidance and handoff
+
+A contract is **normative**. It states the artifact's purpose, reader questions, required content, authority, maturity, evidence, relations and the handoff the next phase needs. It is not a drafting guide.
+
+| Layer | Question | Owner |
+| --- | --- | --- |
+| **Contract** | What must this artifact contain and what may it claim? | This directory |
+| **Guidance** | How do I produce and review it well? Examples, structure, anti-patterns, critique | A `guide-*` method, technical writing or the domain method |
+| **Handoff** | What does the next phase need, and where does it come from? | The contract's handoff section plus [handoff](../handoff.md) |
+
+A contract may contain a short handoff section; detailed drafting advice, long examples and review checklists belong in guidance. Do not add a new contract because an artifact needs better guidance.
+
+Within a contract file, treat the reader questions, the `## Contract` block, maturity/evidence and `## Handoff` as normative. Treat `## Review`, `## Example`, `## Anti-patterns`, `## Relationship to other artifacts` and “when to use” material as guidance that may move to a dedicated guide as the set matures.
+
+### Current guidance owners
+
+| Contract | Existing guidance | Dedicated guide? |
+| --- | --- | --- |
+| Product brief / PRD | Product method + technical writing | Candidate |
+| RFC | System design + technical writing | Candidate |
+| Decision record | System design + technical writing | Candidate |
+| Architecture set | System documentation | Candidate for view and set craft |
+| ECR | Artifact system examples + assurance | No |
+| Design proposal | Design activity + option set + design review | No |
+| Runbook | Runbook authoring | No |
+| Incident record | Incident response | No |
+| Postmortem | Postmortem method | No |
+| Assurance assessment | Compliance readiness | No |
+| Issue / PR | Git contribution method + technical writing | No |
+| Research report | Research method + technical writing | No |
+| Release note | Release method | No |
+| README / guide | Technical writing | No |
+| Work product | Language, framework and test guidance | No |
+
+“Candidate” means the artifact has distinct craft that may justify a dedicated guide later. It does not require a new skill now; technical writing and the domain method already cover the contract.
+
+Read [handoff](../handoff.md) for the phase-to-phase matrix and the rule that a handoff is content, not a document. It may be assembled from several linked artifacts.
+
 ## Coordination
 
 | Artifact | Contract | Primary reader |

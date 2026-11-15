@@ -41,6 +41,10 @@ Guidance:
 
 Do not add implementation, verification or release sections merely to look complete. If the inquiry turns into a change, create or update the ECR and link the report.
 
+## Handoff
+
+The decision consumer must know the recommendation, evidence, alternatives, limits and open decision. See [handoff](../handoff.md).
+
 ## Maturity
 
 A research report normally moves from **question** to **recommendation proposed** to **decision requested** to **accepted**. It does not claim implementation, release or production behavior. The recommendation remains proposed until its owner accepts it.

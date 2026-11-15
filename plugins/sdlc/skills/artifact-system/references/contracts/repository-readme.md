@@ -52,6 +52,10 @@ Guidance:
 - **Support and contribution.** Link the contribution guide and issue route. Do not invent a support commitment.
 - **Status and limits.** Say whether the project is a prototype, internal tool, beta or production service, and what is explicitly unsupported.
 
+## Handoff
+
+The new contributor must know the purpose, quickstart, documentation map, development path, support and status/limits. See [handoff](../handoff.md).
+
 ## Home and maintenance
 
 Keep the root README focused on the repository entry path. Use component READMEs for component-specific commands and exceptions. Update the README when the startup path, prerequisites, documentation map or supported status changes.

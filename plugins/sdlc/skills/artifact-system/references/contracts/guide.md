@@ -48,6 +48,10 @@ Guidance:
 - **Recovery.** Include the common failure branches and how to return to a safe state. Do not invent errors or fixes that were not observed or documented.
 - **Next.** Link the related guide, reference, architecture view or decision. Keep the guide focused on one reader job.
 
+## Handoff
+
+The task performer must know the outcome, prerequisites, steps, verification, recovery and next action. See [handoff](../handoff.md).
+
 ## Maturity and evidence
 
 A guide should be **current**, **draft** or **retired**. If a step was not actually exercised, say so. Do not present a plausible command sequence as verified.

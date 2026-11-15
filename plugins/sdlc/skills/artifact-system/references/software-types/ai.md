@@ -19,7 +19,7 @@ An AI-backed application, agent or model feature: a system whose useful behavior
 
 ## Representation set
 
-Read [evaluation plan](../../../guide-evaluation-plan/SKILL.md) for cases, graders, baselines and failure behavior. Typical representations also include context/retrieval/tool flow, a data contract for inputs and stored context, a harness or agent-loop view, a prompt/version and model/provider matrix, and a sequence for a tool call or failure path.
+Use the available AI testing method for the evaluation plan: cases, graders, baselines and failure behavior. Typical representations also include context/retrieval/tool flow, a data contract for inputs and stored context, a harness or agent-loop view, a prompt/version and model/provider matrix, and a sequence for a tool call or failure path.
 
 ## Seam decisions
 

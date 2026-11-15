@@ -15,13 +15,17 @@ metadata:
 
 # Sequence view guide
 
-Read [activity system](../activity-system/SKILL.md) for scope, the [architecture-set contract](../artifact-system/references/contracts/architecture-set.md) for durable views and [software types](../artifact-system/references/software-types.md) for the affected components.
+A sequence view explains what happens, in what order, and who owns each step. It is useful when ordering, concurrency or failure changes the outcome, and misleading when the reader only needs a static dependency map.
 
-A sequence view is a **view artifact** that answers “what happens, in what order, and who owns each step.” It is not a substitute for a contract, a state model or failure analysis.
+## Reader questions
 
-## Reader question
-
-Can a reviewer follow a consequential operation from trigger to observable result, including the branches and failures that change the outcome?
+1. What starts the operation?
+2. Which participants are involved, and what does each own?
+3. What happens in what order?
+4. Which work is synchronous, asynchronous or fire-and-forget?
+5. What changes on rejection, timeout, retry, cancellation or partial failure?
+6. Where does completion become authoritative?
+7. Can I understand the main path and one failure path from the text?
 
 ## When to use
 
@@ -29,9 +33,9 @@ Can a reviewer follow a consequential operation from trigger to observable resul
 - synchronous versus asynchronous completion is unclear;
 - retry, timeout, cancellation or partial failure changes behavior;
 - several components or external systems participate;
-- a seam between frontend, backend or AI needs a shared explanation.
+- a boundary between UI, service, data or AI needs a shared explanation.
 
-Do not use a sequence view for a static dependency map; use a C4 view.
+Do not use a sequence view for a static dependency map; use a C4 or component view.
 
 ## Minimum content
 
@@ -46,8 +50,8 @@ Do not use a sequence view for a static dependency map; use a C4 view.
 ## Structure and quality
 
 - Keep one operation or scenario per view.
-- Use participant names that match the accepted components.
-- Label the message intent, not only the transport.
+- Use participant names that match the real components.
+- Label message intent, not only the transport.
 - Show the branch that changes the decision, not every internal call.
 - Separate current and proposed behavior.
 - Link the contract, source, decision or test evidence.
@@ -58,20 +62,22 @@ Do not use a sequence view for a static dependency map; use a C4 view.
 - a happy-path-only sequence;
 - participants that do not exist in the system;
 - unordered arrows or ambiguous async work;
-- hiding retry/idempotency/duplicate effects;
+- hiding retry, idempotency or duplicate effects;
 - mixing current and proposed behavior;
-- treating a sequence as proof that an integration works.
+- treating a sequence as proof that an integration works;
+- showing every internal call and losing the question.
 
-## Authority, home and review
+## Review
 
-- **Authority:** architecture set for current behavior; design proposal/RFC for proposed behavior.
-- **Home:** `docs/architecture/runtime/` or the ECR/RFC design record.
-- **Review:** use [design review](../design/references/design-review.md) and [artifact assurance](../artifact-system/references/assurance.md).
+Read the sequence as an implementer or operator:
 
-## Specialist route
-
-Use `system-documentation` for evidence, `system-design` for state, ownership and failure decisions, and `visualization` for rendering. Use backend or integration expertise when the sequence depends on a real protocol.
+- Can you follow the operation from trigger to observable result?
+- Are the participants and their responsibilities clear?
+- Does the view show the failure path that changes behavior?
+- Is synchronous versus asynchronous work explicit?
+- Is the current/proposed status clear?
+- Is the evidence or source linked?
 
 ## Handoff
 
-Record the scenario, participants, revision, current/proposed status and the failure path shown. Reconcile canonical runtime views after verified implementation.
+Record the scenario, participants, revision, current/proposed status and the failure path shown. The implementer should know what must happen, in what order, and what happens when a step fails. Reconcile canonical runtime documentation after verified implementation.

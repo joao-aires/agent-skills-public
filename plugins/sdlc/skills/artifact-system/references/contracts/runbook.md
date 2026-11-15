@@ -58,6 +58,10 @@ Guidance:
 - **References.** Link the architecture view, SLO, alert, dashboard, source revision and incident record using the [link rules](../quality-bar.md#4-resolvable-navigation).
 - **Status.** Draft, active or retired. Record the last exercise and any known gaps. Do not present an unexercised procedure as verified.
 
+## Handoff
+
+The operator must know the trigger, prerequisites, diagnosis, mitigation, verification, escalation and follow-up. See [handoff](../handoff.md).
+
 ## Maturity and evidence
 
 A runbook can be **draft**, **active** or **retired**.

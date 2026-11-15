@@ -229,6 +229,7 @@ The shared artifact model. It owns:
 - the artifact model, planes and relations;
 - the catalog of artifact types and default homes;
 - the four software types and the evidence each design needs;
+- handoff content for the next phase, assembled from linked artifacts;
 - home resolution and the repository map method;
 - the quality bar;
 - cross-artifact assurance;
@@ -258,19 +259,17 @@ Use the [design activity](skills/design/SKILL.md), the [option set](skills/desig
 
 ### `guide-*` artifact guides
 
-Seven support methods own the craft of a view artifact. They can be used inside `design` or requested directly outside a full lifecycle:
+Five support methods own the craft of a view artifact. They can be used inside `design` or requested directly outside a full lifecycle:
 
 | Guide | Artifact |
 | --- | --- |
-| [guide-wireframe](skills/guide-wireframe/SKILL.md) | Wireframes and wireflows |
-| [guide-figma-file](skills/guide-figma-file/SKILL.md) | Figma files, components, revisions and access |
+| [guide-design-spec](skills/guide-design-spec/SKILL.md) | Flows, wireframes, mockups, prototypes, states, content, accessibility and handoff |
 | [guide-c4-view](skills/guide-c4-view/SKILL.md) | C4 context, container and component views |
 | [guide-sequence-view](skills/guide-sequence-view/SKILL.md) | Sequence and interaction views |
 | [guide-state-machine](skills/guide-state-machine/SKILL.md) | State machines and denied transitions |
-| [guide-evaluation-plan](skills/guide-evaluation-plan/SKILL.md) | AI evaluation plans |
 | [guide-compatibility-matrix](skills/guide-compatibility-matrix/SKILL.md) | Versions, platforms and consumers |
 
-The artifact system owns the view artifact's identity, home, authority and maturity; the guide owns structure, notation, fidelity and review. This is the split that keeps one contract per artifact type and one guide per artifact.
+The artifact system owns the view artifact's identity, home, authority and maturity; the guide owns structure, notation, fidelity and review. The guides are intentionally tool-agnostic and do not depend on the artifact system.
 
 ### Coordination storage
 
@@ -376,6 +375,7 @@ Use `activity-system` for routing, `test` for verification and the repository ar
 | Software types and required evidence | [software types](skills/artifact-system/references/software-types.md) |
 | Design options, validation and review | [design activity](skills/design/SKILL.md), [option set](skills/design/references/option-set.md), [design validation](skills/design/references/design-validation.md), [design review](skills/design/references/design-review.md) |
 | Design proposal content | [design proposal contract](skills/artifact-system/references/contracts/design-proposal.md) |
+| What the next phase needs | [handoff](skills/artifact-system/references/handoff.md) |
 | Home resolution and repository map | [artifact homes](skills/artifact-system/references/homes.md) |
 | Readiness, consistency and convergence | [artifact assurance](skills/artifact-system/references/assurance.md) |
 | Activity selection and stopping points | [activity system](skills/activity-system/SKILL.md) |

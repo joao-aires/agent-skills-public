@@ -41,6 +41,10 @@ Guidance:
 - **Open decisions.** Name the choice, its owner and what evidence would settle it.
 - **Links.** Link research, strategy, roadmap, related briefs and the ECR that carries the change. Use the [link rules](../quality-bar.md#4-resolvable-navigation).
 
+## Handoff
+
+The requirements and design consumer must know the audience, outcome, scope, success signal, constraints and open decisions. The handoff may link this brief and the ECR; see [handoff](../handoff.md).
+
 ## Maturity
 
 A product brief moves from **draft** to **proposed** to **accepted** or **superseded**. It does not claim implementation or verification. If the product direction changes, preserve the prior decision and link the replacement rather than rewriting history.

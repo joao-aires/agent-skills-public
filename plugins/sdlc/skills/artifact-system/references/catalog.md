@@ -33,12 +33,11 @@ Wireframes, Figma files, C4 views, sequence views, state machines, evaluation pl
 
 | View artifact | Reader question | Authority | Guide |
 | --- | --- | --- | --- |
-| Wireframe / wireflow | What does the user see, in what order, and what changes? | Design proposal | [Wireframe](../../guide-wireframe/SKILL.md) |
-| Figma file | What is the inspectable design, its revision and its access boundary? | Design proposal or accepted design system | [Figma file](../../guide-figma-file/SKILL.md) |
+| Design specification | What does the user see, what happens, and what does implementation need to build and verify it? | Design proposal or accepted design system | [Design specification](../../guide-design-spec/SKILL.md) |
 | C4 view | What is the boundary, responsibility and dependency? | Architecture set, or proposed target in the design record | [C4 view](../../guide-c4-view/SKILL.md) |
 | Sequence view | What happens in what order, including failure? | Architecture set or design proposal | [Sequence view](../../guide-sequence-view/SKILL.md) |
 | State machine | Which states, transitions, guards and denied paths exist? | Design proposal or architecture set | [State machine](../../guide-state-machine/SKILL.md) |
-| Evaluation plan | Which cases, graders and baselines judge the AI behavior? | Design proposal and AI testing | [Evaluation plan](../../guide-evaluation-plan/SKILL.md) |
+| Evaluation plan | Which cases, graders and baselines judge the AI behavior? | Design proposal and AI testing | Use the available AI testing method |
 | Compatibility matrix | Which versions, platforms and consumers are supported? | API/public-surface contract | [Compatibility matrix](../../guide-compatibility-matrix/SKILL.md) |
 
 ## Maturity and evidence by artifact

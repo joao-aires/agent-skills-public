@@ -18,9 +18,9 @@ A frontend design record does not need a C4 diagram or an API contract unless th
 
 ## Representation set
 
-Use a representation at comparable fidelity for each option. Read [wireframe](../../../guide-wireframe/SKILL.md) for structure, states and annotations, and [Figma file](../../../guide-figma-file/SKILL.md) for file structure, components, revisions and access.
+Use a representation at comparable fidelity for each option. Read [design specification](../../../guide-design-spec/SKILL.md) for flows, wireframes, mockups, prototypes, states, content, accessibility and handoff.
 
-Typical representations: wireframe or annotated flow, rendered mockup, local rendered slice, interactive prototype, component-state view. A text description alone is not sufficient when layout, hierarchy, interaction or visual direction is the question.
+A design specification can be carried by wireframes, mockups, Figma frames, rendered slices, interactive prototypes or component-state views. A text description alone is not sufficient when layout, hierarchy, interaction or visual direction is the question.
 
 ## Seam decisions
 

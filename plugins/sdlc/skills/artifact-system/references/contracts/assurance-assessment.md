@@ -39,6 +39,10 @@ Ready, ready with limitations or blocked; named decision owner; what is not clai
 Policies, architecture, data flows, provider commitments, tickets and prior assessments.
 ```
 
+## Handoff
+
+The remediation and decision consumer must know applicability, controls, evidence, gaps and disposition. See [handoff](../handoff.md).
+
 ## Maturity
 
 Use **draft**, **assessed**, **accepted** and **superseded**. Keep design, implemented, operating and independently examined states separate. A policy, screenshot or green dashboard does not establish operating effectiveness.

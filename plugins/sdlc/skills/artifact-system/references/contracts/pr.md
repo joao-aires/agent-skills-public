@@ -35,6 +35,10 @@ Guidance for each part:
 - **Validation.** Give the exact revision or head SHA, the command or scenario, the environment, and the observed result. Link CI, logs or review evidence. State failed, skipped and unavailable checks. A check at an older head does not establish the current head.
 - **Release and risk.** Include migration, compatibility, observability, recovery and rollout only when material. State what is not claimed: merged is not deployed, and passing CI is not user-visible verification.
 
+## Handoff
+
+The reviewer and release consumer must know why, what changed, design impact, validation, release/risk and links. See [handoff](../handoff.md).
+
 ## Link obligations
 
 Use the [link rules](../quality-bar.md#4-resolvable-navigation). A PR body should link:

@@ -40,6 +40,10 @@ Guidance:
 - **Consequences.** Include the positive and negative consequences, affected boundaries, migration or compatibility work, and what would trigger a revisit.
 - **Links.** Link the affected requirements, design, code, tests, diagrams and the ECR or RFC. Use the [link rules](../quality-bar.md#4-resolvable-navigation).
 
+## Handoff
+
+The implementation and operations consumer must know the decision, context, alternatives, consequences and superseding relation. See [handoff](../handoff.md).
+
 ## Immutability and supersession
 
 An accepted decision record is **not rewritten** when the decision changes. Create a new record that supersedes it, and update the old record's status and `Superseded by` link. Correct typos and broken links in place; do not rewrite the rationale to match a later choice.

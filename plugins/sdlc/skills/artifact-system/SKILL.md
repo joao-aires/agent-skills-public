@@ -28,6 +28,7 @@ Use [the development workflow](../activity-system/SKILL.md) for activity selecti
 | Decide what evidence a frontend, backend, AI or library/CLI design needs | [Software types](references/software-types.md) |
 | Resolve where the artifact lives | [Artifact homes](references/homes.md) |
 | What must this artifact contain? | Its [contract](references/contracts/README.md) |
+| What does the next phase actually need? | [Handoff](references/handoff.md) |
 | Is it sufficient, navigable and readable? | [Artifact quality bar](references/quality-bar.md) |
 | Are the artifacts consistent and ready? | [Artifact assurance](references/assurance.md) |
 | Does it need a diagram or view? | [Diagram lifecycle](references/diagram-lifecycle.md) |
@@ -75,12 +76,10 @@ View artifacts are artifacts too. They usually inherit authority from the design
 
 | Guide | Use for |
 | --- | --- |
-| [Wireframe](../guide-wireframe/SKILL.md) | Screen structure, navigation, task flow and states |
-| [Figma file](../guide-figma-file/SKILL.md) | File structure, components, revisions, permissions and handoff |
+| [Design specification](../guide-design-spec/SKILL.md) | Flows, wireframes, mockups, prototypes, states, content, components, accessibility, assets and handoff |
 | [C4 view](../guide-c4-view/SKILL.md) | Boundaries, actors, responsibilities and dependencies |
 | [Sequence view](../guide-sequence-view/SKILL.md) | Ordering, async work, failure, retry and recovery |
 | [State machine](../guide-state-machine/SKILL.md) | States, triggers, guards and denied transitions |
-| [Evaluation plan](../guide-evaluation-plan/SKILL.md) | AI cases, graders, baselines and regression |
 | [Compatibility matrix](../guide-compatibility-matrix/SKILL.md) | Versions, platforms, consumers and deprecation |
 
 ## Present outcomes

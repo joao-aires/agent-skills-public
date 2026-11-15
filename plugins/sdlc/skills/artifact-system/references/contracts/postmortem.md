@@ -42,6 +42,10 @@ Unresolved evidence, decisions or ownership.
 Incident record, evidence, runbooks, SLOs, related incidents and the action tracker.
 ```
 
+## Handoff
+
+The planning and design consumer must know the causal analysis, actions, owners, verification and open questions. See [handoff](../handoff.md).
+
 ## Maturity
 
 Use **draft**, **reviewed**, **accepted** and **superseded**. A postmortem may establish recovery while leaving the cause unknown. Action states are separate: proposed, accepted, implementing, locally validated, deployed, outcome verified, deferred or superseded.

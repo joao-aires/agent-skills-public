@@ -96,6 +96,10 @@ When a claim is superseded, keep the prior decision traceable but mark it as sup
 
 Entry points may stop earlier; no task automatically authorizes later phases. The ECR is updated incrementally and the reader must be able to tell what is pending. At each completed or attempted handoff, update the readiness disposition and consequential findings in the relevant section without creating a mandatory eighth section. Follow [artifact assurance](../assurance.md) for contradictions, source/test convergence, PR alignment and truthfulness limits.
 
+## Handoff
+
+The phase-readiness table is the ECR's handoff view. A handoff may be assembled from this record and linked artifacts: a design specification or C4 view for design, a PR or test evidence for verification, a runbook for operations. Link the authority; do not copy it into the ECR. See [handoff](../handoff.md) for the phase matrix and the rule that a handoff is content, not a document.
+
 ## Multi-work-package ECRs
 
 A project-level ECR may cover several work packages. Keep the shared problem, cross-cutting design decisions, batch verification and decision history in the ECR. Give each work package a row with its own issue, observable acceptance, status and evidence:

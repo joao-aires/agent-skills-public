@@ -61,6 +61,10 @@ Keep the distinction explicit:
 
 Do not update the canonical current view to match a proposal. Reconcile it after implementation and link the decision that authorized the change.
 
+## Handoff
+
+The design, implementation and operations consumer must know the current and proposed views, component types, interfaces, data ownership, deployment, decisions and evidence. See [handoff](../handoff.md).
+
 ## Home and maintenance
 
 | Change | Update |

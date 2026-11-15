@@ -57,6 +57,10 @@ Guidance:
 - An **ADR** owns a consequential accepted choice that must outlive the change. Link it from the RFC.
 - **Current architecture documentation** owns the implemented state. The RFC's target views remain proposed until reconciliation.
 
+## Handoff
+
+The design and implementation consumer must know the problem, current state, affected software types, proposal, alternatives, impact and open decision. See [handoff](../handoff.md).
+
 ## Maturity
 
 An RFC moves from **draft** to **proposed** to **accepted** or **rejected**. It does not claim implemented or released. If implementation follows, the ECR owns the execution and verification evidence, and the current architecture documentation is updated only after the code lands.

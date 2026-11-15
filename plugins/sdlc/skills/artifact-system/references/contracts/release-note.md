@@ -49,6 +49,10 @@ Guidance:
 - **Rollback and recovery.** State the approved path and who may execute it. Do not invent a rollback that was not tested or authorized.
 - **References.** Link the ECR, PR, release artifact, deployment record and runbook using the [link rules](../quality-bar.md#4-resolvable-navigation).
 
+## Handoff
+
+The operations consumer must know the summary, changes, migration and compatibility, verification, rollback and references. See [handoff](../handoff.md).
+
 ## Maturity
 
 A release note is written for an actual delivery. It may be **draft** before the target action, **released** after verified promotion, or **superseded** by a later release. Do not label a merged change as released, or a passing CI run as production verification.

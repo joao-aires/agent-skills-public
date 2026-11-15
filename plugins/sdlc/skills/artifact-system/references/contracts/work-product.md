@@ -45,6 +45,10 @@ A work product usually has several relations:
 
 Link the change record and the evidence, not every file in the repository. A work product is not a second ECR.
 
+## Handoff
+
+The verifier and release consumer must know the identity, authority, relations, evidence and limits of the actual change. See [handoff](../handoff.md).
+
 ## Home and maintenance
 
 The application repository is the default home. A monorepo may keep a package path; a shared library may live in a package repository. Preserve the established layout and build tooling.

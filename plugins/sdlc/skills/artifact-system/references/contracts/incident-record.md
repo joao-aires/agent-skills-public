@@ -47,6 +47,10 @@ Guidance:
 - Recovery requires the original user/business path and independent signals, not only an alert clearing.
 - Keep secret values and sensitive payloads out of the record.
 
+## Handoff
+
+The postmortem facilitator and repair owner must know impact, timeline, mitigation, recovery evidence, current state and follow-up. See [handoff](../handoff.md).
+
 ## Maturity
 
 An incident record is **active** while response continues, **recovered** when the user outcome is verified, and **closed** after follow-up is linked or explicitly dispositioned. A closed incident is not proof that the cause or control is resolved.

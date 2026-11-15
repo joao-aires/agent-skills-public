@@ -29,7 +29,7 @@ Use the [artifact system](../artifact-system/SKILL.md) for the handoff and [arti
 | Need | Read |
 | --- | --- |
 | What evidence does this kind of component need? | [Software types](../artifact-system/references/software-types.md) |
-| Which guide applies to this artifact? | [Wireframe](../guide-wireframe/SKILL.md), [Figma file](../guide-figma-file/SKILL.md), [C4](../guide-c4-view/SKILL.md), [sequence](../guide-sequence-view/SKILL.md), [state machine](../guide-state-machine/SKILL.md), [evaluation plan](../guide-evaluation-plan/SKILL.md), [compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
+| Which guide applies to this artifact? | [Design specification](../guide-design-spec/SKILL.md), [C4](../guide-c4-view/SKILL.md), [sequence](../guide-sequence-view/SKILL.md), [state machine](../guide-state-machine/SKILL.md), [compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
 | How to generate and compare directions | [Option set](references/option-set.md) |
 | How to test the direction before building | [Design validation](references/design-validation.md) |
 | Is the proposal ready to hand off? | [Design review](references/design-review.md) |
@@ -61,9 +61,9 @@ Represent each option at comparable fidelity:
 
 | Type | Representation | Guide |
 | --- | --- | --- |
-| Frontend | Wireframe, mockup, Figma frame, rendered slice, prototype | [Wireframe](../guide-wireframe/SKILL.md), [Figma file](../guide-figma-file/SKILL.md) |
+| Frontend | Wireframe, mockup, Figma frame, rendered slice, prototype | [Design specification](../guide-design-spec/SKILL.md) |
 | Backend | Contract sketch, sequence, C4, data/ownership view, state machine | [C4](../guide-c4-view/SKILL.md), [sequence](../guide-sequence-view/SKILL.md), [state machine](../guide-state-machine/SKILL.md) |
-| AI | Context/tool flow, data contract, evaluation plan, harness view | [Evaluation plan](../guide-evaluation-plan/SKILL.md) |
+| AI | Context/tool flow, data contract, evaluation plan, harness view | Use the available AI testing method for the evaluation plan |
 | Library/CLI | API/command surface, compatibility matrix, usage example | [Compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
 
 A text description alone is not enough when layout, interaction, contract shape, failure behavior or model quality is the question. Read the guide for the artifact you are producing; it owns structure, notation, fidelity and common failures. Use realistic content and the states that matter: empty, loading, busy, error, denied, stale, conflict.

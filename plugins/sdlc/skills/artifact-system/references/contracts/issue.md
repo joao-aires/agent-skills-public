@@ -48,6 +48,10 @@ Guidance for each part:
 - **References.** Link the ECR, design, baseline revision, related issues and PRs. Use the [link rules](../quality-bar.md#4-resolvable-navigation); a bare SHA or "the ECR" is not a reference.
 - **Status.** Ready, in progress, blocked or done. Name the owner and the next action. Do not mark done without linked evidence.
 
+## Handoff
+
+The implementer must know the intended outcome, scope, acceptance, constraints, verification and dependencies. See [handoff](../handoff.md).
+
 ## The issue-only pickup test
 
 Before publishing, read the issue as if you had never seen the ECR or the conversation. Can you answer:

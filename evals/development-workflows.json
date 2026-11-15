@@ -1952,28 +1952,6 @@
       ]
     },
     {
-      "id": "guide-wireframe-option-set",
-      "prompt": "Use guide-wireframe to compare three navigation structures for a saved-search panel in an existing web application. Show the important states and annotations. Do not implement.",
-      "evaluator_setup": "Supply an existing application, an accepted design system, a design proposal with three options and no implementation authorization. The actor may inspect source but not edit it.",
-      "criteria": [
-        "Produces structurally different wireframes at comparable fidelity.",
-        "Shows empty, loading, error and denied states where relevant.",
-        "Uses realistic content and labels rather than lorem ipsum.",
-        "Annotates behavior and links each wireframe to its design option and revision.",
-        "Stops at the design artifact and does not claim visual approval or implementation."
-      ],
-      "evidence": [
-        "Wireframe links and revisions",
-        "Comparable frames per option",
-        "State and annotation coverage"
-      ],
-      "negative_controls": [
-        "Three cosmetic variants fail.",
-        "A happy-path-only wireframe fails.",
-        "Claiming implementation or final visual approval fails."
-      ]
-    },
-    {
       "id": "guide-c4-current-vs-proposed",
       "prompt": "Use guide-c4-view to describe the current and proposed container boundaries for a new queue-backed export feature. Keep current and proposed distinct and include a short text equivalent. Do not implement.",
       "evaluator_setup": "Supply current architecture notes, a proposed design sketch and source paths. No implementation authorization.",
@@ -1996,25 +1974,25 @@
       ]
     },
     {
-      "id": "guide-figma-file-source-of-truth",
-      "prompt": "Use guide-figma-file to organize an existing Figma file for a saved-search redesign. Separate current, proposed and archived frames, identify the components and tokens, record revision and access, and link the design decision. Do not implement.",
-      "evaluator_setup": "Supply an existing Figma file description, accepted design system, design proposal and workspace access notes. No write access to production or implementation.",
+      "id": "guide-design-spec-handoff",
+      "prompt": "Use guide-design-spec to prepare a handoff for a saved-search panel. Include flows, wireframes or mockups, the important states, content, component and token references, responsive behavior, accessibility, motion, assets, open questions and design-QA acceptance. Do not implement.",
+      "evaluator_setup": "Supply an existing application, accepted design system, product brief and design decision. No implementation authorization. The actor may inspect source and design assets but not edit implementation.",
       "criteria": [
-        "Separates current, proposed and archived work so a proposal is not mistaken for the accepted system.",
-        "Identifies reused components and tokens and does not fork the design system.",
-        "Records the file revision or frame link, permissions and access boundary.",
-        "Links the file to the design proposal or accepted design system and states its authority.",
-        "Does not claim implementation, visual approval or write access."
+        "Covers the flow and the affected screens, not just a final visual.",
+        "Covers default, empty, loading, error, denied, partial and long-content states where relevant.",
+        "Identifies reused components and tokens and any justified new ones.",
+        "Includes responsive behavior, accessibility and focus order, motion and reduced-motion behavior, content and assets.",
+        "States open questions, revision or source-of-truth link, acceptance criteria and what implementation may start."
       ],
       "evidence": [
-        "Page/frame structure",
-        "Component and token reuse",
-        "Revision, permissions and authority link"
+        "Handoff package and revision",
+        "State and edge-case coverage",
+        "Component, token, accessibility and QA notes"
       ],
       "negative_controls": [
-        "Treating the Figma file as the only decision record fails.",
-        "Mixing current and proposed frames fails.",
-        "Assuming read access implies write authority fails."
+        "A happy-path-only mockup fails.",
+        "A handoff with no states, accessibility or acceptance criteria fails.",
+        "Claiming implementation or approval fails."
       ]
     }
   ],
@@ -2740,9 +2718,8 @@
       "id": "artifact-guides",
       "outcome": "Artifact guides produce type-appropriate view artifacts with the right structure, states, authority and evidence, without claiming implementation.",
       "case_ids": [
-        "guide-wireframe-option-set",
         "guide-c4-current-vs-proposed",
-        "guide-figma-file-source-of-truth"
+        "guide-design-spec-handoff"
       ],
       "trial_ids": []
     }

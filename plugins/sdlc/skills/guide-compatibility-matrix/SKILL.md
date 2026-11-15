@@ -15,20 +15,25 @@ metadata:
 
 # Compatibility matrix guide
 
-Read [activity system](../activity-system/SKILL.md) for scope, the [design proposal contract](../artifact-system/references/contracts/design-proposal.md) for authority and [software types](../artifact-system/references/software-types.md) for the library/CLI or backend evidence.
+A compatibility matrix turns “it works” into a bounded claim across versions, platforms and runtimes. It is written for the consumer who must decide whether they can depend on the surface.
 
-A compatibility matrix is a **view artifact** of what a consumer may depend on. It turns “it works” into a bounded claim across versions, platforms and runtimes.
+## Reader questions
 
-## Reader question
-
-Can a consumer tell whether this surface works for their version, platform and runtime, what is deprecated, and what breaks on upgrade?
+1. What public surface is in scope?
+2. Which versions, platforms, runtimes and dependency ranges are supported?
+3. Which combinations were actually tested, and where is the evidence?
+4. Which combinations are unsupported, best-effort or known to fail?
+5. What is deprecated, and what is the migration path?
+6. How current is the claim?
+7. What consumer or environment was used to verify it?
 
 ## When to use
 
 - a library, SDK, CLI or API has external consumers;
 - several runtime, platform or dependency versions are supported;
 - a breaking change, deprecation or migration is proposed;
-- the design decision depends on consumer compatibility rather than only the implementation.
+- a design decision depends on consumer compatibility rather than only the implementation;
+- support claims are being made in docs, release notes or marketing.
 
 Do not use a matrix as a substitute for a contract or a real consumer test.
 
@@ -58,18 +63,20 @@ Do not use a matrix as a substitute for a contract or a real consumer test.
 - omitting platform or runtime combinations that are known to fail;
 - an unversioned “latest” claim;
 - mixing deprecation, support and migration policy;
-- using the matrix as a substitute for an API contract.
+- using the matrix as a substitute for an API contract;
+- a matrix that is never updated after release.
 
-## Authority, home and review
+## Review
 
-- **Authority:** the API or public-surface contract; the matrix records the claim.
-- **Home:** repository docs, release notes or the package's compatibility page.
-- **Review:** use [design review](../design/references/design-review.md) and [artifact assurance](../artifact-system/references/assurance.md).
+Read the matrix as a prospective consumer:
 
-## Specialist route
-
-Use `backend-design` for service contracts, library/CLI guidance for packaging, `typescript-development` or `go-development` for their ecosystems, and `development-tooling` for CI and consumer checks. The matrix does not replace the contract.
+- Can you find your version and platform?
+- Is the claim supported, best-effort or unsupported?
+- Is there evidence for the combination you need?
+- Is the deprecation and migration path clear?
+- Is the date or revision recent enough to trust?
+- Does the matrix agree with the contract and release note?
 
 ## Handoff
 
-Record the surface, versions, tested combinations, evidence and unsupported cases in the design proposal or release note. Do not claim compatibility from a local build alone.
+Record the surface, versions, tested combinations, evidence and unsupported cases. The consumer should be able to decide whether to depend on the surface; the release owner should know what may be claimed. Do not claim compatibility from a local build alone.
