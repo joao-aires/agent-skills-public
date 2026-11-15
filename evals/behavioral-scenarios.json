@@ -1,0 +1,101 @@
+{
+  "scenarios": [
+    {
+      "id": "new-application",
+      "name": "Starting a new application",
+      "fixture": "new-app",
+      "prompt": "Build a small local notes CLI from scratch with add/list/search/delete, JSON persistence and standard-library tests.",
+      "skills": [
+        "activity-system", "artifact-system", "plan", "refine",
+        "requirements-engineering", "design", "system-design", "implement",
+        "test", "review", "guide-ecr", "guide-prd",
+        "guide-design-proposal", "guide-issue", "guide-pr", "guide-readme"
+      ],
+      "expectations": [
+        "A working CLI with the requested commands and persistence",
+        "Standard-library tests that exercise add/list/search/delete and persistence",
+        "An ECR with scope, acceptance, design decision, implementation and verification",
+        "A README with exact commands and a stated limitation",
+        "No invented implementation or deployment evidence"
+      ],
+      "failure_signals": [
+        "Builds a framework or adds dependencies without need",
+        "Claims tests passed without running them",
+        "Produces no requirements or design record",
+        "Leaves acceptance criteria unimplemented without saying so"
+      ]
+    },
+    {
+      "id": "existing-feature",
+      "name": "Adding a feature to an existing application",
+      "fixture": "existing-feature",
+      "prompt": "Add tags and list-by-tag filtering to the task CLI while preserving existing JSON compatibility and behavior.",
+      "skills": [
+        "activity-system", "artifact-system", "system-documentation", "refine",
+        "design", "implement", "test", "review", "guide-ecr",
+        "guide-design-proposal", "guide-issue", "guide-pr", "guide-readme"
+      ],
+      "expectations": [
+        "Tags and tag filtering work for pending and all tasks",
+        "Existing add/list/done behavior and old JSON files remain compatible",
+        "Tests cover the new behavior and preserve existing tests",
+        "The ECR and design record describe the actual change, not a rewrite",
+        "No unrelated refactor or scope expansion"
+      ],
+      "failure_signals": [
+        "Breaks existing JSON or command behavior",
+        "Rewrites the application instead of extending it",
+        "Adds a filter that only works for the happy path",
+        "Leaves existing tests failing or removes them"
+      ]
+    },
+    {
+      "id": "bug-fix",
+      "name": "Fixing a defect in an existing application",
+      "fixture": "bug-fix",
+      "prompt": "Reproduce and fix the pagination off-by-one with the smallest correct change, preserve the public contract and add regression coverage.",
+      "skills": [
+        "activity-system", "artifact-system", "fix", "diagnosing-bugs",
+        "test", "review", "guide-ecr", "guide-pr"
+      ],
+      "expectations": [
+        "The original failure is reproduced before the repair",
+        "The fix is minimal and preserves signatures and validation",
+        "Regression tests fail before the fix and pass after it",
+        "The ECR separates reproduction, cause, repair and verification",
+        "No unrelated refactor or release claim"
+      ],
+      "failure_signals": [
+        "Changes the public contract to make the tests pass",
+        "Claims reproduction without observing the failure",
+        "Adds broad refactoring to a one-line defect",
+        "Reports release or production verification without evidence"
+      ]
+    },
+    {
+      "id": "idea-to-implementation",
+      "name": "Ideating and carrying through to implementation",
+      "fixture": "ideation",
+      "prompt": "Turn a rough habit-tracker idea into a useful local CLI slice with explicit streak and missed-day behavior, then implement, test and review it.",
+      "skills": [
+        "activity-system", "artifact-system", "plan", "refine",
+        "requirements-engineering", "design", "implement", "test", "review",
+        "guide-prd", "guide-ecr", "guide-design-proposal",
+        "guide-design-spec", "guide-issue", "guide-pr", "guide-readme"
+      ],
+      "expectations": [
+        "A bounded product outcome and observable acceptance replace the vague idea",
+        "Streak and missed-day behavior are explicitly decided",
+        "A useful slice is implemented and tested, not an unbounded platform",
+        "The product, ECR, design and verification records agree",
+        "Open ideas are deferred rather than silently dropped or half-built"
+      ],
+      "failure_signals": [
+        "Implements every imagined feature without a slice decision",
+        "Leaves streak or missed-day semantics implicit",
+        "Produces a plan but no implementation",
+        "Claims a product outcome without tests or observed behavior"
+      ]
+    }
+  ]
+}

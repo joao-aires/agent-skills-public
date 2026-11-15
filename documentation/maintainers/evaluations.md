@@ -4,6 +4,19 @@
 
 The [evaluation specification](../../evals/development-workflows.json) defines behavior cases and generation trials across a thirteen-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
 
+## Application scenario battery
+
+The [behavioral scenario specification](../../evals/behavioral-scenarios.json) defines four end-to-end application scenarios: starting a new application, adding a feature to an existing application, fixing a defect, and carrying an idea through to implementation. Each scenario names the fixture, the required skills, the expected artifacts and the failure signals.
+
+| Scenario | Fixture | Main evidence |
+| --- | --- | --- |
+| New application | `new-app` | Working CLI, tests, ECR, design record, verification, README |
+| Existing feature | `existing-feature` | Preserved behavior, tag filtering, tests, ECR, design and verification |
+| Bug fix | `bug-fix` | Reproduction, minimal repair, regression tests, ECR and verification |
+| Idea to implementation | `ideation` | Product outcome, explicit streak semantics, working slice, tests and records |
+
+These are application-level scenarios, not replacement cases for the existing workflow matrix. Grade them on delivered behavior and artifact consistency, not on whether a particular skill name appears in the prose.
+
 ## Current status
 
 The [ownership catalogue](sources.md#plugin-ownership) records the current package and skill inventory. Repository checks validate metadata, maintained links, acquisition pins, resource closure, complete inventories and independent builds. They do not establish correct discovery, routing, cross-stack transfer, live integration or application behavior.
