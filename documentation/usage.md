@@ -80,7 +80,7 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 | Need | Request |
 | --- | --- |
 | Compare design directions | Use design to compare three materially different saved-search directions for the web client and API, with wireframes, a contract sketch and the seam decision. |
-| Produce an artifact | Use c4-view-guide to turn this proposed architecture into context, container and one failure sequence. |
+| Produce an artifact | Use guide-c4-view to turn this proposed architecture into context, container and one failure sequence. |
 | Define a feature | Use refine to define read-only saved-search sharing from this brief and the existing code. |
 | Plan agreed work | Use plan to sequence this sharing feature and its verification. |
 | Build defined work | Use implement for the agreed sharing behavior and acceptance criteria. |

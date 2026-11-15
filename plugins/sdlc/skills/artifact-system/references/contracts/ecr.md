@@ -96,7 +96,7 @@ When a claim is superseded, keep the prior decision traceable but mark it as sup
 
 Entry points may stop earlier; no task automatically authorizes later phases. The ECR is updated incrementally and the reader must be able to tell what is pending. At each completed or attempted handoff, update the readiness disposition and consequential findings in the relevant section without creating a mandatory eighth section. Follow [artifact assurance](../assurance.md) for contradictions, source/test convergence, PR alignment and truthfulness limits.
 
-Read the [ECR guide](../../../ecr-guide/SKILL.md) for writing conventions, examples and review checks.
+Read the [ECR guide](../../../guide-ecr/SKILL.md) for writing conventions, examples and review checks.
 
 ## Handoff
 

@@ -4,7 +4,7 @@ A product brief or PRD owns **product intent**: the user problem, the audience, 
 
 Apply the [artifact quality bar](../quality-bar.md). The brief is complete when a product or engineering reader can understand who the work is for, what outcome matters, what is excluded, and what would change the priority.
 
-Read the [product brief guide](../../../prd-guide/SKILL.md) for writing conventions, examples and review checks.
+Read the [product brief guide](../../../guide-prd/SKILL.md) for writing conventions, examples and review checks.
 
 ## Contract
 

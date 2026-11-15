@@ -4,7 +4,7 @@ An **assurance assessment** records a scoped security, privacy or compliance rea
 
 Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). The default home is the engineering workspace or the established compliance workspace; link the service and control evidence.
 
-Read the [assurance assessment guide](../../../assurance-assessment-guide/SKILL.md) for writing conventions, examples and review checks.
+Read the [assurance assessment guide](../../../guide-assurance-assessment/SKILL.md) for writing conventions, examples and review checks.
 
 ## Reader questions
 

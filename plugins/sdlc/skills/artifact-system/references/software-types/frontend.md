@@ -18,7 +18,7 @@ A frontend design record does not need a C4 diagram or an API contract unless th
 
 ## Typical artifacts
 
-Use a linked artifact at comparable fidelity for each option. Read [design specification](../../../design-spec-guide/SKILL.md) for flows, wireframes, mockups, prototypes, states, content, accessibility and handoff.
+Use a linked artifact at comparable fidelity for each option. Read [design specification](../../../guide-design-spec/SKILL.md) for flows, wireframes, mockups, prototypes, states, content, accessibility and handoff.
 
 A design specification can be carried by wireframes, mockups, Figma frames, rendered slices, interactive prototypes or component-state views. A text description alone is not sufficient when layout, hierarchy, interaction or visual direction is the question.
 

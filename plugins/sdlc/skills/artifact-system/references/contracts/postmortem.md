@@ -4,7 +4,7 @@ A **postmortem** is the durable, blameless explanation of an incident and the le
 
 Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). The default home is the operations/documentation home or the incident tool; link the source incident and action tracker.
 
-Read the [postmortem guide](../../../postmortem-guide/SKILL.md) for writing conventions, examples and review checks.
+Read the [postmortem guide](../../../guide-postmortem/SKILL.md) for writing conventions, examples and review checks.
 
 ## Reader questions
 

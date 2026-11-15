@@ -213,7 +213,7 @@ def write_markdown(rows, destination):
     kinds = '\n'.join(f"| `{name}` | {count} |" for name, count in counts(rows, 'kind').items())
     guides = '\n'.join(
         f"| [{row['name']}](../{row['path']}) | {row['domain']} | {row['description']} |"
-        for row in rows if row['name'].endswith('-guide')
+        for row in rows if row['name'].startswith('guide-')
     )
     page = f'''# Skills map
 
@@ -239,7 +239,7 @@ Two core models, one method layer, three cross-cutting dimensions:
 
 - **Activity** — what work is requested and where it stops.
 - **Artifact** — what durable output exists, with authority, home, maturity, relations and evidence.
-- **Method** — how to deepen or produce the work; `*-guide` methods own artifact craft.
+- **Method** — how to deepen or produce the work; `guide-*` methods own artifact craft.
 - **Dimensions** — phase, role, software type, home and evidence filter the two core models.
 
 ## Counts

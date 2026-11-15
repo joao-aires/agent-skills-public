@@ -4,7 +4,7 @@ A **state machine** is a design or system-knowledge artifact that records the va
 
 It is a model, not proof that the implementation enforces it. The implementation and tests own enforcement.
 
-Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). Read [state-machine-guide](../../../state-machine-guide/SKILL.md) for state naming, guards, invariants and review conventions.
+Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). Read [guide-state-machine](../../../guide-state-machine/SKILL.md) for state naming, guards, invariants and review conventions.
 
 ## Reader questions
 

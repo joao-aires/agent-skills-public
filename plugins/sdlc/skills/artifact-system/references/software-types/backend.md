@@ -19,10 +19,10 @@ Software that serves other software: APIs, services, workers, cron jobs, queue c
 
 Use the guide for the view that answers the question:
 
-- [C4 view](../../../c4-view-guide/SKILL.md) for boundaries and responsibilities;
-- [sequence view](../../../sequence-view-guide/SKILL.md) for ordering, retry and failure;
-- [state machine](../../../state-machine-guide/SKILL.md) for long-running or multi-step work;
-- [compatibility matrix](../../../compatibility-matrix-guide/SKILL.md) for consumers, versions and platforms.
+- [C4 view](../../../guide-c4-view/SKILL.md) for boundaries and responsibilities;
+- [sequence view](../../../guide-sequence-view/SKILL.md) for ordering, retry and failure;
+- [state machine](../../../guide-state-machine/SKILL.md) for long-running or multi-step work;
+- [compatibility matrix](../../../guide-compatibility-matrix/SKILL.md) for consumers, versions and platforms.
 
 Typical artifacts also include an API or event contract sketch, OpenAPI/protobuf/schema, data ownership or entity relationship view, and deployment or topology view. Use the [architecture-set contract](../contracts/architecture-set.md) for durable proposed or current C4/sequence views.
 

@@ -48,7 +48,7 @@ Guidance for each part:
 - **References.** Link the ECR, design, baseline revision, related issues and PRs. Use the [link rules](../quality-bar.md#4-resolvable-navigation); a bare SHA or "the ECR" is not a reference.
 - **Status.** Ready, in progress, blocked or done. Name the owner and the next action. Do not mark done without linked evidence.
 
-Read the [issue guide](../../../issue-guide/SKILL.md) for writing conventions, examples and review checks.
+Read the [issue guide](../../../guide-issue/SKILL.md) for writing conventions, examples and review checks.
 
 ## Handoff
 

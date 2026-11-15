@@ -19,7 +19,7 @@ The rest of the plugin is composed from a small set of concepts. Two are core mo
 | --- | --- | --- |
 | **Artifact** | What durable output is produced? | Core model — `artifact-system` |
 | **Activity** | What work is requested, and where does it stop? | Core model — `activity-system` |
-| **Method** | What reusable expertise deepens the work? | Supporting capability — TDD, code review, requirements engineering, `*-guide` artifact guides |
+| **Method** | What reusable expertise deepens the work? | Supporting capability — TDD, code review, requirements engineering, `guide-*` artifact guides |
 | **Workflow** | What ordered sequence carries the work out? | Composition pattern — e.g. the contribution workflow |
 | **Role** | Who participates? | Dimension — product, implementer, reviewer, operator |
 | **Phase** | Where in the SDLC lifecycle? | Dimension — planning, requirements, design, implementation, verification, release, maintenance |
@@ -261,9 +261,9 @@ Use the [design activity](skills/design/SKILL.md), the [option set](skills/desig
 
 Every artifact type has a contract and, where the craft is distinct, a guide. The contract owns lifecycle, authority, maturity, evidence and handoff; the guide owns structure, conventions, examples, common failures and review. The full one-to-one pairing is the [guide registry](skills/artifact-system/references/catalog.md#guide-registry).
 
-- **Document guides:** `prd-guide`, `rfc-guide`, `adr-guide`, `ecr-guide`, `design-proposal-guide`, `architecture-set-guide`, `issue-guide`, `pr-guide`, `research-report-guide`, `release-note-guide`, `readme-guide`.
-- **Operational guides:** `runbook-guide`, `incident-record-guide`, `postmortem-guide`, `assurance-assessment-guide`.
-- **Artifact/view guides:** `design-spec-guide`, `c4-view-guide`, `sequence-view-guide`, `state-machine-guide`, `compatibility-matrix-guide`.
+- **Document guides:** `guide-prd`, `guide-rfc`, `guide-adr`, `guide-ecr`, `guide-design-proposal`, `guide-architecture-set`, `guide-issue`, `guide-pr`, `guide-research-report`, `guide-release-note`, `guide-readme`.
+- **Operational guides:** `guide-runbook`, `guide-incident-record`, `guide-postmortem`, `guide-assurance-assessment`.
+- **Artifact/view guides:** `guide-design-spec`, `guide-c4-view`, `guide-sequence-view`, `guide-state-machine`, `guide-compatibility-matrix`.
 
 Each guide can be used inside an activity or requested directly. The guides are self-contained writing methods; they do not link into the artifact system.
 

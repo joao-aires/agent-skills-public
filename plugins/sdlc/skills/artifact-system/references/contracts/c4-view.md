@@ -4,7 +4,7 @@ A **C4 view** is a system-knowledge artifact at context, container or component 
 
 It may be a current-state view in the architecture set or a proposed-target view in a design record. It is not the architecture itself and does not claim implementation by existing.
 
-Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). Read [c4-view-guide](../../../c4-view-guide/SKILL.md) for notation, level selection, text equivalents and review conventions.
+Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). Read [guide-c4-view](../../../guide-c4-view/SKILL.md) for notation, level selection, text equivalents and review conventions.
 
 ## Reader questions
 

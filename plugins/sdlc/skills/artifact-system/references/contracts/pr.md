@@ -4,7 +4,7 @@ A pull request owns the **submitted implementation and review evidence**. The EC
 
 Apply the [artifact quality bar](../quality-bar.md). A reviewer who has not read the conversation or the private ECR must be able to understand why the change exists, what actually changed, what could break, and what was checked at the current head.
 
-Read the [pull request guide](../../../pr-guide/SKILL.md) for writing conventions, examples and review checks.
+Read the [pull request guide](../../../guide-pr/SKILL.md) for writing conventions, examples and review checks.
 
 ## Contract
 

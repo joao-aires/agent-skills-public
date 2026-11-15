@@ -4,7 +4,7 @@ A **compatibility matrix** is a design or delivery artifact that states which ve
 
 It is not the API contract. It is the bounded claim a consumer can rely on.
 
-Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). Read [compatibility-matrix-guide](../../../compatibility-matrix-guide/SKILL.md) for support categories, evidence and review conventions.
+Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). Read [guide-compatibility-matrix](../../../guide-compatibility-matrix/SKILL.md) for support categories, evidence and review conventions.
 
 ## Reader questions
 

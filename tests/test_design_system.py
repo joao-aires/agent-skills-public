@@ -101,11 +101,11 @@ class DesignSystemTests(unittest.TestCase):
         self.assertIn('design-proposal.md', guide)
 
     def test_artifact_guides_are_prefixed_sdlc_methods(self):
-        guides = sorted((ROOT / 'plugins/sdlc/skills').glob('*-guide/SKILL.md'))
+        guides = sorted((ROOT / 'plugins/sdlc/skills').glob('guide-*/SKILL.md'))
         self.assertEqual(len(guides), 20)
         for path in guides:
             with self.subTest(guide=path.parent.name):
-                self.assertTrue(path.parent.name.endswith('-guide'))
+                self.assertTrue(path.parent.name.startswith('guide-'))
                 front = path.read_text().split('---', 2)[1]
                 metadata = yaml.safe_load(front)
                 labels = metadata['metadata']
@@ -120,13 +120,13 @@ class DesignSystemTests(unittest.TestCase):
     def test_skill_map_includes_guides_and_counts(self):
         text = (ROOT / 'documentation/skills-map.md').read_text()
         self.assertIn('133 skills', text)
-        for name in ('design-spec-guide', 'c4-view-guide', 'sequence-view-guide',
-                     'state-machine-guide', 'compatibility-matrix-guide',
-                     'runbook-guide', 'prd-guide', 'rfc-guide', 'adr-guide',
-                     'ecr-guide', 'design-proposal-guide', 'architecture-set-guide',
-                     'incident-record-guide', 'postmortem-guide',
-                     'assurance-assessment-guide', 'issue-guide', 'pr-guide',
-                     'research-report-guide', 'release-note-guide', 'readme-guide'):
+        for name in ('guide-design-spec', 'guide-c4-view', 'guide-sequence-view',
+                     'guide-state-machine', 'guide-compatibility-matrix',
+                     'guide-runbook', 'guide-prd', 'guide-rfc', 'guide-adr',
+                     'guide-ecr', 'guide-design-proposal', 'guide-architecture-set',
+                     'guide-incident-record', 'guide-postmortem',
+                     'guide-assurance-assessment', 'guide-issue', 'guide-pr',
+                     'guide-research-report', 'guide-release-note', 'guide-readme'):
             self.assertIn(name, text)
 
 

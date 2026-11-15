@@ -6,7 +6,7 @@ This contract defines **which documents the set contains, what each must answer,
 
 Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). The default home is the application repository under `docs/architecture/`; a multi-repo system may use a dedicated architecture repository.
 
-Read the [architecture set guide](../../../architecture-set-guide/SKILL.md) for writing conventions, examples and review checks.
+Read the [architecture set guide](../../../guide-architecture-set/SKILL.md) for writing conventions, examples and review checks.
 
 ## Reader questions
 

@@ -17,7 +17,7 @@ Software consumed by other developers or operators rather than end users through
 
 ## Typical artifacts
 
-Read [compatibility matrix](../../../compatibility-matrix-guide/SKILL.md) for versions, platforms and consumer evidence. Typical artifacts also include an API or module sketch, command tree and flags, dependency graph or surface summary, usage examples including one failure or misuse case, and package/install layout.
+Read [compatibility matrix](../../../guide-compatibility-matrix/SKILL.md) for versions, platforms and consumer evidence. Typical artifacts also include an API or module sketch, command tree and flags, dependency graph or surface summary, usage examples including one failure or misuse case, and package/install layout.
 
 ## Seam decisions
 

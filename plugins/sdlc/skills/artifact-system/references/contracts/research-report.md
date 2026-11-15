@@ -4,7 +4,7 @@ A research report owns a **bounded inquiry and its recommendation**. It is not a
 
 Apply the [artifact quality bar](../quality-bar.md). The report is complete when a reader can find the question, the recommendation, the strongest evidence, the alternatives and the remaining decision without reading the raw probe.
 
-Read the [research report guide](../../../research-report-guide/SKILL.md) for writing conventions, examples and review checks.
+Read the [research report guide](../../../guide-research-report/SKILL.md) for writing conventions, examples and review checks.
 
 ## Contract
 

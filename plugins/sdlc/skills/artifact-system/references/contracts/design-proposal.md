@@ -6,7 +6,7 @@ It is coordination-first. It may be materialized as the ECR solution-design sect
 
 Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). Read [software types](../software-types.md) for the affected component types.
 
-Read the [design proposal guide](../../../design-proposal-guide/SKILL.md) for writing conventions, examples and review checks.
+Read the [design proposal guide](../../../guide-design-proposal/SKILL.md) for writing conventions, examples and review checks.
 
 ## Reader questions
 
@@ -94,10 +94,10 @@ A linked artifact is sufficient when a reviewer can judge the option's behavior 
 
 | Type | Typical linked artifacts | Guide |
 | --- | --- | --- |
-| [Frontend](../software-types/frontend.md) | Wireframe, mockup, Figma frame, rendered slice, interactive prototype, component-state view | [Design specification](../../../design-spec-guide/SKILL.md) |
-| [Backend](../software-types/backend.md) | API/event contract, sequence, C4 context/container/component, data/ownership view, state machine | [C4](../../../c4-view-guide/SKILL.md), [sequence](../../../sequence-view-guide/SKILL.md), [state machine](../../../state-machine-guide/SKILL.md) |
+| [Frontend](../software-types/frontend.md) | Wireframe, mockup, Figma frame, rendered slice, interactive prototype, component-state view | [Design specification](../../../guide-design-spec/SKILL.md) |
+| [Backend](../software-types/backend.md) | API/event contract, sequence, C4 context/container/component, data/ownership view, state machine | [C4](../../../guide-c4-view/SKILL.md), [sequence](../../../guide-sequence-view/SKILL.md), [state machine](../../../guide-state-machine/SKILL.md) |
 | [AI](../software-types/ai.md) | Context/retrieval/tool flow, data contract, evaluation plan and case matrix, harness view | Use the available AI testing method for the evaluation plan |
-| [Library/CLI](../software-types/library-cli.md) | API or command surface, compatibility matrix, dependency surface, usage and failure examples | [Compatibility matrix](../../../compatibility-matrix-guide/SKILL.md) |
+| [Library/CLI](../software-types/library-cli.md) | API or command surface, compatibility matrix, dependency surface, usage and failure examples | [Compatibility matrix](../../../guide-compatibility-matrix/SKILL.md) |
 
 Use the [architecture-set contract](architecture-set.md) when a C4, sequence or data view becomes durable system knowledge. Use the [diagram lifecycle](../diagram-lifecycle.md) to keep current and proposed views distinct.
 

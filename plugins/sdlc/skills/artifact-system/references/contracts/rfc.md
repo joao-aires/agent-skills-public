@@ -4,7 +4,7 @@ An RFC is a **substantive design proposal that needs its own review or decision 
 
 Apply the [artifact quality bar](../quality-bar.md). The RFC is complete when a reviewer can understand the current state, the proposal, the alternatives, the consequences and the decision requested.
 
-Read the [RFC guide](../../../rfc-guide/SKILL.md) for writing conventions, examples and review checks.
+Read the [RFC guide](../../../guide-rfc/SKILL.md) for writing conventions, examples and review checks.
 
 ## Contract
 

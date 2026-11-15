@@ -215,7 +215,7 @@ Generic means reusable across stacks; stack-specific means select it only for ma
 | Reliability | Generic | [reliability design](../plugins/sdlc/skills/system-design/references/reliability.md) for outcomes, SLIs/SLOs, budgets and alerts | Current first-party references; optional Datadog/Terraform example |
 | Observability | Generic | [observability](../plugins/sdlc/skills/observability/SKILL.md) for signal contracts and pipeline verification | Use the project's libraries/collectors |
 | Incident response | Generic | [incident-response](../plugins/sdlc/skills/incident-response/SKILL.md) for current impact and independently verified recovery | Existing authorized tools and service evidence |
-| Runbooks | Generic | [runbook-guide](../plugins/sdlc/skills/runbook-guide/SKILL.md) for branching diagnostics, actions and verification | The service's actual procedures |
+| Runbooks | Generic | [guide-runbook](../plugins/sdlc/skills/guide-runbook/SKILL.md) for branching diagnostics, actions and verification | The service's actual procedures |
 | Incident learning | Generic | [postmortem](../plugins/sdlc/skills/postmortem/SKILL.md) | Evidence-led review and deployed completion checks |
 | Vulnerability remediation | Generic | [security-maintenance](../plugins/sdlc/skills/security-maintenance/SKILL.md) | Existing scanners, vendor advisories and deployed artifact evidence |
 | Credentials | Generic | [security-maintenance](../plugins/sdlc/skills/security-maintenance/SKILL.md) | Actual identity provider/store; never expose secret values |

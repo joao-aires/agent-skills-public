@@ -13,7 +13,7 @@ A contract is **normative**. It states the artifact's purpose, reader questions,
 | Layer | Question | Owner |
 | --- | --- | --- |
 | **Contract** | What must this artifact contain and what may it claim? | This directory |
-| **Guidance** | How do I produce and review it well? Examples, structure, anti-patterns, critique | A `*-guide` method, technical writing or the domain method |
+| **Guidance** | How do I produce and review it well? Examples, structure, anti-patterns, critique | A `guide-*` method, technical writing or the domain method |
 | **Handoff** | What does the next phase need, and where does it come from? | The contract's handoff section plus [handoff](../handoff.md) |
 
 A contract may contain a short handoff section; detailed drafting advice, long examples and review checklists belong in guidance. Do not add a new contract because an artifact needs better guidance.

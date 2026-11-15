@@ -4,7 +4,7 @@ A **design specification** is the durable handoff for an interface change: the f
 
 Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). The default home is the design workspace or the application repository's design docs; link the design tool file and revision.
 
-Read [design-spec-guide](../../../design-spec-guide/SKILL.md) for drafting, structure, states, accessibility and design-QA conventions.
+Read [guide-design-spec](../../../guide-design-spec/SKILL.md) for drafting, structure, states, accessibility and design-QA conventions.
 
 ## Reader questions
 

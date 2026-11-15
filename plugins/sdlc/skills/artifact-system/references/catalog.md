@@ -41,30 +41,30 @@ Every artifact type has a contract. A **guide** is the writing craft for that ar
 
 | Artifact | Contract | Guide |
 | --- | --- | --- |
-| Product brief / PRD | [prd.md](contracts/prd.md) | [PRD guide](../../prd-guide/SKILL.md) |
+| Product brief / PRD | [prd.md](contracts/prd.md) | [PRD guide](../../guide-prd/SKILL.md) |
 | Roadmap | [roadmap.md](contracts/roadmap.md) | No dedicated guide — product method + technical writing |
-| ECR | [ecr.md](contracts/ecr.md) | [ECR guide](../../ecr-guide/SKILL.md) |
-| Research report | [research-report.md](contracts/research-report.md) | [Research report guide](../../research-report-guide/SKILL.md) |
-| RFC | [rfc.md](contracts/rfc.md) | [RFC guide](../../rfc-guide/SKILL.md) |
-| Design proposal | [design-proposal.md](contracts/design-proposal.md) | [Design proposal guide](../../design-proposal-guide/SKILL.md) |
-| Design specification | [design-spec.md](contracts/design-spec.md) | [Design specification guide](../../design-spec-guide/SKILL.md) |
-| Issue | [issue.md](contracts/issue.md) | [Issue guide](../../issue-guide/SKILL.md) |
-| Pull request | [pr.md](contracts/pr.md) | [PR guide](../../pr-guide/SKILL.md) |
-| Architecture set | [architecture-set.md](contracts/architecture-set.md) | [Architecture set guide](../../architecture-set-guide/SKILL.md) |
-| C4 view | [c4-view.md](contracts/c4-view.md) | [C4 view guide](../../c4-view-guide/SKILL.md) |
-| Sequence view | [sequence-view.md](contracts/sequence-view.md) | [Sequence view guide](../../sequence-view-guide/SKILL.md) |
-| State machine | [state-machine.md](contracts/state-machine.md) | [State machine guide](../../state-machine-guide/SKILL.md) |
-| Compatibility matrix | [compatibility-matrix.md](contracts/compatibility-matrix.md) | [Compatibility matrix guide](../../compatibility-matrix-guide/SKILL.md) |
-| Decision record (ADR/PDR) | [adr.md](contracts/adr.md) | [ADR guide](../../adr-guide/SKILL.md) |
-| Assurance assessment | [assurance-assessment.md](contracts/assurance-assessment.md) | [Assurance assessment guide](../../assurance-assessment-guide/SKILL.md) |
-| Runbook | [runbook.md](contracts/runbook.md) | [Runbook guide](../../runbook-guide/SKILL.md) |
+| ECR | [ecr.md](contracts/ecr.md) | [ECR guide](../../guide-ecr/SKILL.md) |
+| Research report | [research-report.md](contracts/research-report.md) | [Research report guide](../../guide-research-report/SKILL.md) |
+| RFC | [rfc.md](contracts/rfc.md) | [RFC guide](../../guide-rfc/SKILL.md) |
+| Design proposal | [design-proposal.md](contracts/design-proposal.md) | [Design proposal guide](../../guide-design-proposal/SKILL.md) |
+| Design specification | [design-spec.md](contracts/design-spec.md) | [Design specification guide](../../guide-design-spec/SKILL.md) |
+| Issue | [issue.md](contracts/issue.md) | [Issue guide](../../guide-issue/SKILL.md) |
+| Pull request | [pr.md](contracts/pr.md) | [PR guide](../../guide-pr/SKILL.md) |
+| Architecture set | [architecture-set.md](contracts/architecture-set.md) | [Architecture set guide](../../guide-architecture-set/SKILL.md) |
+| C4 view | [c4-view.md](contracts/c4-view.md) | [C4 view guide](../../guide-c4-view/SKILL.md) |
+| Sequence view | [sequence-view.md](contracts/sequence-view.md) | [Sequence view guide](../../guide-sequence-view/SKILL.md) |
+| State machine | [state-machine.md](contracts/state-machine.md) | [State machine guide](../../guide-state-machine/SKILL.md) |
+| Compatibility matrix | [compatibility-matrix.md](contracts/compatibility-matrix.md) | [Compatibility matrix guide](../../guide-compatibility-matrix/SKILL.md) |
+| Decision record (ADR/PDR) | [adr.md](contracts/adr.md) | [ADR guide](../../guide-adr/SKILL.md) |
+| Assurance assessment | [assurance-assessment.md](contracts/assurance-assessment.md) | [Assurance assessment guide](../../guide-assurance-assessment/SKILL.md) |
+| Runbook | [runbook.md](contracts/runbook.md) | [Runbook guide](../../guide-runbook/SKILL.md) |
 | API reference / SLO | Use available API/reliability expertise and link the evidence | No dedicated guide — API/reliability expertise |
 | Code, tests, migrations, configuration | [work-product.md](contracts/work-product.md) | No dedicated guide — language, framework and test guidance |
-| Release note / changelog | [release-note.md](contracts/release-note.md) | [Release note guide](../../release-note-guide/SKILL.md) |
+| Release note / changelog | [release-note.md](contracts/release-note.md) | [Release note guide](../../guide-release-note/SKILL.md) |
 | Deployment record | Use the delivery method and link the evidence | No dedicated guide — delivery method |
-| Incident record | [incident-record.md](contracts/incident-record.md) | [Incident record guide](../../incident-record-guide/SKILL.md) |
-| Postmortem | [postmortem.md](contracts/postmortem.md) | [Postmortem guide](../../postmortem-guide/SKILL.md) |
-| Repository README | [repository-readme.md](contracts/repository-readme.md) | [README guide](../../readme-guide/SKILL.md) |
+| Incident record | [incident-record.md](contracts/incident-record.md) | [Incident record guide](../../guide-incident-record/SKILL.md) |
+| Postmortem | [postmortem.md](contracts/postmortem.md) | [Postmortem guide](../../guide-postmortem/SKILL.md) |
+| Repository README | [repository-readme.md](contracts/repository-readme.md) | [README guide](../../guide-readme/SKILL.md) |
 | Guide / tutorial | [guide.md](contracts/guide.md) | No dedicated guide — technical writing |
 | Glossary | Use the docs index and keep terms consistent | No dedicated guide — docs index + technical writing |
 

@@ -4,7 +4,7 @@ A decision record owns **one consequential decision that must outlive the change
 
 Apply the [artifact quality bar](../quality-bar.md). The record is complete when a future reader can understand the decision, the alternatives, the consequences and when it should be revisited.
 
-Read the [decision record guide](../../../adr-guide/SKILL.md) for writing conventions, examples and review checks.
+Read the [decision record guide](../../../guide-adr/SKILL.md) for writing conventions, examples and review checks.
 
 ## Contract
 

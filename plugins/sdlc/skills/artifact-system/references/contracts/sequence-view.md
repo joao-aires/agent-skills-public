@@ -4,7 +4,7 @@ A **sequence view** is a system-knowledge artifact that explains how one operati
 
 It is not a contract, a state model or proof that an integration works. It is a view of behavior at a named scope.
 
-Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). Read [sequence-view-guide](../../../sequence-view-guide/SKILL.md) for participant selection, ordering and review conventions.
+Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). Read [guide-sequence-view](../../../guide-sequence-view/SKILL.md) for participant selection, ordering and review conventions.
 
 ## Reader questions
 

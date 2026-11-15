@@ -50,8 +50,8 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `postmortem-facilitation`, `postmortem-followup` | `postmortem` |
 | `compliance-design`, `gdpr-readiness`, `soc2-readiness` | `compliance-readiness` |
 | `operational-housekeeping` | `operations-review` |
-| `runbook-engineering` | `runbook-guide` |
-| `runbook-authoring` | `runbook-guide` |
+| `runbook-engineering` | `guide-runbook` |
+| `runbook-authoring` | `guide-runbook` |
 | `observability-operations` | `observability` |
 | `protect-and-restore-data` | `data-recovery` |
 | `deliver-reliable-changes` | `test` (verification and completion evidence) |
