@@ -51,7 +51,7 @@ Distinguish the current behavior from a proposed extension. Pass the trace into 
 
 ## Discovery
 
-1. Inventory source entry points, routes, commands, consumers, jobs and visible UI capabilities. Use contracts and handlers, not repository naming alone.
+1. Inventory source entry points, routes, commands, consumers, jobs and visible UI capabilities. Use contracts and handlers, not repository naming alone. Record each component's software type (frontend, backend, AI or library/CLI) and platform/domain constraints as notes, not separate types; read [software types](../artifact-system/references/software-types.md).
 2. Inspect clients, configuration references, queue/topic bindings, datastore access and dependency contracts. Classify runtime edges separately from build/package dependencies.
 3. Derive hosting/target topology from actual infrastructure and delivery definitions. Resolve rendered overrides where relevant; use live state as a cross-check, not an assumption that desired state is deployed.
 4. Identify ownership, operational docs and signal identities. Record evidence source/revision/time for each node and edge.

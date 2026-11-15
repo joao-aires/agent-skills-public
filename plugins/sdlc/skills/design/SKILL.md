@@ -1,9 +1,9 @@
 ---
 name: design
-description: Design UI interactions, backend contracts or architecture for a requested
-  change before implementation. Use when the user wants to settle a solution or review a proposal, including a continuation of an exploratory conversation. Use for flows, navigation, shared components, API/data/state
-  behavior or consequential design alternatives; produce concise text and useful wireframes/mockups
-  when needed.
+description: Design UI interactions, backend contracts, AI behavior or architecture for a requested
+  change before implementation. Use when the user wants to settle a solution, compare directions or
+  review a proposal, including a continuation of an exploratory conversation. Use for consequential
+  design alternatives; produce options, type-appropriate representations and a recorded decision.
 user-invocable: true
 metadata:
   kind: activity
@@ -20,48 +20,120 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md).
 
-Record the proposed solution, consequential decisions and evidence needed to review the affected behavior or boundaries. Use the [artifact system](../artifact-system/SKILL.md) for the handoff and [engineering workspace](../artifact-system/references/storage/coordination.md) for persistence. Resolve the artifact home with [artifact homes](../artifact-system/references/homes.md) before writing, and use the [architecture-set contract](../artifact-system/references/contracts/architecture-set.md) when the design changes a system boundary. Use [system-design](../system-design/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent implementation. When data or authority boundaries change, seek relevant security/privacy design expertise from available descriptions; retain the affected authority, data-flow and verification reasoning when a specialist is absent. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
+Design settles a proposed solution before dependent implementation. It produces a decision other people can understand: the question, the affected components, materially different options, the representations that let a reviewer judge them, the tradeoffs and the chosen direction. It does not implement.
 
-Establish the audience, intended outcome, accepted decisions and affected boundaries from supplied references and repository evidence. Choose the supporting methods through task guidance; keep the result proportionate to the uncertainty.
+Use the [artifact system](../artifact-system/SKILL.md) for the handoff and [artifact homes](../artifact-system/references/homes.md) for persistence. Read [software types](../artifact-system/references/software-types.md) to decide what evidence the affected components need. Use the [design proposal contract](../artifact-system/references/contracts/design-proposal.md) for the record.
 
-## Design the affected interface
+## Reading path
 
-For substantive UI work, seek the available **integrated interface-design capability** for hierarchy, navigation, interaction states, visual direction and critique; these do not require separate visual, interaction and assessment skill calls. Establish the accepted platform/component system and appearance policy before dependent mockups or implementation. Use existing choices or recommend a compatible system and theme behavior with their tradeoffs. Select other expertise only when the question calls for it:
-
-| Question | Relevant expertise or artifact |
+| Need | Read |
 | --- | --- |
-| Application structure, objects or data semantics | Relevant domain/archetype expertise and accepted product evidence |
-| Component-system feasibility and platform behavior | Matching technical implementation guidance, brought into design early |
-| Layout, behavior or visual uncertainty | Integrated interface design with text, wireframes, Figma or a local render as useful |
-| Consequential task language | Available UX-writing expertise |
-| A question needing participant evidence | Available usability research expertise |
+| What evidence does this kind of component need? | [Software types](../artifact-system/references/software-types.md) |
+| How to generate and compare directions | [Option set](references/option-set.md) |
+| How to test the direction before building | [Design validation](references/design-validation.md) |
+| Is the proposal ready to hand off? | [Design review](references/design-review.md) |
+| What must the record contain? | [Design proposal contract](../artifact-system/references/contracts/design-proposal.md) |
+| Architecture decisions and boundaries | [System design](../system-design/SKILL.md) |
+| Proposed versus current C4 and sequence views | [Diagram lifecycle](../artifact-system/references/diagram-lifecycle.md) |
+| Parallel design threads and reopens | [Engagement state](../activity-system/references/engagement-state.md) |
+| Consistency across artifacts | [Artifact assurance](../artifact-system/references/assurance.md) |
 
-Before choosing an interface structure, incorporate material domain/archetype guidance (what users operate on, what data means, what workflows must be preserved) and the accepted platform's technical constraints (component behavior, lifecycle, design-system conventions). Treat both as inputs to experience design, not as downstream implementation instructions. Relevant specialists may propose a complete domain-appropriate starting structure; general interface methods refine and reconcile it rather than forcing a second design. If constraints disagree, compare alternatives against accepted outcomes, real authority/accessibility rules and supported platform behavior. Keep optional expertise selected by capability, never by a mandatory package dependency.
+## Frame the decision
 
-Work through the main user task before polishing a screen. Determine what the user needs to understand, which action should be easiest to find, and what feedback explains the result. Use realistic content and the important empty, busy, error and permission states so the layout is designed for the application people will actually use.
+Establish the question, the accepted outcome and the constraints from supplied references and repository evidence. Identify the components the change touches and their software types:
 
-Develop a representative part of the experience far enough to judge the direction. If navigation is uncertain, a wireframe may answer the question; if typography, density or visual identity is uncertain, inspect a rendered design. Explain why the chosen direction suits the product and what an alternative would cost. Once it works, carry its layout, tokens and component behavior into the other affected surfaces.
+- `frontend`, `backend`, `ai` or `library-cli`;
+- `assumed` or `undecided` when the work is still at the brainstorm stage;
+- `not affected` with a reason for components that are out of scope.
 
-The handoff should preserve the **combined** domain, interaction, visual and technical decisions in the ECR design section or linked RFC: which objects and authority rules matter, chosen flow and states, tokens/components to reuse, how the layout adapts, and what needs verification. Reuse specialist findings rather than asking implementation to reconcile competing drafts or requiring a new document. Stack conventions map the accepted choices to code; Storybook can verify implemented component states later.
+A type is a lookup for evidence, not a gate. If the design record would be the same whichever type it is, do not classify it. If the type changes the evidence, say so.
 
-## Establish service behavior
+State what exists today at a named revision, or "greenfield; no implementation exists." Distinguish the current system from the proposed target.
 
-Start with an operation the service must support. Identify its caller, the data it may access, the checks that permit the action, and the stored changes that make the result true. Decide which changes must succeed together and which work can complete later. Explain what the caller can safely infer from a success, rejection or timeout.
+## Generate and represent options
 
-Follow the operation through repeated requests, partial failure and concurrent changes where they matter. An API shape alone does not settle whether a retry creates duplicate work or whether an old client can still use the service. Resolve these behavioral choices before organizing framework layers. Use available service-contract design expertise for this work and system-design for choices that change architectural boundaries.
+For a consequential choice, produce at least three **materially different** options, each from a different lens. Read [option set](references/option-set.md) for triggers, lenses by type, representation fidelity and anti-patterns.
 
-## Resolve choices and hand off
+Consequential means the choice affects responsibility, behavior, ownership, failure, cost, compatibility or a boundary, or is expensive to reverse. Do not turn a local fix into an option exercise.
 
-Compare consequential alternatives against constraints and tradeoffs; retain existing decisions where suitable. Ask about unresolved high-impact choices, record reversible assumptions and continue when the direction is sufficiently established.
+Represent each option at comparable fidelity:
 
-Connect the selected design to the application that will implement it. Use the affected behavior trace to identify:
+| Type | Representation |
+| --- | --- |
+| Frontend | Wireframe, mockup, Figma frame, rendered slice, prototype |
+| Backend | Contract sketch, sequence, C4, data/ownership view, state machine |
+| AI | Context/tool flow, data contract, evaluation plan, harness view |
+| Library/CLI | API/command surface, compatibility matrix, usage example |
 
-- existing components and conventions to reuse;
-- responsibilities that change;
-- integration points that must agree.
+A text description alone is not enough when layout, interaction, contract shape, failure behavior or model quality is the question. Use realistic content and the states that matter: empty, loading, busy, error, denied, stale, conflict.
 
-Explain the intended flow from the caller through decisions and effects to the observed result. Name relevant code locations when known, keep proposed additions distinct from existing files, and leave routine implementation details open.
+When the change touches more than one type, the seam is part of the option set. Decide the contract or data shape, error and denial mapping, loading/empty distinctions, pagination, authority boundaries, retry/idempotency and compatibility once. Do not let each type section invent its own seam.
 
-For new applications and boundary-changing changes, inspect current C4/sequence baselines at an explicit code revision and create relevant **proposed target** diagrams in the ECR/RFC. For local changes, give a reason diagrams are unaffected. Only verified implementation updates the canonical current-state baseline. Carry the behavior, consequential choices and evidence needed to verify them into planning. The handoff should let someone explain where to start and which assumption could change the approach. A small local change may need only a short explanation beside its acceptance criteria; a cross-component change benefits from an implementation map or sequence when that clarifies dependencies.
+## Design the affected behavior
 
-Before handing the design to implementation, apply [artifact assurance](../artifact-system/references/assurance.md) against the accepted requirements: inspect the current-versus-target diagrams and contracts for missing actors, denial/failure/recovery paths, contradicting choices and unowned consequential decisions. Correct approved inconsistencies and recheck; block only affected dependent work. Return the agreed/proposed design, acceptance evidence and explicit unknowns. A design request does not silently authorize implementation or impose a design-document approval gate on trivial edits.
+Choose the supporting method that matches the component. Do not force one discipline onto every type.
+
+### Frontend
+
+Work through the main user task before polishing a screen. Determine what the user must understand, which action should be easiest to find and what feedback explains the result. Cover the important empty, busy, error, denied and stale states.
+
+Incorporate material domain/archetype guidance and the accepted platform constraints early. Reuse the existing design system, tokens and components; do not invent a parallel one. Seek available interface-design, UX-writing and usability-research capability by description. If a specialist is absent, use the generic method, project evidence and primary sources; do not lower the evidence standard.
+
+Develop a representative part far enough to judge the direction. A wireframe may answer navigation; a rendered design may answer typography, density or visual identity. Carry the accepted layout, tokens and component behavior into the other affected surfaces.
+
+### Backend
+
+Start with an operation the service must support. Identify its caller, the data it may access, the checks that permit the action and the stored changes that make the result true. Decide which changes must succeed together and which work can complete later. Explain what the caller can safely infer from success, rejection or timeout.
+
+Follow the operation through repeated requests, partial failure and concurrent changes where they matter. An API shape alone does not settle whether a retry duplicates work or whether an old client still works. Resolve those choices before organizing framework layers. Use [system design](../system-design/SKILL.md) for choices that change architectural boundaries.
+
+### AI
+
+Establish the task, the quality bar and the context the model may use. Decide the provider/model boundary, the tools and authority each tool has, and the output contract consumed by the UI or service. Define the evaluation set, regression bar, failure and refusal behavior, cost/latency limits and human control. A demo response is not evaluation evidence.
+
+### Library/CLI
+
+Define the public surface and the consumer task. Cover compatibility, dependency surface, packaging, errors and exit codes, and usage examples for the main path and one failure path. A successful local build is not proof that a clean consumer can install or invoke it.
+
+### Architecture
+
+Use [system design](../system-design/SKILL.md) when the change affects boundaries, ownership, persistence, identity, integrations or quality attributes. For new applications and boundary-changing work, inspect the current C4/sequence baseline at an explicit revision and create relevant **proposed target** views in the design record or RFC. For a local change, state why the diagrams are unaffected.
+
+## Decide and record
+
+Use the [design proposal contract](../artifact-system/references/contracts/design-proposal.md). For a normal change, the ECR solution-design section can hold the proposal. Use an RFC when the proposal needs its own audience or decision process, or a linked design record when the representations or review justify it.
+
+Record:
+
+- the affected types and what is not affected;
+- the options, lenses, tradeoffs and failure behavior;
+- the seam decision when several types meet;
+- the recommended option, the decision owner and the status;
+- the revisit trigger and the evidence still missing;
+- the first implementation slice and the key assumptions.
+
+Do not create one proposal per software type. Create one record with a section per affected type and one seam.
+
+## Validate when uncertainty is material
+
+Read [design validation](references/design-validation.md). Use the mode that matches the question: expert critique, rendered slice, prototype, usability observation, contract probe, bench/device observation, consumer test or AI evaluation set.
+
+Record the target, revision, environment, observed result and limits. Validation ends at validated, limited or blocked. A validated design is still proposed relative to implementation and does not authorize building beyond the design request.
+
+## Hand off
+
+Before handing the design to implementation, apply [design review](references/design-review.md) and [artifact assurance](../artifact-system/references/assurance.md) against the accepted requirements:
+
+- are the options real and the representation sufficient;
+- are error, denial, concurrency, migration and recovery paths covered;
+- is the seam consistent across the type sections;
+- are reuse, changed responsibilities and integration points named;
+- are open decisions and owners explicit.
+
+Return the accepted or proposed design, the evidence and the unknowns. Name what implementation may start and what is blocked. A design request does not silently authorize implementation or impose a design-document approval gate on trivial edits.
+
+## Proportionality
+
+A small local change may need only a short explanation beside its acceptance criteria. A cross-component or expensive-to-reverse change benefits from an option set, representations, a seam decision and a recorded owner. Do not invoke every design mode for every change; invoke the ones whose evidence the decision actually needs.
+
+If new evidence invalidates the chosen direction, reopen the design decision, update the proposal and recheck dependents. Do not keep implementing on a contradicted design.

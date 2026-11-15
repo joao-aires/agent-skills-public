@@ -45,6 +45,8 @@ Include supported clients, offline behavior, synchronization, expected concurren
 
 Compare options that differ in a consequential responsibility, such as where state is owned, when work completes, or who operates a dependency. Explain how each option serves the journey under normal operation and under the failures that matter. Include the cost of deployment, diagnosis and recovery, not only implementation convenience.
 
+For a consequential choice, use the [option set](../design/references/option-set.md): at least three materially different options from different lenses, with a representation appropriate to the affected [software type](../artifact-system/references/software-types.md). Record the recommendation and the rejected alternatives in the [design proposal](../artifact-system/references/contracts/design-proposal.md).
+
 Recommend the simplest option that satisfies the accepted constraints. A service split should clarify independent ownership or operation; a queue should have a reason for deferring work and a policy for unfinished work; a cache should have an acceptable freshness and failure behavior. Describe what the chosen option makes easier, what it makes harder, and what evidence would cause the decision to be revisited. A named pattern or popular framework does not establish suitability.
 
 Use installed codebase-design for interfaces/test seams and domain-modeling for complex domain concepts.
@@ -56,6 +58,8 @@ Cover the affected design:
 - System context, service/client responsibilities, deployment boundaries and critical request/event sequence.
 - Contracts, authority checks, persistence/transaction ownership, retries/idempotency, failure/cancellation, compatibility and configuration.
 - Test seams, diagnostic signals, artifact/release strategy and recovery.
+
+When the boundary joins more than one software type, decide the seam once: contract or data shape, error and denial mapping, auth/tenant boundaries, retry/idempotency, versioning and compatibility. Do not duplicate the seam in each component's design.
 
 Use relevant backend, frontend/native-client, AI and operations guidance when installed. For new apps/services and boundary-changing work, inspect the canonical implemented-state C4 and critical sequences and produce affected **proposed target** C4 and sequence views in the ECR/RFC engineering workspace. An unchanged local boundary warrants an explicit non-impact disposition. Reconcile application current-state docs after verified implementation, not upon design acceptance. A drawing alone is not a design.
 

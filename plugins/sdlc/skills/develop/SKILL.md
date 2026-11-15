@@ -34,6 +34,8 @@ Read [new-application flow](references/new-application-flow.md). Reuse sufficien
 
 A named stack or starter kit does not supply missing decisions. Defined existing work reuses accepted context; it does not restart the full lifecycle.
 
+When the work interleaves requirements, design and implementation, keep [engagement state](../activity-system/references/engagement-state.md): one focus, several threads and explicit reopens. Announce a change of stopping point rather than silently crossing it.
+
 ## Establish a useful slice
 
 Treat the rough idea as an outcome to shape, not an instruction to build every imagined feature. Inspect the repository and supplied references first.

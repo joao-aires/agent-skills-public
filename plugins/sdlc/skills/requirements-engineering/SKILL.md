@@ -22,6 +22,8 @@ Read [activity system](../activity-system/SKILL.md) for scope and stopping point
 
 Support the user-facing [refine](../refine/SKILL.md) activity. This skill owns the **quality of requirements analysis**, not product prioritization, solution architecture, implementation planning or a separate mandatory approval process. For a narrow, already-defined correction, use only the applicable checks rather than generating a specification.
 
+Requirements and design may run as parallel threads when a design question informs acceptance. Keep the open requirement explicit, mark the design as provisional and use [engagement state](../activity-system/references/engagement-state.md); do not let a provisional design become an accepted requirement.
+
 ## Establish purpose, authorities and what is already known
 
 Read the accepted product outcome, request, current behavior, repository contracts, operational constraints and existing requirements before inventing new ones. For a new system, identify the relevant actors, external systems and intended operating environment instead of pretending there is an implementation to inspect. A company ticket, product brief, user conversation, incident review or migration objective can all be starting evidence; they are not automatically complete requirements.

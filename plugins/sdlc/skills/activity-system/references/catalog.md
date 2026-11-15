@@ -9,7 +9,7 @@ An activity is a requested engagement. Use this catalog to choose the activity w
 | [setup](../../setup/SKILL.md) | New project foundations or existing-project adoption | Working context, commands, foundations and artifact home map | Before feature implementation | README, project instructions, artifact home map, ECR workspace pointer | [project-conventions](../../project-conventions/SKILL.md), [artifact-system](../../artifact-system/SKILL.md), delivery expertise |
 | [plan](../../plan/SKILL.md) | Outcome, first slice, feasibility or sequencing is open | Scoped decision to proceed, investigate or defer | Planning decision and in-scope handoff | ECR overview/problem, PRD or roadmap link, issue when coordination warrants | Product discovery, feasibility, [system-documentation](../../system-documentation/SKILL.md) |
 | [refine](../../refine/SKILL.md) | Rough idea, brief or optional ticket needs definition | Actionable requirements and observable acceptance, or decision blockers | Requirements ready for design or implementation | ECR requirements, acceptance, open decisions | [requirements-engineering](../../requirements-engineering/SKILL.md), product/security/operations expertise |
-| [design](../../design/SKILL.md) | UX, contracts or architecture need decisions | Text/visual behavior design before code | Design accepted, limited or blocked | ECR solution design, target views, RFC/ADR when independent | [system-design](../../system-design/SKILL.md), interface/backend/security expertise |
+| [design](../../design/SKILL.md) | Consequential UX, contract, AI or architecture choices need options and a decision | Options, representations and an accepted, limited or blocked design decision before code | Design accepted, limited or blocked; no implementation | Design proposal (ECR §4, RFC or linked record), target views, ADR when independent | [system-design](../../system-design/SKILL.md), [option set](../../design/references/option-set.md), [design validation](../../design/references/design-validation.md), interface/backend/AI/security expertise |
 | [develop](../../develop/SKILL.md) | Rough idea to implementation in one engagement | Useful verified slice, with questions and assumptions | Requested development outcome | ECR across performed phases, work products, verification, issue/PR views | Refine, design, implementation preparation, verification, review |
 | [implement](../../implement/SKILL.md) | Defined work is ready; explicit implementation requested | Implemented and verified change through the contribution flow | Completed local change and checks | Work products, tests, ECR implementation/verification, PR when authorized | [git-contributions](../../git-contributions/SKILL.md), [test](../../test/SKILL.md), technical/design expertise |
 | [implement-spec](../../implement-spec/SKILL.md) | Agreed spec should become dependency-ordered work | Implemented slices on an integration branch | Agreed spec implemented and checked | Work products, tests, ECR/plan, PR when authorized | Parallel worktrees, [git-contributions](../../git-contributions/SKILL.md), [test](../../test/SKILL.md) |
@@ -20,6 +20,21 @@ An activity is a requested engagement. Use this catalog to choose the activity w
 | [improve](../../improve/SKILL.md) | Opportunity discovery or a specific improvement | Prioritized findings or focused implementation for an explicit objective | Findings or requested improvement | Findings, ECR/work item, work products and checks when implemented | [improve-codebase-architecture](../../improve-codebase-architecture/SKILL.md), [codebase-design](../../codebase-design/SKILL.md), domain modeling |
 | [harden](../../harden/SKILL.md) | Scoped security/privacy improvement | Evidenced fixes and residual risks | Scoped hardening and evidence | ECR/security record, work products, verification | Security/privacy design, threat review |
 | [dependencies](../../dependencies/SKILL.md) | Updates, findings or dependency PR maintenance | Per-item evidence and changes; merge only under explicit policy | Dependency decision or authorized remediation | Dependency record, work products, checks, PR | Delivery, security and stack expertise |
+
+## Design modes
+
+Design is one activity with several modes. They are not separate activities or phases.
+
+| Mode | Use when | Output |
+| --- | --- | --- |
+| Frame | The decision, constraints, components or types are unclear | Bounded question, affected types, current state or greenfield |
+| Explore options | A consequential choice has more than one plausible direction | Three or more materially different options with lenses |
+| Represent | The options cannot be judged from text alone | Type-appropriate wireframes, mockups, contracts, sequences, state machines or evaluation plans |
+| Decide | A direction is supportable or must be blocked | Design proposal, recommendation, owner, status and revisit trigger |
+| Validate | Material uncertainty remains about behavior, feasibility or quality | Validated, limited or blocked evidence |
+| Review / hand off | Implementation or another reviewer will depend on the design | Findings, accepted design, seam, open decisions and authority |
+
+Use the modes proportionately. A small local change may need only a short decision and review. Read [engagement state](engagement-state.md) when design threads run in parallel with requirements or implementation.
 
 ## Operate and learn
 
@@ -66,4 +81,5 @@ These are named workflows, not default activities. They require an explicit requ
 - The **supporting methods** deepen a concern; they do not silently start another activity.
 - The **artifacts** column uses the [artifact catalog](../../artifact-system/references/catalog.md) types. Resolve their homes with [artifact homes](../../artifact-system/references/homes.md).
 - If the request spans several activities, `develop` can carry them in one engagement when implementation is authorized. Otherwise, stop at the requested activity and hand off.
+- Several activities may run as parallel threads, especially requirements and design or frontend and backend design. Use [engagement state](engagement-state.md); report the current focus and do not pretend an inactive thread is finished.
 - If the request is for help, explain the matching activity and its result; do not start it.

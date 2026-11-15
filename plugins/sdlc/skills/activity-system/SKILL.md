@@ -27,6 +27,7 @@ The [artifact system](../artifact-system/SKILL.md) owns the durable outputs. Thi
 | --- | --- |
 | Choose an activity and see its default result | [Activity catalog](references/catalog.md) |
 | Understand transitions, handoffs and stopping points | [Transitions](references/transitions.md) |
+| Track focus, parallel threads and re-entry | [Engagement state](references/engagement-state.md) |
 | Select supporting methods and handle absent expertise | [Composition](references/composition.md) |
 | Check action scope, unattended work and consequential decisions | [Authority](references/authority.md) |
 | Keep the work proportionate to the project | [Project fit](references/project-fit.md) |
@@ -58,6 +59,20 @@ The [artifact system](../artifact-system/SKILL.md) owns the durable outputs. Thi
 5. **Select supporting methods by capability**, not by a hardcoded list. Read the relevant guidance, check its fit and carry useful conclusions into the work. Missing optional guidance does not lower the acceptance standard.
 6. **Resolve artifacts and homes** with the [artifact system](../artifact-system/SKILL.md) and [artifact homes](../artifact-system/references/homes.md). The activity decides what is produced; the artifact system decides its type, contract, home and evidence.
 7. **Stop at the requested result.** Report the outcome, actual evidence, unresolved decisions and the next activity or owner. Do not continue into a later activity because its skill is available.
+
+## Engagement state
+
+The lifecycle is a graph, not a pipeline. A person may design a UI, implement part of it, return to design, and keep a backend contract and a requirements question open at the same time.
+
+For multi-step or interleaved work, keep a short state block: current focus, active threads, accepted and open decisions, parked asides, next transition and authority. Use [engagement state](references/engagement-state.md) for the block, the reopen protocol and the side-topic rules.
+
+- **One focus, many threads.** Do not pretend an inactive thread is finished.
+- **Returning is a reopen.** Check changed evidence and dependent decisions.
+- **Parallel phases are allowed.** Requirements and design, or frontend and backend design, may run together.
+- **A transition is an announcement, not a gate.**
+- **Static `phase` metadata is not runtime state.** The skill label says where a skill belongs; the engagement state says what is happening now.
+
+Do not use the state block for a small bounded task. A one-line note is enough.
 
 ## Help mode
 
