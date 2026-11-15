@@ -19,6 +19,8 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md).
 
+For writing the artifact this activity produces, read [guide-prd](../guide-prd/SKILL.md), [guide-issue](../guide-issue/SKILL.md) for structure, conventions and review.
+
 ## When starting a new application
 
 Read [new-application flow](references/new-application-flow.md). Reuse sufficient accepted evidence and establish missing outcomes before work that depends on them:

@@ -19,6 +19,8 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Use the [runbook contract](../artifact-system/references/contracts/runbook.md) for the procedure and the ECR verification section for recovery evidence.
 
+For writing the artifact this activity produces, read [guide-runbook](../guide-runbook/SKILL.md) for structure, conventions and review.
+
 ## Recover the user capability
 
 Identify durable state and dependencies: databases, uploaded objects, persistent volumes, infrastructure/configuration, secrets and encryption keys, external services and DNS. Agree acceptable data loss (RPO) and time to restore service (RTO) from user/business needs; label assumptions when these are unknown. Cover accidental deletion/corruption and infrastructure failure separately. Replication and high availability do not replace backups.

@@ -4,7 +4,19 @@ An ECR is the **durable, reader-oriented specification of one coherent engineeri
 
 Apply the [artifact quality bar](../quality-bar.md) and the shared [presentation guidance](../../SKILL.md#present-outcomes). The ECR's format is Markdown-like prose with stable headings; **no YAML/JSON manifest or prescribed file tree is required**.
 
-## Seven required sections
+## Reader questions
+
+A change participant or reviewer must be able to answer:
+
+1. What is changing, for whom, and why?
+2. What is in scope and out of scope?
+3. What must be true for the change to be accepted?
+4. What was proposed, and which alternatives were rejected?
+5. What has actually been built or checked, at which revision?
+6. What has been released, and what remains pending?
+7. Which decisions were made, and what remains open?
+
+## Contract
 
 Every ECR, including a compact single-file fix, has these headings in this order. Use truthful `Pending`, `Not applicable — reason`, or `Blocked — decision/evidence needed` for content not yet established. This makes the format predictable without presenting future work as finished.
 

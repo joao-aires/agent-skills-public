@@ -289,7 +289,7 @@ The storage mechanics for coordination artifacts now live inside `artifact-syste
 
 ### Delivery and operations
 
-`release` owns the delivery activity; [delivery workflow](skills/release/references/delivery.md) owns the CI/CD, artifact-promotion and recovery mechanics. Operations activities cover incident response, observability, runbook authoring, data recovery, security maintenance, capacity and cost, operations reviews and postmortems. `system-design` owns reliability targets through [reliability design](skills/system-design/references/reliability.md); `observability` implements the signals.
+`release` owns the delivery activity; [delivery workflow](skills/release/references/delivery.md) owns the CI/CD, artifact-promotion and recovery mechanics. Operations activities cover incident response, observability, runbook, data recovery, security maintenance, capacity and cost, operations reviews and postmortems. `system-design` owns reliability targets through [reliability design](skills/system-design/references/reliability.md); `observability` implements the signals.
 
 ### Security and governance
 

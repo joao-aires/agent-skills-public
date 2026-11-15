@@ -9,9 +9,11 @@ import tempfile
 try:
     from upstream_sources import load_sources
     from skill_metadata import validate_skill_metadata
+    from skill_schema import DOMAINS, INVOCATIONS, KINDS, ORIGINS, PACKS, PHASES, ROLES, SCOPES
 except ModuleNotFoundError:
     from scripts.upstream_sources import load_sources
     from scripts.skill_metadata import validate_skill_metadata
+    from scripts.skill_schema import DOMAINS, INVOCATIONS, KINDS, ORIGINS, PACKS, PHASES, ROLES, SCOPES
 
 ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PLUGINS = ('sdlc',)
@@ -59,7 +61,7 @@ def adapt_skill(target, source):
                 metadata = yaml.safe_load(parts[1])
                 if 'usage-labels' in adaptations:
                     labels = source['labels']
-                    if labels.get('scope') not in {'generic', 'stack-specific'} or labels.get('invocation') not in {'user', 'agent', 'both'} or labels.get('kind') not in {'system', 'activity', 'method', 'workflow', 'reference'} or labels.get('origin') not in {'local', 'upstream'} or labels.get('pack') not in {'sdlc', 'technical', 'craft', 'product'} or labels.get('phase') not in {'planning', 'requirements', 'design', 'implementation', 'verification', 'release', 'maintenance', 'cross-phase'} or labels.get('domain') not in {'development', 'delivery', 'operations', 'security', 'governance', 'product', 'saas', 'frontend', 'backend', 'database', 'ai', 'tooling', 'platform', 'documentation', 'visualization', 'browser-extension', 'native', 'go', 'typescript'} or any(not isinstance(value, str) for value in labels.values()):
+                    if labels.get('scope') not in SCOPES or labels.get('invocation') not in INVOCATIONS or labels.get('kind') not in KINDS or labels.get('origin') not in ORIGINS or labels.get('pack') not in PACKS or labels.get('phase') not in PHASES or labels.get('domain') not in DOMAINS or labels.get('role') not in ROLES or any(not isinstance(value, str) for value in labels.values()):
                         raise ValueError('Invalid usage labels')
                     metadata.setdefault('metadata', {}).update(labels)
                 if 'tracker-neutral' in adaptations:

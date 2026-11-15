@@ -18,6 +18,8 @@ Establish applicability before mapping controls. A compliance claim is only usef
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Apply the [assurance assessment contract](../artifact-system/references/contracts/assurance-assessment.md) for the durable result.
 
+For writing the artifact this activity produces, read [guide-assurance-assessment](../guide-assurance-assessment/SKILL.md) for structure, conventions and review.
+
 ## Establish applicability and boundary
 
 Read the actual service, data flows, contracts, customer commitments, jurisdictions, providers and existing controls. Separate a legal obligation, a contractual commitment and an engineering safeguard. Record unknowns and the owner who can resolve them.

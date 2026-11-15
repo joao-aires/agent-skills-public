@@ -22,6 +22,8 @@ user-invocable: true
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
 
+For writing the artifact this activity produces, read [guide-architecture-set](../guide-architecture-set/SKILL.md), [guide-c4-view](../guide-c4-view/SKILL.md), [guide-sequence-view](../guide-sequence-view/SKILL.md) for structure, conventions and review.
+
 Map and document how the application actually carries work from an entry point to a result. Use the same evidence to produce the architecture document set when durable documentation is requested. Start with a relevant user action, request, job or command and follow the code, configuration and stored data involved. The map should let another contributor find the responsible component and understand why it depends on another one.
 
 Keep the evidence beside the relationship it supports. A package import shows a code dependency; a configured client and its call site can show a runtime dependency; deployment configuration shows intended hosting. These support different claims. Record uncertainty instead of making architecture look more complete than the sources permit.

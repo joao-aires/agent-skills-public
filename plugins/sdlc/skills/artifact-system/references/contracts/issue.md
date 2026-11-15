@@ -4,7 +4,18 @@ An issue owns the **intended work and coordination**. An ECR owns the evolving e
 
 Apply the [artifact quality bar](../quality-bar.md). An issue is complete when a reader can pick it up **without opening the ECR** and still know what to do, what not to do, how success is observed, and where the evidence lives.
 
-## Actionable issue contract
+## Reader questions
+
+An implementer must be able to answer without opening the ECR:
+
+1. What is the context and intended outcome?
+2. What is in scope and out of scope?
+3. What observable acceptance tells them the work is done?
+4. What constraints, dependencies or blocked work apply?
+5. How should the result be verified?
+6. Where is the authoritative change record?
+
+## Contract
 
 Use this body when the work is ready or nearly ready to pick up. Adapt the headings to the tracker without dropping the content.
 

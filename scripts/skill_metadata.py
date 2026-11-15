@@ -3,6 +3,11 @@ import re
 
 import yaml
 
+try:
+    from skill_schema import DOMAINS, INVOCATIONS, KINDS, ORIGINS, PACKS, PHASES, ROLES, SCOPES
+except ModuleNotFoundError:
+    from scripts.skill_schema import DOMAINS, INVOCATIONS, KINDS, ORIGINS, PACKS, PHASES, ROLES, SCOPES
+
 
 def validate_skill_metadata(skill):
     parts = skill.read_text().split('---', 2)
@@ -24,23 +29,23 @@ def validate_skill_metadata(skill):
             raise ValueError(f'Invalid skill {field}: {skill}')
     labels = metadata.get('metadata', {})
     if isinstance(labels, dict):
-        if 'scope' in labels and labels['scope'] not in {'generic', 'stack-specific'}:
+        if 'scope' in labels and labels['scope'] not in SCOPES:
             raise ValueError(f'Invalid skill scope: {skill}')
         if labels.get('scope') == 'stack-specific' and (not isinstance(labels.get('stack'), str) or not labels['stack'].strip()):
             raise ValueError(f'Missing skill stack label: {skill}')
-        if 'invocation' in labels and labels['invocation'] not in {'user', 'agent', 'both'}:
+        if 'invocation' in labels and labels['invocation'] not in INVOCATIONS:
             raise ValueError(f'Invalid skill invocation label: {skill}')
-        if 'role' in labels and labels['role'] not in {'task', 'support'}:
+        if 'role' in labels and labels['role'] not in ROLES:
             raise ValueError(f'Invalid skill role: {skill}')
-        if 'kind' in labels and labels['kind'] not in {'system', 'activity', 'method', 'workflow', 'reference'}:
+        if 'kind' in labels and labels['kind'] not in KINDS:
             raise ValueError(f'Invalid skill kind: {skill}')
-        if 'origin' in labels and labels['origin'] not in {'local', 'upstream'}:
+        if 'origin' in labels and labels['origin'] not in ORIGINS:
             raise ValueError(f'Invalid skill origin: {skill}')
-        if 'pack' in labels and labels['pack'] not in {'sdlc', 'technical', 'craft', 'product'}:
+        if 'pack' in labels and labels['pack'] not in PACKS:
             raise ValueError(f'Invalid skill pack: {skill}')
-        if 'phase' in labels and labels['phase'] not in {'planning', 'requirements', 'design', 'implementation', 'verification', 'release', 'maintenance', 'cross-phase'}:
+        if 'phase' in labels and labels['phase'] not in PHASES:
             raise ValueError(f'Invalid skill phase: {skill}')
-        if 'domain' in labels and labels['domain'] not in {'development', 'delivery', 'operations', 'security', 'governance', 'product', 'saas', 'frontend', 'backend', 'database', 'ai', 'tooling', 'platform', 'documentation', 'visualization', 'browser-extension', 'native', 'go', 'typescript'}:
+        if 'domain' in labels and labels['domain'] not in DOMAINS:
             raise ValueError(f'Invalid skill domain: {skill}')
     if 'compatibility' in metadata:
         value = metadata['compatibility']

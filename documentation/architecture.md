@@ -4,7 +4,7 @@ The collection separates the work someone requests, the expertise that improves 
 
 Design work is typed by **component**: [frontend, backend, AI or library/CLI](../plugins/sdlc/skills/artifact-system/references/software-types.md). Software type selects the typical artifacts and evidence a design needs; it is not a skill label, a project-wide category or a reason to split plugins. Work may keep several activity threads open at once; [engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) records the focus, parallel threads and reopens.
 
-The repository builds 21 independently selectable plugins: 9 generic capability packages and 12 technical packages. The [ownership map](maintainers/sources.md#plugin-ownership) assigns all 133 skills. SDLC is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. Distribution uses complete built plugins; the legacy local-skill helper is a migration aid.
+The repository builds 21 independently selectable plugins: 9 generic capability packages and 12 technical packages. The [ownership map](maintainers/sources.md#plugin-ownership) assigns all 134 skills. SDLC is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. Distribution uses complete built plugins; the legacy local-skill helper is a migration aid.
 
 ## Activities, methods and technical expertise
 

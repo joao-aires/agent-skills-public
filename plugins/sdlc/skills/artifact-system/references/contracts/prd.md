@@ -6,6 +6,18 @@ Apply the [artifact quality bar](../quality-bar.md). The brief is complete when 
 
 Read the [product brief guide](../../../guide-prd/SKILL.md) for writing conventions, examples and review checks.
 
+## Reader questions
+
+A product or engineering reader must be able to answer:
+
+1. What problem are we solving, for whom, and why now?
+2. What outcome or behavior should change?
+3. What is in scope, and what is explicitly not?
+4. How will we know it worked?
+5. What constraints, dependencies and risks shape the choice?
+6. Which decisions are open, and who owns them?
+7. What evidence supports the problem and the promised outcome?
+
 ## Contract
 
 ```markdown

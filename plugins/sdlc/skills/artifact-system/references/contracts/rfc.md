@@ -6,6 +6,18 @@ Apply the [artifact quality bar](../quality-bar.md). The RFC is complete when a 
 
 Read the [RFC guide](../../../guide-rfc/SKILL.md) for writing conventions, examples and review checks.
 
+## Reader questions
+
+A reviewer must be able to answer:
+
+1. What problem or opportunity does this address?
+2. What exists today, at which revision or state?
+3. Which components, teams or users are affected?
+4. What exactly is proposed, including failure and denial?
+5. Which alternatives were considered, and why rejected?
+6. What are the compatibility, migration, security, reliability, cost and operating consequences?
+7. What decision is requested, from whom, and what remains open?
+
 ## Contract
 
 ```markdown

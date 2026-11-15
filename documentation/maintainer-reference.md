@@ -30,6 +30,11 @@ Use this page when changing the collection. For installation and everyday use, s
 python scripts/validate_plugins.py
 python scripts/check_collection.py
 python scripts/validate_evaluations.py
+python scripts/artifact_registry.py
+# Regenerate a Mermaid diagram (requires Node/npx and a local Chrome):
+# PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
+#   npx -y @mermaid-js/mermaid-cli -i documentation/diagrams/<name>.mmd \
+#   -o documentation/images/<name>.svg -b white --size 1400
 python -m unittest discover -s tests -v
 ```
 

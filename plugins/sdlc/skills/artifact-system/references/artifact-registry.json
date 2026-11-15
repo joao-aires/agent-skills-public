@@ -1,0 +1,192 @@
+{
+  "artifacts": [
+    {
+      "type": "product-brief",
+      "contract": "contracts/prd.md",
+      "guide": "guide-prd",
+      "plane": "intent",
+      "home": "product/project workspace"
+    },
+    {
+      "type": "roadmap",
+      "contract": "contracts/roadmap.md",
+      "guide": null,
+      "plane": "intent",
+      "home": "product/project workspace",
+      "guidance": "product method and technical writing"
+    },
+    {
+      "type": "ecr",
+      "contract": "contracts/ecr.md",
+      "guide": "guide-ecr",
+      "plane": "coordination",
+      "home": "engineering workspace"
+    },
+    {
+      "type": "research-report",
+      "contract": "contracts/research-report.md",
+      "guide": "guide-research-report",
+      "plane": "coordination",
+      "home": "engineering workspace"
+    },
+    {
+      "type": "rfc",
+      "contract": "contracts/rfc.md",
+      "guide": "guide-rfc",
+      "plane": "coordination",
+      "home": "engineering workspace or docs/rfcs"
+    },
+    {
+      "type": "design-proposal",
+      "contract": "contracts/design-proposal.md",
+      "guide": "guide-design-proposal",
+      "plane": "coordination",
+      "home": "ECR section, RFC or linked design record"
+    },
+    {
+      "type": "design-specification",
+      "contract": "contracts/design-spec.md",
+      "guide": "guide-design-spec",
+      "plane": "coordination",
+      "home": "design workspace or application design docs"
+    },
+    {
+      "type": "issue",
+      "contract": "contracts/issue.md",
+      "guide": "guide-issue",
+      "plane": "coordination",
+      "home": "configured tracker"
+    },
+    {
+      "type": "pull-request",
+      "contract": "contracts/pr.md",
+      "guide": "guide-pr",
+      "plane": "coordination",
+      "home": "git provider"
+    },
+    {
+      "type": "architecture-set",
+      "contract": "contracts/architecture-set.md",
+      "guide": "guide-architecture-set",
+      "plane": "system-knowledge",
+      "home": "application docs/architecture"
+    },
+    {
+      "type": "c4-view",
+      "contract": "contracts/c4-view.md",
+      "guide": "guide-c4-view",
+      "plane": "system-knowledge",
+      "home": "architecture set or proposed design record"
+    },
+    {
+      "type": "sequence-view",
+      "contract": "contracts/sequence-view.md",
+      "guide": "guide-sequence-view",
+      "plane": "system-knowledge",
+      "home": "architecture set or proposed design record"
+    },
+    {
+      "type": "state-machine",
+      "contract": "contracts/state-machine.md",
+      "guide": "guide-state-machine",
+      "plane": "system-knowledge",
+      "home": "design record or architecture set"
+    },
+    {
+      "type": "compatibility-matrix",
+      "contract": "contracts/compatibility-matrix.md",
+      "guide": "guide-compatibility-matrix",
+      "plane": "system-knowledge",
+      "home": "repository docs or release notes"
+    },
+    {
+      "type": "decision-record",
+      "contract": "contracts/adr.md",
+      "guide": "guide-adr",
+      "plane": "system-knowledge",
+      "home": "docs/decisions"
+    },
+    {
+      "type": "assurance-assessment",
+      "contract": "contracts/assurance-assessment.md",
+      "guide": "guide-assurance-assessment",
+      "plane": "system-knowledge",
+      "home": "engineering or compliance workspace"
+    },
+    {
+      "type": "runbook",
+      "contract": "contracts/runbook.md",
+      "guide": "guide-runbook",
+      "plane": "system-knowledge",
+      "home": "operations repository or docs/operations"
+    },
+    {
+      "type": "api-reference",
+      "contract": null,
+      "guide": null,
+      "plane": "system-knowledge",
+      "home": "generated contract plus docs index",
+      "guidance": "API/reliability expertise"
+    },
+    {
+      "type": "work-product",
+      "contract": "contracts/work-product.md",
+      "guide": null,
+      "plane": "implementation",
+      "home": "application repository",
+      "guidance": "language, framework and test guidance"
+    },
+    {
+      "type": "release-note",
+      "contract": "contracts/release-note.md",
+      "guide": "guide-release-note",
+      "plane": "delivery",
+      "home": "git provider release or CHANGELOG"
+    },
+    {
+      "type": "deployment-record",
+      "contract": null,
+      "guide": null,
+      "plane": "delivery",
+      "home": "delivery/operations home",
+      "guidance": "delivery method"
+    },
+    {
+      "type": "incident-record",
+      "contract": "contracts/incident-record.md",
+      "guide": "guide-incident-record",
+      "plane": "delivery",
+      "home": "incident tool or operations workspace"
+    },
+    {
+      "type": "postmortem",
+      "contract": "contracts/postmortem.md",
+      "guide": "guide-postmortem",
+      "plane": "delivery",
+      "home": "operations/documentation home"
+    },
+    {
+      "type": "repository-readme",
+      "contract": "contracts/repository-readme.md",
+      "guide": "guide-readme",
+      "plane": "entry",
+      "home": "repository root"
+    },
+    {
+      "type": "guide",
+      "contract": "contracts/guide.md",
+      "guide": null,
+      "plane": "entry",
+      "home": "docs/guides or docs site",
+      "guidance": "technical writing"
+    },
+    {
+      "type": "glossary",
+      "contract": null,
+      "guide": null,
+      "plane": "entry",
+      "home": "docs/glossary or docs site",
+      "guidance": "docs index and technical writing"
+    }
+  ]
+}

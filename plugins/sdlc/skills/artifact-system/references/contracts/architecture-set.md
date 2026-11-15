@@ -22,7 +22,7 @@ A reader who was not in the conversation must be able to answer:
 8. Which decisions constrain the design, and where are they recorded?
 9. What is implemented now, what is proposed, and what is unknown?
 
-## Document set
+## Contract
 
 | Document | Must answer | Typical path |
 | --- | --- | --- |

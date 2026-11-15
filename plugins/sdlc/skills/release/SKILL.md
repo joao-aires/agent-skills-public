@@ -21,6 +21,8 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md).
 
+For writing the artifact this activity produces, read [guide-release-note](../guide-release-note/SKILL.md) for structure, conventions and review.
+
 For CI/CD, artifact promotion and rollout mechanics, read [delivery workflow](references/delivery.md).
 
 ## Establish the release boundary

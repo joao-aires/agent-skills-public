@@ -39,18 +39,9 @@ A connected document project can serve the same purpose. For the first storage c
 
 ## Planes and homes
 
-Every artifact has a **primary plane** and a **home**:
+Every artifact has a **primary plane** and a **home**. The plane is its role; the home is where the authoritative copy lives. They are different: a runbook is system knowledge but may live in an operations repository; an ECR is coordination knowledge that lives in the engineering workspace.
 
-- Intent: PRD, roadmap, product decision.
-- Coordination: ECR, research report, RFC, issue, PR.
-- System knowledge: architecture set, ADR, API reference, runbook, SLO.
-- Implementation: code, tests, migrations, configuration.
-- Delivery and operations: release note, deployment record, incident, postmortem.
-- Entry and knowledge: README, guide, tutorial, glossary.
-
-The plane is the artifact's role. The home is where its authoritative copy lives. They are different: an architecture view is system knowledge that usually lives in the application repository; a runbook is system knowledge that may live in an operations repository; an ECR is coordination knowledge that lives in the engineering workspace.
-
-Read [artifact homes](../plugins/sdlc/skills/artifact-system/references/homes.md) for the default homes, alternates and resolution method.
+Read the [artifact model](../plugins/sdlc/skills/artifact-system/references/model.md) for the plane definitions and [artifact homes](../plugins/sdlc/skills/artifact-system/references/homes.md) for resolution. Do not infer a home from a plane.
 
 ## Example repository artifact home map
 

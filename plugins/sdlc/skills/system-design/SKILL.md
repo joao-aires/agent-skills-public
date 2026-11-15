@@ -20,6 +20,8 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
 
+For writing the artifact this activity produces, read [guide-design-proposal](../guide-design-proposal/SKILL.md), [guide-c4-view](../guide-c4-view/SKILL.md), [guide-sequence-view](../guide-sequence-view/SKILL.md), [guide-state-machine](../guide-state-machine/SKILL.md) for structure, conventions and review.
+
 Read [reliability design](references/reliability.md) when the accepted outcome includes availability, latency, freshness or recovery targets.
 
 Use this phase after business/product refinement and before dependent implementation planning. Revisit it when a new feature changes boundaries, persistence, identity, integrations, deployment or important quality attributes. For a small change, a brief assessment of the affected contract can be sufficient. Preserve accepted architecture in existing projects.

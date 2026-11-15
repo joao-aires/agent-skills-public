@@ -44,6 +44,10 @@ Guidance:
 - **Ownership.** Name the owner or role when known. Do not invent commitments or dates.
 - **Links.** Link the PRD, ECR or issue that carries each item. The roadmap summarizes and sequences; it does not duplicate the change record.
 
+## Handoff
+
+The delivery and product reader needs the outcomes, sequencing, prerequisites, committed versus proposed work and owners. Link the ECRs, PRDs and issues rather than copying them. See [handoff](../handoff.md).
+
 ## Home and maintenance
 
 Keep one current roadmap in the established product/project home. Update it when priorities, dependencies, owners or commitments change. Do not rewrite history to make a missed commitment disappear; record the change and its reason.

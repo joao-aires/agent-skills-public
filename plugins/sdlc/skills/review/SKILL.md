@@ -21,6 +21,8 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md).
 
+For writing the artifact this activity produces, read [guide-pr](../guide-pr/SKILL.md) for structure, conventions and review.
+
 ## Establish and assess the review target
 
 Pin target/base/head from the PR or current repository context; ask only if ambiguity changes the diff.

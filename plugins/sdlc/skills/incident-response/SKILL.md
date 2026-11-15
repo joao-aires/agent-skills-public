@@ -19,6 +19,8 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Use the [incident record contract](../artifact-system/references/contracts/incident-record.md) for the durable record.
 
+For writing the artifact this activity produces, read [guide-incident-record](../guide-incident-record/SKILL.md) for structure, conventions and review.
+
 Reduce current user harm and preserve enough evidence to make the next decision. Establish what is failing now, who is affected, and which parts still work. Compare that impact with available signals so an old alert or a broken telemetry path does not define the incident by itself.
 
 Run stabilization and investigation together. Choose a mitigation for the effect it is expected to have, observe whether that effect occurred, and revise the hypothesis when it did not. Record the target, time and result so another responder can understand what changed. Do not delay a supported mitigation to finish a perfect diagnosis.

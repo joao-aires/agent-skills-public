@@ -8,6 +8,11 @@ Use the [SDLC overview](../README.md#sdlc-coverage) to orient yourself and the [
 
 The lifecycle uses seven phases: **project planning → requirements analysis → design → implementation → testing → deployment → maintenance**. Enter where an outcome is missing and revisit earlier decisions when evidence changes them. A known bug can start with reproduction. A new initiative may need feasibility work before requirements. Product direction helps choose the outcome and priority, and feedback can reopen either.
 
+Work is not a single pipeline. Requirements, design, implementation and verification can run as parallel threads, and evidence can reopen an earlier decision. The thread view shows one focus, open threads and reopen paths.
+
+![Parallel requirements, design, implementation, verification and operations threads with reopen paths](images/sdlc-threads.svg)
+
+
 Every phase starts by checking the inputs, deciding what work is needed and identifying the evidence or decision the next person will need. Scale that preparation to the uncertainty. During implementation, break agreed requirements and design into deliverable tasks, dependencies and checks. The [implementation preparation method](../plugins/sdlc/skills/activity-system/references/implementation-preparation.md) supports requests that stop at a breakdown.
 
 | Part of the diagram | How it contributes |
@@ -57,19 +62,13 @@ Every durable output is an artifact with a type, primary plane, home, authority,
 
 A handoff is **content, not a document**. The next phase may need a decision, a design specification, a contract, a test result and an open decision from different artifacts. Read [handoff](../plugins/sdlc/skills/artifact-system/references/handoff.md) for the phase matrix; the ECR is the index, not a copy of every artifact.
 
-![Seven phase columns align handoff artifacts, contributions to one ECR, and typical roles. Issue and PR views serve implementers and reviewers.](images/sdlc-artifact-flow.svg)
+Artifact types pair with a contract and, where the craft is distinct, a guide. The ECR is one coordination node; a design proposal links the design specification, C4, sequence and state artifacts rather than owning them.
 
-Read each column for the phase, its possible handoff artifacts, its contribution to the ECR and the roles involved. The feedback arrow shows where test and operational evidence can reopen earlier decisions.
+![Artifact types map to contracts and guides](images/sdlc-guide-map.svg)
 
-The phase view above shows who contributes and which documents the work may produce. Phase contributors author supporting documents, and the ECR captures their outcome or links the authoritative artifact. Issues and PR descriptions use that information to serve their own readers.
+The artifact graph shows the relationships across intent, coordination, system knowledge, implementation, delivery and entry. The ECR links intent, design, implementation, delivery and learning evidence; it is not the center of the system.
 
-The contribution view below follows the evidence into the ECR and shows how it relates to current application documentation and the issue and PR views.
-
-![Each phase contributes to a shared ECR, with checks at handoff and connections to application documentation, issues and PRs](images/sdlc-ecr-contributions.svg)
-
-The diagram shows the ECR as the coordination spine for one change. The [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) treats the surrounding application documentation, code, tests, issues, PRs and release records as first-class artifacts with their own authority, homes and evidence; the ECR links and reconciles them rather than absorbing them.
-
-See the [worked examples](artifact-workflow.md) for how this looks to the reader and the [activity system](../plugins/sdlc/skills/activity-system/SKILL.md) for activity selection.
+![Artifact graph across intent, coordination, system knowledge, implementation, delivery and entry](images/sdlc-artifact-graph.svg)
 
 ## Different starting points
 
@@ -160,73 +159,7 @@ Research, explicit clarification, prose editing, documentation, Git contribution
 
 [reliability design](../plugins/sdlc/skills/system-design/references/reliability.md) connects outcomes and SLIs/SLOs to design and operation. [observability](../plugins/sdlc/skills/observability/SKILL.md) supplies signal implementation; the [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) and [project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) keep affected knowledge and its homes current. Upstream research, Humanizer and clarification techniques are listed below. [grill-me](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grill-me) and other explicit workflows still require a request.
 
-## Skills by area
-
-Generic means reusable across stacks; stack-specific means select it only for matching technology. Some areas combine both. Supporting and directly requested specialist activities are both included; role and applicability are different dimensions. To extend the collection, follow [adding stack support](maintainers/adding-stack-support.md).
-
-<details>
-<summary>Expand the area catalogue and upstream techniques</summary>
-
-| Area | Local applicability | Local guidance | Upstream techniques or contextual tools |
-| --- | --- | --- | --- |
-| Database engineering | Generic | [database-design](../plugins/database-development/skills/database-design/SKILL.md), [database-performance](../plugins/database-development/skills/database-performance/SKILL.md) | Data contracts, consistency, schema evolution and evidence-led performance methods. |
-| PostgreSQL implementation | Stack-specific | [postgresql-development](../plugins/database-postgresql-development/skills/postgresql-development/SKILL.md), [postgresql-operations](../plugins/database-postgresql-development/skills/postgresql-operations/SKILL.md), [postgresql-performance](../plugins/database-postgresql-development/skills/postgresql-performance/SKILL.md) | PostgreSQL development, diagnostics and operating mechanics. |
-| Security engineering | Generic | [security-and-privacy-design](../plugins/sdlc/skills/security-and-privacy-design/SKILL.md), [security-auth-development](../plugins/sdlc/skills/security-auth-development/SKILL.md) | Identity/access and security/privacy design with contextual implementation selection. |
-| SaaS applications | Generic | [saas-dashboard-design](../plugins/saas-development/skills/saas-dashboard-design/SKILL.md), [saas-design](../plugins/saas-development/skills/saas-design/SKILL.md), [saas-readiness](../plugins/saas-development/skills/saas-readiness/SKILL.md) | Tenant/customer and commercial lifecycle, SaaS dashboard design and scoped readiness. |
-| Governance and assurance | Generic | [compliance-readiness](../plugins/sdlc/skills/compliance-readiness/SKILL.md) | Applicability, accountable controls and GDPR/SOC 2 readiness evidence. |
-| TypeScript implementation | Stack-specific | [typescript-conventions](../plugins/typescript-development/skills/typescript-conventions/SKILL.md) | Runtime/module/package contracts and TypeScript implementation verification without React. |
-| Go implementation | Stack-specific | [go-conventions](../plugins/go-development/skills/go-conventions/SKILL.md) | Go module/package, lifecycle, error and verification contracts for services, libraries and CLIs. |
-| Product direction | Generic | [product-management](../plugins/strategy/skills/product-management/SKILL.md) | Existing research and feedback; no tracker required |
-| Business strategy | Generic | [business-strategy](../plugins/strategy/skills/business-strategy/SKILL.md) | Preserved strategy references |
-| Project foundations | Generic | [project-conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) for affected structure, commands and constraints | None required |
-| Artifact writing guides | Generic | [Artifact guide registry](../plugins/sdlc/skills/artifact-system/references/catalog.md#guide-registry) | One contract and one guide per artifact type where the craft is distinct |
-| Artifact system | Generic | [artifact-system](../plugins/sdlc/skills/artifact-system/SKILL.md) | [writing-for-agents](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/writing-for-agents) for agent instructions |
-| Writing craft | Generic | [technical-writing](../plugins/documentation/skills/technical-writing/SKILL.md) | Reader fit, explanation, structure and presentation; [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) for prose polish |
-| Prose editing | No local skill | Follow the document's author and technical claims | [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) |
-| Frontend development | Generic + stack-specific | [frontend-conventions](../plugins/frontend-reactjs-development/skills/frontend-conventions/SKILL.md), [interface-design](../plugins/frontend-development/skills/interface-design/SKILL.md) for unified UX design and full-surface coverage | Built-in visual craft in interface-design; official shadcn, Tailwind design system, Vercel React/composition for matching implementations |
-| Browser extensions | Stack-specific | [browser-extension-development](../plugins/browser-extension-development/skills/browser-extension-development/SKILL.md), [browser-extension-security](../plugins/browser-extension-development/skills/browser-extension-security/SKILL.md), [browser-extension-ui](../plugins/browser-extension-development/skills/browser-extension-ui/SKILL.md), [browser-extension-testing](../plugins/browser-extension-development/skills/browser-extension-testing/SKILL.md), [browser-extension-delivery](../plugins/browser-extension-development/skills/browser-extension-delivery/SKILL.md) | Chrome/MV3 and current compatible framework, driver and store contracts |
-| Desktop and mobile clients | Stack-specific | [native-client-development](../plugins/frontend-native-development/skills/native-client-development/SKILL.md) for TypeScript/Tauri and informed iOS/Android choices | Current Tauri/Expo/React Native/platform documentation |
-| Backend development | Generic + stack-specific | [backend-design](../plugins/backend-development/skills/backend-design/SKILL.md), [backend-conventions](../plugins/backend-python-development/skills/backend-conventions/SKILL.md) | [modern-python](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/modern-python/skills/modern-python) |
-| AI development | Generic + stack-specific | [ai-development](../plugins/ai-development/skills/ai-development/SKILL.md), [ai-conventions](../plugins/ai-python-development/skills/ai-conventions/SKILL.md) (local, not an upstream skill) | Chosen model/provider, harness and protocol SDK guidance; Google ADK or LangChain/LangGraph only when selected |
-| AI testing and evaluation | Generic | [ai-testing](../plugins/ai-development/skills/ai-testing/SKILL.md) owns levels, cases, graders, acceptance and evidence | Matching evaluator/driver implementation when selected |
-| AI operating behavior | Generic | [ai-operations](../plugins/ai-development/skills/ai-operations/SKILL.md) owns AI-specific task/quality signals, limits, drift and recovery | Generic service operations and matching implementation expertise as relevant |
-| AI evaluation implementation | Stack-specific | [ai-deepeval-testing](../plugins/ai-python-development/skills/ai-deepeval-testing/SKILL.md) for a selected Python DeepEval runner; generic AI testing owns conceptual levels/criteria | DeepEval APIs and CI; deterministic service/protocol tests remain separate |
-| AI observability implementation | Stack-specific | [python-ai-observability](../plugins/ai-python-development/skills/python-ai-observability/SKILL.md) for Python OpenTelemetry; generic AI operations and service operations own signal/target decisions | Compatible provider/framework instrumentation and chosen exporter/backend |
-| MCP interfaces | Generic + stack-specific | MCP section of [ai-development](../plugins/ai-development/skills/ai-development/SKILL.md), [ai-conventions](../plugins/ai-python-development/skills/ai-conventions/SKILL.md); reuse authorized application services | [mcp-builder](https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/mcp-builder), in ai-python-development for an accepted Python MCP implementation |
-| Selected development tools | Stack-specific | [tooling-conventions](../plugins/development-tooling/skills/tooling-conventions/SKILL.md) for accepted CI/container/checker, telemetry-backend and web-driver mechanics | Existing provider/tool documentation and installed matching specialists |
-| Testing | Generic | [verification](../plugins/sdlc/skills/test/SKILL.md), [journey-testing](../plugins/sdlc/skills/journey-testing/SKILL.md) for web/desktop/mobile journeys | [tdd](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/tdd), [property-based-testing](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/property-based-testing/skills/property-based-testing), [playwright-cli](https://github.com/microsoft/playwright-cli/tree/b85c7a736bb473bf55b584e54a09ffa698d6d871/skills/playwright-cli) |
-| Failure testing | Generic | [resilience-testing](../plugins/sdlc/skills/resilience-testing/SKILL.md) for scoped fixtures and controlled experiments | Project-native test tools; optional isolated fault proxy |
-| Performance testing | Stack-specific | [performance-testing](../plugins/development-tooling/skills/performance-testing/SKILL.md) for local, CI-runner and deployed non-production k6 checks | Official k6 references; no cloud account required |
-| Code review | No local skill | Requested behavior and project standards | [code-review](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/code-review); [differential-review](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/differential-review/skills/differential-review) for security-sensitive diffs |
-| Debugging | No local skill | Preserve the affected scope and regression evidence | [diagnosing-bugs](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/diagnosing-bugs) |
-| Research | No local skill | Record decision-changing findings where the project keeps them | [research](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/research) |
-| Design options and software types | Generic | [design](../plugins/sdlc/skills/design/SKILL.md), [option set](../plugins/sdlc/skills/design/references/option-set.md), [software types](../plugins/sdlc/skills/artifact-system/references/software-types.md), [design validation](../plugins/sdlc/skills/design/references/design-validation.md), [design proposal](../plugins/sdlc/skills/artifact-system/references/contracts/design-proposal.md) | [prototype](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/prototype) for exploration; interface, backend and AI expertise by capability |
-| Architecture and domain design | Generic | [system-design](../plugins/sdlc/skills/system-design/SKILL.md) | [codebase-design](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/codebase-design), [domain-modeling](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/domain-modeling), [prototype](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/prototype) when exploration is requested |
-| Git contributions | Generic | [git-contributions](../plugins/sdlc/skills/git-contributions/SKILL.md) | No separate PR template required |
-| Delivery | Generic | [delivery workflow](../plugins/sdlc/skills/release/references/delivery.md) | [github-actions-hardening](https://github.com/github/awesome-copilot/tree/143a3d976b3c1603cc8932984d5e1f28501cb5fc/skills/github-actions-hardening) for GitHub Actions |
-| Security and privacy | Generic | [security-and-privacy-design](../plugins/sdlc/skills/security-and-privacy-design/SKILL.md) | [differential-review](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/differential-review/skills/differential-review), [supply-chain-risk-auditor](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/supply-chain-risk-auditor/skills/supply-chain-risk-auditor) within supported coverage |
-| Data recovery | Generic | [data-recovery](../plugins/sdlc/skills/data-recovery/SKILL.md) | Current platform/database references |
-| Capacity | Generic | [capacity-and-cost](../plugins/sdlc/skills/capacity-and-cost/SKILL.md) | Current platform references |
-| Cost | Generic | [capacity-and-cost](../plugins/sdlc/skills/capacity-and-cost/SKILL.md) | [aks-cost-optimization](https://github.com/Azure/AKS-Skills/tree/20bf35201a79b324d2ca3e00e5c82020ff362024/skills/aks-cost-optimization) only for Azure AKS |
-| System discovery | Generic | [system-documentation](../plugins/sdlc/skills/system-documentation/SKILL.md) for evidence, topology and journeys | No particular platform required |
-| Interactive architecture | Generic | [system-flow-explorer](../plugins/visualization/skills/system-flow-explorer/SKILL.md) on request; evidence-backed HTML and JSON | Bundled offline renderer; optional existing Playwright for browser checks |
-| Shell automation | Stack-specific | [bash-engineering](../plugins/development-tooling/skills/bash-engineering/SKILL.md) | Bash-specific; no new task framework required |
-| Python automation | Stack-specific | [python-automation-engineering](../plugins/backend-python-development/skills/python-automation-engineering/SKILL.md) for CLI/API jobs | [modern-python](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/modern-python/skills/modern-python) where useful; separate from FastAPI service conventions |
-| Reliability | Generic | [reliability design](../plugins/sdlc/skills/system-design/references/reliability.md) for outcomes, SLIs/SLOs, budgets and alerts | Current first-party references; optional Datadog/Terraform example |
-| Observability | Generic | [observability](../plugins/sdlc/skills/observability/SKILL.md) for signal contracts and pipeline verification | Use the project's libraries/collectors |
-| Incident response | Generic | [incident-response](../plugins/sdlc/skills/incident-response/SKILL.md) for current impact and independently verified recovery | Existing authorized tools and service evidence |
-| Runbooks | Generic | [guide-runbook](../plugins/sdlc/skills/guide-runbook/SKILL.md) for branching diagnostics, actions and verification | The service's actual procedures |
-| Incident learning | Generic | [postmortem](../plugins/sdlc/skills/postmortem/SKILL.md) | Evidence-led review and deployed completion checks |
-| Vulnerability remediation | Generic | [security-maintenance](../plugins/sdlc/skills/security-maintenance/SKILL.md) | Existing scanners, vendor advisories and deployed artifact evidence |
-| Credentials | Generic | [security-maintenance](../plugins/sdlc/skills/security-maintenance/SKILL.md) | Actual identity provider/store; never expose secret values |
-| Kubernetes resources | Stack-specific | [kubernetes-resource-engineering](../plugins/operations-platforms/skills/kubernetes-resource-engineering/SKILL.md) | Current cluster/operator/Helm/Kustomize documentation |
-| JVM performance | Stack-specific | [infra-jvm-optimization](../plugins/operations-platforms/skills/infra-jvm-optimization/SKILL.md) only for Java/JVM workloads | Installed runtime and platform guidance |
-| Operational upkeep | Generic | [operations-review](../plugins/sdlc/skills/operations-review/SKILL.md) | Reuse project records; targeted reviews remain targeted |
-| Product feedback | Generic | [learn-from-product-feedback](../plugins/strategy/skills/learn-from-product-feedback/SKILL.md) | Existing evidence; no analytics vendor required |
-
-</details>
-
-For the complete acquired set, licenses and precise source pins, use the [upstream catalogue](maintainers/sources.md#upstream-catalogue) and [artifact declarations](../agent-depot.json). Kubernetes, JVM and AKS skills apply only to those platforms. Reference-only techniques are not necessarily installed.
+For the skill catalogue by area, local versus stack-specific applicability and upstream techniques, use the [SDLC skill reference](sdlc-reference.md).
 
 ## Coverage and limits
 

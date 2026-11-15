@@ -20,6 +20,8 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
 
+For writing the artifact this activity produces, read [guide-prd](../guide-prd/SKILL.md) for structure, conventions and review.
+
 Support the user-facing [refine](../refine/SKILL.md) activity. This skill owns the **quality of requirements analysis**, not product prioritization, solution architecture, implementation planning or a separate mandatory approval process. For a narrow, already-defined correction, use only the applicable checks rather than generating a specification.
 
 Requirements and design may run as parallel threads when a design question informs acceptance. Keep the open requirement explicit, mark the design as provisional and use [engagement state](../activity-system/references/engagement-state.md); do not let a provisional design become an accepted requirement.

@@ -1,6 +1,6 @@
 # Add support for a tech stack
 
-Use this guide to add language, framework or platform expertise without creating another development process. Start from a real project need and the [existing skill map](../sdlc.md#skills-by-area). A new stack usually needs focused technical conventions; product decisions, system design, implementation and verification keep their existing owners.
+Use this guide to add language, framework or platform expertise without creating another development process. Start from a real project need and the [existing skill map](../sdlc-reference.md#skills-by-area). A new stack usually needs focused technical conventions; product decisions, system design, implementation and verification keep their existing owners.
 
 The Go examples below illustrate an extension. This collection does not currently package Go-specific guidance, and these examples do not establish Go support.
 

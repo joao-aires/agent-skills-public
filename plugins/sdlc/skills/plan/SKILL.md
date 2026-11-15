@@ -19,6 +19,8 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md). Use this method for an open decision about pursuing or shaping work. When the outcome and scope are settled and the request is to break delivery into tasks and checks, use [implementation preparation](../activity-system/references/implementation-preparation.md) and stop at the requested breakdown.
 
+For writing the artifact this activity produces, read [guide-ecr](../guide-ecr/SKILL.md) for structure, conventions and review.
+
 ## Decide what to pursue
 
 Use the conversation, accepted product direction, relevant repository facts and feedback as evidence. Reuse settled decisions. Scale the investigation to what could change the decision.

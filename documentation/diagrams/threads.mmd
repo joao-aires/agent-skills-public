@@ -1,0 +1,42 @@
+flowchart LR
+  subgraph Requirements
+    R1["Frame outcome and scope"]
+    R2["Acceptance and constraints"]
+  end
+
+  subgraph Design
+    D1["Options and tradeoffs"]
+    D2["Linked artifacts and seam"]
+    D3["Design decision"]
+  end
+
+  subgraph Implementation
+    I1["Build the slice"]
+    I2["Checks and deviations"]
+  end
+
+  subgraph Verification
+    V1["Test and review evidence"]
+  end
+
+  subgraph Operations
+    O1["Release and observe"]
+    O2["Operate and learn"]
+  end
+
+  R1 --> R2
+  R2 --> D1
+  D1 --> D2
+  D2 --> D3
+  D3 --> I1
+  I1 --> I2
+  I2 --> V1
+  V1 --> O1
+  O1 --> O2
+
+  I1 -.->|"missing state"| D1
+  V1 -.->|"contradiction"| D3
+  O2 -.->|"new evidence"| D1
+
+  classDef focus fill:#fff3cd,stroke:#b8860b,color:#4a3600
+  class D2 focus

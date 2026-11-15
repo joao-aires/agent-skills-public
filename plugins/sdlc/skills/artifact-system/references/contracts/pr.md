@@ -6,6 +6,17 @@ Apply the [artifact quality bar](../quality-bar.md). A reviewer who has not read
 
 Read the [pull request guide](../../../guide-pr/SKILL.md) for writing conventions, examples and review checks.
 
+## Reader questions
+
+A reviewer must be able to answer:
+
+1. Why does this change exist?
+2. What actually changed, and what behavior is preserved?
+3. What design or contract impact matters?
+4. What was validated, at which revision and environment?
+5. What risk, migration, release or rollback concern remains?
+6. Where are the requirements, design and issue?
+
 ## Contract
 
 Use the repository's existing contribution template where present. If none exists, use this structure:

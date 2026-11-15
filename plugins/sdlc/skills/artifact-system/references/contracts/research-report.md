@@ -6,6 +6,17 @@ Apply the [artifact quality bar](../quality-bar.md). The report is complete when
 
 Read the [research report guide](../../../guide-research-report/SKILL.md) for writing conventions, examples and review checks.
 
+## Reader questions
+
+A decision owner must be able to answer:
+
+1. What question was asked, and why does it matter now?
+2. What is the recommendation, and what decision does it support?
+3. What evidence was observed, from which sources and revisions?
+4. Which alternatives were considered?
+5. What are the limits, assumptions and conflicting evidence?
+6. What remains open, and who owns the decision?
+
 ## Contract
 
 ```markdown

@@ -21,6 +21,8 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md). Read [git-contributions](../git-contributions/SKILL.md) before foundation writes. Seek available delivery expertise for CI, artifact and recovery decisions. Read [project-conventions](../project-conventions/SKILL.md) for repository foundations and working commands. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
 
+For writing the artifact this activity produces, read [guide-readme](../guide-readme/SKILL.md) for structure, conventions and review.
+
 Setup is technical foundation work, not a substitute for product discovery. Before architecture-dependent writes, establish the intended usage, bounded journey and material platform/licensing/budget constraints. For a rough idea needing end-to-end development, use the outcomes in [new-application flow](../develop/references/new-application-flow.md) within the requested scope; a setup-only request does not authorize feature implementation or an unsolicited full business study.
 
 ## Establish useful foundations

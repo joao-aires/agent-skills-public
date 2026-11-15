@@ -20,6 +20,8 @@ user-invocable: false
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
 
+For writing the artifact this activity produces, read [guide-pr](../guide-pr/SKILL.md) for structure, conventions and review.
+
 Make the contribution easy to inspect and reproduce. Keep the objective's implementation, tests and documentation together in its worktree, and preserve unrelated work. Before publishing, check that the branch contains the intended change against the intended base and that the description explains the result to someone who has not read the conversation.
 
 ## Establish the target and workspace

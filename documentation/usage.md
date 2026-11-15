@@ -63,7 +63,7 @@ Use the relevant sdlc capability, or add a product/technical package when its de
 | Data design or workload bottleneck | Use database-design or database-performance for the affected workload; apply PostgreSQL expertise only for that engine. | Invariants, compatibility and measured evidence; an unavailable database remains an execution limit. |
 | TypeScript or Go implementation | Use matching language guidance for the existing library, service or client and its real consumers. | Loading a language package does not select a framework or runtime migration. |
 
-The [skill map](sdlc.md#skills-by-area) records owners and applicability. Missing optional expertise preserves the requested outcome and acceptance standard using project evidence, general expertise and appropriate primary sources; it does not authorize installation or justify a weaker result.
+The [skill map](sdlc-reference.md#skills-by-area) records owners and applicability. Missing optional expertise preserves the requested outcome and acceptance standard using project evidence, general expertise and appropriate primary sources; it does not authorize installation or justify a weaker result.
 
 ## One end-to-end request
 
@@ -118,7 +118,7 @@ Project setup can establish a reproducible local environment and queryable diagn
 
 ## Skills agents use during your work
 
-Supporting skills guide requested work without starting an unrelated activity. Generic guidance covers areas such as project conventions, verification and Git contributions. Stack-specific guidance applies to technologies such as Next.js or FastAPI. You can name guidance explicitly; the [area catalogue](sdlc.md#skills-by-area) shows applicability and upstream specialists.
+Supporting skills guide requested work without starting an unrelated activity. Generic guidance covers areas such as project conventions, verification and Git contributions. Stack-specific guidance applies to technologies such as Next.js or FastAPI. You can name guidance explicitly; the [area catalogue](sdlc-reference.md#skills-by-area) shows applicability and upstream specialists.
 
 Most local supporting skills are hidden from slash menus in clients honoring that setting, while remaining available to the model. Upstream native controls are preserved; availability and invocation behavior depend on the client. Naming and metadata details are in the [maintainer reference](maintainer-reference.md#naming-and-invocation).
 
@@ -131,7 +131,7 @@ Add the relevant bundle and request its installed skill by name. Examples:
 - Use `business-strategy` to explore an idea, or `learn-from-product-feedback` to assess existing evidence.
 - Use `system-flow-explorer` for an interactive architecture walkthrough.
 
-See [skills by area](sdlc.md#skills-by-area) for the wider selection. `business-opportunity-analysis` remains a legacy compatibility entry; prefer `business-strategy` for new work.
+See [skills by area](sdlc-reference.md#skills-by-area) for the wider selection. `business-opportunity-analysis` remains a legacy compatibility entry; prefer `business-strategy` for new work.
 
 ## Scheduled and event-triggered tasks
 

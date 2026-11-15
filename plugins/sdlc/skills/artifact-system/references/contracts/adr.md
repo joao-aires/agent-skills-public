@@ -6,6 +6,16 @@ Apply the [artifact quality bar](../quality-bar.md). The record is complete when
 
 Read the [decision record guide](../../../guide-adr/SKILL.md) for writing conventions, examples and review checks.
 
+## Reader questions
+
+A future maintainer must be able to answer:
+
+1. What decision was made?
+2. What context and forces shaped it?
+3. Which alternatives were considered, and why were they rejected?
+4. What consequences, including negative ones, follow?
+5. Is the decision active, superseded or deprecated?
+
 ## Contract
 
 ```markdown

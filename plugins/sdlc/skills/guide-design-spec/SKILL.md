@@ -60,7 +60,7 @@ The tool can generate much of “the what.” The rules and rationale are the pa
 - acceptance criteria and design-QA checks;
 - revision, source-of-truth link, open questions and the decision owner.
 
-## Structure and fidelity
+## Structure and quality
 
 - Start with the user task and flow, not the first screen.
 - Use a wireframe for structure and hierarchy, a mockup for visual direction, and a prototype for behavior. Do not use one for the question another answers.

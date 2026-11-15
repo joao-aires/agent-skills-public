@@ -4,6 +4,13 @@ I use these skill bundles to build and operate applications and explore product 
 
 Start with **sdlc** for the full software lifecycle. Add product, interface, backend, AI or technical methods when useful; delivery, operations, security and governance are included in sdlc. Existing project decisions take precedence; tickets are optional.
 
+| Start here | Go |
+| --- | --- |
+| Install or update the bundles | [Installation](documentation/installation.md) |
+| Understand the concepts and choose what to read | [Documentation map](documentation/README.md) |
+| See request patterns and examples | [Usage](documentation/usage.md) |
+| Maintain the collection | [Maintainer reference](documentation/maintainer-reference.md) |
+
 ## Choose your plugins
 
 | Capability | Plugins | Installation choice |
