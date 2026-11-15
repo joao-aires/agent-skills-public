@@ -19,6 +19,9 @@ These are application-level scenarios, not replacement cases for the existing wo
 
 A [2026-11-15 scenario record](../../evals/results/behavioral-scenarios/assessment.md) covers all four scenarios. All 20 scenario expectations were met, with 120/120 tests passing across the four fixtures. The record retains the agents' `EVAL.md` reports, the delivered code and docs, the cross-scenario friction log and the evidence limits. It is a **single-model, single-run, prompted-skill** record: it shows application and usability, not discovery, routing or independent assurance.
 
+A [second 2026-11-15 record](../../evals/results/independent-scenarios/assessment.md) repeats the four scenarios with **independent actor and reviewer contexts**. Actor prompts did not name skills; each actor had to discover what applied. Separate reviewers reran tests and graded each result. All 20 expectations were met with 100/100 tests. The reviewers found evidence-hygiene and edge-case issues the self-evaluations missed, which is the value of the separate review context. It remains a single-model-family record.
+
+
 
 ## Current status
 
