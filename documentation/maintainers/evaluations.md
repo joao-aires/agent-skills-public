@@ -17,6 +17,9 @@ The [behavioral scenario specification](../../evals/behavioral-scenarios.json) d
 
 These are application-level scenarios, not replacement cases for the existing workflow matrix. Grade them on delivered behavior and artifact consistency, not on whether a particular skill name appears in the prose.
 
+A [2026-11-15 scenario record](../../evals/results/behavioral-scenarios/assessment.md) covers all four scenarios. All 20 scenario expectations were met, with 120/120 tests passing across the four fixtures. The record retains the agents' `EVAL.md` reports, the delivered code and docs, the cross-scenario friction log and the evidence limits. It is a **single-model, single-run, prompted-skill** record: it shows application and usability, not discovery, routing or independent assurance.
+
+
 ## Current status
 
 The [ownership catalogue](sources.md#plugin-ownership) records the current package and skill inventory. Repository checks validate metadata, maintained links, acquisition pins, resource closure, complete inventories and independent builds. They do not establish correct discovery, routing, cross-stack transfer, live integration or application behavior.

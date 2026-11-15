@@ -60,6 +60,20 @@ A design proposal records a consequential design choice before implementation: t
 - an accepted design with no owner;
 - a proposal that claims implementation.
 
+## Compact example
+
+```markdown
+Decision: store notes in one JSON document with read-modify-write and atomic replace.
+Options: one JSON document; append-only journal; one file per note.
+Chosen because: one consistency point and readable data for a small personal CLI.
+Rejected because: the journal needs replay order; per-note files add an allocator.
+Linked artifact: command and record-shape sketch; no UI specification applies.
+Seam: `NOTES_DATA` overrides `~/.notes.json`; a corrupt file is refused, not rewritten.
+Status: accepted. Revisit if concurrent writers or thousands of notes become a requirement.
+```
+
+This is enough for a low-risk greenfield CLI. A boundary-changing architecture choice still needs the full option set and linked artifacts.
+
 ## Review
 
 Read the proposal as a reviewer and implementer:

@@ -9,7 +9,7 @@ The collection supports four types:
 | [Frontend](software-types/frontend.md) | Software with a graphical user interface: web, desktop, mobile | `frontend-development`, `frontend-reactjs-development`, `frontend-native-development` |
 | [Backend](software-types/backend.md) | API, service, worker, cron, queue or event consumer | `backend-development`, `backend-python-development`; `database-*` and `operations-platforms` support it |
 | [AI](software-types/ai.md) | AI-backed application, agent or model feature | `ai-development`, `ai-python-development`, `ai-adk-development`, `ai-langchain-development` |
-| [Library/CLI](software-types/library-cli.md) | Published package, SDK, command-line tool or automation entry point | `go-development`, `typescript-development`, `python-automation-engineering` |
+| [Library/CLI](software-types/library-cli.md) | Published package, SDK, command-line tool or automation entry point | `go-development`, `typescript-development`, `backend-python-development` (Python automation) |
 
 Embedded software has no supporting package and is out of scope. Data pipelines are a backend or AI concern, not a separate type. SaaS is a product/commercial context, not a component type.
 

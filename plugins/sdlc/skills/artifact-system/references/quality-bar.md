@@ -67,6 +67,8 @@ Never write a bare short SHA, a branch name, "the PR" or "the ECR" without a lin
 
 Resolve links when writing, not later. Verify each one in the intended publication context. A link that requires workspace membership must say so. Link bidirectionally where the reader will move between views: the ECR links the issue, the issue links the ECR, and the PR links both.
 
+When the workspace is not versioned and creating a repository would be an unrequested side effect, use a **non-versioned local revision** form: the absolute tree path, the full SHA-256 of each changed file, the environment, the date and the words "not published; content hash, not a commit". A content hash is identity evidence, not a commit, a release or a production revision. Record the limitation rather than fabricating a Git link.
+
 ### 5. Render fidelity
 
 Author in Markdown or the provider's native rich text. Avoid hand-written HTML unless the provider requires it.

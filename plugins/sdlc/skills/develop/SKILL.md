@@ -38,6 +38,9 @@ A named stack or starter kit does not supply missing decisions. Defined existing
 
 When the work interleaves requirements, design and implementation, keep [engagement state](../activity-system/references/engagement-state.md): one focus, several threads and explicit reopens. Announce a change of stopping point rather than silently crossing it.
 
+When client-specific implementation commands, a typechecker or a Git commit are unavailable, use the [local implementation flow](references/implementation-flow.md). It preserves the implementation outcome without inventing a command surface or an unrequested repository.
+
+
 ## Establish a useful slice
 
 Treat the rough idea as an outcome to shape, not an instruction to build every imagined feature. Inspect the repository and supplied references first.

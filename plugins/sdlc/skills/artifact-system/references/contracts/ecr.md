@@ -62,6 +62,7 @@ Every ECR, including a compact single-file fix, has these headings in this order
 - Failed, skipped, unavailable and blocked checks. Variance from the proposed design. Material review findings. Remaining risk.
 - Documentation reconciliation and release or readiness versus actual deployed state.
 - Link CI, review and run evidence and the PR. Never turn a green build into proof of user-visible behavior.
+- A separate verification record may be the evidence authority for this section. Summarize the result and link it; do not duplicate the same evidence in both places.
 
 Write evidence in the past tense. "Will verify", "should pass" and "create/read/update will confirm" are plans. Put a planned check in the implementation strategy or mark it "not yet verified" here until it runs.
 

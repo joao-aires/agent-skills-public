@@ -36,6 +36,9 @@ Use a design proposal when the choice is consequential:
 
 Do not require it for a routine local fix, a token or copy change, an obvious defect repair or a change with one evident solution. There, one recommended change with a short rationale is proportionate.
 
+A small greenfield component is not automatically a three-option decision. Use the option set when the choice is consequential: storage, identity, failure behavior, compatibility, an expensive-to-reverse interface or a real tradeoff. A CLI storage or identity choice can qualify; a cosmetic variation does not. For a low-risk slice, a short decision with one linked artifact and a stated rationale is proportionate.
+
+
 ## Materialization
 
 Use the lightest form that meets the sufficiency floor:

@@ -38,7 +38,7 @@ A README is the repository's front door. It helps a new reader understand what t
 - development: test, build, migrate, reset and quality checks;
 - support and contribution route;
 - status, limitations and unsupported paths;
-- license link, without duplicating the license text.
+- license link, without duplicating the license text; if no license is declared, say so explicitly.
 
 ## Structure and quality
 
@@ -61,6 +61,7 @@ A README is the repository's front door. It helps a new reader understand what t
 - no status or limitations;
 - a long feature list with no user outcome;
 - license, contribution and changelog text duplicated instead of linked;
+- a missing license state left ambiguous or invented;
 - broken relative links or missing images;
 - no mention of the supported platform or version.
 
