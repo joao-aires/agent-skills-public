@@ -79,6 +79,7 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 
 | Need | Request |
 | --- | --- |
+| Compare design directions | Use design to compare three materially different saved-search directions for the web client and API, with wireframes, a contract sketch and the seam decision. |
 | Define a feature | Use refine to define read-only saved-search sharing from this brief and the existing code. |
 | Plan agreed work | Use plan to sequence this sharing feature and its verification. |
 | Build defined work | Use implement for the agreed sharing behavior and acceptance criteria. |
@@ -87,6 +88,16 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 | Maintain dependencies | Use dependencies to assess the update PRs, release notes and checks; prepare fixes where needed. |
 | Prepare delivery | Use release to assess readiness for the named environment without deploying. |
 | Get help | Use activity-system: I am changing an existing application's navigation. |
+
+### Compare directions before deciding
+
+```text
+Use design to compare three materially different ways to add saved searches across the web client and API. Show the UI states and the contract or sequence for each, decide the error and pagination seam, and record the recommendation. Do not implement yet.
+```
+
+Expect three options that differ in responsibility or behavior, a representation for each affected type, and one seam decision. A design request stops at the decision. For a backend-only change, the frontend is explicitly not affected; for a UI-only change, do not invent backend design work.
+
+Read [software types](../plugins/sdlc/skills/artifact-system/references/software-types.md), the [option set](../plugins/sdlc/skills/design/references/option-set.md) and the [design proposal contract](../plugins/sdlc/skills/artifact-system/references/contracts/design-proposal.md).
 
 ### Define UX before changing screens
 

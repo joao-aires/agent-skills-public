@@ -48,6 +48,9 @@ Use the virtual environment and dependencies in [installation](documentation/ins
 | --- | --- |
 | Composition, discovery and fallback | [Architecture](documentation/architecture.md) |
 | Artifact model, planes and homes | [SDLC plugin README](plugins/sdlc/README.md) |
+| Software types and required design evidence | [Software types](plugins/sdlc/skills/artifact-system/references/software-types.md) |
+| Design options, proposal, validation and review | [Design activity](plugins/sdlc/skills/design/SKILL.md), [design proposal](plugins/sdlc/skills/artifact-system/references/contracts/design-proposal.md) |
+| Focus, parallel threads and reopens | [Engagement state](plugins/sdlc/skills/activity-system/references/engagement-state.md) |
 | Skill, pack and phase metadata | [Metadata contract](documentation/metadata.md) |
 | Contribution procedure, naming and build/check commands | [Maintainer guide](documentation/maintainer-reference.md) |
 | Sources, licenses, adaptations and ownership | [Source catalogue](documentation/maintainers/sources.md) |

@@ -23,6 +23,7 @@ The rest of the plugin is composed from a small set of concepts. Two are core mo
 | **Workflow** | What ordered sequence carries the work out? | Composition pattern — e.g. the contribution workflow |
 | **Role** | Who participates? | Dimension — product, implementer, reviewer, operator |
 | **Phase** | Where in the SDLC lifecycle? | Dimension — planning, requirements, design, implementation, verification, release, maintenance |
+| **Software type** | What kind of component is being designed? | Dimension — frontend, backend, AI, library/CLI; a component property, not skill metadata |
 | **Home** | Where does the artifact live? | Dimension — engineering workspace, repo, tracker, provider, operations repo |
 | **Evidence** | What supports the claim? | Quality and assurance — quality bar, artifact assurance |
 
@@ -55,6 +56,24 @@ Skills carry a small classification layer:
 
 The full artifact and activity catalogs remain the source of truth for artifact types, homes and evidence. Skill metadata is for discovery and maintenance, not execution routing. `python scripts/skill_inventory.py` prints the generated maintainer matrix: Skill, Pack, Domain, Kind, Phase, Origin, Scope, Invocation, Role and Plugin.
 
+### Software types are a component property
+
+A project is made of components. Each component has a software type: `frontend`, `backend`, `ai` or `library-cli`. A change declares which types it touches and which are explicitly not affected.
+
+The type selects the representation and evidence a design record needs. It is **not** a project-wide label, a skill metadata value or a reason to create one contract per type. A normal web application is a frontend component plus a backend component, not a "full-stack" type.
+
+Platform and domain variations are constraints, not additional types:
+
+| Variation | Handled as |
+| --- | --- |
+| Browser extension | Frontend + `browser-extension-development` constraints |
+| REST API | Backend + contract/versioning constraints |
+| Multi-tenant SaaS | Backend/frontend + `saas-development` constraints |
+| AI stack (ADK, LangChain) | AI + provider/framework constraints |
+| Database, offline-first, real-time, regulated data | Component/project constraints |
+
+Read [software types](skills/artifact-system/references/software-types.md) for selection, the anti-rigidity rules and the four type references.
+
 ## Why the plugin is organized this way
 
 The system separates artifact type and lifecycle, subject matter, writing craft and storage placement. They are orthogonal dimensions: combining them into one universal document method creates overlap. The artifact and activity systems own the shared model, while domain methods and writing craft specialize it.
@@ -85,6 +104,8 @@ An engineering artifact is a durable, addressable unit of engineering intent, kn
 | Freshness | When must it be updated or retired? |
 | Access | Public, private, audience-specific? |
 
+Software type is not an artifact field. An artifact describes a component or change; the component's [software type](skills/artifact-system/references/software-types.md) selects the representation and evidence the artifact needs.
+
 Read the full model in [artifact model](skills/artifact-system/references/model.md). Choose a type in the [artifact catalog](skills/artifact-system/references/catalog.md). Resolve its location with [artifact homes](skills/artifact-system/references/homes.md).
 
 ## The activity model
@@ -105,7 +126,7 @@ An activity is a requested engagement. It has the same kind of explicit shape as
 | Transitions | What can follow, and what must not be silently invoked? |
 | Invocation | User-facing, agent-support or explicit-only? |
 
-Read [activity system](skills/activity-system/SKILL.md) for the routing model. The [activity catalog](skills/activity-system/references/catalog.md) lists the activities, default results and stopping points. [Transitions](skills/activity-system/references/transitions.md) explains handoffs. [Composition](skills/activity-system/references/composition.md) explains how supporting methods are selected. [Authority](skills/activity-system/references/authority.md) explains action scope and unattended work. [Project fit](skills/activity-system/references/project-fit.md) keeps the work proportionate.
+Read [activity system](skills/activity-system/SKILL.md) for the routing model. The [activity catalog](skills/activity-system/references/catalog.md) lists the activities, default results and stopping points. [Transitions](skills/activity-system/references/transitions.md) explains handoffs and re-entry. [Engagement state](skills/activity-system/references/engagement-state.md) explains focus, parallel threads and reopens. [Composition](skills/activity-system/references/composition.md) explains how supporting methods are selected. [Authority](skills/activity-system/references/authority.md) explains action scope and unattended work. [Project fit](skills/activity-system/references/project-fit.md) keeps the work proportionate.
 
 ## The plane model
 
@@ -207,10 +228,11 @@ The shared artifact model. It owns:
 
 - the artifact model, planes and relations;
 - the catalog of artifact types and default homes;
+- the four software types and the evidence each design needs;
 - home resolution and the repository map method;
 - the quality bar;
 - cross-artifact assurance;
-- the artifact contracts.
+- the artifact contracts, including the design proposal.
 
 Start at [artifact system](skills/artifact-system/SKILL.md). Use the [catalog](skills/artifact-system/references/catalog.md) to choose a type, the [homes](skills/artifact-system/references/homes.md) reference to resolve a location, the relevant [contract](skills/artifact-system/references/contracts/README.md) for content, and the [quality bar](skills/artifact-system/references/quality-bar.md) before handoff.
 
@@ -219,13 +241,20 @@ Start at [artifact system](skills/artifact-system/SKILL.md). Use the [catalog](s
 The shared routing model. It owns:
 
 - the activity catalog, default results and stopping points;
-- transitions and handoffs;
+- transitions, re-entry and parallel threads;
+- engagement state: focus, active threads, parked asides and reopens;
 - composition and fallback;
 - action authority and unattended execution;
 - project fit and proportionality;
 - the user-facing help mode.
 
-Start at [activity system](skills/activity-system/SKILL.md). Use the [catalog](skills/activity-system/references/catalog.md) to choose an activity, [transitions](skills/activity-system/references/transitions.md) for handoffs, [composition](skills/activity-system/references/composition.md) for supporting methods, [authority](skills/activity-system/references/authority.md) for action scope and [project fit](skills/activity-system/references/project-fit.md) for proportionality.
+Start at [activity system](skills/activity-system/SKILL.md). Use the [catalog](skills/activity-system/references/catalog.md) to choose an activity, [transitions](skills/activity-system/references/transitions.md) for handoffs and re-entry, [engagement state](skills/activity-system/references/engagement-state.md) for interleaved work, [composition](skills/activity-system/references/composition.md) for supporting methods, [authority](skills/activity-system/references/authority.md) for action scope and [project fit](skills/activity-system/references/project-fit.md) for proportionality.
+
+### `design`
+
+`design` is the design activity. It frames the decision and affected software types, generates three or more materially different options for consequential choices, requires type-appropriate representations, decides the seam when several types meet, validates the direction when uncertainty is material and hands off without implementing.
+
+Use the [design activity](skills/design/SKILL.md), the [option set](skills/design/references/option-set.md), [design validation](skills/design/references/design-validation.md), [design review](skills/design/references/design-review.md), [software types](skills/artifact-system/references/software-types.md) and the [design proposal contract](skills/artifact-system/references/contracts/design-proposal.md).
 
 ### Coordination storage
 
@@ -237,7 +266,7 @@ The storage mechanics for coordination artifacts now live inside `artifact-syste
 
 ### `system-documentation` and `system-design`
 
-`system-documentation` discovers and documents the **current** system: entry points, runtime relations, data journeys, deployment topology and the architecture document set. `system-design` owns **proposed** architecture and consequential choices. The artifact system owns the architecture-set contract, status, evidence and home.
+`system-documentation` discovers and documents the **current** system: entry points, runtime relations, data journeys, deployment topology and the architecture document set. It records each component's [software type](skills/artifact-system/references/software-types.md) and constraints in the inventory. `system-design` owns **proposed** architecture and consequential choices; it uses the [option set](skills/design/references/option-set.md) and records the decision in the [design proposal](skills/artifact-system/references/contracts/design-proposal.md). The artifact system owns the architecture-set contract, status, evidence and home.
 
 ### `test`
 
@@ -288,6 +317,14 @@ Technical writing lives in the documentation plugin. It owns reader fit, explana
 4. Read the [ECR contract](skills/artifact-system/references/contracts/ecr.md).
 5. Apply the [quality bar](skills/artifact-system/references/quality-bar.md) and [assurance](skills/artifact-system/references/assurance.md).
 
+### For a design decision
+
+1. Read [software types](skills/artifact-system/references/software-types.md) and state the affected components and types, or mark them assumed.
+2. Use the [option set](skills/design/references/option-set.md) for a consequential choice: three or more materially different directions.
+3. Represent each option for its type and decide the seam when several types meet.
+4. Record the result in the [design proposal contract](skills/artifact-system/references/contracts/design-proposal.md), as ECR §4, an RFC or a linked design record.
+5. Validate with [design validation](skills/design/references/design-validation.md) when uncertainty is material, and hand off through [design review](skills/design/references/design-review.md).
+
 ### For a repository document
 
 1. Read the repository artifact home map.
@@ -320,9 +357,13 @@ Use `activity-system` for routing, `test` for verification and the repository ar
 | --- | --- |
 | Artifact model and planes | [artifact model](skills/artifact-system/references/model.md) |
 | Type selection and contracts | [artifact catalog](skills/artifact-system/references/catalog.md) |
+| Software types and required evidence | [software types](skills/artifact-system/references/software-types.md) |
+| Design options, validation and review | [design activity](skills/design/SKILL.md), [option set](skills/design/references/option-set.md), [design validation](skills/design/references/design-validation.md), [design review](skills/design/references/design-review.md) |
+| Design proposal content | [design proposal contract](skills/artifact-system/references/contracts/design-proposal.md) |
 | Home resolution and repository map | [artifact homes](skills/artifact-system/references/homes.md) |
 | Readiness, consistency and convergence | [artifact assurance](skills/artifact-system/references/assurance.md) |
 | Activity selection and stopping points | [activity system](skills/activity-system/SKILL.md) |
+| Focus, parallel threads and reopens | [engagement state](skills/activity-system/references/engagement-state.md) |
 | Composition and fallback | [activity composition](skills/activity-system/references/composition.md) |
 | Coordination storage | [coordination storage](skills/artifact-system/references/storage/coordination.md) |
 | Repository foundations | [project conventions](skills/project-conventions/SKILL.md) |

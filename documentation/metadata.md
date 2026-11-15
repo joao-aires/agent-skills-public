@@ -19,6 +19,8 @@ Every local skill declares the following in `SKILL.md` frontmatter. Acquired ski
 
 `kind` and `role` are different. `role` is the task/support packaging label; `kind` is the conceptual layer. `phase` is a single primary phase, not a list; the activity catalog and transitions carry multi-phase behavior.
 
+**Software type is not skill metadata.** A skill such as `design` is reusable across frontend, backend, AI and library/CLI work. The type belongs to the component and is recorded in the change, engagement thread or component inventory. Do not add a `software_type` field to `SKILL.md` or to acquired labels. Read [software types](../plugins/sdlc/skills/artifact-system/references/software-types.md) for the four types and the type-versus-constraint rules.
+
 ## Pack types
 
 | Pack | Contains | Examples |
@@ -35,7 +37,9 @@ A pack is an install/update boundary. It is not an execution sequence.
 | Concern | Owner |
 | --- | --- |
 | Artifact types, planes, homes, contracts, quality and assurance | `plugins/sdlc/skills/artifact-system/` |
+| Software types and required design evidence | `plugins/sdlc/skills/artifact-system/references/software-types.md` |
 | Activity selection, stopping points, transitions and authority | `plugins/sdlc/skills/activity-system/` |
+| Engagement focus, threads and reopens | `plugins/sdlc/skills/activity-system/references/engagement-state.md` |
 | Local skill classification | Each `SKILL.md` frontmatter |
 | Acquired skill classification and pins | `agent-depot.json` and `agent-depot.lock.json` |
 | Generated maintainer view | `python scripts/skill_inventory.py` |
