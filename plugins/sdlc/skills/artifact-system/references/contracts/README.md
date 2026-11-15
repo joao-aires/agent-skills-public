@@ -4,6 +4,8 @@ Each contract defines the reader-facing content, status and evidence for one art
 
 The plane is the artifact's primary role, not its storage. A contract can be used in more than one home.
 
+There is one contract per artifact **type**, not one per software type. A software type changes the representation and evidence an artifact needs; it does not create a parallel contract. Create a new artifact type only when the reader, authority, lifecycle or home differs. Read [software types](../software-types.md) for the four supported types and their constraints.
+
 ## Coordination
 
 | Artifact | Contract | Primary reader |
@@ -11,6 +13,7 @@ The plane is the artifact's primary role, not its storage. A contract can be use
 | ECR | [ecr.md](ecr.md) | Change participants, reviewers |
 | Research report | [research-report.md](research-report.md) | Decision owner, engineering |
 | RFC | [rfc.md](rfc.md) | Design reviewers, decision owner |
+| Design proposal | [design-proposal.md](design-proposal.md) | Design reviewers, decision owner, implementer |
 | Issue | [issue.md](issue.md) | Implementer, coordinator |
 | Pull request | [pr.md](pr.md) | Reviewer |
 
@@ -60,3 +63,5 @@ Language, framework, database and test guidance owns the substance of a work pro
 ## Naming note
 
 The product brief contract is named `prd.md`; the catalog calls the artifact "product brief or PRD." The decision record contract covers both ADRs and product decision records (PDRs). The repository README contract is `repository-readme.md` to avoid a case-insensitive filename collision with this index.
+
+The design-proposal contract may be materialized as the ECR solution-design section, an RFC, or a linked design record. The contract governs the content wherever the proposal lives; it does not require a separate file for every change.

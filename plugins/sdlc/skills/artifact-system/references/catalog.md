@@ -13,6 +13,7 @@ The ECR is the default coordination artifact for a coherent engineering change. 
 | Coordination | ECR | Change-specific scope, requirements, target design, plan, verification and history | Engineering workspace | [ECR](contracts/ecr.md) |
 | Coordination | Research report | Question, recommendation, primary sources, observed evidence and limits, alternatives and open decisions | Engineering workspace | [Research report](contracts/research-report.md) |
 | Coordination | RFC | Proposal with its own audience, current state, target views, alternatives and trade-offs | Engineering workspace or durable `docs/rfcs/` | [RFC](contracts/rfc.md) |
+| Coordination | Design proposal | Question, affected software types, three or more materially different options, representations, seam, trade-offs and decision | ECR solution-design section, RFC or linked design record | [Design proposal](contracts/design-proposal.md) |
 | Coordination | Issue | Work intent, ownership, acceptance, dependencies and evidence link | Configured tracker | [Issue](contracts/issue.md) |
 | Coordination | Pull request | Actual diff, why and what changed, design variation, validation and risk | Git provider | [Pull request](contracts/pr.md) |
 | System knowledge | Architecture set | Context, container, component, runtime, data, interface, deployment, quality and decision views | Application repository `docs/architecture/` or a dedicated architecture repository | [Architecture set](contracts/architecture-set.md) |
@@ -37,6 +38,7 @@ Each artifact states its own maturity. Do not promote a later phase's claim into
 | Decision record (ADR/PDR) | Proposed, accepted, superseded, deprecated | Decision context, owner, date, consequences | Implementation unless linked |
 | Research report | Question, recommendation proposed, decision requested, accepted | Primary sources, observed probe results, limits | Production behavior or accepted design |
 | RFC | Draft, proposed, accepted, rejected | Current state, target views, alternatives, trade-offs | Implemented or released |
+| Design proposal | Proposed, accepted, rejected, superseded | Constraint evidence, materially different options, representations, seam review, decision owner | Implemented or released |
 | ECR | Proposed, accepted, implemented, verified, released, superseded, per claim | Phase-specific evidence at exact revisions | Later-phase claims |
 | Issue | Ready, in progress, blocked, done, cancelled | Acceptance, dependencies, verification plan | Merged or released unless linked |
 | Pull request | Draft, ready for review, merged, closed | Base-to-head diff, current-head checks, review | Deployed or production verified |
@@ -50,7 +52,9 @@ Each artifact states its own maturity. Do not promote a later phase's claim into
 
 Keep a bounded feature's requirements and rationale in its ECR. Use a product brief or PRD when product direction, outcomes or scope span changes or require independent product review. Use a roadmap when several changes need shared sequencing or ownership, and link each ECR to the relevant roadmap decision.
 
-Use a separate RFC when a proposal needs its own audience or decision process. Record an ADR or PDR when a consequential accepted choice must outlive the work. Use the [diagram lifecycle](diagram-lifecycle.md) for affected structural and runtime views. Add an issue when someone needs to pick up or coordinate bounded work. Add a pull request for the submitted diff and review evidence.
+Use a separate RFC when a proposal needs its own audience or decision process. Use a [design proposal](contracts/design-proposal.md) when a consequential choice needs materially different options and representations; keep it in the ECR solution-design section for a normal change, and link an RFC or design record when the audience or views justify it. Record an ADR or PDR when a consequential accepted choice must outlive the work. Use the [diagram lifecycle](diagram-lifecycle.md) for affected structural and runtime views. Add an issue when someone needs to pick up or coordinate bounded work. Add a pull request for the submitted diff and review evidence.
+
+Wireframes, mockups, Figma frames, prototypes, C4 views, sequences and state machines are **representations or views**, not separate artifact contracts. The design proposal links them as evidence; the architecture set owns durable C4/sequence views. A representation does not become a second authority merely because it has its own file or tool.
 
 A linked document is a distinct authority, not a duplicate ECR section. The application's code repository retains canonical implemented and current-state documentation. The engineering workspace retains change-oriented records and standalone research.
 

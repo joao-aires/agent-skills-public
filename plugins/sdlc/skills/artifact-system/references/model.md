@@ -55,6 +55,14 @@ Planes are a navigation view, not an exclusive taxonomy. An artifact has a **pri
 
 Do not force an artifact into one plane when its relations cross planes. The graph handles that; the primary plane is the default reading direction.
 
+## Software type belongs to the component
+
+An artifact contract is one per artifact **type**. The kind of software being described is a separate property of the **component**, not of the artifact or the skill. Four software types are supported: [frontend](software-types/frontend.md), [backend](software-types/backend.md), [ai](software-types/ai.md) and [library/CLI](software-types/library-cli.md). A project normally has several; a change declares which it touches.
+
+Software type selects the required representation and evidence; it does not create a parallel contract. Wireframes, C4 views, sequences, state machines and evaluation plans are representations or views attached to a design proposal or architecture set, not new artifact types. Platform and domain variations such as a browser extension, a REST API, a multi-tenant SaaS backend or a LangChain stack are **constraints** recorded as notes, not additional types.
+
+Read [software types](software-types.md) for selection, the type-versus-constraint distinction and the anti-rigidity rules. Do not add a software-type field to skill metadata; skills are reusable across types.
+
 ## All artifacts are change artifacts
 
 Every artifact participates in change, but not every artifact is a **coordination** artifact.

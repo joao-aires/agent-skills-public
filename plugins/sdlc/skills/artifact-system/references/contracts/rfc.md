@@ -18,6 +18,10 @@ The situation, affected users or systems, and the constraints that shape the des
 ## Current state
 The existing behavior and architecture at a linked revision.
 
+## Affected software types
+Per component: frontend, backend, AI or library/CLI; designed or not affected;
+and the seam decision when more than one type is involved.
+
 ## Proposal
 The target behavior, boundaries, contracts and affected surfaces.
 
@@ -65,8 +69,9 @@ A reviewer who was not in the conversation must be able to answer:
 2. What exists today, at which revision?
 3. What exactly is proposed, including the denied and failure paths?
 4. Which alternatives were considered, and why were they rejected?
-5. What are the compatibility, migration, security, reliability and operating consequences?
-6. What decision is requested, from whom, and what remains open?
+5. Which software types are affected, and what has been decided at the seam?
+6. What are the compatibility, migration, security, reliability and operating consequences?
+7. What decision is requested, from whom, and what remains open?
 
 ## Example
 

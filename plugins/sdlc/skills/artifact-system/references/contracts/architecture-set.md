@@ -42,6 +42,7 @@ Not every system needs every document. Add a document when its independent reade
 For each document in the set:
 
 - **Scope and status.** What part of the system it covers, at which revision, and whether it is current, proposed, or partially verified.
+- **Component inventory.** Each component's software type (frontend, backend, AI or library/CLI) and platform or domain constraints. Read [software types](../software-types.md); record constraints such as a browser extension, REST service, multi-tenant SaaS or LangChain stack as notes, not as new types.
 - **Elements and responsibilities.** Named elements, what each owns, and the relationships that matter.
 - **Text equivalent.** A short prose explanation of the important relationships, so the view is usable when the diagram does not render.
 - **Evidence links.** Source paths, contracts, tests, runtime observations or decisions that support the claims. Link exact revisions where the claim depends on them.

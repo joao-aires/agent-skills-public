@@ -31,6 +31,8 @@ Every ECR, including a compact single-file fix, has these headings in this order
 ### 4. Solution design
 
 - Existing-system baseline at a source revision, linked to the exact file or commit. Then the **proposed** system, UX or service behavior.
+- Affected software types per component and which are explicitly **not affected**. When more than one type is involved, record the seam decision once: error/denial mapping, loading/empty distinctions, pagination, authority, retry/idempotency and compatibility. See [software types](../software-types.md).
+- For a consequential choice, use the [design proposal](design-proposal.md): at least three materially different options, a representation per type, trade-offs and failure behavior, a recommendation and a decision owner. Keep the proposal in this section for a normal change, or link an RFC or design record when the audience or views justify it.
 - Selected approach, meaningful alternatives, trade-offs, data and authority boundaries, failure and migration consequences.
 - Link or attach target C4 context/container/component views and critical sequence or journey diagrams when applicable. Keep **current versus target** and status explicit. See the [diagram lifecycle](../diagram-lifecycle.md).
 - Use the [artifact catalog](../catalog.md) to decide whether a proposal needs its own RFC or an accepted choice needs a canonical ADR. Summarize the relevant rationale and link the fuller record when one exists.
@@ -85,7 +87,7 @@ When a claim is superseded, keep the prior decision traceable but mark it as sup
 | --- | --- |
 | Project planning | Desired outcome, scope, feasibility, relevant prerequisites and the next action or decision are clear or linked |
 | Refine | Outcome, observable acceptance, constraints and open decision owners are sufficient for design |
-| Design | Proposed target and relevant diagram changes are understood, material alternatives are resolved or blocked, and the baseline revision is linked |
+| Design | Proposed target, affected software types and the seam are understood; material alternatives and representations are resolved or blocked; the baseline revision is linked |
 | Implementation preparation | Dependency-ordered increments reference accepted requirements and design; verification, migration and rollback are covered |
 | Implement | Actual change revision, deviations, relevant canonical-doc edits and checks are reported |
 | Test/review | Observations and findings are tied to the checked revision; untested claims are not promoted |
