@@ -4,6 +4,8 @@ A **release note** records a delivery to a target for the people who must unders
 
 Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). The default home is the git provider release or `CHANGELOG.md`; a docs site or `docs/releases/` may be the established alternate.
 
+Read the [release note guide](../../../release-note-guide/SKILL.md) for writing conventions, examples and review checks.
+
 ## Reader questions
 
 A reader who was not in the conversation must be able to answer:

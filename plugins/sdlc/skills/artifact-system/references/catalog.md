@@ -13,32 +13,60 @@ The ECR is the default coordination artifact for a coherent engineering change. 
 | Coordination | ECR | Change-specific scope, requirements, target design, plan, verification and history | Engineering workspace | [ECR](contracts/ecr.md) |
 | Coordination | Research report | Question, recommendation, primary sources, observed evidence and limits, alternatives and open decisions | Engineering workspace | [Research report](contracts/research-report.md) |
 | Coordination | RFC | Proposal with its own audience, current state, target views, alternatives and trade-offs | Engineering workspace or durable `docs/rfcs/` | [RFC](contracts/rfc.md) |
-| Coordination | Design proposal | Question, affected software types, three or more materially different options, representations, seam, trade-offs and decision | ECR solution-design section, RFC or linked design record | [Design proposal](contracts/design-proposal.md) |
+| Coordination | Design proposal | Question, affected software types, three or more materially different options, linked design artifacts, seam, trade-offs and decision | ECR solution-design section, RFC or linked design record | [Design proposal](contracts/design-proposal.md) |
+| Coordination | Design specification | Flows, screens, states, content, components, assets, accessibility, responsive behavior and acceptance | Design workspace or application repository design docs | [Design specification](contracts/design-spec.md) |
 | Coordination | Issue | Work intent, ownership, acceptance, dependencies and evidence link | Configured tracker | [Issue](contracts/issue.md) |
 | Coordination | Pull request | Actual diff, why and what changed, design variation, validation and risk | Git provider | [Pull request](contracts/pr.md) |
 | System knowledge | Architecture set | Context, container, component, runtime, data, interface, deployment, quality and decision views | Application repository `docs/architecture/` or a dedicated architecture repository | [Architecture set](contracts/architecture-set.md) |
+| System knowledge | C4 view | Boundary, actors, elements, responsibilities and directed dependencies at one level | Architecture set or proposed design record | [C4 view](contracts/c4-view.md) |
+| System knowledge | Sequence view | Participants, ordering, sync/async work, failure and recovery for one scenario | Architecture set or proposed design record | [Sequence view](contracts/sequence-view.md) |
+| System knowledge | State machine | States, transitions, guards, invariants and denied paths for an entity or workflow | Design record or architecture set | [State machine](contracts/state-machine.md) |
+| System knowledge | Compatibility matrix | Versions, platforms, runtimes and consumer combinations with evidence | Repository docs, release notes or package compatibility page | [Compatibility matrix](contracts/compatibility-matrix.md) |
 | System knowledge | Decision record (ADR/PDR) | Consequential decision, context, alternatives, consequences, owner, date and status | Application repository `docs/decisions/`; engineering workspace while proposed | [Decision record](contracts/adr.md) |
+| System knowledge | Assurance assessment | Applicability, scope, controls, evidence, gaps and disposition | Engineering workspace or established compliance workspace | [Assurance assessment](contracts/assurance-assessment.md) |
 | System knowledge | Runbook | Trigger, impact, diagnosis, mitigation, verification and escalation for a known condition | Operations repository `ops/<application>/runbooks/` or `docs/operations/` | [Runbook](contracts/runbook.md) |
 | System knowledge | API reference / SLO | Generated contract or monitored target with owner and evidence | Contract source plus docs index; monitoring system or operations home | Use available API/reliability expertise and link the evidence. |
 | Implementation | Code, tests, migrations, configuration | Implemented behavior and its verification | Application repository | [Work product](contracts/work-product.md) |
 | Delivery | Release note / changelog | What shipped, to which target, with migration, verification and recovery | Git provider release or `CHANGELOG.md` | [Release note](contracts/release-note.md) |
-| Delivery | Deployment record, incident, postmortem | Actual target state, observed behavior and learning | Delivery/operations home | Use the relevant delivery/operations method and link the evidence. |
+| Delivery | Deployment record | Actual target state, rollout and observed behavior | Delivery/operations home | Use the delivery method and link the evidence. |
+| Delivery | Incident record | Impact, severity, response, mitigation, recovery and follow-up | Incident tool or operations workspace | [Incident record](contracts/incident-record.md) |
+| Delivery | Postmortem | Timeline, contributing conditions, actions and verification | Operations/documentation home or incident tool | [Postmortem](contracts/postmortem.md) |
 | Entry | README | Repository purpose, quickstart, docs map, status and limits | Application repository root | [Repository README](contracts/repository-readme.md) |
 | Entry | Guide / tutorial | Bounded task or learning path with verification and recovery | `docs/guides/` or docs site | [Guide](contracts/guide.md) |
 | Entry | Glossary | Shared domain and system terms | `docs/glossary.md` or docs site | Use the docs index; keep terms consistent across artifacts. |
 
-## View artifacts
+## Guide registry
 
-Wireframes, Figma files, C4 views, sequence views, state machines, evaluation plans and compatibility matrices are **artifacts** with identity, home, authority, maturity, relations and evidence. They usually use the design proposal or architecture set as their authority rather than a separate contract type. Read the matching guide for structure, notation and review.
+Every artifact type has a contract. A **guide** is the writing craft for that artifact: structure, conventions, examples, common failures and review. It is paired one-to-one where the craft is distinct. "No dedicated guide" means the contract plus the named method or technical writing is the guidance owner.
 
-| View artifact | Reader question | Authority | Guide |
-| --- | --- | --- | --- |
-| Design specification | What does the user see, what happens, and what does implementation need to build and verify it? | Design proposal or accepted design system | [Design specification](../../guide-design-spec/SKILL.md) |
-| C4 view | What is the boundary, responsibility and dependency? | Architecture set, or proposed target in the design record | [C4 view](../../guide-c4-view/SKILL.md) |
-| Sequence view | What happens in what order, including failure? | Architecture set or design proposal | [Sequence view](../../guide-sequence-view/SKILL.md) |
-| State machine | Which states, transitions, guards and denied paths exist? | Design proposal or architecture set | [State machine](../../guide-state-machine/SKILL.md) |
-| Evaluation plan | Which cases, graders and baselines judge the AI behavior? | Design proposal and AI testing | Use the available AI testing method |
-| Compatibility matrix | Which versions, platforms and consumers are supported? | API/public-surface contract | [Compatibility matrix](../../guide-compatibility-matrix/SKILL.md) |
+| Artifact | Contract | Guide |
+| --- | --- | --- |
+| Product brief / PRD | [prd.md](contracts/prd.md) | [PRD guide](../../prd-guide/SKILL.md) |
+| Roadmap | [roadmap.md](contracts/roadmap.md) | No dedicated guide — product method + technical writing |
+| ECR | [ecr.md](contracts/ecr.md) | [ECR guide](../../ecr-guide/SKILL.md) |
+| Research report | [research-report.md](contracts/research-report.md) | [Research report guide](../../research-report-guide/SKILL.md) |
+| RFC | [rfc.md](contracts/rfc.md) | [RFC guide](../../rfc-guide/SKILL.md) |
+| Design proposal | [design-proposal.md](contracts/design-proposal.md) | [Design proposal guide](../../design-proposal-guide/SKILL.md) |
+| Design specification | [design-spec.md](contracts/design-spec.md) | [Design specification guide](../../design-spec-guide/SKILL.md) |
+| Issue | [issue.md](contracts/issue.md) | [Issue guide](../../issue-guide/SKILL.md) |
+| Pull request | [pr.md](contracts/pr.md) | [PR guide](../../pr-guide/SKILL.md) |
+| Architecture set | [architecture-set.md](contracts/architecture-set.md) | [Architecture set guide](../../architecture-set-guide/SKILL.md) |
+| C4 view | [c4-view.md](contracts/c4-view.md) | [C4 view guide](../../c4-view-guide/SKILL.md) |
+| Sequence view | [sequence-view.md](contracts/sequence-view.md) | [Sequence view guide](../../sequence-view-guide/SKILL.md) |
+| State machine | [state-machine.md](contracts/state-machine.md) | [State machine guide](../../state-machine-guide/SKILL.md) |
+| Compatibility matrix | [compatibility-matrix.md](contracts/compatibility-matrix.md) | [Compatibility matrix guide](../../compatibility-matrix-guide/SKILL.md) |
+| Decision record (ADR/PDR) | [adr.md](contracts/adr.md) | [ADR guide](../../adr-guide/SKILL.md) |
+| Assurance assessment | [assurance-assessment.md](contracts/assurance-assessment.md) | [Assurance assessment guide](../../assurance-assessment-guide/SKILL.md) |
+| Runbook | [runbook.md](contracts/runbook.md) | [Runbook guide](../../runbook-guide/SKILL.md) |
+| API reference / SLO | Use available API/reliability expertise and link the evidence | No dedicated guide — API/reliability expertise |
+| Code, tests, migrations, configuration | [work-product.md](contracts/work-product.md) | No dedicated guide — language, framework and test guidance |
+| Release note / changelog | [release-note.md](contracts/release-note.md) | [Release note guide](../../release-note-guide/SKILL.md) |
+| Deployment record | Use the delivery method and link the evidence | No dedicated guide — delivery method |
+| Incident record | [incident-record.md](contracts/incident-record.md) | [Incident record guide](../../incident-record-guide/SKILL.md) |
+| Postmortem | [postmortem.md](contracts/postmortem.md) | [Postmortem guide](../../postmortem-guide/SKILL.md) |
+| Repository README | [repository-readme.md](contracts/repository-readme.md) | [README guide](../../readme-guide/SKILL.md) |
+| Guide / tutorial | [guide.md](contracts/guide.md) | No dedicated guide — technical writing |
+| Glossary | Use the docs index and keep terms consistent | No dedicated guide — docs index + technical writing |
 
 ## Maturity and evidence by artifact
 
@@ -51,7 +79,12 @@ Each artifact states its own maturity. Do not promote a later phase's claim into
 | Decision record (ADR/PDR) | Proposed, accepted, superseded, deprecated | Decision context, owner, date, consequences | Implementation unless linked |
 | Research report | Question, recommendation proposed, decision requested, accepted | Primary sources, observed probe results, limits | Production behavior or accepted design |
 | RFC | Draft, proposed, accepted, rejected | Current state, target views, alternatives, trade-offs | Implemented or released |
-| Design proposal | Proposed, accepted, rejected, superseded | Constraint evidence, materially different options, representations, seam review, decision owner | Implemented or released |
+| Design proposal | Proposed, accepted, rejected, superseded | Constraint evidence, materially different options, linked design artifacts, seam review, decision owner | Implemented or released |
+| Design specification | Draft, proposed, accepted, superseded | States, content, components, accessibility, responsive behavior and acceptance at a revision | Implemented or verified |
+| C4 view | Current, proposed, mixed, retired | Source, contract, runtime or decision evidence at a revision | Implemented when only proposed |
+| Sequence view | Current, proposed, mixed, retired | Contract, source, test or observed behavior at a revision | Deployed behavior without evidence |
+| State machine | Current, proposed, mixed, retired | Source, contract, tests and decision evidence | Enforced behavior without tests |
+| Compatibility matrix | Draft, published, superseded | Consumer test, environment, revision and date | Support from a build alone |
 | ECR | Proposed, accepted, implemented, verified, released, superseded, per claim | Phase-specific evidence at exact revisions | Later-phase claims |
 | Issue | Ready, in progress, blocked, done, cancelled | Acceptance, dependencies, verification plan | Merged or released unless linked |
 | Pull request | Draft, ready for review, merged, closed | Base-to-head diff, current-head checks, review | Deployed or production verified |
@@ -65,9 +98,9 @@ Each artifact states its own maturity. Do not promote a later phase's claim into
 
 Keep a bounded feature's requirements and rationale in its ECR. Use a product brief or PRD when product direction, outcomes or scope span changes or require independent product review. Use a roadmap when several changes need shared sequencing or ownership, and link each ECR to the relevant roadmap decision.
 
-Use a separate RFC when a proposal needs its own audience or decision process. Use a [design proposal](contracts/design-proposal.md) when a consequential choice needs materially different options and representations; keep it in the ECR solution-design section for a normal change, and link an RFC or design record when the audience or views justify it. Record an ADR or PDR when a consequential accepted choice must outlive the work. Use the [diagram lifecycle](diagram-lifecycle.md) for affected structural and runtime views. Add an issue when someone needs to pick up or coordinate bounded work. Add a pull request for the submitted diff and review evidence.
+Use a separate RFC when a proposal needs its own audience or decision process. Use a [design proposal](contracts/design-proposal.md) when a consequential choice needs materially different options and linked design artifacts; keep it in the ECR solution-design section for a normal change, and link an RFC or design record when the audience or views justify it. Record an ADR or PDR when a consequential accepted choice must outlive the work. Use the [diagram lifecycle](diagram-lifecycle.md) for affected structural and runtime views. Add an issue when someone needs to pick up or coordinate bounded work. Add a pull request for the submitted diff and review evidence.
 
-Wireframes, mockups, Figma frames, prototypes, C4 views, sequences and state machines are **representations or views**, not separate artifact contracts. The design proposal links them as evidence; the architecture set owns durable C4/sequence views. A representation does not become a second authority merely because it has its own file or tool.
+A design specification, C4 view, sequence view, state machine and compatibility matrix are artifact types with their own contracts and guides. A design proposal links them as evidence. A view does not become a second authority merely because it has its own file or tool.
 
 A linked document is a distinct authority, not a duplicate ECR section. The application's code repository retains canonical implemented and current-state documentation. The engineering workspace retains change-oriented records and standalone research.
 

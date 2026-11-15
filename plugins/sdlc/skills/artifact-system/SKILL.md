@@ -40,7 +40,7 @@ Read the contract before authoring the artifact. Resolve the home before creatin
 
 - **Artifact type** determines the contract: ECR, PRD, ADR, issue, PR, architecture set, runbook, work product, release note, README or guide.
 - **Plane** describes the primary role: intent, coordination, system knowledge, implementation, delivery or entry. It is not a storage location.
-- **Software type** describes the component, not the artifact, project or skill: frontend, backend, AI or library/CLI. It selects the representation and evidence the contract requires. Read [software types](references/software-types.md).
+- **Software type** describes the component, not the artifact, project or skill: frontend, backend, AI or library/CLI. It selects the typical artifacts and evidence the contract requires. Read [software types](references/software-types.md).
 - **Home** is where the authoritative copy lives: engineering workspace, application repository, tracker, git provider or operations repository. A type can move homes without changing its contract.
 - **Maturity** is per claim: proposed, accepted, implemented, verified, released, superseded, active or retired.
 - **Relations** connect artifacts: derives from, informs, decides, proposes, implements, verifies, documents, projects, supersedes, releases, operates.
@@ -68,19 +68,13 @@ For a coordination change, the ECR remains the evolving account. For repository 
 3. **Coordination and review views** (issues, PRs, project updates) communicate selected facts to their audiences. They do not become divergent copies of the ECR.
 4. **Work products** (code, tests, migrations, configuration) implement and verify the change. They are artifacts with their own authority and evidence.
 
-The [catalog](references/catalog.md) owns selection, authority and default homes. The [ECR contract](references/contracts/ecr.md) owns the seven sections, status semantics and phase readiness. The [design-proposal contract](references/contracts/design-proposal.md) owns the options, representations, seam and decision content wherever the proposal is materialized. The [issue](references/contracts/issue.md) and [PR](references/contracts/pr.md) contracts own their reader views. The [architecture-set](references/contracts/architecture-set.md), [runbook](references/contracts/runbook.md), [work-product](references/contracts/work-product.md), [release-note](references/contracts/release-note.md), [Repository README](references/contracts/repository-readme.md) and [guide](references/contracts/guide.md) contracts own their artifact types. The [research report](references/contracts/research-report.md), [RFC](references/contracts/rfc.md), [decision record](references/contracts/adr.md), [product brief](references/contracts/prd.md) and [roadmap](references/contracts/roadmap.md) contracts own the adjacent artifact types.
+The [catalog](references/catalog.md) owns selection, authority and default homes. The [ECR contract](references/contracts/ecr.md) owns the seven sections, status semantics and phase readiness. The [design-proposal contract](references/contracts/design-proposal.md) owns the options, linked design artifacts, seam and decision content wherever the proposal is materialized. The [issue](references/contracts/issue.md) and [PR](references/contracts/pr.md) contracts own their reader views. The [architecture-set](references/contracts/architecture-set.md), [runbook](references/contracts/runbook.md), [work-product](references/contracts/work-product.md), [release-note](references/contracts/release-note.md), [Repository README](references/contracts/repository-readme.md) and [guide](references/contracts/guide.md) contracts own their artifact types. The [research report](references/contracts/research-report.md), [RFC](references/contracts/rfc.md), [decision record](references/contracts/adr.md), [product brief](references/contracts/prd.md) and [roadmap](references/contracts/roadmap.md) contracts own the adjacent artifact types.
 
-## View and artifact guides
+## Artifact guides
 
-View artifacts are artifacts too. They usually inherit authority from the design proposal or architecture set; these guides own their structure, notation, fidelity and review:
+Every artifact type has a contract and, where the craft is distinct, a guide. The guide owns structure, conventions, examples, common failures and review; the contract owns lifecycle, authority, maturity, evidence and handoff.
 
-| Guide | Use for |
-| --- | --- |
-| [Design specification](../guide-design-spec/SKILL.md) | Flows, wireframes, mockups, prototypes, states, content, components, accessibility, assets and handoff |
-| [C4 view](../guide-c4-view/SKILL.md) | Boundaries, actors, responsibilities and dependencies |
-| [Sequence view](../guide-sequence-view/SKILL.md) | Ordering, async work, failure, retry and recovery |
-| [State machine](../guide-state-machine/SKILL.md) | States, triggers, guards and denied transitions |
-| [Compatibility matrix](../guide-compatibility-matrix/SKILL.md) | Versions, platforms, consumers and deprecation |
+The one-to-one pairing is the [guide registry](references/catalog.md#guide-registry). Guides are self-contained writing methods and may be used inside an activity or requested directly.
 
 ## Present outcomes
 

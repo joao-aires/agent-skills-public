@@ -8,7 +8,7 @@ Every durable engineering output is an artifact: an ECR, PRD, roadmap, RFC, ADR,
 | Choose the type, plane and contract | [Artifact catalog](../plugins/sdlc/skills/artifact-system/references/catalog.md) |
 | Decide what evidence a frontend, backend, AI or library/CLI design needs | [Software types](../plugins/sdlc/skills/artifact-system/references/software-types.md) |
 | Compare design directions and record the choice | [Option set](../plugins/sdlc/skills/design/references/option-set.md), [design proposal](../plugins/sdlc/skills/artifact-system/references/contracts/design-proposal.md), [design validation](../plugins/sdlc/skills/design/references/design-validation.md) |
-| Produce or review a view artifact | [Design specification](../plugins/sdlc/skills/guide-design-spec/SKILL.md), [C4](../plugins/sdlc/skills/guide-c4-view/SKILL.md), [sequence](../plugins/sdlc/skills/guide-sequence-view/SKILL.md), [state machine](../plugins/sdlc/skills/guide-state-machine/SKILL.md), [compatibility matrix](../plugins/sdlc/skills/guide-compatibility-matrix/SKILL.md) |
+| Produce or review an artifact | [Artifact guide registry](../plugins/sdlc/skills/artifact-system/references/catalog.md#guide-registry) |
 | Resolve where an artifact lives, or establish the repository map | [Artifact homes](../plugins/sdlc/skills/artifact-system/references/homes.md) and [project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) |
 | Choose an activity and its stopping point | [Activity system](../plugins/sdlc/skills/activity-system/SKILL.md) |
 | Record an engineering change and check its evidence | [ECR contract](../plugins/sdlc/skills/artifact-system/references/contracts/ecr.md) and [artifact assurance](../plugins/sdlc/skills/artifact-system/references/assurance.md) |

@@ -1,5 +1,5 @@
 ---
-name: guide-sequence-view
+name: sequence-view-guide
 description: Guide to producing and reviewing sequence views. Use for participant responsibilities, request ordering, synchronous versus asynchronous work, branches, failure, retry and recovery.
 user-invocable: true
 metadata:

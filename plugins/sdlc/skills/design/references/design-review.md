@@ -28,11 +28,11 @@ It complements [artifact assurance](../../artifact-system/references/assurance.m
 - Is the recommended option explicit, with the rejected alternatives explained?
 - Is the decision reversible or expensive to reverse, and is that stated?
 
-### Representations
+### Linked artifacts
 
-- Does each option have a representation a reviewer can judge?
+- Does each option have a linked artifact a reviewer can judge?
 - Is the fidelity comparable across options?
-- Does the representation show the states that matter: empty, loading, error, denied, stale, conflict?
+- Does the linked artifact show the states that matter: empty, loading, error, denied, stale, conflict?
 - For a C4, sequence or data view, is current versus proposed explicit?
 - For an AI option, is the evaluation plan or behavior shown?
 - For a library/CLI, is the public surface and compatibility shown?
@@ -71,7 +71,7 @@ If review or new evidence invalidates the chosen option, reopen the design decis
 
 - reviewing style preference instead of the accepted outcome;
 - accepting three cosmetic variants as an option set;
-- accepting a proposal with no representation for the question;
+- accepting a proposal with no linked artifact for the question;
 - ignoring the seam because each type section looks complete alone;
 - requiring a design document for a trivial change;
 - approving a design because it is long or polished.

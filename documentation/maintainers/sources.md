@@ -261,7 +261,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 21 independent packages and 119 skills: 79 local and 40 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 21 independent packages and 133 skills: 93 local and 40 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
 
 Skills carry a small classification layer: `kind` (system, activity, method, workflow or reference), `origin` (local or upstream), `scope`, `invocation` and `role`. Local skills are validated for the required fields; acquired labels come from `agent-depot.json` and are injected at build time without editing upstream bytes. Run `python scripts/skill_inventory.py` for the generated maintainer matrix.
 
@@ -274,7 +274,7 @@ The collection has 9 generic capability packages and 12 optional technical packa
 | Plugin | Applicability | Skills | Responsibility |
 | --- | --- | --- | --- |
 | `strategy` | Generic | 4 | Business direction, product priorities and evidence-based feedback. |
-| `sdlc` | Generic | 58 | Full SDLC: activities, artifact model, delivery, operations, security, governance, project foundations and verification. |
+| `sdlc` | Generic | 72 | Full SDLC: activities, artifact model, delivery, operations, security, governance, project foundations and verification. |
 | `frontend-development` | Generic | 5 | Integrated interface design, UX writing and usability research across web, desktop and mobile. |
 | `backend-development` | Generic | 1 | Service authority, state, failure, durable work and consumer contracts. |
 | `ai-development` | Generic | 3 | AI application/architecture and protocol design; testing/evaluation methods; AI-specific operating decisions and evidence. |
@@ -332,7 +332,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 119 skills and their current owners</summary>
+<summary>All 133 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -351,11 +351,25 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [differential-review](https://github.com/trailofbits/skills/tree/82fe8226252622fa807643bdca1710901198553a/plugins/differential-review/skills/differential-review) | Upstream | `sdlc` |
 | [domain-modeling](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/domain-modeling) | Upstream | `sdlc` |
 | [artifact-system](../../plugins/sdlc/skills/artifact-system/SKILL.md) | Local | `sdlc` |
-| [guide-design-spec](../../plugins/sdlc/skills/guide-design-spec/SKILL.md) | Local | `sdlc` |
-| [guide-c4-view](../../plugins/sdlc/skills/guide-c4-view/SKILL.md) | Local | `sdlc` |
-| [guide-sequence-view](../../plugins/sdlc/skills/guide-sequence-view/SKILL.md) | Local | `sdlc` |
-| [guide-state-machine](../../plugins/sdlc/skills/guide-state-machine/SKILL.md) | Local | `sdlc` |
-| [guide-compatibility-matrix](../../plugins/sdlc/skills/guide-compatibility-matrix/SKILL.md) | Local | `sdlc` |
+| [design-spec-guide](../../plugins/sdlc/skills/design-spec-guide/SKILL.md) | Local | `sdlc` |
+| [c4-view-guide](../../plugins/sdlc/skills/c4-view-guide/SKILL.md) | Local | `sdlc` |
+| [sequence-view-guide](../../plugins/sdlc/skills/sequence-view-guide/SKILL.md) | Local | `sdlc` |
+| [state-machine-guide](../../plugins/sdlc/skills/state-machine-guide/SKILL.md) | Local | `sdlc` |
+| [compatibility-matrix-guide](../../plugins/sdlc/skills/compatibility-matrix-guide/SKILL.md) | Local | `sdlc` |
+| [adr-guide](../../plugins/sdlc/skills/adr-guide/SKILL.md) | Local | `sdlc` |
+| [architecture-set-guide](../../plugins/sdlc/skills/architecture-set-guide/SKILL.md) | Local | `sdlc` |
+| [assurance-assessment-guide](../../plugins/sdlc/skills/assurance-assessment-guide/SKILL.md) | Local | `sdlc` |
+| [design-proposal-guide](../../plugins/sdlc/skills/design-proposal-guide/SKILL.md) | Local | `sdlc` |
+| [ecr-guide](../../plugins/sdlc/skills/ecr-guide/SKILL.md) | Local | `sdlc` |
+| [incident-record-guide](../../plugins/sdlc/skills/incident-record-guide/SKILL.md) | Local | `sdlc` |
+| [issue-guide](../../plugins/sdlc/skills/issue-guide/SKILL.md) | Local | `sdlc` |
+| [postmortem-guide](../../plugins/sdlc/skills/postmortem-guide/SKILL.md) | Local | `sdlc` |
+| [pr-guide](../../plugins/sdlc/skills/pr-guide/SKILL.md) | Local | `sdlc` |
+| [prd-guide](../../plugins/sdlc/skills/prd-guide/SKILL.md) | Local | `sdlc` |
+| [readme-guide](../../plugins/sdlc/skills/readme-guide/SKILL.md) | Local | `sdlc` |
+| [release-note-guide](../../plugins/sdlc/skills/release-note-guide/SKILL.md) | Local | `sdlc` |
+| [research-report-guide](../../plugins/sdlc/skills/research-report-guide/SKILL.md) | Local | `sdlc` |
+| [rfc-guide](../../plugins/sdlc/skills/rfc-guide/SKILL.md) | Local | `sdlc` |
 | [capacity-and-cost](../../plugins/sdlc/skills/capacity-and-cost/SKILL.md) | Local | `sdlc` |
 | [compliance-readiness](../../plugins/sdlc/skills/compliance-readiness/SKILL.md) | Local | `sdlc` |
 | [postmortem](../../plugins/sdlc/skills/postmortem/SKILL.md) | Local | `sdlc` |
@@ -396,7 +410,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [observability](../../plugins/sdlc/skills/observability/SKILL.md) | Local | `sdlc` |
 | [operations-review](../../plugins/sdlc/skills/operations-review/SKILL.md) | Local | `sdlc` |
 | [data-recovery](../../plugins/sdlc/skills/data-recovery/SKILL.md) | Local | `sdlc` |
-| [runbook-authoring](../../plugins/sdlc/skills/runbook-authoring/SKILL.md) | Local | `sdlc` |
+| [runbook-guide](../../plugins/sdlc/skills/runbook-guide/SKILL.md) | Local | `sdlc` |
 | [interface-design](../../plugins/frontend-development/skills/interface-design/SKILL.md) | Local | `frontend-development` |
 | [impeccable](https://github.com/pbakaus/impeccable/tree/c3bb418ee38ee49a6b999b7752c1368f3123a2bd/plugin/skills/impeccable) | Upstream | `frontend-development` |
 | [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/b7d5353e0130feb8c5574ef1251f8a1db1873ccb/.claude/skills/ui-ux-pro-max) | Upstream | `frontend-development` |
@@ -468,7 +482,7 @@ Figma remains optional tooling declared by frontend-development; the React techn
 
 ### Verification coverage
 
-The assignment covers 79 local skills and 40 distinct acquired skills exactly once, with no omissions or duplicate owners.
+The assignment covers 93 local skills and 40 distinct acquired skills exactly once, with no omissions or duplicate owners.
 
 All packages build together with `--all` and independently with explicit selection. Package checks verify inventories, local-resource parity, notices, required framing, and transitive owned Markdown links staying inside their bundle. CI also checks the default sdlc-only build. These checks do not establish agent behavior; behavioral evaluations remain deferred.
 

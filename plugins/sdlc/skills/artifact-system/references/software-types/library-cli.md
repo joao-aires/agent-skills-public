@@ -13,11 +13,11 @@ Software consumed by other developers or operators rather than end users through
 - packaging and distribution: registry, binary, container or install path;
 - errors, exit codes, diagnostics and help behavior;
 - usage examples for the main path and one failure path;
-- a representation that lets a reviewer judge the surface.
+- an artifact that lets a reviewer judge the surface.
 
-## Representation set
+## Typical artifacts
 
-Read [compatibility matrix](../../../guide-compatibility-matrix/SKILL.md) for versions, platforms and consumer evidence. Typical representations also include an API or module sketch, command tree and flags, dependency graph or surface summary, usage examples including one failure or misuse case, and package/install layout.
+Read [compatibility matrix](../../../compatibility-matrix-guide/SKILL.md) for versions, platforms and consumer evidence. Typical artifacts also include an API or module sketch, command tree and flags, dependency graph or surface summary, usage examples including one failure or misuse case, and package/install layout.
 
 ## Seam decisions
 
@@ -67,6 +67,6 @@ A cache-warming CLI:
 - Compatibility: Go 1.24+, macOS/Linux, no Windows claim
 - Dependencies: standard library plus one HTTP client
 - Errors: non-zero exit and a diagnostic line per failed target
-- Representation: command tree plus usage example and failure output
+- Artifact: command tree plus usage example and failure output
 - Backend: not affected — the service already exposes the endpoint
 ```

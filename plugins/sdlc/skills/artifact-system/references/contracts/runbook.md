@@ -4,6 +4,8 @@ A **runbook** is an actionable procedure for an operator responding to a known c
 
 Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). The default home is an operations repository such as `ops/<application>/runbooks/`; the application repository `docs/operations/` is an acceptable alternate when the team keeps operations knowledge with the code.
 
+Read the [runbook guide](../../../runbook-guide/SKILL.md) for writing conventions, examples and review checks.
+
 ## Reader questions
 
 An operator who was not in the conversation must be able to answer:

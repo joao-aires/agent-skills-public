@@ -1,5 +1,5 @@
 ---
-name: guide-c4-view
+name: c4-view-guide
 description: Guide to producing and reviewing C4 context, container and component views. Use for system boundaries, actors, responsibilities, directed dependencies, current versus proposed state and text equivalents.
 user-invocable: true
 metadata:

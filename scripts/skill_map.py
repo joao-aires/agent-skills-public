@@ -154,7 +154,7 @@ def write_html(rows, destination):
   <div class="concept">
     <div><strong>Work</strong>Activities</div>
     <div class="arrow">→</div>
-    <div><strong>Output</strong>Artifacts and view artifacts</div>
+    <div><strong>Output</strong>Artifacts and handoffs</div>
     <div class="arrow">←</div>
     <div><strong>Guidance</strong>Methods, guides and contracts</div>
   </div>
@@ -213,7 +213,7 @@ def write_markdown(rows, destination):
     kinds = '\n'.join(f"| `{name}` | {count} |" for name, count in counts(rows, 'kind').items())
     guides = '\n'.join(
         f"| [{row['name']}](../{row['path']}) | {row['domain']} | {row['description']} |"
-        for row in rows if row['name'].startswith('guide-')
+        for row in rows if row['name'].endswith('-guide')
     )
     page = f'''# Skills map
 
@@ -230,7 +230,7 @@ flowchart LR
   W --> A[Artifacts]
   G --> A
   C --> A
-  A --> V[View artifacts]
+  A --> V[Artifact types]
   D[Dimensions: phase, role, software type, home, evidence] -.-> S
   D -.-> A
 ```
@@ -239,7 +239,7 @@ Two core models, one method layer, three cross-cutting dimensions:
 
 - **Activity** — what work is requested and where it stops.
 - **Artifact** — what durable output exists, with authority, home, maturity, relations and evidence.
-- **Method** — how to deepen or produce the work; `guide-*` methods own artifact craft.
+- **Method** — how to deepen or produce the work; `*-guide` methods own artifact craft.
 - **Dimensions** — phase, role, software type, home and evidence filter the two core models.
 
 ## Counts

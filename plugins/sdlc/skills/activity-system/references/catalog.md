@@ -9,7 +9,7 @@ An activity is a requested engagement. Use this catalog to choose the activity w
 | [setup](../../setup/SKILL.md) | New project foundations or existing-project adoption | Working context, commands, foundations and artifact home map | Before feature implementation | README, project instructions, artifact home map, ECR workspace pointer | [project-conventions](../../project-conventions/SKILL.md), [artifact-system](../../artifact-system/SKILL.md), delivery expertise |
 | [plan](../../plan/SKILL.md) | Outcome, first slice, feasibility or sequencing is open | Scoped decision to proceed, investigate or defer | Planning decision and in-scope handoff | ECR overview/problem, PRD or roadmap link, issue when coordination warrants | Product discovery, feasibility, [system-documentation](../../system-documentation/SKILL.md) |
 | [refine](../../refine/SKILL.md) | Rough idea, brief or optional ticket needs definition | Actionable requirements and observable acceptance, or decision blockers | Requirements ready for design or implementation | ECR requirements, acceptance, open decisions | [requirements-engineering](../../requirements-engineering/SKILL.md), product/security/operations expertise |
-| [design](../../design/SKILL.md) | Consequential UX, contract, AI or architecture choices need options and a decision | Options, representations and an accepted, limited or blocked design decision before code | Design accepted, limited or blocked; no implementation | Design proposal (ECR §4, RFC or linked record), target views, ADR when independent | [system-design](../../system-design/SKILL.md), [option set](../../design/references/option-set.md), [design validation](../../design/references/design-validation.md), interface/backend/AI/security expertise |
+| [design](../../design/SKILL.md) | Consequential UX, contract, AI or architecture choices need options and a decision | Options, linked artifacts and an accepted, limited or blocked design decision before code | Design accepted, limited or blocked; no implementation | Design proposal (ECR §4, RFC or linked record), target views, ADR when independent | [system-design](../../system-design/SKILL.md), [option set](../../design/references/option-set.md), [design validation](../../design/references/design-validation.md), interface/backend/AI/security expertise |
 | [develop](../../develop/SKILL.md) | Rough idea to implementation in one engagement | Useful verified slice, with questions and assumptions | Requested development outcome | ECR across performed phases, work products, verification, issue/PR views | Refine, design, implementation preparation, verification, review |
 | [implement](../../implement/SKILL.md) | Defined work is ready; explicit implementation requested | Implemented and verified change through the contribution flow | Completed local change and checks | Work products, tests, ECR implementation/verification, PR when authorized | [git-contributions](../../git-contributions/SKILL.md), [test](../../test/SKILL.md), technical/design expertise |
 | [implement-spec](../../implement-spec/SKILL.md) | Agreed spec should become dependency-ordered work | Implemented slices on an integration branch | Agreed spec implemented and checked | Work products, tests, ECR/plan, PR when authorized | Parallel worktrees, [git-contributions](../../git-contributions/SKILL.md), [test](../../test/SKILL.md) |
@@ -36,17 +36,11 @@ Design is one activity with several modes. They are not separate activities or p
 
 Use the modes proportionately. A small local change may need only a short decision and review. Read [engagement state](engagement-state.md) when design threads run in parallel with requirements or implementation.
 
-## View and artifact guides
+## Artifact guides
 
-These are `guide-*` support methods, not activities. Use one when a design decision needs a specific view artifact; they can also be requested directly outside a full design engagement.
+Artifact guides are support methods, not activities. Each artifact type has a contract and, where the craft is distinct, a guide. The one-to-one pairing and the full list are in the [guide registry](../../artifact-system/references/catalog.md#guide-registry).
 
-| Guide | Use when | Authority |
-| --- | --- | --- |
-| [guide-design-spec](../../guide-design-spec/SKILL.md) | A flow, screen or interaction needs a handoff specification implementation can build and verify | Design proposal or accepted design system |
-| [guide-c4-view](../../guide-c4-view/SKILL.md) | System boundaries, actors, responsibilities or dependencies need a view | Architecture set or proposed design record |
-| [guide-sequence-view](../../guide-sequence-view/SKILL.md) | Ordering, async work, failure, retry or recovery needs a view | Architecture set or design proposal |
-| [guide-state-machine](../../guide-state-machine/SKILL.md) | States, triggers, guards or denied transitions need a model | Design proposal or architecture set |
-| [guide-compatibility-matrix](../../guide-compatibility-matrix/SKILL.md) | Versions, platforms, consumers or deprecation need a bounded claim | API/public-surface contract |
+A guide can be used inside an activity or requested directly. It owns how to write the artifact well; the contract owns the artifact's lifecycle, authority, maturity, evidence and handoff.
 
 ## Operate and learn
 
@@ -54,7 +48,7 @@ These are `guide-*` support methods, not activities. Use one when a design decis
 | --- | --- | --- | --- | --- | --- |
 | [incident-response](../../incident-response/SKILL.md) | Live service impact, degradation or suspected incident | Stabilized service with evidence and handover | Recovered or precise blocker | Incident record, ECR/repair link, follow-ups | [observability](../../observability/SKILL.md), [security-maintenance](../../security-maintenance/SKILL.md), [fix](../../fix/SKILL.md) |
 | [observability](../../observability/SKILL.md) | Instrumentation, telemetry or collection changes | Verified signal contracts and pipeline | Signals implemented and observed | Signal/observability contract, ECR verification | [system-design](../../system-design/SKILL.md), backend/runtime expertise |
-| [runbook-authoring](../../runbook-authoring/SKILL.md) | Create, exercise or audit a runbook | Actionable, exercised procedure | Runbook published and linked to its alert | [Runbook contract](../../artifact-system/references/contracts/runbook.md) | Operations and platform expertise |
+| [runbook-guide](../../runbook-guide/SKILL.md) | Create, exercise or audit a runbook | Actionable, exercised procedure | Runbook published and linked to its alert | [Runbook contract](../../artifact-system/references/contracts/runbook.md) | Operations and platform expertise |
 | [data-recovery](../../data-recovery/SKILL.md) | Backup, restore or disaster-recovery change | Verified recovery path and evidence | Restore verified or precise gap | Runbook, recovery evidence, ECR verification | Database/platform expertise, [incident-response](../../incident-response/SKILL.md) |
 | [security-maintenance](../../security-maintenance/SKILL.md) | Credential lifecycle or vulnerability remediation | Verified rotation/revocation or patched targets | Every affected consumer/target verified or dispositioned | Operational system of record, ECR summary | [security-and-privacy-design](../../security-and-privacy-design/SKILL.md), [incident-response](../../incident-response/SKILL.md) |
 | [capacity-and-cost](../../capacity-and-cost/SKILL.md) | Capacity, scaling, saturation or spend decision | Bounded capacity/cost decision and verification | Decision accepted or change verified | ECR/decision record, operations review | Platform, database and provider expertise |

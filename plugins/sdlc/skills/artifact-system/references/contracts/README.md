@@ -4,7 +4,7 @@ Each contract defines the reader-facing content, status and evidence for one art
 
 The plane is the artifact's primary role, not its storage. A contract can be used in more than one home.
 
-There is one contract per artifact **type**, not one per software type. A software type changes the representation and evidence an artifact needs; it does not create a parallel contract. Create a new artifact type only when the reader, authority, lifecycle or home differs. Read [software types](../software-types.md) for the four supported types and their constraints.
+There is one contract per artifact **type**, not one per software type. A software type changes the typical artifacts and evidence an artifact needs; it does not create a parallel contract. Create a new artifact type only when the reader, authority, lifecycle or home differs. Read [software types](../software-types.md) for the four supported types and their constraints.
 
 ## Contract, guidance and handoff
 
@@ -13,34 +13,18 @@ A contract is **normative**. It states the artifact's purpose, reader questions,
 | Layer | Question | Owner |
 | --- | --- | --- |
 | **Contract** | What must this artifact contain and what may it claim? | This directory |
-| **Guidance** | How do I produce and review it well? Examples, structure, anti-patterns, critique | A `guide-*` method, technical writing or the domain method |
+| **Guidance** | How do I produce and review it well? Examples, structure, anti-patterns, critique | A `*-guide` method, technical writing or the domain method |
 | **Handoff** | What does the next phase need, and where does it come from? | The contract's handoff section plus [handoff](../handoff.md) |
 
 A contract may contain a short handoff section; detailed drafting advice, long examples and review checklists belong in guidance. Do not add a new contract because an artifact needs better guidance.
 
 Within a contract file, treat the reader questions, the `## Contract` block, maturity/evidence and `## Handoff` as normative. Treat `## Review`, `## Example`, `## Anti-patterns`, `## Relationship to other artifacts` and “when to use” material as guidance that may move to a dedicated guide as the set matures.
 
-### Current guidance owners
+### Guide pairing
 
-| Contract | Existing guidance | Dedicated guide? |
-| --- | --- | --- |
-| Product brief / PRD | Product method + technical writing | Candidate |
-| RFC | System design + technical writing | Candidate |
-| Decision record | System design + technical writing | Candidate |
-| Architecture set | System documentation | Candidate for view and set craft |
-| ECR | Artifact system examples + assurance | No |
-| Design proposal | Design activity + option set + design review | No |
-| Runbook | Runbook authoring | No |
-| Incident record | Incident response | No |
-| Postmortem | Postmortem method | No |
-| Assurance assessment | Compliance readiness | No |
-| Issue / PR | Git contribution method + technical writing | No |
-| Research report | Research method + technical writing | No |
-| Release note | Release method | No |
-| README / guide | Technical writing | No |
-| Work product | Language, framework and test guidance | No |
+Every artifact type has a contract and, where the craft is distinct, a guide. The one-to-one pairing is maintained in the [guide registry](../catalog.md#guide-registry); do not duplicate it here.
 
-“Candidate” means the artifact has distinct craft that may justify a dedicated guide later. It does not require a new skill now; technical writing and the domain method already cover the contract.
+A guide owns structure, conventions, examples, common failures and review. The contract owns lifecycle, authority, maturity, evidence and handoff. Guides are self-contained and do not link back into the artifact system.
 
 Read [handoff](../handoff.md) for the phase-to-phase matrix and the rule that a handoff is content, not a document. It may be assembled from several linked artifacts.
 
@@ -52,6 +36,7 @@ Read [handoff](../handoff.md) for the phase-to-phase matrix and the rule that a 
 | Research report | [research-report.md](research-report.md) | Decision owner, engineering |
 | RFC | [rfc.md](rfc.md) | Design reviewers, decision owner |
 | Design proposal | [design-proposal.md](design-proposal.md) | Design reviewers, decision owner, implementer |
+| Design specification | [design-spec.md](design-spec.md) | Implementers, QA, design reviewers |
 | Issue | [issue.md](issue.md) | Implementer, coordinator |
 | Pull request | [pr.md](pr.md) | Reviewer |
 
@@ -67,6 +52,10 @@ Read [handoff](../handoff.md) for the phase-to-phase matrix and the rule that a 
 | Artifact | Contract | Primary reader |
 | --- | --- | --- |
 | Architecture set | [architecture-set.md](architecture-set.md) | Contributors, architects, operators |
+| C4 view | [c4-view.md](c4-view.md) | Contributors, architects, operators |
+| Sequence view | [sequence-view.md](sequence-view.md) | Implementers, reviewers, operators |
+| State machine | [state-machine.md](state-machine.md) | Implementers, testers, reviewers |
+| Compatibility matrix | [compatibility-matrix.md](compatibility-matrix.md) | Consumers, release owners |
 | Decision record (ADR/PDR) | [adr.md](adr.md) | Future maintainers, decision owners |
 | Runbook | [runbook.md](runbook.md) | Operators, on-call responders |
 | Incident record | [incident-record.md](incident-record.md) | Responders, reviewers, postmortem facilitators |

@@ -4,6 +4,8 @@ An **incident record** is the durable, reader-facing account of an incident: wha
 
 Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). The default home is the incident tool or operations workspace; link it from the ECR when the incident is part of a change.
 
+Read the [incident record guide](../../../incident-record-guide/SKILL.md) for writing conventions, examples and review checks.
+
 ## Reader questions
 
 A responder, reviewer or postmortem facilitator must be able to answer:

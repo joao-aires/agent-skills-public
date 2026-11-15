@@ -15,11 +15,11 @@ An AI-backed application, agent or model feature: a system whose useful behavior
 - failure behavior: refusal, hallucination, stale context, timeout, rate limit and provider outage;
 - cost and latency limits;
 - human control: review, correction, escalation and audit;
-- a representation that lets a reviewer judge the behavior.
+- an artifact that lets a reviewer judge the behavior.
 
-## Representation set
+## Typical artifacts
 
-Use the available AI testing method for the evaluation plan: cases, graders, baselines and failure behavior. Typical representations also include context/retrieval/tool flow, a data contract for inputs and stored context, a harness or agent-loop view, a prompt/version and model/provider matrix, and a sequence for a tool call or failure path.
+Use the available AI testing method for the evaluation plan: cases, graders, baselines and failure behavior. Typical artifacts also include context/retrieval/tool flow, a data contract for inputs and stored context, a harness or agent-loop view, a prompt/version and model/provider matrix, and a sequence for a tool call or failure path.
 
 ## Seam decisions
 
@@ -73,6 +73,6 @@ A retrieval-backed assistant:
 - Output: answer plus citations; refusal when evidence is insufficient
 - Evaluation: 40 cases, citation correctness and refusal behavior
 - Failure: provider timeout, empty retrieval, stale document
-- Representation: retrieval/tool flow plus evaluation matrix
+- Artifact: retrieval/tool flow plus evaluation matrix
 - Frontend: designed separately; seam is the answer/citation contract
 ```

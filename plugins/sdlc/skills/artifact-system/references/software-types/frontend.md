@@ -12,13 +12,13 @@ Software with a graphical user interface: web applications, desktop clients, mob
 - accessibility: keyboard path, focus, labels, contrast and assistive technology behavior;
 - responsive and platform behavior where the accepted target requires it;
 - the existing design system, tokens and components to reuse;
-- a representation that lets a reviewer judge the direction.
+- an artifact that lets a reviewer judge the direction.
 
 A frontend design record does not need a C4 diagram or an API contract unless the change also crosses those boundaries.
 
-## Representation set
+## Typical artifacts
 
-Use a representation at comparable fidelity for each option. Read [design specification](../../../guide-design-spec/SKILL.md) for flows, wireframes, mockups, prototypes, states, content, accessibility and handoff.
+Use a linked artifact at comparable fidelity for each option. Read [design specification](../../../design-spec-guide/SKILL.md) for flows, wireframes, mockups, prototypes, states, content, accessibility and handoff.
 
 A design specification can be carried by wireframes, mockups, Figma frames, rendered slices, interactive prototypes or component-state views. A text description alone is not sufficient when layout, hierarchy, interaction or visual direction is the question.
 
@@ -69,5 +69,5 @@ A saved-searches panel using an existing API:
 - Affected type: frontend
 - Backend: not affected — existing contract is sufficient
 - States: empty, loading, saving, saved, error, denied
-- Representation: wireframe for each state plus a rendered narrow/wide slice
+- Artifact: wireframe for each state plus a rendered narrow/wide slice
 ```

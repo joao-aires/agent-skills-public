@@ -33,7 +33,7 @@ Each option states:
 | Optimizes | Which outcome or constraint does it serve best? |
 | Sacrifices | What does it give up or put at risk? |
 | Failure behavior | What happens under error, denial, scale, migration or recovery? |
-| Representation | What can the reviewer inspect? |
+| Linked artifact | What can the reviewer inspect? |
 | Decision | Recommended, rejected, delegated or still open |
 
 ## Lenses by software type
@@ -55,16 +55,16 @@ Constraints add lenses but not new types:
 - offline-first: sync, conflict, local storage;
 - real-time: transport, ordering, reconnection.
 
-## Representation
+## Linked artifacts
 
-Each option needs a representation at comparable fidelity, sufficient to judge the question for its type:
+Each option needs a linked artifact at comparable fidelity, sufficient to judge the question for its type:
 
 - frontend: wireframe, mockup, Figma frame, rendered slice or prototype;
 - backend: contract sketch, sequence, C4 view or state machine;
 - AI: context/tool flow, data contract or evaluation plan;
 - library/CLI: API/command surface, compatibility matrix or usage example.
 
-Do not compare a detailed mockup against a one-line description. If one option has a representation, the others need one at a comparable level.
+Do not compare a detailed mockup against a one-line description. If one option has a linked artifact, the others need one at a comparable level.
 
 ## Seam options
 
@@ -102,7 +102,7 @@ Use the [design proposal contract](../../artifact-system/references/contracts/de
 - options that differ only in implementation detail;
 - the same lens applied to every option;
 - a recommendation with no alternatives or tradeoffs;
-- a representation that does not let the reviewer judge the question;
+- a linked artifact that does not let the reviewer judge the question;
 - options that ignore failure, denial or migration behavior;
 - a decision without an owner or revisit trigger;
 - duplicating the seam in two type sections instead of deciding it once.

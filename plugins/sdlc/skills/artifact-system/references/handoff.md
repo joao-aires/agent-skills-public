@@ -23,7 +23,7 @@ A handoff can be assembled from linked artifacts. The reader should be able to s
 | --- | --- | --- | --- |
 | Planning | Requirements | Outcome, first useful slice, feasibility, constraints, next decision | PRD/roadmap, ECR overview, research report |
 | Requirements | Design | Actors and permissions, behavior, observable acceptance, constraints, open decisions | ECR requirements/acceptance, PRD, issue, research report |
-| Design | Implementation preparation | Decision, affected components and types, alternatives, representations, seam, validation, start/blocked | Design proposal, design specification, C4/sequence/state views, RFC/ADR |
+| Design | Implementation preparation | Decision, affected components and types, alternatives, linked design artifacts, seam, validation, start/blocked | Design proposal, design specification, C4/sequence/state views, RFC/ADR |
 | Implementation preparation | Implementation | Ordered increments, dependencies, verification per slice, migration and rollback | ECR implementation strategy, implementation-preparation reference, issue |
 | Implementation | Verification and review | Actual revision, changed behavior, protected behavior, planned checks, deviations | Code/tests, ECR implementation/verification, PR |
 | Verification and review | Release | Checked behavior, evidence, findings, gaps, risk, readiness | ECR verification, PR, test evidence |
@@ -41,7 +41,7 @@ The designer must know who acts, what they may do, what observable result is pro
 
 ### Design to implementation
 
-The implementer must know the accepted decision, the affected components and types, the alternatives that were rejected, the representations that define the behavior, the seam between components, what evidence validated the direction and what may start or must wait.
+The implementer must know the accepted decision, the affected components and types, the alternatives that were rejected, the linked design artifacts that define the behavior, the seam between components, what evidence validated the direction and what may start or must wait.
 
 A design specification is the usual carrier for the interface handoff: flows, screens, states, content, components, tokens, responsive behavior, accessibility, motion and assets. C4, sequence and state views carry the system handoff. A design proposal carries the decision and the rejected alternatives.
 
@@ -72,4 +72,4 @@ The reviewer must know impact, response, recovery evidence and what remains unkn
 
 ## Proportionality
 
-A small fix may hand off in one paragraph with a revision and a test result. A boundary-changing design needs a decision, representations, a seam and validation evidence. The test is whether the next reader can act, not whether a handoff template was filled.
+A small fix may hand off in one paragraph with a revision and a test result. A boundary-changing design needs a decision, linked artifacts, a seam and validation evidence. The test is whether the next reader can act, not whether a handoff template was filled.

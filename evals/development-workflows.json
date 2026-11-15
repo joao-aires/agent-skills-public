@@ -1777,23 +1777,23 @@
     },
     {
       "id": "design-options-three-directions",
-      "prompt": "Use design to settle navigation and saved-search behavior for an existing web application. Produce at least three materially different directions, with a representation for each, tradeoffs and a recommendation. Do not implement.",
+      "prompt": "Use design to settle navigation and saved-search behavior for an existing web application. Produce at least three materially different directions, with a linked artifact for each, tradeoffs and a recommendation. Do not implement.",
       "evaluator_setup": "Supply an existing application with an accepted design system, two user roles, current screens and no implementation authorization. The actor may inspect source and screenshots but not edit source.",
       "criteria": [
         "At least three options differ in responsibility or behavior, not color, spacing or copy.",
         "Each option names a lens and states what it optimizes and sacrifices.",
-        "Each option has a representation at comparable fidelity that lets a reviewer judge it.",
+        "Each option has a linked artifact at comparable fidelity that lets a reviewer judge it.",
         "Empty, loading, error and denied states are covered where relevant.",
         "The recommendation names a decision owner, status and revisit trigger."
       ],
       "evidence": [
         "Design proposal or ECR design section",
-        "Comparable representations per option",
+        "Comparable linked artifacts per option",
         "Decision block with owner and status"
       ],
       "negative_controls": [
         "Three cosmetic variants of one direction fail.",
-        "An option without a representation or tradeoff fails.",
+        "An option without a linked artifact or tradeoff fails.",
         "Claiming implementation or rendering changes fails."
       ]
     },
@@ -1804,13 +1804,13 @@
       "criteria": [
         "Classifies the work as backend and states that the frontend is explicitly not affected, with a reason.",
         "Defines operations, contract, ownership, idempotency and failure behavior.",
-        "Uses a contract sketch or sequence as the representation; does not invent wireframes or UI work.",
+        "Uses a contract sketch or sequence as the linked artifact; does not invent wireframes or UI work.",
         "Records the future frontend seam without designing the UI in this change.",
         "Stops at the design decision and does not implement."
       ],
       "evidence": [
         "Backend design section with affected/not-affected types",
-        "Contract or sequence representation",
+        "Contract or sequence artifact",
         "Seam note for later frontend use"
       ],
       "negative_controls": [
@@ -1827,13 +1827,13 @@
         "Uses one design record with frontend and backend sections, not two divergent proposals.",
         "The three materially different options span both types and include a recommendation.",
         "The seam is decided once: error and denial mapping, empty/no-results/loading, pagination, auth/tenant and retry behavior.",
-        "Each type has an appropriate representation: UI states plus a contract or sequence.",
+        "Each type has an appropriate linked artifact: UI states plus a contract or sequence.",
         "The record states the decision owner, status and what is not affected."
       ],
       "evidence": [
         "Single design proposal with per-type sections",
         "One seam decision referenced by both sections",
-        "UI and contract/sequence representations"
+        "UI and contract/sequence artifacts"
       ],
       "negative_controls": [
         "Two separate proposals with different seams fail.",
@@ -1870,13 +1870,13 @@
       "criteria": [
         "Classifies the component as frontend and treats the extension as a constraint, not a fifth software type.",
         "Covers MV3 lifecycle, permissions, runtime messaging and store-review implications where relevant.",
-        "Produces three materially different options with UI states and a representation.",
+        "Produces three materially different options with UI states and a linked artifact.",
         "Decides the seam with the existing API and preserves the existing design system.",
         "Does not create a per-type contract or a new top-level type."
       ],
       "evidence": [
         "Frontend design with extension constraints",
-        "Options and UI representations",
+        "Options and UI artifacts",
         "Seam and permission/store notes"
       ],
       "negative_controls": [
@@ -1943,7 +1943,7 @@
       "evidence": [
         "Short design decision",
         "Existing pattern and scope",
-        "No unnecessary representation or options"
+        "No unnecessary artifacts or options"
       ],
       "negative_controls": [
         "Three options or a full design proposal for a label change fails.",
@@ -1953,7 +1953,7 @@
     },
     {
       "id": "guide-c4-current-vs-proposed",
-      "prompt": "Use guide-c4-view to describe the current and proposed container boundaries for a new queue-backed export feature. Keep current and proposed distinct and include a short text equivalent. Do not implement.",
+      "prompt": "Use c4-view-guide to describe the current and proposed container boundaries for a new queue-backed export feature. Keep current and proposed distinct and include a short text equivalent. Do not implement.",
       "evaluator_setup": "Supply current architecture notes, a proposed design sketch and source paths. No implementation authorization.",
       "criteria": [
         "Chooses an appropriate C4 level and names the system boundary, actors and external systems.",
@@ -1974,8 +1974,8 @@
       ]
     },
     {
-      "id": "guide-design-spec-handoff",
-      "prompt": "Use guide-design-spec to prepare a handoff for a saved-search panel. Include flows, wireframes or mockups, the important states, content, component and token references, responsive behavior, accessibility, motion, assets, open questions and design-QA acceptance. Do not implement.",
+      "id": "design-spec-guide-handoff",
+      "prompt": "Use design-spec-guide to prepare a handoff for a saved-search panel. Include flows, wireframes or mockups, the important states, content, component and token references, responsive behavior, accessibility, motion, assets, open questions and design-QA acceptance. Do not implement.",
       "evaluator_setup": "Supply an existing application, accepted design system, product brief and design decision. No implementation authorization. The actor may inspect source and design assets but not edit implementation.",
       "criteria": [
         "Covers the flow and the affected screens, not just a final visual.",
@@ -2698,7 +2698,7 @@
     },
     {
       "id": "design-options-and-threads",
-      "outcome": "Design work produces materially different options, type-appropriate representations, one seam, explicit interleaved threads and no ceremony for small changes.",
+      "outcome": "Design work produces materially different options, type-appropriate linked artifacts, one seam, explicit interleaved threads and no ceremony for small changes.",
       "case_ids": [
         "design-options-three-directions",
         "design-backend-only-no-wireframes",
@@ -2719,7 +2719,7 @@
       "outcome": "Artifact guides produce type-appropriate view artifacts with the right structure, states, authority and evidence, without claiming implementation.",
       "case_ids": [
         "guide-c4-current-vs-proposed",
-        "guide-design-spec-handoff"
+        "design-spec-guide-handoff"
       ],
       "trial_ids": []
     }

@@ -4,6 +4,8 @@ A **README** is the entry artifact for a repository. It helps a new reader under
 
 Apply the [artifact quality bar](../quality-bar.md) and resolve the home with [artifact homes](../homes.md). The default home is the repository root; component READMEs live beside their component.
 
+Read the [README guide](../../../readme-guide/SKILL.md) for writing conventions, examples and review checks.
+
 ## Reader questions
 
 A reader who has just arrived must be able to answer:

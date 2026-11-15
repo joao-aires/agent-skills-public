@@ -45,7 +45,7 @@ Include supported clients, offline behavior, synchronization, expected concurren
 
 Compare options that differ in a consequential responsibility, such as where state is owned, when work completes, or who operates a dependency. Explain how each option serves the journey under normal operation and under the failures that matter. Include the cost of deployment, diagnosis and recovery, not only implementation convenience.
 
-For a consequential choice, use the [option set](../design/references/option-set.md): at least three materially different options from different lenses, with a representation appropriate to the affected [software type](../artifact-system/references/software-types.md). Record the recommendation and the rejected alternatives in the [design proposal](../artifact-system/references/contracts/design-proposal.md).
+For a consequential choice, use the [option set](../design/references/option-set.md): at least three materially different options from different lenses, with a linked artifact appropriate to the affected [software type](../artifact-system/references/software-types.md). Record the recommendation and the rejected alternatives in the [design proposal](../artifact-system/references/contracts/design-proposal.md).
 
 Recommend the simplest option that satisfies the accepted constraints. A service split should clarify independent ownership or operation; a queue should have a reason for deferring work and a policy for unfinished work; a cache should have an acceptable freshness and failure behavior. Describe what the chosen option makes easier, what it makes harder, and what evidence would cause the decision to be revisited. A named pattern or popular framework does not establish suitability.
 

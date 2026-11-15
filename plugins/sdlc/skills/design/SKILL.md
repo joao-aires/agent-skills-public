@@ -3,7 +3,7 @@ name: design
 description: Design UI interactions, backend contracts, AI behavior or architecture for a requested
   change before implementation. Use when the user wants to settle a solution, compare directions or
   review a proposal, including a continuation of an exploratory conversation. Use for consequential
-  design alternatives; produce options, type-appropriate representations and a recorded decision.
+  design alternatives; produce options, type-appropriate linked artifacts and a recorded decision.
 user-invocable: true
 metadata:
   kind: activity
@@ -20,7 +20,7 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md).
 
-Design settles a proposed solution before dependent implementation. It produces a decision other people can understand: the question, the affected components, materially different options, the representations that let a reviewer judge them, the tradeoffs and the chosen direction. It does not implement.
+Design settles a proposed solution before dependent implementation. It produces a decision other people can understand: the question, the affected components, materially different options, the linked artifacts that let a reviewer judge them, the tradeoffs and the chosen direction. It does not implement.
 
 Use the [artifact system](../artifact-system/SKILL.md) for the handoff and [artifact homes](../artifact-system/references/homes.md) for persistence. Read [software types](../artifact-system/references/software-types.md) to decide what evidence the affected components need. Use the [design proposal contract](../artifact-system/references/contracts/design-proposal.md) for the record.
 
@@ -29,7 +29,7 @@ Use the [artifact system](../artifact-system/SKILL.md) for the handoff and [arti
 | Need | Read |
 | --- | --- |
 | What evidence does this kind of component need? | [Software types](../artifact-system/references/software-types.md) |
-| Which guide applies to this artifact? | [Design specification](../guide-design-spec/SKILL.md), [C4](../guide-c4-view/SKILL.md), [sequence](../guide-sequence-view/SKILL.md), [state machine](../guide-state-machine/SKILL.md), [compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
+| Which guide applies to this artifact? | [Design specification](../design-spec-guide/SKILL.md), [C4](../c4-view-guide/SKILL.md), [sequence](../sequence-view-guide/SKILL.md), [state machine](../state-machine-guide/SKILL.md), [compatibility matrix](../compatibility-matrix-guide/SKILL.md) |
 | How to generate and compare directions | [Option set](references/option-set.md) |
 | How to test the direction before building | [Design validation](references/design-validation.md) |
 | Is the proposal ready to hand off? | [Design review](references/design-review.md) |
@@ -53,20 +53,20 @@ State what exists today at a named revision, or "greenfield; no implementation e
 
 ## Generate and represent options
 
-For a consequential choice, produce at least three **materially different** options, each from a different lens. Read [option set](references/option-set.md) for triggers, lenses by type, representation fidelity and anti-patterns.
+For a consequential choice, produce at least three **materially different** options, each from a different lens. Read [option set](references/option-set.md) for triggers, lenses by type, artifact fidelity and anti-patterns.
 
 Consequential means the choice affects responsibility, behavior, ownership, failure, cost, compatibility or a boundary, or is expensive to reverse. Do not turn a local fix into an option exercise.
 
-Represent each option at comparable fidelity:
+Link the artifacts that let a reviewer judge each option at comparable fidelity:
 
-| Type | Representation | Guide |
+| Type | Typical linked artifacts | Guide |
 | --- | --- | --- |
-| Frontend | Wireframe, mockup, Figma frame, rendered slice, prototype | [Design specification](../guide-design-spec/SKILL.md) |
-| Backend | Contract sketch, sequence, C4, data/ownership view, state machine | [C4](../guide-c4-view/SKILL.md), [sequence](../guide-sequence-view/SKILL.md), [state machine](../guide-state-machine/SKILL.md) |
+| Frontend | Wireframe, mockup, Figma frame, rendered slice, prototype | [Design specification](../design-spec-guide/SKILL.md) |
+| Backend | Contract sketch, sequence, C4, data/ownership view, state machine | [C4](../c4-view-guide/SKILL.md), [sequence](../sequence-view-guide/SKILL.md), [state machine](../state-machine-guide/SKILL.md) |
 | AI | Context/tool flow, data contract, evaluation plan, harness view | Use the available AI testing method for the evaluation plan |
-| Library/CLI | API/command surface, compatibility matrix, usage example | [Compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
+| Library/CLI | API/command surface, compatibility matrix, usage example | [Compatibility matrix](../compatibility-matrix-guide/SKILL.md) |
 
-A text description alone is not enough when layout, interaction, contract shape, failure behavior or model quality is the question. Read the guide for the artifact you are producing; it owns structure, notation, fidelity and common failures. Use realistic content and the states that matter: empty, loading, busy, error, denied, stale, conflict.
+A text description alone is not enough when layout, interaction, contract shape, failure behavior or model quality is the question. Link the design specification, C4 view, sequence view, state machine or other artifact the decision needs. Read the guide for the artifact you are producing; it owns structure, notation, fidelity and common failures. Use realistic content and the states that matter: empty, loading, busy, error, denied, stale, conflict.
 
 When the change touches more than one type, the seam is part of the option set. Decide the contract or data shape, error and denial mapping, loading/empty distinctions, pagination, authority boundaries, retry/idempotency and compatibility once. Do not let each type section invent its own seam.
 
@@ -102,7 +102,7 @@ Use [system design](../system-design/SKILL.md) when the change affects boundarie
 
 ## Decide and record
 
-Use the [design proposal contract](../artifact-system/references/contracts/design-proposal.md). For a normal change, the ECR solution-design section can hold the proposal. Use an RFC when the proposal needs its own audience or decision process, or a linked design record when the representations or review justify it.
+Use the [design proposal contract](../artifact-system/references/contracts/design-proposal.md). For a normal change, the ECR solution-design section can hold the proposal. Use an RFC when the proposal needs its own audience or decision process, or a linked design record when the linked artifacts or review justify it.
 
 Record:
 
@@ -125,7 +125,7 @@ Record the target, revision, environment, observed result and limits. Validation
 
 Before handing the design to implementation, apply [design review](references/design-review.md) and [artifact assurance](../artifact-system/references/assurance.md) against the accepted requirements:
 
-- are the options real and the representation sufficient;
+- are the options real and the linked artifact sufficient;
 - are error, denial, concurrency, migration and recovery paths covered;
 - is the seam consistent across the type sections;
 - are reuse, changed responsibilities and integration points named;
@@ -135,6 +135,6 @@ Return the accepted or proposed design, the evidence and the unknowns. Name what
 
 ## Proportionality
 
-A small local change may need only a short explanation beside its acceptance criteria. A cross-component or expensive-to-reverse change benefits from an option set, representations, a seam decision and a recorded owner. Do not invoke every design mode for every change; invoke the ones whose evidence the decision actually needs.
+A small local change may need only a short explanation beside its acceptance criteria. A cross-component or expensive-to-reverse change benefits from an option set, linked artifacts, a seam decision and a recorded owner. Do not invoke every design mode for every change; invoke the ones whose evidence the decision actually needs.
 
 If new evidence invalidates the chosen direction, reopen the design decision, update the proposal and recheck dependents. Do not keep implementing on a contradicted design.

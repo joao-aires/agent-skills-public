@@ -91,7 +91,7 @@ That is valid. A design record may be entirely proposed and may state that no im
 - Not a `software_type` skill metadata field. Skills are reusable across types.
 - Not a phase. `phase` says where a skill primarily belongs.
 - Not a project-wide label. A project usually has several types.
-- Not a new artifact type. It changes the representation and evidence of existing artifacts.
+- Not a new artifact type. It changes the typical artifacts and evidence of existing artifacts.
 - Not a reason to create one contract per software type.
 
 Read the type file for the components the change actually touches. Use the [design proposal contract](contracts/design-proposal.md) for the design record and the [artifact catalog](catalog.md) for other artifact types.

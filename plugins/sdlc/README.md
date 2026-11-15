@@ -19,7 +19,7 @@ The rest of the plugin is composed from a small set of concepts. Two are core mo
 | --- | --- | --- |
 | **Artifact** | What durable output is produced? | Core model — `artifact-system` |
 | **Activity** | What work is requested, and where does it stop? | Core model — `activity-system` |
-| **Method** | What reusable expertise deepens the work? | Supporting capability — TDD, code review, requirements engineering, `guide-*` artifact guides |
+| **Method** | What reusable expertise deepens the work? | Supporting capability — TDD, code review, requirements engineering, `*-guide` artifact guides |
 | **Workflow** | What ordered sequence carries the work out? | Composition pattern — e.g. the contribution workflow |
 | **Role** | Who participates? | Dimension — product, implementer, reviewer, operator |
 | **Phase** | Where in the SDLC lifecycle? | Dimension — planning, requirements, design, implementation, verification, release, maintenance |
@@ -60,7 +60,7 @@ The full artifact and activity catalogs remain the source of truth for artifact 
 
 A project is made of components. Each component has a software type: `frontend`, `backend`, `ai` or `library-cli`. A change declares which types it touches and which are explicitly not affected.
 
-The type selects the representation and evidence a design record needs. It is **not** a project-wide label, a skill metadata value or a reason to create one contract per type. A normal web application is a frontend component plus a backend component, not a "full-stack" type.
+The type selects the typical artifacts and evidence a design record needs. It is **not** a project-wide label, a skill metadata value or a reason to create one contract per type. A normal web application is a frontend component plus a backend component, not a "full-stack" type.
 
 Platform and domain variations are constraints, not additional types:
 
@@ -104,7 +104,7 @@ An engineering artifact is a durable, addressable unit of engineering intent, kn
 | Freshness | When must it be updated or retired? |
 | Access | Public, private, audience-specific? |
 
-Software type is not an artifact field. An artifact describes a component or change; the component's [software type](skills/artifact-system/references/software-types.md) selects the representation and evidence the artifact needs.
+Software type is not an artifact field. An artifact describes a component or change; the component's [software type](skills/artifact-system/references/software-types.md) selects the typical artifacts and evidence the artifact needs.
 
 Read the full model in [artifact model](skills/artifact-system/references/model.md). Choose a type in the [artifact catalog](skills/artifact-system/references/catalog.md). Resolve its location with [artifact homes](skills/artifact-system/references/homes.md).
 
@@ -253,23 +253,19 @@ Start at [activity system](skills/activity-system/SKILL.md). Use the [catalog](s
 
 ### `design`
 
-`design` is the design activity. It frames the decision and affected software types, generates three or more materially different options for consequential choices, requires type-appropriate representations, decides the seam when several types meet, validates the direction when uncertainty is material and hands off without implementing.
+`design` is the design activity. It frames the decision and affected software types, generates three or more materially different options for consequential choices, requires type-appropriate linked artifacts, decides the seam when several types meet, validates the direction when uncertainty is material and hands off without implementing.
 
 Use the [design activity](skills/design/SKILL.md), the [option set](skills/design/references/option-set.md), [design validation](skills/design/references/design-validation.md), [design review](skills/design/references/design-review.md), [software types](skills/artifact-system/references/software-types.md) and the [design proposal contract](skills/artifact-system/references/contracts/design-proposal.md).
 
-### `guide-*` artifact guides
+### Artifact guides
 
-Five support methods own the craft of a view artifact. They can be used inside `design` or requested directly outside a full lifecycle:
+Every artifact type has a contract and, where the craft is distinct, a guide. The contract owns lifecycle, authority, maturity, evidence and handoff; the guide owns structure, conventions, examples, common failures and review. The full one-to-one pairing is the [guide registry](skills/artifact-system/references/catalog.md#guide-registry).
 
-| Guide | Artifact |
-| --- | --- |
-| [guide-design-spec](skills/guide-design-spec/SKILL.md) | Flows, wireframes, mockups, prototypes, states, content, accessibility and handoff |
-| [guide-c4-view](skills/guide-c4-view/SKILL.md) | C4 context, container and component views |
-| [guide-sequence-view](skills/guide-sequence-view/SKILL.md) | Sequence and interaction views |
-| [guide-state-machine](skills/guide-state-machine/SKILL.md) | State machines and denied transitions |
-| [guide-compatibility-matrix](skills/guide-compatibility-matrix/SKILL.md) | Versions, platforms and consumers |
+- **Document guides:** `prd-guide`, `rfc-guide`, `adr-guide`, `ecr-guide`, `design-proposal-guide`, `architecture-set-guide`, `issue-guide`, `pr-guide`, `research-report-guide`, `release-note-guide`, `readme-guide`.
+- **Operational guides:** `runbook-guide`, `incident-record-guide`, `postmortem-guide`, `assurance-assessment-guide`.
+- **Artifact/view guides:** `design-spec-guide`, `c4-view-guide`, `sequence-view-guide`, `state-machine-guide`, `compatibility-matrix-guide`.
 
-The artifact system owns the view artifact's identity, home, authority and maturity; the guide owns structure, notation, fidelity and review. The guides are intentionally tool-agnostic and do not depend on the artifact system.
+Each guide can be used inside an activity or requested directly. The guides are self-contained writing methods; they do not link into the artifact system.
 
 ### Coordination storage
 

@@ -1,5 +1,5 @@
 ---
-name: guide-compatibility-matrix
+name: compatibility-matrix-guide
 description: Guide to producing and reviewing a compatibility matrix. Use for public surfaces, versions, platforms, runtimes, deprecation, migration and consumer evidence across libraries, CLIs and APIs.
 user-invocable: true
 metadata:

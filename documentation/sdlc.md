@@ -94,7 +94,7 @@ These are typical contributions. In a small team, one person can cover several r
 | --- | --- | --- |
 | Project planning | Product manager or change owner leads. Engineering advises on feasibility and SRE advises on material operating risks. | Outcome, scope, feasibility and next decision, with links to the brief, PRD or roadmap when useful |
 | Requirements analysis | Product and engineering define behavior with stakeholders. Design contributes journeys, QA helps make acceptance observable, and SRE checks relevant reliability requirements and SLOs. | Agreed behavior, quality constraints and acceptance |
-| Design | Architect, designer and engineers lead their respective concerns. QA reviews testability and SRE reviews operating and recovery implications. | Affected software types, materially different options, type-appropriate representations, seam and accepted decision |
+| Design | Architect, designer and engineers lead their respective concerns. QA reviews testability and SRE reviews operating and recovery implications. | Affected software types, materially different options, type-appropriate linked artifacts, seam and accepted decision |
 | Implementation | Engineers break down the work, build it and add tests. Design, architecture, QA and SRE support affected areas. | Task breakdown, planned checks, actual changes and deviations |
 | Testing | Engineers and QA verify acceptance. Product and design review user outcomes, and SRE helps verify affected reliability paths. | Checked behavior, actual results and remaining gaps |
 | Deployment | Engineering and release or SRE owners coordinate delivery and recovery. QA contributes smoke checks. | Target, rollout or rollback evidence and observed result |
@@ -122,15 +122,13 @@ Use [system-design](../plugins/sdlc/skills/system-design/SKILL.md) for architect
 
 Design may run in parallel with requirements or implementation. Use [engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) to keep one focus, several threads and explicit reopens. A greenfield design can be entirely proposed with no implementation; mark the type as assumed when it is not yet settled. No comprehensive design document is required for a trivial local fix.
 
-The `guide-*` support methods own the craft of each view artifact. They can be used inside `design` or requested directly outside a full lifecycle:
+Every artifact type has a contract and, where the craft is distinct, a guide. The guide owns structure, conventions and review; the contract owns lifecycle, authority, maturity and handoff. The full pairing is the [guide registry](../plugins/sdlc/skills/artifact-system/references/catalog.md#guide-registry).
 
-| Guide | Artifact |
-| --- | --- |
-| [Design specification](../plugins/sdlc/skills/guide-design-spec/SKILL.md) | Flows, wireframes, mockups, prototypes, states, content, accessibility, assets and handoff |
-| [C4 view](../plugins/sdlc/skills/guide-c4-view/SKILL.md) | Boundaries, actors, responsibilities and dependencies |
-| [Sequence view](../plugins/sdlc/skills/guide-sequence-view/SKILL.md) | Ordering, async work, failure and recovery |
-| [State machine](../plugins/sdlc/skills/guide-state-machine/SKILL.md) | States, triggers, guards and denied transitions |
-| [Compatibility matrix](../plugins/sdlc/skills/guide-compatibility-matrix/SKILL.md) | Versions, platforms, consumers and deprecation |
+- **Document guides:** PRD, RFC, ADR, ECR, design proposal, architecture set, issue, PR, research report, release note and README.
+- **Operational guides:** runbook, incident record, postmortem and assurance assessment.
+- **Artifact/view guides:** design specification, C4, sequence, state machine and compatibility matrix.
+
+Guides can be used inside an activity or requested directly. They are self-contained writing methods and do not link into the artifact system.
 
 ### 4. Implementation
 
@@ -181,6 +179,7 @@ Generic means reusable across stacks; stack-specific means select it only for ma
 | Product direction | Generic | [product-management](../plugins/strategy/skills/product-management/SKILL.md) | Existing research and feedback; no tracker required |
 | Business strategy | Generic | [business-strategy](../plugins/strategy/skills/business-strategy/SKILL.md) | Preserved strategy references |
 | Project foundations | Generic | [project-conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) for affected structure, commands and constraints | None required |
+| Artifact writing guides | Generic | [Artifact guide registry](../plugins/sdlc/skills/artifact-system/references/catalog.md#guide-registry) | One contract and one guide per artifact type where the craft is distinct |
 | Artifact system | Generic | [artifact-system](../plugins/sdlc/skills/artifact-system/SKILL.md) | [writing-for-agents](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/writing-for-agents) for agent instructions |
 | Writing craft | Generic | [technical-writing](../plugins/documentation/skills/technical-writing/SKILL.md) | Reader fit, explanation, structure and presentation; [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) for prose polish |
 | Prose editing | No local skill | Follow the document's author and technical claims | [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) |
@@ -216,7 +215,7 @@ Generic means reusable across stacks; stack-specific means select it only for ma
 | Reliability | Generic | [reliability design](../plugins/sdlc/skills/system-design/references/reliability.md) for outcomes, SLIs/SLOs, budgets and alerts | Current first-party references; optional Datadog/Terraform example |
 | Observability | Generic | [observability](../plugins/sdlc/skills/observability/SKILL.md) for signal contracts and pipeline verification | Use the project's libraries/collectors |
 | Incident response | Generic | [incident-response](../plugins/sdlc/skills/incident-response/SKILL.md) for current impact and independently verified recovery | Existing authorized tools and service evidence |
-| Runbooks | Generic | [runbook-authoring](../plugins/sdlc/skills/runbook-authoring/SKILL.md) for branching diagnostics, actions and verification | The service's actual procedures |
+| Runbooks | Generic | [runbook-guide](../plugins/sdlc/skills/runbook-guide/SKILL.md) for branching diagnostics, actions and verification | The service's actual procedures |
 | Incident learning | Generic | [postmortem](../plugins/sdlc/skills/postmortem/SKILL.md) | Evidence-led review and deployed completion checks |
 | Vulnerability remediation | Generic | [security-maintenance](../plugins/sdlc/skills/security-maintenance/SKILL.md) | Existing scanners, vendor advisories and deployed artifact evidence |
 | Credentials | Generic | [security-maintenance](../plugins/sdlc/skills/security-maintenance/SKILL.md) | Actual identity provider/store; never expose secret values |

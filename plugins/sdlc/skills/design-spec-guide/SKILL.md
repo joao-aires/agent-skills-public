@@ -1,5 +1,5 @@
 ---
-name: guide-design-spec
+name: design-spec-guide
 description: Guide to producing a design specification that implementation can build and verify from. Covers flows, wireframes, mockups, prototypes, states, content, components, responsiveness, accessibility, motion, assets, handoff and design QA.
 user-invocable: true
 metadata:
