@@ -1,9 +1,9 @@
 ---
 name: release
-description: Prepare or execute a named application release/deployment with artifact,
-  configuration, compatibility and recovery verification. Use for deployment readiness
-  or an explicitly authorized target action; bare invocation prepares and reports
-  rather than deploying.
+description: Prepare, review or verify an application release or deployment, whether
+  merge-triggered continuous deployment or an explicitly authorized target action.
+  Use for release readiness, post-rollout verification or an authorized target action;
+  bare invocation prepares and reports rather than deploying.
 user-invocable: true
 disable-model-invocation: true
 metadata:
@@ -27,17 +27,20 @@ For writing the artifact this activity produces, read [guide-release-note](../gu
 
 Resolve the requested stopping point before touching a target:
 
-| Request | Result and execution boundary |
+| Mode or request | Result and execution boundary |
 | --- | --- |
+| Continuous deployment | The merge, tag or pipeline trigger is the release event. Readiness gates and the accepted pipeline policy authorize it; do not invent a second manual approval. Verify the rollout and served outcome after the trigger. |
 | Preparation or readiness review | Return a concise release assessment by default; do not mutate a target. |
 | Authorized publish, deploy or recover action | Execute against the identified target through the established CLI/MCP/pipeline. |
 | Rollback or recovery request | Use the identified recovery path; a mutating recovery still requires the named target and its authorization. |
+
+Under continuous deployment there may be no separate release command. The activity still applies to the release event: what merge will trigger, which artifact and target it selects, whether the gates and recovery path are ready, and what evidence proves the served outcome. If no release-specific decision or verification remains, do not invoke this activity; `ci-cd-pipelines` and `test` can cover the pipeline and behavior evidence.
 
 Identify exactly what is being released, where it will run or be distributed, and which configuration belongs to that target. Connect the artifact to its source revision and check results. Review the changes that survive replacing application code, especially schema/data changes and effects in external systems, because these determine whether rollback is sufficient.
 
 ## Readiness and authority
 
-Readiness establishes what success will look like in the target, how a failed rollout will be contained, and whether the recovery path is usable. Authorization is a separate decision: use the project's established policy, environment approval or explicit user instruction rather than inventing a second ceremony. Preserve established authorization across a sequence; an unspecified target or action blocks execution, and an emergency action does not widen the scope.
+Readiness establishes what success will look like in the target, how a failed rollout will be contained, and whether the recovery path is usable. Authorization is a separate decision: use the project's established policy, environment approval or explicit user instruction rather than inventing a second ceremony. In continuous deployment, the accepted merge and pipeline policy is the authorization; do not turn readiness into a redundant approval gate. Preserve established authorization across a sequence; an unspecified target or action blocks execution, and an emergency action does not widen the scope.
 
 A green pipeline, a reviewed configuration or a locally built artifact is readiness evidence, not proof that the target serves the intended revision.
 

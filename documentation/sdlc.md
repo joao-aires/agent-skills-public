@@ -147,7 +147,7 @@ Start with [verification](../plugins/sdlc/skills/test/SKILL.md), and use [journe
 
 ### 6. Deployment
 
-Start with [release](../plugins/sdlc/skills/release/SKILL.md). [CI/CD pipeline design](../plugins/development-tooling/skills/ci-cd-pipelines/SKILL.md) supports the provider-neutral stages, artifacts, promotion, rollout and recovery; actual remote actions require named authorization and target verification.
+Start with [release](../plugins/sdlc/skills/release/SKILL.md). [CI/CD pipeline design](../plugins/development-tooling/skills/ci-cd-pipelines/SKILL.md) supports the provider-neutral stages, artifacts, promotion, rollout and recovery; actual remote actions require named authorization and target verification. Under continuous deployment, the merge, tag or pipeline trigger is the release event; verify the rollout and served outcome rather than inventing a second manual action.
 
 ### 7. Maintenance
 
