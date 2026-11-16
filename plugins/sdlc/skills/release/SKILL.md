@@ -44,6 +44,8 @@ Readiness establishes what success will look like in the target, how a failed ro
 
 A green pipeline, a reviewed configuration or a locally built artifact is readiness evidence, not proof that the target serves the intended revision.
 
+Before claiming readiness, confirm that every accepted requirement ID has evidence or an explicit blocker with an owner. Do not convert a missing acceptance row into a pass because the change was small, and do not claim release readiness from a subset of the requirements set.
+
 ## Execute an authorized action and verify
 
 1. Serialize mutations as required and record their actual effects.

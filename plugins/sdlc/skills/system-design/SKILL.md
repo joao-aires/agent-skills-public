@@ -22,7 +22,18 @@ Read [activity system](../activity-system/SKILL.md) for scope and stopping point
 
 For writing the artifact this activity produces, read [guide-design-proposal](../guide-design-proposal/SKILL.md), [guide-c4-view](../guide-c4-view/SKILL.md), [guide-sequence-view](../guide-sequence-view/SKILL.md), [guide-state-machine](../guide-state-machine/SKILL.md) for structure, conventions and review.
 
-Read [reliability design](references/reliability.md) when the accepted outcome includes availability, latency, freshness or recovery targets.
+Read [quality attributes](references/quality-attributes.md) to find the dimensions a change actually touches, who owns or delegates each, and what evidence would settle it. Then read the applicable dimension reference:
+
+| Dimension | Read |
+| --- | --- |
+| Reliability, recovery and continuity | [Reliability](references/reliability.md); [disaster recovery](references/reliability-disaster-recovery.md) when a site, region or provider can be lost |
+| Latency, throughput, tail behavior, capacity | [Performance](references/performance.md) |
+| Security and privacy | [Security](references/security.md), a route to the installed methods |
+| Modifiability, testability, operability | [Maintainability](references/maintainability.md) |
+| Cost consequence of the design | [Cost](references/cost.md) |
+| Compatibility, accessibility, compliance, portability | [Contextual attributes](references/contextual-attributes.md) |
+
+Requirements own the targets. Design owns the tactics, tradeoffs, delegation and evidence plan; return unresolved targets instead of inventing them.
 
 Use this phase after business/product refinement and before dependent implementation planning. Revisit it when a new feature changes boundaries, persistence, identity, integrations, deployment or important quality attributes. For a small change, a brief assessment of the affected contract can be sufficient. Preserve accepted architecture in existing projects.
 
@@ -41,7 +52,7 @@ Translate quality goals into conditions that influence the design:
 - How quickly does the user need a response?
 - Does work continue after the client disconnects?
 
-Include supported clients, offline behavior, synchronization, expected concurrency, budget, deployment environment and the team's operating capabilities where relevant. Distinguish accepted requirements from provisional estimates; unmeasured demand and unknown platform support remain open inputs.
+Include supported clients, offline behavior, synchronization, expected concurrency, budget, deployment environment and the team's operating capabilities where relevant. Distinguish accepted requirements from provisional estimates; unmeasured demand and unknown platform support remain open inputs. For each applicable dimension, note whether the outcome is owned, shared, delegated to a platform/provider or external; a provider SLA does not become our SLO.
 
 ### Compare plausible options
 

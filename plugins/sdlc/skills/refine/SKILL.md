@@ -44,6 +44,8 @@ Write requirements that another contributor could implement without reconstructi
 
 Keep unresolved design choices visible. Requirements can be ready for design while still needing an architecture decision; they are not ready for implementation if that decision changes the behavior being promised.
 
+Write the requirements set in the ECR using its template: the full form when the change spans areas, dimensions or a surface obligation; the compact form for a small local change. Give each requirement a stable ID and connect it to an acceptance check. The [ECR contract](../artifact-system/references/contracts/ecr.md#3-requirements-and-acceptance) and [guide](../guide-ecr/SKILL.md) own the shape; this activity produces the content.
+
 For a consequential failure, establish:
 
 - what the consumer observes;

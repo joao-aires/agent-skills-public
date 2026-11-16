@@ -51,6 +51,8 @@ A type is a lookup for evidence, not a gate. If the design record would be the s
 
 State what exists today at a named revision, or "greenfield; no implementation exists." Distinguish the current system from the proposed target.
 
+Read the requirement IDs from the ECR and record how the proposed design satisfies them. Resolve the design requirements (`DR-`) for any user-facing or contract surface and link the design proposal or specification that evidences the resolution. A requirement the design leaves unanswered is a visible gap, not an implicit acceptance.
+
 ## Generate and represent options
 
 For a consequential choice, produce at least three **materially different** options, each from a different lens. Read [option set](references/option-set.md) for triggers, lenses by type, artifact fidelity and anti-patterns.
@@ -107,6 +109,7 @@ Use the [design proposal contract](../artifact-system/references/contracts/desig
 Record:
 
 - the affected types and what is not affected;
+- the requirement IDs the design satisfies or leaves open, including resolved `DR-` items;
 - the options, lenses, tradeoffs and failure behavior;
 - the seam decision when several types meet;
 - the recommended option, the decision owner and the status;
