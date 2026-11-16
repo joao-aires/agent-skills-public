@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "development-tooling",
-  "version": "0.2.0",
-  "description": "Selected Bash, CLI design, browser/load testing, CI/container/registry, diagnostics and supply-chain tooling.",
+  "version": "0.3.0",
+  "description": "Selected Bash, CLI design, provider-neutral CI/CD pipeline design, browser/load testing, container/registry, diagnostics and supply-chain tooling.",
   "author": {
     "name": "João Aires"
   },

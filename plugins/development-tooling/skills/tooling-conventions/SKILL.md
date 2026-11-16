@@ -28,6 +28,7 @@ Read the accepted toolchain, project commands and versions before changing confi
 | Dockerfiles, image inputs and runtime startup | [Container builds](references/container-builds.md) |
 | Compose profiles, isolated local services and diagnostics | [Local environment](references/local-environment.md) |
 | Workflow naming, data flow, shell boundaries and execution features | [Workflow authoring](references/workflow-authoring.md) |
+| Provider-neutral stages, promotion, gates and recovery around the workflow | `ci-cd-pipelines` method |
 | GitHub Actions adapters, trust, inputs and concurrency | [Workflow implementation](references/workflow-implementation.md) |
 | Choosing shell, script, composite, code or container actions | [Script selection](references/script-selection.md); use installed github-actions-hardening for security review |
 | Chosen registry and release artifact checks | [Artifact defaults](references/artifact-defaults.md) |
