@@ -4,6 +4,14 @@
     "figma": {
       "type": "streamable-http",
       "url": "https://mcp.figma.com/mcp"
+    },
+    "mobbin": {
+      "type": "streamable-http",
+      "url": "https://api.mobbin.com/mcp"
+    },
+    "refero": {
+      "type": "streamable-http",
+      "url": "https://api.refero.design/mcp"
     }
   }
 }
