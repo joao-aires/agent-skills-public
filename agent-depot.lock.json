@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "manifestHash": "ac2235f4428e40de48eb6bd64e204f7c37cc53184731005a9f4866c2b962d478",
+  "manifestHash": "c7d3267e9aaf4aa5dd24d7e53daaecaa8522c5ace01769eeaccc6fb595b040b3",
   "sources": {
     "vercel-labs-agent-skills": {
       "repository": "https://github.com/vercel-labs/agent-skills.git"

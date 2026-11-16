@@ -46,6 +46,19 @@ Inspect the intended remote/base and existing PR before publishing. Within estab
 
 For multiline descriptions, use a body file or structured tool argument. Follow fork/head conventions and repository draft/readiness rules. Commit/push authority remains separate from merging or deploying.
 
+## Check CI after pushing
+
+After the push creates or updates the branch/PR head, check the CI/status checks for that head. A push, a green local suite or a PR link is not CI evidence.
+
+1. Identify the check run for the pushed head; do not use a run from an earlier commit.
+2. Wait for completion within the authorized scope. Report pending checks as pending; do not guess the result.
+3. Inspect the failing job log, not only the summary badge.
+4. Separate failures caused by the change from pre-existing, unrelated or infrastructure failures.
+5. Fix failures caused by the change within the granted authority, push the fix and recheck the new head.
+6. Report the actual status, failing job, cause, fix and any remaining blocked or skipped checks. Do not claim CI passed without a completed successful run.
+
+Do not disable, bypass or weaken a check to make it green. If the failure is unrelated or the fix needs authority not granted, report the exact blocker.
+
 ## Publish the reader view
 
 Create or update the PR body using the [PR contract](../artifact-system/references/contracts/pr.md) and the [quality bar](../artifact-system/references/quality-bar.md). The workflow owns isolation, commits, push and publication mechanics; the contract owns the reviewer-facing why, what changed, design impact, validation at the current head, risk, links and visibility.
