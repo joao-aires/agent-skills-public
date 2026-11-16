@@ -18,9 +18,22 @@ metadata:
 
 Use the accepted task, architecture and quality criteria. Seek available expertise in conceptual AI evaluation for case design and evidence boundaries; retain deterministic correctness, authority and meaningful quality evidence when that specialist is absent. This skill implements an evaluation approach in Python, not the product's acceptance policy or all application testing. The evaluation runner can be Python while the application uses another language; do not migrate the application to run a suite.
 
+## Reading path
+
+| Need | Read |
+| --- | --- |
+| Decide what to evaluate and what the evidence means | `ai-testing` |
+| Run evaluation as a program with acceptance, gates and reporting | `ai-evaluation` when installed |
+| Map cases, datasets, metrics, GEval and execution to DeepEval | [DeepEval playbook](references/deepeval-playbook.md) |
+| Wire the suite into CI and preserve result evidence | [CI and reporting](references/ci-and-reporting.md) |
+| Verify application behavior and persisted outcomes | `test` when installed |
+| Understand traces and execution signals | `observability` when installed |
+
+This skill owns the selected DeepEval integration. It does not own the evaluation criteria, program authority or delivery decision; those remain with the evaluation activity and the project.
+
 ## Choose a compatible, bounded integration
 
-Inspect the project's Python/dependency constraints, existing tests, datasets, metrics, model/judge settings and CI. Use a locked compatible DeepEval version in the established test/development dependency group. Preserve an accepted alternative unless comparing or migrating is requested. Consult the [DeepEval evaluation guide](https://deepeval.com/docs/evaluation-introduction) for the selected release's API; documented examples do not establish installed compatibility.
+Inspect the project's Python/dependency constraints, existing tests, datasets, metrics, model/judge settings and CI. Use a locked compatible DeepEval version in the established test/development dependency group. Preserve an accepted alternative unless comparing or migrating is requested. Consult the [DeepEval evaluation guide](https://deepeval.com/docs/evaluation-introduction) for the selected release's API; documented examples do not establish installed compatibility. Read the [DeepEval playbook](references/deepeval-playbook.md) for version pinning, test-case construction, metric selection and execution details.
 
 Map the accepted evaluation levels to supported DeepEval APIs. Use output cases for bounded inference, component/trajectory APIs where internal execution matters and conversation cases for supported multi-turn evaluation. Instrument only the relevant path with the existing tracing owner. A protocol-only service may need compatibility checks without DeepEval.
 
@@ -60,7 +73,7 @@ Keep local results reproducible without requiring a hosted dashboard. Confident 
 
 ## Wire meaningful checks into CI
 
-Use DeepEval's supported `evaluate()` route for evaluation scripts or `assert_test()` with `deepeval test run <existing-eval-path>` for a committed pytest-style evaluation suite. Follow the [CI guide](https://deepeval.com/docs/evaluation-unit-testing-in-ci-cd) for the installed version; do not treat ordinary pytest collection as proof that the DeepEval run completed.
+Use DeepEval's supported `evaluate()` route for evaluation scripts or `assert_test()` with `deepeval test run <existing-eval-path>` for a committed pytest-style evaluation suite. Follow the [CI guide](https://deepeval.com/docs/evaluation-unit-testing-in-ci-cd) for the installed version; do not treat ordinary pytest collection as proof that the DeepEval run completed. Read [CI and reporting](references/ci-and-reporting.md) for gate design, trusted execution, secrets, per-case evidence and local artifacts.
 
 Separate fast deterministic tests from credentialed quality jobs.
 
