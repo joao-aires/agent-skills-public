@@ -362,9 +362,20 @@ A compact artifact can pass; a long artifact can fail. The test is whether the r
 
 Use `activity-system` for routing, `test` for verification and the repository artifact home map for placement. `system-documentation` explains the current system. For old names and removal notes, see the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
 
-## MCP connection
+## MCP connections
 
-The plugin declares Plane's hosted MCP endpoint in [mcp.json](mcp.json). It uses OAuth and acts as the signed-in Plane user; the declaration does not establish authenticated access or write authority. Connect only when the requested work needs Plane, and verify the intended workspace and project before creating or changing work items.
+The plugin declares optional hosted endpoints for common project-management systems in [mcp.json](mcp.json):
+
+| System | Endpoint | Authentication |
+| --- | --- | --- |
+| Atlassian (Jira, Confluence, Bitbucket) | `https://mcp.atlassian.com/v2/mcp` | OAuth 2.1 |
+| GitHub, including Projects | `https://api.githubcopilot.com/mcp/` | OAuth or a personal access token |
+| Linear | `https://mcp.linear.app/mcp` | OAuth 2.1 |
+| Plane | `https://mcp.plane.so/http/mcp` | OAuth |
+
+Each server acts as the signed-in user and inherits that account's permissions. The declaration does not establish authenticated access or write authority, and declaring all four does not connect them. Connect only when the requested work needs that system; verify the intended workspace, project or repository before creating or changing work items, and use the narrowest account and scopes the task allows.
+
+Linear also exposes a read-only endpoint at `https://mcp.linear.app/mcp/readonly`. GitHub exposes read-only variants such as `https://api.githubcopilot.com/mcp/readonly`; the declared `X-MCP-Toolsets: default,projects` header adds Projects tools to its default set.
 
 ## Sources
 

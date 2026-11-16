@@ -2,7 +2,7 @@
 
 Build complete bundles, load them through your client's supported route, then inspect discovery in the application workspace. You need Git to clone this repository and Python 3.10+ with the validation dependencies installed. Building then uses committed resources without upstream access or Node.js. Client authentication is separate from building.
 
-[Build](#build-the-bundles) · [Load in a client](#load-them-in-your-client) · [Additional bundles](#select-additional-bundles) · [Optional Figma connection](#optional-figma-connection) · [Optional Plane connection](#optional-plane-connection)
+[Build](#build-the-bundles) · [Load in a client](#load-them-in-your-client) · [Additional bundles](#select-additional-bundles) · [Optional Figma connection](#optional-figma-connection) · [Optional project connections](#optional-project-connections)
 
 ## Build the bundles
 
@@ -205,10 +205,19 @@ The frontend-development bundle declares Figma's optional remote endpoint in [mc
 
 Connect only when the requested work needs Figma, and verify access to the intended file. The [usage guide](usage.md#setup-and-tools) explains local design alternatives and Storybook's verification role.
 
-## Optional Plane connection
+## Optional project connections
 
-The `sdlc` plugin declares Plane's optional hosted endpoint in [mcp.json](../plugins/sdlc/mcp.json). It uses OAuth and acts as the signed-in Plane user. The declaration does not establish authenticated access or write authority.
+The `sdlc` plugin declares optional hosted endpoints for common project-management systems in [mcp.json](../plugins/sdlc/mcp.json):
 
-Connect only when the requested work needs Plane, and verify the intended workspace and project before creating or changing work items. Preserve existing project policy and authorization; an MCP connection does not expand the requested action scope.
+| System | Endpoint | Authentication |
+| --- | --- | --- |
+| Atlassian (Jira, Confluence, Bitbucket) | `https://mcp.atlassian.com/v2/mcp` | OAuth 2.1 |
+| GitHub, including Projects | `https://api.githubcopilot.com/mcp/` | OAuth or a personal access token |
+| Linear | `https://mcp.linear.app/mcp` | OAuth 2.1 |
+| Plane | `https://mcp.plane.so/http/mcp` | OAuth |
+
+Each server acts as the signed-in user and inherits that account's permissions. The declaration does not establish authenticated access or write authority, and declaring all four does not connect them. Connect only when the requested work needs that system, use the narrowest account and scopes the task allows, and verify the intended workspace, project or repository before creating or changing work items. Preserve existing project policy and authorization; an MCP connection does not expand the requested action scope.
+
+Linear also exposes read-only access at `https://mcp.linear.app/mcp/readonly`. GitHub exposes read-only variants such as `https://api.githubcopilot.com/mcp/readonly`; the declared `X-MCP-Toolsets: default,projects` header adds Projects tools to its default set. Use a read-only endpoint when the task only needs to inspect work.
 
 After installation, [choose your first activity](usage.md#skills-you-invoke).

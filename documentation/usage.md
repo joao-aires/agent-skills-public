@@ -156,7 +156,7 @@ Add ai-development for generic AI feature or MCP-interface methods. Add technica
 
 ## Setup and tools
 
-Follow [installation](installation.md) for bundle loading. Figma is optional: use authorized Figma context when the deliverable requires it; otherwise local HTML/CSS prototypes, SVG wireframes or Storybook can answer the design question. Ordinary UI work needs no Figma account. The `sdlc` plugin also declares Plane's optional MCP endpoint; connect only when the work needs Plane and verify the intended workspace and project. Verify rendered interaction and accessibility for affected states separately from the design artifact.
+Follow [installation](installation.md) for bundle loading. Figma is optional: use authorized Figma context when the deliverable requires it; otherwise local HTML/CSS prototypes, SVG wireframes or Storybook can answer the design question. Ordinary UI work needs no Figma account. The `sdlc` plugin also declares optional Atlassian, GitHub, Linear and Plane MCP endpoints. Declaring them does not connect them: authenticate only the system the work needs, verify the intended workspace, project or repository, and prefer a read-only endpoint when the task only inspects work. Verify rendered interaction and accessibility for affected states separately from the design artifact.
 
 ## UI/UX expertise for people and agents
 
