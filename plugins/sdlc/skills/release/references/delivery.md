@@ -20,6 +20,8 @@ Keep provider-required entrypoints in their required locations and component-spe
 
 Name workflows, jobs and steps by their purpose, component and target. Preserve a consistent existing convention. Make dependency order, required gates, inputs/outputs and failure behavior visible without reading every implementation detail. Seek matching tool expertise for the selected provider's syntax and reusable adapters.
 
+Workflow implementation mechanics — naming, input/environment/secret boundaries, shell steps, matrices, concurrency, caches, artifacts and reusable interfaces — live in `tooling-conventions` (`references/workflow-authoring.md`); choosing between shell, script, composite, code and container actions lives in `references/script-selection.md`. This reference keeps the delivery sequence and gates.
+
 ## Promote and recover deliberately
 
 - Build once and promote the same immutable artifact/digest through environments.

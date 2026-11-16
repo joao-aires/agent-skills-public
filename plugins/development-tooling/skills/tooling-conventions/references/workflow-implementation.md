@@ -1,6 +1,6 @@
 # Workflow implementation conventions
 
-CI is orchestration; task runners own reusable build logic. These conventions generalize existing CI authoring practice. Check current host/runtime documentation when implementing a provider-specific adapter.
+CI is orchestration; task runners own reusable build logic. These conventions generalize existing CI authoring practice. Check current host/runtime documentation when implementing a provider-specific adapter. For naming, data boundaries, shell handling and execution features, use [workflow authoring](workflow-authoring.md); this reference keeps the adapter, trust and interface specifics.
 
 ## Trust, interfaces and permissions
 
