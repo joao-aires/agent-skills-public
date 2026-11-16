@@ -1,6 +1,6 @@
 ---
 name: compliance-readiness
-description: Translate applicable legal, contractual and assurance requirements into system boundaries, controls, ownership and evidence. Use for compliance design, GDPR or SOC 2 readiness and scoped assurance assessments.
+description: Translate applicable legal, contractual and assurance requirements into system boundaries, controls, ownership and evidence. Use for compliance design, GDPR, CCPA/CPRA or SOC 2 readiness, and scoped SaaS assurance assessments including subprocessor, residency, export and deletion evidence.
 metadata:
   kind: method
   origin: local
@@ -24,9 +24,17 @@ For writing the artifact this activity produces, read [guide-assurance-assessmen
 
 Read the actual service, data flows, contracts, customer commitments, jurisdictions, providers and existing controls. Separate a legal obligation, a contractual commitment and an engineering safeguard. Record unknowns and the owner who can resolve them.
 
-- Use [compliance design](references/compliance.md) for general applicability, control derivation and evidence design.
-- Use [GDPR](references/gdpr.md) and its [applicability notes](references/applicability-and-decisions.md) for personal-data processing, rights, retention and provider consequences.
-- Use [SOC 2](references/soc2.md) and its [controls and evidence](references/controls-and-evidence.md) for service commitments, criteria, operating evidence and examination scope.
+## Reading path
+
+| Need | Read |
+| --- | --- |
+| General applicability, control derivation and evidence design | [Compliance design](references/compliance.md) |
+| GDPR processing, rights, retention and provider consequences | [GDPR](references/gdpr.md) and [applicability notes](references/applicability-and-decisions.md) |
+| CCPA/CPRA applicability, consumer rights, sale/share and service-provider terms | [CCPA/CPRA](references/ccpa.md) |
+| SOC 2 service commitments, criteria and operating evidence | [SOC 2](references/soc2.md) and [controls and evidence](references/controls-and-evidence.md) |
+| SaaS subprocessors, DPAs, residency, export/deletion, audit logs and Type II evidence | [SaaS evidence](references/saas-evidence.md) |
+
+Select only the regimes and evidence types the actual service, cohort and request require. A compliance programme is not the union of every available reference.
 
 ## Derive proportionate controls
 
@@ -35,6 +43,8 @@ Map each applicable requirement to the boundary, control, owner, operating frequ
 ## Assess evidence honestly
 
 Check whether the evidence is current, covers the defined population and period, and actually demonstrates the control. Gaps remain gaps; a policy, screenshot or green dashboard does not establish operating effectiveness. Record exceptions, remediation, owner and review date.
+
+For SaaS subprocessor, DPA, residency, export/deletion, audit and Type II questions, use [SaaS evidence](references/saas-evidence.md) rather than treating a trust page or provider report as the service's own control.
 
 ## Output
 
