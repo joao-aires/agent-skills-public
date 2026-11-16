@@ -362,6 +362,10 @@ A compact artifact can pass; a long artifact can fail. The test is whether the r
 
 Use `activity-system` for routing, `test` for verification and the repository artifact home map for placement. `system-documentation` explains the current system. For old names and removal notes, see the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
 
+## MCP connection
+
+The plugin declares Plane's hosted MCP endpoint in [mcp.json](mcp.json). It uses OAuth and acts as the signed-in Plane user; the declaration does not establish authenticated access or write authority. Connect only when the requested work needs Plane, and verify the intended workspace and project before creating or changing work items.
+
 ## Sources
 
 - The retired upstream `implement` entry point is preserved as a reference: [mattpocock/skills implement](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/implement) (MIT). It is not an acquired skill and its body is not packaged.

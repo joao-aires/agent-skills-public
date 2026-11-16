@@ -1994,6 +1994,138 @@
         "A handoff with no states, accessibility or acceptance criteria fails.",
         "Claiming implementation or approval fails."
       ]
+    },
+    {
+      "id": "compact-ecr-local-fix",
+      "prompt": "Use fix or develop on a supplied local, reversible, one-component defect with one evident repair. Record the change proportionately. Do not implement a platform or create a full design package.",
+      "evaluator_setup": "Supply a small non-git Python fixture with a failing test, one component and no boundary, migration or security impact. No tracker or publication authority.",
+      "criteria": [
+        "Uses a compact ECR or a commit/PR note rather than the full seven-section record.",
+        "Records the change, acceptance, verification and any decision without empty sections.",
+        "Keeps the regression test and the observed result.",
+        "States that release/deployment is not applicable.",
+        "Does not invent architecture, design or coordination artifacts."
+      ],
+      "evidence": [
+        "Compact record or PR note",
+        "Regression test and observed result",
+        "Stated non-applicability"
+      ],
+      "negative_controls": [
+        "A full seven-section ECR for a one-line local fix fails.",
+        "An empty design or architecture artifact fails.",
+        "Claiming release or deployment fails."
+      ]
+    },
+    {
+      "id": "implement-without-git-or-slash-commands",
+      "prompt": "Use implement for an agreed local change in a workspace with no Git repository and no client slash commands. Implement, check and hand off without inventing a command surface or a repository.",
+      "evaluator_setup": "Supply a small non-git Python workspace with an accepted change, tests and no remote. Do not provide a typechecker, /tdd or /code-review, and do not authorize repository creation.",
+      "criteria": [
+        "Applies the implementation intent with local checks and inline review.",
+        "Records the unavailable Git/command surface and uses a local-only revision form.",
+        "Does not initialize a repository or install tools as a side effect.",
+        "Runs the relevant tests and reports actual results and gaps.",
+        "Stops at the implemented and checked change."
+      ],
+      "evidence": [
+        "Changed files and tests",
+        "Local-only revision identity",
+        "Recorded adaptation and gaps"
+      ],
+      "negative_controls": [
+        "Inventing a commit or PR link fails.",
+        "Initializing a repository without authorization fails.",
+        "Skipping checks because the command is unavailable fails."
+      ]
+    },
+    {
+      "id": "develop-verification-and-review-composition",
+      "prompt": "Use develop on an authorized small change. Include verification and the in-review step. Do not require a separate review skill or a change-review command.",
+      "evaluator_setup": "Supply a small local application with an accepted change and tests. Implementation and local checks are authorized; posting, merging and deployment are not.",
+      "criteria": [
+        "Uses test for verification evidence and the review composition for the in-review step.",
+        "Uses code-review when available; applies the code-diff axes inline when unavailable.",
+        "Uses artifact assurance or the quality bar for convergence and artifact checks.",
+        "Reports findings and self-review limits rather than claiming independent review.",
+        "Stops before posting, merging or deployment."
+      ],
+      "evidence": [
+        "Verification results",
+        "Review findings and composition used",
+        "Authority boundary"
+      ],
+      "negative_controls": [
+        "Inventing a change-review skill or command fails.",
+        "Claiming independent review fails.",
+        "Posting or merging without authority fails."
+      ]
+    },
+    {
+      "id": "verification-evidence-linked-not-duplicated",
+      "prompt": "Record verification for a completed change. Link the actual test/CI evidence from the change record without creating a second verification authority.",
+      "evaluator_setup": "Supply a small change with a passing test run and an ECR section for verification. No provider or separate verification-record home is required.",
+      "criteria": [
+        "ECR §6 states the command, revision, environment, result and limits.",
+        "Links the actual test/CI evidence rather than copying it into a second document.",
+        "Marks unverified, unavailable or skipped checks explicitly.",
+        "Does not create a separate verification record unless the project already uses one.",
+        "Separates implemented from verified and released claims."
+      ],
+      "evidence": [
+        "ECR verification section",
+        "Linked test/CI evidence",
+        "Stated limits"
+      ],
+      "negative_controls": [
+        "Creating a second Markdown verification authority fails.",
+        "Promoting a green build to production evidence fails.",
+        "Omitting failed or skipped checks fails."
+      ]
+    },
+    {
+      "id": "self-fix-in-current-change-record",
+      "prompt": "During implementation and testing of an accepted change, discover and repair a local implementation mistake in the same change. Record the repair proportionately.",
+      "evaluator_setup": "Supply a current change record, an implementation failure caused by the actor's own code and a passing repair. No new requirement or boundary change.",
+      "criteria": [
+        "Records the failure and repair in the current change's implementation/verification sections.",
+        "Does not create a new ECR for the same change.",
+        "Rechecks the affected test and keeps the evidence.",
+        "Distinguishes the self-fix from a scope change or a new requirement.",
+        "States the final status and any remaining gap."
+      ],
+      "evidence": [
+        "Updated current ECR",
+        "Repair test result",
+        "No duplicate change record"
+      ],
+      "negative_controls": [
+        "Creating a new ECR for every micro-fix fails.",
+        "Silently fixing without evidence fails.",
+        "Treating the self-fix as a new requirement fails."
+      ]
+    },
+    {
+      "id": "boundary-change-requires-full-ecr",
+      "prompt": "Use develop on a change that adds a cross-service data boundary and a migration. Record the change proportionately. Do not use a compact record to avoid design or migration evidence.",
+      "evaluator_setup": "Supply a small application with two components, a shared data boundary, a migration and no production access. Implementation and local checks are authorized.",
+      "criteria": [
+        "Uses the full ECR because the change crosses a boundary and includes migration.",
+        "Records requirements, design, implementation strategy, verification and decisions.",
+        "States compatibility, migration and recovery consequences.",
+        "Uses linked artifacts rather than a duplicate document.",
+        "Does not claim deployment or production verification."
+      ],
+      "evidence": [
+        "Full ECR",
+        "Boundary and migration design",
+        "Verification and limits"
+      ],
+      "negative_controls": [
+        "A compact ECR that omits design/migration fails.",
+        "Inventing production evidence fails.",
+        "Skipping the data boundary decision fails."
+      ]
     }
   ],
   "generation_trials": [
@@ -2720,6 +2852,19 @@
       "case_ids": [
         "guide-c4-current-vs-proposed",
         "guide-design-spec-handoff"
+      ],
+      "trial_ids": []
+    },
+    {
+      "id": "sdlc-flow-selection",
+      "outcome": "Select the proportionate SDLC flow: compact or full ECR, local implementation, verification/review composition, linked evidence and self-fix handling.",
+      "case_ids": [
+        "compact-ecr-local-fix",
+        "implement-without-git-or-slash-commands",
+        "develop-verification-and-review-composition",
+        "verification-evidence-linked-not-duplicated",
+        "self-fix-in-current-change-record",
+        "boundary-change-requires-full-ecr"
       ],
       "trial_ids": []
     }

@@ -154,17 +154,9 @@ Unattended tasks return missing material decisions instead of inventing answers.
 
 Add ai-development for generic AI feature or MCP-interface methods. Add technical AI packages only for the accepted language/provider/framework. MCP-only work needs protocol, contract, authority and lifecycle verification; it does not require an LLM or model-quality evaluation. Configure live tools only when needed. Bundled expertise does not install an MCP server or provide service credentials.
 
-## Build and load
+## Setup and tools
 
-Follow [installation](installation.md) for bundle selection, client loading and updates. For a new application, the [lifecycle map](sdlc.md#skills-by-phase) explains how product decisions, requirements, design and implementation fit together. `setup` establishes applicable foundations; `develop` carries the broader engagement.
-
-## Optional Figma connection
-
-Configure access through the [installation guide](installation.md#optional-figma-connection) when needed.
-
-Use available, authorized Figma context where appropriate. Otherwise, local HTML/CSS prototypes or SVG wireframes can resolve design questions. Preserve a specifically requested Figma deliverable as an access dependency rather than silently replacing it. Ordinary UI work needs no Figma account.
-
-Storybook is an optional component workbench within verification. Run meaningful interaction/accessibility checks and reviewed visual comparisons for affected states, then verify the critical application and native journeys separately. See [journey testing](../plugins/sdlc/skills/journey-testing/SKILL.md) and [community skill review](maintainers/sources.md#figma-community-review).
+Follow [installation](installation.md) for bundle loading. Figma is optional: use authorized Figma context when the deliverable requires it; otherwise local HTML/CSS prototypes, SVG wireframes or Storybook can answer the design question. Ordinary UI work needs no Figma account. The `sdlc` plugin also declares Plane's optional MCP endpoint; connect only when the work needs Plane and verify the intended workspace and project. Verify rendered interaction and accessibility for affected states separately from the design artifact.
 
 ## UI/UX expertise for people and agents
 

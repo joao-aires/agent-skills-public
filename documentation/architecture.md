@@ -43,21 +43,9 @@ A user can still explicitly select a known skill. Help may name actual observed 
 
 ## Example: AI design, evaluation and operation
 
-The same concern can need conceptual guidance and a selected implementation. Keep their responsibilities separate:
+Keep the generic AI methods separate from a selected implementation. [AI development](../plugins/ai-development/skills/ai-development/SKILL.md) owns application patterns, protocols and boundaries; [AI testing](../plugins/ai-development/skills/ai-testing/SKILL.md) owns evaluation strategy and evidence; [AI operations](../plugins/ai-development/skills/ai-operations/SKILL.md) owns task signals, limits, drift and recovery. Python/provider, ADK and LangChain packages supply selected implementation detail.
 
-| Responsibility | Capability | Implementation boundary |
-| --- | --- | --- |
-| Application patterns, architecture and protocol tradeoffs | [Generic AI development](../plugins/ai-development/skills/ai-development/SKILL.md) | No provider, model, framework or evaluation SDK required |
-| Testing strategy and evidence | [AI testing](../plugins/ai-development/skills/ai-testing/SKILL.md) | Generic evaluation levels, cases, graders, acceptance and regression evidence |
-| AI operating decisions | [AI operations](../plugins/ai-development/skills/ai-operations/SKILL.md) | Generic task/quality signals, provider limits, cost, drift and recovery |
-| Execute a selected evaluation approach | [ai-deepeval-testing](../plugins/ai-python-development/skills/ai-deepeval-testing/SKILL.md) | Python/DeepEval runner, datasets, metrics and CI integration; the application itself may use another language |
-| Collect AI execution evidence | [python-ai-observability](../plugins/ai-python-development/skills/python-ai-observability/SKILL.md) | Python/OpenTelemetry instrumentation, propagation, privacy and export verification |
-| Service signal/target design and operating response | Generic reliability and observability expertise | Task outcomes, useful signals and operating decisions independent of a backend |
-| Run a Collector, store or dashboard | Matching deployment/tool expertise | The actually chosen infrastructure/backend |
-
-The generic AI skills own different decisions: development shapes the application and its boundaries, testing defines useful evidence, and operations governs AI operating behavior. Evaluation judges quality; observability explains execution and operating behavior. A platform can offer both without making them the same evidence. These capabilities compose when relevant; loading the generic AI package neither installs the Python package nor requires its specialists. Each generic discipline retains enough essential reasoning to work without another specialist; detailed evaluation methods belong to AI testing rather than the development entry point. Future implementation libraries belong with matching technical expertise without changing the generic reasoning contract.
-
-For consequential model exchanges, [input/output design](../plugins/ai-development/skills/ai-development/references/model-io-design.md) explains how the consumer, evidence and allowed effects determine the contract and recovery. [Performance/resource guidance](../plugins/ai-development/skills/ai-operations/references/performance-and-resources.md) selects optimizations from observed constraints and accepted quality. Compact representations, caching and partial recomputation are conditional techniques, not a required architecture for AI applications.
+Evaluation judges quality; observability explains execution. A platform can offer both without making them the same evidence. The generic disciplines retain enough reasoning to work without the Python or framework packages.
 
 ## Compose without optional dependencies
 

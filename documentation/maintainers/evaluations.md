@@ -85,6 +85,25 @@ Keep repair and fresh generation distinct: repair receives a defect report and p
 
 Gate live Figma, provider, protocol/renderer, named-session and voice checks independently. Useful local or supplied-artifact work does not satisfy a live integration claim. Account connections, private uploads and publication require their own established action scope.
 
+## Reviewer rubric
+
+A reviewer works in a separate context from the actor and writes a `REVIEW.md` outside the actor workspace.
+
+| Check | Requirement |
+| --- | --- |
+| Test result | Rerun the suite; record the command, revision/environment and actual result. |
+| Expectation status | Grade each expectation as **met**, **partial**, **failed** or **blocked**, with a file/command/observed-result citation. |
+| Claims | Compare the actor's `EVAL.md` and artifacts with the workspace. Mark unsupported, inflated or stale claims. |
+| Cleanup and generated files | Inspect the actual tree; do not accept “removed” or “clean” as prose. |
+| Coverage | Distinguish a test that exists from a test that exercises the claimed path. |
+| Artifact consistency | Check code, tests, README, change record, design and verification for the same scope, revision and status. |
+| Revision identity | Verify the hash, commit or local-only form; mark a baseline hash unverified when no baseline copy exists. |
+| Authority | Confirm the actor did not post, merge, deploy, install or write outside scope. |
+| Independence | State that the review is separate; do not present self-review as independent assurance. |
+| Overall grade | **Pass**, **pass with limitations** or **fail**. Do not average away a critical failure. |
+
+A reviewer may read the actor's `EVAL.md` only after grading the expectations. Record disagreements with the self-assessment rather than repeating it.
+
 ## Generation trials
 
 The specification is harness-independent: interactive or automated execution, supported plugin/skill loading, explicit selection or plain-language requests, and conversation continuation or factual handoffs. Preserve resources and native controls; record unsupported capabilities. No particular CLI, slash syntax or trace format is required.

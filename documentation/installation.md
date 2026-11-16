@@ -2,7 +2,7 @@
 
 Build complete bundles, load them through your client's supported route, then inspect discovery in the application workspace. You need Git to clone this repository and Python 3.10+ with the validation dependencies installed. Building then uses committed resources without upstream access or Node.js. Client authentication is separate from building.
 
-[Build](#build-the-bundles) · [Load in a client](#load-them-in-your-client) · [Additional bundles](#select-additional-bundles) · [Optional Figma connection](#optional-figma-connection)
+[Build](#build-the-bundles) · [Load in a client](#load-them-in-your-client) · [Additional bundles](#select-additional-bundles) · [Optional Figma connection](#optional-figma-connection) · [Optional Plane connection](#optional-plane-connection)
 
 ## Build the bundles
 
@@ -203,6 +203,12 @@ Discovery verifies availability. Actual execution and adherence need separate [b
 
 The frontend-development bundle declares Figma's optional remote endpoint in [mcp.json](../plugins/frontend-development/mcp.json). Follow [Figma's client setup](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/) when connecting it; avoid duplicate configuration if the official client plugin already supplies the connection. The declaration does not establish authenticated file access.
 
-Connect only when the requested work needs Figma, and verify access to the intended file. The [usage guide](usage.md#optional-figma-connection) explains local design alternatives and Storybook's verification role.
+Connect only when the requested work needs Figma, and verify access to the intended file. The [usage guide](usage.md#setup-and-tools) explains local design alternatives and Storybook's verification role.
+
+## Optional Plane connection
+
+The `sdlc` plugin declares Plane's optional hosted endpoint in [mcp.json](../plugins/sdlc/mcp.json). It uses OAuth and acts as the signed-in Plane user. The declaration does not establish authenticated access or write authority.
+
+Connect only when the requested work needs Plane, and verify the intended workspace and project before creating or changing work items. Preserve existing project policy and authorization; an MCP connection does not expand the requested action scope.
 
 After installation, [choose your first activity](usage.md#skills-you-invoke).
