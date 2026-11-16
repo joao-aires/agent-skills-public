@@ -48,6 +48,8 @@ The ai-development package supplies four generic skills: ai-development for appl
 
 For an existing accepted product, start with the affected work. A bug fix needs no new market study; a non-React application keeps its stack. The activity system recommends relevant activities without executing them, and missing optional guidance does not block the activity: use project evidence, general expertise and appropriate primary sources while retaining acceptance and verification standards. Missing tools or an execution target remain precise limits. See [composition and fallback](architecture.md#compose-without-optional-dependencies).
 
+The operations-platforms package adds platform-specific methods only when the accepted stack calls for them: kubernetes-resource-engineering for object semantics, kubernetes-troubleshooting for live-cluster diagnosis, infra-delivery for infrastructure and GitOps delivery, aws-platform for AWS service decisions, infra-jvm-optimization for JVM tuning and aks-cost-optimization for AKS. Kubernetes troubleshooting does not design manifests, and aws-platform does not reproduce every service. Application configuration lives in sdlc and covers source precedence, typed validation, secrets and reload.
+
 Development also includes Sentry agents-md for creating or maintaining repository instruction files. Request it for AGENTS.md/CLAUDE.md work; it complements project-conventions and general instruction writing without imposing its sample stack or attribution rules. The owned [maintenance method](../plugins/sdlc/skills/project-conventions/references/repository-instructions.md) covers audits, scope, durable session learnings and removal of stale guidance. Client-specific filenames and discovery still require the client's documented behavior.
 
 ## SaaS, security, governance and data expertise
@@ -56,11 +58,20 @@ Use the relevant sdlc capability, or add a product/technical package when its de
 
 | Need | Example request | Useful boundary |
 | --- | --- | --- |
+| Requirements and quality attributes | Use refine with requirements-engineering to write the ECR requirement set, then design to answer it. | Functional, non-functional and design requirements per affected area, with IDs and acceptance evidence. |
 | SaaS behavior and administration | Use saas-design to define organization membership, subscription/entitlement changes and offboarding for the accepted product. | Customer commitments and transitions; framework/provider implementation remains contextual. |
+| Supporting services | Use saas-supporting-services to choose analytics, email, search, queues or notifications from the requirement, not a vendor list. | Build/managed/self-hosted/defer comparison, integration contract and evidence limits. |
+| Billing and entitlements | Use saas-billing to define plans, entitlements, provider events, reconciliation and dunning. | Stripe for web; ask about Superwall for mobile. No durable prices or fees. |
+| Organization identity | Use saas-identity-and-access for roles, invitations, SSO/SCIM, machine identity and support access. | Organization authority; general authentication remains with security-auth-development. |
+| Production readiness | Use production-readiness to assess whether a service can be depended on for a scoped launch. | Readiness evidence and limits; release still owns the authorized action. |
+| Infrastructure delivery | Use infra-delivery for IaC choice, GitOps reconciliation, drift and delivery recovery. | Owns infrastructure as code; Kubernetes semantics and AWS services stay with their owners. |
+| AWS services | Use aws-platform for the common IAM, network, compute, data, operations and cost decisions. | Reference-only reuse of upstream AWS material; verify current prices, quotas and docs. |
 | Customer/operator dashboard | Use saas-dashboard-design to shape the operations queue and billing administration using the existing design system. | Tasks, context, data meaning and interface states before dependent implementation. |
 | Identity and resource authority | Use security-auth-development to compare identity options and define session, tenant/resource permission and revocation behavior. | Preserve accepted providers; no account setup or credential change is implied. |
 | Applicable obligations and readiness | Use compliance-readiness for the supplied service and evidence, stopping at an assessment. | Actual applicability, controls, evidence and unresolved judgments; no certification or external submission. |
 | Data design or workload bottleneck | Use database-design or database-performance for the affected workload; apply PostgreSQL expertise only for that engine. | Invariants, compatibility and measured evidence; an unavailable database remains an execution limit. |
+| PostgreSQL upgrades | Use postgresql-operations for major, minor or managed upgrade planning and rehearsal. | Version and provider constraints; no in-place downgrade. |
+| Capacity and cost | Use capacity-and-cost for saturation, FinOps allocation, forecasting and SaaS cost attribution. | Measured usage and finance-approved inputs; no invented rates. |
 | TypeScript or Go implementation | Use matching language guidance for the existing library, service or client and its real consumers. | Loading a language package does not select a framework or runtime migration. |
 
 The [skill map](sdlc-reference.md#skills-by-area) records owners and applicability. Missing optional expertise preserves the requested outcome and acceptance standard using project evidence, general expertise and appropriate primary sources; it does not authorize installation or justify a weaker result.

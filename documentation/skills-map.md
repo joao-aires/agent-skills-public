@@ -27,19 +27,19 @@ Two core models, one method layer, three cross-cutting dimensions:
 
 ## Counts
 
-144 skills · 21 plugins · 4 packs · 19 domains
+153 skills · 21 plugins · 4 packs · 19 domains
 
 | Pack | Skills |
 | --- | ---: |
-| `sdlc` | 72 |
-| `technical` | 59 |
+| `sdlc` | 74 |
+| `technical` | 66 |
 | `craft` | 9 |
 | `product` | 4 |
 
 | Kind | Skills |
 | --- | ---: |
-| `method` | 103 |
-| `activity` | 30 |
+| `method` | 111 |
+| `activity` | 31 |
 | `workflow` | 9 |
 | `system` | 2 |
 

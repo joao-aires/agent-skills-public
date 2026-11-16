@@ -54,24 +54,22 @@ Private skills reference public skills by name. They do not copy them.
 | CLI | `development-tooling` | New method | Implemented |
 | Backend architecture patterns | `backend-development` | New method for pattern selection and migration | Implemented |
 | CI/CD pipeline design | `development-tooling` | New provider-neutral method; release remains the activity | Implemented |
-| Reliability | `sdlc` | New activity for SLOs, error budgets and alert policy | Phase 3 |
-| Production readiness | `sdlc` | New activity using assurance evidence | Phase 3 |
-| Kubernetes troubleshooting | `operations-platforms` | Acquire/adapt the distinct upstream method | Phase 3 |
-| Datadog | `operations-platforms` | New tool method | Phase 3 |
-| FinOps | `sdlc` | Expand `capacity-and-cost` | Phase 3 |
-| Disaster recovery | `sdlc` | Expand `data-recovery` into service/regional recovery | Phase 3 |
-| PostgreSQL upgrades | `database-postgresql-development` | New method | Phase 3 |
-| GitOps | `operations-platforms` | New method for Argo CD and Flux | Phase 4 |
-| Application configuration | `development-tooling` | New method for config and secrets | Phase 4 |
-| Kubernetes config repositories | `operations-platforms` | New method for config-repo conventions | Phase 4 |
-| Crossplane | `operations-platforms` | New provider method | Phase 4 |
-| AWS | `cloud-platforms` | New plugin and provider method | Phase 4 |
-| OpenStack | `cloud-platforms` | New provider method | Phase 4 |
-| SaaS service integration | `saas-development` | New method plus vendor references | Phase 5 |
-| SaaS billing | `saas-development` | New method; Stripe web, Superwall mobile on request | Phase 5 |
-| SaaS identity and access | `saas-development` | New method | Phase 5 |
-| Multi-tenancy | `saas-development` | Deepen `saas-design` | Phase 5 |
-| SaaS compliance | `sdlc` + `saas-development` | Extend `compliance-readiness` with CCPA and SaaS evidence | Phase 5 |
+| Reliability and quality attributes | `sdlc` | Extend `system-design` with a quality-attribute dimension model and design references; no separate reliability activity | Implemented |
+| Production readiness | `sdlc` | New activity using assurance evidence | Implemented |
+| Kubernetes troubleshooting | `operations-platforms` | New local diagnostic method; no upstream acquisition | Implemented |
+| FinOps | `sdlc` | Expand `capacity-and-cost` with FinOps and SaaS attribution references | Implemented |
+| Disaster recovery | `sdlc` | Expand the `system-design` reliability reference with continuity and DR design; `data-recovery` keeps restore evidence | Implemented |
+| PostgreSQL upgrades | `database-postgresql-development` | Expand `postgresql-operations` with major and managed upgrade references | Implemented |
+| Requirements and quality attributes | `sdlc` | Extend the ECR contract, `guide-ecr`, `requirements-engineering` and `system-design`; no new artifact | Implemented |
+| Infrastructure delivery | `operations-platforms` | New method owning IaC, GitOps and Kubernetes configuration; Crossplane is a reference | Implemented |
+| Application configuration | `sdlc` | New method for configuration precedence, secrets and reload | Implemented |
+| AWS | `operations-platforms` | New provider method in the existing plugin; reference-only reuse of upstream AWS material | Implemented |
+| Supabase PostgreSQL | `database-postgresql-development` | Pinned acquisition of `supabase-postgres-best-practices` | Implemented |
+| SaaS supporting services | `saas-development` | New requirement-first selection and integration method | Implemented |
+| SaaS billing | `saas-development` | New method; Stripe web, Superwall mobile on request | Implemented |
+| SaaS identity and access | `saas-development` | New method for organization, enterprise and machine identity | Implemented |
+| Multi-tenancy | `saas-development` | Deepen `saas-design` with isolation, residency and tenant recovery | Implemented |
+| SaaS compliance | `sdlc` | Extend `compliance-readiness` with CCPA and SaaS evidence | Implemented |
 | Blog/content | Private repository | New private content pack | Implemented in private repo |
 
 ## Phase plan
@@ -81,9 +79,9 @@ Private skills reference public skills by name. They do not copy them.
 | 0 | This roadmap, source decisions, artifact decisions, evaluation matrix | Content-pack scaffold, `skills/` layout, sync and validator |
 | 1 | `explain`, documentation references, README expansion, `design-research`, UI options, `ai-evaluation`, DeepEval references, CI/CD references, strategy options | Engineering-blog source matrix and provisional voice profile |
 | 2 | REST, GraphQL, event-driven/Kafka, distributed systems, CLI | Blog ideation and writing methods |
-| 3 | Reliability, production readiness, Kubernetes troubleshooting, Datadog, FinOps, disaster recovery, database upgrades | Blog visuals and publishing checklist |
-| 4 | GitOps, application configuration, Kubernetes config repositories, Crossplane, AWS, OpenStack | Blog evaluation scenarios |
-| 5 | SaaS service integration, billing, identity/access, multi-tenancy, compliance | |
+| 3 | Quality attributes and DR in `system-design`, production readiness, Kubernetes troubleshooting, FinOps, PostgreSQL upgrades | Blog visuals and publishing checklist |
+| 4 | Infrastructure delivery, application configuration, AWS, Supabase PostgreSQL | Blog evaluation scenarios |
+| 5 | SaaS supporting services, billing, identity/access, multi-tenancy, CCPA and SaaS evidence | |
 | 6 | Consolidation, counts, generated maps, independent review | Private content release |
 
 ## Source strategy
@@ -94,7 +92,7 @@ Private skills reference public skills by name. They do not copy them.
 | [wshobson/agents](https://github.com/wshobson/agents) | API design, GitOps, Stripe, Terraform, SLO implementation | Reference and compare. MIT, but several skills are generic or action-heavy; do not acquire raw. |
 | [github/awesome-copilot](https://github.com/github/awesome-copilot) | AWS, CLI, PostgreSQL, cost review | Reference. Many skills assume GitHub issues, AWS CLI or MCP and should not be acquired raw. |
 | [Confluent agent skills](https://github.com/confluentinc/agent-skills) | Kafka subset | Evaluate for a pinned acquisition after license, resource and behavioral review. Keep generic event reasoning local. |
-| [Supabase agent skills](https://github.com/supabase/agent-skills) | Limited database/provider material | Evaluate narrowly; do not acquire the whole repository. |
+| [Supabase agent skills](https://github.com/supabase/agent-skills) | Limited database/provider material | Acquired one artifact, `supabase-postgres-best-practices`, at a pinned commit. The rest of the repository is not acquired. |
 | [Mobbin MCP](https://mobbin.com/mcp) | Real product screens, flows and sections | Optional paid MCP; local `design-research` method remains authoritative. |
 | [Refero MCP](https://refero.design/mcp) | Styles, screens and flows from shipped products | Optional paid MCP; local `design-research` method remains authoritative. |
 | [DeepEval skills](https://github.com/confident-ai/deepeval/tree/main/skills) | Metric and CI patterns | Review; do not adopt mandatory hosted reporting, synthetic generation or fixed iteration defaults. |
@@ -111,9 +109,9 @@ The 2026-11-16 source review checked 188 URLs with official documentation and sp
 | GraphQL | September 2025 specification; Relay connections; Apollo guidance | Write local method; Apollo is one implementation. |
 | Kafka/events | Kafka 4.4; AsyncAPI 3.1; CloudEvents 1.0.2; Confluent Schema Registry | Write local method; evaluate Confluent Kafka subset only. |
 | SRE | Google SRE; OpenSLO; Prometheus; Kubernetes docs | Write local activities; do not acquire `nik-kale/sre-skills`. |
-| AWS | Well-Architected, IAM, VPC, ECS/EKS, RDS/Aurora, S3, SQS/SNS, CloudWatch, Backup, Route 53, WAF, Secrets Manager | Write local provider guidance; reference official docs. |
-| OpenStack | 2026.2 Hibiscus; core service docs; Kolla/OpenStack-Ansible | Later phase; version-fragmented, keep service-specific references. |
-| Datadog | Monitors, APM, logs, SLOs, usage/cost, API/CLI | One tool method plus vendor notes; re-check commercial facts. |
+| AWS | Well-Architected, IAM, VPC, ECS/EKS, RDS/Aurora, S3, SQS/SNS, CloudWatch, Backup, Route 53, WAF, Secrets Manager | Write local provider guidance; reference official docs. Reuse `awesome-copilot` and `wshobson/agents` AWS material as references, not acquired skills. |
+| OpenStack | 2026.2 Hibiscus; core service docs; Kolla/OpenStack-Ansible | Not added; version-fragmented and outside the current common 80%. |
+| Datadog | Monitors, APM, logs, SLOs, usage/cost, API/CLI | Not added; generic observability already owns signal selection and provider details are volatile. |
 | FinOps | FinOps Framework; FOCUS 1.4; AWS CUR/tagging; unit economics | Extend `capacity-and-cost`; do not create a parallel FinOps plugin. |
 | Disaster recovery | AWS DR whitepaper; Google DR planning; PostgreSQL backup/PITR | Extend `data-recovery`; avoid a second DR owner. |
 | PostgreSQL upgrades | PostgreSQL 18.7 stable; 19 RC2; pg_upgrade; logical replication; managed-service constraints | Add focused PostgreSQL upgrade method; keep generic database strategy separate. |
@@ -155,10 +153,12 @@ Add cases to the existing scenario specification rather than creating a second e
 ## Open decisions
 
 - Keep `backend-development` as the home for REST, GraphQL, event-driven and distributed methods until it exceeds a coherent pack; split only if installation granularity becomes a real problem.
-- Keep SRE activities in `sdlc`; do not create a separate SRE plugin. Tool-specific methods belong in `operations-platforms` or `cloud-platforms`.
+- Keep SRE activities in `sdlc`; do not create a separate SRE plugin. Tool-specific methods belong in `operations-platforms`.
 - Keep blog/content in the private repository. Public `technical-writing`, `humanizer` and `visualization` remain dependencies.
 - Do not add a second README skill. Expand `guide-readme`.
 - Do not add a second documentation skill. Expand `technical-writing`.
 - Do not create one skill per SaaS vendor. Use one method plus vendor references.
-- Do not add Azure or GCP until requested; start with AWS and OpenStack.
+- Do not add Azure or GCP until requested; AWS lives in `operations-platforms`. OpenStack, Datadog and a separate `cloud-platforms` plugin are not part of this phase.
+- `infra-delivery` owns infrastructure as code; do not add a separate `infrastructure-as-code` skill. Crossplane is one reference under that method.
+- Quality attributes are a requirements dimension and a `system-design` reference set, not a profile, lifecycle or separate reliability skill.
 - Ask about Superwall only for mobile billing. Web defaults to Stripe.

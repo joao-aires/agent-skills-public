@@ -23,11 +23,11 @@ Start with **sdlc** for the full software lifecycle. Add product, interface, bac
 | Backend/client implementation | [backend-python-development](plugins/backend-python-development/), [frontend-reactjs-development](plugins/frontend-reactjs-development/), [frontend-native-development](plugins/frontend-native-development/) | Accepted Python; React; Tauri/Expo/native implementation |
 | Browser extensions | [browser-extension-development](plugins/browser-extension-development/) | Chrome/MV3 architecture, permissions, extension UI, runtime testing and store delivery. |
 | AI implementation | [ai-python-development](plugins/ai-python-development/), [ai-adk-development](plugins/ai-adk-development/), [ai-langchain-development](plugins/ai-langchain-development/) | Python/provider/MCP APIs; ADK; LangChain/LangGraph |
-| Selected tools/platforms | [development-tooling](plugins/development-tooling/), [operations-platforms](plugins/operations-platforms/) | Bash/testing/CI/container/diagnostics tools; JVM/Kubernetes/AKS |
+| Selected tools/platforms | [development-tooling](plugins/development-tooling/), [operations-platforms](plugins/operations-platforms/) | Bash/testing/CI/container/diagnostics tools; JVM/Kubernetes troubleshooting, infrastructure delivery, AWS and AKS |
 | Database engineering | [database-development](plugins/database-development/) | Data contracts, consistency, schema evolution and evidence-led performance methods. |
-| PostgreSQL implementation | [database-postgresql-development](plugins/database-postgresql-development/) | PostgreSQL development, diagnostics and operating mechanics. |
+| PostgreSQL implementation | [database-postgresql-development](plugins/database-postgresql-development/) | PostgreSQL development, diagnostics, upgrades and operating mechanics, plus an acquired Supabase best-practices skill. |
 | Security engineering | [sdlc](plugins/sdlc/) | Identity/access and security/privacy design inside the lifecycle. |
-| SaaS applications | [saas-development](plugins/saas-development/) | Tenant/customer and commercial lifecycle, SaaS dashboard design and scoped readiness. |
+| SaaS applications | [saas-development](plugins/saas-development/) | Tenant/customer and commercial lifecycle, multi-tenancy, billing, organization identity, supporting services, dashboards and scoped readiness. |
 | Governance and assurance | [sdlc](plugins/sdlc/) | Applicability, accountable controls and GDPR/SOC 2 readiness evidence inside the lifecycle. |
 | TypeScript implementation | [typescript-development](plugins/typescript-development/) | Runtime/module/package contracts and TypeScript implementation verification without React. |
 | Go implementation | [go-development](plugins/go-development/) | Go module/package, lifecycle, error and verification contracts for services, libraries and CLIs. |

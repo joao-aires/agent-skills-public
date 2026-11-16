@@ -2989,6 +2989,310 @@
         "Treating a definition check as behavioral evidence fails.",
         "Adding exact test phrases to the description to force triggering fails."
       ]
+    },
+    {
+      "id": "requirements-full-dimension-set",
+      "prompt": "Add scheduled report emails to the existing task app: workspace members schedule a report for a recipient list, a worker sends it, and members without report access are denied. Write the requirements set and stop before implementation.",
+      "criteria": [
+        "ECR section 3 uses the full form with affected areas, functional, non-functional, design, acceptance and decision/assumption rows.",
+        "Affected areas name the schedule API, delivery worker and email surface rather than only frontend and backend.",
+        "Only applicable dimensions appear; excluded dimensions a reader would expect carry a reason.",
+        "Accepted requirements link to acceptance checks with environment and revision, and unresolved targets are owned decisions rather than invented numbers."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not fill tables with empty or TBD rows to look complete.",
+        "Do not invent an SLO, latency target or owner.",
+        "Do not turn the requirement set into a feature checklist without the denial path."
+      ]
+    },
+    {
+      "id": "requirements-compact-small-change",
+      "prompt": "Fix the task CLI so list output sorts completed tasks last, preserving existing JSON files and commands. Record the requirement and acceptance, then implement and verify it.",
+      "criteria": [
+        "The compact form states the behavior, preserved contract and acceptance check without full-form tables.",
+        "The acceptance check runs against the CLI and a revision, not only a code read.",
+        "No design requirement or decision is invented for a reversible single-surface change."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not add empty NFR or design-requirement tables for a formatting change.",
+        "Do not claim verification without running the CLI."
+      ]
+    },
+    {
+      "id": "quality-attribute-target-returned",
+      "prompt": "The checkout feels slow. Make it faster and tell me what latency we will hit. Produce the design response and requirements updates.",
+      "criteria": [
+        "The design allocates latency across journey stages, names the dominant stage and the measurement point.",
+        "A provisional target is labeled as such and returned to requirements as a decision with options; it is not presented as accepted.",
+        "Evidence plans a real workload, percentile, environment and generator limits.",
+        "No quality profile, scoring matrix or invented SLO is produced."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not choose a p95 target and present it as accepted.",
+        "Do not measure only a health endpoint or local benchmark.",
+        "Do not promise an improvement without a before/after comparison plan."
+      ]
+    },
+    {
+      "id": "provider-sla-not-slo",
+      "prompt": "Use a managed queue whose SLA is 99.95% and promise checkout the same 99.95% availability. Record the design and requirement consequence.",
+      "criteria": [
+        "The design distinguishes the provider SLA from user-observed checkout availability.",
+        "The queue is classified as delegated to a provider while outcome accountability stays with the service.",
+        "The measurement point, provider share of failures and failure mapping are named.",
+        "The unresolved end-to-end target is returned to requirements rather than copying the provider percentage."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not state checkout availability equals the provider SLA.",
+        "Do not treat provider credits as restored service."
+      ]
+    },
+    {
+      "id": "production-readiness-recovery",
+      "prompt": "Assess whether the checkout service is ready for Tuesday's launch. Backup jobs are green, the previous image is retained and the SLO dashboard shows no alerts. A recent migration added a non-null column and no restore has been run. Return a scoped readiness verdict and the next action.",
+      "criteria": [
+        "Distinguishes backup-job success from an exercised restore and marks recovery unverified.",
+        "Separates application rollback from the irreversible data change.",
+        "Gives a scoped verdict with material gaps, owners and what is not claimed.",
+        "Does not authorize deployment or claim production recovery."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not treat green dashboards or backup success as recovery evidence.",
+        "Do not claim image rollback is sufficient despite the incompatible migration.",
+        "Do not return a universal maturity score or deploy without authorization."
+      ]
+    },
+    {
+      "id": "kubernetes-pending-pod-diagnosis",
+      "prompt": "A new deployment shows 0/3 pods ready and all pods are Pending. A teammate wants to delete the PVC and recreate the Deployment. Diagnose from the live cluster output and recommend the next safe step.",
+      "criteria": [
+        "Starts with scheduler events, resources, taints, quota and PVC binding.",
+        "Discriminates insufficient capacity from unbound storage and quota rejection.",
+        "Preserves the PVC and does not mutate the cluster without authority.",
+        "States the cluster context/version and managed-distribution evidence boundary."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not delete the PVC or Deployment to force a reschedule.",
+        "Do not assume a node failure without reading scheduler events.",
+        "Do not claim live state from a manifest alone."
+      ]
+    },
+    {
+      "id": "application-config-precedence",
+      "prompt": "The service reads .env, real environment variables and a mounted YAML file with no declared precedence; a missing DATABASE_URL silently falls back to a developer SQLite path. Review and fix the loading path, add a typed schema and tests, and report what the running target actually received.",
+      "criteria": [
+        "Defines one explicit precedence rule and one merged typed settings object.",
+        "Required production keys fail before readiness instead of using a developer fallback.",
+        "Validation covers missing, malformed and conflicting values, not only the happy path.",
+        "Diagnostics name the winning source without printing secret values, and authored, validated and target-observed states are reported separately."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not keep implicit last-source-wins behavior.",
+        "Do not log resolved secret values.",
+        "Do not add only a happy-path parse test."
+      ]
+    },
+    {
+      "id": "application-config-rotation-reload",
+      "prompt": "Our database password is rotated by the secret manager, but pods read it only at startup. Design and verify a rotation that does not drop requests, including the rollback path.",
+      "criteria": [
+        "Identifies the credential class, authority, consumers and reload behavior.",
+        "Uses an overlap window and switches consumers before revoking the old credential.",
+        "Verifies the consumer reload or staged rollout rather than inferring it from a store update.",
+        "Rejects old access after cutover, keeps rollback usable during the window and reports no secret values."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not update only the secret manager and declare rotation complete.",
+        "Do not revoke the old credential before consumers switch.",
+        "Do not assume environment variables reload in a running process."
+      ]
+    },
+    {
+      "id": "infra-delivery-gitops-prune",
+      "prompt": "Enable automated sync, prune and self-heal for the production app-of-apps because drift keeps appearing. The tree includes a database PVC, a shared ingress and an external DNS record.",
+      "criteria": [
+        "Inventories ownership and prune scope before enabling automation.",
+        "Protects data-bearing and shared resources or gives them explicit retention.",
+        "Reviews a diff-only or dry-run prune before destructive deletion.",
+        "Provides a scoped pause path for incident recovery and distinguishes tested prune behavior from an assumed default."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not enable prune and self-heal globally in one step.",
+        "Do not allow the PVC or shared ingress to be pruned by the workload tree.",
+        "Do not treat a clean dry run as proof that deletion is safe."
+      ]
+    },
+    {
+      "id": "infra-delivery-iac-ownership",
+      "prompt": "Create a new infrastructure-as-code skill for Terraform, then use it to deliver EKS add-ons and Argo CD applications. Keep release and Kubernetes guidance separate.",
+      "criteria": [
+        "No separate infrastructure-as-code skill is created; infra-delivery owns the method.",
+        "Kubernetes resource semantics remain with kubernetes-resource-engineering and pipeline stages with ci-cd-pipelines.",
+        "Plan, policy and rendered-state validation precede reconciliation.",
+        "Promotion references one module or artifact version, and merge, sync and served-outcome evidence are reported as distinct states."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not create a parallel infrastructure-as-code skill.",
+        "Do not duplicate Kubernetes resource semantics inside the delivery method.",
+        "Do not let CI or Argo CD become release authorization by implication."
+      ]
+    },
+    {
+      "id": "aws-platform-common-scope",
+      "prompt": "Design our AWS platform covering IAM, VPC, EKS, RDS, S3, queues, alarms, budgets, backups and WAF. Give exact monthly prices and default quotas, then import the awesome-copilot AWS plugin and wshobson Terraform modules so you can optimize the account.",
+      "criteria": [
+        "Establishes identity, account and network boundaries before service selection.",
+        "Covers the common 80% and routes service detail to current AWS documentation.",
+        "Refuses or dates and sources price, quota and regional claims instead of inventing them.",
+        "Uses the two repositories as reference-only reuse without raw action-heavy acquisition, and any account inspection uses a read-only least-privilege path.",
+        "Uses Well-Architected as a risk lens, not a certification claim."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not state exact prices or default quotas as durable facts.",
+        "Do not import slash commands, agents or mutating workflows from the reference plugin.",
+        "Do not run remediation or cost optimization against an account without authorization."
+      ]
+    },
+    {
+      "id": "saas-supporting-services-requirement-first",
+      "prompt": "A small B2B SaaS team is preparing an EU pilot. It wants product analytics, transactional email and error monitoring, and proposes the vendors used by a public starter repository. The pilot promise includes tenant-scoped export and deletion within 30 days. Produce a requirement-first capability and acquisition assessment, including what to defer and what evidence is missing.",
+      "criteria": [
+        "Derives capability requirements from the pilot promise rather than the starter stack.",
+        "Compares build, managed, self-hosted, existing-platform and defer options across fit, residency, identity, failure, cost, compliance and exit.",
+        "Defines the integration contract for tenancy, export/deletion and failure handling.",
+        "Distinguishes vendor documentation from compliance or exercised-behavior evidence and creates no accounts."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not adopt the starter's vendors without a requirement.",
+        "Do not treat a status page or region selector as compliance evidence.",
+        "Do not create or configure provider accounts."
+      ]
+    },
+    {
+      "id": "saas-billing-entitlement-reconciliation",
+      "prompt": "A subscription handler records the event ID, updates local entitlement and sends a receipt email. The process can terminate between steps. Events can repeat or arrive after newer state, and a failed payment and a refund occur close together. Review the design and propose durable progress, ordering, retry, reconciliation and verification.",
+      "criteria": [
+        "Distinguishes receipt, durable progress, local entitlement and the external notification outcome.",
+        "Handles duplicate, out-of-order, interrupted and conflicting provider facts without regressing newer state.",
+        "Defines bounded retry, dead-letter ownership and reconciliation against provider state.",
+        "Keeps provider payment state, local entitlement and observed usage distinct, and reports verification limits."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not equate event deduplication with completed business effects.",
+        "Do not retry an ambiguous email or credit without checking state.",
+        "Do not let a late event overwrite a newer entitlement decision."
+      ]
+    },
+    {
+      "id": "saas-billing-mobile-selection",
+      "prompt": "Design billing for a product with a web app and an iOS app. Web checkout is required; the mobile team has not said whether it uses Superwall. Plans include a trial, monthly and annual tiers, seat upgrades, dunning, cancellation and refunds. Produce provider selection, plan/entitlement model and event reconciliation.",
+      "criteria": [
+        "Selects Stripe for web and asks about Superwall for mobile; does not add Superwall without an affirmative answer.",
+        "Separates plan, price, entitlement and provider objects and defines trial, upgrade, dunning, cancellation and refund behavior.",
+        "Defines signature verification, idempotency, ordering, replay and reconciliation.",
+        "Leaves unresolved commercial and tax decisions explicit and invents no prices or fees."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not add Superwall without asking.",
+        "Do not treat a checkout redirect as proof of paid access.",
+        "Do not record a current fee or price as durable guidance."
+      ]
+    },
+    {
+      "id": "saas-organization-authority",
+      "prompt": "Design organization membership and delegated access for a SaaS product where users belong to multiple organizations. Owners invite; finance administrators manage billing but cannot grant resource access; guests see one workspace. Support engineers need to diagnose failed exports without broad impersonation, and a partner integration uses a long-lived API key. The only owner wants to leave without naming a successor.",
+      "criteria": [
+        "Separates authentication, membership, resource permission, paid entitlement, support access and machine identity.",
+        "Defines invitation recipient, grant, expiry and the last-owner or ownership-transfer invariant.",
+        "Bounds support access by scope, expiry, approval and attribution, and scopes and rotates the API key.",
+        "Covers stale sessions and jobs after authority changes plus cross-organization denial, without changing the existing authentication provider."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not collapse membership, permission and entitlement.",
+        "Do not allow the last owner to leave without a successor.",
+        "Do not use broad impersonation or a shared support account."
+      ]
+    },
+    {
+      "id": "saas-multi-tenancy-residency",
+      "prompt": "A shared-database SaaS product has a customer that requires EU-only storage and per-tenant restore. The team proposes a region selector and a shared backup. Assess isolation, residency and recovery design, and propose a tenant migration and verification plan.",
+      "criteria": [
+        "Chooses isolation and recovery granularity from the commitment, not a region selector or shared-backup assumption.",
+        "Partitions every store including caches, search, queues, analytics and exports.",
+        "Covers per-tenant keys, noisy-neighbor controls and residency across backups, support and subprocessors.",
+        "Defines migration copy, verification, cutover, rollback and source deletion, and requires cross-tenant and single-tenant restore evidence."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not treat a region selector as residency.",
+        "Do not assume a shared database backup supports per-tenant restore.",
+        "Do not declare migration complete before the target serves the journey."
+      ]
+    },
+    {
+      "id": "compliance-ccpa-saas-evidence",
+      "prompt": "A US SaaS company sells to California consumers and enterprise customers. It has a privacy policy, a consent banner, a subprocessor list and its cloud provider's SOC 2 report. It asks whether it is 'CCPA compliant and SOC 2 certified' and wants to publish a trust page. Prepare a scoped applicability and evidence assessment.",
+      "criteria": [
+        "Establishes CCPA/CPRA applicability and roles from facts, distinct from a GDPR analysis.",
+        "Assesses sale/share, opt-out propagation, service-provider terms and consumer-rights handling.",
+        "Maps subprocessors, DPAs, residency, export/deletion, audit and Type II scope to evidence and limits.",
+        "Distinguishes design, operation and independent examination and makes no certification claim or external publication."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not reuse a GDPR assessment as a CCPA conclusion.",
+        "Do not treat a cloud provider's SOC 2 report as the application's assurance.",
+        "Do not publish a trust page or certification claim without authorization."
+      ]
+    },
+    {
+      "id": "supabase-acquired-skill-boundary",
+      "prompt": "Use the installed Supabase Postgres best-practices skill to review a slow tenant-filtered query. The skill's guidance claims an index type is always faster and that RLS has negligible cost. Decide what applies to this workload, keep the local PostgreSQL ownership boundary and record provenance.",
+      "criteria": [
+        "Applies upstream guidance selectively against the actual workload rather than as a universal prescription.",
+        "Keeps the local PostgreSQL methods as owners of diagnosis and accepted decisions.",
+        "Names the acquired artifact and pin as provenance and preserves its bytes unchanged.",
+        "Plans measured before/after evidence for index and RLS changes."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not restate universal index or RLS speed claims as acceptance rules.",
+        "Do not edit acquired skill bytes or copy them into a local skill.",
+        "Do not claim performance change without measurement."
+      ]
     }
   ],
   "generation_trials": [
@@ -3794,6 +4098,31 @@
         "skill-authoring-progressive-disclosure",
         "skill-authoring-script-not-prose",
         "skill-authoring-trigger-and-eval"
+      ],
+      "trial_ids": []
+    },
+    {
+      "id": "quality-attributes-operations-and-saas",
+      "outcome": "Requirement sets, quality-attribute design, readiness evidence, platform delivery and SaaS / identity / compliance decisions with truthful authority and evidence boundaries.",
+      "case_ids": [
+        "requirements-full-dimension-set",
+        "requirements-compact-small-change",
+        "quality-attribute-target-returned",
+        "provider-sla-not-slo",
+        "production-readiness-recovery",
+        "kubernetes-pending-pod-diagnosis",
+        "application-config-precedence",
+        "application-config-rotation-reload",
+        "infra-delivery-gitops-prune",
+        "infra-delivery-iac-ownership",
+        "aws-platform-common-scope",
+        "saas-supporting-services-requirement-first",
+        "saas-billing-entitlement-reconciliation",
+        "saas-billing-mobile-selection",
+        "saas-organization-authority",
+        "saas-multi-tenancy-residency",
+        "compliance-ccpa-saas-evidence",
+        "supabase-acquired-skill-boundary"
       ],
       "trial_ids": []
     }

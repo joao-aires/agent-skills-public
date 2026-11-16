@@ -289,7 +289,7 @@ The storage mechanics for coordination artifacts now live inside `artifact-syste
 
 ### Delivery and operations
 
-`release` owns the delivery activity; the `ci-cd-pipelines` method owns provider-neutral CI/CD stage, artifact-promotion, gate and recovery design, with `tooling-conventions` for the selected provider implementation. Operations activities cover incident response, observability, runbook, data recovery, security maintenance, capacity and cost, operations reviews and postmortems. `system-design` owns reliability targets through [reliability design](skills/system-design/references/reliability.md); `observability` implements the signals.
+`release` owns the delivery activity; the `ci-cd-pipelines` method owns provider-neutral CI/CD stage, artifact-promotion, gate and recovery design, with `tooling-conventions` for the selected provider implementation. `production-readiness` owns the scoped question of whether a service is ready to be depended on, using assurance evidence without authorizing a release. `application-configuration` owns configuration precedence, typed validation, secret separation and reload behavior. Operations activities cover incident response, observability, runbook, data recovery, security maintenance, capacity and cost, operations reviews and postmortems. `system-design` owns quality-attribute design tactics, including reliability and disaster recovery, through its [quality-attribute references](skills/system-design/references/quality-attributes.md); `observability` implements the signals.
 
 ### Security and governance
 
