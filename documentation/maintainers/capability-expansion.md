@@ -85,12 +85,36 @@ Private skills reference public skills by name. They do not copy them.
 
 | Source | Use | Decision |
 | --- | --- | --- |
-| [nik-kale/sre-skills](https://github.com/nik-kale/sre-skills) | Kubernetes troubleshooting; production readiness | Acquire/adapt only distinct material. Keep local incident response, observability and runbook guidance, which are deeper. |
-| [wshobson/agents](https://github.com/wshobson/agents) | API design, GitOps, Stripe, Terraform, SLO implementation | Evaluate and adapt. MIT, but several skills are generic or action-heavy. |
-| [github/awesome-copilot](https://github.com/github/awesome-copilot) | AWS, CLI, PostgreSQL, cost review | Prefer as reference. Many skills assume GitHub issues, AWS CLI or MCP and should not be acquired raw. |
+| [nik-kale/sre-skills](https://github.com/nik-kale/sre-skills) | Kubernetes troubleshooting; production readiness | Do not acquire. Small, single-day history, no maintenance trail, and heavy overlap with the local operations owners. Use only as a checklist reference if a specific structure is useful. |
+| [wshobson/agents](https://github.com/wshobson/agents) | API design, GitOps, Stripe, Terraform, SLO implementation | Reference and compare. MIT, but several skills are generic or action-heavy; do not acquire raw. |
+| [github/awesome-copilot](https://github.com/github/awesome-copilot) | AWS, CLI, PostgreSQL, cost review | Reference. Many skills assume GitHub issues, AWS CLI or MCP and should not be acquired raw. |
+| [Confluent agent skills](https://github.com/confluentinc/agent-skills) | Kafka subset | Evaluate for a pinned acquisition after license, resource and behavioral review. Keep generic event reasoning local. |
+| [Supabase agent skills](https://github.com/supabase/agent-skills) | Limited database/provider material | Evaluate narrowly; do not acquire the whole repository. |
 | [Mobbin MCP](https://mobbin.com/mcp) | Real product screens, flows and sections | Optional paid MCP; local `design-research` method remains authoritative. |
 | [Refero MCP](https://refero.design/mcp) | Styles, screens and flows from shipped products | Optional paid MCP; local `design-research` method remains authoritative. |
 | [DeepEval skills](https://github.com/confident-ai/deepeval/tree/main/skills) | Metric and CI patterns | Review; do not adopt mandatory hosted reporting, synthetic generation or fixed iteration defaults. |
+
+Every acquisition needs a pinned commit, license check, source review, metadata labels and no upstream byte edits.
+
+### Research conclusions
+
+The 2026-11-16 source review checked 188 URLs with official documentation and specifications. Prices, plan limits, quotas and vendor performance claims remain unverified and need re-checking at use time.
+
+| Area | Current baseline | Decision |
+| --- | --- | --- |
+| REST | RFC 9110/9111/9112/9113; RFC 9457; OpenAPI 3.1.1 baseline, 3.2.1 current | Write local method; reference standards. |
+| GraphQL | September 2025 specification; Relay connections; Apollo guidance | Write local method; Apollo is one implementation. |
+| Kafka/events | Kafka 4.4; AsyncAPI 3.1; CloudEvents 1.0.2; Confluent Schema Registry | Write local method; evaluate Confluent Kafka subset only. |
+| SRE | Google SRE; OpenSLO; Prometheus; Kubernetes docs | Write local activities; do not acquire `nik-kale/sre-skills`. |
+| AWS | Well-Architected, IAM, VPC, ECS/EKS, RDS/Aurora, S3, SQS/SNS, CloudWatch, Backup, Route 53, WAF, Secrets Manager | Write local provider guidance; reference official docs. |
+| OpenStack | 2026.2 Hibiscus; core service docs; Kolla/OpenStack-Ansible | Later phase; version-fragmented, keep service-specific references. |
+| Datadog | Monitors, APM, logs, SLOs, usage/cost, API/CLI | One tool method plus vendor notes; re-check commercial facts. |
+| FinOps | FinOps Framework; FOCUS 1.4; AWS CUR/tagging; unit economics | Extend `capacity-and-cost`; do not create a parallel FinOps plugin. |
+| Disaster recovery | AWS DR whitepaper; Google DR planning; PostgreSQL backup/PITR | Extend `data-recovery`; avoid a second DR owner. |
+| PostgreSQL upgrades | PostgreSQL 18.7 stable; 19 RC2; pg_upgrade; logical replication; managed-service constraints | Add focused PostgreSQL upgrade method; keep generic database strategy separate. |
+| SaaS vendors | Official vendor docs for Stripe, PostHog, Resend, Sentry, Cloudflare, Hetzner, Supabase, Superwall, Zernio | Vendor notes inside capability methods; prices and plan gates need re-checking. |
+
+Highest duplication risks are SLO/incident/DR in `sdlc`, PostgreSQL upgrades in `database-postgresql-development`, AI evaluation in `ai-development`, and SaaS lifecycle in `saas-development`. Extend those owners rather than creating parallel skills.
 
 Every acquisition needs a pinned commit, license check, source review, metadata labels and no upstream byte edits.
 
