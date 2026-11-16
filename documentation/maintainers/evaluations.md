@@ -2,7 +2,7 @@
 
 [Current status](#current-status) · [Run a scenario](#run-and-grade-a-scenario) · [Generation trials](#generation-trials) · [Evidence limits](#recorded-evidence-and-limits) · [Maintainer guide](../maintainer-reference.md)
 
-The [evaluation specification](../../evals/development-workflows.json) defines behavior cases and generation trials across an eighteen-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
+The [evaluation specification](../../evals/development-workflows.json) defines behavior cases and generation trials across a nineteen-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
 
 ## Application scenario battery
 

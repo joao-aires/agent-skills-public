@@ -275,7 +275,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 21 independent packages and 141 skills: 102 local and 39 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 21 independent packages and 143 skills: 104 local and 39 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
 
 Skills carry a small classification layer: `kind` (system, activity, method, workflow or reference), `origin` (local or upstream), `scope`, `invocation` and `role`. Local skills are validated for the required fields; acquired labels come from `agent-depot.json` and are injected at build time without editing upstream bytes. Run `python scripts/skill_inventory.py` for the generated maintainer matrix.
 
@@ -290,7 +290,7 @@ The collection has 9 generic capability packages and 12 optional technical packa
 | `strategy` | Generic | 4 | Business direction, product priorities and evidence-based feedback. |
 | `sdlc` | Generic | 72 | Full SDLC: activities, artifact model, delivery, operations, security, governance, project foundations and verification. |
 | `frontend-development` | Generic | 6 | Integrated interface design, design research, UX writing and usability research across web, desktop and mobile. |
-| `backend-development` | Generic | 5 | Service authority, state, failure, durable work, HTTP and GraphQL contracts, event-driven integration and distributed-systems reasoning. |
+| `backend-development` | Generic | 6 | Service authority, state, failure, durable work, architecture pattern selection, HTTP and GraphQL contracts, event-driven integration and distributed-systems reasoning. |
 | `ai-development` | Generic | 4 | AI application/architecture and protocol design; evaluation methods and programs; AI-specific operating decisions and evidence. |
 | `documentation` | Generic support | 3 | Cross-type technical writing craft, intuitive explanation and prose editing. |
 | `visualization` | Generic support | 3 | Diagrams, presentations and interactive system explanation; preserve executable resources. |
@@ -301,7 +301,7 @@ The collection has 9 generic capability packages and 12 optional technical packa
 | `ai-adk-development` | Technical | 2 | Google ADK; preserve the paired architecture/builder skills. |
 | `ai-langchain-development` | Technical | 4 | LangChain/LangGraph and dependencies/persistence as a complete group. |
 | `ai-python-development` | Technical | 4 | Python provider/FastMCP adapters, DeepEval evaluation suites and OpenTelemetry AI instrumentation; no required agent framework or hosted backend. |
-| `development-tooling` | Technical | 7 | Optional Bash, CLI design, browser/load testing, delivery/configuration tooling and lockfile audit implementations. |
+| `development-tooling` | Technical | 8 | Optional Bash, CLI design, provider-neutral CI/CD pipeline design, browser/load testing, delivery/configuration tooling and lockfile audit implementations. |
 | `operations-platforms` | Technical | 3 | Optional JVM, Kubernetes and AKS expertise; match each skill independently to the actual platform. |
 | `database-development` | Generic | 2 | Data contracts, consistency, schema evolution and evidence-led performance methods. |
 | `database-postgresql-development` | Technical | 3 | PostgreSQL development, diagnostics and operating mechanics. |
@@ -334,7 +334,7 @@ A workflow-only setup still establishes applicable onboarding, reproducible comm
 | --- | --- | --- |
 | Project foundations | development: foundation outcomes, isolation/readiness and check selection | Accepted language/framework; selected local-service, hook/checker and diagnostics tools |
 | Delivery | delivery: artifact identity, trust, promotion and recovery | Selected CI, registry, packaging and deployment implementation |
-| AI | ai-development: application design, testing/evaluation and AI operations | Accepted provider/framework, evaluator, instrumentation, protocol SDK and renderer |
+| AI | ai-development: application design, evaluation method/program and AI operations | Accepted provider/framework, evaluator, instrumentation, protocol SDK and renderer |
 | Client experience | frontend-development: visual/interaction decisions and interface evidence | Accepted web/native framework, component primitives and drivers |
 | Observability | operations and generic AI operations: meaningful signals, privacy and failure boundaries | Runtime instrumentation, Collector/backend deployment and actual export configuration |
 | Application verification | development: journey, workload, fault and completion evidence | Compatible test tools, platform drivers and execution targets |
@@ -346,7 +346,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 141 skills and their current owners</summary>
+<summary>All 143 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -432,6 +432,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [usability-research](../../plugins/frontend-development/skills/usability-research/SKILL.md) | Local | `frontend-development` |
 | [ux-writing](../../plugins/frontend-development/skills/ux-writing/SKILL.md) | Local | `frontend-development` |
 | [backend-design](../../plugins/backend-development/skills/backend-design/SKILL.md) | Local | `backend-development` |
+| [architecture-patterns](../../plugins/backend-development/skills/architecture-patterns/SKILL.md) | Local | `backend-development` |
 | [distributed-systems](../../plugins/backend-development/skills/distributed-systems/SKILL.md) | Local | `backend-development` |
 | [event-driven-design](../../plugins/backend-development/skills/event-driven-design/SKILL.md) | Local | `backend-development` |
 | [graphql-design](../../plugins/backend-development/skills/graphql-design/SKILL.md) | Local | `backend-development` |
@@ -471,6 +472,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [ai-conventions](../../plugins/ai-python-development/skills/ai-conventions/SKILL.md) | Local | `ai-python-development` |
 | [mcp-builder](https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/mcp-builder) | Upstream | `ai-python-development` |
 | [bash-engineering](../../plugins/development-tooling/skills/bash-engineering/SKILL.md) | Local | `development-tooling` |
+| [ci-cd-pipelines](../../plugins/development-tooling/skills/ci-cd-pipelines/SKILL.md) | Local | `development-tooling` |
 | [cli-development](../../plugins/development-tooling/skills/cli-development/SKILL.md) | Local | `development-tooling` |
 | [github-actions-hardening](https://github.com/github/awesome-copilot/tree/143a3d976b3c1603cc8932984d5e1f28501cb5fc/skills/github-actions-hardening) | Upstream | `development-tooling` |
 | [performance-testing](../../plugins/development-tooling/skills/performance-testing/SKILL.md) | Local | `development-tooling` |
@@ -504,7 +506,7 @@ Figma remains optional tooling declared by frontend-development; the React techn
 
 ### Verification coverage
 
-The assignment covers 102 local skills and 39 distinct acquired skills exactly once, with no omissions or duplicate owners.
+The assignment covers 104 local skills and 39 distinct acquired skills exactly once, with no omissions or duplicate owners.
 
 All packages build together with `--all` and independently with explicit selection. Package checks verify inventories, local-resource parity, notices, required framing, and transitive owned Markdown links staying inside their bundle. CI also checks the default sdlc-only build. These checks do not establish agent behavior; behavioral evaluations remain deferred.
 

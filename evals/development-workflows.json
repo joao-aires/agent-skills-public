@@ -2760,6 +2760,144 @@
         "Retrying non-idempotent writes on timeout fails.",
         "Treating a fixture test as proof of provider behavior fails."
       ]
+    },
+    {
+      "id": "release-vs-pipeline-boundary",
+      "prompt": "The team asks you to prepare a production release and improve the pipeline that will deploy it. Separate the authorized release activity from provider-neutral pipeline design, and stop before deployment.",
+      "evaluator_setup": "Supply a small application, an existing CI workflow, a staging target and no production authorization. Pipeline design and release preparation are authorized; deployment is not.",
+      "criteria": [
+        "Identifies the release activity, target, artifact identity and authorization boundary separately from pipeline design.",
+        "Uses a provider-neutral pipeline method for stages, gates, promotion and recovery rather than embedding provider syntax in the release activity.",
+        "Names the selected provider implementation and security review as optional supporting capabilities.",
+        "Reports prepared and locally verified states without claiming deployment or target verification.",
+        "Keeps the fallback useful when pipeline or provider guidance is unavailable."
+      ],
+      "evidence": [
+        "Release boundary and authorization",
+        "Pipeline design decision",
+        "Prepared artifact and checks",
+        "Stated deployment gap"
+      ],
+      "negative_controls": [
+        "Treating a green workflow as proof of production readiness fails.",
+        "Embedding a full provider tutorial in the release activity fails.",
+        "Deploying without a named target and authorization fails."
+      ]
+    },
+    {
+      "id": "pipeline-promotion-and-recovery",
+      "prompt": "Design a pipeline that builds once, promotes the same artifact through staging and production, separates environment configuration, and has a tested rollback or roll-forward route.",
+      "evaluator_setup": "Supply a containerized application, two environments and no live production access. Design and local checks are authorized; no deployment is authorized.",
+      "criteria": [
+        "Separates verification, artifact release and deployment identities.",
+        "Promotes the same immutable artifact or digest instead of rebuilding per environment.",
+        "Keeps environment configuration and credentials out of the artifact and scopes them to the target.",
+        "Defines blocking gates, concurrency for releases and a recovery route with compatibility constraints.",
+        "Distinguishes authored, linted, built and target-verified evidence."
+      ],
+      "evidence": [
+        "Stage contracts",
+        "Artifact/digest identity",
+        "Gate and environment design",
+        "Recovery plan"
+      ],
+      "negative_controls": [
+        "Rebuilding the artifact for each environment fails.",
+        "Using an environment name as proof of target identity fails.",
+        "Treating code rollback as data recovery fails."
+      ]
+    },
+    {
+      "id": "architecture-pattern-selection",
+      "prompt": "A small team has a modular monolith with one database. Product wants independent deployment for search, and engineering proposes microservices plus CQRS and event sourcing. Compare the forces and recommend the least structure that fits.",
+      "evaluator_setup": "Supply the current module map, ownership, transaction boundaries, load estimates and team size. Design is authorized; no refactor or deployment is authorized.",
+      "criteria": [
+        "Starts from ownership, transaction, consistency, deployment, load, operational and cost forces rather than pattern names.",
+        "Compares at least two materially different candidates, including retaining or modularizing the monolith.",
+        "Explains why CQRS, event sourcing and microservices are or are not justified by the stated forces.",
+        "States the accepted costs, evidence required and a reversible first migration step.",
+        "Records the decision in the existing design record without inventing a pattern artifact."
+      ],
+      "evidence": [
+        "Force analysis",
+        "Candidate comparison",
+        "Recommendation and rejected options",
+        "Migration/evidence plan"
+      ],
+      "negative_controls": [
+        "Choosing microservices because there are several teams fails.",
+        "Adding event sourcing for audit alone without addressing replay and deletion fails.",
+        "Treating Clean/Hexagonal as mandatory for every service fails."
+      ]
+    },
+    {
+      "id": "architecture-migration-reversibility",
+      "prompt": "Plan the first reversible step to modularize a tangled monolith so a later service split is possible. Preserve the external contract and identify rollback, parity and stop conditions.",
+      "evaluator_setup": "Supply a monolith with shared tables, a tangled module map and an existing public API. Planning and local checks are authorized; no production migration is authorized.",
+      "criteria": [
+        "Chooses one capability seam and defines module interfaces and data ownership.",
+        "Stops cross-module table access and enforces the dependency rule with checks.",
+        "Keeps the external contract stable and defines compatibility during rollout.",
+        "Names rollback, parity evidence and the stop condition before any service split.",
+        "Does not combine boundary, data-ownership and contract changes in one irreversible release."
+      ],
+      "evidence": [
+        "Migration steps",
+        "Module and data ownership",
+        "Rollback/parity plan",
+        "Stop conditions"
+      ],
+      "negative_controls": [
+        "Beginning with a big-bang rewrite fails.",
+        "Leaving shared-table access while claiming module boundaries fails.",
+        "Splitting a service before data ownership and rollback are established fails."
+      ]
+    },
+    {
+      "id": "architecture-pattern-first-crud",
+      "prompt": "A new service only stores and lists saved searches. The team wants Clean Architecture, CQRS and event sourcing from day one to be future-proof. Evaluate the request and recommend the least structure that fits.",
+      "evaluator_setup": "Supply the small CRUD brief and no measured scale, audit or replay requirement. Design is authorized; no scaffold or implementation is authorized.",
+      "criteria": [
+        "Challenges the pattern-first justification and asks which force each pattern answers.",
+        "Finds no measured read/write asymmetry, replay need or boundary change.",
+        "Recommends the least structure that fits, such as a layered modular monolith with explicit data ownership.",
+        "Names rejected patterns, their costs and a concrete reopen trigger.",
+        "Records the decision in the existing design proposal, not a new pattern artifact."
+      ],
+      "evidence": [
+        "Force analysis",
+        "Recommendation",
+        "Rejected patterns and costs",
+        "Reopen trigger"
+      ],
+      "negative_controls": [
+        "Scaffolding Clean, CQRS and event sourcing because they are best practice fails.",
+        "Inventing scale, audit or team requirements to justify the request fails.",
+        "Creating a separate pattern-selection artifact fails."
+      ]
+    },
+    {
+      "id": "serverless-cost-assumption",
+      "prompt": "Move a steady 500 requests-per-second API to serverless functions because it will be cheaper and scale automatically. Evaluate the premise and propose a reversible path.",
+      "evaluator_setup": "Supply the load profile, latency budget and current cost range, but no live provider benchmark. Design and cost analysis are authorized; no deployment is authorized.",
+      "criteria": [
+        "Asks for or uses the load profile, latency budget and current cost before accepting the premise.",
+        "Checks cold start, concurrency, connection pooling, runtime limits and per-invocation cost at peak.",
+        "Compares serverless with retaining or right-sizing the current runtime, possibly as a hybrid slice.",
+        "Proposes a reversible extraction of a stateless handler behind the same contract.",
+        "Names the evidence needed: peak-load test, cost model, throttling behavior and local/CI path."
+      ],
+      "evidence": [
+        "Load/cost analysis",
+        "Candidate comparison",
+        "Reversible extraction",
+        "Evidence plan"
+      ],
+      "negative_controls": [
+        "Assuming serverless is cheaper without measurement fails.",
+        "Ignoring steady high throughput or connection pooling fails.",
+        "Planning a whole-API cutover without rollback fails."
+      ]
     }
   ],
   "generation_trials": [
@@ -3541,6 +3679,19 @@
         "retry-bound-review",
         "cli-contract",
         "cli-contract-review"
+      ],
+      "trial_ids": []
+    },
+    {
+      "id": "release-pipeline-and-architecture",
+      "outcome": "Separate release activity from CI/CD pipeline design, and select or migrate backend architecture patterns from forces, costs and reversible evidence.",
+      "case_ids": [
+        "release-vs-pipeline-boundary",
+        "pipeline-promotion-and-recovery",
+        "architecture-pattern-selection",
+        "architecture-migration-reversibility",
+        "architecture-pattern-first-crud",
+        "serverless-cost-assumption"
       ],
       "trial_ids": []
     }

@@ -34,7 +34,7 @@ It also does not own the software type. `library-cli` in the artifact system lis
 | Choose distribution, updates, platform claims and deprecation | [Packaging and compatibility](references/packaging-and-compatibility.md) |
 | Required evidence for a library/CLI component | `library-cli` software type |
 | Shell implementation and failure propagation | [Bash engineering](../bash-engineering/SKILL.md) |
-| Verification method and evidence boundaries | `test` |
+| Verification method and evidence boundaries | `test` when installed |
 | Compatibility claims and tested combinations | `guide-compatibility-matrix` |
 
 ## Modes and scope
