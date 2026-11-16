@@ -5,6 +5,11 @@ description: Plan or perform scoped PostgreSQL backup/recovery, maintenance, rep
   model, recovery objectives and authorized target.
 license: MIT
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: database
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   role: support

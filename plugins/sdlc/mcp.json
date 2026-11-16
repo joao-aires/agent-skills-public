@@ -1,0 +1,24 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/mcp.schema.json",
+  "mcpServers": {
+    "atlassian": {
+      "type": "streamable-http",
+      "url": "https://mcp.atlassian.com/v2/mcp"
+    },
+    "github": {
+      "type": "streamable-http",
+      "url": "https://api.githubcopilot.com/mcp/",
+      "headers": {
+        "X-MCP-Toolsets": "default,projects"
+      }
+    },
+    "linear": {
+      "type": "streamable-http",
+      "url": "https://mcp.linear.app/mcp"
+    },
+    "plane": {
+      "type": "streamable-http",
+      "url": "https://mcp.plane.so/http/mcp"
+    }
+  }
+}

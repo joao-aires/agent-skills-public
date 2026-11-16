@@ -10,10 +10,10 @@ import yaml
 
 try:
     from upstream_sources import load_sources
-    from skill_metadata import validate_skill_metadata
+    from skill_metadata import validate_local_skill_classification
 except ModuleNotFoundError:
     from scripts.upstream_sources import load_sources
-    from scripts.skill_metadata import validate_skill_metadata
+    from scripts.skill_metadata import validate_local_skill_classification
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -58,7 +58,7 @@ def validate() -> list[str]:
                 if skill.parent.relative_to(ROOT.resolve()).as_posix() in managed:
                     # Raw upstream metadata is preserved; validate the adapted result at build time.
                     continue
-                frontmatter = validate_skill_metadata(skill)
+                frontmatter = validate_local_skill_classification(skill)
                 skill_name = frontmatter['name']
                 if skill_name in skill_names:
                     raise ValueError(f"Skill folder/name mismatch or duplicate: {skill}")

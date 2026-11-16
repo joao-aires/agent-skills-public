@@ -1,0 +1,39 @@
+usage: habits.py [-h] [--file PATH] [--today YYYY-MM-DD] [--version]
+                 command ...
+
+Track a few daily habits in a local JSON file.
+
+positional arguments:
+  command
+    add               add a habit
+    list              list habits and current streaks
+    done              mark a habit done for today
+    undo              remove a completion for today
+    show              show one habit and its recent days
+    remove            delete a habit and its history
+
+options:
+  -h, --help          show this help message and exit
+  --file PATH         data file to use (default: see below)
+  --today YYYY-MM-DD  override today's date (for tests, demos or timezone
+                      correction)
+  --version           show program's version number and exit
+
+examples:
+  python3 habits.py add "Read 30 minutes"
+  python3 habits.py done read-30-minutes
+  python3 habits.py list
+  python3 habits.py show read-30-minutes
+  python3 habits.py undo read-30-minutes
+  HABITS_FILE=~/my-habits.json python3 habits.py list
+
+data file:
+  --file PATH, else $HABITS_FILE, else $XDG_DATA_HOME/habits/habits.json,
+  else ~/.local/share/habits/habits.json
+
+streak rule:
+  consecutive calendar days ending today, or ending yesterday when today is
+  not marked yet. A missed day resets the streak. Future dates never count.
+
+exit codes:
+  0 success, 1 data/habit error, 2 usage error

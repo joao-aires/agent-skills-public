@@ -198,12 +198,12 @@ def check_package_links(package, local_names, notices):
     package = package.resolve()
     queue = [*package.glob("*.md"), *(package / "skills" / n / "SKILL.md" for n in local_names)]
     framing = {
-        "workflow-framing": ["../../WORKFLOW.md"],
-        "composition-framing": ["../../COMPOSITION.md"],
+        "workflow-framing": ["../activity-system/SKILL.md"],
+        "composition-framing": ["../../README.md"],
         "frontend-framing": ["../frontend-conventions/SKILL.md"],
         "backend-framing": ["../backend-conventions/SKILL.md"],
         "ai-framing": ["../ai-conventions/SKILL.md"],
-        "implementation-entrypoint": ["../../TASKS.md", "../git-contributions/SKILL.md", "../deliver-reliable-changes/SKILL.md"],
+        "implementation-entrypoint": ["../activity-system/SKILL.md", "../git-contributions/SKILL.md", "../test/SKILL.md"],
     }
     for notice in notices:
         skill = package / "skills" / notice["installed_skill"]

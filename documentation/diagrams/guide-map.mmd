@@ -1,0 +1,65 @@
+flowchart LR
+  subgraph Artifacts
+    A1["Product brief / PRD"]
+    A2["RFC"]
+    A3["Decision record"]
+    A4["ECR"]
+    A5["Design proposal"]
+    A6["Design specification"]
+    A7["C4 view"]
+    A8["Runbook"]
+    A9["Incident record"]
+    A10["Postmortem"]
+    A11["Release note"]
+    A12["README"]
+  end
+
+  subgraph Contracts
+    C1["prd.md"]
+    C2["rfc.md"]
+    C3["adr.md"]
+    C4["ecr.md"]
+    C5["design-proposal.md"]
+    C6["design-spec.md"]
+    C7["c4-view.md"]
+    C8["runbook.md"]
+    C9["incident-record.md"]
+    C10["postmortem.md"]
+    C11["release-note.md"]
+    C12["repository-readme.md"]
+  end
+
+  subgraph Guides
+    G1["guide-prd"]
+    G2["guide-rfc"]
+    G3["guide-adr"]
+    G4["guide-ecr"]
+    G5["guide-design-proposal"]
+    G6["guide-design-spec"]
+    G7["guide-c4-view"]
+    G8["guide-runbook"]
+    G9["guide-incident-record"]
+    G10["guide-postmortem"]
+    G11["guide-release-note"]
+    G12["guide-readme"]
+  end
+
+  A1 --- C1 --- G1
+  A2 --- C2 --- G2
+  A3 --- C3 --- G3
+  A4 --- C4 --- G4
+  A5 --- C5 --- G5
+  A6 --- C6 --- G6
+  A7 --- C7 --- G7
+  A8 --- C8 --- G8
+  A9 --- C9 --- G9
+  A10 --- C10 --- G10
+  A11 --- C11 --- G11
+  A12 --- C12 --- G12
+
+  classDef artifact fill:#e8eef9,stroke:#4a6fa5,color:#1e3a5f
+  classDef contract fill:#f3ecf7,stroke:#7a5a99,color:#3d2a4d
+  classDef guide fill:#fdf1e6,stroke:#b5783a,color:#5a3214
+  class A1,A2,A3,A4,A5,A6,A7,A8,A9,A10,A11,A12 artifact
+  class C1,C2,C3,C4,C5,C6,C7,C8,C9,C10,C11,C12 contract
+  class G1,G2,G3,G4,G5,G6,G7,G8,G9,G10,G11,G12 guide

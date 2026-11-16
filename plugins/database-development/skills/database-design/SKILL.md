@@ -5,6 +5,11 @@ description: Design or evolve stored data, constraints, transactions and migrati
   changes, consistency boundaries and data lifecycle decisions.
 license: MIT
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: database
+  phase: cross-phase
   scope: generic
   invocation: both
   role: support

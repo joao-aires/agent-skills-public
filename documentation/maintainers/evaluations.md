@@ -2,7 +2,29 @@
 
 [Current status](#current-status) · [Run a scenario](#run-and-grade-a-scenario) · [Generation trials](#generation-trials) · [Evidence limits](#recorded-evidence-and-limits) · [Maintainer guide](../maintainer-reference.md)
 
-The [evaluation specification](../../evals/development-workflows.json) defines behavior cases and generation trials across a twelve-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
+The [evaluation specification](../../evals/development-workflows.json) defines behavior cases and generation trials across a thirteen-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
+
+## Application scenario battery
+
+The [behavioral scenario specification](../../evals/behavioral-scenarios.json) defines four end-to-end application scenarios: starting a new application, adding a feature to an existing application, fixing a defect, and carrying an idea through to implementation. Each scenario names the fixture, the required skills, the expected artifacts and the failure signals.
+
+| Scenario | Fixture | Main evidence |
+| --- | --- | --- |
+| New application | `new-app` | Working CLI, tests, ECR, design record, verification, README |
+| Existing feature | `existing-feature` | Preserved behavior, tag filtering, tests, ECR, design and verification |
+| Bug fix | `bug-fix` | Reproduction, minimal repair, regression tests, ECR and verification |
+| Idea to implementation | `ideation` | Product outcome, explicit streak semantics, working slice, tests and records |
+
+These are application-level scenarios, not replacement cases for the existing workflow matrix. Grade them on delivered behavior and artifact consistency, not on whether a particular skill name appears in the prose.
+
+Initial fixture states live in [`evals/fixtures/`](../../evals/fixtures/). Copy a fixture to a fresh temporary directory before each run; do not run the actor in the fixture itself. `new-app` and `ideation` start with only the task, `existing-feature` starts green, and `bug-fix` starts red.
+
+
+A [2026-11-15 scenario record](../../evals/results/behavioral-scenarios/assessment.md) covers all four scenarios. All 20 scenario expectations were met, with 120/120 tests passing across the four fixtures. The record retains the agents' `EVAL.md` reports, the delivered code and docs, the cross-scenario friction log and the evidence limits. It is a **single-model, single-run, prompted-skill** record: it shows application and usability, not discovery, routing or independent assurance.
+
+A [second 2026-11-15 record](../../evals/results/independent-scenarios/assessment.md) repeats the four scenarios with **independent actor and reviewer contexts**. Actor prompts did not name skills; each actor had to discover what applied. Separate reviewers reran tests and graded each result. All 20 expectations were met with 100/100 tests. The reviewers found evidence-hygiene and edge-case issues the self-evaluations missed, which is the value of the separate review context. It remains a single-model-family record.
+
+
 
 ## Current status
 
@@ -62,6 +84,25 @@ Choose cases for the affected uncertainty. Use small-change controls to detect u
 Keep repair and fresh generation distinct: repair receives a defect report and preserved baseline; fresh generation receives the product brief and constraints without old code or grader diagnoses. Evaluate native platforms separately. Browser views, filtered unit tests and compilation cannot establish native runtime operation.
 
 Gate live Figma, provider, protocol/renderer, named-session and voice checks independently. Useful local or supplied-artifact work does not satisfy a live integration claim. Account connections, private uploads and publication require their own established action scope.
+
+## Reviewer rubric
+
+A reviewer works in a separate context from the actor and writes a `REVIEW.md` outside the actor workspace.
+
+| Check | Requirement |
+| --- | --- |
+| Test result | Rerun the suite; record the command, revision/environment and actual result. |
+| Expectation status | Grade each expectation as **met**, **partial**, **failed** or **blocked**, with a file/command/observed-result citation. |
+| Claims | Compare the actor's `EVAL.md` and artifacts with the workspace. Mark unsupported, inflated or stale claims. |
+| Cleanup and generated files | Inspect the actual tree; do not accept “removed” or “clean” as prose. |
+| Coverage | Distinguish a test that exists from a test that exercises the claimed path. |
+| Artifact consistency | Check code, tests, README, change record, design and verification for the same scope, revision and status. |
+| Revision identity | Verify the hash, commit or local-only form; mark a baseline hash unverified when no baseline copy exists. |
+| Authority | Confirm the actor did not post, merge, deploy, install or write outside scope. |
+| Independence | State that the review is separate; do not present self-review as independent assurance. |
+| Overall grade | **Pass**, **pass with limitations** or **fail**. Do not average away a critical failure. |
+
+A reviewer may read the actor's `EVAL.md` only after grading the expectations. Record disagreements with the self-assessment rather than repeating it.
 
 ## Generation trials
 

@@ -1,6 +1,6 @@
 # Using the plugins
 
-[Install the bundles](installation.md) before using this guide. Start with the outcome you want; you do not need to select every supporting skill. The [SDLC overview](../README.md#sdlc-coverage) shows where activities fit, and the [skill map](sdlc.md) links to deeper expertise. [Engineering artifacts and workspaces](artifact-workflow.md) explain the standard ECR, filesystem/provider choices, issue/PR audience views and diagram lifecycle.
+[Install the bundles](installation.md) before using this guide. Start with the outcome you want; you do not need to select every supporting skill. The [SDLC overview](../README.md#sdlc-coverage) shows where activities fit, and the [skill map](sdlc.md) links to deeper expertise. [Engineering artifacts and workspaces](artifact-workflow.md) explain the artifact model, planes, homes, contracts, quality bar, filesystem/provider choices and diagram lifecycle.
 
 [Choose an activity](#skills-you-invoke) · [Focused examples](#focused-examples) · [UI/UX work](#uiux-expertise-for-people-and-agents) · [Automation](#scheduled-and-event-triggered-tasks)
 
@@ -10,15 +10,15 @@ Select the activity through the client's supported invocation:
 
 | Client | Example after discovery |
 | --- | --- |
-| Claude Code | `/development:test` |
+| Claude Code | `/sdlc:test` |
 | Codex | Select `test` in the skill picker, then describe the change |
 | OpenCode V2 | `@test` followed by the behavior to verify |
 
-The [installation guide](installation.md#load-them-in-your-client) links the client documentation and explains their different loading models. Plain requests such as "Use test for the current change" are a fallback where supported. `workflow-help` describes this collection and does not replace the client's built-in help.
+The [installation guide](installation.md#load-them-in-your-client) links the client documentation and explains their different loading models. Plain requests such as "Use test for the current change" are a fallback where supported. `activity-system` describes this collection and its help mode and does not replace the client's built-in help.
 
 | Where you are | Task | Expected result |
 | --- | --- | --- |
-| Unsure what to use | `workflow-help` | Relevant capabilities, examples and next activity |
+| Unsure what to use | `activity-system` | Relevant capabilities, examples and next activity |
 | Rough idea to working software | `develop` | Clarification, design, implementation, tests and review |
 | Starting or adopting a project | `setup` | Useful foundations, context and working commands |
 | Outcome, first slice or feasibility is open | `plan` | Scoped decision and next action, with a linked brief, roadmap or actionable ticket when warranted |
@@ -27,14 +27,14 @@ The [installation guide](installation.md#load-them-in-your-client) links the cli
 | Architecture, UX or contracts undecided | `design` | System/platform decisions and interaction contracts before implementation |
 | Defined work ready to build | `implement` | Implemented and verified change |
 | Need evidence of behavior | `test` | Checks, results and coverage gaps |
-| PR or diff ready for assessment | `review` | Findings against intended behavior and standards |
+| PR or diff ready for assessment | review composition (`code-review` + `test` + artifact assurance) | Findings against intended behavior, design, tests and artifact consistency |
 | Want improvements | `improve` | Prioritized opportunities, or a specified improvement |
 | Reported defect with repair requested | `fix` | Reproduced or evidenced defect, focused repair and verification |
 | Security/privacy weakness | `harden` | Scoped assessment, fixes and remaining risks |
 | Dependencies need attention | `dependencies` | Compatibility, release-note and CI review; permitted remediation |
 | Preparing delivery | `release` | Readiness, or a named authorized delivery action |
 
-`plan`, `refine` and `design` stop at their respective outcomes. `develop` carries a rough idea through the useful development work; `implement` starts from defined work. Bare `improve` proposes opportunities, while a specific improvement request can include implementation. `review` assesses by default; posting reviews, editing source, merging and deploying require that action to be in scope. A routine test request does not authorize deployed load or faults.
+`plan`, `refine` and `design` stop at their respective outcomes. `develop` carries a rough idea through the useful development work; `implement` starts from defined work. Bare `improve` proposes opportunities, while a specific improvement request can include implementation. Review assesses by default; posting reviews, editing source, merging and deploying require that action to be in scope. A routine test request does not authorize deployed load or faults.
 
 `implement` comes from the pinned upstream set with local framing. Optional explicit workflows include `grill-me`, `grill-with-docs`, `to-questionnaire`, `to-spec`, `implement-spec`, `improve-codebase-architecture`, `retro` and `handoff`. Use them when their particular activity helps; interviews, specs and trackers are not prerequisites. [Upstream selection](maintainers/sources.md#matt-pocock-selection) explains their fit and dependencies.
 
@@ -46,24 +46,24 @@ Frontend-development provides one integrated interface-design method for informa
 
 The ai-development package supplies three generic skills: ai-development for application patterns, architecture and capability/protocol decisions; ai-testing for testing/evaluation strategy and evidence; and ai-operations for task signals, quality monitoring, provider/resource limits and recovery. Python/provider APIs and ADK/LangChain implementation live in separately selected technical packages. Ai-python-development includes ai-deepeval-testing for a selected DeepEval evaluation runner and python-ai-observability for Python OpenTelemetry instrumentation; quality criteria and operating outcomes stay generic, and no hosted backend is required. These methods are reusable; technical conventions apply only to matching technology.
 
-For an existing accepted product, start with the affected work. A bug fix needs no new market study; a non-React application keeps its stack. Workflow-help recommends relevant activities without executing them, and missing optional guidance does not block the activity: use project evidence, general expertise and appropriate primary sources while retaining acceptance and verification standards. Missing tools or an execution target remain precise limits. See [composition and fallback](architecture.md#compose-without-optional-dependencies).
+For an existing accepted product, start with the affected work. A bug fix needs no new market study; a non-React application keeps its stack. The activity system recommends relevant activities without executing them, and missing optional guidance does not block the activity: use project evidence, general expertise and appropriate primary sources while retaining acceptance and verification standards. Missing tools or an execution target remain precise limits. See [composition and fallback](architecture.md#compose-without-optional-dependencies).
 
-Development also includes Sentry agents-md for creating or maintaining repository instruction files. Request it for AGENTS.md/CLAUDE.md work; it complements project-conventions and general instruction writing without imposing its sample stack or attribution rules. The owned [maintenance method](../plugins/development/skills/project-conventions/references/repository-instructions.md) covers audits, scope, durable session learnings and removal of stale guidance. Client-specific filenames and discovery still require the client's documented behavior.
+Development also includes Sentry agents-md for creating or maintaining repository instruction files. Request it for AGENTS.md/CLAUDE.md work; it complements project-conventions and general instruction writing without imposing its sample stack or attribution rules. The owned [maintenance method](../plugins/sdlc/skills/project-conventions/references/repository-instructions.md) covers audits, scope, durable session learnings and removal of stale guidance. Client-specific filenames and discovery still require the client's documented behavior.
 
 ## SaaS, security, governance and data expertise
 
-Add the relevant independently selected package when its deeper methods help. These requests can end at design or assessment; they do not require a complete application engagement.
+Use the relevant sdlc capability, or add a product/technical package when its deeper methods help. These requests can end at design or assessment; they do not require a complete application engagement.
 
 | Need | Example request | Useful boundary |
 | --- | --- | --- |
 | SaaS behavior and administration | Use saas-design to define organization membership, subscription/entitlement changes and offboarding for the accepted product. | Customer commitments and transitions; framework/provider implementation remains contextual. |
 | Customer/operator dashboard | Use saas-dashboard-design to shape the operations queue and billing administration using the existing design system. | Tasks, context, data meaning and interface states before dependent implementation. |
 | Identity and resource authority | Use security-auth-development to compare identity options and define session, tenant/resource permission and revocation behavior. | Preserve accepted providers; no account setup or credential change is implied. |
-| Applicable obligations and readiness | Use compliance-design, gdpr-readiness or soc2-readiness for the supplied service and evidence, stopping at an assessment. | Actual applicability, controls, evidence and unresolved judgments; no certification or external submission. |
+| Applicable obligations and readiness | Use compliance-readiness for the supplied service and evidence, stopping at an assessment. | Actual applicability, controls, evidence and unresolved judgments; no certification or external submission. |
 | Data design or workload bottleneck | Use database-design or database-performance for the affected workload; apply PostgreSQL expertise only for that engine. | Invariants, compatibility and measured evidence; an unavailable database remains an execution limit. |
 | TypeScript or Go implementation | Use matching language guidance for the existing library, service or client and its real consumers. | Loading a language package does not select a framework or runtime migration. |
 
-The [skill map](sdlc.md#skills-by-area) records owners and applicability. Missing optional expertise preserves the requested outcome and acceptance standard using project evidence, general expertise and appropriate primary sources; it does not authorize installation or justify a weaker result.
+The [skill map](sdlc-reference.md#skills-by-area) records owners and applicability. Missing optional expertise preserves the requested outcome and acceptance standard using project evidence, general expertise and appropriate primary sources; it does not authorize installation or justify a weaker result.
 
 ## One end-to-end request
 
@@ -79,6 +79,8 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 
 | Need | Request |
 | --- | --- |
+| Compare design directions | Use design to compare three materially different saved-search directions for the web client and API, with wireframes, a contract sketch and the seam decision. |
+| Produce an artifact | Use guide-c4-view to turn this proposed architecture into context, container and one failure sequence. |
 | Define a feature | Use refine to define read-only saved-search sharing from this brief and the existing code. |
 | Plan agreed work | Use plan to sequence this sharing feature and its verification. |
 | Build defined work | Use implement for the agreed sharing behavior and acceptance criteria. |
@@ -86,7 +88,17 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 | Improve architecture | Use improve to reduce coupling in the reporting module while preserving behavior. |
 | Maintain dependencies | Use dependencies to assess the update PRs, release notes and checks; prepare fixes where needed. |
 | Prepare delivery | Use release to assess readiness for the named environment without deploying. |
-| Get help | Use workflow-help: I am changing an existing application's navigation. |
+| Get help | Use activity-system: I am changing an existing application's navigation. |
+
+### Compare directions before deciding
+
+```text
+Use design to compare three materially different ways to add saved searches across the web client and API. Show the UI states and the contract or sequence for each, decide the error and pagination seam, and record the recommendation. Do not implement yet.
+```
+
+Expect three options that differ in responsibility or behavior, a linked artifact for each affected type, and one seam decision. A design request stops at the decision. For a backend-only change, the frontend is explicitly not affected; for a UI-only change, do not invent backend design work.
+
+Read [software types](../plugins/sdlc/skills/artifact-system/references/software-types.md), the [option set](../plugins/sdlc/skills/design/references/option-set.md) and the [design proposal contract](../plugins/sdlc/skills/artifact-system/references/contracts/design-proposal.md).
 
 ### Define UX before changing screens
 
@@ -98,15 +110,15 @@ Then ask `improve` or `develop` to implement the agreed direction. Expect covera
 
 ### Evaluate during implementation
 
-Expect the agent to implement, verify, correct discrepancies and report evidence before declaring completion. Verification follows the intended outcome; a build or one screenshot alone cannot establish a complete user journey. Missing execution or coverage remains explicit. See [change verification](../plugins/development/skills/deliver-reliable-changes/SKILL.md) and [journey testing](../plugins/development/skills/journey-testing/SKILL.md) for methods.
+Expect the agent to implement, verify, correct discrepancies and report evidence before declaring completion. Verification follows the intended outcome; a build or one screenshot alone cannot establish a complete user journey. Missing execution or coverage remains explicit. See [change verification](../plugins/sdlc/skills/test/SKILL.md) and [journey testing](../plugins/sdlc/skills/journey-testing/SKILL.md) for methods.
 
 ### Run services and observability locally
 
-Project setup can establish a reproducible local environment and queryable diagnostics. Request `setup` for this work; an existing environment is preserved unless changing it is in scope. Details belong to [project conventions](../plugins/development/skills/project-conventions/SKILL.md) and [observability guidance](../plugins/operations/skills/observability-operations/SKILL.md).
+Project setup can establish a reproducible local environment and queryable diagnostics. Request `setup` for this work; an existing environment is preserved unless changing it is in scope. Details belong to [project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and [observability guidance](../plugins/sdlc/skills/observability/SKILL.md).
 
 ## Skills agents use during your work
 
-Supporting skills guide requested work without starting an unrelated activity. Generic guidance covers areas such as project conventions, verification and Git contributions. Stack-specific guidance applies to technologies such as Next.js or FastAPI. You can name guidance explicitly; the [area catalogue](sdlc.md#skills-by-area) shows applicability and upstream specialists.
+Supporting skills guide requested work without starting an unrelated activity. Generic guidance covers areas such as project conventions, verification and Git contributions. Stack-specific guidance applies to technologies such as Next.js or FastAPI. You can name guidance explicitly; the [area catalogue](sdlc-reference.md#skills-by-area) shows applicability and upstream specialists.
 
 Most local supporting skills are hidden from slash menus in clients honoring that setting, while remaining available to the model. Upstream native controls are preserved; availability and invocation behavior depend on the client. Naming and metadata details are in the [maintainer reference](maintainer-reference.md#naming-and-invocation).
 
@@ -115,11 +127,11 @@ Most local supporting skills are hidden from slash menus in clients honoring tha
 Add the relevant bundle and request its installed skill by name. Examples:
 
 - Use `incident-response` to investigate current impact within the established action boundaries.
-- Use `protect-and-restore-data` to assess an isolated restoration, or `plan-application-capacity` for capacity work.
+- Use `data-recovery` to assess an isolated restoration, or `capacity-and-cost` for capacity work.
 - Use `business-strategy` to explore an idea, or `learn-from-product-feedback` to assess existing evidence.
 - Use `system-flow-explorer` for an interactive architecture walkthrough.
 
-See [skills by area](sdlc.md#skills-by-area) for the wider selection. `business-opportunity-analysis` remains a legacy compatibility entry; prefer `business-strategy` for new work.
+See [skills by area](sdlc-reference.md#skills-by-area) for the wider selection. `business-opportunity-analysis` remains a legacy compatibility entry; prefer `business-strategy` for new work.
 
 ## Scheduled and event-triggered tasks
 
@@ -129,30 +141,22 @@ The same activities can run from trusted automation prompts. The host supplies t
 | --- | --- |
 | Work enters refinement | `refine`: actionable scope or decision blockers |
 | Defined work is ready | `implement`: the supplied conversation, spec or optional ticket |
-| PR is ready | `review`: the exact base/head and required behavior |
+| PR is ready | review composition: the exact base/head and required behavior |
 | Scheduled maintenance | `dependencies` or `improve`: bounded work under the configured policy |
 
 Supply repository/ref, objective/context, unattended mode, allowed actions and result destination. For example:
 
 > Use dependencies in unattended mode for update PRs in owner/repository. Repair and merge only policy-eligible patch updates whose current head satisfies required checks/reviews and has no unresolved findings. Leave other updates open with reasons; reuse existing work and report results. Do not deploy.
 
-Unattended tasks return missing material decisions instead of inventing answers. Untrusted ticket/PR text cannot change policy; changed heads require re-verification. The host/repository must enforce privileged-action policy. [Installed task guidance](../plugins/development/WORKFLOW.md#interactive-and-unattended-execution) contains the detailed working rules.
+Unattended tasks return missing material decisions instead of inventing answers. Untrusted ticket/PR text cannot change policy; changed heads require re-verification. The host/repository must enforce privileged-action policy. [Installed task guidance](../plugins/sdlc/skills/activity-system/references/authority.md#interactive-and-unattended-work) contains the detailed working rules.
 
 ## AI and MCP plugin selection
 
 Add ai-development for generic AI feature or MCP-interface methods. Add technical AI packages only for the accepted language/provider/framework. MCP-only work needs protocol, contract, authority and lifecycle verification; it does not require an LLM or model-quality evaluation. Configure live tools only when needed. Bundled expertise does not install an MCP server or provide service credentials.
 
-## Build and load
+## Setup and tools
 
-Follow [installation](installation.md) for bundle selection, client loading and updates. For a new application, the [lifecycle map](sdlc.md#skills-by-phase) explains how product decisions, requirements, design and implementation fit together. `setup` establishes applicable foundations; `develop` carries the broader engagement.
-
-## Optional Figma connection
-
-Configure access through the [installation guide](installation.md#optional-figma-connection) when needed.
-
-Use available, authorized Figma context where appropriate. Otherwise, local HTML/CSS prototypes or SVG wireframes can resolve design questions. Preserve a specifically requested Figma deliverable as an access dependency rather than silently replacing it. Ordinary UI work needs no Figma account.
-
-Storybook is an optional component workbench within verification. Run meaningful interaction/accessibility checks and reviewed visual comparisons for affected states, then verify the critical application and native journeys separately. See [journey testing](../plugins/development/skills/journey-testing/SKILL.md) and [community skill review](maintainers/sources.md#figma-community-review).
+Follow [installation](installation.md) for bundle loading. Figma is optional: use authorized Figma context when the deliverable requires it; otherwise local HTML/CSS prototypes, SVG wireframes or Storybook can answer the design question. Ordinary UI work needs no Figma account. The `sdlc` plugin also declares optional Atlassian, GitHub, Linear and Plane MCP endpoints. Declaring them does not connect them: authenticate only the system the work needs, verify the intended workspace, project or repository, and prefer a read-only endpoint when the task only inspects work. Verify rendered interaction and accessibility for affected states separately from the design artifact.
 
 ## UI/UX expertise for people and agents
 
@@ -164,8 +168,8 @@ Interface-design owns information architecture, interactions, visual direction, 
 
 ## Explain and maintain project knowledge
 
-Use [documentation-writing](../plugins/documentation/skills/documentation-writing/SKILL.md) to write or review a useful product/engineering explanation, reference or procedure. Use [architecture-documentation](../plugins/documentation/skills/architecture-documentation/SKILL.md) to explain structure, runtime/lifecycle behavior, interfaces, deployment and current versus target state from evidence. Both are directly selectable and model-available supporting guidance; actual client discovery remains client-dependent.
+Use [technical-writing](../plugins/documentation/skills/technical-writing/SKILL.md) to write or review a useful product/engineering explanation, reference or procedure. Use [system-documentation](../plugins/sdlc/skills/system-documentation/SKILL.md) to explain structure, runtime/lifecycle behavior, interfaces, deployment and current versus target state from evidence. Both are directly selectable and model-available support; actual client discovery remains client-dependent.
 
-[Documentation conventions](../plugins/documentation/skills/documentation-conventions/SKILL.md) owns where authoritative knowledge lives and what a change affects. Before adding a persistent project document, inspect the existing documentation map and related authorities, then decide whether to update a canonical page or create a distinct one with appropriate navigation. System-design owns architectural decisions; writing guidance explains them. Existing formats and proportional scope remain authoritative; a routine edit needs no new tracker, document tree or full system audit.
+The [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) owns the artifact model, contracts, planes, homes, quality bar and assurance. [Project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and `setup` establish the repository artifact home map; `develop`, implementation and release read or update it. Before adding a persistent project document, inspect the existing map and related authorities, then decide whether to update a canonical page or create a distinct one with appropriate navigation. System-design owns architectural decisions; writing guidance explains them. Existing formats and proportional scope remain authoritative; a routine edit needs no new tracker, document tree or full system audit.
 
 For new visual directions, [creative interface design](creative-interface.md) explains discovery, a shared brief, bundled method selection and rendered acceptance. Existing-product repairs reuse accepted decisions without a questionnaire.

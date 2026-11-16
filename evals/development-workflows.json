@@ -546,7 +546,7 @@
     },
     {
       "id": "documentation-reader-and-contract",
-      "prompt": "Use documentation-writing to revise the supplied export procedure for a new contributor. Preserve its actual commands, permissions, placeholders, recovery limits and accepted product terminology. Local document edits are allowed; no command execution, implementation, publishing or changes to product behavior.",
+      "prompt": "Use technical-writing to revise the supplied export procedure for a new contributor. Preserve its actual commands, permissions, placeholders, recovery limits and accepted product terminology. Local document edits are allowed; no command execution, implementation, publishing or changes to product behavior.",
       "evaluator_setup": "Supply a confusing procedure and authoritative command/contract excerpts. Include a queued acknowledgement misdescribed as completed export, a missing prerequisite and a deliberate provider placeholder. Keep exact contract and allowed-action baseline with the evaluator.",
       "criteria": [
         "Explains purpose, prerequisites, actions and expected outcomes in reader-appropriate order without reducing the task to headings or a file inventory.",
@@ -563,7 +563,7 @@
     },
     {
       "id": "architecture-current-target-evidence",
-      "prompt": "Use architecture-documentation to explain the supplied service and its proposed worker migration. Use the supplied code, OpenAPI excerpts and deployment configuration. Preserve mixed current implementations and explain the main write/failure flow. Documentation only; no refactor, deployment or invented hosted evidence.",
+      "prompt": "Use system-documentation to explain the supplied service and its proposed worker migration. Use the supplied code, OpenAPI excerpts and deployment configuration. Preserve mixed current implementations and explain the main write/failure flow. Documentation only; no refactor, deployment or invented hosted evidence.",
       "evaluator_setup": "Supply an in-process FastAPI handler/store, a proposed future worker boundary, OpenAPI missing a runtime error, and a post-commit acknowledgement failure. Configuration exists but no hosted execution evidence. Keep expected current/target distinctions separate from actor input.",
       "criteria": [
         "Structural and runtime views map to actual source responsibilities and do not turn in-process modules or target workers into deployed services.",
@@ -1587,6 +1587,545 @@
         "Keep the final small repair scoped without new discovery or unnecessarily loading both upstream methods.",
         "Verify the final alignment repair in the running fixture and retain before/after evidence without reopening the accepted direction."
       ]
+    },
+    {
+      "id": "artifact-quality-cold-reader",
+      "prompt": "You are reviewing a bounded change record and issue produced in an earlier session. You have the saved ECR and issue only, plus the linked baseline revision. Using only those artifacts, explain the change, its acceptance cases, the current status, the next action and the evidence. Report every question you cannot answer from the artifacts. Do not edit source or create new artifacts.",
+      "evaluator_setup": "Supply a saved ECR and issue with all seven headings and a complete-looking structure but thin sections: requirements point to the issue, the issue points back, acceptance lacks denial or failure cases, and verification says only 'tests pass' without a command, environment or revision. Provide the baseline link and one open decision. No conversation history.",
+      "criteria": [
+        "Attempts the reader task from the artifacts alone and does not invent missing context or use unstated session knowledge.",
+        "Identifies specific unanswered reader questions such as baseline behavior, observable acceptance, verification command and revision, and next action or owner, rather than judging only heading presence.",
+        "Distinguishes what the artifacts establish from what they merely assert or link to.",
+        "Returns a concrete gap list and does not rewrite the artifacts or claim the change is ready."
+      ],
+      "evidence": [
+        "Reader answers and explicit unanswered questions",
+        "Artifacts inspected and any source or baseline links used"
+      ],
+      "negative_controls": [
+        "A pass based on seven headings or a claim that tests pass is sufficient fails.",
+        "Using conversation context or inventing acceptance fails."
+      ]
+    },
+    {
+      "id": "artifact-quality-thin-structure",
+      "prompt": "Assess whether the supplied ECR is ready to hand to an implementer. It has all seven headings, but each section is one or two sentences and several sections link to an issue for the substance. The issue is a one-line roadmap item. Return a disposition and the specific content gaps. Do not edit code or create tickets.",
+      "evaluator_setup": "Supply a seven-heading ECR with skeletal sections, a one-line issue, a real baseline revision and one genuine open decision. Do not provide a hidden acceptance table or a richer source artifact.",
+      "criteria": [
+        "Rejects the artifact as a handoff despite complete headings and identifies the index-to-index pattern.",
+        "Names the missing baseline and actor impact, observable acceptance, design alternatives and consequences, and verification detail.",
+        "Does not demand more sections or ceremony; asks for the missing content within the existing sections.",
+        "Gives a blocked or ready-with-limitations disposition with precise next evidence rather than generic advice to improve detail."
+      ],
+      "evidence": [
+        "Section-by-section gap findings",
+        "Disposition and next action"
+      ],
+      "negative_controls": [
+        "Equating structural completeness with readiness fails.",
+        "Rewriting the requirement to match the thin artifact fails."
+      ]
+    },
+    {
+      "id": "artifact-quality-link-resolution",
+      "prompt": "Review the saved issue and ECR for handoff. Every revision is written as a bare short SHA, the ECR is referred to as 'the record', and the PR is called 'the PR'. The repository is public and the baseline is available. Identify navigation defects and produce the corrected reference block for both artifacts. Do not publish.",
+      "evaluator_setup": "Supply an ECR and issue with bare SHAs, one private page link, one public repository and a local-only fixture branch. Include a correct PR link as a contrast. Grant no permission to edit the tracker.",
+      "criteria": [
+        "Flags every bare SHA, branch, 'the ECR' and 'the PR' as ambiguous and distinguishes public, private and local-only references.",
+        "Produces resolvable commit, PR and file links for the public repository and an explicit local-only form for the fixture.",
+        "Checks whether private links are accessible to the intended audience and does not leak private content.",
+        "Preserves the original references meaning and does not invent a repository, SHA or URL."
+      ],
+      "evidence": [
+        "Reference inventory with before and after forms",
+        "Link resolution and access decision"
+      ],
+      "negative_controls": [
+        "Accepting a bare SHA or replacing a local-only revision with a fabricated URL fails."
+      ]
+    },
+    {
+      "id": "artifact-quality-issue-only",
+      "prompt": "An implementer receives only the supplied issue, with no access to the ECR or the conversation. They must start the work. Assess whether the issue is independently actionable and identify the minimum additions needed. Do not implement or publish.",
+      "evaluator_setup": "Supply an issue with a clear title and two sentences of context, but no scope or non-goals, acceptance, verification or links. The ECR exists but is withheld from the implementer. Include a real baseline revision and one dependency.",
+      "criteria": [
+        "Tests the issue against scope, first action, observable acceptance, verification and evidence location.",
+        "Identifies the missing context, non-goals, denial or failure acceptance, verification and authority link.",
+        "Proposes the minimum additions within the issue contract rather than copying the ECR.",
+        "Distinguishes an actionable issue from a roadmap idea and does not mark it ready prematurely."
+      ],
+      "evidence": [
+        "Issue-only reader answers and gaps",
+        "Proposed additions with links"
+      ],
+      "negative_controls": [
+        "Assuming the implementer can open the ECR or conversation fails.",
+        "Turning the issue into a full ECR copy fails."
+      ]
+    },
+    {
+      "id": "artifact-quality-cross-view",
+      "prompt": "Compare a saved ECR, its linked issue and a PR description for the same change. The ECR says verification is pending; the issue says completed; the PR claims tests pass at an older head. Identify the contradictions and produce a corrected status and revision block. Do not edit the PR or merge.",
+      "evaluator_setup": "Supply the three views with a shared change identity, different status and revision claims, a current head and an older passing CI run. One claim is genuinely unverified.",
+      "criteria": [
+        "Maps the same change across ECR, issue and PR and identifies the status and revision contradiction.",
+        "Distinguishes older-head evidence from current-head evidence and implemented from verified.",
+        "Produces one consistent status and link block for each view without creating a second authority.",
+        "Leaves merge and approval authority untouched and reports any edit limitation."
+      ],
+      "evidence": [
+        "Cross-view comparison table",
+        "Corrected status and revision block with disposition"
+      ],
+      "negative_controls": [
+        "Accepting tests pass from an old head or silently rewriting the ECR to match the PR fails."
+      ]
+    },
+    {
+      "id": "artifact-quality-render-fidelity",
+      "prompt": "Review a published project Page and work item for reader usability. The Page contains headings, a table, a Mermaid diagram and commit references. The saved HTML looks correct in the tool response, but the rendered Page may normalise or degrade content. Inspect the actual reader view and report defects. Do not publish or delete anything.",
+      "evaluator_setup": "Supply a connected Page with editor-normalised HTML, a Mermaid code block that renders as plain text, a table that collapses and one link whose destination is wrong. Provide read-only access and the intended outline. Withhold the specific defects from the actor.",
+      "criteria": [
+        "Reads the rendered view or the provider semantic text, not only the write response or raw HTML equality.",
+        "Identifies heading, list, table, link and diagram defects against the intended outline and distinguishes source from presentation.",
+        "Provides a text equivalent or verified rendering for the diagram and corrects the link target.",
+        "Reports persistence separately from readability and does not claim the artifact is usable until the rendered view is checked."
+      ],
+      "evidence": [
+        "Rendered-readback findings",
+        "Corrected source or outline and access limitation"
+      ],
+      "negative_controls": [
+        "Treating a successful update response or stored Mermaid source as proof of a readable rendered view fails."
+      ]
+    },
+    {
+      "id": "artifact-system-plane-and-home",
+      "prompt": "You are given an application with a current architecture view, a runbook in an operations repository, an ECR in an engineering workspace and a test suite in the application repository. Classify each artifact by type, primary plane, home, authority and maturity, then state which contract governs it and what evidence it needs. Do not edit or publish anything.",
+      "evaluator_setup": "Supply real paths for the four artifacts, an existing repository artifact home map, and a source revision. Include one artifact that spans planes (the ECR links the others) and one proposed architecture view that is not implemented. No hidden answer key in the actor prompt.",
+      "criteria": [
+        "Distinguishes plane (role) from home (storage) and does not infer one from the other.",
+        "Classifies the architecture view, runbook, ECR and test suite with the correct contract and authority.",
+        "Identifies the ECR as a coordination spine with cross-plane relations, not as the only artifact or the owner of the others.",
+        "Separates current from proposed claims and names the evidence needed at the checked revision."
+      ],
+      "evidence": [
+        "Classification table with type, plane, home, authority, maturity and contract",
+        "Cross-plane relation and evidence findings"
+      ],
+      "negative_controls": [
+        "Treating the ECR as the owner of every artifact or treating storage as the plane fails.",
+        "Classifying a proposed architecture view as current fails."
+      ]
+    },
+    {
+      "id": "artifact-system-repo-home-map",
+      "prompt": "Use setup to adopt an existing application repository. It has a docs directory with product, architecture and operations pages, a README, no artifact home map, and no explicit placement policy. Establish a useful repository artifact home map, record a discoverable pointer, and verify the result. Do not restructure existing documents or create empty folders.",
+      "evaluator_setup": "Supply a real but small repository tree, existing docs pages, a README and an AGENTS.md. Provide no map. The actor may write only within the repository. Include one artifact type that lives outside the repo (the ECR workspace) and one that has no current home.",
+      "criteria": [
+        "Reads the existing layout and authoritative pages before choosing homes; preserves them instead of reorganizing.",
+        "Creates a map covering the artifact types actually present, with home, authority, owner and update trigger.",
+        "Records a short pointer in AGENTS.md and the full map in the docs index, with a verified path.",
+        "Does not create empty folders, a theoretical full portfolio or a competing authority; names the unresolved home if one cannot be established."
+      ],
+      "evidence": [
+        "Repository diff and actual map contents",
+        "Discoverable pointer, verified path and unresolved boundaries"
+      ],
+      "negative_controls": [
+        "Creating a folder checklist or silently moving existing docs fails.",
+        "Claiming a map was recorded without a verified path or discoverable pointer fails."
+      ]
+    },
+    {
+      "id": "artifact-system-implementation-reads-map",
+      "prompt": "Implement a bounded change that adds a new failure mode. The repository has an artifact home map: architecture views in docs/architecture, runbooks in an operations repository, release notes in the git provider. Update the affected architecture view and runbook, add the release-note requirement, and keep the ECR current. Do not deploy.",
+      "evaluator_setup": "Supply the map, a current architecture view, an existing runbook in the operations repository, a release-note home, the ECR and a source revision. Allow writes to the mapped homes and no production access.",
+      "criteria": [
+        "Reads the map before writing and uses the mapped home for each artifact rather than an arbitrary docs path.",
+        "Updates the architecture view and runbook with the new failure/recovery behavior and keeps the ECR's status and evidence consistent.",
+        "Records the release-note requirement in the mapped delivery home or marks it pending with the exact target.",
+        "Reports actual changed paths/revisions and any home that could not be reached; does not claim deployment."
+      ],
+      "evidence": [
+        "Diff or write receipts per mapped home",
+        "ECR, architecture and runbook consistency at a named revision"
+      ],
+      "negative_controls": [
+        "Creating a new runbook in the application docs when the map points to the operations repository fails.",
+        "Leaving the architecture or runbook stale while claiming the change complete fails."
+      ]
+    },
+    {
+      "id": "artifact-system-retired-conventions-no-second-authority",
+      "prompt": "A project still has saved instructions that say 'use documentation-conventions for placement.' The documentation-conventions skill is no longer installed. The project has an existing artifact home map and an artifact-system skill. Update the instructions and placement guidance without inventing a new conventions skill or moving existing documents.",
+      "evaluator_setup": "Supply stale project instructions, an existing repository artifact home map, the artifact-system skill and artifact homes reference, and read/write access to project instructions only. No documentation-conventions skill is installed.",
+      "criteria": [
+        "Recognizes the retired skill and routes placement to artifact homes plus the repository map.",
+        "Updates stale instructions to the artifact-system and map terms without duplicating the generic placement rules.",
+        "Preserves existing homes and authorities; does not create a new parallel placement system or move documents.",
+        "Reports the actual instruction diff and any remaining stale reference."
+      ],
+      "evidence": [
+        "Instructions diff and routing decision",
+        "Preserved map/homes and absence of a second authority"
+      ],
+      "negative_controls": [
+        "Recreating a conventions-like skill or copying the map into a second generic document fails.",
+        "Moving existing documents merely to satisfy the new wording fails."
+      ]
+    },
+    {
+      "id": "design-options-three-directions",
+      "prompt": "Use design to settle navigation and saved-search behavior for an existing web application. Produce at least three materially different directions, with a linked artifact for each, tradeoffs and a recommendation. Do not implement.",
+      "evaluator_setup": "Supply an existing application with an accepted design system, two user roles, current screens and no implementation authorization. The actor may inspect source and screenshots but not edit source.",
+      "criteria": [
+        "At least three options differ in responsibility or behavior, not color, spacing or copy.",
+        "Each option names a lens and states what it optimizes and sacrifices.",
+        "Each option has a linked artifact at comparable fidelity that lets a reviewer judge it.",
+        "Empty, loading, error and denied states are covered where relevant.",
+        "The recommendation names a decision owner, status and revisit trigger."
+      ],
+      "evidence": [
+        "Design proposal or ECR design section",
+        "Comparable linked artifacts per option",
+        "Decision block with owner and status"
+      ],
+      "negative_controls": [
+        "Three cosmetic variants of one direction fail.",
+        "An option without a linked artifact or tradeoff fails.",
+        "Claiming implementation or rendering changes fails."
+      ]
+    },
+    {
+      "id": "design-backend-only-no-wireframes",
+      "prompt": "Use design to add a saved-search API to an existing service. The web client is unchanged. Produce the contract, ownership, failure and retry behavior and a sequence. Do not implement.",
+      "evaluator_setup": "Supply an existing service with an authenticated API, a database and a documented web client that does not change. No implementation authorization. No UI scope.",
+      "criteria": [
+        "Classifies the work as backend and states that the frontend is explicitly not affected, with a reason.",
+        "Defines operations, contract, ownership, idempotency and failure behavior.",
+        "Uses a contract sketch or sequence as the linked artifact; does not invent wireframes or UI work.",
+        "Records the future frontend seam without designing the UI in this change.",
+        "Stops at the design decision and does not implement."
+      ],
+      "evidence": [
+        "Backend design section with affected/not-affected types",
+        "Contract or sequence artifact",
+        "Seam note for later frontend use"
+      ],
+      "negative_controls": [
+        "Inventing wireframes for an unchanged client fails.",
+        "Omitting the not-affected statement fails.",
+        "Implementing the API under a design request fails."
+      ]
+    },
+    {
+      "id": "design-both-types-one-seam",
+      "prompt": "Use design to add saved searches end to end across a web client and API. Compare three directions, decide the error, loading, pagination and authority seam once, and record one design proposal. Do not implement.",
+      "evaluator_setup": "Supply a frontend and backend component with an existing design system and API. Both components are affected. No implementation authorization.",
+      "criteria": [
+        "Uses one design record with frontend and backend sections, not two divergent proposals.",
+        "The three materially different options span both types and include a recommendation.",
+        "The seam is decided once: error and denial mapping, empty/no-results/loading, pagination, auth/tenant and retry behavior.",
+        "Each type has an appropriate linked artifact: UI states plus a contract or sequence.",
+        "The record states the decision owner, status and what is not affected."
+      ],
+      "evidence": [
+        "Single design proposal with per-type sections",
+        "One seam decision referenced by both sections",
+        "UI and contract/sequence artifacts"
+      ],
+      "negative_controls": [
+        "Two separate proposals with different seams fail.",
+        "A UI-only or backend-only design fails.",
+        "Duplicating the seam in both sections without a single decision fails."
+      ]
+    },
+    {
+      "id": "design-greenfield-type-assumed",
+      "prompt": "At the brainstorm stage, design a team knowledge assistant. The UI and retrieval approach are not settled. Mark software types as assumed or undecided, show three directions and record what would settle the type. Do not implement.",
+      "evaluator_setup": "Supply only a product brief, a few user notes and no repository. No implementation exists. No code access is required.",
+      "criteria": [
+        "Marks the software type as assumed or undecided instead of forcing a classification.",
+        "Keeps the design at proposed maturity and does not claim implementation or rendered behavior.",
+        "Includes type-level alternatives, such as web app versus extension or managed versus in-house retrieval.",
+        "Uses sketches, contract sketches or prototypes rather than pretending an implementation exists.",
+        "Names the evidence or decision that would settle the type and the open questions."
+      ],
+      "evidence": [
+        "Proposed design record with assumed types",
+        "Three directions and open type question",
+        "Evidence needed to settle the type"
+      ],
+      "negative_controls": [
+        "Blocking the brainstorm until the type is certain fails.",
+        "Claiming implemented behavior fails.",
+        "Writing three cosmetic UI variants fails."
+      ]
+    },
+    {
+      "id": "design-subtype-browser-extension-constraint",
+      "prompt": "Use design to add a saved-search panel to an existing Chrome extension. Treat it as a frontend component with browser-extension constraints, compare three directions and record the decision. Do not implement.",
+      "evaluator_setup": "Supply an existing Manifest V3 extension with permissions, a background service worker and an established UI. No store submission or implementation authorization.",
+      "criteria": [
+        "Classifies the component as frontend and treats the extension as a constraint, not a fifth software type.",
+        "Covers MV3 lifecycle, permissions, runtime messaging and store-review implications where relevant.",
+        "Produces three materially different options with UI states and a linked artifact.",
+        "Decides the seam with the existing API and preserves the existing design system.",
+        "Does not create a per-type contract or a new top-level type."
+      ],
+      "evidence": [
+        "Frontend design with extension constraints",
+        "Options and UI artifacts",
+        "Seam and permission/store notes"
+      ],
+      "negative_controls": [
+        "Creating a browser-extension software type or contract fails.",
+        "Ignoring permissions or runtime constraints fails.",
+        "Submitting to a store under a design request fails."
+      ]
+    },
+    {
+      "id": "design-return-after-implementation",
+      "prompt": "Implementation of the accepted saved-search design revealed that the API cannot distinguish an empty result from a failed request. Return to design, reopen the decision, update the seam and identify dependent work. Do not implement the fix.",
+      "evaluator_setup": "Supply the accepted design, the implementation revision, the observed behavior and a failing frontend state. No implementation authorization for the repair.",
+      "criteria": [
+        "Reopens the design decision rather than restarting the whole lifecycle or silently patching code.",
+        "Names the changed evidence and the assumption it invalidates.",
+        "Updates the seam or contract decision and preserves accepted decisions that are unaffected.",
+        "Identifies dependent frontend/backend work and what must pause.",
+        "Records the new decision owner and status without claiming the fix."
+      ],
+      "evidence": [
+        "Reopened design decision with changed evidence",
+        "Updated seam and dependent work",
+        "Explicit pause/authority statement"
+      ],
+      "negative_controls": [
+        "Patching the UI or API under a design request fails.",
+        "Treating the reopen as a full new design cycle fails.",
+        "Leaving dependent work unaware of the changed seam fails."
+      ]
+    },
+    {
+      "id": "design-parallel-threads",
+      "prompt": "While defining requirements for saved searches, the user asks to explore the UI and API design in parallel. Keep the requirements, frontend and backend threads explicit, report the current focus and what is waiting. Do not implement.",
+      "evaluator_setup": "Supply a partial requirements note and an existing frontend/backend system. No implementation authorization.",
+      "criteria": [
+        "Keeps a state block with focus, active threads, decisions, parked items and next transition.",
+        "Requirements and design threads coexist; one thread is the current focus.",
+        "Frontend and backend threads have stopping points and appropriate artifacts.",
+        "Open requirements remain open and are not silently accepted by a design choice.",
+        "Does not claim implementation or close an inactive thread."
+      ],
+      "evidence": [
+        "Engagement state block",
+        "Per-thread stopping points and artifacts",
+        "Open requirements and waiting dependencies"
+      ],
+      "negative_controls": [
+        "Forcing a linear requirements-then-design sequence fails.",
+        "Silently closing the requirements thread fails.",
+        "Claiming implementation fails."
+      ]
+    },
+    {
+      "id": "design-small-change-no-ceremony",
+      "prompt": "Use design to change the label on the save button and align its spacing with the existing design system. Do not implement.",
+      "evaluator_setup": "Supply an existing application with a design system, the current component and no ambiguity about behavior. No implementation authorization.",
+      "criteria": [
+        "Does not produce an option set or software-type taxonomy for a trivial change.",
+        "States a short decision with the reason and the existing pattern being reused.",
+        "Preserves the accepted design system and does not invent a new visual direction.",
+        "Stops at design and does not edit source.",
+        "Names any accessibility or copy check only where the change actually needs it."
+      ],
+      "evidence": [
+        "Short design decision",
+        "Existing pattern and scope",
+        "No unnecessary artifacts or options"
+      ],
+      "negative_controls": [
+        "Three options or a full design proposal for a label change fails.",
+        "Inventing a new visual direction fails.",
+        "Implementing the change fails."
+      ]
+    },
+    {
+      "id": "guide-c4-current-vs-proposed",
+      "prompt": "Use guide-c4-view to describe the current and proposed container boundaries for a new queue-backed export feature. Keep current and proposed distinct and include a short text equivalent. Do not implement.",
+      "evaluator_setup": "Supply current architecture notes, a proposed design sketch and source paths. No implementation authorization.",
+      "criteria": [
+        "Chooses an appropriate C4 level and names the system boundary, actors and external systems.",
+        "States each element's responsibility and the directed dependencies that matter.",
+        "Keeps current and proposed views visibly distinct.",
+        "Includes a text equivalent and links evidence or the design decision.",
+        "Does not present a proposed target as implemented or claim deployment."
+      ],
+      "evidence": [
+        "Current and proposed C4 links",
+        "Text equivalent and source links",
+        "Status labels"
+      ],
+      "negative_controls": [
+        "A folder-tree diagram fails.",
+        "Unlabeled arrows or a mixed current/proposed view fails.",
+        "Claiming implementation from the diagram fails."
+      ]
+    },
+    {
+      "id": "guide-design-spec-handoff",
+      "prompt": "Use guide-design-spec to prepare a handoff for a saved-search panel. Include flows, wireframes or mockups, the important states, content, component and token references, responsive behavior, accessibility, motion, assets, open questions and design-QA acceptance. Do not implement.",
+      "evaluator_setup": "Supply an existing application, accepted design system, product brief and design decision. No implementation authorization. The actor may inspect source and design assets but not edit implementation.",
+      "criteria": [
+        "Covers the flow and the affected screens, not just a final visual.",
+        "Covers default, empty, loading, error, denied, partial and long-content states where relevant.",
+        "Identifies reused components and tokens and any justified new ones.",
+        "Includes responsive behavior, accessibility and focus order, motion and reduced-motion behavior, content and assets.",
+        "States open questions, revision or source-of-truth link, acceptance criteria and what implementation may start."
+      ],
+      "evidence": [
+        "Handoff package and revision",
+        "State and edge-case coverage",
+        "Component, token, accessibility and QA notes"
+      ],
+      "negative_controls": [
+        "A happy-path-only mockup fails.",
+        "A handoff with no states, accessibility or acceptance criteria fails.",
+        "Claiming implementation or approval fails."
+      ]
+    },
+    {
+      "id": "compact-ecr-local-fix",
+      "prompt": "Use fix or develop on a supplied local, reversible, one-component defect with one evident repair. Record the change proportionately. Do not implement a platform or create a full design package.",
+      "evaluator_setup": "Supply a small non-git Python fixture with a failing test, one component and no boundary, migration or security impact. No tracker or publication authority.",
+      "criteria": [
+        "Uses a compact ECR or a commit/PR note rather than the full seven-section record.",
+        "Records the change, acceptance, verification and any decision without empty sections.",
+        "Keeps the regression test and the observed result.",
+        "States that release/deployment is not applicable.",
+        "Does not invent architecture, design or coordination artifacts."
+      ],
+      "evidence": [
+        "Compact record or PR note",
+        "Regression test and observed result",
+        "Stated non-applicability"
+      ],
+      "negative_controls": [
+        "A full seven-section ECR for a one-line local fix fails.",
+        "An empty design or architecture artifact fails.",
+        "Claiming release or deployment fails."
+      ]
+    },
+    {
+      "id": "implement-without-git-or-slash-commands",
+      "prompt": "Use implement for an agreed local change in a workspace with no Git repository and no client slash commands. Implement, check and hand off without inventing a command surface or a repository.",
+      "evaluator_setup": "Supply a small non-git Python workspace with an accepted change, tests and no remote. Do not provide a typechecker, /tdd or /code-review, and do not authorize repository creation.",
+      "criteria": [
+        "Applies the implementation intent with local checks and inline review.",
+        "Records the unavailable Git/command surface and uses a local-only revision form.",
+        "Does not initialize a repository or install tools as a side effect.",
+        "Runs the relevant tests and reports actual results and gaps.",
+        "Stops at the implemented and checked change."
+      ],
+      "evidence": [
+        "Changed files and tests",
+        "Local-only revision identity",
+        "Recorded adaptation and gaps"
+      ],
+      "negative_controls": [
+        "Inventing a commit or PR link fails.",
+        "Initializing a repository without authorization fails.",
+        "Skipping checks because the command is unavailable fails."
+      ]
+    },
+    {
+      "id": "develop-verification-and-review-composition",
+      "prompt": "Use develop on an authorized small change. Include verification and the in-review step. Do not require a separate review skill or a change-review command.",
+      "evaluator_setup": "Supply a small local application with an accepted change and tests. Implementation and local checks are authorized; posting, merging and deployment are not.",
+      "criteria": [
+        "Uses test for verification evidence and the review composition for the in-review step.",
+        "Uses code-review when available; applies the code-diff axes inline when unavailable.",
+        "Uses artifact assurance or the quality bar for convergence and artifact checks.",
+        "Reports findings and self-review limits rather than claiming independent review.",
+        "Stops before posting, merging or deployment."
+      ],
+      "evidence": [
+        "Verification results",
+        "Review findings and composition used",
+        "Authority boundary"
+      ],
+      "negative_controls": [
+        "Inventing a change-review skill or command fails.",
+        "Claiming independent review fails.",
+        "Posting or merging without authority fails."
+      ]
+    },
+    {
+      "id": "verification-evidence-linked-not-duplicated",
+      "prompt": "Record verification for a completed change. Link the actual test/CI evidence from the change record without creating a second verification authority.",
+      "evaluator_setup": "Supply a small change with a passing test run and an ECR section for verification. No provider or separate verification-record home is required.",
+      "criteria": [
+        "ECR §6 states the command, revision, environment, result and limits.",
+        "Links the actual test/CI evidence rather than copying it into a second document.",
+        "Marks unverified, unavailable or skipped checks explicitly.",
+        "Does not create a separate verification record unless the project already uses one.",
+        "Separates implemented from verified and released claims."
+      ],
+      "evidence": [
+        "ECR verification section",
+        "Linked test/CI evidence",
+        "Stated limits"
+      ],
+      "negative_controls": [
+        "Creating a second Markdown verification authority fails.",
+        "Promoting a green build to production evidence fails.",
+        "Omitting failed or skipped checks fails."
+      ]
+    },
+    {
+      "id": "self-fix-in-current-change-record",
+      "prompt": "During implementation and testing of an accepted change, discover and repair a local implementation mistake in the same change. Record the repair proportionately.",
+      "evaluator_setup": "Supply a current change record, an implementation failure caused by the actor's own code and a passing repair. No new requirement or boundary change.",
+      "criteria": [
+        "Records the failure and repair in the current change's implementation/verification sections.",
+        "Does not create a new ECR for the same change.",
+        "Rechecks the affected test and keeps the evidence.",
+        "Distinguishes the self-fix from a scope change or a new requirement.",
+        "States the final status and any remaining gap."
+      ],
+      "evidence": [
+        "Updated current ECR",
+        "Repair test result",
+        "No duplicate change record"
+      ],
+      "negative_controls": [
+        "Creating a new ECR for every micro-fix fails.",
+        "Silently fixing without evidence fails.",
+        "Treating the self-fix as a new requirement fails."
+      ]
+    },
+    {
+      "id": "boundary-change-requires-full-ecr",
+      "prompt": "Use develop on a change that adds a cross-service data boundary and a migration. Record the change proportionately. Do not use a compact record to avoid design or migration evidence.",
+      "evaluator_setup": "Supply a small application with two components, a shared data boundary, a migration and no production access. Implementation and local checks are authorized.",
+      "criteria": [
+        "Uses the full ECR because the change crosses a boundary and includes migration.",
+        "Records requirements, design, implementation strategy, verification and decisions.",
+        "States compatibility, migration and recovery consequences.",
+        "Uses linked artifacts rather than a duplicate document.",
+        "Does not claim deployment or production verification."
+      ],
+      "evidence": [
+        "Full ECR",
+        "Boundary and migration design",
+        "Verification and limits"
+      ],
+      "negative_controls": [
+        "A compact ECR that omits design/migration fails.",
+        "Inventing production evidence fails.",
+        "Skipping the data boundary decision fails."
+      ]
     }
   ],
   "generation_trials": [
@@ -2249,7 +2788,13 @@
         "ecr-diagram-reader-access",
         "conversation-to-engineering-work",
         "conversation-to-actionable-scope",
-        "defect-repair-and-incident-handoff"
+        "defect-repair-and-incident-handoff",
+        "artifact-quality-cold-reader",
+        "artifact-quality-thin-structure",
+        "artifact-quality-link-resolution",
+        "artifact-quality-issue-only",
+        "artifact-quality-cross-view",
+        "artifact-quality-render-fidelity"
       ],
       "trial_ids": [
         "artifact-workspace-cross-phase"
@@ -2264,6 +2809,64 @@
         "No bundled ECR parser or mandatory command; use a semantic artifact inspection that supports nested sections and provider-native storage.",
         "Interactive activities without a configured ECR home must offer one storage choice rather than silently returning an inline-only fallback; explicit inline-only or unattended requests must not prompt repeatedly."
       ]
+    },
+    {
+      "id": "artifact-system-planes-and-homes",
+      "outcome": "Classify artifacts by type, plane and home; establish and use a repository artifact home map; preserve authority and evidence across the artifact graph.",
+      "case_ids": [
+        "artifact-system-plane-and-home",
+        "artifact-system-repo-home-map",
+        "artifact-system-implementation-reads-map",
+        "artifact-system-retired-conventions-no-second-authority"
+      ],
+      "trial_ids": [],
+      "evidence": [
+        "Artifact classification and actual home/write evidence",
+        "Repository map and cross-plane consistency at a named revision"
+      ],
+      "negative_controls": [
+        "No storage-as-plane confusion, second authority, empty portfolio or unverified map claim."
+      ]
+    },
+    {
+      "id": "design-options-and-threads",
+      "outcome": "Design work produces materially different options, type-appropriate linked artifacts, one seam, explicit interleaved threads and no ceremony for small changes.",
+      "case_ids": [
+        "design-options-three-directions",
+        "design-backend-only-no-wireframes",
+        "design-both-types-one-seam",
+        "design-greenfield-type-assumed",
+        "design-subtype-browser-extension-constraint",
+        "design-return-after-implementation",
+        "design-parallel-threads",
+        "design-small-change-no-ceremony"
+      ],
+      "trial_ids": [
+        "small-change-routing",
+        "ui-review-to-authorized-repair"
+      ]
+    },
+    {
+      "id": "artifact-guides",
+      "outcome": "Artifact guides produce type-appropriate view artifacts with the right structure, states, authority and evidence, without claiming implementation.",
+      "case_ids": [
+        "guide-c4-current-vs-proposed",
+        "guide-design-spec-handoff"
+      ],
+      "trial_ids": []
+    },
+    {
+      "id": "sdlc-flow-selection",
+      "outcome": "Select the proportionate SDLC flow: compact or full ECR, local implementation, verification/review composition, linked evidence and self-fix handling.",
+      "case_ids": [
+        "compact-ecr-local-fix",
+        "implement-without-git-or-slash-commands",
+        "develop-verification-and-review-composition",
+        "verification-evidence-linked-not-duplicated",
+        "self-fix-in-current-change-record",
+        "boundary-change-requires-full-ecr"
+      ],
+      "trial_ids": []
     }
   ]
 }
