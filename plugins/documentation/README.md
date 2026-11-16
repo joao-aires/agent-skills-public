@@ -11,6 +11,7 @@ It does not own documentation placement, artifact contracts or architecture cove
 | [Explain](skills/explain/SKILL.md) | Reader-specific explanation of one concept: intuition, bounded analogy, mechanism, worked example, edge cases and a comprehension check |
 | [Technical writing](skills/technical-writing/SKILL.md) | Reader fit, explanation inside a document, structure, examples, precision, navigation and presentation for product and engineering documents |
 | [Humanizer](skills/humanizer/SKILL.md) | Optional prose polish that preserves technical meaning, caveats, commands and links |
+| [Skill authoring](skills/skill-authoring/SKILL.md) | Create, revise or review a skill: capability boundary, form, progressive disclosure, knowledge ownership, testing and integration |
 
 The plugin is useful when the question is "how should this be explained or written for its reader?" It is not the place to decide what a document must contain, where it lives or what status it carries.
 
@@ -26,6 +27,7 @@ The plugin is useful when the question is "how should this be explained or writt
 | How do I explain a concept inside a document? | [Concept explanation](skills/technical-writing/references/concept-explanation.md) |
 | How do I review the finished document? | [Review rubric](skills/technical-writing/references/review-rubric.md) |
 | How do I polish the prose? | [Humanizer](skills/humanizer/SKILL.md) |
+| How do I create or revise a skill? | [Skill authoring](skills/skill-authoring/SKILL.md) |
 | How do I explain the current system architecture? | [System mapping](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/sdlc/skills/system-documentation/SKILL.md) |
 
 The artifact contract supplies the audience, purpose, required sections and status. The domain method supplies the subject explanation. This plugin supplies the craft.
