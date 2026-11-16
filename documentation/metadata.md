@@ -19,6 +19,20 @@ Every local skill declares the following in `SKILL.md` frontmatter. Acquired ski
 
 `kind` and `role` are different. `role` is the task/support packaging label; `kind` is the conceptual layer. `phase` is a single primary phase, not a list; the activity catalog and transitions carry multi-phase behavior.
 
+### Invocation controls are not the same as our labels
+
+`user-invocable`, `disable-model-invocation` and our `invocation` label answer different questions. A skill can be agent-usable even when it is not directly user-invocable.
+
+| Control | What it means | Blocks agent use? |
+| --- | --- | --- |
+| `user-invocable` (native) | A user can invoke the skill directly, e.g. as `/name` | **No**. It only controls the direct user command surface. |
+| `disable-model-invocation` (native) | The model must not select or auto-invoke the skill | **Yes**, unless the user explicitly requests it or the task instructs the agent to read it. |
+| `invocation` (ours) | Preferred discovery surface: `user`, `agent` or `both` | **No**. It is a label, not a permission. |
+| `role` (ours) | Packaging role: `task` or `support` | **No**. |
+
+So `user-invocable: false` means “not a direct slash command,” not “hidden from the agent.” An agent can still read and apply the skill. `disable-model-invocation: true` is the actual auto-invocation gate.
+
+
 **Software type is not skill metadata.** A skill such as `design` is reusable across frontend, backend, AI and library/CLI work. The type belongs to the component and is recorded in the change, engagement thread or component inventory. Do not add a `software_type` field to `SKILL.md` or to acquired labels. Read [software types](../plugins/sdlc/skills/artifact-system/references/software-types.md) for the four types and the type-versus-constraint rules.
 
 ## Pack types

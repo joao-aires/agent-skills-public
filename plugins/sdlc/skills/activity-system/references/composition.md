@@ -39,6 +39,16 @@ These are responsibilities, not an invocation chain. A domain specialist can des
 
 Missing guidance is not missing capability. A Python change can proceed without a Python skill; native operation cannot be claimed without the required runtime/device evidence. Do not install guidance automatically, replace an accepted technology, bypass native controls, start another explicit-only activity or ask again for authority already granted.
 
+## When guidance conflicts with the project or environment
+
+Optional guidance is not authority over the accepted project. Apply these rules:
+
+- **Project constraints win.** An accepted project convention, explicit task constraint or requested outcome overrides an optional method's defaults. A stdlib-only task does not become a framework project because a stack guide prefers one.
+- **A task-specified interface is a user decision.** When no user is available and the task names the public interface, seam, file home or command surface, treat that as the agreed decision rather than asking again.
+- **Unavailable surfaces do not erase the method.** If a method assumes slash commands, a Git flow, parallel subagents or a tool that is not present, apply its intent inline, record the adaptation and keep the same acceptance standard.
+- **Do not treat upstream defaults as authority.** Upstream methods are inputs, not project policy. Preserve their useful reasoning and drop assumptions that conflict with the accepted environment.
+- **Record the deviation.** A skipped step, adapted command or unavailable check belongs in the evidence record, not in silent success.
+
 ## Keep the activity in charge
 
 - The activity chooses enough expertise to answer the actual question. Reuse accepted solutions for small corrections.

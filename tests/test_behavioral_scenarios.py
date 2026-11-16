@@ -15,13 +15,14 @@ class BehavioralScenarioTests(unittest.TestCase):
         self.assertEqual(len({s['id'] for s in scenarios}), len(scenarios))
         for scenario in scenarios:
             with self.subTest(scenario=scenario['id']):
-                for field in ('id', 'name', 'fixture', 'prompt', 'skills', 'expectations', 'failure_signals'):
+                for field in ('id', 'name', 'fixture', 'fixture_path', 'prompt', 'skills', 'expectations', 'failure_signals'):
                     self.assertIn(field, scenario)
                 self.assertTrue(scenario['skills'])
                 self.assertTrue(scenario['expectations'])
                 self.assertTrue(scenario['failure_signals'])
                 for skill in scenario['skills']:
                     self.assertTrue((SKILLS / skill / 'SKILL.md').is_file(), skill)
+                self.assertTrue((ROOT / scenario['fixture_path']).is_dir(), scenario['fixture_path'])
 
 
 if __name__ == '__main__':

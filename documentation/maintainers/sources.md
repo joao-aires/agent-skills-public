@@ -35,7 +35,7 @@ The [manifest](../../agent-depot.json) declares repositories, accepted artifact 
 | Frontend and Python | Pointers to local conventions; accepted project choices take precedence. Tailwind v4 is the new-project default; existing versions need no automatic migration. shadcn guidance applies to compatible installed primitives. |
 | MCP and AI | Local framing prefers Python/standalone FastMCP for new servers and distinguishes it from MCP SDK examples. Existing choices remain authoritative; MCP-only work needs no LLM evaluation. |
 | Matt workflows | Preserve dependency groups, resources and native controls. Add [activity system](../../plugins/sdlc/skills/activity-system/SKILL.md); tickets remain optional and setup is explicit. Map `docs/agents/` to `documentation/engineering/` and `docs/adr/` to `documentation/decisions/adr/`, respecting existing paths. |
-| Targeted Matt changes | Remove stale setup prerequisites from three skills; give implement-spec a tracker-neutral description. The upstream implement entry point is retired from acquisition; its body and license are retained as a local reference under the local implement activity. |
+| Targeted Matt changes | Remove stale setup prerequisites from three skills; give implement-spec a tracker-neutral description. The upstream implement entry point is retired from acquisition; a source link is recorded in the plugin README and its body is not packaged. |
 | Review and supply chain | differential-review uses its included method without an unavailable registered agent. The pinned supply-chain parser does not cover pnpm/yarn; missing coverage is not a clean audit. |
 | AKS cost | Azure AKS only, with its six references. Other platforms use contextual first-party guidance. |
 | Repository instructions | agents-md retains its complete source directory; local framing treats size/format targets as heuristics, sample commands/attribution as examples and host instruction precedence as authoritative. |
@@ -76,7 +76,7 @@ The selection below covers 27 upstream skills at [the pinned revision](https://g
 | domain-modeling | Keep | Sharpens domain language and records consequential decisions. |
 | to-questionnaire | Keep | Drafts stakeholder questions when facts are held elsewhere; does not authorize sending them. |
 | to-spec | Keep, adapt | Synthesizes agreed scope; remove stale setup prerequisite and use local docs unless tracker publication is requested. |
-| implement | Retire acquired entry | Replaced by a local SDLC implementation activity; upstream body and license retained under `references/` as provenance. |
+| implement | Retire acquired entry | Replaced by a local SDLC implementation activity; source link recorded in the plugin README, no copied body. |
 | implement-spec | Keep, adapt | Dependency-ordered implementation; use local plan slices, supported worktrees/subagents and no tracker prerequisite. |
 | tdd | Keep | Behavior-focused testing; apply proportionately at established test boundaries. |
 | code-review | Keep, adapt | Separates standards from requested behavior; no tracker setup needed to review conversation/spec scope. |
@@ -261,7 +261,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 21 independent packages and 134 skills: 95 local and 39 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 21 independent packages and 133 skills: 94 local and 39 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
 
 Skills carry a small classification layer: `kind` (system, activity, method, workflow or reference), `origin` (local or upstream), `scope`, `invocation` and `role`. Local skills are validated for the required fields; acquired labels come from `agent-depot.json` and are injected at build time without editing upstream bytes. Run `python scripts/skill_inventory.py` for the generated maintainer matrix.
 
@@ -274,7 +274,7 @@ The collection has 9 generic capability packages and 12 optional technical packa
 | Plugin | Applicability | Skills | Responsibility |
 | --- | --- | --- | --- |
 | `strategy` | Generic | 4 | Business direction, product priorities and evidence-based feedback. |
-| `sdlc` | Generic | 73 | Full SDLC: activities, artifact model, delivery, operations, security, governance, project foundations and verification. |
+| `sdlc` | Generic | 72 | Full SDLC: activities, artifact model, delivery, operations, security, governance, project foundations and verification. |
 | `frontend-development` | Generic | 5 | Integrated interface design, UX writing and usability research across web, desktop and mobile. |
 | `backend-development` | Generic | 1 | Service authority, state, failure, durable work and consumer contracts. |
 | `ai-development` | Generic | 3 | AI application/architecture and protocol design; testing/evaluation methods; AI-specific operating decisions and evidence. |
@@ -332,7 +332,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 134 skills and their current owners</summary>
+<summary>All 133 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -397,7 +397,6 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [research](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/research) | Upstream | `sdlc` |
 | [resilience-testing](../../plugins/sdlc/skills/resilience-testing/SKILL.md) | Local | `sdlc` |
 | [retro](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/retro) | Upstream | `sdlc` |
-| [change-review](../../plugins/sdlc/skills/change-review/SKILL.md) | Local | `sdlc` |
 | [security-and-privacy-design](../../plugins/sdlc/skills/security-and-privacy-design/SKILL.md) | Local | `sdlc` |
 | [setup](../../plugins/sdlc/skills/setup/SKILL.md) | Local | `sdlc` |
 | [system-design](../../plugins/sdlc/skills/system-design/SKILL.md) | Local | `sdlc` |
@@ -483,7 +482,7 @@ Figma remains optional tooling declared by frontend-development; the React techn
 
 ### Verification coverage
 
-The assignment covers 95 local skills and 39 distinct acquired skills exactly once, with no omissions or duplicate owners.
+The assignment covers 94 local skills and 39 distinct acquired skills exactly once, with no omissions or duplicate owners.
 
 All packages build together with `--all` and independently with explicit selection. Package checks verify inventories, local-resource parity, notices, required framing, and transitive owned Markdown links staying inside their bundle. CI also checks the default sdlc-only build. These checks do not establish agent behavior; behavioral evaluations remain deferred.
 

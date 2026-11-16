@@ -137,7 +137,7 @@ Applied after the evaluation, without changing the recorded results:
 - Added an explicit no-license state to the README guide.
 - Added a local implementation flow for environments without slash commands, a typechecker or a Git commit.
 - Replaced the upstream `implement` entry point with a local SDLC activity; the upstream body and license remain a reference.
-- Renamed `review` to `change-review`; both `test` and `change-review` are now model-invocable.
+- Renamed `review` to `change-review` (later retired into the review composition); `test` is model-invocable.
 - Added compact ECR mode and quick-fix/self-fix rules.
 - Added review ownership to the quality bar and assurance.
 

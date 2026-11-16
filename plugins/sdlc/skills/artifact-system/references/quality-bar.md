@@ -31,6 +31,9 @@ Every artifact states its own maturity and what evidence backs each claim. Do no
 
 A later-phase claim needs its own evidence. A product brief does not claim implementation; an RFC does not claim release; a local probe does not claim production behavior. Write evidence in the past tense. "Will verify", "should pass" and "create/read/update will confirm" are plans, not verification.
 
+**Evidence must be inspectable.** A claim is only as good as the inspection behind it. Do not claim a file state, cleanup, count, coverage, revision or completion that you did not verify. Distinguish what you observed from what you intended, assumed or expected. When a claim depends on a baseline, generated artifact or previous run, retain the evidence or mark it unverified.
+
+
 ### 3. Reader sufficiency
 
 A section is complete when it answers its reader's decision or action question. A section that only restates its heading, links elsewhere for its substance, or says "pending" after the activity has been performed is an index, not a section.
@@ -112,9 +115,9 @@ The review layers have different jobs. Do not duplicate the same checklist acros
 | Quality bar | Shared properties: self-contained context, evidence, navigation, render fidelity, one authority | Artifact-specific sections or code standards |
 | Artifact assurance | Cross-artifact consistency, dependency checks, convergence and readiness | Artifact-specific craft or code-diff review |
 | `code-review` | Code-diff standards and spec axes | Design/artifact convergence or release readiness |
-| `change-review` | The in-review step: change-level findings, test evidence, PR accuracy and remaining risk | Rewriting source, posting, merging or deploying without authority |
+| Review composition (`develop`/`implement`) | The in-review step: code findings, test evidence, PR accuracy and remaining risk | Rewriting source, posting, merging or deploying without authority |
 
-Use the guide for “is this artifact good?” Use assurance for “do these artifacts agree?” Use `change-review` for “is this change ready for the next step?”
+Use the guide for “is this artifact good?” Use assurance for “do these artifacts agree?” Use the review composition for “is this change ready for the next step?”
 
 ## Relationship to other guidance
 

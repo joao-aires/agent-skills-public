@@ -74,7 +74,7 @@ The [catalog](references/catalog.md) owns selection, authority and default homes
 
 Every artifact type has a contract and, where the craft is distinct, a guide. The guide owns structure, conventions, examples, common failures and review; the contract owns lifecycle, authority, maturity, evidence and handoff.
 
-The one-to-one pairing is the [guide registry](references/catalog.md#guide-registry). Guides are self-contained writing methods and may be used inside an activity or requested directly.
+The one-to-one pairing is the [guide registry](references/guide-registry.md). Guides are self-contained writing methods and may be used inside an activity or requested directly.
 
 ## Present outcomes
 

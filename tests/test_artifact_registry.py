@@ -45,6 +45,11 @@ class ArtifactConsistencyTests(unittest.TestCase):
     def test_artifact_registry_is_valid(self):
         self.assertEqual(load_registry_module().validate(), [])
 
+    def test_generated_guide_registry_is_current(self):
+        module = load_registry_module()
+        self.assertTrue(module.OUTPUT.exists())
+        self.assertEqual(module.OUTPUT.read_text(), module.generate())
+
     def test_contracts_have_required_headings(self):
         for path in sorted(CONTRACTS.glob('*.md')):
             if path.name in {'README.md', 'TEMPLATE.md'}:

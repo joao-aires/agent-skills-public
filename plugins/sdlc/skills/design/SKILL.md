@@ -59,14 +59,14 @@ Consequential means the choice affects responsibility, behavior, ownership, fail
 
 Link the artifacts that let a reviewer judge each option at comparable fidelity:
 
-| Type | Typical linked artifacts | Guide |
-| --- | --- | --- |
-| Frontend | Wireframe, mockup, Figma frame, rendered slice, prototype | [Design specification](../guide-design-spec/SKILL.md) |
-| Backend | Contract sketch, sequence, C4, data/ownership view, state machine | [C4](../guide-c4-view/SKILL.md), [sequence](../guide-sequence-view/SKILL.md), [state machine](../guide-state-machine/SKILL.md) |
-| AI | Context/tool flow, data contract, evaluation plan, harness view | Use the available AI testing method for the evaluation plan |
-| Library/CLI | API/command surface, compatibility matrix, usage example | [Compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
+| Type | Guide |
+| --- | --- |
+| Frontend | [Design specification](../guide-design-spec/SKILL.md) |
+| Backend | [C4](../guide-c4-view/SKILL.md), [sequence](../guide-sequence-view/SKILL.md), [state machine](../guide-state-machine/SKILL.md) |
+| AI | Use the available AI testing method for the evaluation plan |
+| Library/CLI | [Compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
 
-A text description alone is not enough when layout, interaction, contract shape, failure behavior or model quality is the question. Link the design specification, C4 view, sequence view, state machine or other artifact the decision needs. Read the guide for the artifact you are producing; it owns structure, notation, fidelity and common failures. Use realistic content and the states that matter: empty, loading, busy, error, denied, stale, conflict.
+Read [software types](../artifact-system/references/software-types.md) for the typical artifacts and evidence for each component type. A text description alone is not enough when layout, interaction, contract shape, failure behavior or model quality is the question. Link the artifacts the decision needs; the guide owns structure, notation, fidelity and common failures. Use realistic content and the states that matter: empty, loading, busy, error, denied, stale, conflict.
 
 When the change touches more than one type, the seam is part of the option set. Decide the contract or data shape, error and denial mapping, loading/empty distinctions, pagination, authority boundaries, retry/idempotency and compatibility once. Do not let each type section invent its own seam.
 

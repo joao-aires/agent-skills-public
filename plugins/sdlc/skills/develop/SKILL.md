@@ -40,7 +40,9 @@ When the work interleaves requirements, design and implementation, keep [engagem
 
 When client-specific implementation commands, a typechecker or a Git commit are unavailable, use the [local implementation flow](references/implementation-flow.md). It preserves the implementation outcome without inventing a command surface or an unrequested repository.
 
-Use [test](../test/SKILL.md) and [change review](../change-review/SKILL.md) as part of the engagement when implementation is authorized; both are model-invocable activities. Their authority still stops at local verification and assessment.
+When optional guidance assumes commands, Git or tools that are unavailable, follow [composition](../activity-system/references/composition.md) and record the adaptation. Do not treat an upstream default as authority over the accepted project.
+
+Use [test](../test/SKILL.md) and the review composition (`code-review`, artifact assurance, guides/quality bar) as part of the engagement when implementation is authorized. Their authority still stops at local verification and assessment.
 
 
 ## Establish a useful slice

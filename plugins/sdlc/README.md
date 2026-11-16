@@ -259,7 +259,7 @@ Use the [design activity](skills/design/SKILL.md), the [option set](skills/desig
 
 ### Artifact guides
 
-Every artifact type has a contract and, where the craft is distinct, a guide. The contract owns lifecycle, authority, maturity, evidence and handoff; the guide owns structure, conventions, examples, common failures and review. The full one-to-one pairing is the [guide registry](skills/artifact-system/references/catalog.md#guide-registry).
+Every artifact type has a contract and, where the craft is distinct, a guide. The contract owns lifecycle, authority, maturity, evidence and handoff; the guide owns structure, conventions, examples, common failures and review. The full one-to-one pairing is the [guide registry](skills/artifact-system/references/guide-registry.md).
 
 - **Document guides:** `guide-prd`, `guide-rfc`, `guide-adr`, `guide-ecr`, `guide-design-proposal`, `guide-architecture-set`, `guide-issue`, `guide-pr`, `guide-research-report`, `guide-release-note`, `guide-readme`.
 - **Operational guides:** `guide-runbook`, `guide-incident-record`, `guide-postmortem`, `guide-assurance-assessment`.
@@ -361,6 +361,10 @@ A compact artifact can pass; a long artifact can fail. The test is whether the r
 ## Migration
 
 Use `activity-system` for routing, `test` for verification and the repository artifact home map for placement. `system-documentation` explains the current system. For old names and removal notes, see the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
+
+## Sources
+
+- The retired upstream `implement` entry point is preserved as a reference: [mattpocock/skills implement](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/implement) (MIT). It is not an acquired skill and its body is not packaged.
 
 ## References
 

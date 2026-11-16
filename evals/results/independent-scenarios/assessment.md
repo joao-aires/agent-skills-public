@@ -8,6 +8,8 @@ Four end-to-end scenarios were run again with **independent actor and reviewer a
 - Actor workspaces: retained under this directory
 - Reviewer reports: [`reviews/`](reviews/)
 
+**Later change:** at the time of this run the in-review skill was `change-review`. It has since been retired into the review composition: `code-review` for the diff, `test` for evidence, artifact assurance for convergence, and the guides/quality bar for artifact checks.
+
 ## Method
 
 **Actors**

@@ -37,36 +37,9 @@ The ECR is the default coordination artifact for a coherent engineering change. 
 
 ## Guide registry
 
-Every artifact type has a contract. A **guide** is the writing craft for that artifact: structure, conventions, examples, common failures and review. It is paired one-to-one where the craft is distinct. "No dedicated guide" means the contract plus the named method or technical writing is the guidance owner.
+Every artifact type has a contract and, where the craft is distinct, a guide. The one-to-one pairing is generated from `artifact-registry.json` in the [artifact guide registry](guide-registry.md); do not maintain a second table here.
 
-| Artifact | Contract | Guide |
-| --- | --- | --- |
-| Product brief / PRD | [prd.md](contracts/prd.md) | [PRD guide](../../guide-prd/SKILL.md) |
-| Roadmap | [roadmap.md](contracts/roadmap.md) | No dedicated guide — product method + technical writing |
-| ECR | [ecr.md](contracts/ecr.md) | [ECR guide](../../guide-ecr/SKILL.md) |
-| Research report | [research-report.md](contracts/research-report.md) | [Research report guide](../../guide-research-report/SKILL.md) |
-| RFC | [rfc.md](contracts/rfc.md) | [RFC guide](../../guide-rfc/SKILL.md) |
-| Design proposal | [design-proposal.md](contracts/design-proposal.md) | [Design proposal guide](../../guide-design-proposal/SKILL.md) |
-| Design specification | [design-spec.md](contracts/design-spec.md) | [Design specification guide](../../guide-design-spec/SKILL.md) |
-| Issue | [issue.md](contracts/issue.md) | [Issue guide](../../guide-issue/SKILL.md) |
-| Pull request | [pr.md](contracts/pr.md) | [PR guide](../../guide-pr/SKILL.md) |
-| Architecture set | [architecture-set.md](contracts/architecture-set.md) | [Architecture set guide](../../guide-architecture-set/SKILL.md) |
-| C4 view | [c4-view.md](contracts/c4-view.md) | [C4 view guide](../../guide-c4-view/SKILL.md) |
-| Sequence view | [sequence-view.md](contracts/sequence-view.md) | [Sequence view guide](../../guide-sequence-view/SKILL.md) |
-| State machine | [state-machine.md](contracts/state-machine.md) | [State machine guide](../../guide-state-machine/SKILL.md) |
-| Compatibility matrix | [compatibility-matrix.md](contracts/compatibility-matrix.md) | [Compatibility matrix guide](../../guide-compatibility-matrix/SKILL.md) |
-| Decision record (ADR/PDR) | [adr.md](contracts/adr.md) | [ADR guide](../../guide-adr/SKILL.md) |
-| Assurance assessment | [assurance-assessment.md](contracts/assurance-assessment.md) | [Assurance assessment guide](../../guide-assurance-assessment/SKILL.md) |
-| Runbook | [runbook.md](contracts/runbook.md) | [Runbook guide](../../guide-runbook/SKILL.md) |
-| API reference / SLO | Use available API/reliability expertise and link the evidence | No dedicated guide — API/reliability expertise |
-| Code, tests, migrations, configuration | [work-product.md](contracts/work-product.md) | No dedicated guide — language, framework and test guidance |
-| Release note / changelog | [release-note.md](contracts/release-note.md) | [Release note guide](../../guide-release-note/SKILL.md) |
-| Deployment record | Use the delivery method and link the evidence | No dedicated guide — delivery method |
-| Incident record | [incident-record.md](contracts/incident-record.md) | [Incident record guide](../../guide-incident-record/SKILL.md) |
-| Postmortem | [postmortem.md](contracts/postmortem.md) | [Postmortem guide](../../guide-postmortem/SKILL.md) |
-| Repository README | [repository-readme.md](contracts/repository-readme.md) | [README guide](../../guide-readme/SKILL.md) |
-| Guide / tutorial | [guide.md](contracts/guide.md) | No dedicated guide — technical writing |
-| Glossary | Use the docs index and keep terms consistent | No dedicated guide — docs index + technical writing |
+A guide owns structure, conventions, examples, common failures and review. The contract owns lifecycle, authority, maturity, evidence and handoff. "No dedicated guide" means the contract plus the named method or technical writing is the guidance owner.
 
 ## Maturity and evidence by artifact
 

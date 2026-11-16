@@ -15,9 +15,9 @@ metadata:
 
 # Implement
 
-Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Use the [local implementation flow](../develop/references/implementation-flow.md), [test](../test/SKILL.md), [change review](../change-review/SKILL.md) and [Git contributions](../git-contributions/SKILL.md) as applicable.
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Use the [local implementation flow](../develop/references/implementation-flow.md), [test](../test/SKILL.md), the review composition (`code-review`, artifact assurance, guides/quality bar) and [Git contributions](../git-contributions/SKILL.md) as applicable.
 
-The earlier upstream implementation entry point is preserved only as [reference provenance](references/upstream-implement.md). This activity owns the SDLC implementation step: small slices, checks, review evidence and an honest handoff.
+This activity owns the SDLC implementation step: small slices, checks, review evidence and an honest handoff. The retired upstream entry point is recorded in the plugin [Sources](../../README.md#sources) section.
 
 ## Establish the starting point
 
@@ -39,7 +39,7 @@ When the client supports `/tdd`, a typechecker, `/code-review`, a commit or a PR
 
 ## Review before handoff
 
-Read the actual changed behavior from caller to result. Compare it with the accepted requirements and the preserved behavior. Use [change review](../change-review/SKILL.md) when a change-level review is requested; use [code-review](../code-review/SKILL.md) for the code-diff standards/spec axes when available.
+Read the actual changed behavior from caller to result. Compare it with the accepted requirements and the preserved behavior. Use [code-review](../code-review/SKILL.md) for the code-diff standards/spec axes, [test](../test/SKILL.md) for evidence gaps and [artifact assurance](../artifact-system/references/assurance.md) for cross-artifact convergence. If `code-review` is unavailable, review inline and record the adaptation.
 
 Report findings with severity, location, impact and fix. Self-review is not independent assurance; say so.
 
@@ -50,7 +50,3 @@ Record the implemented behavior, deviations, checks and remaining gaps in the ch
 ## Stopping point
 
 Stop at the implemented, verified and reviewed change within the requested scope. Do not merge, deploy or publish unless that action is separately authorized.
-
-## Provenance
-
-The earlier upstream entry point and its MIT license are kept for reference under `references/`. They are not the current activity instructions.

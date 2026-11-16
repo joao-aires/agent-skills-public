@@ -12,6 +12,8 @@ Work is not a single pipeline. Requirements, design, implementation and verifica
 
 ![Parallel requirements, design, implementation, verification and operations threads with reopen paths](images/sdlc-threads.svg)
 
+The thread view reads as lanes: requirements frame outcome and acceptance; design compares options, links artifacts and records the decision; implementation builds and checks; verification produces test and review evidence; operations releases, observes and learns. A missing state reopens design, a contradiction reopens the decision, and operational evidence can reopen requirements or design. One focus is active at a time, but the other threads remain open.
+
 
 Every phase starts by checking the inputs, deciding what work is needed and identifying the evidence or decision the next person will need. Scale that preparation to the uncertainty. During implementation, break agreed requirements and design into deliverable tasks, dependencies and checks. The [implementation preparation method](../plugins/sdlc/skills/activity-system/references/implementation-preparation.md) supports requests that stop at a breakdown.
 
@@ -35,7 +37,7 @@ Green labels identify entry-point skills or directly requested activities; dashe
 | Agreed implementation needs dependency ordering | Request an implementation breakdown |
 | Build an already-defined change | `implement` |
 | Rough idea through implementation, tests and review | `develop` |
-| Behavior checks and change assessment | `test`, `change-review`; change review also applies earlier |
+| Behavior checks and change assessment | `test` and the review composition; review also applies earlier |
 | Delivery readiness or named authorized deployment | `release` |
 | Live incident or restoration | [incident-response](../plugins/sdlc/skills/incident-response/SKILL.md), recovery expertise as applicable |
 | Proactive operation, maintenance and improvement | `improve`, `dependencies`, [observability](../plugins/sdlc/skills/observability/SKILL.md), and other targeted operating skills |
@@ -45,12 +47,12 @@ Green labels identify entry-point skills or directly requested activities; dashe
 
 | Starting situation | Typical work and stopping points |
 | --- | --- |
-| Company product request | Product direction establishes priority → `refine` defines behavior and quality constraints → `design` settles consequential solution choices → `implement` breaks down and builds the change, `test`, `change-review`, `release` as authorized |
+| Company product request | Product direction establishes priority → `refine` defines behavior and quality constraints → `design` settles consequential solution choices → `implement` breaks down and builds the change, `test`, the review composition, `release` as authorized |
 | Company refactor / rearchitecture | Inspect current behavior and maintenance pain → `refine` the preserved contracts, migration constraints and expected outcome → `design` alternatives and migration boundary → authorized implementation in compatible increments with rollback and checks |
 | Local agent-assisted feature or new app | Select `develop` for an authorized end-to-end slice; it establishes the missing decisions directly with relevant supporting expertise. Select `plan`, `refine`, `design` or `implement` individually when a bounded artifact or stopping point is desired |
 | Known bug or narrow change | Use `fix` to reproduce, repair and verify the affected behavior. No required planning or new specification ceremony |
 | Incident, recovery or operational drift | Start with the matching operations activity; follow causal evidence and actual operating policy. Turn confirmed learning into a requirement/design/improvement only when warranted |
-| Exploration, security review or architecture question | Request research, `harden`, `change-review`, design or specialist expertise; stop at the requested analysis rather than beginning implementation |
+| Exploration, security review or architecture question | Request research, `harden`, `code-review` or specialist expertise; stop at the requested analysis rather than beginning implementation |
 
 Implementation preparation converts agreed requirements and design into actionable increments, dependencies and tests. It can iterate when implementation discovers a new constraint. The end-to-end `develop` activity does not need to invoke each explicit-only task skill by name to accomplish those outcomes.
 
@@ -66,9 +68,13 @@ Artifact types pair with a contract and, where the craft is distinct, a guide. T
 
 ![Artifact types map to contracts and guides](images/sdlc-guide-map.svg)
 
+The map reads left to right: each artifact type has a contract, and where the craft is distinct a guide. The guide owns structure and review; the contract owns lifecycle, authority, maturity, evidence and handoff. Roadmap, API reference, work product, deployment record, guide and glossary have no dedicated guide for the reasons recorded in the registry.
+
 The artifact graph shows the relationships across intent, coordination, system knowledge, implementation, delivery and entry. The ECR links intent, design, implementation, delivery and learning evidence; it is not the center of the system.
 
 ![Artifact graph across intent, coordination, system knowledge, implementation, delivery and entry](images/sdlc-artifact-graph.svg)
+
+In the graph, intent informs the ECR; the ECR links the design proposal and implementation; the design proposal links the design specification and architecture views; code and tests produce review and release evidence; release and operations produce runbook, incident and postmortem knowledge; learning reopens the ECR. The ECR is one node, not the center.
 
 ## Different starting points
 
@@ -121,7 +127,7 @@ Use [system-design](../plugins/sdlc/skills/system-design/SKILL.md) for architect
 
 Design may run in parallel with requirements or implementation. Use [engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) to keep one focus, several threads and explicit reopens. A greenfield design can be entirely proposed with no implementation; mark the type as assumed when it is not yet settled. No comprehensive design document is required for a trivial local fix.
 
-Every artifact type has a contract and, where the craft is distinct, a guide. The guide owns structure, conventions and review; the contract owns lifecycle, authority, maturity and handoff. The full pairing is the [guide registry](../plugins/sdlc/skills/artifact-system/references/catalog.md#guide-registry).
+Every artifact type has a contract and, where the craft is distinct, a guide. The guide owns structure, conventions and review; the contract owns lifecycle, authority, maturity and handoff. The full pairing is the [guide registry](../plugins/sdlc/skills/artifact-system/references/guide-registry.md).
 
 - **Document guides:** PRD, RFC, ADR, ECR, design proposal, architecture set, issue, PR, research report, release note and README.
 - **Operational guides:** runbook, incident record, postmortem and assurance assessment.
@@ -137,7 +143,7 @@ Start with the bundled upstream `implement` when explicitly selected, or use `de
 
 ### 5. Testing
 
-Start with [verification](../plugins/sdlc/skills/test/SKILL.md), and use [journey-testing](../plugins/sdlc/skills/journey-testing/SKILL.md), performance/resilience and other specialist methods where relevant. `change-review` may apply in any phase. Observe real behavior, repair failures and recheck without weakening acceptance.
+Start with [verification](../plugins/sdlc/skills/test/SKILL.md), and use [journey-testing](../plugins/sdlc/skills/journey-testing/SKILL.md), performance/resilience and other specialist methods where relevant. The review composition may apply in any phase. Observe real behavior, repair failures and recheck without weakening acceptance.
 
 ### 6. Deployment
 
@@ -155,7 +161,7 @@ Maintenance is one lifecycle outcome with four complementary responsibilities: *
 
 [Technical writing](../plugins/documentation/skills/technical-writing/SKILL.md) supplies cross-type writing craft and reader review. [System documentation](../plugins/sdlc/skills/system-documentation/SKILL.md) explains structural/runtime/interface/deployment views with source evidence. The [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) owns artifact contracts, homes, quality and assurance; system-design owns design choices.
 
-Research, explicit clarification, prose editing, documentation, Git contributions, security and operating constraints can support any relevant phase. `change-review` is not confined to a final gate. Requirements and design can run as parallel threads, and design and verification can recur during implementation; a phase label does not restrict when guidance is useful. Use [engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) to keep the current focus, open threads and reopens explicit.
+Research, explicit clarification, prose editing, documentation, Git contributions, security and operating constraints can support any relevant phase. Review is not confined to a final gate. Requirements and design can run as parallel threads, and design and verification can recur during implementation; a phase label does not restrict when guidance is useful. Use [engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) to keep the current focus, open threads and reopens explicit.
 
 [reliability design](../plugins/sdlc/skills/system-design/references/reliability.md) connects outcomes and SLIs/SLOs to design and operation. [observability](../plugins/sdlc/skills/observability/SKILL.md) supplies signal implementation; the [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) and [project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) keep affected knowledge and its homes current. Upstream research, Humanizer and clarification techniques are listed below. [grill-me](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/grill-me) and other explicit workflows still require a request.
 

@@ -7,6 +7,7 @@ Start with **sdlc** for the full software lifecycle. Add product, interface, bac
 | Start here | Go |
 | --- | --- |
 | Install or update the bundles | [Installation](documentation/installation.md) |
+| Choose a start-to-finish task path | [Start here](documentation/start-here.md) |
 | Understand the concepts and choose what to read | [Documentation map](documentation/README.md) |
 | See request patterns and examples | [Usage](documentation/usage.md) |
 | Maintain the collection | [Maintainer reference](documentation/maintainer-reference.md) |

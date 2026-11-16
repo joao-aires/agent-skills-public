@@ -21,7 +21,7 @@ Generic means reusable across stacks; stack-specific means select it only for ma
 | Product direction | Generic | [product-management](../plugins/strategy/skills/product-management/SKILL.md) | Existing research and feedback; no tracker required |
 | Business strategy | Generic | [business-strategy](../plugins/strategy/skills/business-strategy/SKILL.md) | Preserved strategy references |
 | Project foundations | Generic | [project-conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) for affected structure, commands and constraints | None required |
-| Artifact writing guides | Generic | [Artifact guide registry](../plugins/sdlc/skills/artifact-system/references/catalog.md#guide-registry) | One contract and one guide per artifact type where the craft is distinct |
+| Artifact writing guides | Generic | [Artifact guide registry](../plugins/sdlc/skills/artifact-system/references/guide-registry.md) | One contract and one guide per artifact type where the craft is distinct |
 | Artifact system | Generic | [artifact-system](../plugins/sdlc/skills/artifact-system/SKILL.md) | [writing-for-agents](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/writing-for-agents) for agent instructions |
 | Writing craft | Generic | [technical-writing](../plugins/documentation/skills/technical-writing/SKILL.md) | Reader fit, explanation, structure and presentation; [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) for prose polish |
 | Prose editing | No local skill | Follow the document's author and technical claims | [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) |

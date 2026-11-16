@@ -6,10 +6,22 @@
       "fixture": "new-app",
       "prompt": "Build a small local notes CLI from scratch with add/list/search/delete, JSON persistence and standard-library tests.",
       "skills": [
-        "activity-system", "artifact-system", "plan", "refine",
-        "requirements-engineering", "design", "system-design", "implement",
-        "test", "change-review", "guide-ecr", "guide-prd",
-        "guide-design-proposal", "guide-issue", "guide-pr", "guide-readme"
+        "activity-system",
+        "artifact-system",
+        "plan",
+        "refine",
+        "requirements-engineering",
+        "design",
+        "system-design",
+        "implement",
+        "test",
+        "code-review",
+        "guide-ecr",
+        "guide-prd",
+        "guide-design-proposal",
+        "guide-issue",
+        "guide-pr",
+        "guide-readme"
       ],
       "expectations": [
         "A working CLI with the requested commands and persistence",
@@ -23,7 +35,8 @@
         "Claims tests passed without running them",
         "Produces no requirements or design record",
         "Leaves acceptance criteria unimplemented without saying so"
-      ]
+      ],
+      "fixture_path": "evals/fixtures/new-app"
     },
     {
       "id": "existing-feature",
@@ -31,9 +44,19 @@
       "fixture": "existing-feature",
       "prompt": "Add tags and list-by-tag filtering to the task CLI while preserving existing JSON compatibility and behavior.",
       "skills": [
-        "activity-system", "artifact-system", "system-documentation", "refine",
-        "design", "implement", "test", "change-review", "guide-ecr",
-        "guide-design-proposal", "guide-issue", "guide-pr", "guide-readme"
+        "activity-system",
+        "artifact-system",
+        "system-documentation",
+        "refine",
+        "design",
+        "implement",
+        "test",
+        "code-review",
+        "guide-ecr",
+        "guide-design-proposal",
+        "guide-issue",
+        "guide-pr",
+        "guide-readme"
       ],
       "expectations": [
         "Tags and tag filtering work for pending and all tasks",
@@ -47,7 +70,8 @@
         "Rewrites the application instead of extending it",
         "Adds a filter that only works for the happy path",
         "Leaves existing tests failing or removes them"
-      ]
+      ],
+      "fixture_path": "evals/fixtures/existing-feature"
     },
     {
       "id": "bug-fix",
@@ -55,8 +79,14 @@
       "fixture": "bug-fix",
       "prompt": "Reproduce and fix the pagination off-by-one with the smallest correct change, preserve the public contract and add regression coverage.",
       "skills": [
-        "activity-system", "artifact-system", "fix", "diagnosing-bugs",
-        "test", "change-review", "guide-ecr", "guide-pr"
+        "activity-system",
+        "artifact-system",
+        "fix",
+        "diagnosing-bugs",
+        "test",
+        "code-review",
+        "guide-ecr",
+        "guide-pr"
       ],
       "expectations": [
         "The original failure is reproduced before the repair",
@@ -70,7 +100,8 @@
         "Claims reproduction without observing the failure",
         "Adds broad refactoring to a one-line defect",
         "Reports release or production verification without evidence"
-      ]
+      ],
+      "fixture_path": "evals/fixtures/bug-fix"
     },
     {
       "id": "idea-to-implementation",
@@ -78,10 +109,22 @@
       "fixture": "ideation",
       "prompt": "Turn a rough habit-tracker idea into a useful local CLI slice with explicit streak and missed-day behavior, then implement, test and review it.",
       "skills": [
-        "activity-system", "artifact-system", "plan", "refine",
-        "requirements-engineering", "design", "implement", "test", "change-review",
-        "guide-prd", "guide-ecr", "guide-design-proposal",
-        "guide-design-spec", "guide-issue", "guide-pr", "guide-readme"
+        "activity-system",
+        "artifact-system",
+        "plan",
+        "refine",
+        "requirements-engineering",
+        "design",
+        "implement",
+        "test",
+        "code-review",
+        "guide-prd",
+        "guide-ecr",
+        "guide-design-proposal",
+        "guide-design-spec",
+        "guide-issue",
+        "guide-pr",
+        "guide-readme"
       ],
       "expectations": [
         "A bounded product outcome and observable acceptance replace the vague idea",
@@ -95,7 +138,8 @@
         "Leaves streak or missed-day semantics implicit",
         "Produces a plan but no implementation",
         "Claims a product outcome without tests or observed behavior"
-      ]
+      ],
+      "fixture_path": "evals/fixtures/ideation"
     }
   ]
 }

@@ -27,14 +27,14 @@ The [installation guide](installation.md#load-them-in-your-client) links the cli
 | Architecture, UX or contracts undecided | `design` | System/platform decisions and interaction contracts before implementation |
 | Defined work ready to build | `implement` | Implemented and verified change |
 | Need evidence of behavior | `test` | Checks, results and coverage gaps |
-| PR or diff ready for assessment | `change-review` | Findings against intended behavior, design, tests and artifact consistency |
+| PR or diff ready for assessment | review composition (`code-review` + `test` + artifact assurance) | Findings against intended behavior, design, tests and artifact consistency |
 | Want improvements | `improve` | Prioritized opportunities, or a specified improvement |
 | Reported defect with repair requested | `fix` | Reproduced or evidenced defect, focused repair and verification |
 | Security/privacy weakness | `harden` | Scoped assessment, fixes and remaining risks |
 | Dependencies need attention | `dependencies` | Compatibility, release-note and CI review; permitted remediation |
 | Preparing delivery | `release` | Readiness, or a named authorized delivery action |
 
-`plan`, `refine` and `design` stop at their respective outcomes. `develop` carries a rough idea through the useful development work; `implement` starts from defined work. Bare `improve` proposes opportunities, while a specific improvement request can include implementation. `change-review` assesses by default; posting reviews, editing source, merging and deploying require that action to be in scope. A routine test request does not authorize deployed load or faults.
+`plan`, `refine` and `design` stop at their respective outcomes. `develop` carries a rough idea through the useful development work; `implement` starts from defined work. Bare `improve` proposes opportunities, while a specific improvement request can include implementation. Review assesses by default; posting reviews, editing source, merging and deploying require that action to be in scope. A routine test request does not authorize deployed load or faults.
 
 `implement` comes from the pinned upstream set with local framing. Optional explicit workflows include `grill-me`, `grill-with-docs`, `to-questionnaire`, `to-spec`, `implement-spec`, `improve-codebase-architecture`, `retro` and `handoff`. Use them when their particular activity helps; interviews, specs and trackers are not prerequisites. [Upstream selection](maintainers/sources.md#matt-pocock-selection) explains their fit and dependencies.
 
@@ -141,7 +141,7 @@ The same activities can run from trusted automation prompts. The host supplies t
 | --- | --- |
 | Work enters refinement | `refine`: actionable scope or decision blockers |
 | Defined work is ready | `implement`: the supplied conversation, spec or optional ticket |
-| PR is ready | `change-review`: the exact base/head and required behavior |
+| PR is ready | review composition: the exact base/head and required behavior |
 | Scheduled maintenance | `dependencies` or `improve`: bounded work under the configured policy |
 
 Supply repository/ref, objective/context, unattended mode, allowed actions and result destination. For example:

@@ -6,6 +6,7 @@ Start with the outcome you need. These pages have one dominant purpose each; dee
 | --- | --- |
 | Understand the collection and choose plugins | [Root README](../README.md) |
 | Install, load and update the bundles | [Installation](installation.md) |
+| Choose a start-to-finish task path | [Start here](start-here.md) |
 | Understand how activities, artifacts, contracts and guides fit | [Plugin architecture](architecture.md) |
 | Walk the SDLC phases and entry points | [SDLC coverage](sdlc.md) |
 | Look up skills by area or upstream technique | [SDLC skill reference](sdlc-reference.md) |

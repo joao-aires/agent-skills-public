@@ -22,7 +22,7 @@ Within a contract file, treat the reader questions, the `## Contract` block, mat
 
 ### Guide pairing
 
-Every artifact type has a contract and, where the craft is distinct, a guide. The one-to-one pairing is maintained in the [guide registry](../catalog.md#guide-registry); do not duplicate it here.
+Every artifact type has a contract and, where the craft is distinct, a guide. The one-to-one pairing is maintained in the [guide registry](../guide-registry.md); do not duplicate it here.
 
 A guide owns structure, conventions, examples, common failures and review. The contract owns lifecycle, authority, maturity, evidence and handoff. Guides are self-contained and do not link back into the artifact system.
 

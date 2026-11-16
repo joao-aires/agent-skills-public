@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 """Validate the artifact/contract/guide registry and its files."""
+import argparse
 import json
 from pathlib import Path
 
@@ -8,6 +9,36 @@ ARTIFACTS = ROOT / 'plugins/sdlc/skills/artifact-system/references'
 REGISTRY = ARTIFACTS / 'artifact-registry.json'
 CONTRACTS = ARTIFACTS / 'contracts'
 GUIDES = ROOT / 'plugins/sdlc/skills'
+OUTPUT = ARTIFACTS / 'guide-registry.md'
+
+NAMES = {
+    'product-brief': 'Product brief / PRD',
+    'roadmap': 'Roadmap',
+    'ecr': 'ECR',
+    'research-report': 'Research report',
+    'rfc': 'RFC',
+    'design-proposal': 'Design proposal',
+    'design-specification': 'Design specification',
+    'issue': 'Issue',
+    'pull-request': 'Pull request',
+    'architecture-set': 'Architecture set',
+    'c4-view': 'C4 view',
+    'sequence-view': 'Sequence view',
+    'state-machine': 'State machine',
+    'compatibility-matrix': 'Compatibility matrix',
+    'decision-record': 'Decision record',
+    'assurance-assessment': 'Assurance assessment',
+    'runbook': 'Runbook',
+    'api-reference': 'API reference',
+    'work-product': 'Work product',
+    'release-note': 'Release note',
+    'deployment-record': 'Deployment record',
+    'incident-record': 'Incident record',
+    'postmortem': 'Postmortem',
+    'repository-readme': 'Repository README',
+    'guide': 'Guide',
+    'glossary': 'Glossary',
+}
 
 
 def load():
@@ -51,11 +82,44 @@ def validate():
     return errors
 
 
+def display(entry):
+    return NAMES.get(entry['type'], entry['type'].replace('-', ' ').title())
+
+
+def generate():
+    rows = []
+    for entry in load():
+        contract = entry.get('contract')
+        contract_cell = f'[{Path(contract).name}]({contract})' if contract else entry.get('guidance', 'No Markdown contract')
+        guide = entry.get('guide')
+        guide_cell = f'[{guide}](../../{guide}/SKILL.md)' if guide else entry.get('guidance', 'No dedicated guide')
+        rows.append(f'| {display(entry)} | {contract_cell} | {guide_cell} |')
+    return (
+        '# Artifact guide registry\n\n'
+        'Generated from `artifact-registry.json` by `python scripts/artifact_registry.py --write`.\n'
+        'Do not edit by hand.\n\n'
+        '| Artifact | Contract | Guide |\n'
+        '| --- | --- | --- |\n'
+        + '\n'.join(rows) + '\n'
+    )
+
+
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--write', action='store_true', help='write the generated guide registry')
+    parser.add_argument('--check', action='store_true', help='fail if the generated registry is stale')
+    args = parser.parse_args()
     errors = validate()
     if errors:
         raise SystemExit('\n'.join(errors))
     entries = load()
+    if args.write:
+        OUTPUT.write_text(generate())
+        print(f'Wrote {OUTPUT}')
+    if args.check:
+        if not OUTPUT.exists() or OUTPUT.read_text() != generate():
+            raise SystemExit(f'{OUTPUT} is stale; run python scripts/artifact_registry.py --write')
+        print('Guide registry is current')
     print(f'Artifact registry valid: {len(entries)} artifacts, '
           f'{sum(1 for e in entries if e.get("contract"))} contracts, '
           f'{sum(1 for e in entries if e.get("guide"))} guides')

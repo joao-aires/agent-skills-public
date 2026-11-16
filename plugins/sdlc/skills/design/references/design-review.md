@@ -2,7 +2,7 @@
 
 Use this review on a design proposal, an ECR solution-design section or a design change. It checks whether the decision is understandable, the options are real and the evidence is sufficient for implementation to depend on them.
 
-It complements [artifact assurance](../../artifact-system/references/assurance.md) and the `change-review` activity. `change-review` remains the activity; this reference supplies the design-specific questions.
+It complements [artifact assurance](../../artifact-system/references/assurance.md) and the review composition. This reference supplies the design-specific review questions; the activity remains the in-review step in `develop` or `implement`.
 
 ## Review the proposal
 

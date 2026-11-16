@@ -46,7 +46,7 @@ The generated `claude-marketplace` branch is distribution output; never edit it 
 
 ## Naming and invocation
 
-Use lowercase kebab-case: short activities for tasks (`develop`, `test`, `change-review`) and recognizable disciplines for support (`interface-design`, `performance-testing`). Preserve upstream names and established operations terminology. Rename folders, frontmatter and maintained references together; record old names in [migration](migration.md#local-skill-naming), without duplicate aliases.
+Use lowercase kebab-case: short activities for tasks (`develop`, `test`, `code-review`) and recognizable disciplines for support (`interface-design`, `performance-testing`). Preserve upstream names and established operations terminology. Rename folders, frontmatter and maintained references together; record old names in [migration](migration.md#local-skill-naming), without duplicate aliases.
 
 | Metadata | Meaning |
 | --- | --- |
@@ -55,7 +55,7 @@ Use lowercase kebab-case: short activities for tasks (`develop`, `test`, `change
 | `role` | `task` entry point or `support` guidance |
 | `invocation` | Preferred `user`, `agent` or `both` usage |
 
-Labels do not enforce permissions. Named explicit-only entries retain their native controls. Local refine, design, develop and fix can also be selected from conversational intent; most local support is model-available with `user-invocable: false`. Product-management, interface-design, backend-design, UX writing and usability research are also directly selectable with `user-invocable: true`, using the same body for people and agents. Preserve upstream controls and record client limitations. [activity-system](../plugins/sdlc/skills/activity-system/SKILL.md) owns activity selection, execution scope, project fit and consequential decisions. The engineering artifact and workspace skills own their respective contracts.
+Labels do not enforce permissions. `user-invocable` controls the direct user command surface; it does not hide a skill from the agent. `disable-model-invocation` is the actual agent auto-invocation gate. Most local support is agent-usable with `user-invocable: false`. Product-management, interface-design, backend-design, UX writing and usability research are also directly selectable with `user-invocable: true`, using the same body for people and agents. Preserve upstream controls and record client limitations. [activity-system](../plugins/sdlc/skills/activity-system/SKILL.md) owns activity selection, execution scope, project fit and consequential decisions. The engineering artifact and workspace skills own their respective contracts.
 
 ## Capability architecture
 

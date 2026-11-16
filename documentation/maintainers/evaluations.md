@@ -17,6 +17,9 @@ The [behavioral scenario specification](../../evals/behavioral-scenarios.json) d
 
 These are application-level scenarios, not replacement cases for the existing workflow matrix. Grade them on delivered behavior and artifact consistency, not on whether a particular skill name appears in the prose.
 
+Initial fixture states live in [`evals/fixtures/`](../../evals/fixtures/). Copy a fixture to a fresh temporary directory before each run; do not run the actor in the fixture itself. `new-app` and `ideation` start with only the task, `existing-feature` starts green, and `bug-fix` starts red.
+
+
 A [2026-11-15 scenario record](../../evals/results/behavioral-scenarios/assessment.md) covers all four scenarios. All 20 scenario expectations were met, with 120/120 tests passing across the four fixtures. The record retains the agents' `EVAL.md` reports, the delivered code and docs, the cross-scenario friction log and the evidence limits. It is a **single-model, single-run, prompted-skill** record: it shows application and usability, not discovery, routing or independent assurance.
 
 A [second 2026-11-15 record](../../evals/results/independent-scenarios/assessment.md) repeats the four scenarios with **independent actor and reviewer contexts**. Actor prompts did not name skills; each actor had to discover what applied. Separate reviewers reran tests and graded each result. All 20 expectations were met with 100/100 tests. The reviewers found evidence-hygiene and edge-case issues the self-evaluations missed, which is the value of the separate review context. It remains a single-model-family record.
