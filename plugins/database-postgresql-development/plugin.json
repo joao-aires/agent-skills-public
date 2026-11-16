@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "database-postgresql-development",
-  "version": "0.1.2",
-  "description": "PostgreSQL schema, transactions, performance and operations; original guidance with reviewed upstream and first-party source references.",
+  "version": "0.2.0",
+  "description": "PostgreSQL schema, transactions, performance and operations, plus an acquired Supabase Postgres best-practices skill and reviewed upstream references.",
   "author": {
     "name": "João Aires"
   },

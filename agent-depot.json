@@ -45,6 +45,9 @@
     },
     "nextlevelbuilder-ui-ux-pro-max": {
       "repository": "https://github.com/nextlevelbuilder/ui-ux-pro-max-skill.git"
+    },
+    "supabase-agent-skills": {
+      "repository": "https://github.com/supabase/agent-skills.git"
     }
   },
   "artifacts": {
@@ -1419,6 +1422,41 @@
             "origin": "upstream",
             "pack": "craft",
             "domain": "frontend",
+            "phase": "cross-phase"
+          }
+        }
+      }
+    },
+    "database-postgresql-development--supabase-postgres-best-practices": {
+      "source": "supabase-agent-skills",
+      "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+      "kind": "skill",
+      "path": "skills/supabase-postgres-best-practices",
+      "destination": "plugins/database-postgresql-development/skills/supabase-postgres-best-practices",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "destination": "UPSTREAM-LICENSE.txt"
+        }
+      ],
+      "metadata": {
+        "packaging": {
+          "plugin": "database-postgresql-development",
+          "license": "MIT",
+          "license_path": "LICENSE",
+          "adaptations": [
+            "usage-labels",
+            "support-visibility"
+          ],
+          "labels": {
+            "scope": "stack-specific",
+            "invocation": "both",
+            "stack": "PostgreSQL, Supabase",
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream",
+            "pack": "technical",
+            "domain": "database",
             "phase": "cross-phase"
           }
         }
