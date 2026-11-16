@@ -1,0 +1,61 @@
+flowchart TB
+  subgraph Intent
+    PRD["Product brief / PRD"]
+    ROAD["Roadmap"]
+  end
+
+  subgraph Coordination
+    ECR["ECR"]
+    DP["Design proposal"]
+    ISS["Issue / pull request"]
+  end
+
+  subgraph System["System knowledge"]
+    ARCH["Architecture set"]
+    ADR["Decision records"]
+    VIEWS["C4 and sequence views"]
+    RB["Runbook"]
+    LEARN["Incident record / postmortem"]
+  end
+
+  subgraph Implementation
+    CODE["Code / tests / migrations"]
+  end
+
+  subgraph Delivery["Delivery and operations"]
+    REL["Release note"]
+    DEP["Deployment record"]
+  end
+
+  subgraph Entry["Entry and knowledge"]
+    README["README / guides"]
+  end
+
+  PRD -->|informs| ECR
+  ROAD -->|sequences| ECR
+  ECR -->|links| DP
+  DP -->|links| ARCH
+  ARCH -->|contains| VIEWS
+  ARCH -->|links| ADR
+  ECR -->|implements| CODE
+  CODE -->|review evidence| ISS
+  CODE -->|releases| REL
+  REL -->|deploys| DEP
+  DEP -->|operates| RB
+  RB -->|records| LEARN
+  LEARN -->|reopens| ECR
+  README -->|onboards| CODE
+
+  classDef intent fill:#e8f1e4,stroke:#5b8a4a,color:#1f3d1a
+  classDef coordination fill:#e8eef9,stroke:#4a6fa5,color:#1e3a5f
+  classDef system fill:#f3ecf7,stroke:#7a5a99,color:#3d2a4d
+  classDef implementation fill:#e6f4f1,stroke:#3f8f7a,color:#1e4a40
+  classDef delivery fill:#fdf1e6,stroke:#b5783a,color:#5a3214
+  classDef entry fill:#f0f0f0,stroke:#777777,color:#333333
+
+  class PRD,ROAD intent
+  class ECR,DP,ISS coordination
+  class ARCH,ADR,VIEWS,RB,LEARN system
+  class CODE implementation
+  class REL,DEP delivery
+  class README entry

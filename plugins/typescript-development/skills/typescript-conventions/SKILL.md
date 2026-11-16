@@ -6,6 +6,11 @@ description: Build, extend or review TypeScript libraries, services and clients 
   of a frontend framework.
 license: MIT
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: typescript
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   role: support

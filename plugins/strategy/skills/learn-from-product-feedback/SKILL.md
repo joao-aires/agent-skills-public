@@ -5,6 +5,11 @@ description: Analyze user feedback and product usage to evaluate outcomes, ident
   investigating adoption/usability or prioritizing evidence; do not start surveys,
   contact users or install analytics without a request.
 metadata:
+  kind: activity
+  origin: local
+  pack: product
+  domain: product
+  phase: cross-phase
   scope: generic
   invocation: both
   role: task
@@ -12,7 +17,6 @@ metadata:
 
 # Learn from product feedback
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 ## Ask a decision question
 

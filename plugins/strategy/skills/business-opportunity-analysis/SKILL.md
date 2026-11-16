@@ -6,6 +6,11 @@ description: Deprecated legacy compatibility skill. Use only when explicitly inv
   OSS commercialization, unit economics, moats, and valuation. Prefer business-strategy
   for all new strategy work.
 metadata:
+  kind: activity
+  origin: local
+  pack: product
+  domain: product
+  phase: planning
   version: 2.0-compat
   deprecated: 'true'
   scope: generic
@@ -15,7 +20,6 @@ metadata:
 
 # Business Opportunity Analysis — Legacy Compatibility
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 The primary skill is now `business-strategy`.
 

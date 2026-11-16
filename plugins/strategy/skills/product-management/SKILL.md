@@ -3,6 +3,11 @@ name: product-management
 description: Shape product direction from user problems, evidence and constraints. Use for discovery, prioritization, useful first slices, success measures and product sequencing before development or when new evidence changes priorities; reuse accepted decisions for defined changes.
 user-invocable: true
 metadata:
+  kind: method
+  origin: local
+  pack: product
+  domain: product
+  phase: planning
   scope: generic
   invocation: both
   role: support
@@ -10,7 +15,6 @@ metadata:
 
 # Decide which product outcome to pursue
 
-Read [composition guidance](../../COMPOSITION.md) for optional expertise, fallback and scope.
 
 Help decide which user problem to address, what to deliver first and how to find out whether it helped. Apply directly to a product question or as support in an authorized development engagement.
 

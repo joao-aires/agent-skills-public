@@ -1,8 +1,10 @@
 # Plugin and skill architecture
 
-The collection separates the work someone requests, the expertise that improves it and the technology chosen for its implementation. I package useful capabilities as plugins. A plugin is an installation and update boundary; it does not define an execution order or require other plugins.
+The collection separates the work someone requests, the expertise that improves it and the technology chosen for its implementation. I package useful capabilities as plugins. A plugin is an installation and update boundary; it does not define an execution order or require other plugins. The [metadata contract](metadata.md) records the skill, pack, domain and phase classification used across the collection.
 
-The repository builds 25 independently selectable plugins: 13 generic capability packages and 12 technical packages. The [ownership map](maintainers/sources.md#plugin-ownership) assigns all 119 skills. Development is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. Distribution uses complete built plugins; the legacy local-skill helper is a migration aid.
+Design work is typed by **component**: [frontend, backend, AI or library/CLI](../plugins/sdlc/skills/artifact-system/references/software-types.md). Software type selects the typical artifacts and evidence a design needs; it is not a skill label, a project-wide category or a reason to split plugins. Work may keep several activity threads open at once; [engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) records the focus, parallel threads and reopens.
+
+The repository builds 21 independently selectable plugins: 9 generic capability packages and 12 technical packages. The [ownership map](maintainers/sources.md#plugin-ownership) assigns all 133 skills. SDLC is the default build, with no bundled technical skills. Capability selection and absent-specialist fallback are instruction contracts; structural package checks do not prove agent adherence. Distribution uses complete built plugins; the legacy local-skill helper is a migration aid.
 
 ## Activities, methods and technical expertise
 
@@ -41,21 +43,9 @@ A user can still explicitly select a known skill. Help may name actual observed 
 
 ## Example: AI design, evaluation and operation
 
-The same concern can need conceptual guidance and a selected implementation. Keep their responsibilities separate:
+Keep the generic AI methods separate from a selected implementation. [AI development](../plugins/ai-development/skills/ai-development/SKILL.md) owns application patterns, protocols and boundaries; [AI testing](../plugins/ai-development/skills/ai-testing/SKILL.md) owns evaluation strategy and evidence; [AI operations](../plugins/ai-development/skills/ai-operations/SKILL.md) owns task signals, limits, drift and recovery. Python/provider, ADK and LangChain packages supply selected implementation detail.
 
-| Responsibility | Capability | Implementation boundary |
-| --- | --- | --- |
-| Application patterns, architecture and protocol tradeoffs | [Generic AI development](../plugins/ai-development/skills/ai-development/SKILL.md) | No provider, model, framework or evaluation SDK required |
-| Testing strategy and evidence | [AI testing](../plugins/ai-development/skills/ai-testing/SKILL.md) | Generic evaluation levels, cases, graders, acceptance and regression evidence |
-| AI operating decisions | [AI operations](../plugins/ai-development/skills/ai-operations/SKILL.md) | Generic task/quality signals, provider limits, cost, drift and recovery |
-| Execute a selected evaluation approach | [ai-deepeval-testing](../plugins/ai-python-development/skills/ai-deepeval-testing/SKILL.md) | Python/DeepEval runner, datasets, metrics and CI integration; the application itself may use another language |
-| Collect AI execution evidence | [python-ai-observability](../plugins/ai-python-development/skills/python-ai-observability/SKILL.md) | Python/OpenTelemetry instrumentation, propagation, privacy and export verification |
-| Service signal/target design and operating response | Generic reliability and observability expertise | Task outcomes, useful signals and operating decisions independent of a backend |
-| Run a Collector, store or dashboard | Matching deployment/tool expertise | The actually chosen infrastructure/backend |
-
-The generic AI skills own different decisions: development shapes the application and its boundaries, testing defines useful evidence, and operations governs AI operating behavior. Evaluation judges quality; observability explains execution and operating behavior. A platform can offer both without making them the same evidence. These capabilities compose when relevant; loading the generic AI package neither installs the Python package nor requires its specialists. Each generic discipline retains enough essential reasoning to work without another specialist; detailed evaluation methods belong to AI testing rather than the development entry point. Future implementation libraries belong with matching technical expertise without changing the generic reasoning contract.
-
-For consequential model exchanges, [input/output design](../plugins/ai-development/skills/ai-development/references/model-io-design.md) explains how the consumer, evidence and allowed effects determine the contract and recovery. [Performance/resource guidance](../plugins/ai-development/skills/ai-operations/references/performance-and-resources.md) selects optimizations from observed constraints and accepted quality. Compact representations, caching and partial recomputation are conditional techniques, not a required architecture for AI applications.
+Evaluation judges quality; observability explains execution. A platform can offer both without making them the same evidence. The generic disciplines retain enough reasoning to work without the Python or framework packages.
 
 ## Compose without optional dependencies
 
@@ -85,7 +75,7 @@ Adding stack expertise should improve matching through its description and imple
 
 ## Implementation and evidence
 
-The builder supports independent packages and a development-only default; workflow guidance defines capability selection and fallback. Required internal Markdown resources and injected upstream framing are checked within each package. Every package is built and checked independently, in addition to the complete build. The [installation guide](installation.md) describes selection and client-specific loading; documented setup does not establish client discovery or correct agent behavior.
+The builder supports independent packages and an SDLC-only default; workflow guidance defines capability selection and fallback. Required internal Markdown resources and injected upstream framing are checked within each package. Every package is built and checked independently, in addition to the complete build. The [installation guide](installation.md) describes selection and client-specific loading; documented setup does not establish client discovery or correct agent behavior.
 
 Metadata, link, containment, inventory and resource checks establish packaging integrity. They do not establish that an agent discovers the right expertise, uses it well or produces a working application. Behavioral coverage is incomplete. Evaluation should exercise matching specialists present, absent and partially available, plus an existing different stack, a client without discovery and a genuinely unavailable execution target. Judge preserved outcomes, scope and evidence rather than particular skill names or read counts. See [evaluation procedures and limits](maintainers/evaluations.md).
 
