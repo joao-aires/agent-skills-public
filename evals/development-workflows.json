@@ -2898,6 +2898,97 @@
         "Ignoring steady high throughput or connection pooling fails.",
         "Planning a whole-API cutover without rollback fails."
       ]
+    },
+    {
+      "id": "skill-authoring-expand-vs-new",
+      "prompt": "A contributor proposes a new `api-review` skill. The collection already has `design`, `rest-api-design`, `graphql-design`, `code-review` and artifact guides. Decide whether this should be a new skill, an expansion or no change.",
+      "evaluator_setup": "Supply the proposed skill outline and the existing capability map. Design/review is authorized; no repository edits are authorized.",
+      "criteria": [
+        "Names the nearest existing owners and the outcome each already covers.",
+        "Determines whether the proposal has a distinct outcome, stopping point, authority or evidence.",
+        "Recommends expansion, a narrower new skill or no change with a concrete boundary.",
+        "Avoids creating a skill for stable lookup material or a topic label.",
+        "States the trigger and nearest adjacent skill if a new skill is justified."
+      ],
+      "evidence": [
+        "Capability comparison",
+        "Boundary decision",
+        "Proposed trigger and stopping point"
+      ],
+      "negative_controls": [
+        "Approving a new skill because the proposed name is new fails.",
+        "Duplicating `rest-api-design` or `code-review` under a new name fails.",
+        "Creating a skill for a lookup table with no distinct capability fails."
+      ]
+    },
+    {
+      "id": "skill-authoring-progressive-disclosure",
+      "prompt": "A draft skill has a 200-line API reference, flag tables and a full tutorial in SKILL.md. Restructure it into a capability contract with progressive disclosure.",
+      "evaluator_setup": "Supply the draft and the repository authoring rule. Editing the draft is authorized; no external publication is authorized.",
+      "criteria": [
+        "Keeps the outcome, triggers, local judgment, failure modes and completion evidence in the body.",
+        "Moves conditional checklists, examples and stable detail into references with clear triggers.",
+        "Moves deterministic operations to scripts or identifies why a script is not appropriate.",
+        "Links or verifies external API/flag/version authority instead of freezing it.",
+        "Keeps the core capability usable when the external docs are unavailable."
+      ],
+      "evidence": [
+        "Revised skill structure",
+        "Reference/script decisions",
+        "Retained fallback",
+        "Removed external detail"
+      ],
+      "negative_controls": [
+        "Moving every rule to a link and leaving no method fails.",
+        "Copying the same API detail into two references fails.",
+        "Keeping a tutorial in the body because it is convenient fails."
+      ]
+    },
+    {
+      "id": "skill-authoring-script-not-prose",
+      "prompt": "A proposed skill asks the agent to validate a JSON manifest, compare schema versions and generate a report. The draft explains the algorithm in prose. Improve the skill.",
+      "evaluator_setup": "Supply the draft, a small fixture manifest and the repository authoring rule. Local script creation and tests are authorized.",
+      "criteria": [
+        "Moves deterministic validation, comparison and report generation into a script or tested utility.",
+        "Keeps the skill body focused on when to run it, inputs, failure interpretation and evidence.",
+        "Defines the script interface, exit status and output contract.",
+        "Tests the script on valid, invalid and edge-case fixtures.",
+        "Does not make the script depend on an optional plugin."
+      ],
+      "evidence": [
+        "Script/interface",
+        "Skill body",
+        "Fixture results",
+        "Failure behavior"
+      ],
+      "negative_controls": [
+        "Leaving the algorithm as prose fails.",
+        "A script with no failure contract or tests fails.",
+        "Requiring another plugin to run the validator fails."
+      ]
+    },
+    {
+      "id": "skill-authoring-trigger-and-eval",
+      "prompt": "A draft skill has a vague description and no behavioral tests. Define realistic trigger and near-miss prompts, a baseline, and a small evaluation loop.",
+      "evaluator_setup": "Supply the draft description and three intended requests. Evaluation design is authorized; no live client/discovery claims are authorized.",
+      "criteria": [
+        "Writes realistic trigger prompts, including near-misses that should use another skill.",
+        "Defines a with-skill/without-skill or previous-version baseline.",
+        "Includes negative controls and checks the transcript, not only final prose.",
+        "Limits claims to the executed cases and environment.",
+        "Revises the method rather than overfitting the description to the test prompts."
+      ],
+      "evidence": [
+        "Trigger set",
+        "Baseline plan",
+        "Negative controls",
+        "Evidence limits"
+      ],
+      "negative_controls": [
+        "Using only the happy-path prompt fails.",
+        "Treating a definition check as behavioral evidence fails.",
+        "Adding exact test phrases to the description to force triggering fails."
+      ]
     }
   ],
   "generation_trials": [
@@ -3692,6 +3783,17 @@
         "architecture-migration-reversibility",
         "architecture-pattern-first-crud",
         "serverless-cost-assumption"
+      ],
+      "trial_ids": []
+    },
+    {
+      "id": "skill-authoring-and-maintenance",
+      "outcome": "Create or revise skills as capability contracts with clear triggers, progressive disclosure, tested behavior and maintainable boundaries.",
+      "case_ids": [
+        "skill-authoring-expand-vs-new",
+        "skill-authoring-progressive-disclosure",
+        "skill-authoring-script-not-prose",
+        "skill-authoring-trigger-and-eval"
       ],
       "trial_ids": []
     }

@@ -193,6 +193,8 @@ The Community candidates above remain references. The MIT better-interface repos
 
 I use technical-writing for cross-type writing craft. System documentation in sdlc explains current architecture, including structural, runtime, interface and deployment views; system-design owns proposed architecture. The artifact system owns artifact contracts, planes, homes, quality and assurance. These are original local skills; no upstream resources or invocation controls are imported.
 
+`skill-authoring` is original local guidance for this collection. Its skill anatomy, progressive-disclosure model and authoring loop are informed by Anthropic's [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) and by the pinned `writing-for-agents` reference; the local method adds the repository's capability boundary, knowledge-ownership rule, cross-plugin composition, evaluation and packaging requirements. No upstream text is copied.
+
 The source review compares [Anthropic doc-coauthoring](https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/doc-coauthoring/SKILL.md) and [GitHub documentation-writer](https://github.com/github/awesome-copilot/blob/8bc0f5715b2ddc7901a62fddf144ded30d56de8b/skills/documentation-writer/SKILL.md). Context gathering, reader questions, accuracy and terminology fit; mandatory collaboration/outline approvals do not fit routine authorized upkeep. Diátaxis and Google technical writing inform the authoring method; C4, arc42 and OpenAPI inform architecture coverage. References remain with the skills and do not establish complete standards conformance.
 
 ### Skill-writing references
@@ -275,7 +277,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 21 independent packages and 143 skills: 104 local and 39 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 21 independent packages and 144 skills: 105 local and 39 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
 
 Skills carry a small classification layer: `kind` (system, activity, method, workflow or reference), `origin` (local or upstream), `scope`, `invocation` and `role`. Local skills are validated for the required fields; acquired labels come from `agent-depot.json` and are injected at build time without editing upstream bytes. Run `python scripts/skill_inventory.py` for the generated maintainer matrix.
 
@@ -292,7 +294,7 @@ The collection has 9 generic capability packages and 12 optional technical packa
 | `frontend-development` | Generic | 6 | Integrated interface design, design research, UX writing and usability research across web, desktop and mobile. |
 | `backend-development` | Generic | 6 | Service authority, state, failure, durable work, architecture pattern selection, HTTP and GraphQL contracts, event-driven integration and distributed-systems reasoning. |
 | `ai-development` | Generic | 4 | AI application/architecture and protocol design; evaluation methods and programs; AI-specific operating decisions and evidence. |
-| `documentation` | Generic support | 3 | Cross-type technical writing craft, intuitive explanation and prose editing. |
+| `documentation` | Generic support | 4 | Cross-type technical writing craft, intuitive explanation, skill authoring and prose editing. |
 | `visualization` | Generic support | 3 | Diagrams, presentations and interactive system explanation; preserve executable resources. |
 | `backend-python-development` | Technical | 3 | Python/FastAPI/persistence and Python automation; no backend service required for CLI work. |
 | `frontend-reactjs-development` | Technical | 5 | React/Next.js/shadcn/Tailwind and their actual component APIs. |
@@ -346,7 +348,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 143 skills and their current owners</summary>
+<summary>All 144 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -444,6 +446,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [technical-writing](../../plugins/documentation/skills/technical-writing/SKILL.md) | Local | `documentation` |
 | [explain](../../plugins/documentation/skills/explain/SKILL.md) | Local | `documentation` |
 | [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) | Upstream | `documentation` |
+| [skill-authoring](../../plugins/documentation/skills/skill-authoring/SKILL.md) | Local | `documentation` |
 | [architecture-diagramming](../../plugins/visualization/skills/architecture-diagramming/SKILL.md) | Local | `visualization` |
 | [presentation-building](../../plugins/visualization/skills/presentation-building/SKILL.md) | Local | `visualization` |
 | [system-flow-explorer](../../plugins/visualization/skills/system-flow-explorer/SKILL.md) | Local | `visualization` |
@@ -506,7 +509,7 @@ Figma remains optional tooling declared by frontend-development; the React techn
 
 ### Verification coverage
 
-The assignment covers 104 local skills and 39 distinct acquired skills exactly once, with no omissions or duplicate owners.
+The assignment covers 105 local skills and 39 distinct acquired skills exactly once, with no omissions or duplicate owners.
 
 All packages build together with `--all` and independently with explicit selection. Package checks verify inventories, local-resource parity, notices, required framing, and transitive owned Markdown links staying inside their bundle. CI also checks the default sdlc-only build. These checks do not establish agent behavior; behavioral evaluations remain deferred.
 

@@ -113,57 +113,85 @@ Give each rule one owning location within a bundle. Keep material needed on ever
 
 An observed failure should improve a general decision rule, a navigation pointer, a deterministic tool or an evaluation. Keep its concrete reproduction in the evaluation rather than adding another prohibition to every skill. Check that the revision preserves the intended outcome, safeguards, explicit user preferences and completion evidence. Compare both old regressions and unfamiliar scenarios; shorter text alone is not evidence of better behavior.
 
-### Durable guidance, external detail
+### Own the capability, disclose the detail, link the authority
 
-**A skill is a decision procedure and a local standard, not a mirror of external documentation.**
+**A skill is a scoped capability contract, not a summary of external documentation.**
 
-A skill owns the decisions, standards, conventions, tradeoffs, failure modes, authority and evidence that are specific to this collection. It should orient the agent, state what must be verified, and route to the authoritative source for volatile detail.
+A skill tells an agent what outcome it owns, how to reach it, which judgment and local standards matter, what evidence proves completion, and what to load, execute or look up. It is not only a decision procedure. An activity may need ordered steps; a method may need judgment and tradeoffs; a reference may be mostly lookup; a workflow may be a sequence; a guide may prescribe an artifact shape. Those forms are valid when the skill's job requires them.
 
-#### Knowledge layers
+#### Skill anatomy and progressive disclosure
 
-| Layer | Owns | Examples |
+| Layer | Role | Typical content |
 | --- | --- | --- |
-| **Method / skill** | The job, entry conditions, stopping point, authority, decisions, invariants, tradeoffs, failure modes, evidence and handoff. | When a model judge is justified. What must remain an exact assertion. What evidence supports a release decision. |
-| **Local reference** | Stable local checklists, decision tables, short examples, source interpretations and compatibility notes that are too long for the entry point. | How to map an evaluation decision to a representation. What a complete evidence record contains. |
-| **External authority** | API signatures, flags, config keys, syntax, version matrices, vendor limits, pricing and tutorials. | The installed framework's API docs, a provider's configuration reference, a current specification. |
+| Metadata and description | Always in context; decides when the skill is reached | Name, triggering contexts, outcome, nearest adjacent work |
+| `SKILL.md` body | Loaded when the skill is selected | Steps, decisions, local standards, failure modes, completion criteria, pointers |
+| `references/` | Loaded only for a branch or a deeper question | Stable checklists, decision tables, examples, source interpretations, compatibility notes |
+| `scripts/` | Executed when deterministic work is needed | Validators, generators, converters, analyzers |
+| `assets/` | Used in the output | Templates, fixtures, icons, fonts, boilerplate |
 
-#### What belongs where
+Use **progressive disclosure**: keep the entry point legible and inline what every branch needs; push conditional detail into a reference with a clear trigger. Use a script when the work is deterministic or repetitive, rather than asking the agent to reproduce it from prose. Use an asset when the output needs a stable artifact.
 
-| Keep in the skill | Keep in a package reference | Link to the external authority |
+Anthropic's skill-creator informs this anatomy; this repository's `writing-for-agents` reference owns the finer instruction-writing levers, and `technical-writing` owns prose craft. Do not duplicate those methods here.
+
+#### Knowledge ownership
+
+| Knowledge | Where it belongs | Why |
 | --- | --- | --- |
-| The job, entry conditions, stopping point and authority. | A stable decision table, checklist or worked example that is too long for the entry point. | API signatures, flags, configuration keys, syntax, version-specific behavior, vendor limits and tutorials. |
-| Selection criteria, invariants, tradeoffs and failure modes. | The local convention that interprets an external standard. | Pricing, quotas, plan gating and commercial terms. |
-| The minimum names needed to recognize the tool or standard. | A short example that demonstrates a decision. | Full API reference, exhaustive option lists and framework walkthroughs. |
-| Evidence and completion checks. | A dated source review or compatibility note. | The current primary source, checked at use time. |
+| Outcome, entry conditions, stopping point, authority | Skill body | The agent must know what work it is doing and where it stops. |
+| Local standards, conventions, accepted decisions | Skill body or a local reference | They cannot be reconstructed from a public source. |
+| Judgment, tradeoffs, failure modes, evidence | Skill body | This is the capability the skill exists to provide. |
+| Stable checklists, decision tables, worked examples | Local reference | Useful, but too long for every invocation. |
+| Deterministic transformation or check | Script | Executable knowledge beats prose and can be tested. |
+| Output template, fixture, icon, font | Asset | It is used in the result, not read as guidance. |
+| API signatures, flags, config keys, syntax | External authority | The framework or provider owns them and changes them. |
+| Version-specific behavior, quotas, pricing, plan limits | External authority or a dated vendor note | Commercial and release facts change independently. |
+| Environment facts (scripts, layout, generated inventories) | The environment or a generated check | A copy becomes a stale cache. |
+
+The rule of thumb is: **own the judgment and the procedure, disclose the branch detail, execute the deterministic part, and link or verify the authority.** A skill that only links has abdicated its method; a skill that mirrors docs has taken on maintenance it cannot win.
 
 #### Review tests
 
-- **Link test:** can this paragraph become a link plus a decision without losing what the agent needs to choose?
-- **Change-rate test:** would a framework release, vendor plan or API change require editing this? If yes, it is external detail.
-- **Context test:** must this be in context on every use, or can it be loaded conditionally?
-- **Judgment test:** does it help choose, verify, recover or recognize a failure? If it only describes an API, it is not method.
-- **Conflict test:** if external sources disagree, does the skill state the selection criterion?
-- **Fallback test:** if the external docs are unavailable, can the agent proceed safely? If not, keep a minimal fallback.
-- **Evidence test:** does the skill distinguish documented behavior from installed or observed behavior?
+- **Outcome test:** does the skill change what the agent does compared with no skill?
+- **Trigger test:** does the description reach the intended requests and avoid the nearest adjacent work?
+- **Execution test:** can the agent start, act, verify and stop using the skill?
+- **Branch test:** is conditional detail disclosed behind a clear pointer, while every-path material stays inline?
+- **Authority test:** does the skill state what to look up or verify, instead of freezing it?
+- **Change-rate test:** can the skill survive a framework, vendor or API release without edits?
+- **Evidence test:** does it distinguish documented behavior from installed or observed behavior?
+- **Context test:** does it avoid no-ops, duplication and material the agent already has?
+- **Safety test:** is the intent unsurprising, and does it avoid malware, exfiltration, hidden access or destructive surprise?
+- **Maintenance test:** is each meaning in one authoritative place, with a clear owner and validation path?
 
 #### Anti-patterns
 
-- **Documentation shadow:** restating API docs in the skill.
+- **Documentation shadow:** restating API docs or a framework tutorial.
 - **Version fossil:** freezing flags, signatures or config keys that change.
-- **Tutorial bloat:** long examples that teach the framework rather than the decision.
+- **Tutorial bloat:** long examples that teach the framework rather than the capability.
 - **Link-only abdication:** a page of links with no method, selection criteria or failure modes.
 - **Vendor ventriloquism:** repeating marketing claims or pricing as engineering facts.
 - **Checklist without a decision:** options with no criteria for choosing.
-- **Canonical duplication:** the same external fact copied into several skills.
+- **Canonical duplication:** the same meaning copied into several skills.
+- **Sediment:** stale layers that remain because adding feels safer than removing.
+- **No-op instruction:** guidance the model already follows by default.
 
-#### When duplication is justified
+#### When detail belongs in the skill
 
 Keep the detail when it is a safety, security or authority invariant; a local convention or accepted decision; a non-obvious trap or a criterion for choosing between external options; the external docs are unreliable, inaccessible or version-fragmented; a minimal name or command is needed for orientation; or an offline fallback is required.
-
-#### Audit
-
-See the [guidance audit](maintainers/guidance-audit.md) for the 2026-11-16 review of local skills and the prioritized follow-up list.
 
 #### Composition
 
 Name optional capabilities, say when they are useful, and state that the core outcome works without them. A skill that cannot complete its own job without another optional plugin has the wrong boundary. Do not write as though every plugin in the collection is installed.
+
+#### Authoring loop
+
+Creating or revising a skill is a loop, not a one-pass draft:
+
+1. Define the outcome, trigger, stopping point, evidence and nearest adjacent skill.
+2. Choose the form: new skill, expansion, reference, script, asset, or no change.
+3. Draft the smallest complete capability contract.
+4. Test with realistic prompts, with and without the skill, including near-miss triggers and negative controls.
+5. Read the outputs and transcripts; revise the method rather than overfitting the examples.
+6. Validate metadata, links, packaging, evaluations and generated inventories.
+7. Repeat only while the evidence shows a real improvement.
+
+Use the repository's `skill-authoring` method for the operational version of this loop and the [guidance audit](maintainers/guidance-audit.md) for current findings.

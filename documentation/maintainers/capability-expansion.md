@@ -15,7 +15,7 @@ Maintainer plan for the next capability additions. The [source catalogue](source
 
 A new plugin needs an install decision that a user can make independently. A new skill needs a stopping point that differs from every existing skill. A new artifact needs a contract that differs from every existing contract.
 
-Every new or revised skill also follows [durable guidance, external detail](../maintainer-reference.md#durable-guidance-external-detail): own the decision and conventions, link volatile external API/config detail, and keep optional cross-plugin composition conditional.
+Every new or revised skill also follows [own the capability, disclose the detail, link the authority](../maintainer-reference.md#own-the-capability-disclose-the-detail-link-the-authority): own the judgment and procedure, disclose branch detail, execute deterministic work, link volatile external detail, and keep optional cross-plugin composition conditional.
 
 Phase 1 and the application-type work are implemented in this branch and validated locally. Later phases remain planned; the private blog/content pack is separate.
 
@@ -41,6 +41,7 @@ Private skills reference public skills by name. They do not copy them.
 | --- | --- | --- | --- |
 | Intuitive explanation | `documentation` | New `explain` method | Implemented |
 | Documentation craft | `documentation` | Expand `technical-writing` with document-type, formatting, concept and review references | Implemented |
+| Skill authoring | `documentation` | New method for creating and revising skills | Implemented |
 | README | `sdlc` | Expand `guide-readme` and `repository-readme` for open-source adoption | Implemented |
 | UI research | `frontend-development` | New `design-research`; strengthen option review; optional Mobbin/Refero MCPs | Implemented |
 | AI evaluation | `ai-development` | New `ai-evaluation` activity; deepen `ai-testing` and `ai-deepeval-testing` | Implemented |

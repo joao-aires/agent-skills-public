@@ -1,6 +1,6 @@
-# Guidance audit: durable method vs external detail
+# Guidance audit: capability, detail and authority
 
-Audit date: 2026-11-16. Scope: 143 skills in 21 plugins, with 104 local and 39 acquired skills. The rule applied is [durable guidance, external detail](../maintainer-reference.md#durable-guidance-external-detail).
+Audit date: 2026-11-16. Scope: 143 skills in 21 plugins at audit time, with 104 local and 39 acquired skills; `skill-authoring` now applies the same rule to future changes. The rule applied is [own the capability, disclose the detail, link the authority](../maintainer-reference.md#own-the-capability-disclose-the-detail-link-the-authority).
 
 ## Method
 
