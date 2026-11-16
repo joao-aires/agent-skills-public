@@ -23,8 +23,8 @@ Use it alongside the activities that own the surrounding decisions:
 | --- | --- |
 | `system-design` | Architecture choices, service/data/client/deployment boundaries, option comparison and the design record. |
 | `backend-design` | Service behavior, authority, state, transactions, interface contracts and recovery inside the selected boundaries. |
-| `resilience-testing` | Controlled fault experiments, their authorization, injection, stop conditions and evidence. |
-| `observability` | Signal contracts, instrumentation, pipeline behavior and telemetry evidence. Reliability design owns SLIs, SLOs and alert policy. |
+| `resilience-testing` (when available) | Controlled fault experiments, their authorization, injection, stop conditions and evidence. |
+| `observability` (when available) | Signal contracts, instrumentation, pipeline behavior and telemetry evidence. Reliability design owns SLIs, SLOs and alert policy. |
 | This skill | The cross-service reasoning those owners consume: consistency, replication, partitioning, consensus, time, failure detection, bounded interaction, idempotency, recovery, capacity and how to test the reasoning. |
 
 Event and message contract design belongs to event-driven-design; broker mechanics are not repeated here. Read [failure and consistency](references/failure-and-consistency.md) when selecting a guarantee or diagnosing divergence, and [resilience checklist](references/resilience-checklist.md) when reviewing retries, timeouts, breakers, backpressure and recovery.

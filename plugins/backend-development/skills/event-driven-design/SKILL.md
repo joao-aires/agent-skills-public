@@ -77,7 +77,7 @@ Duplicates are normal. Deduplicate on a stable effect key: producer plus event i
 
 Use a transactional outbox when a database change and the intent to publish must commit together. Write the domain change and an outbox row in one local transaction; a relay or change-data-capture publisher sends it, and duplicates remain possible. Per-aggregate order requires an ordering key and a publisher that preserves it. Mark sent only after broker acknowledgment, and give cleanup its own retention policy. An outbox does not create exactly-once delivery.
 
-Use an inbox when the consumed event id and the effect must commit atomically. The dedupe table's growth is a capacity decision. For external effects such as payments or email, use the provider's idempotency key or a status/reconciliation API; a local row cannot roll back an external commit. A timeout after sending leaves the outcome unknown, so reconcile before repeating. General retry, timeout and consistency reasoning belongs to distributed-systems expertise.
+Use an inbox when the consumed event id and the effect must commit atomically. The dedupe table's growth is a capacity decision. For external effects such as payments or email, use the provider's idempotency key or a status/reconciliation API; a local row cannot roll back an external commit. A timeout after sending leaves the outcome unknown, so reconcile before repeating. General retry, timeout and consistency reasoning belongs to `distributed-systems` expertise when available.
 
 ## Decide replay, retention and exhausted work
 
@@ -93,7 +93,7 @@ Partition count, consumer concurrency, message size, fetch and batch settings, p
 
 Signals worth defining: publish failure rate, end-to-end event age, consumer lag in records and in time, per-partition skew, rebalance rate, retry and dead-letter counts and age, dedupe hits, outbox backlog, schema rejection and deserialization failure. Propagate trace and correlation context; log event id, type and source rather than full sensitive payloads. Publication success is not business-effect success.
 
-Defer SLO targets to reliability design and signal implementation to observability. Define what a healthy flow looks like, including a consumer that is running but not progressing.
+Defer SLO targets to reliability design and signal implementation to `observability` when available. Define what a healthy flow looks like, including a consumer that is running but not progressing.
 
 ## Test the contract and its failure modes
 
@@ -103,7 +103,7 @@ Defer SLO targets to reliability design and signal implementation to observabili
 - Exercise producer crash after commit and before publish, consumer crash after effect and before commit, rebalance mid-batch, broker unavailability and schema-registry unavailability.
 - For an external effect, prove the provider deduplicates or reconciliation prevents repetition.
 
-Use resilience-testing for controlled fault experiments, their authorization and their evidence rules. A local or embedded broker, a mocked producer or a successful publish does not establish cluster behavior.
+Use `resilience-testing` when available for controlled fault experiments, their authorization and their evidence rules. A local or embedded broker, a mocked producer or a successful publish does not establish cluster behavior.
 
 ## Keep the reasoning when the broker changes
 
