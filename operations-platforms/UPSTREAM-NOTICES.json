@@ -11,7 +11,12 @@
       "scope": "stack-specific",
       "invocation": "agent",
       "stack": "Azure AKS",
-      "role": "support"
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "technical",
+      "domain": "platform",
+      "phase": "cross-phase"
     },
     "artifact": "operations-platforms--aks-cost-optimization",
     "destination": "plugins/operations-platforms/skills/aks-cost-optimization",

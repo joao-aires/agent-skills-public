@@ -12,7 +12,12 @@
       "scope": "stack-specific",
       "invocation": "agent",
       "stack": "Python",
-      "role": "support"
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "technical",
+      "domain": "backend",
+      "phase": "cross-phase"
     },
     "artifact": "backend-python-development--modern-python",
     "destination": "plugins/backend-python-development/skills/modern-python",

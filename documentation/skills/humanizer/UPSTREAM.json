@@ -10,7 +10,12 @@
   "labels": {
     "scope": "generic",
     "invocation": "agent",
-    "role": "support"
+    "role": "support",
+    "kind": "method",
+    "origin": "upstream",
+    "pack": "craft",
+    "domain": "documentation",
+    "phase": "cross-phase"
   },
   "artifact": "documentation--humanizer",
   "destination": "plugins/documentation/skills/humanizer",

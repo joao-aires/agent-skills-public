@@ -13,6 +13,11 @@ metadata:
   invocation: agent
   stack: React, Next.js, Tailwind, shadcn
   role: support
+  kind: method
+  origin: upstream
+  pack: technical
+  domain: frontend
+  phase: cross-phase
 ---
 
 Read [frontend conventions](../frontend-conventions/SKILL.md) for project defaults before applying this skill. The accepted design and installed framework/Tailwind versions take precedence; this is not authorization to migrate or redesign.

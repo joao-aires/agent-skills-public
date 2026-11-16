@@ -10,6 +10,11 @@ metadata:
   invocation: agent
   stack: Playwright CLI
   role: support
+  kind: method
+  origin: upstream
+  pack: technical
+  domain: tooling
+  phase: cross-phase
 ---
 
 # Browser Automation with playwright-cli

@@ -11,6 +11,11 @@ metadata:
   invocation: agent
   stack: LangChain, LangGraph
   role: support
+  kind: method
+  origin: upstream
+  pack: technical
+  domain: ai
+  phase: cross-phase
 ---
 
 <overview>

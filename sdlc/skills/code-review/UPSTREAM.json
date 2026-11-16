@@ -1,0 +1,28 @@
+{
+  "plugin": "sdlc",
+  "license": "MIT",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "workflow-framing",
+    "documentation-paths",
+    "usage-labels",
+    "tracker-neutral",
+    "support-visibility"
+  ],
+  "labels": {
+    "scope": "generic",
+    "invocation": "agent",
+    "role": "support",
+    "kind": "method",
+    "origin": "upstream",
+    "pack": "sdlc",
+    "domain": "development",
+    "phase": "verification"
+  },
+  "artifact": "development--code-review",
+  "destination": "plugins/sdlc/skills/code-review",
+  "repository": "https://github.com/mattpocock/skills.git",
+  "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+  "path": "skills/engineering/code-review",
+  "installed_skill": "code-review"
+}

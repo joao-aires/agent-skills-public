@@ -13,6 +13,11 @@ metadata:
   scope: generic
   invocation: both
   role: support
+  kind: method
+  origin: upstream
+  pack: craft
+  domain: frontend
+  phase: cross-phase
 ---
 
 This skill gives you the tools and permission to make design that earns the name out-of-distribution craft. Work as an award-winning design director would: production-grade code, a clear POV, a deep grasp of what the client and its users need, and exceptional craft.

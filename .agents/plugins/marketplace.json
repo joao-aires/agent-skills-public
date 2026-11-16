@@ -113,30 +113,6 @@
       "category": "Productivity"
     },
     {
-      "name": "delivery",
-      "source": {
-        "source": "local",
-        "path": "./delivery"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    },
-    {
-      "name": "development",
-      "source": {
-        "source": "local",
-        "path": "./development"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    },
-    {
       "name": "development-tooling",
       "source": {
         "source": "local",
@@ -209,30 +185,6 @@
       "category": "Productivity"
     },
     {
-      "name": "governance",
-      "source": {
-        "source": "local",
-        "path": "./governance"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    },
-    {
-      "name": "operations",
-      "source": {
-        "source": "local",
-        "path": "./operations"
-      },
-      "policy": {
-        "installation": "AVAILABLE",
-        "authentication": "ON_INSTALL"
-      },
-      "category": "Productivity"
-    },
-    {
       "name": "operations-platforms",
       "source": {
         "source": "local",
@@ -257,10 +209,10 @@
       "category": "Productivity"
     },
     {
-      "name": "security",
+      "name": "sdlc",
       "source": {
         "source": "local",
-        "path": "./security"
+        "path": "./sdlc"
       },
       "policy": {
         "installation": "AVAILABLE",

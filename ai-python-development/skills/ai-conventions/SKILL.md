@@ -3,6 +3,11 @@ name: ai-conventions
 description: Implement accepted Python model/provider adapters and standalone FastMCP interfaces. Use for Gemini integration, version-matched Python MCP APIs and interaction integration; preserve established providers and frameworks.
 user-invocable: false
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: ai
+  phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Python, Gemini, standalone FastMCP

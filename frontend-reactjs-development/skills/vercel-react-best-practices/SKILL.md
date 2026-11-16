@@ -12,6 +12,11 @@ metadata:
   invocation: agent
   stack: React, Next.js, Tailwind, shadcn
   role: support
+  kind: method
+  origin: upstream
+  pack: technical
+  domain: frontend
+  phase: cross-phase
 user-invocable: false
 ---
 

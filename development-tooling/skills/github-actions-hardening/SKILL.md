@@ -17,6 +17,11 @@ metadata:
   invocation: agent
   stack: GitHub Actions
   role: support
+  kind: method
+  origin: upstream
+  pack: technical
+  domain: tooling
+  phase: cross-phase
 ---
 
 # GitHub Actions Hardening

@@ -10,7 +10,12 @@
     "scope": "stack-specific",
     "invocation": "agent",
     "stack": "Google ADK",
-    "role": "support"
+    "role": "support",
+    "kind": "method",
+    "origin": "upstream",
+    "pack": "technical",
+    "domain": "ai",
+    "phase": "cross-phase"
   },
   "artifact": "ai-adk-development--adk-agent-builder",
   "destination": "plugins/ai-adk-development/skills/adk-agent-builder",

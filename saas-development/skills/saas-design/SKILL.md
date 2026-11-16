@@ -5,6 +5,11 @@ description: Design or evolve SaaS tenancy, organization/customer lifecycle, ent
   behavior crosses identity, commercial and operating boundaries.
 license: MIT
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: saas
+  phase: design
   scope: generic
   invocation: both
   role: support

@@ -11,6 +11,11 @@ metadata:
   invocation: agent
   stack: Python, standalone FastMCP, MCP
   role: support
+  kind: method
+  origin: upstream
+  pack: technical
+  domain: ai
+  phase: cross-phase
 ---
 
 Read [Python AI and MCP conventions](../ai-conventions/SKILL.md) before applying this skill. For new MCP servers prefer Python and standalone fastmcp (`from fastmcp import FastMCP`); adapt MCP SDK examples to the installed standalone API. MCP-only work needs protocol/authorization tests, not an LLM or model-quality evaluation. Preserve accepted project choices.

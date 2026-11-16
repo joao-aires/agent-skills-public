@@ -17,10 +17,15 @@ metadata:
   scope: generic
   invocation: agent
   role: support
+  kind: method
+  origin: upstream
+  pack: craft
+  domain: documentation
+  phase: cross-phase
 user-invocable: false
 ---
 
-Read [composition guidance](../../COMPOSITION.md) for scope, optional expertise and fallback.
+Read [package guidance](../../README.md) for scope, optional expertise and fallback.
 
 
 # Humanizer: remove AI writing patterns

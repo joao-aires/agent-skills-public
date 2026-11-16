@@ -8,6 +8,11 @@ metadata:
   invocation: agent
   stack: Azure AKS
   role: support
+  kind: method
+  origin: upstream
+  pack: technical
+  domain: platform
+  phase: cross-phase
 description: 'Reduce Azure Kubernetes Service (AKS) spending: pod rightsizing, VPA-driven
   recommendations, cluster-autoscaler tuning, spot node pools, namespace-level cost
   visibility, and cost-anomaly detection. WHEN: rightsize pods, VPA recommendations,

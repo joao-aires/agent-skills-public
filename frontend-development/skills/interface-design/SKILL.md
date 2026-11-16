@@ -3,6 +3,11 @@ name: interface-design
 description: Design, inspect and improve complete user interfaces across navigation, visual hierarchy, behavior, shared composition and accessibility. Use for new UI, cross-screen changes, visual refinements, design reviews and design-to-implementation handoffs; preserve accepted product direction and authorized scope.
 user-invocable: true
 metadata:
+  kind: method
+  origin: local
+  pack: technical
+  domain: frontend
+  phase: design
   scope: generic
   invocation: both
   role: support
@@ -11,6 +16,8 @@ metadata:
 # Design and refine the complete interface experience
 
 Own a coherent user-facing experience rather than separate visual, interaction and critique phases. Work from actual user tasks, accepted product decisions, existing application evidence and the requested stopping point. The method applies across web, desktop, browser extensions and native applications; domain specialists contribute application constraints and archetype patterns, and the accepted technical stack owns implementation.
+
+When the engagement asks for an option set, produce at least three materially different directions at comparable fidelity. State what each optimizes and sacrifices, including empty, loading, error, denied and recovery states. Three cosmetic variants of one direction are not an option set. A routine local change needs one recommended direction with a short rationale.
 
 Use this skill to support `design`, `develop`, `implement`, `improve` and `review`. Direct requests to design, inspect or critique do not authorize source edits; authorized implementation preserves behavior and existing design commitments. A visual-only improvement should not redesign navigation, and a changed flow should not unnecessarily reopen branding.
 

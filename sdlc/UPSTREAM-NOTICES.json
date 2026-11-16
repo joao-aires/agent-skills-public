@@ -1,0 +1,533 @@
+[
+  {
+    "plugin": "sdlc",
+    "license": "CC-BY-SA-4.0",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "verification"
+    },
+    "artifact": "development--property-based-testing",
+    "destination": "plugins/sdlc/skills/property-based-testing",
+    "repository": "https://github.com/trailofbits/skills.git",
+    "commit": "82fe8226252622fa807643bdca1710901198553a",
+    "path": "plugins/property-based-testing/skills/property-based-testing",
+    "installed_skill": "property-based-testing"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "CC-BY-SA-4.0",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "inline-adversarial-review",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "verification"
+    },
+    "artifact": "development--differential-review",
+    "destination": "plugins/sdlc/skills/differential-review",
+    "repository": "https://github.com/trailofbits/skills.git",
+    "commit": "82fe8226252622fa807643bdca1710901198553a",
+    "path": "plugins/differential-review/skills/differential-review",
+    "installed_skill": "differential-review"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "tracker-neutral",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "verification"
+    },
+    "artifact": "development--code-review",
+    "destination": "plugins/sdlc/skills/code-review",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/code-review",
+    "installed_skill": "code-review"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "design"
+    },
+    "artifact": "development--codebase-design",
+    "destination": "plugins/sdlc/skills/codebase-design",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/codebase-design",
+    "installed_skill": "codebase-design"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "implementation"
+    },
+    "artifact": "development--diagnosing-bugs",
+    "destination": "plugins/sdlc/skills/diagnosing-bugs",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/diagnosing-bugs",
+    "installed_skill": "diagnosing-bugs"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "design"
+    },
+    "artifact": "development--domain-modeling",
+    "destination": "plugins/sdlc/skills/domain-modeling",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/domain-modeling",
+    "installed_skill": "domain-modeling"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task",
+      "kind": "workflow",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "cross-phase"
+    },
+    "artifact": "development--grill-with-docs",
+    "destination": "plugins/sdlc/skills/grill-with-docs",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/grill-with-docs",
+    "installed_skill": "grill-with-docs"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "tracker-neutral"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task",
+      "kind": "activity",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "implementation"
+    },
+    "artifact": "development--implement-spec",
+    "destination": "plugins/sdlc/skills/implement-spec",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/implement-spec",
+    "installed_skill": "implement-spec"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task",
+      "kind": "workflow",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "cross-phase"
+    },
+    "artifact": "development--improve-codebase-architecture",
+    "destination": "plugins/sdlc/skills/improve-codebase-architecture",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/improve-codebase-architecture",
+    "installed_skill": "improve-codebase-architecture"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "design"
+    },
+    "artifact": "development--prototype",
+    "destination": "plugins/sdlc/skills/prototype",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/prototype",
+    "installed_skill": "prototype"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "cross-phase"
+    },
+    "artifact": "development--research",
+    "destination": "plugins/sdlc/skills/research",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/research",
+    "installed_skill": "research"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task",
+      "kind": "workflow",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "cross-phase"
+    },
+    "artifact": "development--retro",
+    "destination": "plugins/sdlc/skills/retro",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/retro",
+    "installed_skill": "retro"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "implementation"
+    },
+    "artifact": "development--tdd",
+    "destination": "plugins/sdlc/skills/tdd",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/tdd",
+    "installed_skill": "tdd"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "tracker-neutral"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task",
+      "kind": "workflow",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "cross-phase"
+    },
+    "artifact": "development--to-spec",
+    "destination": "plugins/sdlc/skills/to-spec",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/engineering/to-spec",
+    "installed_skill": "to-spec"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task",
+      "kind": "workflow",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "cross-phase"
+    },
+    "artifact": "development--grill-me",
+    "destination": "plugins/sdlc/skills/grill-me",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/productivity/grill-me",
+    "installed_skill": "grill-me"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support",
+      "kind": "workflow",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "cross-phase"
+    },
+    "artifact": "development--grilling",
+    "destination": "plugins/sdlc/skills/grilling",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/productivity/grilling",
+    "installed_skill": "grilling"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task",
+      "kind": "workflow",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "cross-phase"
+    },
+    "artifact": "development--handoff",
+    "destination": "plugins/sdlc/skills/handoff",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/productivity/handoff",
+    "installed_skill": "handoff"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task",
+      "kind": "workflow",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "cross-phase"
+    },
+    "artifact": "development--to-questionnaire",
+    "destination": "plugins/sdlc/skills/to-questionnaire",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/productivity/to-questionnaire",
+    "installed_skill": "to-questionnaire"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "cross-phase"
+    },
+    "artifact": "development--writing-for-agents",
+    "destination": "plugins/sdlc/skills/writing-for-agents",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/productivity/writing-for-agents",
+    "installed_skill": "writing-for-agents"
+  },
+  {
+    "plugin": "sdlc",
+    "license": "Apache-2.0",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "workflow-framing",
+      "instruction-authoring-framing",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "both",
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "sdlc",
+      "domain": "development",
+      "phase": "cross-phase"
+    },
+    "artifact": "development--agents-md",
+    "destination": "plugins/sdlc/skills/agents-md",
+    "repository": "https://github.com/getsentry/skills.git",
+    "commit": "f57ada2d0b640406ea7e25b11d636c530e77c58b",
+    "path": "skills/agents-md",
+    "installed_skill": "agents-md"
+  }
+]

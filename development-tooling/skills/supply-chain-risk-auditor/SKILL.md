@@ -12,6 +12,11 @@ metadata:
   invocation: agent
   stack: Supported dependency lockfile ecosystems
   role: support
+  kind: method
+  origin: upstream
+  pack: technical
+  domain: tooling
+  phase: cross-phase
 ---
 
 # Supply Chain Risk Auditor

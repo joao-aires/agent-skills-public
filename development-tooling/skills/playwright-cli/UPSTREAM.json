@@ -10,7 +10,12 @@
     "scope": "stack-specific",
     "invocation": "agent",
     "stack": "Playwright CLI",
-    "role": "support"
+    "role": "support",
+    "kind": "method",
+    "origin": "upstream",
+    "pack": "technical",
+    "domain": "tooling",
+    "phase": "cross-phase"
   },
   "artifact": "development-tooling--playwright-cli",
   "destination": "plugins/development-tooling/skills/playwright-cli",

@@ -10,7 +10,12 @@
     "scope": "stack-specific",
     "invocation": "agent",
     "stack": "LangChain",
-    "role": "support"
+    "role": "support",
+    "kind": "method",
+    "origin": "upstream",
+    "pack": "technical",
+    "domain": "ai",
+    "phase": "cross-phase"
   },
   "artifact": "ai-langchain-development--langchain-fundamentals",
   "destination": "plugins/ai-langchain-development/skills/langchain-fundamentals",

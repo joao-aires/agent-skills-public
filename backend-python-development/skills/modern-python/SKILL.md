@@ -8,6 +8,11 @@ metadata:
   invocation: agent
   stack: Python
   role: support
+  kind: method
+  origin: upstream
+  pack: technical
+  domain: backend
+  phase: cross-phase
 ---
 
 Read [backend conventions](../backend-conventions/SKILL.md) before applying this skill. Accepted project constraints take precedence over upstream tooling/language suggestions. Do not migrate existing tooling or servers unless requested.

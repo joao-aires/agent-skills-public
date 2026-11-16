@@ -11,6 +11,11 @@ metadata:
   scope: generic
   invocation: both
   role: support
+  kind: method
+  origin: upstream
+  pack: craft
+  domain: frontend
+  phase: cross-phase
 ---
 
 # UI/UX Pro Max - Design Intelligence

@@ -11,7 +11,12 @@
       "scope": "stack-specific",
       "invocation": "agent",
       "stack": "LangChain",
-      "role": "support"
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "technical",
+      "domain": "ai",
+      "phase": "cross-phase"
     },
     "artifact": "ai-langchain-development--langchain-fundamentals",
     "destination": "plugins/ai-langchain-development/skills/langchain-fundamentals",
@@ -32,7 +37,12 @@
       "scope": "stack-specific",
       "invocation": "agent",
       "stack": "LangGraph",
-      "role": "support"
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "technical",
+      "domain": "ai",
+      "phase": "cross-phase"
     },
     "artifact": "ai-langchain-development--langgraph-fundamentals",
     "destination": "plugins/ai-langchain-development/skills/langgraph-fundamentals",
@@ -53,7 +63,12 @@
       "scope": "stack-specific",
       "invocation": "agent",
       "stack": "LangGraph",
-      "role": "support"
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "technical",
+      "domain": "ai",
+      "phase": "cross-phase"
     },
     "artifact": "ai-langchain-development--langgraph-persistence",
     "destination": "plugins/ai-langchain-development/skills/langgraph-persistence",
@@ -74,7 +89,12 @@
       "scope": "stack-specific",
       "invocation": "agent",
       "stack": "LangChain, LangGraph",
-      "role": "support"
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "technical",
+      "domain": "ai",
+      "phase": "cross-phase"
     },
     "artifact": "ai-langchain-development--langchain-dependencies",
     "destination": "plugins/ai-langchain-development/skills/langchain-dependencies",

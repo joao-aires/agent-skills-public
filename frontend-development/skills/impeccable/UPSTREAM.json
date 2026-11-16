@@ -9,7 +9,12 @@
   "labels": {
     "scope": "generic",
     "invocation": "both",
-    "role": "support"
+    "role": "support",
+    "kind": "method",
+    "origin": "upstream",
+    "pack": "craft",
+    "domain": "frontend",
+    "phase": "cross-phase"
   },
   "artifact": "frontend-development--impeccable",
   "destination": "plugins/frontend-development/skills/impeccable",

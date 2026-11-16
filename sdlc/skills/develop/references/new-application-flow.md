@@ -1,0 +1,24 @@
+# Start a new application from the intended outcome
+
+Use this when develop starts from a new application idea. For an existing feature, resume at the affected decisions and preserve accepted work. Scale the depth: a personal tool needs a short purpose/constraints assessment, not a fabricated startup business plan. Use the [planning method](../../plan/SKILL.md) when outcome, scope or feasibility is open, and business strategy expertise for unresolved commercial direction or viability. Keep these decisions separate from engineering requirements and implementation sequencing; supporting methods do not automatically invoke explicit-only tasks.
+
+## Establish enough evidence before dependent work
+
+| Stage | Useful result before proceeding |
+| --- | --- |
+| Purpose and business context | Intended user, problem, current workaround, personal/internal/commercial use, desired outcome and important cost/distribution constraints. Separate evidence from demand/revenue hypotheses. |
+| Product definition | Use product discovery and prioritization expertise when available for the decision: bounded first useful experience, main jobs/journeys, scope/non-goals and a success signal. Preserve accepted decisions; propose unaccepted choices explicitly. |
+| Requirements | Use [requirements engineering](../../requirements-engineering/SKILL.md) for material elicitation, functional/quality constraints, acceptance and validation. Distinguish accepted/proposed needs from design choices. A concise brief/PRD is sufficient. |
+| Feasibility and system design | Compare plausible options; verify consequential licensing, pricing, platform/protocol and integration claims. Resolve architecture-changing blockers before dependent scaffolding. Use system-design. |
+| UX and visual design | Use relevant domain/archetype input, one integrated interface-design method for task flows, hierarchy, states and contextual visual craft, plus technical feasibility from the selected stack. Inspect a representative screen or proportionate prototype. Carry the resulting decisions and acceptance into implementation without competing design handoffs. |
+| Implementation plan and foundations | Small dependency-ordered increments with tests, chosen commands, complete applicable setup, CI/artifacts and release/recovery consequences. Reconcile the plan after design decisions. |
+| Implementation, verification and repair | Commit meaningful tests with increments; run component/API and actual platform journeys, accessibility and rendered visual review. Preserve/reproduce findings and repair/recheck rather than lowering acceptance. |
+| Delivery and learning | Review completion against the original outcomes; distinguish implemented/verified/blocked/released. Prepare delivery foundations, execute remote actions only when authorized, and feed observed product results into the next iteration. |
+
+These are decision dependencies, not separate required meetings, task invocations or documents. Requirements may be ready for design before consequential implementation choices are settled; implementation planning follows the decisions it depends on. Keep the seven-section ECR current in the authorized engineering workspace outside code. New applications warrant proposed C4 context/container and critical journey/sequence views during design; reconcile the initial canonical implemented-state diagrams with actually built software. A file bearing a phase name or a generated diagram does not prove that phase was completed. Small technical spikes may settle feasibility within scope; label them as disposable evidence rather than architecture or production commitments.
+
+## Carry consequential decisions across phases
+
+Use the shared [consequential finding policy](../../activity-system/references/authority.md#consequential-findings) whenever an issue changes the product or operating constraints. It applies throughout the lifecycle, including existing systems; this new-product flow is only an early opportunity to discover the issues. Specialists investigate facts and options, and the shared policy determines whether a user decision is needed. Keep proposed and accepted choices distinct, and carry answers into dependent requirements, design, tests and delivery.
+
+If the user rejects a critical dependency's terms or capabilities, preserve the product requirement and reopen the affected architecture. Compare replacements against the required behavior, portability, collaboration, embedding, accessibility and maintenance needs. Do not silently change the product or assume a prototype is production-suitable. A bounded technical spike remains evaluation evidence rather than an accepted production commitment.

@@ -11,7 +11,12 @@
     "scope": "stack-specific",
     "invocation": "agent",
     "stack": "Python, standalone FastMCP, MCP",
-    "role": "support"
+    "role": "support",
+    "kind": "method",
+    "origin": "upstream",
+    "pack": "technical",
+    "domain": "ai",
+    "phase": "cross-phase"
   },
   "artifact": "ai-python-development--mcp-builder",
   "destination": "plugins/ai-python-development/skills/mcp-builder",

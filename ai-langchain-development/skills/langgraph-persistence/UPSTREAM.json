@@ -10,7 +10,12 @@
     "scope": "stack-specific",
     "invocation": "agent",
     "stack": "LangGraph",
-    "role": "support"
+    "role": "support",
+    "kind": "method",
+    "origin": "upstream",
+    "pack": "technical",
+    "domain": "ai",
+    "phase": "cross-phase"
   },
   "artifact": "ai-langchain-development--langgraph-persistence",
   "destination": "plugins/ai-langchain-development/skills/langgraph-persistence",

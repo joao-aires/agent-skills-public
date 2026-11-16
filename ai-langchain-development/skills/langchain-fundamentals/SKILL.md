@@ -8,6 +8,11 @@ metadata:
   invocation: agent
   stack: LangChain
   role: support
+  kind: method
+  origin: upstream
+  pack: technical
+  domain: ai
+  phase: cross-phase
 ---
 
 <oneliner>

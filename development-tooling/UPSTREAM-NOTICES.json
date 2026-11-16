@@ -11,7 +11,12 @@
       "scope": "stack-specific",
       "invocation": "agent",
       "stack": "Playwright CLI",
-      "role": "support"
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "technical",
+      "domain": "tooling",
+      "phase": "cross-phase"
     },
     "artifact": "development-tooling--playwright-cli",
     "destination": "plugins/development-tooling/skills/playwright-cli",
@@ -32,7 +37,12 @@
       "scope": "stack-specific",
       "invocation": "agent",
       "stack": "GitHub Actions",
-      "role": "support"
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "technical",
+      "domain": "tooling",
+      "phase": "cross-phase"
     },
     "artifact": "development-tooling--github-actions-hardening",
     "destination": "plugins/development-tooling/skills/github-actions-hardening",
@@ -53,7 +63,12 @@
       "scope": "stack-specific",
       "invocation": "agent",
       "stack": "Supported dependency lockfile ecosystems",
-      "role": "support"
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "technical",
+      "domain": "tooling",
+      "phase": "cross-phase"
     },
     "artifact": "development-tooling--supply-chain-risk-auditor",
     "destination": "plugins/development-tooling/skills/supply-chain-risk-auditor",
