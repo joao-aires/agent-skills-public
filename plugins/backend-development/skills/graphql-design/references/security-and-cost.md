@@ -1,6 +1,6 @@
 # GraphQL security and cost
 
-Use this reference when designing the access and capacity controls around a GraphQL schema. The schema decides what is reachable; these controls decide who may reach it and how much work one request can cause.
+Use this reference when designing the access and capacity controls around a GraphQL schema. The schema decides what is reachable; these controls decide who may reach it and how much work one request can cause. Null propagation and error behavior are defined by the [GraphQL specification](https://spec.graphql.org/September2025/); the directive, request-limit and persisted-query mechanics named here are [Apollo](https://www.apollographql.com/docs/graphos) implementation details, so verify their support in the chosen runtime.
 
 ## Name the threat before choosing a control
 
@@ -38,15 +38,15 @@ No single control covers the list. Design them together:
 | --- | --- | --- |
 | Authentication middleware | Who is calling | Permission for a specific object |
 | Root-field check | Access to the entry point | Access to nested fields or connected records |
-| `@authenticated` | Presence of an authenticated context | Ownership, tenancy or scope |
-| `@requiresScopes` | Claim-based scope requirement | Object-level ownership |
-| `@policy` | A custom policy decision | That every resolver path uses the same policy |
+| Authenticated-context directive | Presence of an authenticated context | Ownership, tenancy or scope |
+| Scope directive | Claim-based scope requirement | Object-level ownership |
+| Policy directive | A custom policy decision | That every resolver path uses the same policy |
 | Resolver or data-layer check | The specific resource rule | Coverage of every field unless consistently applied |
-| Contract variant / `@inaccessible` | Schema exposure | Data access if the field is reachable another way |
+| Contract variant or internal-field marker | Schema exposure | Data access if the field is reachable another way |
 
 - Apply checks to every path that can reach the data: direct fields, connections, aggregates, mutations, batch loaders and federated reference resolvers.
 - Derive tenant, owner and role from verified claims or server-side state. Never trust a caller-supplied tenant ID, role or "as user" argument.
-- Decide the failure shape. Apollo's authorization directives filter fields and rely on null propagation; a non-null field can turn a single denial into a null parent. If that is unacceptable, choose an operation-level rejection or a schema surface that cannot request the field.
+- Decide the failure shape. Field-filtering authorization relies on null propagation; a non-null field can turn a single denial into a null parent. If that is unacceptable, choose an operation-level rejection or a schema surface that cannot request the field.
 - Treat introspection separately. Authorization directives do not hide field names from introspection, so a sensitive schema needs a contract variant or an explicit production introspection decision.
 - Apply authorization before caching. A cached result scoped to the wrong authority is an access breach, not a performance bug.
 
@@ -68,7 +68,7 @@ Static limits catch shape abuse cheaply; dynamic cost catches expensive values.
 | Timeout and concurrency limit | Runaway execution | Work already performed before cancellation |
 | Persisted-operation allowlist | Unknown operations entirely | Approved but expensive operations |
 
-Start from measured operation profiles. Take the heaviest legitimate client operations, set limits above them with headroom, and verify the limits against real traffic rather than copying another graph's numbers. Apollo Router's request limits (`max_depth`, `max_height`, `max_aliases`, `max_root_fields`) are one implementation of the static layer; treat its defaults as defaults, not as a security decision.
+Start from measured operation profiles. Take the heaviest legitimate client operations, set limits above them with headroom, and verify the limits against real traffic rather than copying another graph's numbers. Apollo Router's [request limits](https://www.apollographql.com/docs/graphos/routing/security/request-limits) implement the static layer; treat its defaults as defaults, not as a security decision.
 
 Make the cost unit explicit: field resolutions, datastore calls, bytes, or a weighted score. If the unit cannot be explained to a client author, it cannot guide them when a request is rejected.
 
@@ -105,9 +105,9 @@ APQ is not a security control: any client can register an operation at runtime. 
 ## Isolate federation boundaries
 
 - Do not expose subgraph endpoints to untrusted networks. The router's authorization and limits are meaningless if a caller can reach a subgraph directly.
-- Treat entity representations as untrusted input. Validate `@key` values and resolve only entities the caller is allowed to see.
+- Treat entity representations as untrusted input. Validate entity key values and resolve only entities the caller is allowed to see.
 - Keep authorization requirements consistent across subgraphs that contribute fields to the same entity; composition can merge requirements in ways that surprise one team.
-- Verify that contract variants and `@inaccessible` remove fields from the artifact clients actually receive.
+- Verify that contract variants and internal-field markers remove fields from the artifact clients actually receive.
 - Record subgraph ownership and trust direction in the architecture notes; a new subgraph is a boundary change.
 
 ## Observe and tune

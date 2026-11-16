@@ -67,7 +67,7 @@ A skill that cannot state its stopping point usually overlaps an activity. A ski
 | Reference | Lookup material is stable, conditional and too large for the entry point. |
 | Guide | One artifact type needs a writing/production method. |
 
-`kind` describes this conceptual layer; `role` describes task versus support packaging. They are not invocation permissions. Use the the repository metadata contract for the fields.
+`kind` describes this conceptual layer; `role` describes task versus support packaging. They are not invocation permissions. Use the repository metadata contract for the fields.
 
 ## Write the smallest complete contract
 

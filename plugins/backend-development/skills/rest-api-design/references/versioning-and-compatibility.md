@@ -1,19 +1,16 @@
 # Versioning and compatibility
 
-Use this reference when deciding whether an HTTP API change is compatible, where to place a version, and how to retire a surface. It applies to the wire contract, not to internal code, database schema or deployment versions.
+Use this reference when deciding whether an HTTP API change is compatible, where to place a version, and how to retire a surface. It applies to the wire contract, not to internal code, database schema or deployment versions. Header and status semantics come from [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110.html), `Deprecation` from [RFC 9745](https://www.rfc-editor.org/rfc/rfc9745.html) and `Sunset` from [RFC 8594](https://www.rfc-editor.org/rfc/rfc8594.html); the classification below is this collection's review tool.
 
 ## What counts as the contract
 
 The contract includes more than paths and JSON fields:
 
-- method, path and query semantics;
-- request and response media types, status codes and headers;
+- method, path and query semantics, media types, status codes and headers;
 - field names, types, formats, nullability, defaults and ordering;
 - error codes, their meanings and the status they arrive with;
-- authentication and authorization requirements, including scope changes;
-- pagination, filtering, sorting and rate-limit behavior;
-- idempotency and retry semantics;
-- documented limits: page size, payload, timeout and quota.
+- authentication, authorization, pagination, filtering, sorting and rate-limit behavior;
+- idempotency, retry semantics and documented limits: page size, payload, timeout and quota.
 
 A change can compile and still break a consumer through any of these.
 
@@ -65,7 +62,7 @@ Prefer compatible evolution over a new major version. Reserve a new major for ch
 1. Name the surface, the reason, the replacement and the last supported date.
 2. Mark it deprecated in OpenAPI and in the consumer documentation.
 3. Add `Deprecation` and, when a removal date is committed, `Sunset` response headers; link the migration guide.
-4. Instrument usage by consumer identity and version. Separate first-party, partner and unknown traffic.
+4. Instrument usage by consumer identity and version, separating first-party, partner and unknown traffic.
 5. Notify affected consumers directly and provide a migration path with examples.
 6. Keep both surfaces working through the overlap; verify the replacement behaves under the old consumer's real requests.
 7. Remove only after the sunset date and after usage is zero or explicitly accepted by the owner.

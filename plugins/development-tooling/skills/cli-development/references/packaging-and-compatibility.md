@@ -2,34 +2,21 @@
 
 A command that runs from the build directory is not yet a CLI product. Packaging decides how a consumer obtains it, how it is upgraded, which platforms it actually supports and what happens when the surface changes. Treat installation, update and removal as part of the interface.
 
-## Contents
-
-- [Choose the distribution channel](#choose-the-distribution-channel)
-- [Install and update contract](#install-and-update-contract)
-- [Platform support matrix](#platform-support-matrix)
-- [Cross-platform checklist](#cross-platform-checklist)
-- [Versioning the surface](#versioning-the-surface)
-- [Deprecation and removal](#deprecation-and-removal)
-- [Release and supply chain](#release-and-supply-chain)
-- [Examples of good and bad delivery](#examples-of-good-and-bad-delivery)
-- [Common failures](#common-failures)
+Channel mechanics belong to the ecosystem: [PyPA entry points](https://packaging.python.org/en/latest/specifications/entry-points/) for Python console scripts, [npm `bin`](https://docs.npmjs.com/cli/configuring-npm/package-json#bin) for Node shims, [`go install`](https://go.dev/ref/mod#go-install) for Go, and the formula or manifest documentation for each OS package manager. This reference owns the delivery decisions and the evidence each claim needs.
 
 ## Choose the distribution channel
 
 | Channel | Best for | Update owner | Evidence needed | Main risk |
 | --- | --- | --- | --- | --- |
-| Language registry (PyPI, npm, crates.io, RubyGems) | Consumers already in that ecosystem; small tools | Registry plus the user's package manager | Clean install of the published artifact; console entry point works; runtime range declared | Runtime/version conflicts; wrapper or shim differences |
-| Standalone binary archive | Non-developers, CI images, minimal environments | The tool or the user's installer | Per-OS/arch archive; checksum; signature where supported; version command | Platform coverage; update and rollback path |
-| OS package manager (Homebrew, apt, dnf, Scoop, winget) | System-wide or developer-machine installation | The package manager | Formula/manifest reviewed; uninstall and upgrade tested | Lag behind releases; packaging-specific patches |
-| Container image | Self-contained runtime or service-adjacent tooling | Image registry plus the orchestrator | Pinned digest; non-root user; no TTY assumption | Large size; config and credential mounts |
+| Language registry | Consumers in that ecosystem; small tools | Registry plus the user's package manager | Clean install of the published artifact; console entry point works; runtime range declared | Runtime conflicts; shim differences |
+| Standalone binary archive | Non-developers, CI images, minimal environments | The tool or the user's installer | Per-OS/arch archive; checksum; signature where supported | Platform coverage; rollback path |
+| OS package manager | System-wide or developer-machine installation | The package manager | Formula/manifest reviewed; uninstall and upgrade tested | Lag behind releases; packaging patches |
+| Container image | Self-contained runtime or service-adjacent tooling | Registry plus orchestrator | Pinned digest; non-root user; no TTY assumption | Size; config and credential mounts |
 | Source build | Contributors and unusual platforms | The consumer | Documented toolchain; reproducible build | Not an install path for most users |
 
-Choose the smallest set that reaches the actual consumer. More channels mean more places for the version, completion script and license to drift.
-
-- Prefer one primary documented channel and list the others as alternatives.
-- Do not make a source build the only path for a non-developer audience.
-- Publish the same version identity across channels. A `--version` that says `1.4.2` while the package metadata says `1.4.1` is a support defect.
-- Keep the executable name and package name aligned where the ecosystem allows it, and document any intentional difference.
+- Choose the smallest set that reaches the actual consumer. More channels mean more places for version, completion and license to drift.
+- Prefer one primary documented channel and list others as alternatives; do not make a source build the only path for a non-developer audience.
+- Publish one version identity across channels. `--version` saying `1.4.2` while package metadata says `1.4.1` is a support defect.
 
 ## Install and update contract
 
@@ -37,117 +24,62 @@ Document and test:
 
 | Concern | Contract |
 | --- | --- |
-| Install location | Registry script directory, package manager prefix, or a user-writable `bin` |
-| `PATH` | Printed instruction; never silently edit a shell startup file |
-| Version pin | Exact version or range supported by the channel |
-| Upgrade | The command or package-manager operation, and whether config/data survive |
-| Downgrade or rollback | A supported path, or an explicit statement that none exists |
-| Uninstall | The command and what remains (config, cache, credentials) |
-| Completion | Installed or generated by a documented command |
-| Documentation | Man page, `--help` and web link available offline |
-| License and notices | Included in the package or archive |
-| Verification | Checksum, signature or registry provenance where the channel supports it |
+| Install location and `PATH` | Registry script directory, package-manager prefix, or a user-writable `bin`; print the `PATH` instruction, never edit a startup file |
+| Upgrade and rollback | The command or package-manager operation, whether config and data survive, and a supported downgrade path or an explicit statement that none exists |
+| Uninstall | The command and what remains: config, cache, credentials, background services |
+| Completion and documentation | Installed or generated by a documented command; man page, `--help` and a web link available offline |
+| License, notices, verification | Included in the package; checksum, signature or registry provenance where the channel supports it |
 | Offline use | Whether the command works without a first-run download |
 
 | Update model | Use when | Requirements |
 | --- | --- | --- |
-| Package manager owns updates | Default for OS packages and language registries | Do not self-update; document the upgrade command; keep the installed version authoritative |
-| Explicit `tool update` | A standalone binary with no package manager | Signed metadata over HTTPS; atomic replace; previous version retained for rollback; no `sudo`; checksum verification; clear failure if verification fails |
-| Background update check | Rare; a long-lived product with a support reason | Non-blocking timeout; opt-out and environment switch; no telemetry without notice; never runs during `--help`, `--version`, CI or a non-interactive command |
-| No update mechanism | Small, pinned, reproducible deployments | State that upgrades mean reinstalling a pinned artifact |
+| Package manager owns updates | Default for OS packages and registries | Do not self-update; document the upgrade command; the installed version stays authoritative |
+| Explicit `tool update` | A standalone binary with no package manager | Signed metadata over HTTPS; atomic replace; previous version kept for rollback; no `sudo`; clear failure if verification fails |
+| Background update check | Rare; a long-lived product with a support reason | Non-blocking timeout; opt-out and environment switch; never during `--help`, `--version`, CI or a non-interactive command |
+| No update mechanism | Small, pinned, reproducible deployments | State that upgrading means reinstalling a pinned artifact |
 
-Rules for self-update:
+For self-update: require an explicit command or opt-in, verify before replacing anything, replace atomically on the same filesystem, keep a way back, and never update in CI or an image build unless asked. On Windows, replacing a running executable needs a helper or a rename-and-restart strategy — test it. Do not print update banners on stdout.
 
-- Require an explicit command or a clear opt-in. A routine `tool status` must not replace the executable.
-- Verify the signature or checksum before replacing anything. A downloaded binary that fails verification is an error, not a warning.
-- Replace atomically on the same filesystem. On Windows, replacing a running executable needs a helper or a rename-and-restart strategy; test it.
-- Keep a way back. A failed update that leaves no usable binary is worse than no update feature.
-- Never update in CI or a container image build unless the caller explicitly asks. Pinned pipelines depend on the version they selected.
-- Do not print update banners on stdout. If a notice is useful, put it on stderr and make it suppressible.
+## Platform evidence
 
-## Platform support matrix
+Use a matrix, not a slogan: one row per meaningful OS, architecture, runtime/libc and install channel, with a status and a named job or recorded run. A missing row is a statement, not a gap to hide.
 
-Use a matrix rather than a slogan. One row per meaningful combination; a missing row is a statement, not a gap to hide.
+`Tested` means a named job exercised install and a representative command at this revision. `Supported` means covered by policy, possibly tested less often than every release. `Best effort` means known to work sometimes with limited support. `Unsupported` means not claimed. Record the exact version, revision, platform and date; "latest" is not evidence. A build succeeding is not a consumer test — install in a clean environment and invoke the installed command. Distinguish the platform you develop on from the ones you claim, and mark untested platforms as unsupported in the install docs.
 
-```markdown
-| OS | Arch | Runtime / libc | Install | Shell | Status | Evidence |
-| --- | --- | --- | --- | --- | --- | --- |
-| macOS 14+ | arm64 | native | Homebrew | zsh | Tested | CI job `macos-arm64`, 1.4.2 |
-| macOS 14+ | amd64 | native | release archive | zsh | Tested | CI job `macos-amd64`, 1.4.2 |
-| Linux (Ubuntu 24.04) | amd64 | glibc 2.39 | apt / archive | bash | Tested | Container install test |
-| Linux (Alpine 3.20) | amd64 | musl 1.2 | archive | ash | Best effort | Community report only |
-| Windows 11 | amd64 | native | winget | PowerShell | Unsupported | No test or maintainer |
-| Any | any | source build | Go 1.24+ | any | Tested | CI build job |
-```
-
-Status terms:
-
-| Status | Meaning |
-| --- | --- |
-| Tested | A named job or recorded manual run exercised the install and a representative command at this revision |
-| Supported | Covered by the compatibility policy; may be tested less often than every release |
-| Best effort | Known to work in some conditions; failures are accepted and support is limited |
-| Unsupported | Not claimed; users may try at their own risk |
-
-Rules:
-
-- A build succeeding is not a consumer test. Install the artifact in a clean environment and invoke the installed command.
-- Record the exact version, revision, platform and test date. "Latest" is not evidence.
-- Distinguish the platform you develop on from the platforms you claim.
-- If a platform is untested, say so in the install documentation rather than implying it works.
-- Keep the matrix current when the runtime floor, architecture set or channel changes.
-
-## Cross-platform checklist
+## Cross-platform checks
 
 | Concern | What to verify |
 | --- | --- |
-| Paths | Platform APIs; no hardcoded `/`, `\`, `~` or drive letters; long-path behavior on Windows |
-| Case sensitivity | File names and config keys; macOS and Windows may be case-insensitive |
-| Config/data/cache | XDG on Unix-like systems; `%APPDATA%`/`%LOCALAPPDATA%` on Windows; `~/Library` on macOS |
-| Line endings | Do not hardcode CRLF; let the platform or text mode handle console output; define file formats explicitly |
-| ANSI and terminal | No escape sequences unless the stream is a capable TTY or the caller forced color |
-| Signals | Ctrl-C on Windows differs from SIGINT; `SIGTERM` may not exist; document interrupt behavior |
-| Executables | `.exe` on Windows; `PATHEXT`; executable bit on Unix; zip archives may lose permissions |
-| Atomic replace | Rename within the same filesystem; running executables on Windows; lock files |
-| Permissions | Credential and config file modes; owner-only ACLs on Windows |
-| Locale and encoding | UTF-8 output; `LC_ALL=C` for parsed subprocess output; no localized machine fields |
-| Time | UTC in machine output; local time only for human display; time-zone database availability |
-| Temp files | System temp directory; no assumption that it is executable or persistent |
-| Shell quoting | cmd.exe, PowerShell and POSIX shells quote differently; pass-through arguments need `--` and no shell evaluation |
-| Reserved names | Windows device names (`CON`, `PRN`, `AUX`, `NUL`, `COM1`–`COM9`, `LPT1`–`LPT9`) |
-| Containers | No TTY, minimal `PATH`, possibly no `HOME`, non-root user, read-only filesystem |
-| Architecture | amd64, arm64 and any other claimed target; libc variant on Linux |
-| Signing | macOS notarization/hardened runtime where distributed; Windows code signing where expected |
+| Paths and case | Platform APIs; no hardcoded `/`, `\`, `~` or drive letters; long paths; case-insensitive filesystems |
+| Config, data, cache | XDG on Unix-like systems; platform equivalents on Windows and macOS |
+| Line endings, encoding, time | No hardcoded CRLF; UTF-8 output; `LC_ALL=C` for parsed subprocess output; UTC in machine output |
+| ANSI, signals, interrupts | No escape sequences without a capable TTY or an explicit opt-in; Windows Ctrl-C differs from SIGINT |
+| Executables and replacement | `.exe` and `PATHEXT`; executable bit survives archives; atomic rename within one filesystem |
+| Permissions | Credential and config modes; owner-only ACLs on Windows |
+| Temp files and quoting | System temp directory; no assumption of executability; `--` and no shell evaluation for pass-through arguments |
+| Containers | No TTY, minimal `PATH`, possibly no `HOME`, non-root, read-only filesystem |
+| Reserved names and signing | Windows device names; macOS notarization or Windows signing where the channel expects it |
 
-Test the installed executable, not only the build output. A binary that runs from `dist/` can still fail after installation because its resource path, completion directory or dynamic library moved.
+Test the installed executable, not only the build output: a binary that runs from `dist/` can still fail after installation because its resource path, completion directory or dynamic library moved.
 
 ## Versioning the surface
 
-Use a documented version scheme, commonly semantic versioning. The version describes the public surface, not the internal code volume.
+Use a documented scheme, commonly [semantic versioning](https://semver.org/). The version describes the public surface, not the internal code volume.
 
 | Change | Compatibility | Typical release |
 | --- | --- | --- |
-| Add an optional flag or a new command | Compatible | Minor |
-| Add an optional JSON field | Compatible for tolerant consumers; document it | Minor |
-| Add an enum value | Potentially breaking for exhaustive consumers; treat as minor with a note | Minor |
-| Change help prose only | Compatible | Patch |
-| Fix behavior to match documented contract | Patch or minor; explain the defect | Patch/minor |
-| Change a default | Breaking in effect; major unless the old default was clearly a bug | Major |
-| Rename or remove a command, flag or alias | Breaking | Major |
-| Change an exit code meaning | Breaking | Major |
-| Rename, remove or retype an output field | Breaking | Major |
+| Add an optional flag, command or JSON field | Compatible; document it | Minor |
+| Add an enum value | Potentially breaking for exhaustive consumers | Minor with a note |
+| Change help prose, or fix behavior to match the documented contract | Compatible | Patch |
+| Change a default | Breaking in effect unless the old default was clearly a bug | Major |
+| Rename or remove a command, flag, alias or config key | Breaking; unless the old name keeps working | Major |
+| Change an exit-code meaning, or rename/remove/retype an output field | Breaking | Major |
 | Raise the minimum runtime, OS or architecture | Breaking for affected consumers | Major |
-| Change a config key or environment variable | Breaking unless the old name keeps working | Major |
-| Change completion command names or installed path | Breaking for shell setups | Major |
 | Change authentication or credential expectations | Potentially breaking; document migration | Major |
 
-Rules:
-
-- Mark the stable surface in the design record or documentation: commands, flags, environment variables, config keys, output schema and exit codes.
-- Do not promise stability for internal log lines, progress text or human prose unless you mean it.
+- Mark the stable surface in the design record: commands, flags, environment variables, config keys, output schema and exit codes. Do not promise stability for internal log lines, progress text or human prose.
 - Version machine output explicitly (`schemaVersion`) when consumers may persist it. Additive fields are usually safe; renames and type changes are not.
-- Keep the `--version` output and package metadata derived from one source. Do not hand-maintain both.
-- Treat a change to a default as a behavior change even when the flag surface is unchanged. Users experience defaults as the contract.
+- Derive `--version` and package metadata from one source. Users experience defaults as the contract even when the flag surface is unchanged.
 
 ## Deprecation and removal
 
@@ -156,125 +88,40 @@ Deprecation is a supported transition, not a warning added after the decision.
 | Stage | What the user sees | Requirement |
 | --- | --- | --- |
 | Announced | Release note, docs and migration example | Replacement, reason, removal version and owner |
-| Warned | stderr warning on use | Names the replacement and the removal version; does not fail the command |
-| Removal | Error naming the replacement, or an alias that still works | Major release; migration note; no silent behavior change |
-| Cleanup | Old code and docs removed | After the stated window; no name reuse |
+| Warned | stderr warning on use | Names the replacement and removal version; does not fail the command |
+| Removed | Error naming the replacement, or an alias that still works | Major release; migration note; no silent behavior change |
+| Cleaned up | Old code and docs removed | After the stated window; no name reuse |
 
-Example warning:
-
-```console
-$ tool deploy --app billing
-warning: --app is deprecated; use --project. --app will be removed in 3.0.
-```
-
-Example removal error:
-
-```console
-$ tool deploy --app billing
-error: --app was removed in 3.0; use --project billing
-```
-
-Rules:
+Example: `warning: --app is deprecated; use --project. --app will be removed in 3.0.`
 
 - Keep the old name working for the stated window. A warning followed by removal in the next patch is not a deprecation.
-- Do not print the warning on stdout or in JSON output as a bare line. Use stderr and, when needed, a `warnings` array.
-- Warn once per invocation, not once per item, unless repetition is useful.
-- Do not deprecate a name and immediately reuse it for a different meaning.
-- Deprecate config keys and environment variables with the same discipline: accept the old name, map it, warn, and remove it in a major release.
-- Update completion and help at announcement time, not at removal time.
-- Search docs, tests, examples, completion scripts and packaging manifests for the old name before removal.
-- For a severe removal, provide a migration command or a compatibility shim with a clear end date.
+- Keep the warning off stdout and out of JSON as a bare line; use stderr and, where needed, a `warnings` array. Warn once per invocation unless repetition helps.
+- Deprecate config keys and environment variables the same way: accept and map the old name, warn, remove in a major release.
+- Update help, completion, docs, tests and packaging manifests at announcement time, and search for the old name before removal. For a severe removal, provide a migration command or shim with a clear end date.
 
 ## Release and supply chain
 
-- Build from a clean, tagged revision. Verify that the artifact's reported version matches the tag.
-- Lock dependencies and record the toolchain version. Rebuild the same source and compare where reproducibility is claimed.
-- Publish checksums for binary archives. Sign artifacts where the channel supports it, and document how a consumer verifies them.
-- Keep release notes focused on consumer-visible changes: new commands, changed defaults, deprecations, migration steps, checksums and supported platforms.
-- Pin CI actions, images and build tools to reviewed versions or digests.
-- Do not print secrets or full environment dumps in build logs. Treat build infrastructure as part of the credential surface.
-- Inspect the packaged artifact: list its contents, confirm completion and license files, run it from the archive, and install it in a clean environment.
-- Record provenance or an SBOM when the consumer or regulation requires it; otherwise state what verification is available.
-- Remove or protect signing keys from the build workspace after release.
-
-## Examples of good and bad delivery
-
-Bad: an unverified pipe installer.
-
-```console
-$ curl -fsSL https://example.test/install.sh | sh
-```
-
-The version floats, the script is not verified before execution, and the user cannot inspect what will change.
-
-Good: a pinned, verified archive.
-
-```console
-$ curl -fsSLO https://example.test/releases/download/v1.4.2/tool_1.4.2_linux_amd64.tar.gz
-$ curl -fsSLO https://example.test/releases/download/v1.4.2/checksums.txt
-$ sha256sum -c checksums.txt --ignore-missing
-$ tar -xzf tool_1.4.2_linux_amd64.tar.gz
-$ install -m 0755 tool "$HOME/.local/bin/tool"
-$ tool --version
-tool 1.4.2 (linux/amd64, revision 9c1d2e7)
-```
-
-If a pipe installer is offered, it should verify a signature or checksum and support a pinned version and a manual path.
-
-Bad: every command checks for and installs an update.
-
-```console
-$ tool status
-Update available! Installing 2.0.0...
-```
-
-The command changed behavior the caller did not request, may fail halfway, and can break a pinned pipeline.
-
-Good: the package manager owns the version, or the user runs an explicit update that verifies and can roll back.
-
-```console
-$ tool update --check
-tool 1.4.2 is current
-```
-
-Bad: removing a flag silently in a minor release.
-
-```console
-$ tool deploy --app billing
-error: unknown flag: --app
-```
-
-Good: warn through the supported window, then remove in a major release with a migration message.
-
-Bad: claiming broad support from one local run.
-
-```
-Works on macOS, Linux and Windows.
-```
-
-Good: a matrix with status and evidence, and an explicit unsupported row.
+- Build from a clean, tagged revision; verify the artifact's reported version matches the tag. Lock dependencies and record the toolchain version.
+- Publish checksums for binary archives and sign where the channel supports it; document how a consumer verifies them.
+- Keep release notes on consumer-visible changes: new commands, changed defaults, deprecations, migration steps, checksums and supported platforms.
+- Pin CI actions, images and build tools to reviewed versions or digests, and keep secrets and environment dumps out of build logs.
+- Inspect the packaged artifact: list contents, confirm completion and license files, run it from the archive, install it in a clean environment.
+- Record provenance or an SBOM where required; otherwise state what verification is available.
 
 ## Common failures
 
-- The install script edits `.bashrc` or `.zshrc` without consent.
+- The install script edits `.bashrc` or `.zshrc` without consent; the published package installs a module but no console entry point.
 - The binary works from `dist/` but cannot find completion or resources after installation.
-- The version in `--version`, package metadata and release tag disagree.
-- A language package installs a module but no console entry point, so the command is missing from `PATH`.
-- The Windows artifact is a Unix binary, or the zip lost the executable bit on Unix.
-- The tool assumes a TTY and hangs in CI or a container.
-- A Docker image runs as root because the tool needed to write its own directory.
-- Self-update replaces the binary in a pinned CI job.
-- Update metadata is fetched over plain HTTP or is not verified.
+- `--version`, package metadata and the release tag disagree.
+- The Windows artifact is a Unix binary, or an archive lost the executable bit.
+- The tool assumes a TTY and hangs in CI; a container image runs as root to write its own directory.
+- Self-update replaces the binary in a pinned CI job; update metadata is fetched over plain HTTP or is unverified.
 - The Linux binary requires a newer glibc than the supported distribution provides.
-- A deprecation warning appears on stdout and breaks `--json` consumers.
-- An old flag is removed in a patch release.
-- A config key is renamed without accepting the old key.
-- Completion still references a removed command.
-- The uninstall path leaves credentials or a background service behind.
-- A release contains no checksum, so consumers cannot verify the download.
+- A deprecation warning appears on stdout and breaks `--json`; an old flag or config key is removed in a minor release; completion still names a removed command.
+- Uninstall leaves credentials or a background service behind; a release ships no checksum.
 
 ## Handoff
 
-Record the chosen channel or channels, the install/upgrade/uninstall commands, the platform matrix with evidence, the update owner and mechanism, the stable surface, the version scheme and the deprecation window. Attach a clean-install result and a packaged-artifact inspection, not only a build log. State untested platforms and unverified update paths explicitly; a local install on the development machine does not establish the consumer path.
+Record the chosen channels, the install/upgrade/uninstall commands, the platform matrix with evidence, the update owner and mechanism, the stable surface, the version scheme and the deprecation window. Attach a clean-install result and a packaged-artifact inspection, not only a build log. State untested platforms and unverified update paths explicitly; a local install on the development machine does not establish the consumer path.
 
-For claims about versions, platforms and tested combinations, use the `guide-compatibility-matrix` structure so the evidence and the unsupported cases stay visible.
+For claims about versions, platforms and tested combinations, use the `guide-compatibility-matrix` structure so evidence and unsupported cases stay visible.

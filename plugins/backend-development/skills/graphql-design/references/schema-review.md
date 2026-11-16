@@ -1,6 +1,6 @@
 # GraphQL schema review
 
-Use this checklist when reviewing an SDL change, a composed supergraph or a proposed schema for a new graph. Review the schema as a contract: resolvers can be fixed later, but published field meanings and nullability are hard to change.
+Use this checklist when reviewing an SDL change, a composed supergraph or a proposed schema for a new graph. Review the schema as a contract: resolvers can be fixed later, but published field meanings and nullability are hard to change. The type system, null propagation and response errors are defined by the [GraphQL specification](https://spec.graphql.org/September2025/), connection shape by [Relay](https://relay.dev/graphql/connections.htm), and federation and authorization mechanics by [Apollo's documentation](https://www.apollographql.com/docs/graphos); this checklist records the local review decisions.
 
 Record the schema revision reviewed and whether it is the subgraph SDL, the composed supergraph or a contract variant. A review of the wrong artifact proves nothing about what clients receive.
 
@@ -39,8 +39,7 @@ Record the schema revision reviewed and whether it is the subgraph SDL, the comp
 ## 3. Queries and connections
 
 - [ ] Every collection field returns a connection or another bounded pagination shape.
-- [ ] A connection has `edges` and non-null `pageInfo`; edges have `node` and `cursor`.
-- [ ] `pageInfo` exposes `hasNextPage`, `hasPreviousPage`, `startCursor` and `endCursor` with the documented semantics.
+- [ ] A connection exposes edges, cursors and forward/backward page information with the documented semantics.
 - [ ] Page-size arguments have defaults and maximums; negative values are rejected.
 - [ ] Ordering is deterministic with a unique tie-breaker and is consistent forward and backward.
 - [ ] Cursors are opaque, stable for the same order and scoped to the filter and caller.
@@ -55,7 +54,7 @@ Record the schema revision reviewed and whether it is the subgraph SDL, the comp
 - [ ] The mutation distinguishes not-found, conflict, validation failure and permission failure.
 - [ ] A retried mutation does not create a second effect, or the contract documents how the client supplies an idempotency key.
 - [ ] Partial success is not reported as a successful whole; either the operation is atomic or the payload reports per-item outcomes.
-- [ ] Exactly-one inputs use `@oneOf` where the runtime and clients support the September 2025 edition.
+- [ ] Exactly-one inputs use the runtime's one-of input support where the server and clients both support it.
 - [ ] The payload does not require a second query for data the client needs to update its cache.
 - [ ] Root mutation fields do not bypass the authority checks of the underlying operation.
 
@@ -85,7 +84,7 @@ Record the schema revision reviewed and whether it is the subgraph SDL, the comp
 | Required to optional input | Compatible | Document the default |
 | Change a default value | Breaking behavior | Same operation, different result |
 | Deprecate a field | Compatible | Removal is the breaking event |
-| Change `@key` fields | Breaking for federation | Affects composition and entity resolution |
+| Change entity key fields | Breaking for federation | Affects composition and entity resolution |
 
 - [ ] Breaking changes are detected against the previous published schema, not only against the current branch.
 - [ ] Deprecated fields have a reason, a replacement and usage evidence by client.
@@ -94,13 +93,13 @@ Record the schema revision reviewed and whether it is the subgraph SDL, the comp
 
 ## 7. Federation and surface
 
-- [ ] Each entity has a resolvable `@key`; key fields are non-null where possible.
+- [ ] Each entity has a resolvable key; key fields are non-null where possible.
 - [ ] Each field has one owning subgraph; no field has conflicting semantics across subgraphs.
 - [ ] Reference resolvers are expected to be called repeatedly and are batched.
 - [ ] Shared enums, scalars and value types are stable across subgraphs.
-- [ ] Contract variants or `@inaccessible` remove internal fields from partner and public surfaces.
+- [ ] Contract variants or an internal-field marker remove internal fields from partner and public surfaces.
 - [ ] The published schema, documentation and introspection target the intended audience.
-- [ ] Authorization directives are applied per field rather than to a shared root operation type.
+- [ ] Authorization is applied per field rather than only to a shared root operation type.
 
 ## 8. Common failures
 
@@ -113,7 +112,7 @@ Record the schema revision reviewed and whether it is the subgraph SDL, the comp
 | `totalCount` on every connection | Hidden second scan and a false performance promise |
 | Large shared input on one mutation | Ambiguous combinations, over-posting and hard authorization |
 | Mutation returns only a boolean | Clients must refetch and races become visible |
-| `@deprecated` without usage data | Removal breaks an unknown client |
+| Deprecation marker without usage data | Removal breaks an unknown client |
 | Authorization only on root fields | Nested fields leak data through another path |
 | Introspection assumed to hide protected fields | Schema shape leaks even when values are filtered |
 | Persisted query manifest not versioned with the client | New clients fail against an old allowlist, or vice versa |

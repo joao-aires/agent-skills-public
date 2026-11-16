@@ -2,6 +2,8 @@
 
 Use this checklist to review an HTTP interface before implementation or before accepting a change. Review the surface once for cross-cutting rules, then each operation. Record pass, fail or not-applicable with the evidence you inspected; a checked box without a link to the specification, test or observed response is only an opinion.
 
+Method, status and header semantics belong to [RFC 9110](https://www.rfc-editor.org/rfc/rfc9110.html); caching mechanics to [RFC 9111](https://www.rfc-editor.org/rfc/rfc9111.html); the error format to [RFC 9457](https://www.rfc-editor.org/rfc/rfc9457.html); `428`/`429` and `Retry-After` to [RFC 6585](https://www.rfc-editor.org/rfc/rfc6585.html); deprecation headers to [RFC 9745](https://www.rfc-editor.org/rfc/rfc9745.html) and [RFC 8594](https://www.rfc-editor.org/rfc/rfc8594.html); the document structure to [OpenAPI 3.1](https://spec.openapis.org/oas/v3.1.0.html). This checklist records the local decisions and evidence, not a copy of those catalogues.
+
 ## 1. Resources and operations
 
 - [ ] Every resource has a stable identity and a stated owner.
@@ -18,11 +20,9 @@ Use this checklist to review an HTTP interface before implementation or before a
 - [ ] `GET` and `HEAD` are safe and free of state changes, including analytics writes that affect behavior.
 - [ ] `PUT` and `DELETE` are idempotent; repeating them does not create a second effect.
 - [ ] `POST` and `PATCH` have a documented retry rule when callers may retry them.
-- [ ] Creation returns `201` with `Location` when the new URI is known.
-- [ ] Deferred work returns `202` with a status resource, not a fabricated final result.
+- [ ] Deferred work returns acceptance plus a status resource, not a fabricated final result.
 - [ ] No success status carries an error payload.
-- [ ] `405` includes `Allow`; `401` includes the appropriate challenge.
-- [ ] `429` includes `Retry-After`; `503` used for load shedding includes it when a retry delay is known.
+- [ ] Status-dependent headers the contract promises are present: `Location` on creation, `Allow` on method rejection, the authentication challenge, and `Retry-After` when a delay is known.
 
 ### Resolve ambiguous status choices
 
@@ -37,8 +37,7 @@ Use this checklist to review an HTTP interface before implementation or before a
 | Duplicate idempotency key while the first attempt is unresolved | `409` with a retry hint | Blocking indefinitely, or executing twice |
 | Resource is absent or must not be disclosed | `404` | `403` that confirms existence, inconsistently applied |
 | Caller is authenticated but lacks the permission and disclosure is acceptable | `403` | `401` |
-| Method is valid elsewhere but not on this resource | `405` | `404` |
-| A gateway's upstream did not answer in time | `504`, with guidance on whether the request may have succeeded | `500` that implies nothing happened |
+| Method is valid elsewhere but not on this resource | `405` | `404` that hides the mismatch |
 
 ## 3. Representation
 
@@ -136,12 +135,10 @@ Use this checklist to review an HTTP interface before implementation or before a
 
 ## 11. OpenAPI and consumer evidence
 
-- [ ] The document states `openapi`, `info.version` and each server.
 - [ ] Every operation has a stable `operationId`, summary and description.
 - [ ] Success and error responses, parameters, examples and security schemes are described.
 - [ ] Deprecated operations and parameters are marked.
-- [ ] The document passes linting and the diff was reviewed for breaking changes.
-- [ ] The specification matches the deployed or intended service.
+- [ ] The document passes linting, its diff was reviewed for breaking changes, and it matches the deployed or intended service.
 - [ ] At least one representative consumer shape was tested against the real response.
 - [ ] Denied, duplicate, conflicting, empty, oversized and rate-limited paths were exercised.
 - [ ] The supported version and consumer matrix records what was actually tested.
