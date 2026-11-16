@@ -14,7 +14,7 @@ metadata:
   pack: product
   domain: product
   phase: planning
-  version: '2.3'
+  version: '2.4'
   scope: generic
   invocation: user
   role: task
@@ -70,7 +70,7 @@ Research should change confidence, options, or decisions—not maximize source c
 
 ### 5. Generate before converging
 
-For ambiguous strategy work, create materially different alternatives before choosing. Include different customers, buyers, jobs, layers, wedges, channels, business models, monetization models, geographies, and—when useful—different beliefs about how the market will evolve.
+For `explore` and `decide` work, develop at least three materially different strategies or business models before converging. Include different customers, buyers, jobs, layers, wedges, channels, business models, monetization models, geographies, and—when useful—different beliefs about how the market will evolve. A feature, price or segment variant of the same business model is not a separate option; compare the structural fields in `references/strategy-option-set.md`.
 
 ### 6. Make the strategy falsifiable
 
@@ -87,6 +87,12 @@ Infer the mode from the request; do not force the user to choose.
 | `decide` | Choosing among options | explicit criteria, trade-offs, opportunity cost, recommendation |
 | `develop` | Iteratively shaping what the company should become | thesis → evidence → contradiction → revised thesis |
 | `review` | Existing strategy meets new evidence | what changed, affected assumptions, reopened decisions |
+
+### Option-set gate
+
+In `explore` and `decide`, do not converge until you have at least three materially different strategies or business models. Compare them across customer/segment, wedge, product layer, channel, monetization, capital intensity, time-to-value, profitability, risk, defensibility and leading indicators. Use `references/strategy-option-set.md` for the matrix, material-difference test, decision record and revisit triggers.
+
+A different feature set, price point or segment label is not a separate option unless it also changes the customer or buyer, wedge, product layer, channel or monetization enough to alter the economics, required capabilities and risks. A light engagement can keep the comparison compact; it does not reduce the minimum to one. End with a recommendation that states the opportunity cost and why each rejected alternative was rejected.
 
 ### Depth
 
@@ -325,6 +331,7 @@ After working the relevant questions, make the choices explicit:
 - economic-power / durability mechanism;
 - strategic exclusions;
 - critical assumptions and tests;
+- opportunity cost and rejected alternatives, with the reason each was not chosen;
 - current recommendation and what would change it.
 
 Do not hide unresolved contradictions behind a polished narrative.
@@ -388,6 +395,7 @@ Load references selectively.
 ### Process and evidence
 
 - `references/decision-framing.md` — clarify the decision, options, criteria and reversibility
+- `references/strategy-option-set.md` — minimum three-option comparison, matrix, anti-patterns, decision record and revisit triggers
 - `references/research-protocol.md` — claim-led research, compact evidence tracking, contradiction handling
 - `references/strategy-stress-testing.md` — pre-mortem, failure mechanisms, coherence and verdict
 
@@ -417,8 +425,8 @@ Load references selectively.
 
 Adapt to the decision; do not mechanically output every section.
 
-- **Decision / recommendation** — what should be done and why
-- **Current thesis and alternatives** — including any thesis mutation
+- **Decision / recommendation** — what should be done, why, its opportunity cost and the rejected alternatives
+- **Current thesis and alternatives** — including the option set and any thesis mutation
 - **Opportunity reality** — decisive customer, market and competitive evidence
 - **Where to play + how to win** — beachhead, positioning, distribution, value creation, expansion
 - **Business model + economics** — monetization, market size, pricing, GTM, unit economics and scenarios as relevant
@@ -432,6 +440,8 @@ Adapt to the decision; do not mechanically output every section.
 Avoid:
 
 - accepting the user's first idea as fixed;
+- converging on the first plausible strategy without three materially different options in `explore` or `decide`;
+- presenting feature or price variants as separate strategies;
 - treating "no competitors" or a contrarian opinion as evidence of opportunity;
 - optimizing for a huge TAM while ignoring the ability to win a coherent beachhead;
 - treating any differentiation as economic power;
