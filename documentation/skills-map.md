@@ -27,19 +27,19 @@ Two core models, one method layer, three cross-cutting dimensions:
 
 ## Counts
 
-133 skills · 21 plugins · 4 packs · 19 domains
+141 skills · 21 plugins · 4 packs · 19 domains
 
 | Pack | Skills |
 | --- | ---: |
 | `sdlc` | 72 |
-| `technical` | 50 |
-| `craft` | 7 |
+| `technical` | 57 |
+| `craft` | 8 |
 | `product` | 4 |
 
 | Kind | Skills |
 | --- | ---: |
-| `method` | 93 |
-| `activity` | 29 |
+| `method` | 100 |
+| `activity` | 30 |
 | `workflow` | 9 |
 | `system` | 2 |
 
@@ -58,7 +58,7 @@ Two core models, one method layer, three cross-cutting dimensions:
 | [guide-research-report](../plugins/sdlc/skills/guide-research-report/SKILL.md) | development | Guide to writing a decision-oriented research report. Covers question, recommendation, evidence, alternatives, limits and open decision. |
 | [guide-rfc](../plugins/sdlc/skills/guide-rfc/SKILL.md) | development | Guide to writing a request for comments or technical proposal. Covers problem, current state, affected components, proposal, alternatives, impact and open decision. |
 | [guide-state-machine](../plugins/sdlc/skills/guide-state-machine/SKILL.md) | development | Guide to producing and reviewing state machines. Use for states, triggers, guards, terminal states, denied transitions, invariants and concurrent or retried behavior. |
-| [guide-readme](../plugins/sdlc/skills/guide-readme/SKILL.md) | documentation | Guide to writing a repository README. Covers purpose, audience, quickstart, what it does, docs map, development, support, status and limits. |
+| [guide-readme](../plugins/sdlc/skills/guide-readme/SKILL.md) | documentation | Guide to writing a repository README. Covers purpose, audience, quickstart, what it does, open-source adoption, honest claims, docs map, development, support, status and limits. |
 | [guide-design-spec](../plugins/sdlc/skills/guide-design-spec/SKILL.md) | frontend | Guide to producing a design specification that implementation can build and verify from. Covers flows, wireframes, mockups, prototypes, states, content, components, responsiveness, accessibility, motion, assets, handoff and design QA. |
 | [guide-assurance-assessment](../plugins/sdlc/skills/guide-assurance-assessment/SKILL.md) | governance | Guide to writing a scoped assurance assessment. Covers applicability, service boundary, controls, evidence, gaps, disposition and ownership. |
 | [guide-incident-record](../plugins/sdlc/skills/guide-incident-record/SKILL.md) | operations | Guide to writing an incident record. Covers impact, severity, ownership, timeline, mitigation, recovery verification, current state and follow-up. |

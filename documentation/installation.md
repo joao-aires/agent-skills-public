@@ -2,7 +2,7 @@
 
 Build complete bundles, load them through your client's supported route, then inspect discovery in the application workspace. You need Git to clone this repository and Python 3.10+ with the validation dependencies installed. Building then uses committed resources without upstream access or Node.js. Client authentication is separate from building.
 
-[Build](#build-the-bundles) · [Load in a client](#load-them-in-your-client) · [Additional bundles](#select-additional-bundles) · [Optional Figma connection](#optional-figma-connection) · [Optional project connections](#optional-project-connections)
+[Build](#build-the-bundles) · [Load in a client](#load-them-in-your-client) · [Additional bundles](#select-additional-bundles) · [Optional design connections](#optional-design-connections) · [Optional project connections](#optional-project-connections)
 
 ## Build the bundles
 
@@ -199,11 +199,19 @@ The build should create one directory per selected plugin, containing its manife
 
 Discovery verifies availability. Actual execution and adherence need separate [behavior trials](maintainers/evaluations.md). Keep the old installation until its replacement builds and is discoverable; follow [migration](migration.md) for old copies or links. Never overwrite local changes without preserving them.
 
-## Optional Figma connection
+## Optional design connections
 
-The frontend-development bundle declares Figma's optional remote endpoint in [mcp.json](../plugins/frontend-development/mcp.json). Follow [Figma's client setup](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/) when connecting it; avoid duplicate configuration if the official client plugin already supplies the connection. The declaration does not establish authenticated file access.
+The frontend-development bundle declares optional remote endpoints in [mcp.json](../plugins/frontend-development/mcp.json):
 
-Connect only when the requested work needs Figma, and verify access to the intended file. The [usage guide](usage.md#setup-and-tools) explains local design alternatives and Storybook's verification role.
+| Service | Endpoint | Access |
+| --- | --- | --- |
+| Figma | `https://mcp.figma.com/mcp` | OAuth; design-tool access |
+| Mobbin | `https://api.mobbin.com/mcp` | OAuth; paid Mobbin plan |
+| Refero | `https://api.refero.design/mcp` | OAuth or bearer token; paid Refero plan |
+
+Figma is the design-tool connection. Mobbin and Refero are design-reference libraries used by [design research](../plugins/frontend-development/skills/design-research/SKILL.md). None is required: [UI/UX Pro Max](../plugins/frontend-development/skills/ui-ux-pro-max/SKILL.md), the repository's design system, user-supplied references and local/public research remain available. The declarations do not establish authenticated access.
+
+Connect only when the requested work needs the service. For Mobbin or Refero, ask before use and respect the answer; no answer means skip. Verify plan access, rate limits and data-sharing constraints, and do not send confidential designs to a third-party service without permission. Follow [Figma's client setup](https://developers.figma.com/docs/figma-mcp-server/remote-server-installation/) when connecting Figma; avoid duplicate configuration if the official client plugin already supplies the connection.
 
 ## Optional project connections
 

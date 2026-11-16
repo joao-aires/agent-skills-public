@@ -42,9 +42,9 @@ The [installation guide](installation.md#load-them-in-your-client) links the cli
 
 Select strategy for product-management, business direction and product feedback. Ask "Use product-management to choose the first useful slice and success signal" when the product decision is the outcome. Ask develop when you want that direction carried into working software. Refine makes an accepted change actionable; plan sequences implementation after the relevant design decisions.
 
-Frontend-development provides one integrated interface-design method for information architecture, interaction, visual craft and critique, plus independent UX writing and usability research. Creative, subject-specific art direction is conditionally available inside interface-design when choices are open; ordinary changes preserve the existing system. Application-specific specialists contribute archetype patterns and domain semantics, while the accepted frontend platform constrains and implements the design. Backend-development provides service design across stacks.
+Frontend-development provides one integrated interface-design method for information architecture, interaction, visual craft and critique, plus design research, independent UX writing and usability research. `ui-ux-pro-max` is the baseline design-intelligence source. `design-research` adds product and precedent research; it asks once about optional Mobbin or Refero access and continues with repository evidence, user references, public product research and local prototypes when those services are unavailable. For consequential UI work, expect at least three materially different directions, a request for feedback and a recorded decision before implementation. Creative, subject-specific art direction is conditionally available inside interface-design when choices are open; ordinary changes preserve the existing system. Application-specific specialists contribute archetype patterns and domain semantics, while the accepted frontend platform constrains and implements the design. Backend-development provides service design across stacks, with dedicated REST, GraphQL, event-driven and distributed-systems methods.
 
-The ai-development package supplies three generic skills: ai-development for application patterns, architecture and capability/protocol decisions; ai-testing for testing/evaluation strategy and evidence; and ai-operations for task signals, quality monitoring, provider/resource limits and recovery. Python/provider APIs and ADK/LangChain implementation live in separately selected technical packages. Ai-python-development includes ai-deepeval-testing for a selected DeepEval evaluation runner and python-ai-observability for Python OpenTelemetry instrumentation; quality criteria and operating outcomes stay generic, and no hosted backend is required. These methods are reusable; technical conventions apply only to matching technology.
+The ai-development package supplies four generic skills: ai-development for application patterns, architecture and capability/protocol decisions; ai-testing for testing/evaluation strategy, cases and evidence; ai-evaluation for the program-level evaluation lifecycle, datasets, gates, production sampling and reporting; and ai-operations for task signals, quality monitoring, provider/resource limits and recovery. Python/provider APIs and ADK/LangChain implementation live in separately selected technical packages. Ai-python-development includes ai-deepeval-testing for a selected DeepEval evaluation runner, with a playbook for datasets, metrics, CI and local reporting, and python-ai-observability for Python OpenTelemetry instrumentation. Quality criteria and operating outcomes stay generic, and no hosted backend is required. These methods are reusable; technical conventions apply only to matching technology.
 
 For an existing accepted product, start with the affected work. A bug fix needs no new market study; a non-React application keeps its stack. The activity system recommends relevant activities without executing them, and missing optional guidance does not block the activity: use project evidence, general expertise and appropriate primary sources while retaining acceptance and verification standards. Missing tools or an execution target remain precise limits. See [composition and fallback](architecture.md#compose-without-optional-dependencies).
 
@@ -80,6 +80,8 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 | Need | Request |
 | --- | --- |
 | Compare design directions | Use design to compare three materially different saved-search directions for the web client and API, with wireframes, a contract sketch and the seam decision. |
+| Research interface precedent | Use design-research to compare how shipped products handle subscription cancellation, then use interface-design to turn the findings into three directions. |
+| Explain a concept | Use explain to teach a new maintainer why two concurrent edits can lose an update, with a worked interleaving and a comprehension check. |
 | Produce an artifact | Use guide-c4-view to turn this proposed architecture into context, container and one failure sequence. |
 | Define a feature | Use refine to define read-only saved-search sharing from this brief and the existing code. |
 | Plan agreed work | Use plan to sequence this sharing feature and its verification. |
@@ -106,7 +108,7 @@ Read [software types](../plugins/sdlc/skills/artifact-system/references/software
 Use design to unify navigation, nested menus and edit dialogs across this application. Specify the interactions and show wireframes where useful. Do not implement yet.
 ```
 
-Then ask `improve` or `develop` to implement the agreed direction. Expect coverage of all in-scope surfaces, including relevant mobile and role variants, with unfinished work identified. [Interface design](../plugins/frontend-development/skills/interface-design/SKILL.md) owns the integrated UX/UI method. Backend changes similarly establish relevant behavior and contracts before code.
+Then ask `improve` or `develop` to implement the agreed direction. Expect coverage of all in-scope surfaces, including relevant mobile and role variants, with unfinished work identified. [Interface design](../plugins/frontend-development/skills/interface-design/SKILL.md) owns the integrated UX/UI method; [design research](../plugins/frontend-development/skills/design-research/SKILL.md) supplies precedent and option evidence. Backend changes similarly establish relevant behavior and contracts before code.
 
 ### Evaluate during implementation
 
@@ -128,8 +130,11 @@ Add the relevant bundle and request its installed skill by name. Examples:
 
 - Use `incident-response` to investigate current impact within the established action boundaries.
 - Use `data-recovery` to assess an isolated restoration, or `capacity-and-cost` for capacity work.
-- Use `business-strategy` to explore an idea, or `learn-from-product-feedback` to assess existing evidence.
+- Use `business-strategy` to explore an idea with at least three materially different options, or `learn-from-product-feedback` to assess existing evidence.
 - Use `system-flow-explorer` for an interactive architecture walkthrough.
+- Use `rest-api-design` or `graphql-design` for an external API contract, and `event-driven-design` or `distributed-systems` for cross-service behavior.
+- Use `cli-development` to shape a command surface before implementation.
+- Use `tooling-conventions` for workflow authoring and script selection, then `github-actions-hardening` for a security review.
 
 See [skills by area](sdlc-reference.md#skills-by-area) for the wider selection. `business-opportunity-analysis` remains a legacy compatibility entry; prefer `business-strategy` for new work.
 
@@ -152,11 +157,11 @@ Unattended tasks return missing material decisions instead of inventing answers.
 
 ## AI and MCP plugin selection
 
-Add ai-development for generic AI feature or MCP-interface methods. Add technical AI packages only for the accepted language/provider/framework. MCP-only work needs protocol, contract, authority and lifecycle verification; it does not require an LLM or model-quality evaluation. Configure live tools only when needed. Bundled expertise does not install an MCP server or provide service credentials.
+Add ai-development for generic AI feature or MCP-interface methods, including `ai-evaluation` for a program-level evaluation. Add technical AI packages only for the accepted language/provider/framework; `ai-deepeval-testing` supplies the selected DeepEval implementation. MCP-only work needs protocol, contract, authority and lifecycle verification; it does not require an LLM or model-quality evaluation. Configure live tools only when needed. Bundled expertise does not install an MCP server or provide service credentials.
 
 ## Setup and tools
 
-Follow [installation](installation.md) for bundle loading. Figma is optional: use authorized Figma context when the deliverable requires it; otherwise local HTML/CSS prototypes, SVG wireframes or Storybook can answer the design question. Ordinary UI work needs no Figma account. The `sdlc` plugin also declares optional Atlassian, GitHub, Linear and Plane MCP endpoints. Declaring them does not connect them: authenticate only the system the work needs, verify the intended workspace, project or repository, and prefer a read-only endpoint when the task only inspects work. Verify rendered interaction and accessibility for affected states separately from the design artifact.
+Follow [installation](installation.md) for bundle loading. Figma, Mobbin and Refero are optional design connections. [UI/UX Pro Max](../plugins/frontend-development/skills/ui-ux-pro-max/SKILL.md) remains the baseline design intelligence; use authorized external references when available, and ask once before using Mobbin or Refero. No answer means skip. Otherwise local HTML/CSS prototypes, SVG wireframes or Storybook can answer the design question. Ordinary UI work needs none of the paid services. The `sdlc` plugin also declares optional Atlassian, GitHub, Linear and Plane MCP endpoints. Declaring them does not connect them: authenticate only the system the work needs, verify the intended workspace, project or repository, and prefer a read-only endpoint when the task only inspects work. Verify rendered interaction and accessibility for affected states separately from the design artifact.
 
 ## UI/UX expertise for people and agents
 
@@ -168,7 +173,7 @@ Interface-design owns information architecture, interactions, visual direction, 
 
 ## Explain and maintain project knowledge
 
-Use [technical-writing](../plugins/documentation/skills/technical-writing/SKILL.md) to write or review a useful product/engineering explanation, reference or procedure. Use [system-documentation](../plugins/sdlc/skills/system-documentation/SKILL.md) to explain structure, runtime/lifecycle behavior, interfaces, deployment and current versus target state from evidence. Both are directly selectable and model-available support; actual client discovery remains client-dependent.
+Use [explain](../plugins/documentation/skills/explain/SKILL.md) for a conversational explanation that builds a usable mental model. Use [technical-writing](../plugins/documentation/skills/technical-writing/SKILL.md) to write or review a durable product/engineering document, reference or procedure; its references cover common document types, formatting, concept explanation and review. Use [system-documentation](../plugins/sdlc/skills/system-documentation/SKILL.md) to explain structure, runtime/lifecycle behavior, interfaces, deployment and current versus target state from evidence. All are directly selectable and model-available support; actual client discovery remains client-dependent.
 
 The [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) owns the artifact model, contracts, planes, homes, quality bar and assurance. [Project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and `setup` establish the repository artifact home map; `develop`, implementation and release read or update it. Before adding a persistent project document, inspect the existing map and related authorities, then decide whether to update a canonical page or create a distinct one with appropriate navigation. System-design owns architectural decisions; writing guidance explains them. Existing formats and proportional scope remain authoritative; a routine edit needs no new tracker, document tree or full system audit.
 
