@@ -42,16 +42,13 @@ A candidate is worth comparing only if it changes at least one of these forces i
 
 For each candidate, state the forces it answers, the transaction and consistency boundary it creates, the ownership and deployment unit it creates, the operational burden it adds, its compatibility and rollback path, and the evidence that would confirm or reopen the choice.
 
-| Pattern | Fits when | Does not fit when | Cost and operational consequence |
-| --- | --- | --- | --- |
-| Modular monolith | Boundaries are still moving, the team is small or transactions span capabilities; modules have explicit interfaces and own their data. | Modules share tables or transactions invisibly, or independent deployment and scaling are already required. | One runtime and pipeline keeps operations cheap; needs enforced module contracts and data ownership; scaling, failure and deployment affect the whole unit. |
-| Layered | Flows are simple and well understood, and a conventional separation of interface, application, domain and infrastructure helps orientation. | Layers become pass-through ceremony, domain logic lands in controllers, or ownership must follow business capabilities. | Indirection without independent boundaries; weak parallel ownership; no deployment or scaling isolation. |
-| Hexagonal / ports-and-adapters | The core must outlive frameworks or infrastructure, several delivery or storage adapters exist, or test seams need IO-free core tests. | No second adapter or replacement is plausible, and abstraction would be speculative. | Ports, adapters and mapping add code and maintenance; runtime and deployment usually stay the same unless combined with splitting. |
-| Clean / onion | Complex domain rules and multiple entry points justify an inward dependency rule; frameworks and persistence stay at the edge. | The work is thin CRUD, the team cannot sustain the mapping discipline, or the structure is imposed wholesale on every service. | Use-case and mapping ceremony, higher learning and review cost, and a real risk of a domain model disconnected from persistence reality. |
-| CQRS | Measured read/write asymmetry, divergent read shapes, or multiple projections benefit from separate models. | Reads and writes are simple and symmetric, or the journey cannot tolerate projection lag. | Extra read model, projection lag, rebuild and backfill, dual-path debugging, and visible eventual consistency. |
-| Event sourcing | A concrete audit, replay, rebuild or temporal-reconstruction requirement makes the event history the record. | There is no replay or history requirement, or schema churn, deletion, volume or team capability make history expensive to own. | Permanent schema history, snapshots, replay and retention, redaction and deletion, projection rebuild, backup/restore, and harder support. |
-| Microservices | Business capabilities have real independent ownership, deployment and data, with funded platform and on-call capacity. | Boundaries are unknown, teams are few, one transaction spans capabilities, or services would share a database or deploy in lockstep. | Network failure, cross-service consistency, observability, versioning, duplication, platform cost and on-call; independence exists only when data ownership is real. |
-| Serverless | Work is stateless or event-driven, traffic is spiky or low-utilization, and runtime limits, latency and per-use cost fit. | Work is long-running or stateful, throughput is steady and high, latency is strict, or local testing, portability or connection pooling are unresolved. | Cold starts, execution and concurrency limits, connection handling, vendor coupling, observability gaps, and a cost curve that can invert at sustained load. |
+| Pattern family | Patterns | Primary question |
+| --- | --- | --- |
+| Runtime boundaries | Modular monolith, microservices, serverless | Does independent ownership, deployment, scaling or cost justify a new runtime and failure boundary? |
+| Dependency direction | Layered, hexagonal/ports-and-adapters, clean/onion | Does the core need to outlive a framework, replace infrastructure or support multiple adapters? |
+| Model separation | CQRS, event sourcing | Is there measured read/write asymmetry, or a concrete replay/rebuild/temporal requirement? |
+
+Read [pattern selection](references/pattern-selection.md) for the full fits/costs matrix, force checklist, coherent combinations, per-pattern evidence and migration consequences.
 
 Patterns combine. A modular monolith can use hexagonal or clean structure inside each module; microservices can use CQRS, event sourcing or serverless per service. Evaluate the combination and its total cost, not the label alone.
 

@@ -115,7 +115,19 @@ An observed failure should improve a general decision rule, a navigation pointer
 
 ### Durable guidance, external detail
 
-A skill owns the decisions, standards, conventions, tradeoffs, failure modes, authority and evidence that are specific to this collection. It does not reproduce external documentation.
+**A skill is a decision procedure and a local standard, not a mirror of external documentation.**
+
+A skill owns the decisions, standards, conventions, tradeoffs, failure modes, authority and evidence that are specific to this collection. It should orient the agent, state what must be verified, and route to the authoritative source for volatile detail.
+
+#### Knowledge layers
+
+| Layer | Owns | Examples |
+| --- | --- | --- |
+| **Method / skill** | The job, entry conditions, stopping point, authority, decisions, invariants, tradeoffs, failure modes, evidence and handoff. | When a model judge is justified. What must remain an exact assertion. What evidence supports a release decision. |
+| **Local reference** | Stable local checklists, decision tables, short examples, source interpretations and compatibility notes that are too long for the entry point. | How to map an evaluation decision to a representation. What a complete evidence record contains. |
+| **External authority** | API signatures, flags, config keys, syntax, version matrices, vendor limits, pricing and tutorials. | The installed framework's API docs, a provider's configuration reference, a current specification. |
+
+#### What belongs where
 
 | Keep in the skill | Keep in a package reference | Link to the external authority |
 | --- | --- | --- |
@@ -124,14 +136,34 @@ A skill owns the decisions, standards, conventions, tradeoffs, failure modes, au
 | The minimum names needed to recognize the tool or standard. | A short example that demonstrates a decision. | Full API reference, exhaustive option lists and framework walkthroughs. |
 | Evidence and completion checks. | A dated source review or compatibility note. | The current primary source, checked at use time. |
 
-Smell tests:
+#### Review tests
 
-- If a section can become a link without losing a decision, link it.
-- If an API name, flag, config key or version can change independently, do not freeze it as durable guidance. State what to verify.
-- If an example is illustrative, keep the smallest one. A tutorial is not a method.
-- If two external sources disagree, state the selection criterion, not a summary of both.
-- If the section would need editing every time the framework releases, it belongs behind a link or a version note.
-- If a skill cannot complete its own job without another optional plugin, its boundary is wrong.
+- **Link test:** can this paragraph become a link plus a decision without losing what the agent needs to choose?
+- **Change-rate test:** would a framework release, vendor plan or API change require editing this? If yes, it is external detail.
+- **Context test:** must this be in context on every use, or can it be loaded conditionally?
+- **Judgment test:** does it help choose, verify, recover or recognize a failure? If it only describes an API, it is not method.
+- **Conflict test:** if external sources disagree, does the skill state the selection criterion?
+- **Fallback test:** if the external docs are unavailable, can the agent proceed safely? If not, keep a minimal fallback.
+- **Evidence test:** does the skill distinguish documented behavior from installed or observed behavior?
 
-Composition language follows the same rule. Name optional capabilities, say when they are useful, and state that the core outcome works without them. Do not write as though every plugin in the collection is installed.
+#### Anti-patterns
 
+- **Documentation shadow:** restating API docs in the skill.
+- **Version fossil:** freezing flags, signatures or config keys that change.
+- **Tutorial bloat:** long examples that teach the framework rather than the decision.
+- **Link-only abdication:** a page of links with no method, selection criteria or failure modes.
+- **Vendor ventriloquism:** repeating marketing claims or pricing as engineering facts.
+- **Checklist without a decision:** options with no criteria for choosing.
+- **Canonical duplication:** the same external fact copied into several skills.
+
+#### When duplication is justified
+
+Keep the detail when it is a safety, security or authority invariant; a local convention or accepted decision; a non-obvious trap or a criterion for choosing between external options; the external docs are unreliable, inaccessible or version-fragmented; a minimal name or command is needed for orientation; or an offline fallback is required.
+
+#### Audit
+
+See the [guidance audit](maintainers/guidance-audit.md) for the 2026-11-16 review of local skills and the prioritized follow-up list.
+
+#### Composition
+
+Name optional capabilities, say when they are useful, and state that the core outcome works without them. A skill that cannot complete its own job without another optional plugin has the wrong boundary. Do not write as though every plugin in the collection is installed.

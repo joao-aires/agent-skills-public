@@ -16,6 +16,7 @@ Start with the outcome you need. These pages have one dominant purpose each; dee
 | Classify a skill or maintain a pack | [Metadata contract](metadata.md) and [maintainer reference](maintainer-reference.md) |
 | Maintain sources, licenses and counts | [Source catalogue](maintainers/sources.md) |
 | Plan the next capability additions | [Capability expansion roadmap](maintainers/capability-expansion.md) |
+| Audit skills against the guidance principle | [Guidance audit](maintainers/guidance-audit.md) |
 | Replace old names | [Migration](migration.md) |
 | Browse the generated skill inventory | [Skills map](skills-map.md) or [skills-map.html](skills-map.html) |
 
