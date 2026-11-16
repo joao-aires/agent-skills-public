@@ -63,12 +63,14 @@ Labels do not enforce permissions. `user-invocable` controls the direct user com
 | --- | --- |
 | Engagement, stopping point and requested execution | Activity entry point and activity-system |
 | Product priorities, useful scope and success signal | product-management; business-strategy owns business direction |
-| Architecture / service behavior | system-design / backend-design |
+| Architecture / service behavior | system-design / backend-design / architecture-patterns |
 | Visual direction / interaction behavior / critique | interface-design |
 | AI application/capability/protocol design | ai-development |
 | AI testing/evaluation strategy | ai-testing |
+| AI evaluation program | ai-evaluation |
 | AI operating decisions and quality monitoring | ai-operations |
 | Selected Python AI implementation | ai-conventions, ai-deepeval-testing and python-ai-observability |
+| Pipeline design and release flow | ci-cd-pipelines |
 | Framework APIs, configuration and platform mechanics | Matching technical conventions and upstream specialists |
 | Scope, consequential decisions and completion evidence | Shared workflow and the existing verification owner |
 
@@ -110,3 +112,26 @@ Choose paragraphs, lists, sequences, comparisons and examples according to meani
 Give each rule one owning location within a bundle. Keep material needed on every relevant path in the entry point; link conditional technical detail with a clear trigger. Independently installable bundles may need small overlapping defaults to remain useful on their own. Preserve resources and invocation controls when adapting upstream guidance.
 
 An observed failure should improve a general decision rule, a navigation pointer, a deterministic tool or an evaluation. Keep its concrete reproduction in the evaluation rather than adding another prohibition to every skill. Check that the revision preserves the intended outcome, safeguards, explicit user preferences and completion evidence. Compare both old regressions and unfamiliar scenarios; shorter text alone is not evidence of better behavior.
+
+### Durable guidance, external detail
+
+A skill owns the decisions, standards, conventions, tradeoffs, failure modes, authority and evidence that are specific to this collection. It does not reproduce external documentation.
+
+| Keep in the skill | Keep in a package reference | Link to the external authority |
+| --- | --- | --- |
+| The job, entry conditions, stopping point and authority. | A stable decision table, checklist or worked example that is too long for the entry point. | API signatures, flags, configuration keys, syntax, version-specific behavior, vendor limits and tutorials. |
+| Selection criteria, invariants, tradeoffs and failure modes. | The local convention that interprets an external standard. | Pricing, quotas, plan gating and commercial terms. |
+| The minimum names needed to recognize the tool or standard. | A short example that demonstrates a decision. | Full API reference, exhaustive option lists and framework walkthroughs. |
+| Evidence and completion checks. | A dated source review or compatibility note. | The current primary source, checked at use time. |
+
+Smell tests:
+
+- If a section can become a link without losing a decision, link it.
+- If an API name, flag, config key or version can change independently, do not freeze it as durable guidance. State what to verify.
+- If an example is illustrative, keep the smallest one. A tutorial is not a method.
+- If two external sources disagree, state the selection criterion, not a summary of both.
+- If the section would need editing every time the framework releases, it belongs behind a link or a version note.
+- If a skill cannot complete its own job without another optional plugin, its boundary is wrong.
+
+Composition language follows the same rule. Name optional capabilities, say when they are useful, and state that the core outcome works without them. Do not write as though every plugin in the collection is installed.
+

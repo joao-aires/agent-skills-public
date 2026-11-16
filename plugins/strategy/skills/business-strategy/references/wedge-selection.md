@@ -45,7 +45,7 @@ Generate alternatives across:
 - pricing / monetization
 - high-touch versus self-serve
 
-For `explore` and `develop` work, also generate at least one alternative from a **different underlying belief about the market**, not just a different segment or packaging choice.
+For exploratory and development work, also generate at least one alternative from a **different underlying belief about the market**, not just a different segment or packaging choice.
 
 When multiple alternatives remain live, compare them inline and persist only a compact summary in the **Current Strategic Alternatives** section of `strategy-state.md`. Do not maintain a separate wedge-scorecard artifact.
 

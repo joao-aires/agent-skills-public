@@ -1,6 +1,6 @@
 # Strategy option set
 
-Use this reference in `explore` and `decide` work, and whenever `develop` or `review` reopens a material choice. Its purpose is to prevent a polished recommendation for the first plausible idea. The option set is a decision instrument, not a catalogue of features.
+Use this reference when exploring or choosing among options (the `explore` and `decide` modes in the skill), and whenever development or review reopens a material choice. Its purpose is to prevent a polished recommendation for the first plausible idea. The option set is a decision instrument, not a catalogue of features.
 
 ## Minimum set
 
@@ -85,7 +85,7 @@ If the answer is no to all six, the options are variants. Merge them and generat
 - Ignoring cannibalization, channel conflict or opportunity cost.
 - Presenting a recommendation without naming what was rejected and why.
 - Confusing an option's narrative with its unit economics.
-- Applying the full matrix to a bounded operational question that is not a strategy or business-model choice; handle that as a light question outside `explore`/`decide` rather than weakening the gate inside them.
+- Applying the full matrix to a bounded operational question that is not a strategy or business-model choice; handle that as a light question outside the exploratory and decision modes rather than weakening the gate inside them.
 
 ## Decision record
 

@@ -70,7 +70,7 @@ Research should change confidence, options, or decisions—not maximize source c
 
 ### 5. Generate before converging
 
-For `explore` and `decide` work, develop at least three materially different strategies or business models before converging. Include different customers, buyers, jobs, layers, wedges, channels, business models, monetization models, geographies, and—when useful—different beliefs about how the market will evolve. A feature, price or segment variant of the same business model is not a separate option; compare the structural fields in `references/strategy-option-set.md`.
+When the engagement is exploratory or choosing among options, develop at least three materially different strategies or business models before converging. Include different customers, buyers, jobs, layers, wedges, channels, business models, monetization models, geographies, and—when useful—different beliefs about how the market will evolve. A feature, price or segment variant of the same business model is not a separate option; compare the structural fields in `references/strategy-option-set.md`.
 
 ### 6. Make the strategy falsifiable
 
@@ -78,7 +78,7 @@ Critical assumptions need evidence, confidence, falsifiers, experiments, and rev
 
 ## Modes
 
-Infer the mode from the request; do not force the user to choose.
+Infer the mode from the request; do not force the user to choose. These mode names are internal to this skill. They are not SDLC activities, commands or plugin dependencies.
 
 | Mode | Use when | Emphasis |
 |---|---|---|
@@ -90,7 +90,7 @@ Infer the mode from the request; do not force the user to choose.
 
 ### Option-set gate
 
-In `explore` and `decide`, do not converge until you have at least three materially different strategies or business models. Compare them across customer/segment, wedge, product layer, channel, monetization, capital intensity, time-to-value, profitability, risk, defensibility and leading indicators. Use `references/strategy-option-set.md` for the matrix, material-difference test, decision record and revisit triggers.
+In the exploratory and decision modes described below, do not converge until you have at least three materially different strategies or business models. Compare them across customer/segment, wedge, product layer, channel, monetization, capital intensity, time-to-value, profitability, risk, defensibility and leading indicators. Use `references/strategy-option-set.md` for the matrix, material-difference test, decision record and revisit triggers.
 
 A different feature set, price point or segment label is not a separate option unless it also changes the customer or buyer, wedge, product layer, channel or monetization enough to alter the economics, required capabilities and risks. A light engagement can keep the comparison compact; it does not reduce the minimum to one. End with a recommendation that states the opportunity cost and why each rejected alternative was rejected.
 
@@ -191,7 +191,7 @@ Test:
 - expansion geometry: why winning the first market makes the next move easier;
 - what the company intentionally will **not** do.
 
-For novel or `explore`/`develop` work, test non-consensus hypotheses:
+For novel, exploratory or development work, test non-consensus hypotheses:
 
 ```text
 What does the market broadly believe?
@@ -440,7 +440,7 @@ Adapt to the decision; do not mechanically output every section.
 Avoid:
 
 - accepting the user's first idea as fixed;
-- converging on the first plausible strategy without three materially different options in `explore` or `decide`;
+- converging on the first plausible strategy without three materially different options in exploratory or decision work;
 - presenting feature or price variants as separate strategies;
 - treating "no competitors" or a contrarian opinion as evidence of opportunity;
 - optimizing for a huge TAM while ignoring the ability to win a coherent beachhead;

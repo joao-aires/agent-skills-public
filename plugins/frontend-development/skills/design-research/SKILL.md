@@ -17,7 +17,7 @@ metadata:
 
 Design research reduces uncertainty about what users already know, how comparable products sequence a task, which content and states a surface must carry, and which visual direction fits the brand. It supplies evidence for a decision; it does not make the decision, replace user research or authorize copying.
 
-This method supports [interface design](../interface-design/SKILL.md). Interface design owns the brief, direction and implementation; [usability research](../usability-research/SKILL.md) owns participant studies. [UI/UX Pro Max](../ui-ux-pro-max/SKILL.md) is always used as baseline design intelligence, not as a fallback after other sources fail.
+This method supports [interface design](../interface-design/SKILL.md). Interface design owns the brief, direction and implementation; [usability research](../usability-research/SKILL.md) owns participant studies. [UI/UX Pro Max](../ui-ux-pro-max/SKILL.md) is one optional candidate source for styles, palettes, typography and UX rules. Use it when it fits the question, not as a mandatory baseline or a substitute for evidence.
 
 ## Frame the question
 
@@ -37,7 +37,7 @@ Both are optional paid services; the task must complete without them. Absence ch
 
 | Source | Use for | Authority |
 | --- | --- | --- |
-| UI/UX Pro Max (always) | Candidate styles, palettes, typography, UX rules and stack guidance | Baseline design intelligence; candidate material, not research evidence |
+| UI/UX Pro Max (when available and relevant) | Candidate styles, palettes, typography, UX rules and stack guidance | Candidate material, not research evidence or authority |
 | Repository and design system | Accepted tokens, components, copy, states and product constraints | Highest authority for fit with this product |
 | User-supplied references | Screens, links or files the user already trusts | Strong for intent; verify rights and currency |
 | Public product and competitor research | Live or documented shipped interfaces, app listings, changelogs | Direct observation when current; check what is public |
@@ -109,7 +109,7 @@ Never present a reference as the proposed design. A direction adapts an observed
 
 ## Work without Mobbin or Refero
 
-Use UI/UX Pro Max for baseline candidates, the repository and accepted design system for fit, user-supplied references for intent, and public product sites, documentation, changelogs and app-store listings for current examples. Compare candidate structures in a local prototype on the same content when the question is structural or visual. State which sources you actually inspected. If no credible comparison exists, say so and reason from the task, constraints and known conventions rather than inventing precedent.
+Use UI/UX Pro Max for candidate styles when it fits, the repository and accepted design system for fit, user-supplied references for intent, and public product sites, documentation, changelogs and app-store listings for current examples. Compare candidate structures in a local prototype on the same content when the question is structural or visual. State which sources you actually inspected. If no credible comparison exists, say so and reason from the task, constraints and known conventions rather than inventing precedent.
 
 ## Sources and fit
 

@@ -15,6 +15,8 @@ Maintainer plan for the next capability additions. The [source catalogue](source
 
 A new plugin needs an install decision that a user can make independently. A new skill needs a stopping point that differs from every existing skill. A new artifact needs a contract that differs from every existing contract.
 
+Every new or revised skill also follows [durable guidance, external detail](../maintainer-reference.md#durable-guidance-external-detail): own the decision and conventions, link volatile external API/config detail, and keep optional cross-plugin composition conditional.
+
 Phase 1 and the application-type work are implemented in this branch and validated locally. Later phases remain planned; the private blog/content pack is separate.
 
 ## Public and private split
@@ -49,6 +51,8 @@ Private skills reference public skills by name. They do not copy them.
 | Event-driven/Kafka | `backend-development` | New method | Implemented |
 | Distributed systems | `backend-development` | New method | Implemented |
 | CLI | `development-tooling` | New method | Implemented |
+| Backend architecture patterns | `backend-development` | New method for pattern selection and migration | Implemented |
+| CI/CD pipeline design | `development-tooling` | New provider-neutral method; release remains the activity | Implemented |
 | Reliability | `sdlc` | New activity for SLOs, error budgets and alert policy | Phase 3 |
 | Production readiness | `sdlc` | New activity using assurance evidence | Phase 3 |
 | Kubernetes troubleshooting | `operations-platforms` | Acquire/adapt the distinct upstream method | Phase 3 |
