@@ -1,6 +1,6 @@
 """Single vocabulary for skill metadata and artifact routing."""
 
-KINDS = {'system', 'activity', 'method', 'workflow', 'reference'}
+KINDS = {'system', 'activity', 'method', 'workflow', 'guide', 'reference'}
 PACKS = {'sdlc', 'technical', 'craft', 'product'}
 PHASES = {'planning', 'requirements', 'design', 'implementation',
           'verification', 'release', 'maintenance', 'cross-phase'}

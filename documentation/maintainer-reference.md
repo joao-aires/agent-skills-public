@@ -11,6 +11,7 @@ Use this page when changing the collection. For installation and everyday use, s
 | Need | Reference |
 | --- | --- |
 | Understand composition, discovery and fallback | [Plugin and skill architecture](architecture.md) |
+| Write or revise a package README | [Plugin README template](maintainers/plugin-readme-template.md) |
 | Inspect plugin boundaries and every skill owner | [Plugin ownership map](maintainers/sources.md#plugin-ownership) |
 | Add a framework, language or platform | [Adding stack support](maintainers/adding-stack-support.md) |
 | Acquire, verify or update committed snapshots | [Upstream maintenance](maintainers/upstreams.md) |
@@ -21,7 +22,7 @@ Use this page when changing the collection. For installation and everyday use, s
 
 ## Maintaining the collection
 
-1. Edit the owning skill under `plugins/<bundle>/skills/<name>/`, keeping its resources intact. Put specialist methods/diagrams beside that skill and user-facing usage in the reader guides.
+1. Edit the owning skill under `plugins/<bundle>/skills/<name>/`, keeping its resources intact. Put specialist methods/diagrams beside that skill and user-facing usage in the reader guides. Frame package responsibilities with the [plugin README template](maintainers/plugin-readme-template.md); keep complex models in a linked `MODEL.md` appendix rather than expanding the default README.
 2. For upstream changes, follow [maintaining upstream snapshots](maintainers/upstreams.md). Agent Depot owns acquisition and snapshot integrity; consumer metadata owns adaptations and attribution. Preserve dependency groups, native controls and licenses. Never acquire private installed content or execute upstream setup during packaging.
 3. Update affected links, catalogue entries and migration notes. Bump the plugin version when packaged content changes. Add focused regression coverage for packaging behavior changes.
 4. Run the checks below. Build into a fresh destination; replace client installations with complete bundles rather than overwriting local edits.
