@@ -74,14 +74,14 @@
     {
       "type": "c4-view",
       "contract": "contracts/c4-view.md",
-      "guide": "guide-c4-view",
+      "guide": "guide-architecture-views",
       "plane": "system-knowledge",
       "home": "architecture set or proposed design record"
     },
     {
       "type": "sequence-view",
       "contract": "contracts/sequence-view.md",
-      "guide": "guide-sequence-view",
+      "guide": "guide-architecture-views",
       "plane": "system-knowledge",
       "home": "architecture set or proposed design record"
     },

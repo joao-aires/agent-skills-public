@@ -148,10 +148,12 @@ Structural renames:
 | `capacity-and-cost` | [analyze-capacity-cost](../plugins/sdlc/skills/analyze-capacity-cost/SKILL.md) |
 | `operations-review` | [run-operations-review](../plugins/sdlc/skills/run-operations-review/SKILL.md) |
 | `incident-response` | [run-incident-response](../plugins/sdlc/skills/run-incident-response/SKILL.md) |
+| `production-readiness` | [run-production-readiness-review](../plugins/sdlc/skills/run-production-readiness-review/SKILL.md) |
+| `dependencies` | [run-dependency-maintenance](../plugins/sdlc/skills/run-dependency-maintenance/SKILL.md) |
 | `postmortem` | [run-postmortem](../plugins/sdlc/skills/run-postmortem/SKILL.md) |
 | `resilience-testing` | [testing-resilience](../plugins/sdlc/skills/testing-resilience/SKILL.md) |
 | `journey-testing` | [testing-journey](../plugins/frontend-development/skills/testing-journey/SKILL.md) in `frontend-development` |
 
-`data-recovery` and `observability` are retired. Recovery design lives in `design-system/references/reliability-disaster-recovery.md`, recovery procedures in `guide-runbook`, and readiness evidence in `production-readiness`. Observability design lives in `design-system/references/observability-and-monitoring.md`; incident response owns response and operations review owns recurring hygiene.
+`data-recovery` and `observability` are retired. Recovery design lives in `design-system/references/reliability-disaster-recovery.md`, recovery procedures in `guide-runbook`, and readiness evidence in `run-production-readiness-review`. Observability design lives in `design-system/references/observability-and-monitoring.md`; incident response owns response and operations review owns recurring hygiene.
 
 Rebuild bundles rather than overlaying an old installation.

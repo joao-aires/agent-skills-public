@@ -180,7 +180,7 @@ The acquired SDLC methods were reviewed against the local activity, artifact and
 | Operating procedures | Merged into `guide-runbook` author/exercise/audit |
 | Current-system documentation | Merged into `guide-system-documentation` |
 | Security design | Merged into `design-security` |
-| Recovery | Removed as a skill; design in `design-system`, procedure in `guide-runbook`, evidence in `production-readiness` |
+| Recovery | Removed as a skill; design in `design-system`, procedure in `guide-runbook`, evidence in `run-production-readiness-review` |
 | Observability | Removed as a skill; design in `design-system/references/observability-and-monitoring.md` |
 | Capacity and cost | Narrowed to `analyze-capacity-cost`; planning lives in `design-system` |
 | System design | Renamed `design-system`, covering architecture design and tactical system design |

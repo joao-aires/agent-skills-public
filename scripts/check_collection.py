@@ -97,7 +97,7 @@ def check_links(root):
     retired = old_names - current
     # These nouns remain valid artifact or concept names after their former
     # skill was renamed or merged. Link resolution still catches stale paths.
-    ambiguous = {"runbook", "postmortem", "observability", "data-recovery"}
+    ambiguous = {"runbook", "postmortem", "observability", "data-recovery", "dependencies", "production-readiness"}
     for document in maintained_documents(root):
         if document.name in {"migration.md", "maintainer-reference.md"}:
             continue

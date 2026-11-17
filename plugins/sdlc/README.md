@@ -263,7 +263,7 @@ Every artifact type has a contract and, where the craft is distinct, a guide. Th
 
 - **Document guides:** `guide-prd`, `guide-rfc`, `guide-adr`, `guide-ecr`, `guide-design-proposal`, `guide-system-documentation`, `guide-issue`, `guide-pr`, `guide-research-report`, `guide-release-note`, `guide-readme`.
 - **Operational guides:** `guide-runbook`, `guide-incident-record`, `guide-postmortem`, `guide-assurance-assessment`.
-- **Artifact/view guides:** `guide-design-spec`, `guide-c4-view`, `guide-sequence-view`, `guide-state-machine`, `guide-compatibility-matrix`.
+- **Artifact/view guides:** `guide-design-spec`, `guide-architecture-views`, `guide-architecture-views`, `guide-state-machine`, `guide-compatibility-matrix`.
 
 Each guide can be used inside an activity or requested directly. The guides are self-contained writing methods; they do not link into the artifact system.
 
@@ -289,7 +289,7 @@ The storage mechanics for coordination artifacts now live inside `artifact-syste
 
 ### Delivery and operations
 
-`release` owns the delivery activity; the `ci-cd-pipelines` method owns provider-neutral CI/CD stage, artifact-promotion, gate and recovery design, with `tooling-conventions` for the selected provider implementation. `production-readiness` owns the scoped question of whether a service is ready to be depended on, using assurance evidence without authorizing a release. `application-configuration` owns configuration precedence, typed validation, secret separation and reload behavior. Operations activities cover incident response, security maintenance, operations reviews and postmortems. Observability design, capacity/cost planning and recovery design live in `design-system`; runbooks are created and exercised through `guide-runbook`. `design-system` owns quality-attribute design tactics, including reliability and disaster recovery, through its [quality-attribute references](skills/design-system/references/quality-attributes.md); the observability and monitoring reference owns the signal contract.
+`release` owns the delivery activity; the `ci-cd-pipelines` method owns provider-neutral CI/CD stage, artifact-promotion, gate and recovery design, with `tooling-conventions` for the selected provider implementation. `run-production-readiness-review` owns the scoped question of whether a service is ready to be depended on, using assurance evidence without authorizing a release. `application-configuration` owns configuration precedence, typed validation, secret separation and reload behavior. Operations activities cover incident response, security maintenance, operations reviews and postmortems. Observability design, capacity/cost planning and recovery design live in `design-system`; runbooks are created and exercised through `guide-runbook`. `design-system` owns quality-attribute design tactics, including reliability and disaster recovery, through its [quality-attribute references](skills/design-system/references/quality-attributes.md); the observability and monitoring reference owns the signal contract.
 
 ### Security and governance
 

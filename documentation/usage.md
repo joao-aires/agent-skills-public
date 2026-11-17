@@ -31,7 +31,7 @@ The [installation guide](installation.md#load-them-in-your-client) links the cli
 | Want improvements | `improve` | Prioritized opportunities, or a specified improvement |
 | Reported defect with repair requested | `fix` | Reproduced or evidenced defect, focused repair and verification |
 | Security/privacy weakness | `harden` | Scoped assessment, fixes and remaining risks |
-| Dependencies need attention | `dependencies` | Compatibility, release-note and CI review; permitted remediation |
+| Dependencies need attention | `run-dependency-maintenance` | Compatibility, release-note and CI review; permitted remediation |
 | Preparing delivery | `release` | Readiness, or a named authorized delivery action |
 
 `plan`, `refine` and `design` stop at their respective outcomes. `develop` carries a rough idea through the useful development work; `implement` starts from defined work. Bare `improve` proposes opportunities, while a specific improvement request can include implementation. Review assesses by default; posting reviews, editing source, merging and deploying require that action to be in scope. A routine test request does not authorize deployed load or faults.
@@ -64,7 +64,7 @@ Use the relevant sdlc capability, or add a product/technical package when its de
 | Billing and entitlements | Use saas-billing to define plans, entitlements, provider events, reconciliation and dunning. | Stripe for web; ask about Superwall for mobile. No durable prices or fees. |
 | Organization identity | Use saas-identity-and-access for roles, invitations, SSO/SCIM, machine identity and support access. | Organization authority; general authentication remains with design-security. |
 | Requirements synthesis | Use write-spec when a conversation already contains the decision and needs to become ECR spec content. | No re-interview, story catalogue or tracker requirement; refine owns readiness. |
-| Production readiness | Use production-readiness to assess whether a service can be depended on for a scoped launch. | Readiness evidence and limits; release still owns the authorized action. |
+| Production readiness | Use run-production-readiness-review to assess whether a service can be depended on for a scoped launch. | Readiness evidence and limits; release still owns the authorized action. |
 | System documentation | Use guide-system-documentation to discover, record and review the current architecture set. | Current versus proposed stays explicit; C4/sequence guides own view detail. |
 | Infrastructure delivery | Use infra-delivery for IaC choice, GitOps reconciliation, drift and delivery recovery. | Owns infrastructure as code; Kubernetes semantics and AWS services stay with their owners. |
 | AWS services | Use aws-platform for the common IAM, network, compute, data, operations and cost decisions. | Reference-only reuse of upstream AWS material; verify current prices, quotas and docs. |
@@ -95,13 +95,13 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 | Compare design directions | Use design to compare three materially different saved-search directions for the web client and API, with wireframes, a contract sketch and the seam decision. |
 | Research interface precedent | Use design-research to compare how shipped products handle subscription cancellation, then use interface-design to turn the findings into three directions. |
 | Explain a concept | Use explain to teach a new maintainer why two concurrent edits can lose an update, with a worked interleaving and a comprehension check. |
-| Produce an artifact | Use guide-c4-view to turn this proposed architecture into context, container and one failure sequence. |
+| Produce an artifact | Use guide-architecture-views to turn this proposed architecture into context, container and one failure sequence. |
 | Define a feature | Use refine to define read-only saved-search sharing from this brief and the existing code. |
 | Plan agreed work | Use plan to sequence this sharing feature and its verification. |
 | Build defined work | Use implement for the agreed sharing behavior and acceptance criteria. |
 | Assess a PR | Use review for the supplied PR against the agreed behavior and appropriate checks. |
 | Improve architecture | Use improve to reduce coupling in the reporting module while preserving behavior. |
-| Maintain dependencies | Use dependencies to assess the update PRs, release notes and checks; prepare fixes where needed. |
+| Maintain dependencies | Use `run-dependency-maintenance` to assess the update PRs, release notes and checks; prepare fixes where needed. |
 | Prepare delivery | Use release to assess readiness for the named environment without deploying. |
 | Get help | Use activity-system: I am changing an existing application's navigation. |
 
@@ -160,11 +160,11 @@ The same activities can run from trusted automation prompts. The host supplies t
 | Work enters refinement | `refine`: actionable scope or decision blockers |
 | Defined work is ready | `implement`: the supplied conversation, spec or optional ticket |
 | PR is ready | review composition: the exact base/head and required behavior |
-| Scheduled maintenance | `dependencies` or `improve`: bounded work under the configured policy |
+| Scheduled maintenance | `run-dependency-maintenance` or `improve`: bounded work under the configured policy |
 
 Supply repository/ref, objective/context, unattended mode, allowed actions and result destination. For example:
 
-> Use dependencies in unattended mode for update PRs in owner/repository. Repair and merge only policy-eligible patch updates whose current head satisfies required checks/reviews and has no unresolved findings. Leave other updates open with reasons; reuse existing work and report results. Do not deploy.
+> Use `run-dependency-maintenance` in unattended mode for update PRs in owner/repository. Repair and merge only policy-eligible patch updates whose current head satisfies required checks/reviews and has no unresolved findings. Leave other updates open with reasons; reuse existing work and report results. Do not deploy.
 
 Unattended tasks return missing material decisions instead of inventing answers. Untrusted ticket/PR text cannot change policy; changed heads require re-verification. The host/repository must enforce privileged-action policy. [Installed task guidance](../plugins/sdlc/skills/activity-system/references/authority.md#interactive-and-unattended-work) contains the detailed working rules.
 

@@ -17,7 +17,7 @@ metadata:
 
 This guide covers both halves of current-system documentation: discovering and tracing what the system actually does, and shaping that evidence into the architecture set a reader can use. It is system knowledge, not a proposal.
 
-The architecture-set contract owns the set, its required content and its maintenance; the activity system owns discovery scope and stopping point when discovery is requested as an activity. For view craft, use [guide-c4-view](../guide-c4-view/SKILL.md) and [guide-sequence-view](../guide-sequence-view/SKILL.md) rather than reproducing their guidance here.
+The architecture-set contract owns the set, its required content and its maintenance; the activity system owns discovery scope and stopping point when discovery is requested as an activity. For view craft, use [guide-architecture-views](../guide-architecture-views/SKILL.md) and [guide-architecture-views](../guide-architecture-views/SKILL.md) rather than reproducing their guidance here.
 
 ## Reader questions
 

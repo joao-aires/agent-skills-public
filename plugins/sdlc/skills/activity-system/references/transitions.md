@@ -26,7 +26,7 @@ A phase can also reopen an earlier decision when new evidence invalidates its pr
 | Postmortem | Planning or design | Learning actions change a requirement, design, control or runbook | Postmortem, action register, ECR/decision update |
 | Operate / postmortem | Design (reopen) | A signal, incident or review changes an assumption or reveals a gap | Incident/postmortem, ECR update, new decision |
 
-Cross-cutting activities (`fix`, `improve`, `harden`, `dependencies`) can start at any point and do not require a full lifecycle. Security, privacy and governance are **methods** that attach to the activity that owns the decision and evidence; they do not form a separate phase.
+Cross-cutting activities (`fix`, `improve`, `harden`, `run-dependency-maintenance`) can start at any point and do not require a full lifecycle. Security, privacy and governance are **methods** that attach to the activity that owns the decision and evidence; they do not form a separate phase.
 
 ## Parallel threads
 

@@ -15,8 +15,8 @@ Do not edit by hand.
 | Issue | [issue.md](contracts/issue.md) | [guide-issue](../../guide-issue/SKILL.md) |
 | Pull request | [pr.md](contracts/pr.md) | [guide-pr](../../guide-pr/SKILL.md) |
 | Architecture set | [architecture-set.md](contracts/architecture-set.md) | [guide-system-documentation](../../guide-system-documentation/SKILL.md) |
-| C4 view | [c4-view.md](contracts/c4-view.md) | [guide-c4-view](../../guide-c4-view/SKILL.md) |
-| Sequence view | [sequence-view.md](contracts/sequence-view.md) | [guide-sequence-view](../../guide-sequence-view/SKILL.md) |
+| C4 view | [c4-view.md](contracts/c4-view.md) | [guide-architecture-views](../../guide-architecture-views/SKILL.md) |
+| Sequence view | [sequence-view.md](contracts/sequence-view.md) | [guide-architecture-views](../../guide-architecture-views/SKILL.md) |
 | State machine | [state-machine.md](contracts/state-machine.md) | [guide-state-machine](../../guide-state-machine/SKILL.md) |
 | Compatibility matrix | [compatibility-matrix.md](contracts/compatibility-matrix.md) | [guide-compatibility-matrix](../../guide-compatibility-matrix/SKILL.md) |
 | Decision record | [adr.md](contracts/adr.md) | [guide-adr](../../guide-adr/SKILL.md) |

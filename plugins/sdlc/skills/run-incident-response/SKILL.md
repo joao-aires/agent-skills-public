@@ -37,7 +37,7 @@ This activity is for active impact. A readiness exercise, procedure rehearsal or
 
 | Request | Owner |
 | --- | --- |
-| Is this service ready to depend on? | [production-readiness](../production-readiness/SKILL.md) |
+| Is this service ready to depend on? | [run-production-readiness-review](../run-production-readiness-review/SKILL.md) |
 | Author, exercise or audit a procedure or runbook | [guide-runbook](../guide-runbook/SKILL.md) |
 | Controlled failure experiment or game day | [testing-resilience](../testing-resilience/SKILL.md) |
 | Recovery design, RTO/RPO, failover and failback | [design-system continuity and DR](../design-system/references/reliability-disaster-recovery.md) |

@@ -23,7 +23,7 @@ A design that names these without deciding them has not addressed security; it h
 | Abuse cases, trust boundaries, data flow, retention and provider exposure for a feature | [Design security](../../design-security/SKILL.md) |
 | Authentication, sessions, federation, passkeys, machine identity, tenant and resource authorization | [Design security](../../design-security/SKILL.md) |
 | Applicable legal or contractual obligation, control mapping, assurance evidence | [Run compliance assessment](../../run-compliance-assessment/SKILL.md) |
-| Dependency and supply-chain risk, lockfile coverage, update remediation | [Dependencies](../../dependencies/SKILL.md) and installed supply-chain auditing expertise |
+| Dependency and supply-chain risk, lockfile coverage, update remediation | [Dependencies](../../run-dependency-maintenance/SKILL.md) and installed supply-chain auditing expertise |
 | Credential inventory, rotation, vulnerability triage and deployed remediation | [Run security maintenance](../../run-security-maintenance/SKILL.md) |
 | Security-focused review of an actual diff | [Security diff review](../../harden/references/security-diff-review.md) |
 | Telemetry redaction and collection access | [Observability and monitoring](observability-and-monitoring.md) with the privacy method |

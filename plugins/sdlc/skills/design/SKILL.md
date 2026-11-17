@@ -29,7 +29,7 @@ Use the [artifact system](../artifact-system/SKILL.md) for the handoff and [arti
 | Need | Read |
 | --- | --- |
 | What evidence does this kind of component need? | [Software types](../artifact-system/references/software-types.md) |
-| Which guide applies to this artifact? | [Design specification](../guide-design-spec/SKILL.md), [C4](../guide-c4-view/SKILL.md), [sequence](../guide-sequence-view/SKILL.md), [state machine](../guide-state-machine/SKILL.md), [compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
+| Which guide applies to this artifact? | [Design specification](../guide-design-spec/SKILL.md), [C4](../guide-architecture-views/SKILL.md), [sequence](../guide-architecture-views/SKILL.md), [state machine](../guide-state-machine/SKILL.md), [compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
 | How to generate and compare directions | [Option set](references/option-set.md) |
 | How to test the direction before building | [Design validation](references/design-validation.md) |
 | Is the proposal ready to hand off? | [Design review](references/design-review.md) |
@@ -64,7 +64,7 @@ Link the artifacts that let a reviewer judge each option at comparable fidelity:
 | Type | Guide |
 | --- | --- |
 | Frontend | [Design specification](../guide-design-spec/SKILL.md) |
-| Backend | [C4](../guide-c4-view/SKILL.md), [sequence](../guide-sequence-view/SKILL.md), [state machine](../guide-state-machine/SKILL.md) |
+| Backend | [C4](../guide-architecture-views/SKILL.md), [sequence](../guide-architecture-views/SKILL.md), [state machine](../guide-state-machine/SKILL.md) |
 | AI | Use the available AI testing method for the evaluation plan |
 | Library/CLI | [Compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
 

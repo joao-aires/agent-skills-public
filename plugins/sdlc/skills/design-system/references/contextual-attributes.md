@@ -49,7 +49,7 @@ Portability asks how costly it is to move, replace or leave a platform, provider
 - Record residency, latency, availability and cost consequences of moving, not only the technical difficulty.
 - Distinguish portability from multi-cloud ambition. Running the same dependency in two places can increase coupling and cost without reducing risk.
 
-Use [dependencies](../../dependencies/SKILL.md) for dependency substitution and [release](../../release/SKILL.md) for deployment target changes. The design owns the seam and the exit reasoning; a rehearsal or export test is the evidence.
+Use [run-dependency-maintenance](../../run-dependency-maintenance/SKILL.md) for dependency substitution and [release](../../release/SKILL.md) for deployment target changes. The design owns the seam and the exit reasoning; a rehearsal or export test is the evidence.
 
 ## Selection and evidence
 

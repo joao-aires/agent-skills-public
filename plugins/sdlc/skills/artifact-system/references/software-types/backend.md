@@ -19,8 +19,8 @@ Software that serves other software: APIs, services, workers, cron jobs, queue c
 
 Use the guide for the view that answers the question:
 
-- [C4 view](../../../guide-c4-view/SKILL.md) for boundaries and responsibilities;
-- [sequence view](../../../guide-sequence-view/SKILL.md) for ordering, retry and failure;
+- [C4 view](../../../guide-architecture-views/SKILL.md) for boundaries and responsibilities;
+- [sequence view](../../../guide-architecture-views/SKILL.md) for ordering, retry and failure;
 - [state machine](../../../guide-state-machine/SKILL.md) for long-running or multi-step work;
 - [compatibility matrix](../../../guide-compatibility-matrix/SKILL.md) for consumers, versions and platforms.
 

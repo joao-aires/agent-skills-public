@@ -46,7 +46,7 @@ Every dependency is a standing obligation. Establish:
 - the interface or adapter that isolates it, and the exit path if it is replaced or withdrawn;
 - the data and schema migration path when the dependency owns durable state.
 
-A dependency that cannot be upgraded without a coordinated outage is a design risk. So is one whose data cannot be exported. Use [dependencies](../../dependencies/SKILL.md) for update review and vulnerability remediation evidence, and [release](../../release/SKILL.md) for the deployment and rollback path.
+A dependency that cannot be upgraded without a coordinated outage is a design risk. So is one whose data cannot be exported. Use [run-dependency-maintenance](../../run-dependency-maintenance/SKILL.md) for update review and vulnerability remediation evidence, and [release](../../release/SKILL.md) for the deployment and rollback path.
 
 ## Onboarding and legibility
 

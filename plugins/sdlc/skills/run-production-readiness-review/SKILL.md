@@ -1,10 +1,10 @@
 ---
-name: production-readiness
-description: Assess whether a service, launch or material capability change is ready
-  to be depended on in production. Use for a scoped readiness review of reliability
-  and SLOs, observability and alerts, security and authority, capacity and failure
-  behavior, recovery and rollback, runbooks, on-call and support, and open limits,
-  without authorizing a release or certifying the service.
+name: run-production-readiness-review
+description: Run a scoped production-readiness review of whether a service, launch
+  or material capability change is ready to be depended on. Assess reliability and
+  SLOs, observability and alerts, security and authority, capacity and failure behavior,
+  recovery and rollback, runbooks, on-call and support, and open limits. Do not authorize
+  a release or certify the service.
 metadata:
   kind: activity
   origin: local
@@ -17,7 +17,7 @@ metadata:
 user-invocable: true
 ---
 
-# Production readiness
+# Run production readiness review
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
 

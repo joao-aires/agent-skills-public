@@ -40,7 +40,7 @@ For each material relationship, state:
 - the compatibility and deprecation expectation between the two sides;
 - quotas, identity, network reachability and provider boundaries that constrain the interaction.
 
-For system-to-system interaction, the architectural decision is the purpose, authority and failure contract. Protocol-level shape belongs to the protocol owner once the seam is accepted. Use a proposed C4 context or container view for the macro structure and a sequence view only for the interactions a reviewer cannot judge from text; read [C4](../../guide-c4-view/SKILL.md) and [sequence](../../guide-sequence-view/SKILL.md) for structure.
+For system-to-system interaction, the architectural decision is the purpose, authority and failure contract. Protocol-level shape belongs to the protocol owner once the seam is accepted. Use a proposed C4 context or container view for the macro structure and a sequence view only for the interactions a reviewer cannot judge from text; read [C4](../../guide-architecture-views/SKILL.md) and [sequence](../../guide-architecture-views/SKILL.md) for structure.
 
 ## Decide what is expensive to reverse
 
