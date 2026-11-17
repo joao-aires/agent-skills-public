@@ -1,16 +1,19 @@
 # Select bundled design methods
 
-Read when choosing supporting design guidance. The same-package paths below are required resources included in the built frontend bundle. Do not ask users to install them separately. The agent loads their entrypoints/relevant references through its supported file or skill tools; a Markdown link does not execute another skill.
+Read when choosing supporting design guidance. The same-package paths below are resources included in the built frontend bundle. Do not ask users to install them separately. The agent loads their entrypoints/relevant references through its supported file or skill tools; a Markdown link does not execute another skill.
+
+No listed method is a mandatory baseline. Choose a primary method from the decision, then treat the others as optional inputs. UI/UX Pro Max is a candidate catalogue, Impeccable is a rendered critique/refinement system with its own workflow, and design research is precedent gathering. Their advice can conflict. Reconcile it against the brief, accepted product direction, design system, accessibility and observed evidence; do not run two full workflows in parallel without a stated synthesis.
 
 | Need | Method and bounded input | Completion evidence |
 | --- | --- | --- |
-| Open visual identity or palette/type exploration | [UI/UX Pro Max](../../ui-ux-pro-max/SKILL.md): product, task, constraints and actual stack | Inspect candidate fit and translate useful choices into the existing brief/tokens. |
+| Open visual identity or palette/type exploration | [UI/UX Pro Max](../../ui-ux-pro-max/SKILL.md): product, task, constraints and actual stack | Inspect candidate fit and translate useful choices into the existing brief/tokens. Optional, not a mandatory baseline. |
+| Comparable products, flow precedent or visual reference research | [Design research](../../design-research/SKILL.md): decision question, platform, product category, user goal and access limits | Dated sources with product names and canonical URLs, observation separated from inference, and a direction set or an explicit evidence gap. |
 | Scoped UX concern with no broad redesign | One targeted Pro Max domain search if useful; existing project evidence first | Result addresses the actual question; unrelated style suggestions discarded. |
 | Rendered critique or refinement | [Impeccable](../../impeccable/SKILL.md): target, accepted brief, requested command and edit boundary | Findings identify screen/state and observed impact; authorized repairs are re-rendered. |
 | Expressive motion/editor | Creative implementation reference plus compatible bundled animation guidance | Purposeful mechanism, usable static/reduced-motion fallback, measured runtime evidence. |
 | Routine UI bug with accepted design | Existing implementation and relevant local reference | Focused repair and regression evidence; no new direction questionnaire. |
 
-Use both only for distinct needs, such as candidate exploration followed by critique of the implemented slice. Direct user invocation of either upstream method remains useful and retains its native controls. In an orchestrated task, interface-design owns feedback and one brief; upstream methods own their specialist judgment. Preserve the requested stopping point even if a method's prose suggests further changes. Do not claim a method ran merely because it is installed.
+Use them only for distinct needs, such as precedent research, candidate exploration, then critique of the implemented slice. Direct user invocation of either upstream method remains useful and retains its native controls. In an orchestrated task, interface-design owns feedback and one brief; upstream methods own their specialist judgment. Preserve the requested stopping point even if a method's prose suggests further changes. Do not claim a method ran merely because it is installed.
 
 ## Resolve actual package paths
 

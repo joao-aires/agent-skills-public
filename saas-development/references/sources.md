@@ -13,4 +13,8 @@ These original skills use public starter/project patterns as research examples. 
 - For authority: [OWASP authorization](https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html) and the selected identity/provider documentation. Domain membership and commercial entitlement remain application decisions.
 - For accessible dashboard implementation: [WCAG](https://www.w3.org/TR/WCAG22/) and [ARIA Authoring Practices](https://www.w3.org/WAI/ARIA/apg/). Automated checks, visual inspection and task/usability evidence establish different properties.
 
+## Dated supporting-service and billing notes
+
+The [supporting-service vendor notes](../skills/saas-supporting-services/references/vendor-notes.md) and [billing provider notes](../skills/saas-billing/references/provider-notes.md) record public-documentation observations at a stated date. They are evidence questions, not recommendations. Prices, fees, quotas, plan gating and regional availability are commercial facts that change; verify them in the actual account and contract at the point of commitment.
+
 Consult the actual version, deployment and feature/edition terms before implementation. The source references in skill metadata identify research context; they do not install a framework, configure a provider or grant publication authority.

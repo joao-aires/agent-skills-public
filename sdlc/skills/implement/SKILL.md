@@ -45,7 +45,7 @@ Report findings with severity, location, impact and fix. Self-review is not inde
 
 ## Record and commit
 
-Record the implemented behavior, deviations, checks and remaining gaps in the change record. Use the [artifact quality bar](../artifact-system/references/quality-bar.md) for links. Commit only when the repository and authorization support it; in a non-versioned workspace use the local revision form instead.
+Record the implemented behavior, deviations, checks and remaining gaps in the change record. Link implemented behavior to the requirement IDs it satisfies where the record cites them, and name the affected ID instead of silently changing a promise. Use the [artifact quality bar](../artifact-system/references/quality-bar.md) for links. Commit only when the repository and authorization support it; in a non-versioned workspace use the local revision form instead.
 
 ## Stopping point
 

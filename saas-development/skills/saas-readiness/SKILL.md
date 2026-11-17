@@ -31,6 +31,20 @@ Assess the evidence at the same scope as the promise. A successful test for one 
 - Identify whether evidence is inspected configuration, a passing component check, a persisted integration journey, a production observation or a proposed procedure.
 - Avoid converting an absent specialist or an unexecuted check into a pass.
 
+### Read capability evidence at cohort scope
+
+Select the areas the proposed commitment actually depends on. For each selected area, ask for the journey and its failure path, not the configuration alone.
+
+| Area | Evidence to seek | Not sufficient |
+| --- | --- | --- |
+| Supporting services: analytics, email, observability, hosting/edge, marketing and social automation, search, queues, notifications, support | Requirement and chosen shape; an exercised delivery, failure and retry; tenant-scoped data; cost attribution; export and exit | A provider account, dashboard, status page or happy-path test |
+| Billing and entitlements | Provider, local entitlement and usage reconciled; duplicate and out-of-order events; trial, upgrade, dunning, cancellation and refund behavior; enforcement at the action boundary | A successful checkout redirect or a plan label in the interface |
+| Organization and identity | Membership, invitation, role, ownership transfer, SSO/SCIM where promised, machine credentials, support access and revocation window | A role matrix document or a configured IdP connection |
+| Multi-tenancy | Cross-tenant denial across API, search, export and jobs; per-tenant recovery granularity; migration and residency behavior | One tenant's successful journey or an assumption that a shared database is isolated |
+| Compliance evidence | Subprocessors, DPAs, residency, export/deletion, audit records, and Type I/II scope and exceptions where the cohort asks | A policy, trust page, provider attestation or certification claim |
+
+These areas illustrate capability evidence; they are not a universal enterprise checklist. A personal pilot may need only the integration failure path and a deletion procedure, while an enterprise rollout may need SSO, per-tenant recovery and Type II evidence. Scale the request to the cohort and record what was not assessed.
+
 Assess provider dependencies, abuse/quotas, privacy/licensing obligations, artifact/configuration identity, migration/cutover and rollback/forward recovery where they affect the cohort. Seek matching specialists when available; use project evidence and primary sources otherwise. Do not create new customer promises merely because a reference project includes a feature.
 
 ## Make gaps actionable

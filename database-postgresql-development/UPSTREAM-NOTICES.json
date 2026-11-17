@@ -1,1 +1,28 @@
-[]
+[
+  {
+    "plugin": "database-postgresql-development",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "stack-specific",
+      "invocation": "both",
+      "stack": "PostgreSQL, Supabase",
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "technical",
+      "domain": "database",
+      "phase": "cross-phase"
+    },
+    "artifact": "database-postgresql-development--supabase-postgres-best-practices",
+    "destination": "plugins/database-postgresql-development/skills/supabase-postgres-best-practices",
+    "repository": "https://github.com/supabase/agent-skills.git",
+    "commit": "c9be0e931b7930f7d02126d04774d904c381e7d7",
+    "path": "skills/supabase-postgres-best-practices",
+    "installed_skill": "supabase-postgres-best-practices"
+  }
+]

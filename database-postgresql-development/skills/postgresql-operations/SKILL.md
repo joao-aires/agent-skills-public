@@ -54,9 +54,10 @@ Assess connections, long transactions, disk/WAL growth, vacuum/freeze, replicati
 
 For minor/major upgrades, check supported server/extension/driver combinations, storage needs and tooling.
 
-- Compare in-place, logical replication or dump/restore strategies against downtime and reversibility.
+- Compare in-place, logical replication or dump/restore strategies against downtime and reversibility. Read [major upgrades](references/major-upgrades.md) for the compatibility inventory, `pg_upgrade` choices, rehearsal and cutover on infrastructure you control.
+- On a managed service, read [managed upgrades](references/managed-upgrades.md) for provider prechecks, clones, extension allowlists, replica handling and restore-based rollback.
 - Rehearse meaningful data and query/role compatibility, validate the new target, and define cutover, stale-writer prevention and forward recovery.
-- Avoid claiming binary rollback after new writes unless that path is demonstrated.
+- There is no in-place downgrade; avoid claiming binary rollback after new writes unless that path is demonstrated.
 
 ## Execute and report within scope
 

@@ -23,13 +23,24 @@ Start with who uses the product, who pays for it and which groups share resource
 
 A single person may belong to several organizations; a customer may pay for more than one workspace; a deployment may serve many tenants. The application needs explicit ownership and access rules for the relationships it actually supports.
 
-Preserve an adequate accepted design and keep depth proportional to the requested feature. Read [lifecycle decisions](references/lifecycle.md) for commercial or tenant transitions and [research sources](../../references/sources.md) for inspected project patterns and their limits.
+Preserve an adequate accepted design and keep depth proportional to the requested feature. The reading path selects the conditional detail; inspected project patterns and their limits are in the [research sources](../../references/sources.md).
+
+## Reading path
+
+| Need | Read |
+| --- | --- |
+| Commercial or tenant lifecycle transitions | [Lifecycle decisions](references/lifecycle.md) |
+| Isolation models, partitioning, per-tenant keys, noisy neighbors, regionality and tenant migration | [Multi-tenancy](references/multi-tenancy.md) |
+| Provider billing, entitlements and event reconciliation | `saas-billing` |
+| Organization authority, enterprise/machine identity and support access | `saas-identity-and-access` |
+| Supporting service selection and integration | `saas-supporting-services` |
+| Customer and operator dashboards | `saas-dashboard-design` |
 
 ## Establish the tenancy and authority model
 
 Define resource ownership, membership, organization switching and privileged administration.
 
-- Choose shared, isolated or hybrid deployment/storage from isolation, operating cost, customization and recovery requirements, rather than treating every B2B product as a dedicated deployment.
+- Choose shared, isolated or hybrid deployment/storage from isolation, operating cost, customization and recovery requirements, rather than treating every B2B product as a dedicated deployment. Read [multi-tenancy](references/multi-tenancy.md) when the choice affects partitioning, recovery granularity or residency.
 - Carry verified tenant context through queries, caches, files, search, jobs, exports, integrations and AI/tool calls.
 - Authentication, membership, resource permission and paid entitlement answer different questions.
 
@@ -57,6 +68,7 @@ Define usable onboarding and offboarding, including import/export, retention/del
 
 - Quotas and abuse protection should preserve fair service and an understandable user outcome.
 - Assess noisy neighbors, per-tenant attribution and capacity/recovery against actual commitments.
+- Choose supporting services from the requirement rather than adopting a vendor stack; `saas-supporting-services` owns that decision and its integration contract.
 - Enterprise identity, regional hosting, audit export or contractual support belong only when the target customers require them.
 
 Specify customer administration, self-service and support boundaries. Include useful task/activation signals with deliberate privacy/retention. Seek applicable security, governance, reliability and delivery expertise by capability; their absence does not imply readiness or require installation.

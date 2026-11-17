@@ -16,61 +16,67 @@ metadata:
 
 # Implement Python AI evaluations with DeepEval
 
-Use the accepted task, architecture and quality criteria. Seek available expertise in conceptual AI evaluation for case design and evidence boundaries; retain deterministic correctness, authority and meaningful quality evidence when that specialist is absent. This skill implements an evaluation approach in Python, not the product's acceptance policy or all application testing. The evaluation runner can be Python while the application uses another language; do not migrate the application to run a suite.
+Use the accepted task, quality criteria and evaluation approach. This skill owns the selected DeepEval integration in Python, not the acceptance criteria, the evaluation method or the delivery decision; those stay with the evaluation activity and the project. The runner can be Python while the evaluated application uses another language.
 
-## Choose a compatible, bounded integration
+## Reading path
 
-Inspect the project's Python/dependency constraints, existing tests, datasets, metrics, model/judge settings and CI. Use a locked compatible DeepEval version in the established test/development dependency group. Preserve an accepted alternative unless comparing or migrating is requested. Consult the [DeepEval evaluation guide](https://deepeval.com/docs/evaluation-introduction) for the selected release's API; documented examples do not establish installed compatibility.
-
-Map the accepted evaluation levels to supported DeepEval APIs. Use output cases for bounded inference, component/trajectory APIs where internal execution matters and conversation cases for supported multi-turn evaluation. Instrument only the relevant path with the existing tracing owner. A protocol-only service may need compatibility checks without DeepEval.
-
-## Map actual artifacts to test cases
-
-Keep input scenarios/goldens, expected outcomes/rubrics and test results distinct.
-
-| Evidence or input | Compatible DeepEval representation |
+| Need | Read |
 | --- | --- |
-| Single-turn input/output | `LLMTestCase` |
-| Supported multi-turn evaluation | `ConversationalTestCase` |
-| Rerunnable input collection | `EvaluationDataset` and `Golden` where appropriate |
+| Decide what to evaluate and what the evidence means | `ai-testing` when installed |
+| Run evaluation as a program with acceptance, gates and reporting | `ai-evaluation` when installed |
+| Map the evaluation decision to cases, datasets, metrics and execution | [DeepEval playbook](references/deepeval-playbook.md) |
+| Wire the suite into CI and preserve result evidence | [CI and reporting](references/ci-and-reporting.md) |
+| Verify application behavior and persisted outcomes | `test` when installed |
+| Understand traces and execution signals | `observability` when installed |
 
-Choose the interaction being evaluated, then collect its actual inputs and results. At application level, this may be the user's request and final response; at a component level, it is the input and output of that component. Keep the case at a consistent scope so the metric is judging the behavior intended by the test.
+## Select DeepEval or keep what exists
 
-Populate metric fields from the execution being assessed. Keep these distinctions visible:
+DeepEval is an optional runner the project selects. Choose it when the project is Python, needs model-judged quality over recorded inputs and outputs, and has no accepted evaluation route already. Keep an accepted harness unless comparison or migration is requested; a bounded deterministic check does not need a judge framework.
 
-- Evidence that should have been available versus evidence the retriever returned.
-- Expected tool behavior versus tools actually used.
-- A captured application result versus an invented fixture output.
+Skip it when deterministic assertions settle the claim, when the judge's data, credentials or budget are not authorized, or for a protocol-only service that needs compatibility checks. A missing judge leaves that quality boundary unverified, not passing.
 
-Reconstructing an ideal execution can give a grounded-answer or tool score the wrong basis. Match each field to the installed API and the selected metric's documented requirements.
+## Pin and verify the installed release
 
-Adapt curated cases and held-out regressions to the selected dataset API without replacing the authoritative case source. Synthetic generation and conversation simulation are optional, credentialed execution paths; preserve agreed scope and review generated goldens before using them as acceptance evidence.
+Lock one reviewed version in the established test or development dependency group and record it with the evidence. Check imports, parameters and flags against the installed package and the release's documentation before writing code; published examples do not establish installed compatibility. Do not upgrade DeepEval, pytest, the judge model or the application model during a comparison unless the upgrade is the intervention.
 
-Select metrics for the property: task correctness/usefulness, retrieval/grounding, appropriate tools/trajectory or conversation outcomes. Use a custom rubric such as `GEval` only with explicit evaluation parameters and calibrated judgments. Inspect the metric's required fields, judge/provider, threshold and failure behavior against [metric documentation](https://deepeval.com/docs/metrics-introduction). A safety or business-authority invariant stays an exact application assertion, outside the judge.
+Configure the evaluated application and the judge separately. Most metrics call a judge even when the application output was recorded.
 
-## Control execution and data movement
+## Map the decision to a representation
 
-Configure the evaluated application model and evaluation judge separately.
+| The decision needs | Representation |
+| --- | --- |
+| Quality of one request/response or one component call | Single-turn case |
+| Behavior across turns | Conversation case |
+| A rerunnable, sliceable, versioned input set | Dataset |
 
-- Many metrics and synthetic/simulation paths make model calls even when the application's output was recorded; inspect defaults before running.
-- Set agreed providers, limits, concurrency, timeouts/retries and credentials through the project's configuration.
-- Missing access leaves that quality boundary unverified, not passing.
+Choose the interaction being evaluated, then populate the case from that actual execution. At application level it may be the user's request and final response; at component level, the input and output of that component. Keep one consistent case scope so the metric judges the behavior the test intends. A dataset holds one kind of case, not both.
 
-Keep local results reproducible without requiring a hosted dashboard. Confident AI reporting, hosted datasets/traces and online evaluation are separate selected integrations with account, retention, region and data-sharing decisions. Check the library's reporting/storage configuration and active credentials before execution; do not log in or upload cases merely to run a local suite. Redact private inputs at source and in failure artifacts.
+## Choose metrics by property, keep invariants outside
 
-## Wire meaningful checks into CI
+Name the property before the metric: task completion and usefulness, retrieval grounding, tool or trajectory correctness, conversation outcome, format or prompt adherence, safety and policy. Cover the accepted criteria with the smallest set that observes them; a few focused metrics usually beat a broad panel.
 
-Use DeepEval's supported `evaluate()` route for evaluation scripts or `assert_test()` with `deepeval test run <existing-eval-path>` for a committed pytest-style evaluation suite. Follow the [CI guide](https://deepeval.com/docs/evaluation-unit-testing-in-ci-cd) for the installed version; do not treat ordinary pytest collection as proof that the DeepEval run completed.
+Prefer a built-in metric whose documented requirements match the evidence collected. Use a custom rubric such as `GEval` only for a subjective criterion no built-in covers, and only with explicit evaluation steps, a named calibration basis and a recorded threshold. Inspect each metric's required fields against the installed release; a metric missing its inputs proves nothing.
 
-Separate fast deterministic tests from credentialed quality jobs.
+Keep deterministic invariants outside the judge: authorization, isolation, required fields, schema, side effects, tool permissions and recovery are exact application assertions. A high score never compensates for a failed invariant, and a format or safety metric does not enforce the corresponding application rule.
 
-- Define when each suite runs, its limits and required gates, and preserve exact application/prompt/model/judge/dataset/metric revisions.
-- Run live jobs only in trusted contexts with authorized data and secrets.
-- Keep per-case failures, reasons, denominators, variability and latency/usage evidence.
-- Verify exit status and result completeness; skipped/error/flaky results must remain visible and cannot silently bypass a required criterion.
+## Execute locally, keep hosted services opt-in
 
-After a change, run the relevant deterministic suite and authorized quality comparison. Inspect representative failures and make scoped repairs without weakening criteria, thresholds or holdouts to pass. Report fixture versus live evidence, executed levels and remaining gaps. Instrumentation and a passing metric do not establish protocol interoperability, persisted user outcomes or production quality.
+Run and inspect results locally without an account or upload. Confident AI reporting, hosted datasets, traces and online evaluation are separate selected integrations with account, retention, region and data-sharing decisions; do not log in or upload cases merely to run or read a local suite.
+
+- Bound providers, concurrency, retries, timeouts and total cases through project configuration; record usage or cost where measured and label estimates.
+- Redact private content at source and in retained failure artifacts.
+- Synthetic generation and conversation simulation are optional credentialed paths. Use them for a real coverage gap, review the generated cases, and keep them distinguishable from observed or curated ones.
+
+Repair a failing candidate, not the criterion: do not weaken expected outcomes, thresholds or rubric wording to make a run green.
+
+## CI and evidence boundary
+
+Use the DeepEval runner, not bare pytest collection, for a committed suite, and verify exit status and result completeness. Skipped, errored, missing-parameter and flaky cases are not passes. Keep per-case evidence and the exact application, prompt, model, judge, dataset and metric revisions.
+
+Separate fast deterministic tests from credentialed quality jobs, and run live jobs only in trusted contexts with authorized data and secrets. Read [CI and reporting](references/ci-and-reporting.md) for gate levels, invocation, artifacts and triage.
+
+A passing metric establishes the evaluated cases and configuration. It does not establish a product journey, persisted user outcomes, protocol compatibility or production quality; report the executed levels and remaining gaps.
 
 ## Sources and fit
 
-This is original integration guidance based on DeepEval's evaluation, metrics and CI documentation. The official [DeepEval skills](https://github.com/confident-ai/deepeval/tree/main/skills) were reviewed as references; their mandatory intake, synthetic-generation, hosted-service preference and fixed iteration defaults are not adopted. Check current primary API guidance when implementing a project integration.
+This is original integration guidance based on DeepEval's evaluation, metrics and CI documentation. Read the [evaluation introduction](https://deepeval.com/docs/evaluation-introduction) and [metrics](https://deepeval.com/docs/metrics-introduction) for the installed release's API. The official [DeepEval skills](https://github.com/confident-ai/deepeval/tree/main/skills) were reviewed as references; their mandatory intake, synthetic-generation, hosted-service preference and fixed iteration defaults are not adopted. Exact API names, parameters and flags must be checked against the installed release.

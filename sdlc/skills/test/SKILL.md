@@ -106,7 +106,7 @@ When work crosses actors or sessions, retain the provenance needed to interpret 
 
 Apply [artifact assurance](../artifact-system/references/assurance.md) to compare actual checked behavior with accepted requirements, protected existing behavior and proposed design. Missing or failed acceptance evidence remains explicit nonconvergence, not an automatic green result.
 
-Record observations at the checked revision/target, the command or scenario, environment, result, evidence path, failed/skipped/unavailable checks, coverage gaps and design/diagram differences in the change record when authorized, or return a structured unpersisted record. Return results, artifacts, actual boundaries and the next action. A green build alone does not establish behavior.
+Record observations at the checked revision/target, the command or scenario, environment, result, evidence path, failed/skipped/unavailable checks, coverage gaps and design/diagram differences in the change record when authorized, or return a structured unpersisted record. Map each acceptance row to the requirement IDs it establishes; a requirement with no row is a coverage gap, not a pass. Return results, artifacts, actual boundaries and the next action. A green build alone does not establish behavior.
 
 ## Composition
 
