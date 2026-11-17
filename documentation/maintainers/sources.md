@@ -396,7 +396,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [harden](../../plugins/sdlc/skills/harden/SKILL.md) | Local | `sdlc` |
 | [implement](../../plugins/sdlc/skills/implement/SKILL.md) | Local | `sdlc` |
 | [improve](../../plugins/sdlc/skills/improve/SKILL.md) | Local | `sdlc` |
-| [incident-response](../../plugins/sdlc/skills/incident-response/SKILL.md) | Local | `sdlc` |
+| [run-incident-response](../../plugins/sdlc/skills/run-incident-response/SKILL.md) | Local | `sdlc` |
 | [plan](../../plugins/sdlc/skills/plan/SKILL.md) | Local | `sdlc` |
 | [production-readiness](../../plugins/sdlc/skills/production-readiness/SKILL.md) | Local | `sdlc` |
 | [project-conventions](../../plugins/sdlc/skills/project-conventions/SKILL.md) | Local | `sdlc` |

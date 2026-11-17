@@ -47,7 +47,7 @@ Use [references/review-register.md](references/review-register.md) to record the
 | Domain | Check | Deep-work handoff |
 | --- | --- | --- |
 | Registries/artifact stores | Quota, growth, largest consumers, retention behavior, unexpected repos/tags | Scoped cleanup below |
-| Databases/cache/storage | Free capacity, growth rate, utilization, quota/mount pressure, projected exhaustion | `capacity and cost`, `incident-response` |
+| Databases/cache/storage | Free capacity, growth rate, utilization, quota/mount pressure, projected exhaustion | `capacity and cost`, `run-incident-response` |
 | Backups | Job success, newest point, coverage, retention, restore-test age | `data recovery` |
 | Dependencies/security | Update queues, failed checks, overdue/unshipped findings | `security maintenance` |
 | Credentials/access | Expiry lead time, accountable owners, duplicate records, stale grants | `security maintenance`, local access policy |

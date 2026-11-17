@@ -57,7 +57,7 @@ Read accepted requirements, design, threat model, test evidence, runbooks and pr
 | Security and authority | Do authentication, authorization, tenant/data isolation, secret handling, least privilege, administrative/break-glass access and supply-chain controls hold in the target? | security expertise, [run-compliance-assessment](../run-compliance-assessment/SKILL.md) for obligations |
 | Capacity and failure behavior | Does measured or modeled demand fit headroom, quotas and dependency limits, and is degradation bounded under saturation, dependency failure and rollout surge? | [analyze-capacity-cost](../analyze-capacity-cost/SKILL.md), [testing-resilience](../testing-resilience/SKILL.md) |
 | Recovery and rollback | Is application rollback separate from data recovery, and have restore, failover and roll-forward paths been exercised against the accepted RPO/RTO? | [continuity/DR design](../design-system/references/reliability-disaster-recovery.md) and [guide-runbook](../guide-runbook/SKILL.md), reliability/DR expertise, [release](../release/SKILL.md) |
-| Runbooks, on-call and support | Can a responder detect, escalate, mitigate, verify recovery and reach the support path, and is ownership current for this cohort and environment? | [guide-runbook](../guide-runbook/SKILL.md), [incident response](../incident-response/SKILL.md) |
+| Runbooks, on-call and support | Can a responder detect, escalate, mitigate, verify recovery and reach the support path, and is ownership current for this cohort and environment? | [guide-runbook](../guide-runbook/SKILL.md), [run-incident-response](../run-incident-response/SKILL.md) |
 | Limits and open risks | Which limitations are accepted, by whom, for how long, and what remains outside the claim? | [assurance assessment](../artifact-system/references/contracts/assurance-assessment.md) |
 
 Use [readiness evidence](references/readiness-evidence.md) as a prompt for each area, not as a scorecard.
@@ -97,7 +97,7 @@ Report the verdict, scope, evidence inspected at its revision/target/window, mat
 
 - Use [release](../release/SKILL.md) for the authorized release, deployment or recovery action; this activity does not grant it.
 - Use `saas-readiness` when customer, tenant or commercial commitments define the cohort; this activity supplies the engineering and operating evidence.
-- Use [continuity/DR design](../design-system/references/reliability-disaster-recovery.md) and [guide-runbook](../guide-runbook/SKILL.md) and reliability/DR expertise for recovery evidence; an active outage belongs to [incident response](../incident-response/SKILL.md).
+- Use [continuity/DR design](../design-system/references/reliability-disaster-recovery.md) and [guide-runbook](../guide-runbook/SKILL.md) and reliability/DR expertise for recovery evidence; an active outage belongs to [run-incident-response](../run-incident-response/SKILL.md).
 - Use [analyze-capacity-cost](../analyze-capacity-cost/SKILL.md), [testing-resilience](../testing-resilience/SKILL.md), [design-system observability](../design-system/references/observability-and-monitoring.md), [guide-runbook](../guide-runbook/SKILL.md) and [test](../test/SKILL.md) for the evidence each owns.
 - Use [run-compliance-assessment](../run-compliance-assessment/SKILL.md) for legal or contractual obligations and the assurance-assessment contract for the record.
 

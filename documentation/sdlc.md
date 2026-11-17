@@ -39,7 +39,7 @@ Green labels identify entry-point skills or directly requested activities; dashe
 | Rough idea through implementation, tests and review | `develop` |
 | Behavior checks and change assessment | `test` and the review composition; review also applies earlier |
 | Delivery readiness or named authorized deployment | `release` |
-| Live incident or restoration | [incident-response](../plugins/sdlc/skills/incident-response/SKILL.md), recovery expertise as applicable |
+| Live incident or restoration | [run-incident-response](../plugins/sdlc/skills/run-incident-response/SKILL.md), recovery expertise as applicable |
 | Proactive operation, maintenance and improvement | `improve`, `dependencies`, [observability and monitoring](../plugins/sdlc/skills/design-system/references/observability-and-monitoring.md), and other targeted operating skills |
 | Project foundation or activity selection | `setup`, `activity-system` |
 
@@ -151,7 +151,7 @@ Start with [release](../plugins/sdlc/skills/release/SKILL.md). [CI/CD pipeline d
 
 ### 7. Maintenance
 
-Maintenance is one lifecycle outcome with four complementary responsibilities: **respond & restore**, **reliability & signals**, **learn & prevent**, and **maintain & evolve**. Operations activities are direct ways of achieving those outcomes; they are **not just substeps** of `improve` or `dependencies`. React to incidents with [incident-response](../plugins/sdlc/skills/incident-response/SKILL.md) and appropriate recovery, runbook and [run-postmortem](../plugins/sdlc/skills/run-postmortem/SKILL.md). Proactively manage [reliability and SLOs](../plugins/sdlc/skills/design-system/references/reliability.md), [observability and monitoring](../plugins/sdlc/skills/design-system/references/observability-and-monitoring.md), [run-operations-review](../plugins/sdlc/skills/run-operations-review/SKILL.md), capacity, cost, vulnerability and credentials. `improve` and `dependencies` complement those responsibilities. Reliability and operations expertise also informs requirements, design, implementation and testing before a release.
+Maintenance is one lifecycle outcome with four complementary responsibilities: **respond & restore**, **reliability & signals**, **learn & prevent**, and **maintain & evolve**. Operations activities are direct ways of achieving those outcomes; they are **not just substeps** of `improve` or `dependencies`. React to incidents with [run-incident-response](../plugins/sdlc/skills/run-incident-response/SKILL.md) and appropriate recovery, runbook and [run-postmortem](../plugins/sdlc/skills/run-postmortem/SKILL.md). Proactively manage [reliability and SLOs](../plugins/sdlc/skills/design-system/references/reliability.md), [observability and monitoring](../plugins/sdlc/skills/design-system/references/observability-and-monitoring.md), [run-operations-review](../plugins/sdlc/skills/run-operations-review/SKILL.md), capacity, cost, vulnerability and credentials. `improve` and `dependencies` complement those responsibilities. Reliability and operations expertise also informs requirements, design, implementation and testing before a release.
 
 ## UI/UX methods across activities
 

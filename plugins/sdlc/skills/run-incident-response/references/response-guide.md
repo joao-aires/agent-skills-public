@@ -52,4 +52,4 @@ Handover includes current scope/status, last check time, action ledger, best hyp
 
 **Acceptance cases:** old alert already recovered; current impact after configuration change; rollback green but cached faulty content remains; accepted API traffic with silent downstream loss; no live access requiring a precise responder handoff.
 
-Public background: [Google SRE incident response](https://sre.google/workbook/incident-response/), [PagerDuty incident response](https://response.pagerduty.com/).
+Public background: [Google SRE incident response](https://sre.google/workbook/run-incident-response/), [PagerDuty incident response](https://response.pagerduty.com/).

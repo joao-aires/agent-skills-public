@@ -147,6 +147,7 @@ Structural renames:
 | `compliance-readiness` | [run-compliance-assessment](../plugins/sdlc/skills/run-compliance-assessment/SKILL.md) |
 | `capacity-and-cost` | [analyze-capacity-cost](../plugins/sdlc/skills/analyze-capacity-cost/SKILL.md) |
 | `operations-review` | [run-operations-review](../plugins/sdlc/skills/run-operations-review/SKILL.md) |
+| `incident-response` | [run-incident-response](../plugins/sdlc/skills/run-incident-response/SKILL.md) |
 | `postmortem` | [run-postmortem](../plugins/sdlc/skills/run-postmortem/SKILL.md) |
 | `resilience-testing` | [testing-resilience](../plugins/sdlc/skills/testing-resilience/SKILL.md) |
 | `journey-testing` | [testing-journey](../plugins/frontend-development/skills/testing-journey/SKILL.md) in `frontend-development` |

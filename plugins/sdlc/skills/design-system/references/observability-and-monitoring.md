@@ -100,7 +100,7 @@ Separate locally instrumented, exported and backend-verified states. A dashboard
 ## Boundaries and handoff
 
 - **SLO targets and error budgets** come from requirements and [reliability](reliability.md); this reference does not invent a target.
-- **Incident response and runbooks** own detection, escalation, mitigation and recovery procedure; use [incident response](../../incident-response/SKILL.md) and [runbook guide](../../guide-runbook/SKILL.md).
+- **Incident response and runbooks** own detection, escalation, mitigation and recovery procedure; use [run-incident-response](../../run-incident-response/SKILL.md) and [runbook guide](../../guide-runbook/SKILL.md).
 - **Recurring telemetry hygiene** — missing fields, drift, redaction regressions, pipeline cost — belongs to [operations review](../../run-operations-review/SKILL.md).
 - **Instrumentation and pipeline implementation** belong to the implementing activity for the accepted stack.
 

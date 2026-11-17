@@ -96,7 +96,7 @@ Use this guide at the point where that activity needs a procedure, an exercise o
 | --- | --- |
 | [Design](../design/SKILL.md) | Identify the operating, rollback and recovery procedure the proposed design implies; keep it proposed until implemented. |
 | [Release](../release/SKILL.md) | Update the deployment, rollback or recovery procedure and exercise the changed path before claiming readiness. |
-| [Incident response](../incident-response/SKILL.md) | Stabilize first, then capture the procedure actually used and the branch that failed under pressure. |
+| [Run incident response](../run-incident-response/SKILL.md) | Stabilize first, then capture the procedure actually used and the branch that failed under pressure. |
 | Recovery design | Write and exercise the restore, cutover and return-to-normal procedure, with independent recovery evidence; continuity design stays in [design-system](../design-system/references/reliability-disaster-recovery.md). |
 | [run-operations-review](../run-operations-review/SKILL.md) | Audit runbook ownership, staleness, exercise coverage and retired procedures as part of the recurring review. |
 

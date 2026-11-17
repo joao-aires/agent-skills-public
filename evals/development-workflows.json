@@ -3543,6 +3543,58 @@
         "Do not treat a local estimate as the actual bill.",
         "Do not skip the failure/degraded behavior."
       ]
+    },
+    {
+      "id": "incident-response-live-vs-exercise",
+      "prompt": "A release is causing a live checkout outage. A teammate also asks you to rehearse the incident roles and review last month's alert hygiene in the same session. Stabilize the current impact and route anything that is not live response.",
+      "criteria": [
+        "Establishes current impact, severity policy, response owner and evidence before mitigation.",
+        "Selects a reversible mitigation, records its target/expected/actual effect and preserves volatile evidence.",
+        "Verifies recovery through the user path and independent signals, not only a green dashboard.",
+        "Routes role rehearsal to production-readiness/guide-runbook/testing-resilience and alert hygiene to run-operations-review.",
+        "Does not present simulated actions as live operations."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not expand an active incident into an exercise or recurring review.",
+        "Do not claim recovery from a mitigation without independent verification.",
+        "Do not reopen an old alert as a new incident without current impact."
+      ]
+    },
+    {
+      "id": "incident-response-durable-repair-boundary",
+      "prompt": "The incident is stabilized by a feature flag. The user asks you to implement the durable source fix and close the incident as resolved.",
+      "criteria": [
+        "Keeps incident response at stabilized impact, verified recovery, evidence and handover.",
+        "Hands the source repair to fix/harden/improve with reproduction and verification targets.",
+        "Records the temporary control as temporary and tracks follow-up ownership.",
+        "Does not claim the mitigation proves a durable fix or that implementation belongs to incident response."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not implement the source repair inside incident response.",
+        "Do not mark the incident closed because the flag reduced impact.",
+        "Do not omit the temporary control and follow-up."
+      ]
+    },
+    {
+      "id": "incident-response-postmortem-handoff",
+      "prompt": "The service has recovered. The user asks for root cause certainty, learning actions and a permanent prevention plan before closing.",
+      "criteria": [
+        "Stops live response at recovered status and hands evidence to run-postmortem.",
+        "Keeps proven cause, unknown cause and rejected hypotheses separate.",
+        "Routes durable prevention to run-postmortem/improve rather than inventing certainty or actions in the incident record.",
+        "Reports the handover, next update and any residual temporary controls."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not claim root cause certainty from correlation alone.",
+        "Do not turn postmortem learning into an incident-response action.",
+        "Do not close without recording residual risk and ownership."
+      ]
     }
   ],
   "generation_trials": [
@@ -4393,7 +4445,10 @@
         "security-diff-general-reference",
         "design-security-unified",
         "recovery-through-runbook",
-        "capacity-planning-and-analysis"
+        "capacity-planning-and-analysis",
+        "incident-response-live-vs-exercise",
+        "incident-response-durable-repair-boundary",
+        "incident-response-postmortem-handoff"
       ],
       "trial_ids": []
     }

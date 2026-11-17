@@ -90,4 +90,4 @@ A control exists only when the forbidden action is actually denied and the legit
 | Provider or key rotation exercised | Revocation and recovery work at the target |
 | Accepted risk with owner and review date | The remaining exposure is deliberate |
 
-An unassessable result is not a clean bill of health. Record accepted risk with its owner and the condition that would reopen it. Hand live exploitation or exposed credentials to [incident response](../../incident-response/SKILL.md), scoped fixes to [harden](../../harden/SKILL.md), and credential or vulnerability operations to [run-security-maintenance](../../run-security-maintenance/SKILL.md).
+An unassessable result is not a clean bill of health. Record accepted risk with its owner and the condition that would reopen it. Hand live exploitation or exposed credentials to [run-incident-response](../../run-incident-response/SKILL.md), scoped fixes to [harden](../../harden/SKILL.md), and credential or vulnerability operations to [run-security-maintenance](../../run-security-maintenance/SKILL.md).

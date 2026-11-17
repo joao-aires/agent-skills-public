@@ -1,8 +1,9 @@
 ---
-name: incident-response
+name: run-incident-response
 description: Coordinate and investigate active service incidents using impact-led
   triage, reversible stabilization, causal evidence, escalation, communication and
-  independent recovery verification across any application stack.
+  independent recovery verification. Use for live or authorized unattended response,
+  not readiness exercises, recurring review or durable repair.
 metadata:
   kind: activity
   origin: local
@@ -15,7 +16,7 @@ metadata:
   role: task
 ---
 
-# Incident response
+# Run incident response
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Use the [incident record contract](../artifact-system/references/contracts/incident-record.md) for the durable record.
 
@@ -25,11 +26,25 @@ Reduce current user harm and preserve enough evidence to make the next decision.
 
 Run stabilization and investigation together. Choose a mitigation for the effect it is expected to have, observe whether that effect occurred, and revise the hypothesis when it did not. Record the target, time and result so another responder can understand what changed. Do not delay a supported mitigation to finish a perfect diagnosis.
 
-## Modes
+## Response authority
 
 - **Live interactive response:** establish impact, current state and response ownership promptly. Ask only questions needed for the next decision; investigate available sources meanwhile.
-- **Setup/exercise:** implement local role/escalation/communication contracts, verification checks and rehearsals without presenting simulated actions as live operations.
-- **Recurring review:** collect/scoped-correlate signals, draft incident updates and recommended actions. Execute only mitigations explicitly allowed by the incident/job policy; missing authority becomes a concrete handoff. Never reopen an old outage merely because an old alert link exists.
+- **Authorized unattended response:** execute only mitigations explicitly allowed by the incident or job policy. Missing authority becomes a concrete handoff; never treat an old alert as a new incident without current impact evidence.
+
+This activity is for active impact. A readiness exercise, procedure rehearsal or recurring signal review belongs to the owners in the boundary table; stop and hand off rather than presenting simulated actions as live operations.
+
+## Boundaries
+
+| Request | Owner |
+| --- | --- |
+| Is this service ready to depend on? | [production-readiness](../production-readiness/SKILL.md) |
+| Author, exercise or audit a procedure or runbook | [guide-runbook](../guide-runbook/SKILL.md) |
+| Controlled failure experiment or game day | [testing-resilience](../testing-resilience/SKILL.md) |
+| Recovery design, RTO/RPO, failover and failback | [design-system continuity and DR](../design-system/references/reliability-disaster-recovery.md) |
+| Durable source repair | [fix](../fix/SKILL.md), [harden](../harden/SKILL.md) or [improve](../improve/SKILL.md) |
+| Learning and action follow-up | [run-postmortem](../run-postmortem/SKILL.md) |
+| Recurring operational drift | [run-operations-review](../run-operations-review/SKILL.md) |
+| Credential or vulnerability operations | [run-security-maintenance](../run-security-maintenance/SKILL.md) |
 
 Consult [references/response-guide.md](references/response-guide.md) for deeper implementation details when needed.
 
@@ -46,7 +61,7 @@ Consult [references/response-guide.md](references/response-guide.md) for deeper 
 
 ## Carry a durable repair forward
 
-When a source repair is warranted, hand off the intended behavior, observed failure, affected scope, supporting signals and verification targets. Use available engineering defect-repair expertise for reproduction, design, implementation and regression checks within its authorized scope. Keep incident mitigation, live recovery verification and communications with the incident response. Link the durable repair and its evidence from the incident record.
+When a source repair is warranted, hand off the intended behavior, observed failure, affected scope, supporting signals and verification targets. Use available engineering defect-repair expertise for reproduction, design, implementation and regression checks within its authorized scope; the repair itself is not part of this activity. Keep incident mitigation, live recovery verification and communications with the incident response. Link the durable repair and its evidence from the incident record.
 
 ## Evidence discipline
 
@@ -54,4 +69,4 @@ Classify fact, hypothesis and unavailable information. Missing/sampled telemetry
 
 ## Completion evidence
 
-Deliver impact/severity with policy source, response ownership, current status, timestamped evidence/action ledger, recovery verification or explicit blocker, next update and handover. Report a temporary mitigation as such and retain required follow-up work.
+Deliver impact/severity with policy source, response ownership, current status, timestamped evidence/action ledger, recovery verification or explicit blocker, next update and handover. Report a temporary mitigation as such and retain required follow-up work. Do not claim that a mitigation or recovery proves a durable fix.

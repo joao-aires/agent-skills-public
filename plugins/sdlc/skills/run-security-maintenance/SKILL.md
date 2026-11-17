@@ -33,7 +33,7 @@ Read [activity system](../activity-system/SKILL.md) for scope and stopping point
 - Connect each finding or credential to the affected service, artifact and environment before deciding severity or remediation.
 - Execute rotation, revocation, rollout, status and risk acceptance only within the job's explicit authority.
 - Verify the replacement credential or fixed artifact is actually used by every affected consumer or target. A successful update, build or scan is not proof of closure.
-- Hand an exposed credential or active exploitation path to [incident response](../incident-response/SKILL.md) when impact is live.
+- Hand an exposed credential or active exploitation path to [run-incident-response](../run-incident-response/SKILL.md) when impact is live.
 
 ## Completion evidence
 

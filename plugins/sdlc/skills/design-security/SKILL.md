@@ -60,6 +60,6 @@ Exercise the behaviors that settle the design:
 
 Translate concrete risks into focused checks rather than a generic security test list. Use [security diff review](../harden/references/security-diff-review.md) for an affected change and available supply-chain auditing expertise for dependency risk. An unassessable result is not a clean bill of health. Choose further specialist tools only when their scope matches the application and the request.
 
-Keep architecture, data-flow, retention and decision notes synchronized with the change. Record what was checked, what changed and what remains uncertain. Do not label an application secure or compliant because scans pass. Hand live incident impact to [incident response](../incident-response/SKILL.md), implementation changes to the relevant activity, and unresolved risk to a named owner with a review point.
+Keep architecture, data-flow, retention and decision notes synchronized with the change. Record what was checked, what changed and what remains uncertain. Do not label an application secure or compliant because scans pass. Hand live incident impact to [run-incident-response](../run-incident-response/SKILL.md), implementation changes to the relevant activity, and unresolved risk to a named owner with a review point.
 
 Sources and project interpretation are recorded in [sources](references/sources.md).

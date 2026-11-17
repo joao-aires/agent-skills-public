@@ -141,7 +141,7 @@ Most local supporting skills are hidden from slash menus in clients honoring tha
 
 Add the relevant bundle and request its installed skill by name. Examples:
 
-- Use `incident-response` to investigate current impact within the established action boundaries.
+- Use `run-incident-response` to investigate current impact within the established action boundaries.
 - Use `guide-runbook` to author, exercise or audit a runbook; design-system owns the design plan, and `analyze-capacity-cost` owns measurement and FinOps.
 - Use `business-strategy` to explore an idea with at least three materially different options, or `learn-from-product-feedback` to assess existing evidence.
 - Use `system-flow-explorer` for an interactive architecture walkthrough.
