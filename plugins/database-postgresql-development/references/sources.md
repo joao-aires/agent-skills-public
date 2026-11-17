@@ -1,16 +1,19 @@
 # PostgreSQL sources and interpretation
 
-These original skills use reviewed upstream topic coverage as research references. No upstream instructions, scripts, example applications or tool/approval policies are imported. Source links are provenance, not runtime dependencies or authorization. Consult the deployed PostgreSQL version and hosting provider before applying a procedure.
+The package combines original local PostgreSQL skills with one acquired upstream skill and additional reviewed references. The acquired skill's bytes are preserved unchanged; the builder adds usage labels and support visibility. Source links are provenance, not runtime dependencies or authorization. Consult the deployed PostgreSQL version and hosting provider before applying a procedure.
 
-## Upstream skill references
+## Acquired skill
+
+[Supabase Postgres best practices](https://github.com/supabase/agent-skills/tree/c9be0e931b7930f7d02126d04774d904c381e7d7/skills/supabase-postgres-best-practices) is acquired at commit `c9be0e931b7930f7d02126d04774d904c381e7d7` into `skills/supabase-postgres-best-practices`. The repository declares MIT; the original `LICENSE` is preserved as `UPSTREAM-LICENSE.txt`. The skill is upstream guidance for Postgres running anywhere, not a replacement for the local package's decision ownership.
+
+## Reviewed references
 
 | Reviewed source | Revision | Information used |
 | --- | --- | --- |
 | [Neon postgres-best-practices](https://github.com/neondatabase/postgres-skills/tree/27fe45e0f71ea89a6eaf9ea4d2e4068957c81c26/skills/postgres-best-practices) | `27fe45e0f71ea89a6eaf9ea4d2e4068957c81c26` | Lifecycle topic coverage, conditional references, query diagnostics and isolation examples; repository declares Apache-2.0. |
-| [Supabase Postgres best practices](https://github.com/supabase/agent-skills/tree/c9be0e931b7930f7d02126d04774d904c381e7d7/skills/supabase-postgres-best-practices) | `c9be0e931b7930f7d02126d04774d904c381e7d7` | Workload, pooling, indexing and RLS topics; repository declares MIT. Universal index/RLS prescriptions and illustrative speedups are not adopted as acceptance rules. |
 | [Microsoft PostgreSQL skills](https://github.com/microsoft/postgres-skills/tree/9ba96abc800a574a0872f3d6b912ea8be1a6735e/plugin/skills/postgresql-best-practices) | `9ba96abc800a574a0872f3d6b912ea8be1a6735e` | Distinction between managed controls and server administration; repository declares MIT. No MCP server, Azure dependency, account discovery or unconditional confirmation loop is imported. |
 
-The skill frontmatter's `metadata.references` points here for attribution and context. These are research references rather than acquired sources in upstream.lock.json.
+The local skill frontmatter's `metadata.references` points here for attribution and context. The Neon and Microsoft entries are reviewed references, not acquired snapshots. The Supabase entry is the only acquired skill in this package.
 
 ## Primary implementation references
 
@@ -18,5 +21,6 @@ The skill frontmatter's `metadata.references` points here for attribution and co
 - For concurrency and access: [transaction isolation](https://www.postgresql.org/docs/current/transaction-iso.html), [row security](https://www.postgresql.org/docs/current/ddl-rowsecurity.html) and [role attributes](https://www.postgresql.org/docs/current/role-attributes.html).
 - For diagnosis: [EXPLAIN](https://www.postgresql.org/docs/current/using-explain.html), [statistics](https://www.postgresql.org/docs/current/monitoring-stats.html) and [routine vacuuming](https://www.postgresql.org/docs/current/routine-vacuuming.html).
 - For recovery and change: [backup and restore](https://www.postgresql.org/docs/current/backup.html), [continuous archiving](https://www.postgresql.org/docs/current/continuous-archiving.html), [replication](https://www.postgresql.org/docs/current/high-availability.html) and [upgrading](https://www.postgresql.org/docs/current/upgrading.html).
+- For major upgrades: [pg_upgrade](https://www.postgresql.org/docs/current/pgupgrade.html) and [logical replication upgrade](https://www.postgresql.org/docs/current/logical-replication-upgrade.html) define tool behavior; [RDS](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_UpgradeDBInstance.PostgreSQL.html), [Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/USER_UpgradeDBInstance.PostgreSQL.html), [Cloud SQL](https://cloud.google.com/sql/docs/postgres/upgrade-major-db-version-inplace) and [Azure flexible server](https://learn.microsoft.com/en-us/azure/postgresql/configure-maintain/concepts-major-version-upgrade) own their provider workflows and change independently.
 
 The current-version links are discovery points. Select the deployed major version, relevant extensions and provider controls when implementing; installing this guidance does not upgrade a database.

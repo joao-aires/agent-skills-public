@@ -87,7 +87,7 @@ Direct strategy, design, documentation and specialist requests can end at their 
 ## Before and around the cycle
 
 - Product discovery and direction: [product-management](../plugins/strategy/skills/product-management/SKILL.md) owns user problems, priorities, useful scope and success signals; business-strategy owns viability and positioning. These decisions inform project planning and may be reopened by evidence.
-- Foundations: `setup` uses [project-conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and relevant [delivery workflow](../plugins/sdlc/skills/release/references/delivery.md). Establish foundations after sufficient product and architecture decisions for a new project; maintain them as conditions change.
+- Foundations: `setup` uses [project-conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and relevant [CI/CD pipeline design](../plugins/development-tooling/skills/ci-cd-pipelines/SKILL.md). Establish foundations after sufficient product and architecture decisions for a new project; maintain them as conditions change.
 - Feedback: [learn-from-product-feedback](../plugins/strategy/skills/learn-from-product-feedback/SKILL.md) informs product direction; incident learning addresses reliability and may also expose missing requirements or design protections.
 - Changes to consequential decisions: follow [the shared decision policy](../plugins/sdlc/skills/activity-system/references/authority.md#consequential-findings) and continue independent authorized work. Do not invent acceptance or account permissions.
 
@@ -147,7 +147,7 @@ Start with [verification](../plugins/sdlc/skills/test/SKILL.md), and use [journe
 
 ### 6. Deployment
 
-Start with [release](../plugins/sdlc/skills/release/SKILL.md). [Delivery workflow](../plugins/sdlc/skills/release/references/delivery.md) supports artifacts, CI, publication, promotion, rollout and recovery; actual remote actions require named authorization and target verification.
+Start with [release](../plugins/sdlc/skills/release/SKILL.md). [CI/CD pipeline design](../plugins/development-tooling/skills/ci-cd-pipelines/SKILL.md) supports the provider-neutral stages, artifacts, promotion, rollout and recovery; actual remote actions require named authorization and target verification. Under continuous deployment, the merge, tag or pipeline trigger is the release event; verify the rollout and served outcome rather than inventing a second manual action.
 
 ### 7. Maintenance
 

@@ -7,7 +7,7 @@ Read when a consequential product or visual direction remains open. Reuse the ex
 | Context | Response |
 | --- | --- |
 | Small repair or established product screen | Inspect existing tokens, components and behavior; ask only about a consequential unresolved choice. |
-| New product or substantial redesign | Propose two or three distinct directions on realistic content, recommend one, and invite feedback before costly propagation. |
+| New product or substantial redesign | Propose at least three materially different directions on realistic content, recommend one, and invite focused feedback before costly propagation. |
 | User says “use your judgment” or work is unattended | Choose a reversible direction, record assumptions as proposed/delegated, build one representative slice and keep progressing. |
 
 Understand the primary task, audience, actual content, platform, brand commitments and constraints before aesthetic exploration. Product category informs the recommendation without determining taste. A finance tool can be expressive; an exercise tracker can be quiet.

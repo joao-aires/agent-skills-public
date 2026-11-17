@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "saas-development",
-  "version": "0.1.3",
-  "description": "SaaS tenant/customer and commercial lifecycle design, task-oriented dashboards and scoped readiness assessment across implementation stacks.",
+  "version": "0.2.0",
+  "description": "SaaS tenant/customer and commercial lifecycle design, supporting services, billing and entitlements, organization identity, dashboards and scoped readiness.",
   "author": {
     "name": "João Aires"
   },

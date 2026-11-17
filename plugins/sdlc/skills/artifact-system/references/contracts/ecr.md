@@ -71,6 +71,46 @@ A full ECR has these seven headings in this order. Use truthful `Pending`, `Not 
 - Open decisions that prevent readiness, with their owner. Label material requirements accepted, proposed or unknown.
 - A user journey or wireflow when interaction work benefits from it; no invented design mechanism or arbitrary SLO.
 
+Name the affected areas and the target. An area is where the change lands — a journey, service API, stored data set, integration, background job, CLI surface or model behavior — derived from the target's software type, not a fixed frontend/backend split. List only the applicable dimensions, and where a reader would otherwise wonder, mark an excluded one `Not applicable — reason` instead of adding an empty row. Design requirements cover user-facing or contract surfaces and stay separate from the software implementation requirements they constrain.
+
+Full form:
+
+```markdown
+Affected areas: <area>, <area>. Target/PRD: <link or Not applicable — reason>.
+
+| ID | Area | Requirement | Priority | Status |
+| --- | --- | --- | --- | --- |
+| FR-<area>-001 | <area> | <actor, trigger, observable result, denial path> | Must / Should / Could | Accepted / Proposed / Open |
+
+| ID | Dimension | Area | Target or tolerance | Conditions | Priority | Evidence | Status |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| NFR-<dimension>-001 | <dimension> | <area> | <target or unresolved decision> | <population, workload, failure> | Must / Should | <benchmark, monitor, probe or Pending> | Accepted / Proposed / Open |
+
+| ID | Surface | Type | Requirement | Evidence | Status |
+| --- | --- | --- | --- | --- | --- |
+| DR-<surface>-001 | <surface> | Functional / Non-functional | <interaction, state, content or contract obligation> | <linked design spec, view, prototype or Pending> | Accepted / Proposed / Open |
+
+| ID | Requirement IDs | Check | Environment / revision | Result | Evidence |
+| --- | --- | --- | --- | --- | --- |
+| AC-001 | FR-<area>-001, NFR-<dimension>-001 | <action and observation> | <environment, target, revision> | Passed / Failed / Not run / Blocked | <path, URL or command> |
+
+| ID | Statement | Owner | Needed by | Status |
+| --- | --- | --- | --- | --- |
+| DEC-001 / ASM-001 | <decision or assumption> | <owner> | <date or phase> | Open / Resolved / Accepted risk |
+```
+
+Compact form for a small local change:
+
+```markdown
+Requirements: R1 <observable behavior>; R2 <failure or denial path>.
+Constraints: <only the applicable dimension with its target or tolerance and observation>.
+Design: <the user-facing or contract obligation, only when one exists>.
+Acceptance: R1 <check at environment/revision → result, evidence>; R2 <...>.
+Open: DEC-001 <decision>, owner <owner>.
+```
+
+Keep each ID stable once design, tests or release reference it; do not renumber to match implementation order. Acceptance maps to requirement IDs, not the reverse. Use a short `R<n>` list in the compact form only where nothing outside the record depends on the identifier.
+
 ### 4. Solution design
 
 - Existing-system baseline at a source revision, linked to the exact file or commit. Then the **proposed** system, UX or service behavior.
@@ -111,7 +151,7 @@ A section is complete when a reader who was not in the conversation can answer i
 | --- | --- |
 | Overview | What is changing, what state is it in, what is the next action, and who owns it? |
 | Problem and scope | What is broken or missing today, for whom, and what is deliberately excluded? |
-| Requirements | What observable outcomes will be accepted, including denial and failure, and which are still open? |
+| Requirements | Which affected areas and requirement IDs apply, what observable outcomes will be accepted including denial and failure, and which are still open? |
 | Solution design | What exists today at which revision, what is proposed, what alternatives were rejected and why, and what can fail? |
 | Implementation strategy | In what order will this be delivered, what depends on what, and how will each increment be checked? |
 | Verification | What command or scenario ran, where, at which revision, what was observed, and what remains unverified? |
@@ -130,7 +170,7 @@ When a claim is superseded, keep the prior decision traceable but mark it as sup
 | Completed activity | ECR content required before describing it as ready |
 | --- | --- |
 | Project planning | Desired outcome, scope, feasibility, relevant prerequisites and the next action or decision are clear or linked |
-| Refine | Outcome, observable acceptance, constraints and open decision owners are sufficient for design |
+| Refine | Outcome, affected areas, identified requirement IDs across applicable dimensions, observable acceptance and open decision owners are sufficient for design |
 | Design | Proposed target, affected software types and the seam are understood; material alternatives and linked design artifacts are resolved or blocked; the baseline revision is linked |
 | Implementation preparation | Dependency-ordered increments reference accepted requirements and design; verification, migration and rollback are covered |
 | Implement | Actual change revision, deviations, relevant canonical-doc edits and checks are reported |

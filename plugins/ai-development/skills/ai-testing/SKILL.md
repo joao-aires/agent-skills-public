@@ -17,6 +17,19 @@ user-invocable: false
 
 Start from the accepted user task, architecture and consequential failure modes. This method owns what to evaluate and what the evidence means; it does not select an evaluation SDK, require a model for a protocol-only service or authorize live calls and data publication. Reuse sufficient existing criteria and tests rather than restarting evaluation design for every change.
 
+## Reading path
+
+| Need | Read |
+| --- | --- |
+| Choose levels, cases, measures and interpret evidence | This skill and [evaluation methods](references/evaluation-references.md) |
+| Run evaluation as a program across changes or a release | [Evaluation program mechanics](references/evaluation-program.md) |
+| Plan the decision, dataset governance, gates, production sampling and reporting | `ai-evaluation` when installed |
+| Implement selected Python/DeepEval checks | `ai-deepeval-testing` when installed and chosen |
+| Verify application behavior, contracts and persisted journeys | `test` when installed |
+| Understand traces and execution signals | `observability` when installed |
+
+`ai-testing` owns the evaluation method: what to evaluate and what the evidence can establish. `ai-evaluation` owns the program-level activity that composes this method with a selected implementation and the project's decision authority. An implementation skill owns its runner and API; this method does not require one.
+
 ## Define acceptance and evidence levels
 
 | Property | Acceptance method |

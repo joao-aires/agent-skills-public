@@ -1,6 +1,6 @@
 # Evaluation evidence
 
-Use this reference when choosing evaluation levels, cases or graders. Begin with the property the application needs to demonstrate and select evidence that can actually observe it. Keep datasets, expected outcomes and deterministic evaluators runnable in the application without a hosted service; a dashboard can help inspect results without becoming their source of authority.
+Use this reference when choosing evaluation levels, cases or graders. Begin with the property the application needs to demonstrate and select evidence that can actually observe it. Keep datasets, expected outcomes and deterministic evaluators runnable in the application without a hosted service; a dashboard can help inspect results without becoming their source of authority. For dataset versioning, slices, variance, denominators, gates and evidence levels across a program, read [evaluation program mechanics](evaluation-program.md).
 
 ## Evaluate the relevant levels
 

@@ -14,6 +14,16 @@ These original skills translate applicability and obligations into engineering/c
 
 Follow relevant current guidance from the competent authority for DPIAs, rights, breaches, transfers and sector/national requirements when those concerns arise. Verify authority and applicability; search results or a vendor checklist are not an accepted legal interpretation.
 
+## CCPA/CPRA and California regulator guidance
+
+| When to consult | Official source | What it informs |
+| --- | --- | --- |
+| Establish applicability or consumer rights | [California Attorney General CCPA page](https://oag.ca.gov/privacy/ccpa) | Statute overview, consumer rights and business obligations; use the linked statute text for the operative provisions |
+| Read current regulations | [California Privacy Protection Agency regulations](https://cppa.ca.gov/regulations/) | Implementing rules, notices, opt-out mechanics, service-provider terms and current amendments |
+| Check current agency guidance and enforcement | [California Privacy Protection Agency](https://cppa.ca.gov/) | Regulatory activity, guidance and enforcement context |
+
+Thresholds, regulations and agency guidance change. Verify the version in effect when a decision depends on it, and obtain the responsible legal/privacy interpretation. CCPA/CPRA is not interchangeable with the GDPR.
+
 ## SOC 2 and assurance
 
 - [AICPA SOC overview](https://www.aicpa-cima.com/resources/landing/system-and-organization-controls-soc-suite-of-services): distinguish SOC services and find current official examination resources.

@@ -123,13 +123,27 @@ The [skills directory](https://www.skills.sh/getsentry/skills/agents-md) reports
 
 ## AI development, testing and operations segmentation
 
-The generic ai-development package contains three independently useful disciplines. Ai-development owns application patterns, architecture tradeoffs, model/context/tool choices, skills/harness integration and protocols. Ai-testing owns conceptual evaluation levels, cases, measures, acceptance and regression evidence, including the retained detailed quality/speech reference. Ai-operations owns AI-specific task and quality signals, provider/resource limits, cost, drift, configuration changes and recovery. Development keeps concise pointers to those owners; it no longer duplicates detailed evaluation or operating methods. None requires an evaluator SDK, instrumentation library or vendor.
+The generic ai-development package contains four independently useful disciplines. Ai-development owns application patterns, architecture tradeoffs, model/context/tool choices, skills/harness integration and protocols. Ai-testing owns conceptual evaluation levels, cases, measures, acceptance and regression evidence. Ai-evaluation owns the program-level evaluation lifecycle, dataset and slice governance, baselines, gates, production sampling, red-team coverage and reporting. Ai-operations owns AI-specific task and quality signals, provider/resource limits, cost, drift, configuration changes and recovery. Development keeps concise pointers to those owners; it no longer duplicates detailed evaluation or operating methods. None requires an evaluator SDK, instrumentation library or vendor.
 
 Ai-deepeval-testing owns the selected Python/DeepEval test-case, dataset, metric and script/pytest-style CI integration. Python-ai-observability owns Python OpenTelemetry provider/instrumentor/exporter integration, context propagation, privacy controls and received-signal verification. AI-conventions retains provider and FastMCP implementation. These three local technical skills share ai-python-development with the acquired mcp-builder, for four skills in total. A Python evaluation runner need not imply a Python application. Generic service reliability and incident procedures remain with relevant operating expertise, and Collector/backend deployment remains with matching platform/tool guidance. Optional specialists are selected by capability; missing expertise does not remove essential reasoning or lower acceptance.
 
 The [DeepEval evaluation guide](https://deepeval.com/docs/evaluation-introduction), [metrics](https://deepeval.com/docs/metrics-introduction) and [CI instructions](https://deepeval.com/docs/evaluation-unit-testing-in-ci-cd) informed the original testing skill. The official [DeepEval skills](https://github.com/confident-ai/deepeval/tree/main/skills) were reviewed but not acquired: their mandatory intake/synthetic-data generation, hosted-service preference and fixed iteration defaults do not fit this collection's scope and composition principles. API documentation remains the implementation authority; no hosted account or generation loop is imposed.
 
 The Python observability skill uses [Python instrumentation](https://opentelemetry.io/docs/languages/python/instrumentation/), [exporters](https://opentelemetry.io/docs/languages/python/exporters/) and the selected [GenAI conventions](https://opentelemetry.io/docs/specs/semconv/gen-ai/). These are technical integration choices, not a generic monitoring-vendor preference. Traces describe execution; evaluations assess quality, even when a platform offers both. No SDK/backend or live evaluation was installed or exercised for this guidance change.
+
+## Capability expansion sources
+
+The Phase 1 and application-type additions are original local methods; no new upstream skill was acquired for them. Their primary references are recorded with each skill and reference:
+
+- `design-research` uses the official [Mobbin](https://mobbin.com/mcp) and [Refero](https://refero.design/mcp) MCP documentation for optional access, plus NN/g guidance for the boundary between competitive review and user research. Neither paid service is required.
+- `ai-evaluation` and the DeepEval references use DeepEval's evaluation, dataset, metric, CI and local-storage documentation, the official DeepEval skills as reviewed comparators, and OpenAI and Anthropic evaluation guidance. The hosted-service and synthetic-generation defaults are not adopted.
+- `rest-api-design` and `graphql-design` use the HTTP RFCs, OpenAPI 3.1, the GraphQL specification and Relay/Apollo guidance. Draft headers are labelled as drafts, and Microsoft's older general REST guide is not treated as current.
+- `event-driven-design` and `distributed-systems` use Kafka and Schema Registry documentation, AsyncAPI, CloudEvents, outbox/idempotency material, Google SRE and AWS reliability guidance, and Jepsen/Raft/time sources for guarantee limits.
+- `cli-development` uses the Command Line Interface Guidelines, POSIX utility and exit-status conventions, GNU conventions, 12-factor CLI guidance, XDG and language packaging references.
+- The CI/CD references use GitHub Actions documentation, actionlint, zizmor and a primary continuous-integration source.
+- `business-strategy` option work uses Porter, Lafley/Martin and Rumelt as strategy references; the local matrix and evidence rules are original.
+
+These sources inform the methods. They do not establish that a particular project has satisfied them, and no source text is copied.
 
 ## Operations and visualization provenance
 
@@ -178,6 +192,8 @@ The Community candidates above remain references. The MIT better-interface repos
 ## Documentation methods
 
 I use technical-writing for cross-type writing craft. System documentation in sdlc explains current architecture, including structural, runtime, interface and deployment views; system-design owns proposed architecture. The artifact system owns artifact contracts, planes, homes, quality and assurance. These are original local skills; no upstream resources or invocation controls are imported.
+
+`skill-authoring` is original local guidance for this collection. Its skill anatomy, progressive-disclosure model and authoring loop are informed by Anthropic's [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) and by the pinned `writing-for-agents` reference; the local method adds the repository's capability boundary, knowledge-ownership rule, cross-plugin composition, evaluation and packaging requirements. No upstream text is copied.
 
 The source review compares [Anthropic doc-coauthoring](https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/doc-coauthoring/SKILL.md) and [GitHub documentation-writer](https://github.com/github/awesome-copilot/blob/8bc0f5715b2ddc7901a62fddf144ded30d56de8b/skills/documentation-writer/SKILL.md). Context gathering, reader questions, accuracy and terminology fit; mandatory collaboration/outline approvals do not fit routine authorized upkeep. Diátaxis and Google technical writing inform the authoring method; C4, arc42 and OpenAPI inform architecture coverage. References remain with the skills and do not establish complete standards conformance.
 
@@ -233,7 +249,7 @@ Independently installable bundles retain concise essential defaults and discover
 
 ## Database guidance sources
 
-Database methods are original and engine-independent. The three original PostgreSQL skills retain reviewed Neon, Supabase and Microsoft skill references through string metadata and a [package-local source reference](../../plugins/database-postgresql-development/references/sources.md). No PostgreSQL skills are acquired, and no database MCP server is declared. Primary version-matched PostgreSQL documentation controls implementation.
+Database methods are original and engine-independent. The three original PostgreSQL skills retain reviewed Neon, Supabase and Microsoft skill references through string metadata and a [package-local source reference](../../plugins/database-postgresql-development/references/sources.md). The package also acquires the Supabase Postgres best-practices skill at a pinned commit as an upstream reference; its bytes are preserved and the builder adds only usage labels and support visibility. No database MCP server is declared. Primary version-matched PostgreSQL documentation controls implementation.
 
 ## Identity and access sources
 
@@ -261,7 +277,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 21 independent packages and 133 skills: 94 local and 39 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 21 independent packages and 153 skills: 113 local and 40 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
 
 Skills carry a small classification layer: `kind` (system, activity, method, workflow or reference), `origin` (local or upstream), `scope`, `invocation` and `role`. Local skills are validated for the required fields; acquired labels come from `agent-depot.json` and are injected at build time without editing upstream bytes. Run `python scripts/skill_inventory.py` for the generated maintainer matrix.
 
@@ -274,11 +290,11 @@ The collection has 9 generic capability packages and 12 optional technical packa
 | Plugin | Applicability | Skills | Responsibility |
 | --- | --- | --- | --- |
 | `strategy` | Generic | 4 | Business direction, product priorities and evidence-based feedback. |
-| `sdlc` | Generic | 72 | Full SDLC: activities, artifact model, delivery, operations, security, governance, project foundations and verification. |
-| `frontend-development` | Generic | 5 | Integrated interface design, UX writing and usability research across web, desktop and mobile. |
-| `backend-development` | Generic | 1 | Service authority, state, failure, durable work and consumer contracts. |
-| `ai-development` | Generic | 3 | AI application/architecture and protocol design; testing/evaluation methods; AI-specific operating decisions and evidence. |
-| `documentation` | Generic support | 2 | Cross-type technical writing craft and prose editing. |
+| `sdlc` | Generic | 74 | Full SDLC: activities, artifact model, delivery, operations, security, governance, project foundations and verification. |
+| `frontend-development` | Generic | 6 | Integrated interface design, design research, UX writing and usability research across web, desktop and mobile. |
+| `backend-development` | Generic | 6 | Service authority, state, failure, durable work, architecture pattern selection, HTTP and GraphQL contracts, event-driven integration and distributed-systems reasoning. |
+| `ai-development` | Generic | 4 | AI application/architecture and protocol design; evaluation methods and programs; AI-specific operating decisions and evidence. |
+| `documentation` | Generic support | 4 | Cross-type technical writing craft, intuitive explanation, skill authoring and prose editing. |
 | `visualization` | Generic support | 3 | Diagrams, presentations and interactive system explanation; preserve executable resources. |
 | `backend-python-development` | Technical | 3 | Python/FastAPI/persistence and Python automation; no backend service required for CLI work. |
 | `frontend-reactjs-development` | Technical | 5 | React/Next.js/shadcn/Tailwind and their actual component APIs. |
@@ -287,11 +303,11 @@ The collection has 9 generic capability packages and 12 optional technical packa
 | `ai-adk-development` | Technical | 2 | Google ADK; preserve the paired architecture/builder skills. |
 | `ai-langchain-development` | Technical | 4 | LangChain/LangGraph and dependencies/persistence as a complete group. |
 | `ai-python-development` | Technical | 4 | Python provider/FastMCP adapters, DeepEval evaluation suites and OpenTelemetry AI instrumentation; no required agent framework or hosted backend. |
-| `development-tooling` | Technical | 6 | Optional Bash, browser/load testing, delivery/configuration tooling and lockfile audit implementations. |
-| `operations-platforms` | Technical | 3 | Optional JVM, Kubernetes and AKS expertise; match each skill independently to the actual platform. |
+| `development-tooling` | Technical | 8 | Optional Bash, CLI design, provider-neutral CI/CD pipeline design, browser/load testing, delivery/configuration tooling and lockfile audit implementations. |
+| `operations-platforms` | Technical | 6 | Optional JVM, Kubernetes, AWS, infrastructure delivery and AKS expertise; match each skill independently to the actual platform. |
 | `database-development` | Generic | 2 | Data contracts, consistency, schema evolution and evidence-led performance methods. |
-| `database-postgresql-development` | Technical | 3 | PostgreSQL development, diagnostics and operating mechanics. |
-| `saas-development` | Generic | 3 | Tenant/customer and commercial lifecycle, SaaS dashboard design and scoped readiness. |
+| `database-postgresql-development` | Technical | 4 | PostgreSQL development, diagnostics, operating mechanics and a reviewed Supabase best-practices skill. |
+| `saas-development` | Generic | 6 | Tenant/customer and commercial lifecycle, supporting-service selection, billing and entitlements, organization identity, dashboard design and scoped readiness. |
 | `typescript-development` | Technical | 1 | Runtime/module/package contracts and TypeScript implementation verification without React. |
 | `go-development` | Technical | 1 | Go module/package, lifecycle, error and verification contracts for services, libraries and CLIs. |
 
@@ -320,7 +336,7 @@ A workflow-only setup still establishes applicable onboarding, reproducible comm
 | --- | --- | --- |
 | Project foundations | development: foundation outcomes, isolation/readiness and check selection | Accepted language/framework; selected local-service, hook/checker and diagnostics tools |
 | Delivery | delivery: artifact identity, trust, promotion and recovery | Selected CI, registry, packaging and deployment implementation |
-| AI | ai-development: application design, testing/evaluation and AI operations | Accepted provider/framework, evaluator, instrumentation, protocol SDK and renderer |
+| AI | ai-development: application design, evaluation method/program and AI operations | Accepted provider/framework, evaluator, instrumentation, protocol SDK and renderer |
 | Client experience | frontend-development: visual/interaction decisions and interface evidence | Accepted web/native framework, component primitives and drivers |
 | Observability | operations and generic AI operations: meaningful signals, privacy and failure boundaries | Runtime instrumentation, Collector/backend deployment and actual export configuration |
 | Application verification | development: journey, workload, fault and completion evidence | Compatible test tools, platform drivers and execution targets |
@@ -332,7 +348,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 133 skills and their current owners</summary>
+<summary>All 153 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -344,6 +360,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [code-review](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/code-review) | Upstream | `sdlc` |
 | [codebase-design](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/engineering/codebase-design) | Upstream | `sdlc` |
 | [dependencies](../../plugins/sdlc/skills/dependencies/SKILL.md) | Local | `sdlc` |
+| [application-configuration](../../plugins/sdlc/skills/application-configuration/SKILL.md) | Local | `sdlc` |
 | [design](../../plugins/sdlc/skills/design/SKILL.md) | Local | `sdlc` |
 | [develop](../../plugins/sdlc/skills/develop/SKILL.md) | Local | `sdlc` |
 | [fix](../../plugins/sdlc/skills/fix/SKILL.md) | Local | `sdlc` |
@@ -410,18 +427,28 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [observability](../../plugins/sdlc/skills/observability/SKILL.md) | Local | `sdlc` |
 | [operations-review](../../plugins/sdlc/skills/operations-review/SKILL.md) | Local | `sdlc` |
 | [data-recovery](../../plugins/sdlc/skills/data-recovery/SKILL.md) | Local | `sdlc` |
+| [production-readiness](../../plugins/sdlc/skills/production-readiness/SKILL.md) | Local | `sdlc` |
 | [guide-runbook](../../plugins/sdlc/skills/guide-runbook/SKILL.md) | Local | `sdlc` |
 | [interface-design](../../plugins/frontend-development/skills/interface-design/SKILL.md) | Local | `frontend-development` |
+| [design-research](../../plugins/frontend-development/skills/design-research/SKILL.md) | Local | `frontend-development` |
 | [impeccable](https://github.com/pbakaus/impeccable/tree/c3bb418ee38ee49a6b999b7752c1368f3123a2bd/plugin/skills/impeccable) | Upstream | `frontend-development` |
 | [ui-ux-pro-max](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill/tree/b7d5353e0130feb8c5574ef1251f8a1db1873ccb/.claude/skills/ui-ux-pro-max) | Upstream | `frontend-development` |
 | [usability-research](../../plugins/frontend-development/skills/usability-research/SKILL.md) | Local | `frontend-development` |
 | [ux-writing](../../plugins/frontend-development/skills/ux-writing/SKILL.md) | Local | `frontend-development` |
 | [backend-design](../../plugins/backend-development/skills/backend-design/SKILL.md) | Local | `backend-development` |
+| [architecture-patterns](../../plugins/backend-development/skills/architecture-patterns/SKILL.md) | Local | `backend-development` |
+| [distributed-systems](../../plugins/backend-development/skills/distributed-systems/SKILL.md) | Local | `backend-development` |
+| [event-driven-design](../../plugins/backend-development/skills/event-driven-design/SKILL.md) | Local | `backend-development` |
+| [graphql-design](../../plugins/backend-development/skills/graphql-design/SKILL.md) | Local | `backend-development` |
+| [rest-api-design](../../plugins/backend-development/skills/rest-api-design/SKILL.md) | Local | `backend-development` |
 | [ai-development](../../plugins/ai-development/skills/ai-development/SKILL.md) | Local | `ai-development` |
 | [ai-testing](../../plugins/ai-development/skills/ai-testing/SKILL.md) | Local | `ai-development` |
 | [ai-operations](../../plugins/ai-development/skills/ai-operations/SKILL.md) | Local | `ai-development` |
+| [ai-evaluation](../../plugins/ai-development/skills/ai-evaluation/SKILL.md) | Local | `ai-development` |
 | [technical-writing](../../plugins/documentation/skills/technical-writing/SKILL.md) | Local | `documentation` |
+| [explain](../../plugins/documentation/skills/explain/SKILL.md) | Local | `documentation` |
 | [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8) | Upstream | `documentation` |
+| [skill-authoring](../../plugins/documentation/skills/skill-authoring/SKILL.md) | Local | `documentation` |
 | [architecture-diagramming](../../plugins/visualization/skills/architecture-diagramming/SKILL.md) | Local | `visualization` |
 | [presentation-building](../../plugins/visualization/skills/presentation-building/SKILL.md) | Local | `visualization` |
 | [system-flow-explorer](../../plugins/visualization/skills/system-flow-explorer/SKILL.md) | Local | `visualization` |
@@ -450,6 +477,8 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [ai-conventions](../../plugins/ai-python-development/skills/ai-conventions/SKILL.md) | Local | `ai-python-development` |
 | [mcp-builder](https://github.com/anthropics/skills/tree/8a1541c4a3ffa5a20a5a91de0dcf3f0bab1d1ef4/skills/mcp-builder) | Upstream | `ai-python-development` |
 | [bash-engineering](../../plugins/development-tooling/skills/bash-engineering/SKILL.md) | Local | `development-tooling` |
+| [ci-cd-pipelines](../../plugins/development-tooling/skills/ci-cd-pipelines/SKILL.md) | Local | `development-tooling` |
+| [cli-development](../../plugins/development-tooling/skills/cli-development/SKILL.md) | Local | `development-tooling` |
 | [github-actions-hardening](https://github.com/github/awesome-copilot/tree/143a3d976b3c1603cc8932984d5e1f28501cb5fc/skills/github-actions-hardening) | Upstream | `development-tooling` |
 | [performance-testing](../../plugins/development-tooling/skills/performance-testing/SKILL.md) | Local | `development-tooling` |
 | [playwright-cli](https://github.com/microsoft/playwright-cli/tree/b85c7a736bb473bf55b584e54a09ffa698d6d871/skills/playwright-cli) | Upstream | `development-tooling` |
@@ -457,16 +486,23 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [tooling-conventions](../../plugins/development-tooling/skills/tooling-conventions/SKILL.md) | Local | `development-tooling` |
 | [aks-cost-optimization](https://github.com/Azure/AKS-Skills/tree/20bf35201a79b324d2ca3e00e5c82020ff362024/skills/aks-cost-optimization) | Upstream | `operations-platforms` |
 | [infra-jvm-optimization](../../plugins/operations-platforms/skills/infra-jvm-optimization/SKILL.md) | Local | `operations-platforms` |
+| [aws-platform](../../plugins/operations-platforms/skills/aws-platform/SKILL.md) | Local | `operations-platforms` |
+| [infra-delivery](../../plugins/operations-platforms/skills/infra-delivery/SKILL.md) | Local | `operations-platforms` |
 | [kubernetes-resource-engineering](../../plugins/operations-platforms/skills/kubernetes-resource-engineering/SKILL.md) | Local | `operations-platforms` |
+| [kubernetes-troubleshooting](../../plugins/operations-platforms/skills/kubernetes-troubleshooting/SKILL.md) | Local | `operations-platforms` |
 | [database-design](../../plugins/database-development/skills/database-design/SKILL.md) | Local | `database-development` |
 | [database-performance](../../plugins/database-development/skills/database-performance/SKILL.md) | Local | `database-development` |
 | [postgresql-development](../../plugins/database-postgresql-development/skills/postgresql-development/SKILL.md) | Local | `database-postgresql-development` |
 | [postgresql-operations](../../plugins/database-postgresql-development/skills/postgresql-operations/SKILL.md) | Local | `database-postgresql-development` |
 | [postgresql-performance](../../plugins/database-postgresql-development/skills/postgresql-performance/SKILL.md) | Local | `database-postgresql-development` |
+| [supabase-postgres-best-practices](https://github.com/supabase/agent-skills/tree/c9be0e931b7930f7d02126d04774d904c381e7d7/skills/supabase-postgres-best-practices) | Upstream | `database-postgresql-development` |
 | [security-auth-development](../../plugins/sdlc/skills/security-auth-development/SKILL.md) | Local | `sdlc` |
+| [saas-billing](../../plugins/saas-development/skills/saas-billing/SKILL.md) | Local | `saas-development` |
 | [saas-dashboard-design](../../plugins/saas-development/skills/saas-dashboard-design/SKILL.md) | Local | `saas-development` |
 | [saas-design](../../plugins/saas-development/skills/saas-design/SKILL.md) | Local | `saas-development` |
+| [saas-identity-and-access](../../plugins/saas-development/skills/saas-identity-and-access/SKILL.md) | Local | `saas-development` |
 | [saas-readiness](../../plugins/saas-development/skills/saas-readiness/SKILL.md) | Local | `saas-development` |
+| [saas-supporting-services](../../plugins/saas-development/skills/saas-supporting-services/SKILL.md) | Local | `saas-development` |
 | [typescript-conventions](../../plugins/typescript-development/skills/typescript-conventions/SKILL.md) | Local | `typescript-development` |
 | [go-conventions](../../plugins/go-development/skills/go-conventions/SKILL.md) | Local | `go-development` |
 
@@ -482,7 +518,7 @@ Figma remains optional tooling declared by frontend-development; the React techn
 
 ### Verification coverage
 
-The assignment covers 94 local skills and 39 distinct acquired skills exactly once, with no omissions or duplicate owners.
+The assignment covers 113 local skills and 40 distinct acquired skills exactly once, with no omissions or duplicate owners.
 
 All packages build together with `--all` and independently with explicit selection. Package checks verify inventories, local-resource parity, notices, required framing, and transitive owned Markdown links staying inside their bundle. CI also checks the default sdlc-only build. These checks do not establish agent behavior; behavioral evaluations remain deferred.
 

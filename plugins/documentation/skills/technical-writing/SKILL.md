@@ -22,6 +22,18 @@ Help the intended reader understand, decide or act correctly. This is a cross-ty
 
 The artifact contract states what the document must contain and for whom; the project artifact home map states where it lives. Use available artifact-system and project-conventions expertise for those decisions. This skill teaches how to make the required content understandable. Readability and navigation support the outcome; brevity or scanability alone does not establish quality. Preserve the project's vocabulary, language, document responsibilities and accepted decisions. A writing request does not authorize changing the product, restructuring folders or implementing a proposal.
 
+## Reading path
+
+| Need | Read |
+| --- | --- |
+| Recognize a document type and its first section | [Document types](references/document-types.md) |
+| Choose tables, lists, steps, prose, diagrams or disclosure | [Formatting and layout](references/formatting-and-layout.md) |
+| Make a concept understandable inside a document | [Concept explanation](references/concept-explanation.md) |
+| Review the finished document before handoff | [Review rubric](references/review-rubric.md) |
+| Structure skills, repository instructions or other agent guidance | [Structured instructions](references/structured-instructions.md) |
+
+The references describe cross-type craft. The artifact contract and its guide still decide required content, status, evidence and home.
+
 ## Craft and artifact requirements
 
 Do not centralize every document requirement here. Separate the layers:
@@ -54,7 +66,7 @@ Open with the subject, useful scope and relevant status. Supply the background a
 
 ## Explain the subject, not just its inventory
 
-Build from the reader's question to the answer. For systems, connect responsibilities, data flow, ownership and failure boundaries. Explain why a distinction matters and what follows from it; a component list alone rarely teaches the design.
+Build from the reader's question to the answer. For systems, connect responsibilities, data flow, ownership and failure boundaries. Explain why a distinction matters and what follows from it; a component list alone rarely teaches the design. Read [concept explanation](references/concept-explanation.md) when the document must build a mental model rather than report facts.
 
 For consequential choices, explain how the decision follows from the situation. Identify the constraint, compare the relevant alternative, and describe what the recommendation makes easier or harder. Keep enough of that reasoning for a reader to recognize when the recommendation would change. If historical rationale is unknown, mark the gap or link the decision record; do not invent it. Requirements describe the needed outcome and observable acceptance, not merely preferred technology.
 
@@ -75,7 +87,7 @@ Choose presentation from the meaning:
 - Use compact tables for alternatives compared on consistent dimensions.
 - Use diagrams for relationships or sequences that prose alone obscures. Explain their meaning and provide a text equivalent where needed.
 
-Link with descriptive labels. Never rely solely on colour or visual layout to convey a boundary. When writing or restructuring skills and repository instructions, read [structured instructions](references/structured-instructions.md) for conditional guidance, examples and a meaning-preservation review. Keep paragraphs where they explain context or causality; a skill does not need every presentation format.
+Link with descriptive labels. Never rely solely on colour or visual layout to convey a boundary. Read [formatting and layout](references/formatting-and-layout.md) for the tradeoffs, accessibility checks and disclosure patterns. When writing or restructuring skills and repository instructions, read [structured instructions](references/structured-instructions.md) for conditional guidance, examples and a meaning-preservation review. Keep paragraphs where they explain context or causality; a skill does not need every presentation format.
 
 ## Preserve precision and trust
 
@@ -89,10 +101,12 @@ For operational instructions, preserve safety prerequisites, expected results an
 
 Check a few realistic reader questions against the finished document: can a new contributor explain the main flow and authority boundary, can a decision-maker understand the choice and open conditions, or can an operator perform and verify the task? Review for missing prerequisites, undefined terms, ambiguous references, contradictions and misleading examples. Fix substantive gaps before polishing headings.
 
+Use the [review rubric](references/review-rubric.md) for a proportionate pass over reader questions, structure, style, content, evidence, links and accessibility. The rubric is craft review; it does not replace the artifact contract, cross-artifact assurance or code review.
+
 A manual reader-question review is sufficient for ordinary edits. A fresh reader or authorized independent agent can help for consequential documents; do not claim independent testing when only the author reviewed it. Use proportionate link, example, schema and command checks. Packaging and Markdown checks do not establish comprehension or factual correctness.
 
 Apply `humanizer` for natural wording when available, preserving necessary explanation and useful structure. Report which documents changed and any unresolved evidence gaps; do not manufacture a complete rewrite of unrelated or historical material.
 
 ## Sources and fit
 
-This is original project-writing guidance informed by [Diátaxis](https://diataxis.fr/), [Google's audience guidance](https://developers.google.com/tech-writing/one/audience) and [document guidance](https://developers.google.com/tech-writing/one/documents). Reviewed skills: [Anthropic doc-coauthoring](https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/doc-coauthoring/SKILL.md) for context and reader review, and [GitHub documentation-writer](https://github.com/github/awesome-copilot/blob/8bc0f5715b2ddc7901a62fddf144ded30d56de8b/skills/documentation-writer/SKILL.md) for purpose, accuracy and consistency. Their mandatory collaboration/approval workflows are not imported. Source evaluation is in the repository's maintainer reference.
+This is original project-writing guidance informed by [Diátaxis](https://diataxis.fr/), [Google's audience guidance](https://developers.google.com/tech-writing/one/audience), [document guidance](https://developers.google.com/tech-writing/one/documents) and the [Google developer documentation style guide](https://developers.google.com/style/highlights), with [Write the Docs documentation principles](https://www.writethedocs.org/guide/writing/docs-principles/) for skimmable structure and current examples. Reviewed skills: [Anthropic doc-coauthoring](https://github.com/anthropics/skills/blob/dbd4588f9e1033efb41dad4bef2f7947c8993d44/skills/doc-coauthoring/SKILL.md) for context and reader review, and [GitHub documentation-writer](https://github.com/github/awesome-copilot/blob/8bc0f5715b2ddc7901a62fddf144ded30d56de8b/skills/documentation-writer/SKILL.md) for purpose, accuracy and consistency. Their mandatory collaboration/approval workflows are not imported. Source evaluation is in the repository's maintainer reference.

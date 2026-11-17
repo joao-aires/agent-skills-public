@@ -26,9 +26,21 @@ Discover the target, architecture, relevant feature/critical journeys, current t
 9. Implement metric/monitor/SLO/dashboard definitions using the target's tools. Add missing instrumentation with `observability` or directly. Keep SLO populations consistent with their indicators; label intentionally different operational proxies.
 10. Validate with fixtures, historical incidents/quiet periods and live signal samples. Soak new pages silently when local practice permits, with a review date. Confirm notification and runbook reachability before marking operational.
 
+## Continuity and disaster recovery
+
+An SLO describes normal operation. Continuity describes what remains when a failure domain is lost and how quickly the critical journey returns. Establish the objectives per journey and per data class rather than for "the service":
+
+- **RTO** — elapsed time from failure to verified capability, including detection, decision, provisioning, data availability, verification and traffic shift.
+- **RPO** — acceptable loss per data class, including records that can be rebuilt and secrets or keys needed to start.
+- **Failure domain** — a region, account, cluster, provider, primary datastore or identity/DNS dependency, named precisely.
+- **Dependency order, authority and traffic** — restore order, failover and failback authority, traffic shift and replication lag.
+
+Continuity strategy, failover/failback and exercises are developed in [disaster recovery and continuity design](reliability-disaster-recovery.md). Read it when the accepted outcome includes a site/region/provider loss, a recovery-time commitment or a business-continuity obligation. [Data recovery](../../data-recovery/SKILL.md) owns restore mechanics and data-integrity proof; this reference owns the continuity design and the evidence that it meets the accepted objectives.
+
 ## Optional deeper references
 
 - [Journey to SLO](journey-to-slo.md): theory, diagrams, worked examples, arithmetic, contract template and acceptance cases.
+- [Disaster recovery and continuity](reliability-disaster-recovery.md): objectives, dependency order, strategies, failover/failback and exercises.
 - [Terraform monitoring](terraform-monitoring.md): optional Datadog implementation architecture and lessons; current provider validation is still required.
 
 ## Invariants

@@ -38,6 +38,10 @@ Identify the service, critical journeys, demand or spend question, target enviro
 
 - [Capacity planning](references/capacity.md): demand, concurrency, scaling and Kubernetes mechanics.
 - [Cost optimization](references/cost.md): bill attribution, provider tradeoffs and verification.
+- [FinOps practice](references/finops.md): allocation, forecasting, budgets, commitments, unit economics, showback/chargeback and governance for recurring cost work.
+- [SaaS cost attribution](references/saas-cost-attribution.md): cost per customer, tenant and tier, shared-cost allocation, license cost and gross margin.
+
+Use the first two for a single design or bill review. Read FinOps practice when cost work recurs, must be allocated to owners, or needs a forecast, budget or commitment decision. Read SaaS cost attribution when the unit is a customer, tenant or plan.
 
 ## Record and hand off
 

@@ -27,13 +27,16 @@ Read the accepted toolchain, project commands and versions before changing confi
 | Code/configuration/secret checks and local hook setup | [Quality tools](references/quality-checks.md) |
 | Dockerfiles, image inputs and runtime startup | [Container builds](references/container-builds.md) |
 | Compose profiles, isolated local services and diagnostics | [Local environment](references/local-environment.md) |
-| GitHub Actions adapters, trust, inputs and concurrency | [Workflow implementation](references/workflow-implementation.md); use installed github-actions-hardening for deeper matching review |
+| Workflow naming, data flow, shell boundaries and execution features | [Workflow authoring](references/workflow-authoring.md) |
+| Provider-neutral stages, promotion, gates and recovery around the workflow | `ci-cd-pipelines` method |
+| GitHub Actions adapters, trust, inputs and concurrency | [Workflow implementation](references/workflow-implementation.md) |
+| Choosing shell, script, composite, code or container actions | [Script selection](references/script-selection.md); use installed github-actions-hardening for security review |
 | Chosen registry and release artifact checks | [Artifact defaults](references/artifact-defaults.md) |
 | Selected Collector/backend routing and AI evaluation service | [Telemetry backends](references/telemetry-backends.md) |
 | Browser/Electron drivers and component workbenches | [Journey drivers](references/journey-drivers.md); use installed playwright-cli when applicable |
 | Scoped fault fixtures or a selected network proxy | [Failure tools](references/failure-tools.md) |
 
-Read only the relevant reference. Language-specific checks and packaging follow the accepted stack's conventions; native drivers follow native-platform implementation and driver expertise when available. Use performance-testing for an accepted k6 implementation, rather than imposing k6 on an existing suite.
+Read only the relevant reference. Language-specific checks and packaging follow the accepted stack's conventions; native drivers follow native-platform implementation and driver expertise when available. Use performance-testing for an accepted k6 implementation, rather than imposing k6 on an existing suite. `github-actions-hardening` remains the security specialist for workflow trust boundaries, injection and token scope; this skill owns implementation choices and evidence.
 
 ## Verify the actual integration
 
