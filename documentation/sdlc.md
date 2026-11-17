@@ -88,7 +88,7 @@ Direct strategy, design, documentation and specialist requests can end at their 
 
 - Product discovery and direction: [product-management](../plugins/strategy/skills/product-management/SKILL.md) owns user problems, priorities, useful scope and success signals; business-strategy owns viability and positioning. These decisions inform project planning and may be reopened by evidence.
 - Foundations: `setup` uses [project-conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and relevant [CI/CD pipeline design](../plugins/development-tooling/skills/ci-cd-pipelines/SKILL.md). Establish foundations after sufficient product and architecture decisions for a new project; maintain them as conditions change.
-- Feedback: [learn-from-product-feedback](../plugins/strategy/skills/learn-from-product-feedback/SKILL.md) informs product direction; incident learning addresses reliability and may also expose missing requirements or design protections.
+- Feedback: [run-product-feedback-analysis](../plugins/sdlc/skills/run-product-feedback-analysis/SKILL.md) evaluates existing user evidence and records a product-feedback analysis for product direction; incident learning addresses reliability and may also expose missing requirements or design protections.
 - Changes to consequential decisions: follow [the shared decision policy](../plugins/sdlc/skills/activity-system/references/authority.md#consequential-findings) and continue independent authorized work. Do not invent acceptance or account permissions.
 
 ## Roles across the phases
@@ -129,7 +129,7 @@ Design may run in parallel with requirements or implementation. Use [engagement 
 
 Every artifact type has a contract and, where the craft is distinct, a guide. The guide owns structure, conventions and review; the contract owns lifecycle, authority, maturity and handoff. The full pairing is the [guide registry](../plugins/sdlc/skills/artifact-system/references/guide-registry.md).
 
-- **Document guides:** PRD, RFC, ADR, ECR, design proposal, architecture set, issue, PR, research report, release note and README.
+- **Document guides:** PRD, product feedback analysis, RFC, ADR, ECR, design proposal, architecture set, issue, PR, research report, release note and README.
 - **Operational guides:** runbook, incident record, postmortem and assurance assessment.
 - **Artifact/view guides:** design specification, C4, sequence, state machine and compatibility matrix.
 

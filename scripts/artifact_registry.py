@@ -14,6 +14,7 @@ OUTPUT = ARTIFACTS / 'guide-registry.md'
 NAMES = {
     'product-brief': 'Product brief / PRD',
     'roadmap': 'Roadmap',
+    'product-feedback-analysis': 'Product feedback analysis',
     'ecr': 'ECR',
     'research-report': 'Research report',
     'rfc': 'RFC',

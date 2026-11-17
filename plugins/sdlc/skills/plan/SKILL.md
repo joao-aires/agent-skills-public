@@ -21,6 +21,8 @@ Read [activity system](../activity-system/SKILL.md). Use this method for an open
 
 For writing the artifact this activity produces, read [guide-ecr](../guide-ecr/SKILL.md) for structure, conventions and review.
 
+When a current [product feedback analysis](../artifact-system/references/contracts/product-feedback-analysis.md) exists, use it as evidence for the planning decision and requirements: link the analysis and the revision used, summarize only the problem, limits, competing explanations and open questions the decision or ECR needs, and do not re-derive the analysis or create a second evidence narrative. Route findings that change product direction to the product owner.
+
 ## Decide what to pursue
 
 Use the conversation, accepted product direction, relevant repository facts and feedback as evidence. Reuse settled decisions. Scale the investigation to what could change the decision.

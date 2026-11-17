@@ -1,22 +1,27 @@
 ---
-name: learn-from-product-feedback
-description: Analyze user feedback and product usage to evaluate outcomes, identify
-  problems and inform the next product decision. Use when reviewing a shipped feature,
-  investigating adoption/usability or prioritizing evidence; do not start surveys,
-  contact users or install analytics without a request.
+name: run-product-feedback-analysis
+description: Analyze existing user feedback and product usage evidence to evaluate outcomes,
+  identify friction and unmet needs, and inform the next product decision. Use when
+  reviewing a shipped feature, investigating adoption or usability, or prioritizing
+  from available evidence; do not start surveys, contact users or install analytics
+  without a request.
 metadata:
   kind: activity
   origin: local
-  pack: product
-  domain: product
+  pack: sdlc
+  domain: development
   phase: cross-phase
   scope: generic
   invocation: both
   role: task
+user-invocable: true
 ---
 
-# Learn from product feedback
+# Run product feedback analysis
 
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
+
+For the artifact this activity produces, read the [product-feedback-analysis contract](../artifact-system/references/contracts/product-feedback-analysis.md) and [guide-product-feedback-analysis](../guide-product-feedback-analysis/SKILL.md). Resolve its home with [artifact homes](../artifact-system/references/homes.md) before writing.
 
 ## Ask a decision question
 
@@ -56,11 +61,17 @@ Choose a small number of meaningful measures when data exists: reaching the inte
 
 For a saved-search feature, ask whether users can save and later reuse a search. Compare available save/reopen behavior with reports of confusing names, missing searches or poor discoverability. If only a few users exist, examining their journeys and asking focused usability questions can be more useful than proposing an underpowered A/B test.
 
+## Write the evidence as one artifact
+
+Record the analysis in a `product-feedback-analysis` artifact instead of returning disconnected findings. Read its [contract](../artifact-system/references/contracts/product-feedback-analysis.md) for the required sections and the [guide](../guide-product-feedback-analysis/SKILL.md) for craft and review; this activity adds the synthesis, it does not own a second structure.
+
+Keep raw records and source extracts available beside the artifact when they are durable. One analysis covers one decision and period; start a new revision or artifact when either changes. Do not add implementation, design or release sections to make it look complete.
+
 ## Turn evidence into a small next step
 
 Follow each important finding back through the user journey. Identify where the person could no longer achieve the intended result and which explanation the evidence supports. Similar complaints can have different causes; compare the reports with actual behavior before recommending a feature.
 
-Prioritize using severity, relevance to intended users, evidence strength and the cost of learning or fixing. Preserve segment differences: a frequent user's success does not establish that a new user can get started. Use numerical scoring only when its inputs make the choice clearer.
+Rank findings for the decision owner using severity, relevance to intended users, evidence strength and the cost of learning or fixing; accepting a priority belongs to the product owner. Preserve segment differences: a frequent user's success does not establish that a new user can get started. Use numerical scoring only when its inputs make the choice clearer.
 
 Recommend a response to the underlying difficulty. A feature request may reveal a problem better solved by clearer interaction, different defaults, better reliability or a narrower product promise.
 
@@ -70,14 +81,14 @@ For a recommended response, identify:
 - The observable outcome and how it will be assessed later.
 - Any remaining assumption that needs investigation before committing to the change.
 
-Bring accepted work into requirements and planning; the conversation or Markdown can be sufficient. Use [product management](../product-management/SKILL.md) for reprioritization and the next useful slice, and refinement for detailed engineering requirements. Keep the roadmap and relevant decisions aligned without making every comment a backlog commitment.
+Hand the artifact to [plan](../plan/SKILL.md) and the available product-direction method as evidence for the next product decision. Plan uses the recorded findings, limits and open questions rather than re-deriving them. Use [refine](../refine/SKILL.md) when the accepted direction needs detailed requirements. Keep the roadmap and relevant decisions aligned without making every comment a backlog commitment.
 
-After the change, check whether the intended outcome improved. Contacting or reporting back to users remains subject to the requested scope.
+After the change, check whether the intended outcome improved. Reopen the analysis with a new revision when later evidence changes its conclusions. Contacting or reporting back to users remains subject to the requested scope.
 
 ## Keep collection respectful and optional
 
 Minimize collected personal data and raw contents, define purpose/retention/access and use the project's privacy guidance before changing telemetry. Do not add session replay, third-party analytics or identity tracking by default. Existing exports and a short evidence note can be sufficient.
 
-The upstream [Amplitude feedback skill](https://github.com/amplitude/builder-skills/tree/51838c2d85560466d1bbc174ea0e645bb9c44ea9/analytics-skills/skills/analyze-feedback) is an optional reference for projects already using its feedback/analytics MCP tools. It is vendor-specific and is not bundled here: no explicit redistribution license was found at that reviewed commit. Do not imply it is installed or configure Amplitude automatically. Matt's installed research/clarification skills can support a requested investigation, but are not substitutes for actual user evidence.
+The upstream [Amplitude feedback skill](https://github.com/amplitude/builder-skills/tree/51838c2d85560466d1bbc174ea0e645bb9c44ea9/analytics-skills/skills/analyze-feedback) is an optional reference for projects already using its feedback/analytics MCP tools. It is vendor-specific and is not bundled here: no explicit redistribution license was found at that reviewed commit. Do not imply it is installed or configure Amplitude automatically. Installed research or clarification skills can support a requested investigation, but they are not substitutes for actual user evidence.
 
-Finish with the decision question, evidence and limits, recommended action and follow-up measure. Do not claim causality or broad adoption from a small sample.
+Finish with the decision question, the artifact's home and revision, evidence and limits, recommended action and follow-up measure. Do not claim causality or broad adoption from a small sample.

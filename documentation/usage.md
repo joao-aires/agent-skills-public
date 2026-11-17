@@ -27,6 +27,7 @@ The [installation guide](installation.md#load-them-in-your-client) links the cli
 | Architecture, UX or contracts undecided | `design` | System/platform decisions and interaction contracts before implementation |
 | Defined work ready to build | `implement` | Implemented and verified change |
 | Need evidence of behavior | `test` | Checks, results and coverage gaps |
+| Shipped behavior or user evidence needs interpretation | `run-product-feedback-analysis` | Evidence-backed analysis and a recommended next decision |
 | PR or diff ready for assessment | review composition (`code-review` + `test` + artifact assurance) | Findings against intended behavior, design, tests and artifact consistency |
 | Want improvements | `improve` | Prioritized opportunities, or a specified improvement |
 | Reported defect with repair requested | `fix` | Reproduced or evidenced defect, focused repair and verification |
@@ -40,7 +41,7 @@ The [installation guide](installation.md#load-them-in-your-client) links the cli
 
 ## Product decisions and specialist methods
 
-Select strategy for product-management, business direction and product feedback. Ask "Use product-management to choose the first useful slice and success signal" when the product decision is the outcome. Ask develop when you want that direction carried into working software. Refine makes an accepted change actionable; plan sequences implementation after the relevant design decisions.
+Select strategy for product-management and business direction; product feedback analysis is an sdlc activity. Ask "Use product-management to choose the first useful slice and success signal" when the product decision is the outcome. Ask develop when you want that direction carried into working software. Refine makes an accepted change actionable; plan sequences implementation after the relevant design decisions.
 
 Frontend-development provides one integrated interface-design method for information architecture, interaction, visual craft and critique, plus design research, independent UX writing and usability research. The package ships several optional design methods: `ui-ux-pro-max` for candidate styles and UX rules, `impeccable` for rendered critique and refinement, and `design-research` for product and precedent research. Choose by the decision; no single method is mandatory. `design-research` asks once about optional Mobbin or Refero access and continues with repository evidence, user references, public product research and local prototypes when those services are unavailable. For consequential UI work, expect at least three materially different directions, a request for feedback and a recorded decision before implementation. Creative, subject-specific art direction is conditionally available inside interface-design when choices are open; ordinary changes preserve the existing system. Application-specific specialists contribute archetype patterns and domain semantics, while the accepted frontend platform constrains and implements the design. Backend-development provides service design across stacks, with dedicated REST, GraphQL, event-driven, distributed-systems and architecture-pattern methods.
 
@@ -143,7 +144,7 @@ Add the relevant bundle and request its installed skill by name. Examples:
 
 - Use `run-incident-response` to investigate current impact within the established action boundaries.
 - Use `guide-runbook` to author, exercise or audit a runbook; design-system owns the design plan, and `analyze-capacity-cost` owns measurement and FinOps.
-- Use `business-strategy` to explore an idea with at least three materially different options, or `learn-from-product-feedback` to assess existing evidence.
+- Use `business-strategy` to explore an idea with at least three materially different options, or `run-product-feedback-analysis` to assess existing evidence and record a product-feedback analysis.
 - Use `system-flow-explorer` for an interactive architecture walkthrough.
 - Use `rest-api-design` or `graphql-design` for an external API contract, `event-driven-design` or `distributed-systems` for cross-service behavior, and `architecture-patterns` to compare a modular monolith, layered/hexagonal structure, CQRS, event sourcing, microservices or serverless.
 - Use `cli-development` to shape a command surface before implementation.

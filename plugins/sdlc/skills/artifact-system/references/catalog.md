@@ -10,6 +10,7 @@ The ECR is the default coordination artifact for a coherent engineering change. 
 | --- | --- | --- | --- | --- |
 | Intent | Product brief / PRD | User problem, audience, value, priority, product success, non-goals and product risks | Product/project workspace or established product-document home | [Product brief](contracts/prd.md) |
 | Intent | Roadmap | Outcomes and sequencing across changes, prerequisites, owners and proposed versus committed work | Product/project workspace | [Roadmap](contracts/roadmap.md) |
+| Intent | Product feedback analysis | Decision question, scoped user evidence, said versus did, findings, competing explanations and recommended next decision | Engineering workspace or application repository `docs/product/feedback/` when durable | [Product feedback analysis](contracts/product-feedback-analysis.md) |
 | Coordination | ECR | Change-specific scope, requirements, target design, plan, verification and history | Engineering workspace | [ECR](contracts/ecr.md) |
 | Coordination | Research report | Question, recommendation, primary sources, observed evidence and limits, alternatives and open decisions | Engineering workspace | [Research report](contracts/research-report.md) |
 | Coordination | RFC | Proposal with its own audience, current state, target views, alternatives and trade-offs | Engineering workspace or durable `docs/rfcs/` | [RFC](contracts/rfc.md) |
@@ -48,6 +49,7 @@ Each artifact states its own maturity. Do not promote a later phase's claim into
 | Artifact | Maturity states | Evidence expected | Must not claim |
 | --- | --- | --- | --- |
 | Product brief / PRD | Draft, proposed, accepted, superseded | User evidence, product decision, success signal | Implementation or verification |
+| Product feedback analysis | Draft, current, superseded | Source snapshot, period, segment, collection limits, confidence per finding | Accepted priority, implementation or improved outcome |
 | Roadmap | Draft, proposed, committed, superseded | Outcome, sequencing, owners, dependencies | Implementation or release |
 | Decision record (ADR/PDR) | Proposed, accepted, superseded, deprecated | Decision context, owner, date, consequences | Implementation unless linked |
 | Research report | Question, recommendation proposed, decision requested, accepted | Primary sources, observed probe results, limits | Production behavior or accepted design |
@@ -69,7 +71,7 @@ Each artifact states its own maturity. Do not promote a later phase's claim into
 
 ## Choose a separate artifact when it needs its own review
 
-Keep a bounded feature's requirements and rationale in its ECR. Use a product brief or PRD when product direction, outcomes or scope span changes or require independent product review. Use a roadmap when several changes need shared sequencing or ownership, and link each ECR to the relevant roadmap decision.
+Keep a bounded feature's requirements and rationale in its ECR. Use a product brief or PRD when product direction, outcomes or scope span changes or require independent product review. Use a roadmap when several changes need shared sequencing or ownership, and link each ECR to the relevant roadmap decision. Use a product feedback analysis when existing feedback or usage evidence should inform a product decision and its reasoning needs to outlive the conversation.
 
 Use a separate RFC when a proposal needs its own audience or decision process. Use a [design proposal](contracts/design-proposal.md) when a consequential choice needs materially different options and linked design artifacts; keep it in the ECR solution-design section for a normal change, and link an RFC or design record when the audience or views justify it. Record an ADR or PDR when a consequential accepted choice must outlive the work. Use the [diagram lifecycle](diagram-lifecycle.md) for affected structural and runtime views. Add an issue when someone needs to pick up or coordinate bounded work. Add a pull request for the submitted diff and review evidence.
 

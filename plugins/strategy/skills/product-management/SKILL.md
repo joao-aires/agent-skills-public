@@ -80,7 +80,7 @@ Choose evidence for the decision that remains open:
 
 Before gathering more evidence, define which results would lead to continuing, revising or stopping. Prioritize assumptions whose failure would change the decision, then choose the least costly credible investigation.
 
-Use available usability research expertise for participant methods and [product feedback](../learn-from-product-feedback/SKILL.md) for evidence synthesis. Keep a prepared study distinct from one that ran. Contact, recording, telemetry changes and live experiments require the corresponding authorized scope.
+Use available usability research expertise for participant methods and the `run-product-feedback-analysis` activity in the `sdlc` pack for evidence synthesis. When a current product-feedback analysis exists, resolve it through the sdlc artifact homes and use its findings, limits and open questions rather than re-deriving them. Keep a prepared study distinct from one that ran. Contact, recording, telemetry changes and live experiments require the corresponding authorized scope.
 
 ## Carry direction into development and back
 
