@@ -135,7 +135,7 @@ A plane describes the artifact's primary role. It is **not** a storage bucket.
 
 | Plane | Role | Example artifacts | Typical readers |
 | --- | --- | --- | --- |
-| Intent | Why and what to pursue | PRD, roadmap, product decision record | Product, leadership |
+| Intent | Why and what to pursue | PRD, roadmap, product feedback analysis, product decision record | Product, leadership |
 | Coordination | Track a change, its decisions and evidence | ECR, research report, RFC, issue, PR | Change participants, reviewers |
 | System knowledge | Explain the implemented system | Architecture set, contracts, API reference, ADRs, runbooks, SLOs | Contributors, operators |
 | Implementation | Build and verify the system | Code, tests, migrations, configuration | Engineers, reviewers |
@@ -262,7 +262,7 @@ Use the [design activity](skills/design/SKILL.md), the [option set](skills/desig
 
 Every artifact type has a contract and, where the craft is distinct, a guide. The contract owns lifecycle, authority, maturity, evidence and handoff; the guide owns structure, conventions, examples, common failures and review. The full one-to-one pairing is the [guide registry](skills/artifact-system/references/guide-registry.md).
 
-- **Document guides:** `guide-prd`, `guide-rfc`, `guide-adr`, `guide-ecr`, `guide-design-proposal`, `guide-system-documentation`, `guide-issue`, `guide-pr`, `guide-research-report`, `guide-release-note`, `guide-readme`.
+- **Document guides:** `guide-prd`, `guide-product-feedback-analysis`, `guide-rfc`, `guide-adr`, `guide-ecr`, `guide-design-proposal`, `guide-system-documentation`, `guide-issue`, `guide-pr`, `guide-research-report`, `guide-release-note`, `guide-readme`.
 - **Operational guides:** `guide-runbook`, `guide-incident-record`, `guide-postmortem`, `guide-assurance-assessment`.
 - **Artifact/view guides:** `guide-design-spec`, `guide-architecture-views`, `guide-state-machine`, `guide-compatibility-matrix`.
 
@@ -342,6 +342,7 @@ The conceptual model explains the layers; this map locates them in `sdlc`. It is
 | `run-security-maintenance` | Verified rotation, revocation or patched targets |
 | `run-operations-review` | Prioritized operational findings and bounded actions |
 | `run-postmortem` | A reviewed postmortem with verified actions |
+| `run-product-feedback-analysis` | Scoped product evidence, findings and next decision from existing feedback |
 
 ### Workflows
 

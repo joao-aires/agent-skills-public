@@ -1,6 +1,6 @@
 # Engineering artifacts and workspaces
 
-Every durable engineering output is an artifact: an ECR, PRD, roadmap, RFC, ADR, issue, PR, architecture view, runbook, README, guide, code module, test suite or release note. Each has a type, a primary plane, a home, an authority, a maturity and relations. The ECR is the coordination spine for a change, not the only artifact.
+Every durable engineering output is an artifact: an ECR, PRD, roadmap, product feedback analysis, RFC, ADR, issue, PR, architecture view, runbook, README, guide, code module, test suite or release note. Each has a type, a primary plane, a home, an authority, a maturity and relations. The ECR is the coordination spine for a change, not the only artifact.
 
 | Need | Owning guidance |
 | --- | --- |
@@ -50,6 +50,7 @@ A repository should record where its durable artifacts live. Put a short pointer
 | Artifact | Home | Authority | Owner | Update when |
 | --- | --- | --- | --- | --- |
 | Product brief / PRD | `docs/product/` | Canonical product intent | Product lead | Outcome, scope or priority changes |
+| Product feedback analysis | `docs/product/feedback/` | Canonical product evidence for a decision | Product lead | New evidence changes scope, findings or the next decision |
 | Architecture set | `docs/architecture/` | Canonical implemented architecture | Architect | Boundary, interface or deployment changes |
 | ADRs | `docs/decisions/` | Canonical decision history | Architect / tech lead | A consequential decision is accepted or superseded |
 | Runbooks | `ops/<application>/runbooks/` | Canonical operations | SRE | Failure, recovery or escalation changes |

@@ -143,7 +143,7 @@
 <text x="1290.0" y="438" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b" >Learn from outcomes</text>
 <text x="1290.0" y="460" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Use evidence to choose</text>
 <text x="1290.0" y="477" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >what to improve or stop.</text>
-<g data-skill="true" data-use="direct"><rect x="1183.0" y="498.0" width="214.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="1290.0" y="513.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">learn-from-product-feedback</text></g>
+<g data-skill="true" data-use="direct"><rect x="1183.0" y="498.0" width="214.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="1290.0" y="513.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">run-product-feedback-analysis</text></g>
 </g>
 <path d="M 245 440 C 300 440 310 230 600 230" fill="none" stroke="#526580" stroke-width="2" marker-end="url(#arrow)"/>
 <text x="380" y="207" font-size="13" fill="#526580">Accepted product outcome</text>

@@ -45,6 +45,7 @@ Read [handoff](../handoff.md) for the phase-to-phase matrix and the rule that a 
 | Artifact | Contract | Primary reader |
 | --- | --- | --- |
 | Product brief / PRD | [prd.md](prd.md) | Product, engineering, leadership |
+| Product feedback analysis | [product-feedback-analysis.md](product-feedback-analysis.md) | Product, planning, requirements |
 | Roadmap | [roadmap.md](roadmap.md) | Product, delivery, leadership |
 
 ## System knowledge

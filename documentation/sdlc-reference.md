@@ -68,7 +68,7 @@ Generic means reusable across stacks; stack-specific means select it only for ma
 | AWS | Stack-specific | [aws-platform](../plugins/operations-platforms/skills/aws-platform/SKILL.md) for common identity, network, compute, data, operations and cost decisions | AWS official documentation; reference-only upstream AWS material |
 | JVM performance | Stack-specific | [infra-jvm-optimization](../plugins/operations-platforms/skills/infra-jvm-optimization/SKILL.md) only for Java/JVM workloads | Installed runtime and platform guidance |
 | Operational upkeep | Generic | [run-operations-review](../plugins/sdlc/skills/run-operations-review/SKILL.md) | Reuse project records; targeted reviews remain targeted |
-| Product feedback | Generic | [learn-from-product-feedback](../plugins/strategy/skills/learn-from-product-feedback/SKILL.md) | Existing evidence; no analytics vendor required |
+| Product feedback | Generic | [run-product-feedback-analysis](../plugins/sdlc/skills/run-product-feedback-analysis/SKILL.md) for evidence synthesis and [guide-product-feedback-analysis](../plugins/sdlc/skills/guide-product-feedback-analysis/SKILL.md) for the artifact | Existing evidence; no analytics vendor required |
 
 </details>
 

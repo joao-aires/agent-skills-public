@@ -1,6 +1,6 @@
 # Artifact quality bar
 
-Apply this bar to every engineering artifact: ECR, issue, pull request, research report, RFC, ADR, product brief or roadmap. It defines the minimum for a reader who was not in the conversation. It is not a section template; the artifact's [contract](contracts/README.md) defines its sections and status vocabulary.
+Apply this bar to every engineering artifact: ECR, issue, pull request, research report, product feedback analysis, RFC, ADR, product brief or roadmap. It defines the minimum for a reader who was not in the conversation. It is not a section template; the artifact's [contract](contracts/README.md) defines its sections and status vocabulary.
 
 A compact artifact can pass. A long artifact can fail. The test is whether the reader can decide and act, not whether every heading exists. Length is not the measure; answers are.
 

@@ -16,6 +16,13 @@
       "guidance": "product method and technical writing"
     },
     {
+      "type": "product-feedback-analysis",
+      "contract": "contracts/product-feedback-analysis.md",
+      "guide": "guide-product-feedback-analysis",
+      "plane": "intent",
+      "home": "engineering workspace or application docs/product/feedback"
+    },
+    {
       "type": "ecr",
       "contract": "contracts/ecr.md",
       "guide": "guide-ecr",

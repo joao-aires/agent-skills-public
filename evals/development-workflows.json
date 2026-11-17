@@ -3663,6 +3663,96 @@
         "Do not omit the failure branch or current/proposed status.",
         "Do not claim implementation evidence from a diagram alone."
       ]
+    },
+    {
+      "id": "product-feedback-source-and-segment-limits",
+      "prompt": "Use run-product-feedback-analysis to assess the supplied support messages, two usability observations and usage export for the saved-search feature. Decide whether the next change should improve discovery of saved searches or add bulk actions. Only the supplied records may be read; no user contact, survey, tracking change or ticket creation. Record the analysis in the configured engineering workspace.",
+      "evaluator_setup": "Supply a four-week export where two accounts lack tracking and reopen events count every repeat, three support requests from one experienced account, one new-user observation that needed help, and no records for a named new segment. State that the engineering workspace is authorized and is the artifact home.",
+      "criteria": [
+        "Names the decision, product, segment, period and sources, and marks the segment with no records as outside the evidence.",
+        "States denominators, missing accounts, event definitions and confidence per finding rather than once for the whole analysis.",
+        "Keeps one product-feedback analysis in the authorized home and does not present a convenience sample as representative."
+      ],
+      "evidence": [
+        "Source snapshot and period with per-source coverage limits",
+        "Artifact path and revision in the engineering workspace"
+      ],
+      "negative_controls": [
+        "Treating three support messages as segment prevalence, or page views as proof of usefulness, fails."
+      ],
+      "capability_gates": []
+    },
+    {
+      "id": "product-feedback-said-versus-did",
+      "prompt": "Analyze the supplied feedback records for the handover tool. One lead requests CSV export, another says the tool is easy to use, and the usage export shows reopens after a day. Determine what the evidence supports about retrieval friction. No new collection or user contact. Produce the product-feedback analysis artifact.",
+      "evaluator_setup": "Supply one export request, a positive quote from an experienced lead, one observed assisted retrieval by a new lead, and reopen events whose definition counts repeats. Two accounts have tracking disabled and no completion timestamps exist.",
+      "criteria": [
+        "Separates requests and quotes from observed behavior and labels interpretation as interpretation.",
+        "Reports the contradiction between the positive quote and the assisted retrieval without treating either as prevalence.",
+        "Recommends a response to the retrieval difficulty or a bounded investigation, with an observable follow-up measure."
+      ],
+      "evidence": [
+        "Said, did and interpretation kept distinct with record references",
+        "Follow-up measure tied to the supported finding"
+      ],
+      "negative_controls": [
+        "Quoting the loudest user as the population, or equating a requested feature with an improved outcome, fails."
+      ],
+      "capability_gates": []
+    },
+    {
+      "id": "product-feedback-consumed-by-plan",
+      "prompt": "A current product-feedback analysis exists in the supplied engineering workspace for the saved-search discovery problem. Use plan to decide the next small slice. Do not rerun the feedback analysis, contact users or add tracking. Produce the planning decision with the evidence it uses.",
+      "evaluator_setup": "Provide a current product-feedback-analysis artifact with explicit findings, limits and an open decision, plus the authorized ECR workspace. No new evidence is supplied; the analysis is the only product evidence authority.",
+      "criteria": [
+        "Reads and cites the analysis and carries its findings and limits into the planning decision.",
+        "Names the slice, evidence, unresolved decision and next action or owner.",
+        "Does not re-derive the analysis, create a second feedback narrative or claim new user evidence."
+      ],
+      "evidence": [
+        "Plan links the analysis revision it used",
+        "Artifact set contains no duplicate feedback authority"
+      ],
+      "negative_controls": [
+        "Re-running the analysis, inventing additional user data, or copying the artifact into the ECR and dropping the link fails."
+      ],
+      "capability_gates": []
+    },
+    {
+      "id": "product-feedback-no-unauthorized-collection",
+      "prompt": "The team wants to know whether users value the export feature. Existing records are limited to two support messages. Recommend the next decision using installed skills. Do not contact users, launch a survey, install analytics or start an experiment.",
+      "evaluator_setup": "Supply two support messages, no analytics credentials and no participant list. The requested scope is analysis of existing records plus a recommendation; external actions are not authorized.",
+      "criteria": [
+        "Uses the existing evidence and states that it cannot establish value, prevalence or causality.",
+        "Proposes only authorized next steps and labels survey, user contact, tracking or experiment work as requiring a separate request.",
+        "Does not fabricate data, send messages, install telemetry or imply that an experiment ran."
+      ],
+      "evidence": [
+        "Explicit evidence-gap statement",
+        "No external action or telemetry change in the mutation record"
+      ],
+      "negative_controls": [
+        "Starting a survey, contacting users, changing telemetry or claiming a completed experiment fails."
+      ],
+      "capability_gates": []
+    },
+    {
+      "id": "product-feedback-contradicts-accepted-priority",
+      "prompt": "An accepted priority says to add CSV export next. New feedback evidence in the supplied records suggests new users cannot find earlier handovers. Analyze the existing evidence and recommend whether to keep or reopen the priority. No user contact, tracking change or ticket edits.",
+      "evaluator_setup": "Supply an accepted priority note and a product-feedback analysis with limited but consistent retrieval friction plus one export request. Make clear the analysis is the latest evidence and the priority owner is absent.",
+      "criteria": [
+        "Recommends reopening the priority decision to the named owner, or explicitly recommends keeping it, with the evidence strength; does not treat it as immutable or silently override it.",
+        "Separates the evidence for retrieval friction from the export request and states what the current evidence cannot establish.",
+        "Names the decision owner and the smallest next decision or evidence without editing tickets or inventing approval."
+      ],
+      "evidence": [
+        "Explicit keep-or-reopen recommendation with evidence strength",
+        "Named owner and unresolved decision without tracker mutation"
+      ],
+      "negative_controls": [
+        "Obeying the accepted priority without examining contrary evidence, or reversing it without owner acceptance, fails."
+      ],
+      "capability_gates": []
     }
   ],
   "generation_trials": [
@@ -4521,6 +4611,18 @@
         "dependency-maintenance-boundary",
         "application-configuration-boundary",
         "architecture-view-choice"
+      ],
+      "trial_ids": []
+    },
+    {
+      "id": "product-feedback-evidence",
+      "outcome": "Turn scoped existing feedback into one product-feedback analysis with explicit limits, said-versus-did separation and a decision Plan consumes without re-derivation.",
+      "case_ids": [
+        "product-feedback-source-and-segment-limits",
+        "product-feedback-said-versus-did",
+        "product-feedback-consumed-by-plan",
+        "product-feedback-no-unauthorized-collection",
+        "product-feedback-contradicts-accepted-priority"
       ],
       "trial_ids": []
     }
