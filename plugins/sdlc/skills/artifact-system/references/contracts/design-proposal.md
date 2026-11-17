@@ -70,7 +70,7 @@ For each: name, perspective or lens, what it optimizes, what it sacrifices.
 
 ## Linked design artifacts
 One or more linked artifacts per option, at comparable fidelity, sufficient to
-judge the option for its software type. Link the design specification, C4 view,
+judge the option for its software type. Link the design specification, data model, C4 view,
 sequence view, state machine, compatibility matrix or evaluation plan.
 
 ## Tradeoffs and failure behavior
@@ -95,7 +95,7 @@ unknown or undecided.
 
 A linked artifact is sufficient when a reviewer can judge the option's behavior for the active type. It is an artifact with its own contract or guide, not the design decision. Read the matching guide for structure, notation, fidelity and review.
 
-Read [software types](../software-types.md) for the typical linked artifacts and the matching guide per component type. Use the [architecture-set contract](architecture-set.md) when a C4, sequence or data view becomes durable system knowledge. Use the [diagram lifecycle](../diagram-lifecycle.md) to keep current and proposed views distinct.
+Read [software types](../software-types.md) for the typical linked artifacts and the matching guide per component type. Use the [data-model contract](data-model.md) when a data model becomes durable system knowledge, and the [architecture-set contract](architecture-set.md) when C4 or sequence views do. Use the [diagram lifecycle](../diagram-lifecycle.md) to keep current and proposed views distinct.
 
 ## Decision block
 

@@ -3753,6 +3753,121 @@
         "Obeying the accepted priority without examining contrary evidence, or reversing it without owner acceptance, fails."
       ],
       "capability_gates": []
+    },
+    {
+      "id": "roadmap-outcomes-confidence-not-features",
+      "prompt": "Use guide-roadmap to turn the supplied feature requests and planning notes into a product roadmap. Cover outcomes and evidence, Now/Next/Later, confidence, dependencies, capacity, sequencing and explicit deferrals. Do not invent dates, commitments, owners or priorities the notes do not support.",
+      "evaluator_setup": "Supply a list of requested features, a few feedback excerpts, one accepted direction, a rough capacity note and no approved dates. The product decision owner has not accepted the sequence, and no implementation is authorized.",
+      "criteria": [
+        "Organizes the roadmap by outcome and audience rather than by feature name, and links evidence or labels an assumption for each.",
+        "Separates the Now/Next/Later horizon from commitment status and does not manufacture dates or capacity.",
+        "States confidence per outcome and what evidence would change it.",
+        "Names dependencies, prerequisites and the capacity assumption behind Now.",
+        "Marks not-yet and deferred work with a reason and revisit trigger.",
+        "Does not claim implementation, delivery or an accepted priority the decision owner has not made."
+      ],
+      "evidence": [
+        "Roadmap with outcome, horizon and commitment labels",
+        "Confidence, dependency and capacity notes",
+        "Deferral reasons and links to carrying records"
+      ],
+      "negative_controls": [
+        "A ranked feature list fails.",
+        "Dates presented as commitments without owner or capacity fail.",
+        "Everything marked Now/committed fails."
+      ]
+    },
+    {
+      "id": "data-model-ownership-tenancy-invariants",
+      "prompt": "Use guide-data-model to document the logical data model for the supplied multi-tenant saved-search service. Cover entities and relationship rules, identity and keys, record ownership and the tenant boundary, lifecycle, invariants and consistency. Keep physical schema detail out of the model and link it.",
+      "evaluator_setup": "Supply repository source, the current schema and migration, a tenancy decision and a few invariant notes. No implementation or migration change is authorized.",
+      "criteria": [
+        "Defines each entity's meaning and granularity and states relationship cardinality and rules in text.",
+        "Names the owner and tenant boundary for consequential records and explains shared or cross-tenant access.",
+        "States identity, uniqueness and duplicate handling rather than only column names.",
+        "Lists invariants with their enforcement point, including concurrent operations and partial failure.",
+        "Covers lifecycle, retention and deletion, including derived stores where relevant.",
+        "Keeps physical types, indexes and DDL with database guidance and links the schema at a revision."
+      ],
+      "evidence": [
+        "Entity, relationship and ownership tables",
+        "Tenant boundary and invariant enforcement notes",
+        "Schema and migration links"
+      ],
+      "negative_controls": [
+        "A table inventory or ERD without rules fails.",
+        "Leaving tenancy to an implied application rule fails.",
+        "Invariants listed without an enforcement point fail."
+      ]
+    },
+    {
+      "id": "data-model-evolution-compatibility",
+      "prompt": "Use guide-data-model to plan the model change for a tenant-scoped unique saved-search name. Cover supported readers and writers, expand/migrate/contract steps, validation and backfill, rejected or ambiguous existing data, rollback limits and what evidence would show completion. Do not claim the migration is done.",
+      "evaluator_setup": "Supply an existing service with overlapping application versions, representative duplicate names and a migration branch. No production access and no merge or deploy authority.",
+      "criteria": [
+        "Identifies affected readers, writers, supported versions and stored data.",
+        "Separates structural change, data conversion and cleanup, with validation and resumable backfill.",
+        "States how existing duplicates are surfaced, rejected, merged or otherwise handled before uniqueness is enforced.",
+        "Explains what rollback can and cannot restore, including application versus data rollback.",
+        "Marks the change as proposed and names the evidence still required for completion.",
+        "Does not claim compatibility from a compiling schema or completed migration without evidence."
+      ],
+      "evidence": [
+        "Evolution steps and affected consumer list",
+        "Duplicate handling and rollback limits",
+        "Proposed status and completion evidence needs"
+      ],
+      "negative_controls": [
+        "A migration that assumes no overlapping versions fails.",
+        "Claiming the change is current or complete fails.",
+        "Ignoring existing duplicate data fails."
+      ]
+    },
+    {
+      "id": "roadmap-strategic-vs-product-boundary",
+      "prompt": "Use guide-roadmap to turn a supplied strategy memo and product planning notes into a roadmap without merging their decisions. Distinguish strategic direction from product direction, name the owner and horizon for each, and record the boundary question where the evidence does not settle it. Do not invent product priorities or corporate commitments.",
+      "evaluator_setup": "Supply a business strategy memo, product feedback excerpts, a product plan draft and a leadership note. The strategy owner has accepted direction; the product decision owner has not accepted the sequence.",
+      "criteria": [
+        "Keeps business or capability direction distinct from product outcomes and sequencing.",
+        "Names the decision owner and horizon appropriate to each kind of roadmap content.",
+        "Does not infer an accepted product priority from strategy language or leadership enthusiasm.",
+        "Links strategy, feedback and product decisions rather than restating them as one authority.",
+        "Records the unresolved boundary or ownership question with a decision owner.",
+        "Produces roadmap craft, not a new strategy decision or implementation authorization."
+      ],
+      "evidence": [
+        "Separated strategic and product roadmap content",
+        "Owner and horizon per outcome",
+        "Open boundary question"
+      ],
+      "negative_controls": [
+        "Collapsing both memos into one undifferentiated sequence fails.",
+        "Treating strategy as an accepted product priority fails.",
+        "Inventing a corporate commitment fails."
+      ]
+    },
+    {
+      "id": "data-model-status-evidence",
+      "prompt": "Use guide-data-model to write the current data model from a supplied ERD, a proposed migration branch and partial tests. Mark current, proposed and unknown parts accurately, link evidence at named revisions, and list open decisions. Do not present enforced behavior from the diagram alone.",
+      "evaluator_setup": "Supply an ERD, an existing schema at one revision, an unmerged migration branch and partial constraint tests. No production access or merge authority.",
+      "criteria": [
+        "Marks implemented, proposed and unknown parts separately with a named revision.",
+        "Links schema, migration, constraints and tests as evidence rather than asserting enforcement.",
+        "States which invariants lack evidence and what test or observation would establish them.",
+        "Lists open ownership, lifecycle or compatibility decisions with owners.",
+        "Does not claim the migration is complete, deployed or reflected in production data.",
+        "Names the model's status and what would make it current."
+      ],
+      "evidence": [
+        "Status and revision labels",
+        "Evidence links with gaps",
+        "Open decisions and owner list"
+      ],
+      "negative_controls": [
+        "Labeling a proposed migration as current fails.",
+        "Claiming enforcement from an ERD fails.",
+        "Hiding missing tests behind confident prose fails."
+      ]
     }
   ],
   "generation_trials": [
@@ -4475,12 +4590,26 @@
     },
     {
       "id": "artifact-guides",
-      "outcome": "Artifact guides produce type-appropriate view artifacts with the right structure, states, authority and evidence, without claiming implementation.",
+      "outcome": "Artifact guides produce type-appropriate view, roadmap and data-model artifacts with the right structure, states, authority and evidence, without claiming implementation.",
       "case_ids": [
         "guide-c4-current-vs-proposed",
-        "guide-design-spec-handoff"
+        "guide-design-spec-handoff",
+        "roadmap-outcomes-confidence-not-features",
+        "data-model-ownership-tenancy-invariants",
+        "data-model-evolution-compatibility",
+        "roadmap-strategic-vs-product-boundary",
+        "data-model-status-evidence"
       ],
-      "trial_ids": []
+      "trial_ids": [],
+      "evidence": [
+        "Artifact structure and revision labels",
+        "Evidence links and declared gaps",
+        "Status, deferrals and open decisions"
+      ],
+      "negative_controls": [
+        "A feature list, table inventory or happy-path-only view fails.",
+        "Claiming implementation, enforcement or migration completion without evidence fails."
+      ]
     },
     {
       "id": "sdlc-flow-selection",

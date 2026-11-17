@@ -38,7 +38,7 @@ A plane describes the artifact's primary role. It does not describe where the ar
 | --- | --- | --- | --- |
 | Intent | Why and what to pursue | PRD, roadmap, product decision record, product feedback analysis | Product, leadership |
 | Coordination | Track a change, its decisions and evidence | ECR, research report, RFC, issue, PR | Change participants, reviewers |
-| System knowledge | Explain the implemented system | Architecture set, contracts, API reference, ADRs, runbooks, SLOs | Contributors, operators |
+| System knowledge | Explain the implemented system | Architecture set, data model, contracts, API reference, ADRs, runbooks, SLOs | Contributors, operators |
 | Implementation | Build and verify the system | Code, tests, migrations, configuration | Engineers, reviewers |
 | Delivery and operations | Release and operate | Release notes, changelog, deployment records, incidents, postmortems | Operators, maintainers |
 | Entry and knowledge | Help someone start or learn | README, guides, tutorials, glossary, contributor guide | New users, contributors |

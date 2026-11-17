@@ -17,6 +17,7 @@ Use this reference to resolve the home before creating, moving or linking an art
 | Issue | Configured tracker | Application repository issue file only when explicitly agreed |
 | PR | Git provider | — |
 | Architecture set | Application repository `docs/architecture/` | Dedicated architecture repository for a multi-repo system |
+| Data model | Application repository `docs/architecture/data-model.md` | Database workspace or package-local docs when the model belongs to one database or package; link it from the architecture set |
 | ADR / PDR | Application repository `docs/decisions/` | Engineering workspace while the decision is still proposed |
 | API reference | Generated from the contract source, linked from `docs/reference/` | Dedicated reference site |
 | Runbook | Operations repository `ops/<application>/runbooks/` | Application repository `docs/operations/` |
@@ -53,6 +54,7 @@ The repository should contain a small map that answers: where does each artifact
 | Product brief / PRD | `docs/product/` | Canonical product intent | Product lead | Outcome, scope or priority changes |
 | Product feedback analysis | `docs/product/feedback/` | Canonical product evidence for a decision | Product lead | New evidence changes scope, findings or the next decision |
 | Architecture set | `docs/architecture/` | Canonical implemented architecture | Architect | Boundary, interface or deployment changes |
+| Data model | `docs/architecture/data-model.md` | Canonical logical data model | Data owner / architect | Entity, ownership, invariant, retention or evolution changes |
 | ADRs | `docs/decisions/` | Canonical decision history | Architect / tech lead | A consequential decision is accepted or superseded |
 | API reference | Generated from `openapi/`, linked from `docs/reference/` | Canonical contract | Backend lead | Contract changes |
 | Runbooks | `ops/<application>/runbooks/` | Canonical operations | SRE | Failure, recovery or escalation changes |
