@@ -3868,6 +3868,161 @@
         "Claiming enforcement from an ERD fails.",
         "Hiding missing tests behind confident prose fails."
       ]
+    },
+    {
+      "id": "idea-validation-premises-and-unknowns",
+      "prompt": "A founder wants to build a marketplace for unused laboratory equipment and says the market is obviously large because universities waste budget and three labs already said the idea is interesting. No customer contact, transaction data or competitor pricing has been supplied. Decide whether the premise deserves a validation plan, and produce the smallest plan that would change the decision. Planning only; no outreach, payment or build.",
+      "evaluator_setup": "Supply only the founder's claims, a rough product concept and the absence of evidence. Keep expected classification of each claim and the weakest premise clause with the grader; do not add interview or market data.",
+      "criteria": [
+        "Separates the premise from the proposed feature set and states it in a testable form.",
+        "Identifies the weakest premise clause rather than optimizing the concept.",
+        "Classifies supplied statements as fact, inference, assumption or unknown without inflating them.",
+        "Builds a compact assumption ledger with importance, confidence, falsifier, test and review trigger.",
+        "Chooses the cheapest credible evidence per critical assumption and states what each step cannot establish.",
+        "Precommits continue, change-shape and kill criteria with thresholds and windows, without a composite validation score."
+      ],
+      "evidence": [
+        "Premise statement and weakest-clause diagnosis",
+        "Assumption ledger and validation sequence with decision rules"
+      ],
+      "negative_controls": [
+        "A readiness score, validation percentage or single go/no-go number fails.",
+        "Treating a large market claim or three compliments as demand fails.",
+        "Claiming interviews, transactions or competitor research that were not supplied fails.",
+        "A plan that validates only the easiest claims fails."
+      ],
+      "capability_gates": []
+    },
+    {
+      "id": "customer-discovery-said-versus-did",
+      "prompt": "A team supplies notes from eight conversations: seven participants called the product 'exactly what we need', one described a manual workaround and did not ask for follow-up, and none has changed a workflow or paid. The team wants to start building because the interviews were overwhelmingly positive. Assess the evidence and recommend the next step. Assessment only; no customer contact or implementation.",
+      "evaluator_setup": "Provide the eight synthetic notes with mixed detail, including one participant who tried the workaround and stopped. Keep the expected evidence reclassification and next-test options with the grader; do not label the notes as weak in the prompt.",
+      "criteria": [
+        "Reclassifies compliments as stated preference rather than behavioral demand.",
+        "Separates what participants said from what they did, including the unengaged and non-adopting cases.",
+        "Identifies selection, small-sample and leading-question limits and avoids population percentages.",
+        "Places each observation on a commitment ladder and names what would raise the level.",
+        "Recommends the cheapest next evidence that would justify building, with an explicit decision rule.",
+        "Preserves contradictions and does not invent research, quotes or willingness to pay."
+      ],
+      "evidence": [
+        "Observation table distinguishing said, did and commitment level",
+        "Evidence limits and next test with decision criterion"
+      ],
+      "negative_controls": [
+        "Treating seven positive comments as demand or product-market fit fails.",
+        "Reporting 87.5% market enthusiasm fails.",
+        "Recommending immediate build from stated interest fails.",
+        "Discarding the non-adopting participant fails."
+      ],
+      "capability_gates": []
+    },
+    {
+      "id": "market-entry-competitor-profile",
+      "prompt": "A company with a workflow product for small teams wants to enter the European mid-market. The dominant incumbent has most of the segment, a lower list price and deeper integrations, and a regional partner offers immediate access but owns the customer relationship. Prepare an entry recommendation with a competitor profile and sequencing. Research and planning only; no outreach, partnership commitment or build.",
+      "evaluator_setup": "Supply the incumbent's public capabilities and pricing, the partner's commercial terms, and the company's current segment and constraints. Include one plausible structural opening and one apparent gap that is likely unprofitable. Keep which is which with the grader.",
+      "criteria": [
+        "States the entry decision, target and horizon before analysing.",
+        "Tests beachhead coherence, dominance potential and expansion geometry rather than choosing the largest segment.",
+        "Uses bottom-up sizing and structural attractiveness, not TAM alone, and names a fatal constraint if present.",
+        "Compares at least two entry modes on control, speed, learning, cost and reversibility.",
+        "Profiles the incumbent's strengths and names what it does better, not only where it is allegedly weak.",
+        "Distinguishes a structural opening from a temporarily ignored gap, and states the likely incumbent response.",
+        "Sequences entry with evidence gates and assigns monitoring triggers, owners and stop conditions."
+      ],
+      "evidence": [
+        "Entry decision frame and beachhead comparison",
+        "Entry-mode trade-offs, competitor profile and gated sequence",
+        "Monitoring triggers and stop conditions"
+      ],
+      "negative_controls": [
+        "Calling the incumbent slow or legacy without evidence fails.",
+        "A feature matrix without customer, channel and incentive structure fails.",
+        "Choosing a partner on reach alone without dependency or learning trade-offs fails.",
+        "Entering because a gap exists, without testing whether it is unprofitable or strategically abandoned, fails."
+      ],
+      "capability_gates": []
+    },
+    {
+      "id": "pricing-value-and-unit-economics",
+      "prompt": "A B2B product charges a flat per-user fee. Enterprise buyers require about twenty hours of implementation, inference costs rise with usage, and support load is concentrated in one segment. The CEO wants to double revenue by raising the per-user price and adding a premium tier. Assess the pricing and packaging decision and give a recommendation with the economics. Planning only; no customer contact or live price test.",
+      "evaluator_setup": "Supply current price, segment mix, implementation and support hours, infrastructure cost per active user, churn by segment and one customer's alternative cost. Leave willingness to pay unresolved. Keep the segment where margin fails with the grader.",
+      "criteria": [
+        "Starts from the customer's alternative and value before discussing the requested price increase.",
+        "Names willingness-to-pay evidence and its limits, and does not treat competitor list price as demand.",
+        "Evaluates the pricing metric and packaging against value, predictability and cost to serve.",
+        "Computes contribution, CAC payback and retention by segment rather than a blended average.",
+        "Identifies the segment whose economics do not support the proposed price and explains why.",
+        "Proposes migration, grandfathering and leading indicators for the change.",
+        "States what evidence would reverse the recommendation."
+      ],
+      "evidence": [
+        "Value and willingness-to-pay reasoning",
+        "Segment unit economics and packaging comparison",
+        "Migration plan and decision indicators"
+      ],
+      "negative_controls": [
+        "Raising price to hit a revenue target without value evidence fails.",
+        "Cost-plus or competitor-copy pricing fails.",
+        "Using LTV as proof while payback is unmeasured fails.",
+        "A blended margin that hides a loss-making segment fails.",
+        "Claiming a price test was run from supplied data fails."
+      ],
+      "capability_gates": []
+    },
+    {
+      "id": "experiments-pmf-precommitted-bars",
+      "prompt": "Five design partners used a new product for six weeks. Four say they would buy, one stopped using it after two weeks, and aggregate usage peaks in week two then declines. The team wants to announce product-market fit and start a fundraise. Assess the evidence, define what would establish fit for the target segment, and specify the next test with decision bars. Assessment only; no outreach or build.",
+      "evaluator_setup": "Supply synthetic partner notes, weekly usage counts and the target segment definition. Include one partner whose usage reflects an internal mandate rather than value. Keep expected retention interpretation and the fit criteria with the grader.",
+      "criteria": [
+        "Treats product-market fit as segment-specific and behavioral, not a single survey result.",
+        "Reads cohort usage and the stopped partner instead of averaging the aggregate peak.",
+        "Separates stated purchase intent from commitment and identifies the mandated-use confound.",
+        "Grades the evidence and states sample, selection and duration limits.",
+        "Defines retention and pull criteria, windows and thresholds for the target segment before the next test.",
+        "Recommends persevere, narrow or change shape with the cheapest next test and a decision date.",
+        "Does not claim fit, revenue or investor readiness from the supplied data."
+      ],
+      "evidence": [
+        "Cohort and partner-level evidence assessment",
+        "Precommitted fit criteria and next test",
+        "Decision and open unknowns"
+      ],
+      "negative_controls": [
+        "Declaring product-market fit from four of five positive statements fails.",
+        "Treating a satisfaction or NPS score as fit fails.",
+        "Moving the bar after seeing usage decline fails.",
+        "Ignoring the stopped partner or the mandated-use confound fails.",
+        "Recommending a fundraise as validation fails."
+      ],
+      "capability_gates": []
+    },
+    {
+      "id": "choice-cascade-strategy-brief",
+      "prompt": "A company at a crossroads asks for its strategy on one page. It can deepen its current segment, move upmarket with a sales-led motion, or sell a narrower tool through partners. The CEO also asks for the product roadmap and a PRD to be included in the same document. Produce the strategy brief and state clearly how the other artifacts should be handled. Planning only; no implementation.",
+      "evaluator_setup": "Supply the three candidate directions with different customer, channel and economics, current capabilities and cash constraints. No option has been accepted. Keep accepted-versus-proposed status and the artifact boundary with the grader.",
+      "criteria": [
+        "Uses an integrated choice structure so aspiration, where to play, how to win, capabilities and systems reinforce each other.",
+        "Diagnoses the actual challenge rather than restating goals or the three options.",
+        "Holds three materially different options and states opportunity cost and why each rejected option lost.",
+        "States explicit exclusions, critical assumptions and falsifiers with windows.",
+        "Makes the economics and capability requirements consistent with the chosen direction.",
+        "Produces a compact brief with decision status, owner and review trigger.",
+        "Keeps roadmap, PRD and engineering change records out of the strategy brief and assigns them to product and development ownership."
+      ],
+      "evidence": [
+        "Choice cascade or kernel and option comparison",
+        "Strategy brief with exclusions, falsifiers and economics",
+        "Artifact boundary and handoff"
+      ],
+      "negative_controls": [
+        "A goal list, mission statement or feature list presented as strategy fails.",
+        "Analysing only the preferred option fails.",
+        "Three cosmetic variants of one direction fail.",
+        "Embedding a roadmap or PRD as the strategy's core fails.",
+        "Presenting a proposed strategy as accepted without the decision owner fails."
+      ],
+      "capability_gates": []
     }
   ],
   "generation_trials": [
@@ -4754,6 +4909,31 @@
         "product-feedback-contradicts-accepted-priority"
       ],
       "trial_ids": []
+    },
+    {
+      "id": "strategy-knowledge",
+      "outcome": "Validate premises, read behavioral evidence, profile entry and competition, price on value with segment economics, precommit experiment bars, and produce an integrated strategy brief without absorbing product or engineering artifacts.",
+      "case_ids": [
+        "idea-validation-premises-and-unknowns",
+        "customer-discovery-said-versus-did",
+        "market-entry-competitor-profile",
+        "pricing-value-and-unit-economics",
+        "experiments-pmf-precommitted-bars",
+        "choice-cascade-strategy-brief"
+      ],
+      "trial_ids": [],
+      "evidence": [
+        "Assumption ledger, discovery observations and competitor profile at the supplied evidence level",
+        "Pricing and unit-economics record with segment assumptions and limits",
+        "Precommitted experiment bars and resulting decision",
+        "Strategy brief with options, exclusions, falsifiers and artifact boundary"
+      ],
+      "negative_controls": [
+        "A validation score, survey percentage or TAM figure cannot substitute for behavioral or economic evidence.",
+        "Strategy guidance must not produce a PRD, roadmap or engineering change record as its durable output.",
+        "Unavailable research, customer contact or price tests must remain labelled as plans, not results."
+      ],
+      "capability_gates": []
     }
   ]
 }
