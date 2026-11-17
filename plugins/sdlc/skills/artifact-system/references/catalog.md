@@ -19,6 +19,7 @@ The ECR is the default coordination artifact for a coherent engineering change. 
 | Coordination | Issue | Work intent, ownership, acceptance, dependencies and evidence link | Configured tracker | [Issue](contracts/issue.md) |
 | Coordination | Pull request | Actual diff, why and what changed, design variation, validation and risk | Git provider | [Pull request](contracts/pr.md) |
 | System knowledge | Architecture set | Context, container, component, runtime, data, interface, deployment, quality and decision views | Application repository `docs/architecture/` or a dedicated architecture repository | [Architecture set](contracts/architecture-set.md) |
+| System knowledge | Data model | Entities, relationships, ownership, identity, lifecycle, invariants, consistency, retention, access and evolution of durable data | Application repository `docs/architecture/data-model.md`, or a database workspace/package-local docs when the model belongs to one database or package | [Data model](contracts/data-model.md) |
 | System knowledge | C4 view | Boundary, actors, elements, responsibilities and directed dependencies at one level | Architecture set or proposed design record | [C4 view](contracts/c4-view.md) |
 | System knowledge | Sequence view | Participants, ordering, sync/async work, failure and recovery for one scenario | Architecture set or proposed design record | [Sequence view](contracts/sequence-view.md) |
 | System knowledge | State machine | States, transitions, guards, invariants and denied paths for an entity or workflow | Design record or architecture set | [State machine](contracts/state-machine.md) |
@@ -64,6 +65,7 @@ Each artifact states its own maturity. Do not promote a later phase's claim into
 | Issue | Ready, in progress, blocked, done, cancelled | Acceptance, dependencies, verification plan | Merged or released unless linked |
 | Pull request | Draft, ready for review, merged, closed | Base-to-head diff, current-head checks, review | Deployed or production verified |
 | Architecture set | Current, proposed, mixed, retired | Source, contract, runtime and decision evidence at a revision | Implemented when only proposed |
+| Data model | Current, proposed, mixed, retired | Schema, migration, constraint, test and observed-data evidence at a revision | Enforced behavior without an enforcement point or evidence |
 | Runbook | Draft, active, retired | Exercised steps, targets, recovery limits | Unexercised behavior |
 | Work product | Proposed, implemented, verified, released, superseded | Commands, tests, CI or runtime observation at a revision | Deployment or user-visible success without evidence |
 | Release note | Draft, released, superseded | Target, checks, promotion and observed state | Production success from a merge or build |
@@ -75,7 +77,9 @@ Keep a bounded feature's requirements and rationale in its ECR. Use a product br
 
 Use a separate RFC when a proposal needs its own audience or decision process. Use a [design proposal](contracts/design-proposal.md) when a consequential choice needs materially different options and linked design artifacts; keep it in the ECR solution-design section for a normal change, and link an RFC or design record when the audience or views justify it. Record an ADR or PDR when a consequential accepted choice must outlive the work. Use the [diagram lifecycle](diagram-lifecycle.md) for affected structural and runtime views. Add an issue when someone needs to pick up or coordinate bounded work. Add a pull request for the submitted diff and review evidence.
 
-A design specification, C4 view, sequence view, state machine and compatibility matrix are artifact types with their own contracts and guides. A design proposal links them as evidence. A view does not become a second authority merely because it has its own file or tool.
+Use a [data model](contracts/data-model.md) when durable facts, ownership, identity or evolution need a reader beyond one change. A single migration can stay in its change record; a model that other teams depend on, or that must survive staff changes, needs its own artifact.
+
+A design specification, data model, C4 view, sequence view, state machine and compatibility matrix are artifact types with their own contracts and guides. A design proposal links them as evidence. A view does not become a second authority merely because it has its own file or tool.
 
 A linked document is a distinct authority, not a duplicate ECR section. The application's code repository retains canonical implemented and current-state documentation. The engineering workspace retains change-oriented records and standalone research.
 

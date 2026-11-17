@@ -102,7 +102,7 @@ class DesignSystemTests(unittest.TestCase):
 
     def test_artifact_guides_are_explicit_guides(self):
         guides = sorted((ROOT / 'plugins/sdlc/skills').glob('guide-*/SKILL.md'))
-        self.assertEqual(len(guides), 20)
+        self.assertEqual(len(guides), 22)
         for path in guides:
             with self.subTest(guide=path.parent.name):
                 self.assertTrue(path.parent.name.startswith('guide-'))
@@ -128,7 +128,7 @@ class DesignSystemTests(unittest.TestCase):
 
     def test_skill_map_includes_guides_and_counts(self):
         text = (ROOT / 'documentation/skills-map.md').read_text()
-        self.assertIn('143 skills', text)
+        self.assertIn('145 skills', text)
         for name in ('guide-design-spec', 'guide-architecture-views',
                      'guide-state-machine', 'guide-compatibility-matrix',
                      'guide-runbook', 'guide-prd', 'guide-rfc', 'guide-adr',
@@ -136,7 +136,7 @@ class DesignSystemTests(unittest.TestCase):
                      'guide-incident-record', 'guide-postmortem',
                      'guide-assurance-assessment', 'guide-issue', 'guide-pr',
                      'guide-research-report', 'guide-release-note', 'guide-readme',
-                     'guide-product-feedback-analysis'):
+                     'guide-product-feedback-analysis', 'guide-roadmap', 'guide-data-model'):
             self.assertIn(name, text)
 
 

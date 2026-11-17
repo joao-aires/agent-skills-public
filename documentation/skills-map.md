@@ -27,12 +27,12 @@ Two core models, a method layer, three cross-cutting dimensions:
 
 ## Counts
 
-143 skills · 21 plugins · 4 packs · 20 domains
+145 skills · 21 plugins · 4 packs · 20 domains
 
 | Pack | Skills |
 | --- | ---: |
 | `technical` | 67 |
-| `sdlc` | 63 |
+| `sdlc` | 65 |
 | `craft` | 10 |
 | `product` | 3 |
 
@@ -40,7 +40,7 @@ Two core models, a method layer, three cross-cutting dimensions:
 | --- | ---: |
 | `method` | 87 |
 | `activity` | 26 |
-| `guide` | 20 |
+| `guide` | 22 |
 | `workflow` | 8 |
 | `system` | 2 |
 
@@ -48,6 +48,7 @@ Two core models, a method layer, three cross-cutting dimensions:
 
 | Guide | Domain | Use for |
 | --- | --- | --- |
+| [guide-data-model](../plugins/sdlc/skills/guide-data-model/SKILL.md) | database | Guide to documenting a logical data model. Covers entities and relationships, ownership, identity and keys, lifecycle, invariants, consistency, retention, access and tenancy, compatibility, evidence and open decisions. |
 | [guide-release-note](../plugins/sdlc/skills/guide-release-note/SKILL.md) | delivery | Guide to writing a release note or changelog. Covers what shipped, target, changes, migration, compatibility, verification and rollback. |
 | [guide-adr](../plugins/sdlc/skills/guide-adr/SKILL.md) | development | Guide to writing an architecture or product decision record. Covers context, options, decision, consequences, status and supersession. |
 | [guide-compatibility-matrix](../plugins/sdlc/skills/guide-compatibility-matrix/SKILL.md) | development | Guide to producing and reviewing a compatibility matrix. Use for public surfaces, versions, platforms, runtimes, deprecation, migration and consumer evidence across libraries, CLIs and APIs. |
@@ -67,6 +68,7 @@ Two core models, a method layer, three cross-cutting dimensions:
 | [guide-postmortem](../plugins/sdlc/skills/guide-postmortem/SKILL.md) | operations | Guide to writing a blameless postmortem. Covers timeline, contributing conditions, what worked, actions, owners, verification and open questions. |
 | [guide-runbook](../plugins/sdlc/skills/guide-runbook/SKILL.md) | operations | Guide to authoring, exercising and auditing operational runbooks. Covers triggers, prerequisites, diagnosis, mitigation, verification, escalation, recovery, artifact craft and exercise evidence; invoke from design, release, incident response, recovery and operations review as well as runbook maintenance. |
 | [guide-prd](../plugins/sdlc/skills/guide-prd/SKILL.md) | product | Guide to writing a product brief or PRD. Covers problem, audience, outcome, scope, success signal, constraints, evidence and open decisions. |
+| [guide-roadmap](../plugins/sdlc/skills/guide-roadmap/SKILL.md) | product | Guide to writing and reviewing a strategic or product roadmap. Covers outcomes and evidence, Now/Next/Later horizons, confidence, dependencies, capacity, sequencing, explicit deferrals, status, review cadence and common failures. |
 | [guide-architecture-views](../plugins/sdlc/skills/guide-architecture-views/SKILL.md) | visualization | Guide to producing and reviewing C4 and sequence views. Use for system boundaries, actors, responsibilities, directed dependencies, current versus proposed state, request ordering, synchronous versus asynchronous work, failure, retry, recovery and text equivalents. |
 
 ## Full inventory

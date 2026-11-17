@@ -24,7 +24,7 @@ Use the guide for the view that answers the question:
 - [state machine](../../../guide-state-machine/SKILL.md) for long-running or multi-step work;
 - [compatibility matrix](../../../guide-compatibility-matrix/SKILL.md) for consumers, versions and platforms.
 
-Typical artifacts also include an API or event contract sketch, OpenAPI/protobuf/schema, data ownership or entity relationship view, and deployment or topology view. Use the [architecture-set contract](../contracts/architecture-set.md) for durable proposed or current C4/sequence views.
+Typical artifacts also include an API or event contract sketch, OpenAPI/protobuf/schema, data ownership or entity relationship view, and deployment or topology view. Use the [data-model contract](../contracts/data-model.md) for a durable data model and the [architecture-set contract](../contracts/architecture-set.md) for durable proposed or current C4/sequence views.
 
 ## Seam decisions
 

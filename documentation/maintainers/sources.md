@@ -277,7 +277,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 21 independent packages and 143 skills: 113 local and 30 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 21 independent packages and 145 skills: 115 local and 30 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
 
 Skills carry a small classification layer: `kind` (system, activity, method, workflow, guide or reference), `origin` (local or upstream), `scope`, `invocation` and `role`. Local skills are validated for the required fields; acquired labels come from `agent-depot.json` and are injected at build time without editing upstream bytes. Run `python scripts/skill_inventory.py` for the generated maintainer matrix.
 
@@ -290,7 +290,7 @@ The collection has 9 generic capability packages and 12 optional technical packa
 | Plugin | Applicability | Skills | Responsibility |
 | --- | --- | --- | --- |
 | `strategy` | Generic | 3 | Business direction, product priorities and evidence-based strategy. |
-| `sdlc` | Generic | 63 | Full SDLC: activities, artifact model, design-system architecture and tactical design, delivery, operations, security, governance, project foundations and verification. |
+| `sdlc` | Generic | 65 | Full SDLC: activities, artifact model, design-system architecture and tactical design, delivery, operations, security, governance, project foundations and verification. |
 | `frontend-development` | Generic | 7 | Integrated interface design, design research, UX writing, usability research and UI journey testing across web, desktop and mobile. |
 | `backend-development` | Generic | 6 | Service authority, state, failure, durable work, architecture pattern selection, HTTP and GraphQL contracts, event-driven integration and distributed-systems reasoning. |
 | `ai-development` | Generic | 4 | AI application/architecture and protocol design; evaluation methods and programs; AI-specific operating decisions and evidence. |
@@ -348,7 +348,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 143 skills and their current owners</summary>
+<summary>All 145 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -376,6 +376,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [guide-architecture-views](../../plugins/sdlc/skills/guide-architecture-views/SKILL.md) | Local | `sdlc` |
 | [guide-assurance-assessment](../../plugins/sdlc/skills/guide-assurance-assessment/SKILL.md) | Local | `sdlc` |
 | [guide-compatibility-matrix](../../plugins/sdlc/skills/guide-compatibility-matrix/SKILL.md) | Local | `sdlc` |
+| [guide-data-model](../../plugins/sdlc/skills/guide-data-model/SKILL.md) | Local | `sdlc` |
 | [guide-design-proposal](../../plugins/sdlc/skills/guide-design-proposal/SKILL.md) | Local | `sdlc` |
 | [guide-design-spec](../../plugins/sdlc/skills/guide-design-spec/SKILL.md) | Local | `sdlc` |
 | [guide-ecr](../../plugins/sdlc/skills/guide-ecr/SKILL.md) | Local | `sdlc` |
@@ -389,6 +390,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [guide-release-note](../../plugins/sdlc/skills/guide-release-note/SKILL.md) | Local | `sdlc` |
 | [guide-research-report](../../plugins/sdlc/skills/guide-research-report/SKILL.md) | Local | `sdlc` |
 | [guide-rfc](../../plugins/sdlc/skills/guide-rfc/SKILL.md) | Local | `sdlc` |
+| [guide-roadmap](../../plugins/sdlc/skills/guide-roadmap/SKILL.md) | Local | `sdlc` |
 | [guide-runbook](../../plugins/sdlc/skills/guide-runbook/SKILL.md) | Local | `sdlc` |
 | [guide-state-machine](../../plugins/sdlc/skills/guide-state-machine/SKILL.md) | Local | `sdlc` |
 | [guide-system-documentation](../../plugins/sdlc/skills/guide-system-documentation/SKILL.md) | Local | `sdlc` |
@@ -508,7 +510,7 @@ Figma remains optional tooling declared by frontend-development; the React techn
 
 ### Verification coverage
 
-The assignment covers 113 local skills and 30 distinct acquired skills exactly once, with no omissions or duplicate owners.
+The assignment covers 115 local skills and 30 distinct acquired skills exactly once, with no omissions or duplicate owners.
 
 All packages build together with `--all` and independently with explicit selection. Package checks verify inventories, local-resource parity, notices, required framing, and transitive owned Markdown links staying inside their bundle. CI also checks the default sdlc-only build. These checks do not establish agent behavior; behavioral evaluations remain deferred.
 

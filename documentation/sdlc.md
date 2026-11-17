@@ -64,11 +64,11 @@ Every durable output is an artifact with a type, primary plane, home, authority,
 
 A handoff is **content, not a document**. The next phase may need a decision, a design specification, a contract, a test result and an open decision from different artifacts. Read [handoff](../plugins/sdlc/skills/artifact-system/references/handoff.md) for the phase matrix; the ECR is the index, not a copy of every artifact.
 
-Artifact types pair with a contract and, where the craft is distinct, a guide. The ECR is one coordination node; a design proposal links the design specification, C4, sequence and state artifacts rather than owning them.
+Artifact types pair with a contract and, where the craft is distinct, a guide. The ECR is one coordination node; a design proposal links the design specification, data model, C4, sequence and state artifacts rather than owning them.
 
 ![Artifact types map to contracts and guides](images/sdlc-guide-map.svg)
 
-The map reads left to right: each artifact type has a contract, and where the craft is distinct a guide. The guide owns structure and review; the contract owns lifecycle, authority, maturity, evidence and handoff. Roadmap, API reference, work product, deployment record, guide and glossary have no dedicated guide for the reasons recorded in the registry.
+The map reads left to right: each artifact type has a contract, and where the craft is distinct a guide. The guide owns structure and review; the contract owns lifecycle, authority, maturity, evidence and handoff. API reference, work product, deployment record, guide and glossary have no dedicated guide for the reasons recorded in the registry.
 
 The artifact graph shows the relationships across intent, coordination, system knowledge, implementation, delivery and entry. The ECR links intent, design, implementation, delivery and learning evidence; it is not the center of the system.
 
@@ -121,7 +121,7 @@ Start with [refine](../plugins/sdlc/skills/refine/SKILL.md). For new systems, si
 
 Use [design](../plugins/sdlc/skills/design/SKILL.md) to settle a consequential choice before implementation. Start with [software types](../plugins/sdlc/skills/artifact-system/references/software-types.md) to identify the affected components — frontend, backend, AI or library/CLI — and mark unaffected types explicitly. A type belongs to a component, not to the project. A browser extension, REST API, multi-tenant SaaS backend or LangChain stack is a constraint on that type, not a new type.
 
-For a consequential choice, produce at least three materially different options with the [option set](../plugins/sdlc/skills/design/references/option-set.md), and represent each one for its type: wireframes, mockups or prototypes for UI; contracts, sequences or C4 views for services; context and evaluation plans for AI; public-surface and compatibility views for libraries. When several types meet, decide the seam once — contract, error and denial mapping, pagination, authority, retry and compatibility — instead of duplicating it.
+For a consequential choice, produce at least three materially different options with the [option set](../plugins/sdlc/skills/design/references/option-set.md), and represent each one for its type: wireframes, mockups or prototypes for UI; contracts, sequences, C4 views or a [data model](../plugins/sdlc/skills/guide-data-model/SKILL.md) for services; context and evaluation plans for AI; public-surface and compatibility views for libraries. When several types meet, decide the seam once — contract, error and denial mapping, pagination, authority, retry and compatibility — instead of duplicating it.
 
 Use [design-system](../plugins/sdlc/skills/design-system/SKILL.md) for architecture, [interface-design](../plugins/frontend-development/skills/interface-design/SKILL.md) for UI craft, [backend-design](../plugins/backend-development/skills/backend-design/SKILL.md) for service behavior, and AI or security expertise by capability. Record the decision in the [design proposal](../plugins/sdlc/skills/artifact-system/references/contracts/design-proposal.md) as ECR §4, an RFC or a linked design record. Validate with [design validation](../plugins/sdlc/skills/design/references/design-validation.md) when uncertainty is material and hand off through [design review](../plugins/sdlc/skills/design/references/design-review.md).
 
@@ -129,9 +129,9 @@ Design may run in parallel with requirements or implementation. Use [engagement 
 
 Every artifact type has a contract and, where the craft is distinct, a guide. The guide owns structure, conventions and review; the contract owns lifecycle, authority, maturity and handoff. The full pairing is the [guide registry](../plugins/sdlc/skills/artifact-system/references/guide-registry.md).
 
-- **Document guides:** PRD, product feedback analysis, RFC, ADR, ECR, design proposal, architecture set, issue, PR, research report, release note and README.
+- **Document guides:** PRD, roadmap, product feedback analysis, RFC, ADR, ECR, design proposal, architecture set, issue, PR, research report, release note and README.
 - **Operational guides:** runbook, incident record, postmortem and assurance assessment.
-- **Artifact/view guides:** design specification, C4, sequence, state machine and compatibility matrix.
+- **Artifact/view guides:** design specification, data model, C4, sequence, state machine and compatibility matrix.
 
 Guides can be used inside an activity or requested directly. They are self-contained artifact-writing guides and do not link into the artifact system.
 

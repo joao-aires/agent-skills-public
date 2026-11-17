@@ -29,7 +29,7 @@ Use the [artifact system](../artifact-system/SKILL.md) for the handoff and [arti
 | Need | Read |
 | --- | --- |
 | What evidence does this kind of component need? | [Software types](../artifact-system/references/software-types.md) |
-| Which guide applies to this artifact? | [Design specification](../guide-design-spec/SKILL.md), [C4](../guide-architecture-views/SKILL.md), [sequence](../guide-architecture-views/SKILL.md), [state machine](../guide-state-machine/SKILL.md), [compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
+| Which guide applies to this artifact? | [Design specification](../guide-design-spec/SKILL.md), [data model](../guide-data-model/SKILL.md), [C4](../guide-architecture-views/SKILL.md), [sequence](../guide-architecture-views/SKILL.md), [state machine](../guide-state-machine/SKILL.md), [compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
 | How to generate and compare directions | [Option set](references/option-set.md) |
 | How to test the direction before building | [Design validation](references/design-validation.md) |
 | Is the proposal ready to hand off? | [Design review](references/design-review.md) |
@@ -65,7 +65,7 @@ Link the artifacts that let a reviewer judge each option at comparable fidelity:
 | Type | Guide |
 | --- | --- |
 | Frontend | [Design specification](../guide-design-spec/SKILL.md) |
-| Backend | [C4](../guide-architecture-views/SKILL.md), [sequence](../guide-architecture-views/SKILL.md), [state machine](../guide-state-machine/SKILL.md) |
+| Backend | [Data model](../guide-data-model/SKILL.md), [C4](../guide-architecture-views/SKILL.md), [sequence](../guide-architecture-views/SKILL.md), [state machine](../guide-state-machine/SKILL.md) |
 | AI | Use the available AI testing method for the evaluation plan |
 | Library/CLI | [Compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
 
@@ -89,7 +89,7 @@ Develop a representative part far enough to judge the direction. A wireframe may
 
 Start with an operation the service must support. Identify its caller, the data it may access, the checks that permit the action and the stored changes that make the result true. Decide which changes must succeed together and which work can complete later. Explain what the caller can safely infer from success, rejection or timeout.
 
-Follow the operation through repeated requests, partial failure and concurrent changes where they matter. An API shape alone does not settle whether a retry duplicates work or whether an old client still works. Resolve those choices before organizing framework layers. Use [design-system](../design-system/SKILL.md) for choices that change architectural boundaries.
+Follow the operation through repeated requests, partial failure and concurrent changes where they matter. An API shape alone does not settle whether a retry duplicates work or whether an old client still works. Resolve those choices before organizing framework layers. When the change alters durable facts, ownership or their rules, record the logical model with [data model](../guide-data-model/SKILL.md); physical schema detail stays with database guidance. Use [design-system](../design-system/SKILL.md) for choices that change architectural boundaries.
 
 ### AI
 
