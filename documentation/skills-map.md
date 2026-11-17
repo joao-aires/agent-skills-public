@@ -38,8 +38,9 @@ Two core models, one method layer, three cross-cutting dimensions:
 
 | Kind | Skills |
 | --- | ---: |
-| `method` | 106 |
+| `method` | 87 |
 | `activity` | 26 |
+| `guide` | 19 |
 | `workflow` | 8 |
 | `system` | 2 |
 

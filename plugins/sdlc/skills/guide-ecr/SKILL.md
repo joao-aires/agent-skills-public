@@ -3,7 +3,7 @@ name: guide-ecr
 description: Guide to writing an Engineering Change Record. Covers overview, problem, requirements, solution design, implementation, verification and decisions across a change.
 user-invocable: true
 metadata:
-  kind: method
+  kind: guide
   origin: local
   pack: sdlc
   domain: development

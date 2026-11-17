@@ -8,7 +8,7 @@ Every local skill declares the following in `SKILL.md` frontmatter. Acquired ski
 
 | Field | Allowed values | Meaning |
 | --- | --- | --- |
-| `kind` | `system`, `activity`, `method`, `workflow`, `reference` | The skill's conceptual role. |
+| `kind` | `system`, `activity`, `method`, `workflow`, `guide`, `reference` | The skill's conceptual role. |
 | `pack` | `sdlc`, `technical`, `craft`, `product` | The installable capability pack the skill belongs to. |
 | `domain` | `development`, `design`, `delivery`, `operations`, `security`, `governance`, `product`, `saas`, `frontend`, `backend`, `database`, `ai`, `tooling`, `platform`, `documentation`, `visualization`, `browser-extension`, `native`, `go`, `typescript` | The lifecycle stage or capability area. |
 | `phase` | `planning`, `requirements`, `design`, `implementation`, `verification`, `release`, `maintenance`, `cross-phase` | The primary SDLC phase. Use `cross-phase` for systems, assurance and methods that genuinely span the lifecycle. |
@@ -18,6 +18,27 @@ Every local skill declares the following in `SKILL.md` frontmatter. Acquired ski
 | `role` | `task`, `support` | Packaging role: requested activity versus supporting capability. |
 
 `kind` and `role` are different. `role` is the task/support packaging label; `kind` is the conceptual layer. `phase` is a single primary phase, not a list; the activity catalog and transitions carry multi-phase behavior.
+
+### Kinds in use
+
+| Kind | Owns | Examples |
+| --- | --- | --- |
+| `system` | A shared model or router other skills compose: vocabulary, catalogs, stopping points and authority | `artifact-system`, `activity-system` |
+| `activity` | A requested engagement with an intent, output, stopping point and transitions | `design`, `implement`, `release`, `test` |
+| `method` | Reusable expertise that deepens work without starting another activity: judgment, tradeoffs and evidence | `design-system`, `requirements-engineering`, `tdd` |
+| `workflow` | An ordered sequence inside or around an activity, usually requested explicitly | `git-contributions`, `write-spec`, `retro` |
+| `guide` | Artifact-shaped craft for one artifact type: structure, conventions, examples, common failures and review questions | `guide-adr`, `guide-runbook`, `guide-prd` |
+| `reference` | Stable lookup detail loaded for one branch or a deeper question; no current skill is classified this way | — |
+
+The distinctions that matter most:
+
+- **Activity versus method.** An activity changes what the requester has afterward and owns a stopping point. A method deepens a concern inside that engagement without starting another activity.
+- **Method versus workflow.** A method supplies judgment and tradeoffs. A workflow supplies an ordered sequence, often for a named operation such as contributing a change.
+- **Method versus guide.** A method owns a subject and how to reason about it. A guide owns how to shape one artifact well. Artifact guides are `kind: guide`; their matching contract still owns lifecycle, authority, maturity, evidence and handoff.
+- **Guide versus reference.** A guide is prescriptive craft that tells the writer what good looks like. A reference is lookup material consulted for a detail.
+- **System versus everything else.** A system owns shared vocabulary and rules that other skills compose; it should not be selected as if it were a single engagement.
+
+The [artifact guide registry](../plugins/sdlc/skills/artifact-system/references/guide-registry.md) pairs each artifact guide with its contract. `kind: guide` does not change the skill's `role`, `invocation` or native client controls.
 
 ### Invocation controls are not the same as our labels
 

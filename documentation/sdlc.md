@@ -133,7 +133,7 @@ Every artifact type has a contract and, where the craft is distinct, a guide. Th
 - **Operational guides:** runbook, incident record, postmortem and assurance assessment.
 - **Artifact/view guides:** design specification, C4, sequence, state machine and compatibility matrix.
 
-Guides can be used inside an activity or requested directly. They are self-contained writing methods and do not link into the artifact system.
+Guides can be used inside an activity or requested directly. They are self-contained artifact-writing guides and do not link into the artifact system.
 
 ### 4. Implementation
 
