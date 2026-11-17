@@ -103,7 +103,7 @@ Defer SLO targets to reliability design and signal implementation to `observabil
 - Exercise producer crash after commit and before publish, consumer crash after effect and before commit, rebalance mid-batch, broker unavailability and schema-registry unavailability.
 - For an external effect, prove the provider deduplicates or reconciliation prevents repetition.
 
-Use `resilience-testing` when available for controlled fault experiments, their authorization and their evidence rules. A local or embedded broker, a mocked producer or a successful publish does not establish cluster behavior.
+Use `testing-resilience` when available for controlled fault experiments, their authorization and their evidence rules. A local or embedded broker, a mocked producer or a successful publish does not establish cluster behavior.
 
 ## Keep the reasoning when the broker changes
 

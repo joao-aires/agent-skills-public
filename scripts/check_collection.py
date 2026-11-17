@@ -95,6 +95,9 @@ def check_links(root):
             old_names.update(re.findall(r"`([a-z0-9]+(?:-[a-z0-9]+)*)`", row.split("|")[1]))
     current = {p.parent.name for p in root.glob("plugins/*/skills/*/SKILL.md")}
     retired = old_names - current
+    # These nouns remain valid artifact or concept names after their former
+    # skill was renamed or merged. Link resolution still catches stale paths.
+    ambiguous = {"runbook", "postmortem", "observability", "data-recovery"}
     for document in maintained_documents(root):
         if document.name in {"migration.md", "maintainer-reference.md"}:
             continue
@@ -103,7 +106,7 @@ def check_links(root):
         # segments (e.g. a provider's /backup-recovery/ page); these are not
         # references to the repository's skill inventory.
         prose_without_urls = re.sub(r"https?://[^\s)]+", "", body)
-        for old in retired:
+        for old in sorted(retired - ambiguous):
             # Catch skill identities in prose as well as backticks. The migration
             # table is the authority; ordinary words like "interaction design"
             # are not themselves obsolete names.
@@ -118,7 +121,7 @@ def check_links(root):
                 continue
             target = (document.parent / unquote(link.path)).resolve() if link.path else document
             label_name = re.sub(r"\s+", "-", label.strip(" \t\n`*").lower())
-            if (label_name in retired and target.name == "SKILL.md"
+            if (label_name in (retired - ambiguous) and target.name == "SKILL.md"
                     and target.parent.name != label_name):
                 errors.append(f"{document.relative_to(root)}: obsolete skill link label {label}")
     return errors, checked

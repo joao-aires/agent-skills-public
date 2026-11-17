@@ -10,7 +10,7 @@ Every local skill declares the following in `SKILL.md` frontmatter. Acquired ski
 | --- | --- | --- |
 | `kind` | `system`, `activity`, `method`, `workflow`, `reference` | The skill's conceptual role. |
 | `pack` | `sdlc`, `technical`, `craft`, `product` | The installable capability pack the skill belongs to. |
-| `domain` | `development`, `delivery`, `operations`, `security`, `governance`, `product`, `saas`, `frontend`, `backend`, `database`, `ai`, `tooling`, `platform`, `documentation`, `visualization`, `browser-extension`, `native`, `go`, `typescript` | The lifecycle stage or capability area. |
+| `domain` | `development`, `design`, `delivery`, `operations`, `security`, `governance`, `product`, `saas`, `frontend`, `backend`, `database`, `ai`, `tooling`, `platform`, `documentation`, `visualization`, `browser-extension`, `native`, `go`, `typescript` | The lifecycle stage or capability area. |
 | `phase` | `planning`, `requirements`, `design`, `implementation`, `verification`, `release`, `maintenance`, `cross-phase` | The primary SDLC phase. Use `cross-phase` for systems, assurance and methods that genuinely span the lifecycle. |
 | `origin` | `local`, `upstream` | Authored here or acquired and pinned. |
 | `scope` | `generic`, `stack-specific` | Applicability across stacks. |
@@ -39,7 +39,7 @@ So `user-invocable: false` means “not a direct slash command,” not “hidden
 
 | Pack | Contains | Examples |
 | --- | --- | --- |
-| `sdlc` | The full lifecycle: development, delivery, operations, security and governance | `activity-system`, `release`, `incident-response`, `compliance-readiness` |
+| `sdlc` | The full lifecycle: development, delivery, operations, security and governance | `activity-system`, `release`, `incident-response`, `run-compliance-assessment` |
 | `technical` | Stack and platform implementation expertise | Frontend, backend, database, AI, language, tooling and platform packs |
 | `craft` | Cross-type presentation and authoring craft | Documentation, visualization |
 | `product` | Product direction and commercial design | Strategy, SaaS design |

@@ -8,7 +8,7 @@ DOMAINS = {
     'development', 'delivery', 'operations', 'security', 'governance',
     'product', 'saas', 'frontend', 'backend', 'database', 'ai', 'tooling',
     'platform', 'documentation', 'visualization', 'browser-extension',
-    'native', 'go', 'typescript',
+    'native', 'go', 'typescript', 'design',
 }
 SCOPES = {'generic', 'stack-specific'}
 INVOCATIONS = {'user', 'agent', 'both'}

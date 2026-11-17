@@ -54,13 +54,13 @@ Private skills reference public skills by name. They do not copy them.
 | CLI | `development-tooling` | New method | Implemented |
 | Backend architecture patterns | `backend-development` | New method for pattern selection and migration | Implemented |
 | CI/CD pipeline design | `development-tooling` | New provider-neutral method; release remains the activity | Implemented |
-| Reliability and quality attributes | `sdlc` | Extend `system-design` with a quality-attribute dimension model and design references; no separate reliability activity | Implemented |
+| Reliability and quality attributes | `sdlc` | Extend `design-system` with a quality-attribute dimension model and design references; no separate reliability activity | Implemented |
 | Production readiness | `sdlc` | New activity using assurance evidence | Implemented |
 | Kubernetes troubleshooting | `operations-platforms` | New local diagnostic method; no upstream acquisition | Implemented |
-| FinOps | `sdlc` | Expand `capacity-and-cost` with FinOps and SaaS attribution references | Implemented |
-| Disaster recovery | `sdlc` | Expand the `system-design` reliability reference with continuity and DR design; `data-recovery` keeps restore evidence | Implemented |
+| FinOps | `sdlc` | Expand `analyze-capacity-cost` with FinOps and SaaS attribution references | Implemented |
+| Disaster recovery | `sdlc` | Expand the `design-system` reliability reference with continuity and DR design; `guide-runbook` owns recovery procedures and readiness evidence | Implemented |
 | PostgreSQL upgrades | `database-postgresql-development` | Expand `postgresql-operations` with major and managed upgrade references | Implemented |
-| Requirements and quality attributes | `sdlc` | Extend the ECR contract, `guide-ecr`, `requirements-engineering` and `system-design`; no new artifact | Implemented |
+| Requirements and quality attributes | `sdlc` | Extend the ECR contract, `guide-ecr`, `requirements-engineering` and `design-system`; no new artifact | Implemented |
 | Infrastructure delivery | `operations-platforms` | New method owning IaC, GitOps and Kubernetes configuration; Crossplane is a reference | Implemented |
 | Application configuration | `sdlc` | New method for configuration precedence, secrets and reload | Implemented |
 | AWS | `operations-platforms` | New provider method in the existing plugin; reference-only reuse of upstream AWS material | Implemented |
@@ -69,7 +69,7 @@ Private skills reference public skills by name. They do not copy them.
 | SaaS billing | `saas-development` | New method; Stripe web, Superwall mobile on request | Implemented |
 | SaaS identity and access | `saas-development` | New method for organization, enterprise and machine identity | Implemented |
 | Multi-tenancy | `saas-development` | Deepen `saas-design` with isolation, residency and tenant recovery | Implemented |
-| SaaS compliance | `sdlc` | Extend `compliance-readiness` with CCPA and SaaS evidence | Implemented |
+| SaaS compliance | `sdlc` | Extend `run-compliance-assessment` with CCPA and SaaS evidence | Implemented |
 | Blog/content | Private repository | New private content pack | Implemented in private repo |
 
 ## Phase plan
@@ -79,7 +79,7 @@ Private skills reference public skills by name. They do not copy them.
 | 0 | This roadmap, source decisions, artifact decisions, evaluation matrix | Content-pack scaffold, `skills/` layout, sync and validator |
 | 1 | `explain`, documentation references, README expansion, `design-research`, UI options, `ai-evaluation`, DeepEval references, CI/CD references, strategy options | Engineering-blog source matrix and provisional voice profile |
 | 2 | REST, GraphQL, event-driven/Kafka, distributed systems, CLI | Blog ideation and writing methods |
-| 3 | Quality attributes and DR in `system-design`, production readiness, Kubernetes troubleshooting, FinOps, PostgreSQL upgrades | Blog visuals and publishing checklist |
+| 3 | Quality attributes and DR in `design-system`, production readiness, Kubernetes troubleshooting, FinOps, PostgreSQL upgrades | Blog visuals and publishing checklist |
 | 4 | Infrastructure delivery, application configuration, AWS, Supabase PostgreSQL | Blog evaluation scenarios |
 | 5 | SaaS supporting services, billing, identity/access, multi-tenancy, CCPA and SaaS evidence | |
 | 6 | Consolidation, counts, generated maps, independent review | Private content release |
@@ -112,8 +112,8 @@ The 2026-11-16 source review checked 188 URLs with official documentation and sp
 | AWS | Well-Architected, IAM, VPC, ECS/EKS, RDS/Aurora, S3, SQS/SNS, CloudWatch, Backup, Route 53, WAF, Secrets Manager | Write local provider guidance; reference official docs. Reuse `awesome-copilot` and `wshobson/agents` AWS material as references, not acquired skills. |
 | OpenStack | 2026.2 Hibiscus; core service docs; Kolla/OpenStack-Ansible | Not added; version-fragmented and outside the current common 80%. |
 | Datadog | Monitors, APM, logs, SLOs, usage/cost, API/CLI | Not added; generic observability already owns signal selection and provider details are volatile. |
-| FinOps | FinOps Framework; FOCUS 1.4; AWS CUR/tagging; unit economics | Extend `capacity-and-cost`; do not create a parallel FinOps plugin. |
-| Disaster recovery | AWS DR whitepaper; Google DR planning; PostgreSQL backup/PITR | Extend `data-recovery`; avoid a second DR owner. |
+| FinOps | FinOps Framework; FOCUS 1.4; AWS CUR/tagging; unit economics | Extend `analyze-capacity-cost`; do not create a parallel FinOps plugin. |
+| Disaster recovery | AWS DR whitepaper; Google DR planning; PostgreSQL backup/PITR | Extend the `design-system` reliability/DR reference and `guide-runbook`; avoid a second DR owner. |
 | PostgreSQL upgrades | PostgreSQL 18.7 stable; 19 RC2; pg_upgrade; logical replication; managed-service constraints | Add focused PostgreSQL upgrade method; keep generic database strategy separate. |
 | SaaS vendors | Official vendor docs for Stripe, PostHog, Resend, Sentry, Cloudflare, Hetzner, Supabase, Superwall, Zernio | Vendor notes inside capability methods; prices and plan gates need re-checking. |
 
@@ -160,5 +160,29 @@ Add cases to the existing scenario specification rather than creating a second e
 - Do not create one skill per SaaS vendor. Use one method plus vendor references.
 - Do not add Azure or GCP until requested; AWS lives in `operations-platforms`. OpenStack, Datadog and a separate `cloud-platforms` plugin are not part of this phase.
 - `infra-delivery` owns infrastructure as code; do not add a separate `infrastructure-as-code` skill. Crossplane is one reference under that method.
-- Quality attributes are a requirements dimension and a `system-design` reference set, not a profile, lifecycle or separate reliability skill.
+- Quality attributes are a requirements dimension and a `design-system` reference set, not a profile, lifecycle or separate reliability skill.
 - Ask about Superwall only for mobile billing. Web defaults to Stripe.
+
+## Upstream SDLC review
+
+The acquired SDLC methods were reviewed against the local activity, artifact and method model. The current build keeps general-purpose acquired methods and moves narrow or foreign guidance into local references or existing owners.
+
+| Area | Decision |
+| --- | --- |
+| Repository instructions | Integrated into `project-conventions/references/repository-instructions.md` |
+| Dependency-ordered implementation | Integrated as optional parallel increments in `implementation-preparation.md` |
+| Architecture scan | Integrated as an optional scan under `improve` |
+| Spec synthesis | Replaced by local `write-spec` |
+| Property testing | Removed as a skill; general property-testing guidance is a `test` reference |
+| Security diff review | Removed as a skill; general security-diff guidance is a `harden` reference |
+| Localized methods | `research`, `domain-modeling`, `prototype` and `retro` are local methods |
+| Session handoff | Moved to `documentation` |
+| Operating procedures | Merged into `guide-runbook` author/exercise/audit |
+| Current-system documentation | Merged into `guide-system-documentation` |
+| Security design | Merged into `design-security` |
+| Recovery | Removed as a skill; design in `design-system`, procedure in `guide-runbook`, evidence in `production-readiness` |
+| Observability | Removed as a skill; design in `design-system/references/observability-and-monitoring.md` |
+| Capacity and cost | Narrowed to `analyze-capacity-cost`; planning lives in `design-system` |
+| System design | Renamed `design-system`, covering architecture design and tactical system design |
+
+The grill workflows, `to-questionnaire`, `tdd`, `code-review`, `diagnosing-bugs`, `codebase-design` and `writing-for-agents` remain acquired general-purpose methods.

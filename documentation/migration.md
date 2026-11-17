@@ -40,20 +40,20 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `design-interactions`, `interaction-design` | `interface-design` |
 | `interface-craft`, `interface-quality`, `visual-design` | `interface-design` |
 | `write-scannable-documentation`, `write-project-documentation` | `technical-writing` |
-| `document-software-architecture`, `architecture-documentation`, `system-mapping` | `system-documentation` for current-state architecture documentation; `system-design` for proposed architecture; the artifact system owns the architecture-set contract |
+| `document-software-architecture`, `architecture-documentation`, `system-mapping` | `guide-system-documentation` for current-state architecture documentation and artifact creation; `design-system` for proposed architecture; the artifact system owns the architecture-set contract |
 | `documentation-writing` | `technical-writing` |
 | `engineering-workspace` | `artifact-system` storage references (`coordination`, `filesystem`, `providers`) |
-| `reliability-design` | `system-design` reliability reference |
+| `reliability-design` | `design-system` reliability reference |
 | `delivery-pipelines` | `release` delivery-pipelines reference |
-| `plan-application-capacity`, `optimize-application-cost` | `capacity-and-cost` |
-| `credential-lifecycle`, `vulnerability-management` | `security-maintenance` |
-| `postmortem-facilitation`, `postmortem-followup` | `postmortem` |
-| `compliance-design`, `gdpr-readiness`, `soc2-readiness` | `compliance-readiness` |
-| `operational-housekeeping` | `operations-review` |
+| `plan-application-capacity`, `optimize-application-cost` | `analyze-capacity-cost` |
+| `credential-lifecycle`, `vulnerability-management` | `run-security-maintenance` |
+| `postmortem-facilitation`, `postmortem-followup` | `run-postmortem` |
+| `compliance-design`, `gdpr-readiness`, `soc2-readiness` | `run-compliance-assessment` |
+| `operational-housekeeping` | `run-operations-review` |
 | `runbook-engineering` | `guide-runbook` |
 | `runbook-authoring` | `guide-runbook` |
 | `observability-operations` | `observability` |
-| `protect-and-restore-data` | `data-recovery` |
+| `protect-and-restore-data` | `guide-runbook` plus `design-system` continuity design |
 | `deliver-reliable-changes` | `test` (verification and completion evidence) |
 | Upstream `implement` | Local `implement` activity; upstream source link in the plugin README, no copied body |
 
@@ -61,22 +61,22 @@ The local `review` and `change-review` activities are retired as separate skills
 | `workflow-help` | `activity-system` (help mode) |
 | `engineering-artifacts` | `artifact-system` |
 | `documentation-conventions` | No direct replacement. Placement and home resolution move to `artifact-system`; the project-specific artifact home map is established by `setup` and `project-conventions`. |
-| `test-end-to-end` | `journey-testing` |
+| `test-end-to-end` | `testing-journey` |
 | `test-application-performance` | `performance-testing` |
-| `test-application-resilience` | `resilience-testing` |
+| `test-application-resilience` | `testing-resilience` |
 | `build-evaluated-ai` | `ai-development` |
 | `build-delivery-pipelines` | `delivery-pipelines` |
-| `design-secure-features` | `security-and-privacy-design` |
+| `design-secure-features` | `design-security` |
 | `contribute-code` | `git-contributions` |
 | `architecture-diagraming` | `architecture-diagramming` |
-| Standalone `backup-recovery` | `data-recovery` |
+| Standalone `backup-recovery` | `guide-runbook` plus `design-system` continuity design |
 | Standalone `cicd-release-management` | `delivery-pipelines` |
 
 The artifact-system rename reflects a broader model, not just a new name. The skill now covers artifact types across intent, coordination, system knowledge, implementation, delivery and entry planes. `documentation-conventions` is retired: its generic placement method moved into the artifact system's artifact-homes reference, and its project-specific map is now a repository artifact established by `setup` and `project-conventions`. Update saved prompts to use `artifact-system` and the repository artifact home map.
 
 Activity routing moved into the `activity-system` skill. `WORKFLOW.md`, `TASKS.md`, `workflow-help` and the per-plugin `COMPOSITION.md` files are retired. Use `activity-system` for activity selection, stopping points, composition and authority; use `test` for verification and completion evidence; use the repository artifact home map for placement.
 
-The documentation plugin now carries cross-type technical writing and prose editing only. Architecture documentation moved into `system-documentation` for current-state explanation, with `system-design` retaining proposed architecture and the artifact system owning the architecture-set contract.
+The documentation plugin now carries cross-type technical writing and prose editing only. Architecture documentation moved into `guide-system-documentation` for current-state explanation, artifact creation and review, with `design-system` retaining proposed architecture and the artifact system owning the architecture-set contract.
 
 The separately acquired Anthropic `frontend-design` entry point is also retired from frontend-development. It is replaced by `interface-design` for applicable design work, with [visual craft](../plugins/frontend-development/skills/interface-design/references/visual-craft.md) loaded conditionally when an open creative direction warrants it. This is a migration of the packaged capability, not a rename of the upstream project's original skill.
 
@@ -116,3 +116,41 @@ Continue loading complete built bundles, since raw acquired skills do not yet co
 ## Implementation preparation
 
 Ask for an implementation breakdown when work should stop before edits. Implementation and end-to-end development use the same [preparation method](../plugins/sdlc/skills/activity-system/references/implementation-preparation.md) when they need to order tasks and checks. Update saved prompts that used the former `plan` for implementation breakdowns. The current [plan](../plugins/sdlc/skills/plan/SKILL.md) starts earlier and establishes what to pursue, its scope and feasibility.
+
+## Upstream SDLC review
+
+The acquired SDLC set was reviewed against the local activity, artifact and method model.
+
+| Former | Use instead |
+| --- | --- |
+| `agents-md` | [Project conventions](../plugins/sdlc/skills/project-conventions/references/repository-instructions.md) |
+| `implement-spec` | [implement](../plugins/sdlc/skills/implement/SKILL.md) with optional parallel increments in [implementation preparation](../plugins/sdlc/skills/activity-system/references/implementation-preparation.md) |
+| `improve-codebase-architecture` | [improve](../plugins/sdlc/skills/improve/SKILL.md) with optional [architecture scan](../plugins/sdlc/skills/improve/references/architecture-scan.md) |
+| `to-spec` | [write-spec](../plugins/sdlc/skills/write-spec/SKILL.md) |
+| `property-based-testing` | [Property-based testing reference](../plugins/sdlc/skills/test/references/property-based.md) |
+| `differential-review` | [Security diff review reference](../plugins/sdlc/skills/harden/references/security-diff-review.md) |
+| `research` | Local [research](../plugins/sdlc/skills/research/SKILL.md) |
+| `domain-modeling` | Local [domain modeling](../plugins/sdlc/skills/domain-modeling/SKILL.md) |
+| `prototype` | Local [prototype](../plugins/sdlc/skills/prototype/SKILL.md) |
+| `retro` | Local [retro](../plugins/sdlc/skills/retro/SKILL.md) |
+| `handoff` | Moved to [documentation](../plugins/documentation/skills/handoff/SKILL.md) |
+
+Structural renames:
+
+| Former | Current |
+| --- | --- |
+| `system-design` | [design-system](../plugins/sdlc/skills/design-system/SKILL.md) |
+| `system-documentation` + `guide-architecture-set` | [guide-system-documentation](../plugins/sdlc/skills/guide-system-documentation/SKILL.md) |
+| `runbook` | [guide-runbook](../plugins/sdlc/skills/guide-runbook/SKILL.md) |
+| `security-and-privacy-design` + `security-auth-development` | [design-security](../plugins/sdlc/skills/design-security/SKILL.md) |
+| `security-maintenance` | [run-security-maintenance](../plugins/sdlc/skills/run-security-maintenance/SKILL.md) |
+| `compliance-readiness` | [run-compliance-assessment](../plugins/sdlc/skills/run-compliance-assessment/SKILL.md) |
+| `capacity-and-cost` | [analyze-capacity-cost](../plugins/sdlc/skills/analyze-capacity-cost/SKILL.md) |
+| `operations-review` | [run-operations-review](../plugins/sdlc/skills/run-operations-review/SKILL.md) |
+| `postmortem` | [run-postmortem](../plugins/sdlc/skills/run-postmortem/SKILL.md) |
+| `resilience-testing` | [testing-resilience](../plugins/sdlc/skills/testing-resilience/SKILL.md) |
+| `journey-testing` | [testing-journey](../plugins/frontend-development/skills/testing-journey/SKILL.md) in `frontend-development` |
+
+`data-recovery` and `observability` are retired. Recovery design lives in `design-system/references/reliability-disaster-recovery.md`, recovery procedures in `guide-runbook`, and readiness evidence in `production-readiness`. Observability design lives in `design-system/references/observability-and-monitoring.md`; incident response owns response and operations review owns recurring hygiene.
+
+Rebuild bundles rather than overlaying an old installation.

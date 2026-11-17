@@ -1,6 +1,6 @@
 # Resilience checklist
 
-Use this when reviewing a cross-service design, a dependency change or an incident-prone path. It checks whether interaction limits, isolation, recovery and evidence form one coherent design. It does not authorize an experiment; use resilience-testing for execution and its target rules.
+Use this when reviewing a cross-service design, a dependency change or an incident-prone path. It checks whether interaction limits, isolation, recovery and evidence form one coherent design. It does not authorize an experiment; use testing-resilience for execution and its target rules.
 
 ## Interaction budget
 
@@ -133,7 +133,7 @@ A green process metric, a passing health check or a low average latency does not
 | Named non-production deployment | Routing, process lifecycle, collection and recovery interactions | Production scale, shared dependencies and all failure domains |
 | Production observation or drill | The exercised conditions at that revision | Untested failures and future behavior |
 
-Test duplicate delivery, lost responses, process pause, dependency outage, queue saturation, rebalance, failover, cold start, restore and repair. Confirm the fault actually took effect; a failed injection is not a successful resilience result. Execute under resilience-testing's authority and stop conditions.
+Test duplicate delivery, lost responses, process pause, dependency outage, queue saturation, rebalance, failover, cold start, restore and repair. Confirm the fault actually took effect; a failed injection is not a successful resilience result. Execute under testing-resilience's authority and stop conditions.
 
 ## Common anti-patterns
 

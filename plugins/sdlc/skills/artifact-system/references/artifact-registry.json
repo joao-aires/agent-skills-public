@@ -67,7 +67,7 @@
     {
       "type": "architecture-set",
       "contract": "contracts/architecture-set.md",
-      "guide": "guide-architecture-set",
+      "guide": "guide-system-documentation",
       "plane": "system-knowledge",
       "home": "application docs/architecture"
     },

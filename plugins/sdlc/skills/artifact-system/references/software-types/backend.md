@@ -62,7 +62,7 @@ These are constraints, not separate software types.
 
 ## Optional specialists
 
-`backend-design`, `backend-python-development`, `database-*`, `security-and-privacy-design`, `security-auth-development`, `observability`, `data-recovery` and `operations-platforms` as applicable. If absent, retain the contract, ownership, failure and evidence reasoning.
+`backend-design`, `backend-python-development`, `database-*`, `design-security`, `design-system` observability and recovery design, `guide-runbook` and `operations-platforms` as applicable. If absent, retain the contract, ownership, failure and evidence reasoning.
 
 ## Not required
 

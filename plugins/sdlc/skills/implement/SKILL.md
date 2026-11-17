@@ -33,6 +33,8 @@ State the slice: what will be true afterward, what must not change and what is e
 4. **Run the full relevant suite at the end.** Record failed, skipped and unavailable checks.
 5. **Keep unrelated cleanup out.** If you find an unrelated defect, report it or create a separate change; do not bundle it silently.
 
+When the authorized work contains independent slices, read [parallel increments](../activity-system/references/implementation-preparation.md#parallel-increments-optional) before starting workers or branches. Parallel agents and branches require explicit authorization; the mode changes neither the stopping point nor merge authority.
+
 ## Use the client when it exists
 
 When the client supports `/tdd`, a typechecker, `/code-review`, a commit or a PR flow, use them within the granted authority. When it does not, use the local implementation flow and inline checks. A missing slash command is not permission to skip verification or review.

@@ -15,7 +15,7 @@ metadata:
 
 # Design the HTTP contract
 
-REST API design decides what an HTTP interface exposes, what each exchange promises, and how it survives retries, concurrency, caching and change. This method owns that contract, not the behavior behind it: use service-contract design (`backend-design`) for operations, authority, invariants and durable effects, and architecture design (`system-design`) when service, data or client boundaries change. Router, serializer, driver and deployment mechanics belong to the selected stack conventions.
+REST API design decides what an HTTP interface exposes, what each exchange promises, and how it survives retries, concurrency, caching and change. This method owns that contract, not the behavior behind it: use service-contract design (`backend-design`) for operations, authority, invariants and durable effects, and architecture design (`design-system`) when service, data or client boundaries change. Router, serializer, driver and deployment mechanics belong to the selected stack conventions.
 
 Stop when the contract and its verification needs are reviewable, usually an OpenAPI document plus the identity, error and compatibility rules. Preserve accepted project conventions: when an existing API or stack convention already decides a detail, follow it and record only the consequential deviation.
 
@@ -132,7 +132,7 @@ Verification must exercise the contract, not just the happy path: real consumer 
 | Need | Use |
 | --- | --- |
 | Operation meaning, authority, invariants, durable effects, retries and completion | `backend-design` in this package |
-| Service, data, client or deployment boundaries; option comparison | `system-design` when installed |
+| Service, data, client or deployment boundaries; option comparison | `design-system` when installed |
 | Design record, options, C4, sequence, state and compatibility artifacts | The artifact system's design-proposal, C4, sequence, state-machine and compatibility-matrix guides |
 | Framework routing, validation, serialization, sessions and deployment | The selected stack conventions, for example the Python/FastAPI guidance |
 | Identity, tokens, scopes, threat modeling, metrics, traces, SLOs and alerting | Installed security, identity and observability guidance |

@@ -21,9 +21,9 @@ Use it alongside the activities that own the surrounding decisions:
 
 | Owner | Owns |
 | --- | --- |
-| `system-design` | Architecture choices, service/data/client/deployment boundaries, option comparison and the design record. |
+| `design-system` | Architecture choices, service/data/client/deployment boundaries, option comparison and the design record. |
 | `backend-design` | Service behavior, authority, state, transactions, interface contracts and recovery inside the selected boundaries. |
-| `resilience-testing` (when available) | Controlled fault experiments, their authorization, injection, stop conditions and evidence. |
+| `testing-resilience` (when available) | Controlled fault experiments, their authorization, injection, stop conditions and evidence. |
 | `observability` (when available) | Signal contracts, instrumentation, pipeline behavior and telemetry evidence. Reliability design owns SLIs, SLOs and alert policy. |
 | This skill | The cross-service reasoning those owners consume: consistency, replication, partitioning, consensus, time, failure detection, bounded interaction, idempotency, recovery, capacity and how to test the reasoning. |
 
@@ -150,7 +150,7 @@ Distinguish four evidence levels: a model, a deterministic simulation, an isolat
 - Test ambiguous outcomes, duplicate delivery, rebalance, failover, restore and repair, not only clean failure.
 - Treat a passing suite as evidence for the exercised conditions, not for all failures.
 
-Use resilience-testing to design and execute controlled experiments, and its authority rules for any shared or non-production target. Testing that only exercises a mocked dependency establishes application handling, not distributed behavior.
+Use testing-resilience to design and execute controlled experiments, and its authority rules for any shared or non-production target. Testing that only exercises a mocked dependency establishes application handling, not distributed behavior.
 
 ## Decide and record
 

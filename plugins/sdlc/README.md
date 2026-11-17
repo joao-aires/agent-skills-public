@@ -39,7 +39,7 @@ A workflow is an **ordered execution path inside or around an activity**. It is 
 
 `git-contributions` is the clearest workflow-shaped method in the current plugin. It sequences contribution mechanics and produces or updates artifacts, but it does not own the PR artifact. The PR contract owns the reviewer-facing content; the workflow owns the mechanics.
 
-The same distinction applies elsewhere: `release` is an activity, while readiness → promotion → verification → observation is a workflow; `system-documentation` is an activity-shaped method, while trace → evidence → view is its internal sequence.
+The same distinction applies elsewhere: `release` is an activity, while readiness → promotion → verification → observation is a workflow; `guide-system-documentation` is an artifact guide with a discovery method, while trace → evidence → view is its internal sequence.
 
 If the same ordered sequence is reused across several activities, it can become a formal reference under `activity-system/references/workflows/`. Until then, “workflow” remains a useful label for a method’s internal sequence, not a separate system.
 
@@ -261,7 +261,7 @@ Use the [design activity](skills/design/SKILL.md), the [option set](skills/desig
 
 Every artifact type has a contract and, where the craft is distinct, a guide. The contract owns lifecycle, authority, maturity, evidence and handoff; the guide owns structure, conventions, examples, common failures and review. The full one-to-one pairing is the [guide registry](skills/artifact-system/references/guide-registry.md).
 
-- **Document guides:** `guide-prd`, `guide-rfc`, `guide-adr`, `guide-ecr`, `guide-design-proposal`, `guide-architecture-set`, `guide-issue`, `guide-pr`, `guide-research-report`, `guide-release-note`, `guide-readme`.
+- **Document guides:** `guide-prd`, `guide-rfc`, `guide-adr`, `guide-ecr`, `guide-design-proposal`, `guide-system-documentation`, `guide-issue`, `guide-pr`, `guide-research-report`, `guide-release-note`, `guide-readme`.
 - **Operational guides:** `guide-runbook`, `guide-incident-record`, `guide-postmortem`, `guide-assurance-assessment`.
 - **Artifact/view guides:** `guide-design-spec`, `guide-c4-view`, `guide-sequence-view`, `guide-state-machine`, `guide-compatibility-matrix`.
 
@@ -275,13 +275,13 @@ The storage mechanics for coordination artifacts now live inside `artifact-syste
 
 `project-conventions` owns repository foundations, including the artifact home map. `setup` establishes or verifies the map and records a portable pointer. This is how the phases become aware of placement: setup creates the map, implementation reads it, release updates the mapped records.
 
-### `system-documentation` and `system-design`
+### `guide-system-documentation` and `design-system`
 
-`system-documentation` discovers and documents the **current** system: entry points, runtime relations, data journeys, deployment topology and the architecture document set. It records each component's [software type](skills/artifact-system/references/software-types.md) and constraints in the inventory. `system-design` owns **proposed** architecture and consequential choices; it uses the [option set](skills/design/references/option-set.md) and records the decision in the [design proposal](skills/artifact-system/references/contracts/design-proposal.md). The artifact system owns the architecture-set contract, status, evidence and home.
+`guide-system-documentation` discovers, documents and reviews the **current** system: entry points, runtime relations, data journeys, deployment topology and the architecture document set. It records each component's [software type](skills/artifact-system/references/software-types.md) and constraints in the inventory. `design-system` owns **proposed** design at two depths: strategic architecture design and tactical system design. It uses the [option set](skills/design/references/option-set.md) and records the decision in the [design proposal](skills/artifact-system/references/contracts/design-proposal.md). The artifact system owns the architecture-set contract, status, evidence and home.
 
 ### `test`
 
-`test` is the **verification** activity. It selects and runs checks, observes real behavior, reviews completion evidence and reports coverage gaps. It does not merge, deploy or publish.
+`test` is the **verification** activity. It selects and runs checks, observes real behavior, reviews completion evidence and reports coverage gaps. It names `tdd`, `testing-resilience` and installed UI-journey testing expertise, and routes property-based verification to a reference. It does not merge, deploy or publish.
 
 ### Contribution workflow
 
@@ -289,15 +289,15 @@ The storage mechanics for coordination artifacts now live inside `artifact-syste
 
 ### Delivery and operations
 
-`release` owns the delivery activity; the `ci-cd-pipelines` method owns provider-neutral CI/CD stage, artifact-promotion, gate and recovery design, with `tooling-conventions` for the selected provider implementation. `production-readiness` owns the scoped question of whether a service is ready to be depended on, using assurance evidence without authorizing a release. `application-configuration` owns configuration precedence, typed validation, secret separation and reload behavior. Operations activities cover incident response, observability, runbook, data recovery, security maintenance, capacity and cost, operations reviews and postmortems. `system-design` owns quality-attribute design tactics, including reliability and disaster recovery, through its [quality-attribute references](skills/system-design/references/quality-attributes.md); `observability` implements the signals.
+`release` owns the delivery activity; the `ci-cd-pipelines` method owns provider-neutral CI/CD stage, artifact-promotion, gate and recovery design, with `tooling-conventions` for the selected provider implementation. `production-readiness` owns the scoped question of whether a service is ready to be depended on, using assurance evidence without authorizing a release. `application-configuration` owns configuration precedence, typed validation, secret separation and reload behavior. Operations activities cover incident response, security maintenance, operations reviews and postmortems. Observability design, capacity/cost planning and recovery design live in `design-system`; runbooks are created and exercised through `guide-runbook`. `design-system` owns quality-attribute design tactics, including reliability and disaster recovery, through its [quality-attribute references](skills/design-system/references/quality-attributes.md); the observability and monitoring reference owns the signal contract.
 
 ### Security and governance
 
-`security-and-privacy-design`, `security-auth-development` and `compliance-readiness` are assurance **methods**. They attach to the activity that owns the decision and evidence; they do not form a separate phase. Security decisions live in ADR/ECR and verification evidence. Compliance readiness uses the [assurance assessment](skills/artifact-system/references/contracts/assurance-assessment.md) contract.
+`design-security` and `run-compliance-assessment` are assurance **methods**. They attach to the activity that owns the decision and evidence; they do not form a separate phase. Security decisions live in ADR/ECR and verification evidence. Compliance readiness uses the [assurance assessment](skills/artifact-system/references/contracts/assurance-assessment.md) contract.
 
 ### Domain methods
 
-Requirements engineering, system design, system documentation, security, operations, database, frontend, backend and AI skills own their subject methods. The artifact contracts link to them by capability; the activity system composes them without duplicating their content.
+Requirements engineering, design-system, guide-system-documentation, security, operations, database, frontend, backend and AI skills own their subject methods. The artifact contracts link to them by capability; the activity system composes them without duplicating their content.
 
 ### Writing craft
 
@@ -305,7 +305,7 @@ Technical writing lives in the documentation plugin. It owns reader fit, explana
 
 ### Explicit upstream workflows
 
-`grill-me`, `grill-with-docs`, `grilling`, `to-spec`, `to-questionnaire`, `retro`, `handoff` and `improve-codebase-architecture` remain explicit workflows. Their names, bodies and native controls are preserved. The activity catalog lists them separately from default activities.
+`grill-me`, `grill-with-docs`, `grilling` and `to-questionnaire` remain explicit upstream workflows with their names, bodies and native controls preserved. `write-spec` and `retro` are local explicit workflows. `handoff` moved to `documentation`. The activity catalog lists explicit workflows separately from default activities.
 
 ## Composability and reusability rules
 
@@ -360,7 +360,7 @@ A compact artifact can pass; a long artifact can fail. The test is whether the r
 
 ## Migration
 
-Use `activity-system` for routing, `test` for verification and the repository artifact home map for placement. `system-documentation` explains the current system. For old names and removal notes, see the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
+Use `activity-system` for routing, `test` for verification and the repository artifact home map for placement. `guide-system-documentation` explains and records the current system. For old names and removal notes, see the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
 
 ## MCP connections
 

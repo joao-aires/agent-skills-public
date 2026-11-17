@@ -163,9 +163,9 @@ Use installed guidance by capability; absence changes the depth, not the outcome
 | --- | --- |
 | Release boundary, target authorization and served-state verification | `release` |
 | Repository layout, local setup, examples and configuration checks | `project-conventions` |
-| Security-sensitive choices, trust boundaries and data exposure | `security-and-privacy-design` |
-| Credential inventory, rotation, revocation and scanning operations | `security-maintenance` |
-| Identity, sessions, tokens and tenant authority | `security-auth-development` |
+| Security-sensitive choices, trust boundaries and data exposure | `design-security` |
+| Credential inventory, rotation, revocation and scanning operations | `run-security-maintenance` |
+| Identity, sessions, tokens and tenant authority | `design-security` |
 | Environment separation, artifact identity and gate design | `ci-cd-pipelines` |
 | Selected provider's configuration and secret-store mechanics | `tooling-conventions` |
 | Kubernetes ConfigMap/Secret consumption and workload reload | `kubernetes-resource-engineering` |

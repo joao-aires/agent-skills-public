@@ -14,7 +14,7 @@ Do not edit by hand.
 | Design specification | [design-spec.md](contracts/design-spec.md) | [guide-design-spec](../../guide-design-spec/SKILL.md) |
 | Issue | [issue.md](contracts/issue.md) | [guide-issue](../../guide-issue/SKILL.md) |
 | Pull request | [pr.md](contracts/pr.md) | [guide-pr](../../guide-pr/SKILL.md) |
-| Architecture set | [architecture-set.md](contracts/architecture-set.md) | [guide-architecture-set](../../guide-architecture-set/SKILL.md) |
+| Architecture set | [architecture-set.md](contracts/architecture-set.md) | [guide-system-documentation](../../guide-system-documentation/SKILL.md) |
 | C4 view | [c4-view.md](contracts/c4-view.md) | [guide-c4-view](../../guide-c4-view/SKILL.md) |
 | Sequence view | [sequence-view.md](contracts/sequence-view.md) | [guide-sequence-view](../../guide-sequence-view/SKILL.md) |
 | State machine | [state-machine.md](contracts/state-machine.md) | [guide-state-machine](../../guide-state-machine/SKILL.md) |

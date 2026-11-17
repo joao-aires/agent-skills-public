@@ -101,7 +101,7 @@ Examples:
 | --- | --- | --- |
 | `design` | Activity | Owns the decision, authority, option set and stopping point; delegates domain methods. |
 | `release` | Activity | Owns target, authorization, verification and recovery; pipeline design is separate. |
-| `architecture-patterns` | Method | Owns forces, pattern candidates and costs; the architecture decision stays with `system-design`. |
+| `architecture-patterns` | Method | Owns forces, pattern candidates and costs; the architecture decision stays with `design-system`. |
 | `ai-evaluation` | Activity | Owns the evaluation program; method, runner and delivery remain separate. |
 | `guide-ecr` | Guide | Owns the artifact shape; the contract owns required content. |
 | `cli-development` | Method | Owns the command surface; shell implementation and packaging mechanics are separate. |

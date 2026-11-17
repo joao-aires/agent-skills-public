@@ -34,7 +34,7 @@ Use the [artifact system](../artifact-system/SKILL.md) for the handoff and [arti
 | How to test the direction before building | [Design validation](references/design-validation.md) |
 | Is the proposal ready to hand off? | [Design review](references/design-review.md) |
 | What must the record contain? | [Design proposal contract](../artifact-system/references/contracts/design-proposal.md) |
-| Architecture decisions and boundaries | [System design](../system-design/SKILL.md) |
+| Architecture decisions and boundaries | [design-system](../design-system/SKILL.md) |
 | Proposed versus current C4 and sequence views | [Diagram lifecycle](../artifact-system/references/diagram-lifecycle.md) |
 | Parallel design threads and reopens | [Engagement state](../activity-system/references/engagement-state.md) |
 | Consistency across artifacts | [Artifact assurance](../artifact-system/references/assurance.md) |
@@ -88,7 +88,7 @@ Develop a representative part far enough to judge the direction. A wireframe may
 
 Start with an operation the service must support. Identify its caller, the data it may access, the checks that permit the action and the stored changes that make the result true. Decide which changes must succeed together and which work can complete later. Explain what the caller can safely infer from success, rejection or timeout.
 
-Follow the operation through repeated requests, partial failure and concurrent changes where they matter. An API shape alone does not settle whether a retry duplicates work or whether an old client still works. Resolve those choices before organizing framework layers. Use [system design](../system-design/SKILL.md) for choices that change architectural boundaries.
+Follow the operation through repeated requests, partial failure and concurrent changes where they matter. An API shape alone does not settle whether a retry duplicates work or whether an old client still works. Resolve those choices before organizing framework layers. Use [design-system](../design-system/SKILL.md) for choices that change architectural boundaries.
 
 ### AI
 
@@ -100,7 +100,7 @@ Define the public surface and the consumer task. Cover compatibility, dependency
 
 ### Architecture
 
-Use [system design](../system-design/SKILL.md) when the change affects boundaries, ownership, persistence, identity, integrations or quality attributes. For new applications and boundary-changing work, inspect the current C4/sequence baseline at an explicit revision and create relevant **proposed target** views in the design record or RFC. For a local change, state why the diagrams are unaffected.
+Use [design-system](../design-system/SKILL.md) when the change affects boundaries, ownership, persistence, identity, integrations or quality attributes. For new applications and boundary-changing work, inspect the current C4/sequence baseline at an explicit revision and create relevant **proposed target** views in the design record or RFC. For a local change, state why the diagrams are unaffected.
 
 ## Decide and record
 

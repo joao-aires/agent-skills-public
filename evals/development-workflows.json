@@ -472,7 +472,7 @@
     },
     {
       "id": "harness-existing-session-capability",
-      "prompt": "Use system-design to assess reuse of one existing dedicated test session in the selected Antigravity harness. Preserve the requirement to continue that session. Only documented interfaces, supplied artifacts and the named trial session are authorized; no global history or credential/profile searches, new simulated session, voice calls or feature implementation.",
+      "prompt": "Use design-system to assess reuse of one existing dedicated test session in the selected Antigravity harness. Preserve the requirement to continue that session. Only documented interfaces, supplied artifacts and the named trial session are authorized; no global history or credential/profile searches, new simulated session, voice calls or feature implementation.",
       "evaluator_setup": "Supply harness public interface docs and one authorized trial session identifier. Separate evidence of CLI continuation from ACP session load/list/resume and cross-process access. No arbitrary active-session access is guaranteed.",
       "criteria": [
         "Checks actual supported session identity/resume and permission behavior before promising existing-session attachment.",
@@ -563,7 +563,7 @@
     },
     {
       "id": "architecture-current-target-evidence",
-      "prompt": "Use system-documentation to explain the supplied service and its proposed worker migration. Use the supplied code, OpenAPI excerpts and deployment configuration. Preserve mixed current implementations and explain the main write/failure flow. Documentation only; no refactor, deployment or invented hosted evidence.",
+      "prompt": "Use guide-system-documentation to explain the supplied service and its proposed worker migration. Use the supplied code, OpenAPI excerpts and deployment configuration. Preserve mixed current implementations and explain the main write/failure flow. Documentation only; no refactor, deployment or invented hosted evidence.",
       "evaluator_setup": "Supply an in-process FastAPI handler/store, a proposed future worker boundary, OpenAPI missing a runtime error, and a post-commit acknowledgement failure. Configuration exists but no hosted execution evidence. Keep expected current/target distinctions separate from actor input.",
       "criteria": [
         "Structural and runtime views map to actual source responsibilities and do not turn in-process modules or target workers into deployed services.",
@@ -3293,6 +3293,256 @@
         "Do not edit acquired skill bytes or copy them into a local skill.",
         "Do not claim performance change without measurement."
       ]
+    },
+    {
+      "id": "design-system-architecture-vs-tactical",
+      "prompt": "Decide whether notifications should be a separate service or a module in billing. It must survive one region loss and serve two teams with different release cadences. No implementation.",
+      "criteria": [
+        "Works at architecture depth: boundary, ownership, failure domain and regional-continuity commitment.",
+        "Compares at least three materially different structural options, including the module alternative.",
+        "Records rejected alternatives, reversal cost, consequences and the decision record link.",
+        "Does not choose tables, framework APIs, manifests or provider configuration."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not jump to a tactical blueprint before the structural decision.",
+        "Do not invent a target SLO or region strategy without requirements/evidence.",
+        "Do not implement the service."
+      ]
+    },
+    {
+      "id": "design-system-tactical-blueprint",
+      "prompt": "Within accepted order/billing boundaries, design checkout submission, inventory authority, cache behavior during a provider outage, and queued/retried fulfillment. Latency and recovery targets already exist in the ECR.",
+      "criteria": [
+        "Names component behavior, data flow, schema ownership, API seam, cache policy and queue/retry behavior.",
+        "Makes completion point, idempotency and unfinished-work behavior explicit.",
+        "Routes concrete schema/API/infra details to their technical owners.",
+        "Links relevant sequence/state views and a contract or failure check; no new artifact type."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not re-litigate accepted boundaries or targets.",
+        "Do not write migrations, manifests or framework code.",
+        "Do not claim provider outage behavior without a failure-model decision."
+      ]
+    },
+    {
+      "id": "design-system-ui-disambiguation",
+      "prompt": "Design our design system: button variants, spacing tokens, dark-mode palette and component documentation.",
+      "criteria": [
+        "Recognizes this as interface/visual design, not system architecture.",
+        "Does not produce architecture views, NFR ownership or an ADR for a UI component library.",
+        "Routes to installed interface/visual design expertise and the product's existing tokens/components.",
+        "States the product-design-system boundary without inventing a skill."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not confuse the product UI design system with the design-system method.",
+        "Do not create architecture artifacts for a component library."
+      ]
+    },
+    {
+      "id": "write-spec-existing-decision",
+      "prompt": "You have a settled conversation about adding CSV export. Turn it into ECR spec content without re-interviewing. The actor, exported fields and empty-export behavior are fixed; the delimiter and a permission decision are not. Record IDs, acceptance and the test seam.",
+      "criteria": [
+        "Synthesizes the existing decision instead of replaying discovery.",
+        "Produces problem/scope and requirements with stable IDs and observable acceptance.",
+        "Leaves the delimiter and permission as owned open decisions.",
+        "Maps acceptance to requirement IDs and states the evidence.",
+        "Names one existing highest-useful seam or returns the seam as an open decision."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not invent answers to open decisions.",
+        "Do not create a tracker item or story catalogue.",
+        "Do not turn a proposed implementation into a requirement."
+      ]
+    },
+    {
+      "id": "guide-runbook-author-and-exercise",
+      "prompt": "During design and release review of a new PostgreSQL service, author the restore-and-cutover runbook. Alert/dashboard links and rollback points exist; no restore has been exercised.",
+      "criteria": [
+        "Uses the runbook contract and sets status from actual evidence.",
+        "Covers trigger, impact, prerequisites, diagnosis, mitigation, rollback, independent verification and escalation.",
+        "Records the unexercised branches without claiming recovery.",
+        "Links alerts, dashboards, architecture views and incidents rather than copying them.",
+        "Keeps secret values out of the procedure."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not present a drafted runbook as an exercised one.",
+        "Do not invent a recovery result or owner.",
+        "Do not turn design/release into an unbounded runbook programme."
+      ]
+    },
+    {
+      "id": "guide-system-documentation-create-current-set",
+      "prompt": "An existing application has two deployment repositories, a critical browser-to-provider journey, and a proposed queue split in an RFC. Update the current-system architecture set and report uncertainty.",
+      "criteria": [
+        "Traces entry points and the journey, separating runtime from build/package dependencies.",
+        "Updates only implemented current views with evidence and revision; keeps the queue split proposed.",
+        "Uses context/container and sequence views while linking the focused view guides.",
+        "Records ownership, data, interfaces, deployment and gaps, including the split sources.",
+        "Does not present the proposal as current or a diagram as proof."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not copy the RFC proposal into current architecture.",
+        "Do not claim repository or live evidence that was not supplied."
+      ]
+    },
+    {
+      "id": "prototype-ui-composition",
+      "prompt": "Try three structures for the project settings page before choosing. Keep the real shell/data, switch variants from the URL, and do not leave prototypes in main.",
+      "criteria": [
+        "Produces three structural variants, not cosmetic differences.",
+        "Composes installed interface-design, UX writing and frontend conventions by capability.",
+        "Uses a URL-driven, keyboard-operable, development-gated switcher and one-command start.",
+        "Covers real empty/loading/error/denied/dense states where they exist.",
+        "Records the winning direction and removes losing variants/switcher from main."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not hardcode cross-package links or import frontend skills.",
+        "Do not promote prototype code unchanged.",
+        "Do not build production mutations."
+      ]
+    },
+    {
+      "id": "research-local-artifact-home",
+      "prompt": "Before choosing a retry policy, find out whether the provider deduplicates webhook retries. Docs, a sandbox probe and a support thread disagree. No background agent is available.",
+      "criteria": [
+        "Frames the decision, blocking claim and observation that would change the answer.",
+        "Uses primary reference and a named-revision probe; treats the support thread as a route, not authority.",
+        "Separates documented, observed and inferred statements and keeps the disagreement visible.",
+        "Proceeds inline without a background agent.",
+        "Decides whether a durable report is warranted and resolves its existing home; creates no artifact type.",
+        "Stops at findings and does not choose the retry design."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not cite a support thread as authority.",
+        "Do not present sandbox behavior as production behavior.",
+        "Do not invent a report home or wait for a missing agent."
+      ]
+    },
+    {
+      "id": "domain-modeling-local-decision",
+      "prompt": "The team says 'delete the workspace'. The UI says 'permanently deleted', the code keeps data for 30 days and allows restore, and an operator expects immediate removal. Fix the language and record what matters.",
+      "criteria": [
+        "Identifies 'delete' as load-bearing and states the competing readings and consequences.",
+        "Tests edge scenarios including restore, export, pending integration and legal hold.",
+        "Cross-checks code, UI and operator expectation before renaming.",
+        "Records archive/delete/purge in the existing glossary or knowledge home.",
+        "Offers an ADR only when hard to reverse, surprising and a real trade-off, using the local contract.",
+        "Does not impose root GLOSSARY.md, docs/adr or a fixed one-paragraph format."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not create a root glossary or docs/adr tree.",
+        "Do not bury permissions in the glossary or silently rewrite code/UI.",
+        "Do not write an ADR for every label change."
+      ]
+    },
+    {
+      "id": "property-based-general-reference",
+      "prompt": "Add tests for a URL canonicalizer with encode/decode. The repository already uses Hypothesis. Broaden input coverage without adding a dependency or removing named examples.",
+      "criteria": [
+        "Identifies roundtrip/idempotence/canonical-form invariants grounded in accepted behavior.",
+        "Generates valid inputs and pins edge cases as explicit examples.",
+        "Uses the existing library and does not add a smart-contract toolchain.",
+        "Treats a shrunk input as a candidate counterexample and distinguishes defect from wrong property.",
+        "Checks tautology/vacuity and reports the property, domain, seed/example and reduced failure.",
+        "Says when no useful property exists."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not add a second property-testing library or Solidity toolchain.",
+        "Do not assert a tautology or filter most inputs away.",
+        "Do not claim full input-domain coverage."
+      ]
+    },
+    {
+      "id": "security-diff-general-reference",
+      "prompt": "Review this PR for security. It removes an authorization check, history shows a prior fix removed the same check after an incident, and a denial test was deleted. Findings only.",
+      "criteria": [
+        "Reads base and head and treats the removed check as security-relevant.",
+        "Uses history/blame to identify the prior fix and reports a possible regression.",
+        "Traces callers/entry points and downstream consumers for blast radius.",
+        "Flags the deleted denial test as a coverage gap, not proven exploitability.",
+        "Describes an adversarial path with actor, privileges, preconditions, sequence and impact.",
+        "States confidence and uninspected areas; stops at findings."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not review only added lines.",
+        "Do not assume a deleted test is redundant.",
+        "Do not invent an external issue-writer chain or write a mandatory report artifact."
+      ]
+    },
+    {
+      "id": "design-security-unified",
+      "prompt": "Design tenant-scoped export and enterprise SSO for a multi-tenant product. Data minimization, authority placement, session/revocation and machine access all matter.",
+      "criteria": [
+        "Separates trust boundaries/data flow/authority from authentication/session/federation/machine identity.",
+        "Defines tenant authority from verified membership, not a client header.",
+        "Covers data minimization, retention, provider flows and revocation.",
+        "Routes scoped remediation to harden and operational credential/vulnerability work to run-security-maintenance.",
+        "Does not claim compliance or configure an IdP."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not collapse authentication, membership, permission and entitlement.",
+        "Do not treat SSO login as tenant authorization.",
+        "Do not claim compliance from a provider certificate."
+      ]
+    },
+    {
+      "id": "recovery-through-runbook",
+      "prompt": "The service has an RTO/RPO commitment, a regional failure design and no exercised restore. Prepare the recovery evidence path.",
+      "criteria": [
+        "Keeps RTO/RPO and critical journeys in requirements/ECR.",
+        "Uses design-system continuity/DR for failover and dependency order.",
+        "Creates and exercises the recovery procedure through guide-runbook.",
+        "Uses production-readiness/run-operations-review for evidence and audit.",
+        "Does not introduce a data-recovery skill or claim recovery from a backup job."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not treat a backup success as restore evidence.",
+        "Do not separate recovery design from the runbook exercise.",
+        "Do not claim recovery without exercised evidence."
+      ]
+    },
+    {
+      "id": "capacity-planning-and-analysis",
+      "prompt": "Plan capacity and cost for a new async export. Peak traffic is unmeasured, the latency target is TBD, and finance has not set a budget.",
+      "criteria": [
+        "Produces a demand model with units, arrival assumptions, peak/burst and provenance; returns missing targets to requirements/ECR.",
+        "States bottleneck, saturation, headroom, scaling signal/lag and degraded behavior.",
+        "Identifies reliability capacity, cost driver, fixed/variable split, attribution key and exit cost without prices.",
+        "Routes measurement and the actual bill to analyze-capacity-cost and labels estimates provisional."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not invent traffic, latency targets, budgets or prices.",
+        "Do not treat a local estimate as the actual bill.",
+        "Do not skip the failure/degraded behavior."
+      ]
     }
   ],
   "generation_trials": [
@@ -3442,7 +3692,7 @@
       "phases": [
         {
           "task": "setup",
-          "prompt": "Use setup and system-design for a small authenticated research assistant application: a TypeScript frontend and Python backend, AG-UI for agent interaction events and A2UI for generated question/answer forms. Use a client-controlled component/action catalog and private per-user sessions. For routine checks use a clearly labelled deterministic model fixture; live model calls are outside scope. Choose and pin compatible SDKs/protocol/renderer versions and prepare complete foundations. Stop before feature implementation. Local files, objective worktrees, dependency installation, owned test data/processes and local commits are allowed. No remote push, PR, artifact publication, store submission, deployment, paid services, real notifications or production access. Preserve unrelated applications and global credentials/configuration."
+          "prompt": "Use setup and design-system for a small authenticated research assistant application: a TypeScript frontend and Python backend, AG-UI for agent interaction events and A2UI for generated question/answer forms. Use a client-controlled component/action catalog and private per-user sessions. For routine checks use a clearly labelled deterministic model fixture; live model calls are outside scope. Choose and pin compatible SDKs/protocol/renderer versions and prepare complete foundations. Stop before feature implementation. Local files, objective worktrees, dependency installation, owned test data/processes and local commits are allowed. No remote push, PR, artifact publication, store submission, deployment, paid services, real notifications or production access. Preserve unrelated applications and global credentials/configuration."
         },
         {
           "task": "develop",
@@ -3472,11 +3722,11 @@
         },
         {
           "task": "design",
-          "prompt": "Use design with system-design for the accepted engineer-focused canvas experiment from the previous phase. Treat the previously mentioned tldraw starter as a candidate pending verified terms/capabilities and an actual user decision. Preserve one harness initially and a Python backend; compare suitable replacements when the candidate conflicts with accepted constraints. Assess AG-UI/A2UI as complementary interaction/rendering choices and ACP for the distinct harness boundary. Compare architecture options, investigate real existing-session attachment and voice capability support, define canvas/state ownership, concurrency/undo, security, persistence and deployment/test contracts. Preserve accepted decisions and ask only unresolved consequential questions. Design/plan only; no feature implementation. Local files, objective worktrees, dependency installation, owned test data/processes and local commits are allowed. No remote push, PR, artifact publication, store submission, deployment, paid services, real notifications or production access. Preserve unrelated applications and global credentials/configuration."
+          "prompt": "Use design with design-system for the accepted engineer-focused canvas experiment from the previous phase. Treat the previously mentioned tldraw starter as a candidate pending verified terms/capabilities and an actual user decision. Preserve one harness initially and a Python backend; compare suitable replacements when the candidate conflicts with accepted constraints. Assess AG-UI/A2UI as complementary interaction/rendering choices and ACP for the distinct harness boundary. Compare architecture options, investigate real existing-session attachment and voice capability support, define canvas/state ownership, concurrency/undo, security, persistence and deployment/test contracts. Preserve accepted decisions and ask only unresolved consequential questions. Design/plan only; no feature implementation. Local files, objective worktrees, dependency installation, owned test data/processes and local commits are allowed. No remote push, PR, artifact publication, store submission, deployment, paid services, real notifications or production access. Preserve unrelated applications and global credentials/configuration."
         },
         {
           "task": "develop",
-          "prompt": "Use develop for the accepted bounded canvas increment after the product/system-design decisions above. Use only the actually accepted canvas dependency, TypeScript client, Python backend and supported protocol/harness integrations. If a consequential choice remains unresolved, keep dependent implementation pending and continue independent work. Implement meaningful automated tests and verify the actual user journey, canvas-edit conflict/undo behavior, persistence and authorized existing-session integration. Label fixtures and unavailable live voice/harness/model behavior precisely. Prepare complete project foundations and commit locally; do not silently replace existing-session attachment with a new simulated session. Local files, objective worktrees, dependency installation, owned test data/processes and local commits are allowed. No remote push, PR, artifact publication, store submission, deployment, paid services, real notifications or production access. Preserve unrelated applications and global credentials/configuration."
+          "prompt": "Use develop for the accepted bounded canvas increment after the product/design-system decisions above. Use only the actually accepted canvas dependency, TypeScript client, Python backend and supported protocol/harness integrations. If a consequential choice remains unresolved, keep dependent implementation pending and continue independent work. Implement meaningful automated tests and verify the actual user journey, canvas-edit conflict/undo behavior, persistence and authorized existing-session integration. Label fixtures and unavailable live voice/harness/model behavior precisely. Prepare complete project foundations and commit locally; do not silently replace existing-session attachment with a new simulated session. Local files, objective worktrees, dependency installation, owned test data/processes and local commits are allowed. No remote push, PR, artifact publication, store submission, deployment, paid services, real notifications or production access. Preserve unrelated applications and global credentials/configuration."
         }
       ],
       "evaluation": [
@@ -4123,6 +4373,27 @@
         "saas-multi-tenancy-residency",
         "compliance-ccpa-saas-evidence",
         "supabase-acquired-skill-boundary"
+      ],
+      "trial_ids": []
+    },
+    {
+      "id": "upstream-sdlc-review",
+      "outcome": "Design-system depth, spec synthesis, artifact guides, localized methods and general-purpose verification references with truthful boundaries.",
+      "case_ids": [
+        "design-system-architecture-vs-tactical",
+        "design-system-tactical-blueprint",
+        "design-system-ui-disambiguation",
+        "write-spec-existing-decision",
+        "guide-runbook-author-and-exercise",
+        "guide-system-documentation-create-current-set",
+        "prototype-ui-composition",
+        "research-local-artifact-home",
+        "domain-modeling-local-decision",
+        "property-based-general-reference",
+        "security-diff-general-reference",
+        "design-security-unified",
+        "recovery-through-runbook",
+        "capacity-planning-and-analysis"
       ],
       "trial_ids": []
     }

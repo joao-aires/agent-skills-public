@@ -35,7 +35,7 @@ Read the request, existing code and accepted decisions before choosing structure
 - Resolve ambiguity that changes the product or data boundary, and make reversible implementation choices without another planning ceremony.
 - Use the conversation as scope unless a separate spec is useful; require no tickets or tracker.
 
-Use system-design after product refinement and for consequential feature architecture before dependent planning/implementation. Derive platform, runtime and service choices from accepted requirements and operating constraints; reuse an existing stack and layout unless changing them solves an agreed problem. Add AI or a protocol interface for a concrete capability. Select matching technical guidance only when available; its installation is not acceptance of that technology.
+Use design-system after product refinement and for consequential feature architecture before dependent planning/implementation. Derive platform, runtime and service choices from accepted requirements and operating constraints; reuse an existing stack and layout unless changing them solves an agreed problem. Add AI or a protocol interface for a concrete capability. Select matching technical guidance only when available; its installation is not acceptance of that technology.
 
 ## Adopt an existing project and assess the change
 

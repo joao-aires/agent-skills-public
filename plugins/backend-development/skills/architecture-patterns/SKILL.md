@@ -17,7 +17,7 @@ metadata:
 
 An architecture pattern is a reusable answer to recurring forces. The name is shorthand for a set of boundaries, dependencies and operational obligations; it is not evidence that those obligations fit this system. Pattern selection is the work of matching candidate structures to accepted constraints and naming what each one costs.
 
-This skill owns the pattern vocabulary, fit conditions, tradeoffs, operational consequences and the shape of a migration. It does not own the architecture decision: `system-design` establishes constraints, compares options, selects boundaries and records the decision. `backend-design` owns service behavior, authority, transactions and recovery inside those boundaries. `event-driven-design` owns event and message contracts, including how a projection consumes and evolves them. `distributed-systems` owns cross-service consistency, failure and capacity reasoning. Use this skill to supply and test candidates inside those activities; it does not authorize a pattern.
+This skill owns the pattern vocabulary, fit conditions, tradeoffs, operational consequences and the shape of a migration. It does not own the architecture decision: `design-system` establishes constraints, compares options, selects boundaries and records the decision. `backend-design` owns service behavior, authority, transactions and recovery inside those boundaries. `event-driven-design` owns event and message contracts, including how a projection consumes and evolves them. `distributed-systems` owns cross-service consistency, failure and capacity reasoning. Use this skill to supply and test candidates inside those activities; it does not authorize a pattern.
 
 Pattern-first design reverses the burden of proof: it chooses a familiar name and then invents requirements that justify it. Start with the forces. A pattern that answers no force is decoration, and a pattern whose operational cost exceeds the force it answers is a liability.
 
@@ -78,7 +78,7 @@ A distributed monolith is not a staging step to microservices; it is the cost of
 
 - Compare two or three materially different candidates. Hexagonal, clean and onion share one dependency-direction decision and count as one option, not three.
 - Name the first reversible migration step, the compatibility window and the rollback before committing. A change that requires a big-bang rewrite is not ready to select.
-- Record the forces, candidates, rejected options, accepted costs, evidence and reopen trigger in the existing design proposal or ECR owned by `system-design`. Do not create a separate pattern-selection artifact or a pattern ADR series.
+- Record the forces, candidates, rejected options, accepted costs, evidence and reopen trigger in the existing design proposal or ECR owned by `design-system`. Do not create a separate pattern-selection artifact or a pattern ADR series.
 - State when no pattern is warranted and the current structure is retained. "No change" is a decision with a reason.
 - Require structural and behavioral evidence: dependency rules, module or adapter contract tests, independent deployment, failure isolation, projection lag, cost at peak and a rollback drill. A diagram, framework scaffold or successful build does not prove the pattern works.
 
@@ -88,7 +88,7 @@ Read [pattern selection](references/pattern-selection.md) for the full matrix, c
 
 | Need | Use |
 | --- | --- |
-| Architecture constraints, option set, boundaries and the design record | `system-design` |
+| Architecture constraints, option set, boundaries and the design record | `design-system` |
 | Service behavior, authority, transactions, idempotency and recovery inside a boundary | `backend-design` |
 | Event, command and message contracts, ordering, replay and consumer topology | `event-driven-design` |
 | Cross-service consistency, failure, capacity and recovery reasoning | `distributed-systems` |
