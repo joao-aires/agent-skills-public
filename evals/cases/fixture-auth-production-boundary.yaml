@@ -1,0 +1,40 @@
+description: fixture-auth-production-boundary
+metadata:
+  gate: nightly
+  stage: test
+  kind: artifact
+vars:
+  id: fixture-auth-production-boundary
+  prompt: |
+    Use test to assess private-note access and fixture authentication in this service. Keep
+    auth.authenticate(headers, env) and notes.read_note(user, note_id) as the public
+    interfaces. Accepted behavior: missing or forged credentials are rejected; fixture
+    identity is disabled by default, allowed only with an explicit local or test opt-in,
+    and rejected when APP_ENV=production. Add test_auth_boundary.py with regression tests
+    for missing credentials, a forged X-User header, the local opt-in and production
+    rejection. Fix the implementation if your tests show a defect. Run
+    python3 -m unittest -q.
+  fixture: fixtures/auth-service
+  timeout_sec: 600
+  expect:
+    exit: 0
+    commands:
+      - run: python3 -m unittest -q
+        exit: 0
+      - run: python3 -m unittest test_auth_boundary_eval -q
+        exit: 0
+        copy:
+          - from: checks/auth_boundary_test.py
+            to: test_auth_boundary_eval.py
+    files:
+      present: [test_auth_boundary.py]
+      contains:
+        test_auth_boundary.py: [X-User, production]
+    diff:
+      max_files: 4
+      allowed: [auth.py, notes.py, test_auth_boundary.py, README.md]
+  judge:
+    rubric: The test rationale explains the authentication and fixture boundaries proportionately, without treating ownership filtering as authentication.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

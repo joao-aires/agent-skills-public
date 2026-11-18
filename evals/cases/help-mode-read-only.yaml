@@ -1,0 +1,25 @@
+description: help-mode-read-only
+metadata:
+  gate: pr
+  stage: cross-phase
+  kind: help
+vars:
+  id: help-mode-read-only
+  prompt: |
+    I have a rough idea for a team notes app but I do not know where to start. What should
+    I do next? Explain the options and what I would have afterward. Do not start any of
+    them.
+  fixture: fixtures/notes-cli
+  timeout_sec: 240
+  expect:
+    exit: 0
+    output_contains_any: [plan, refine, requirements, design]
+    tools:
+      not_used: [write, edit]
+    diff:
+      max_files: 0
+  judge:
+    rubric: Help mode names one or two copyable next requests and what the user would have afterward, without starting work or writing files.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

@@ -44,7 +44,6 @@ jobs:
           node .agent-depot/tool/dist/cli.js --json verify
           node --test tests/upstream_update.test.mjs
           python scripts/validate_plugins.py
-          python scripts/validate_evaluations.py
           python -m unittest discover -s tests -v
           python scripts/build_plugins.py --all --destination "$RUNNER_TEMP/upstream-plugins"
           python scripts/check_collection.py --built "$RUNNER_TEMP/upstream-plugins"

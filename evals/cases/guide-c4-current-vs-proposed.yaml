@@ -1,0 +1,29 @@
+description: guide-c4-current-vs-proposed
+metadata:
+  gate: nightly
+  stage: design
+  kind: proposal
+vars:
+  id: guide-c4-current-vs-proposed
+  prompt: |
+    Use guide-architecture-views to write docs/architecture/export-view.md describing the
+    current and proposed container boundaries for the queue-backed export. Choose a C4
+    level, keep current and proposed visibly distinct, include a short text equivalent, and
+    mark the proposed elements as proposed. Do not implement.
+  fixture: fixtures/architecture-notes
+  timeout_sec: 600
+  expect:
+    exit: 0
+    headings:
+      docs/architecture/export-view.md: [Current, Proposed]
+    files:
+      contains:
+        docs/architecture/export-view.md: [Container, text equivalent, proposed]
+    diff:
+      max_files: 2
+      allowed: [docs/architecture/]
+  judge:
+    rubric: Current and proposed views are distinct, labeled with evidence, and the proposed target is not presented as implemented.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

@@ -1,0 +1,15 @@
+# Deliberately failing control. Not part of the suite; used to confirm a failing
+# deterministic assertion exits 100.
+description: eval harness failing control
+
+prompts:
+  - '{{prompt}}'
+
+providers:
+  - id: file://providers/opencode.mjs
+    label: opencode
+    config:
+      model: opencode-go/deepseek-v4.1-flash
+
+tests:
+  - file://control/failing.yaml

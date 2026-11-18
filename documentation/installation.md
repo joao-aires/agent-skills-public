@@ -197,7 +197,7 @@ For a selected multi-plugin build, repeat the checker's `--plugin` arguments to 
 
 The build should create one directory per selected plugin, containing its manifest, local and acquired skills, resources and source notices. Confirm that the client lists the bundles or skills you selected. If discovery is incomplete, check that you loaded built directories, used absolute paths where required and preserved the complete directory contents.
 
-Discovery verifies availability. Actual execution and adherence need separate [behavior trials](maintainers/evaluations.md). Keep the old installation until its replacement builds and is discoverable; follow [migration](migration.md) for old copies or links. Never overwrite local changes without preserving them.
+Discovery verifies availability. Actual execution and adherence need separate [behavior trials](../evals/README.md). Keep the old installation until its replacement builds and is discoverable; follow [migration](migration.md) for old copies or links. Never overwrite local changes without preserving them.
 
 ## Optional design connections
 

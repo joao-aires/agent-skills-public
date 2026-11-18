@@ -1,0 +1,21 @@
+{
+  "name": "agent-skills-evals",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Deterministic promptfoo suite for the agent-skills collection",
+  "scripts": {
+    "eval:case": "node scripts/run.mjs case",
+    "eval:pr": "node scripts/run.mjs pr",
+    "eval:ci": "node scripts/run.mjs ci",
+    "eval:nightly": "node scripts/run.mjs nightly",
+    "eval:full": "node scripts/run.mjs full",
+    "judge": "node scripts/judge.mjs",
+    "lint": "node scripts/lint.mjs",
+    "validate": "promptfoo validate config -c promptfooconfig.yaml"
+  },
+  "dependencies": {
+    "js-yaml": "4.1.0",
+    "promptfoo": "0.126.0"
+  }
+}

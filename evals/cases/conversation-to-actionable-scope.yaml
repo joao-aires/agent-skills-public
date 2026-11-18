@@ -1,0 +1,29 @@
+description: conversation-to-actionable-scope
+metadata:
+  gate: pr
+  stage: refine
+  kind: artifact
+vars:
+  id: conversation-to-actionable-scope
+  prompt: |
+    I keep losing useful notes in long lists. Make the favorites idea actionable so I know
+    what we would build and how we would tell it works. Do not start coding. Record it in
+    docs/ecr/favorites.md with the headings "Acceptance" and "Open questions".
+  fixture: fixtures/notes-cli
+  timeout_sec: 300
+  expect:
+    exit: 0
+    files:
+      present: [docs/ecr/favorites.md]
+      contains:
+        docs/ecr/favorites.md: [favorite]
+    headings:
+      docs/ecr/favorites.md: [Acceptance, Open questions]
+    diff:
+      max_files: 2
+      allowed: [docs/ecr/]
+  judge:
+    rubric: The scope records observable acceptance and exposes consequential open choices without implementation or invented decisions.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

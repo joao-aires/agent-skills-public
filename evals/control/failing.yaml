@@ -1,0 +1,23 @@
+description: control/failing
+metadata:
+  gate: pr
+  stage: implement
+  kind: artifact
+vars:
+  id: control/failing
+  prompt: |
+    Create a file named hello.txt containing exactly the word hello. Do not create or
+    modify any other file. Then reply with just: done
+  fixture: fixtures/empty
+  timeout_sec: 180
+  expect:
+    exit: 0
+    files:
+      content:
+        hello.txt: goodbye
+    diff:
+      max_files: 1
+      allowed: [hello.txt]
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

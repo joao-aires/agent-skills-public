@@ -1,0 +1,31 @@
+description: artifact-workspace-cross-phase
+metadata:
+  gate: nightly
+  stage: cross-phase
+  kind: journey
+vars:
+  id: artifact-workspace-cross-phase
+  prompt: |
+    Continue the existing ECR docs/ecr/search-filter.md through refine, design and
+    implementation. Add an optional tag argument to app.search.filter_notes; notes may
+    carry a tags list. Existing term filtering must keep working. Update the ECR with the
+    headings Requirements, Design, Implementation and Verification, link the design record
+    and run the tests. Do not deploy.
+  fixture: fixtures/artifact-workspace
+  timeout_sec: 900
+  expect:
+    commands:
+      - run: python3 -m unittest -q
+        exit: 0
+    headings:
+      docs/ecr/search-filter.md: [Requirements, Design, Implementation, Verification]
+    links:
+      docs/ecr/search-filter.md: [../design/search-filter.md]
+    diff:
+      max_files: 8
+      allowed: [app/, tests/, docs/, README.md]
+  judge:
+    rubric: The phases carry accepted decisions forward and the ECR links the design instead of duplicating it.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

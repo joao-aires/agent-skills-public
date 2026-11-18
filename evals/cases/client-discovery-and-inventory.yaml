@@ -1,0 +1,39 @@
+description: client-discovery-and-inventory
+metadata:
+  gate: pr
+  stage: cross-phase
+  kind: discovery
+vars:
+  id: client-discovery-and-inventory
+  prompt: |
+    Use the skill list already present in your current context. Do not search the
+    filesystem or open SKILL.md files. Write the agent-visible skill names to skills.txt,
+    one bare name per line, with no bullets, descriptions or duplicates. Do not modify any
+    other file.
+  fixture: fixtures/empty
+  timeout_sec: 300
+  expect:
+    exit: 0
+    files:
+      present: [skills.txt]
+      one_per_line:
+        skills.txt:
+          - activity-system
+          - artifact-system
+          - plan
+          - refine
+          - design
+          - develop
+          - implement
+          - test
+    commands:
+      - run: '! grep -Eqx "setup|release|improve" skills.txt'
+        exit: 0
+    diff:
+      max_files: 1
+      allowed: [skills.txt]
+  judge:
+    rubric: The inventory is a plain, unique list of visible activities; explicit-only activities are not presented as auto-invokable.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

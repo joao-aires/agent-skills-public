@@ -35,7 +35,8 @@ Use the virtual environment and dependencies in [installation](documentation/ins
 | --- | --- |
 | Manifests, metadata, pins and containment | `python scripts/validate_plugins.py` |
 | Maintained links and names | `python scripts/check_collection.py` |
-| Scenario definitions | `python scripts/validate_evaluations.py` |
+| Eval config and case lint | `npm --prefix evals run lint` |
+| Deterministic eval gate (needs OpenCode and a model) | `npm --prefix evals run eval:ci` |
 | Artifact/contract/guide registry | `python scripts/artifact_registry.py` |
 | Skill classification inventory | `python scripts/skill_map.py --inventory` |
 | Packaging and validation regressions | `python -m unittest discover -s tests -v` |
@@ -55,6 +56,6 @@ Use the virtual environment and dependencies in [installation](documentation/ins
 | Skill, pack and phase metadata | [Metadata contract](documentation/metadata.md) |
 | Contribution procedure, naming and build/check commands | [Maintainer guide](documentation/maintainer-reference.md) |
 | Sources, licenses, adaptations and ownership | [Source catalogue](documentation/maintainers/sources.md) |
-| Behavioral scenarios and recorded limits | [Evaluation guide](documentation/maintainers/evaluations.md) |
+| Eval suite, cases and recorded limits | [Evaluation suite](evals/README.md) |
 | New framework, language or platform | [Adding stack support](documentation/maintainers/adding-stack-support.md) |
 | Replacing old packages or names | [Migration](documentation/migration.md) |

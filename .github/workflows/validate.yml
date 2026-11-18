@@ -54,3 +54,23 @@ jobs:
           done
       - name: Check system flow explorer
         run: python plugins/visualization/skills/system-flow-explorer/scripts/smoke_test.py
+
+  eval-config:
+    name: Validate eval config and cases
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: evals/package-lock.json
+      - name: Install the pinned eval harness
+        run: npm ci --prefix evals --no-audit --no-fund
+      - name: Validate the promptfoo configuration
+        working-directory: evals
+        run: npx promptfoo validate config -c promptfooconfig.yaml
+      - name: Lint cases and flows
+        run: npm --prefix evals run lint

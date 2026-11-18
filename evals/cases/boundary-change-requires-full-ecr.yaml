@@ -1,0 +1,32 @@
+description: boundary-change-requires-full-ecr
+metadata:
+  gate: pr
+  stage: implement
+  kind: artifact
+vars:
+  id: boundary-change-requires-full-ecr
+  prompt: |
+    Use develop on this change. Add an entries table that replaces notes, migrate existing
+    rows on startup, put the migration under migrations/, and keep app.notes.all_notes and
+    app.search.search working across the shared data boundary. Record the change in
+    docs/ecr/boundary.md with the headings Requirements, Design, Implementation and
+    Verification. Run the tests. Do not deploy or claim production verification.
+  fixture: fixtures/boundary-service
+  timeout_sec: 600
+  expect:
+    exit: 0
+    headings:
+      docs/ecr/boundary.md: [Requirements, Design, Implementation, Verification]
+    commands:
+      - run: python3 -m unittest -q
+        exit: 0
+      - run: 'test -d migrations && test "$(find migrations -type f | wc -l | tr -d " ")" -ge 1'
+        exit: 0
+    diff:
+      max_files: 12
+      allowed: [app/, tests/, migrations/, docs/ecr/, README.md]
+  judge:
+    rubric: The full record covers the boundary, migration and compatibility consequences without claiming deployment or production evidence.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

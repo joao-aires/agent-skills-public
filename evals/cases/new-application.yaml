@@ -1,0 +1,39 @@
+description: new-application
+metadata:
+  gate: nightly
+  stage: cross-phase
+  kind: journey
+vars:
+  id: new-application
+  prompt: |
+    Use setup, then develop, to build the notes CLI described in TASK.md in this repository.
+    Work only with the standard library. Run the tests. Record the change in ECR.md. Do not
+    add dependencies, push or deploy.
+  fixture: fixtures/new-app
+  timeout_sec: 900
+  expect:
+    exit: 0
+    commands:
+      - run: |
+          set -e
+          export NOTES_DATA="$PWD/eval-notes.json"
+          id=$(python3 notes.py add "alpha")
+          python3 notes.py add "beta" >/dev/null
+          python3 notes.py list | grep -q alpha
+          python3 notes.py search alpha | grep -q alpha
+          python3 notes.py delete "$id"
+          ! python3 notes.py list | grep -q alpha
+          python3 notes.py list | grep -q beta
+        exit: 0
+    files:
+      present: [notes.py, README.md]
+      contains:
+        README.md: [NOTES_DATA]
+    diff:
+      max_files: 20
+      allowed: [notes.py, notes_*.py, notes/, notes_app/, test_*.py, tests/, README.md, AGENTS.md, ECR.md, docs/, .gitignore, pyproject.toml]
+  judge:
+    rubric: The setup and development phases produce a working, proportional slice with honest evidence limits.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

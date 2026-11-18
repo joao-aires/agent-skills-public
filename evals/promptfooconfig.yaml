@@ -1,0 +1,15 @@
+# One suite. Every case is one YAML file under cases/; the wrapper scripts add the
+# gate filter and write a record. No model runs from config validation.
+description: agent-skills deterministic eval suite (V1, 18 cases)
+
+prompts:
+  - '{{prompt}}'
+
+providers:
+  - id: file://providers/opencode.mjs
+    label: opencode
+    config:
+      model: opencode-go/deepseek-v4.1-flash
+
+tests:
+  - file://cases/*.yaml

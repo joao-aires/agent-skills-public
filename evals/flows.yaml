@@ -1,0 +1,46 @@
+# Eight user outcomes -> runnable cases. One case can serve several outcomes; every
+# case must appear at least once. Keep this list small: it is a coverage map, not a
+# second catalogue.
+flows:
+  - id: discovery-and-routing
+    outcome: The installed bundle is discoverable, explicit-only work stays explicit, and help names options without starting them.
+    cases:
+      - client-discovery-and-inventory
+      - explicit-only-gate
+      - help-mode-read-only
+  - id: scoped-change
+    outcome: A small change stays small; a boundary change gets the design, migration and verification evidence it needs.
+    cases:
+      - design-small-change-no-ceremony
+      - compact-ecr-local-fix
+      - boundary-change-requires-full-ecr
+  - id: release-and-maintenance
+    outcome: Release preparation stops at the stated boundary and dependency maintenance follows current-head policy.
+    cases:
+      - release-vs-pipeline-boundary
+      - dependency-task-current-head-policy
+  - id: artifact-and-record
+    outcome: Artifacts are placed by plane and home, and a conversation becomes an actionable scope without implementation.
+    cases:
+      - artifact-system-plane-and-home
+      - conversation-to-actionable-scope
+  - id: product-to-plan
+    outcome: Strategy and existing feedback become a bounded product or planning decision without invented evidence.
+    cases:
+      - product-feedback-consumed-by-plan
+      - strategy-to-product-handoff
+  - id: cross-phase-delivery
+    outcome: Setup, refine, design and implementation carry accepted decisions and evidence across phases.
+    cases:
+      - new-application
+      - artifact-workspace-cross-phase
+  - id: stack-and-runtime
+    outcome: An installed pack that does not match the project stack is not applied, and test evidence covers the authentication boundary.
+    cases:
+      - inapplicable-stack-pack
+      - fixture-auth-production-boundary
+  - id: readiness-and-architecture
+    outcome: A readiness verdict separates evidence from authorization, and current and proposed architecture stay distinct.
+    cases:
+      - production-readiness-review-scope
+      - guide-c4-current-vs-proposed

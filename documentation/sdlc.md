@@ -170,6 +170,6 @@ For the skill catalogue by area, local versus stack-specific applicability and u
 
 ## Coverage and limits
 
-The skills describe ways of working across the lifecycle; installing them does not establish application correctness, production readiness or compliance. Tooling, credentials, devices and platform-specific procedures must exist in the target environment. Package and discovery checks are recorded separately from application evidence in the [maintainer reference](maintainers/evaluations.md#recorded-evidence-and-limits).
+The skills describe ways of working across the lifecycle; installing them does not establish application correctness, production readiness or compliance. Tooling, credentials, devices and platform-specific procedures must exist in the target environment. Package and discovery checks are recorded separately from application evidence in the [eval suite and evidence limits](../evals/README.md#recorded-evidence-and-limits).
 
 Specialist methods and diagrams live with their skills: [verification](../plugins/sdlc/skills/test/SKILL.md), [testing-journey](../plugins/frontend-development/skills/testing-journey/SKILL.md), [performance](../plugins/development-tooling/skills/performance-testing/SKILL.md), [resilience](../plugins/sdlc/skills/testing-resilience/SKILL.md) and [observability and monitoring](../plugins/sdlc/skills/design-system/references/observability-and-monitoring.md).
