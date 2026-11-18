@@ -415,7 +415,7 @@ export default Plugin.define({
         },
         {
           id: "sdlc.sidebar",
-          title: "SDLC: Toggle sidebar section",
+          title: "SDLC: Toggle details",
           group: "SDLC",
           palette: true,
           run: () => {

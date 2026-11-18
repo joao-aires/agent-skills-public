@@ -189,7 +189,7 @@ Or add it to a local marketplace/plugin configuration. `/sdlc` is registered on 
 
 `state` opens the large dialog in OpenCode and the Markdown view in Claude Code. Other commands update the local state, the status line and the sidebar.
 
-The palette command `SDLC: Toggle sidebar section` collapses or expands the sidebar section without a mouse.
+The palette command `SDLC: Toggle details` collapses or expands artifacts and decisions without a mouse.
 
 ## Local-only boundary
 
