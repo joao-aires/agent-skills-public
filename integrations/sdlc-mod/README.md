@@ -27,11 +27,11 @@ SDLC · pagination works · 3 threads · 1 open
 ▼ SDLC 3 threads · 1 open
         T1      T2      T3
       PRJ-142 PRJ-151
-✓ req     ✓       ✓       ✓
-✓ des     ✓       ◐       ✓
-▶ imp     ●       ·       ✓
-○ tst     ·       ·       ✓
-○ ops     ·       ·       ○
+← req     ·       ·       ·
+← des     ·       ◐       ·
+▶ imp     ●       ·       ·
+· tst     ·       ·       ·
+· ops     ·       ·       ○
 ● T1 · PRJ-142 pagination works
   implementation · waiting
   ↗ api-contract.md
@@ -39,9 +39,9 @@ Decisions
 ◐ D1 Reuse the existing search table
 ```
 
-The matrix shows phases as rows and thread codes as columns; the ticket sits under the code. Cells are `✓` done, `●` focus, `◐` waiting, `!` blocked, `○` parked, `·` not reached. The focus block below carries the work name, phase, status and artifacts. Up to three threads get columns; additional threads are counted below.
+The matrix shows phases as rows and thread codes as columns; the ticket sits under the code. Cells are `✓` done, `●` focus, `◐` waiting, `!` blocked, `○` parked, `·` not reached. The phase rail uses `←` for an earlier phase with no recorded pass, `✓` only when the focused thread actually moved through it, `▶` for the current phase and `·` for a later one. Creating a thread in operations does not claim requirements and design were done. The focus block below carries the work name, phase, status and artifacts. Up to three threads get columns; additional threads page through the palette commands `SDLC: Next thread page` and `SDLC: Previous thread page`.
 
-Click the header, or run the palette command `SDLC: Toggle sidebar section`, to collapse it. Collapse hides artifacts and decisions; the matrix and focus block stay. The section lives in the session sidebar, so it is only visible while the sidebar is open.
+Click the header, or run the palette command `SDLC: Toggle details`, to collapse it. Collapse hides artifacts and decisions; the matrix and focus block stay. The section lives in the session sidebar, so it is only visible while the sidebar is open.
 
 `/sdlc state` opens a large dialog with aligned columns:
 
@@ -57,7 +57,29 @@ Decisions
 Local to this session · not the ECR · Esc closes this view
 ```
 
-### Markdown (Claude Code and tests)
+### Claude Code pane
+
+`/sdlc` opens a docked Pane with the same matrix, focus block and decisions. The compact line stays under the prompt, so the state remains visible when the pane is closed or the terminal is narrow. Pane width comes from `bodyColumns`; page buttons are `p` and `n`.
+
+```text
+SDLC
+        T1      T2      T3
+      PRJ-142 PRJ-151
+← req     ·       ·       ·
+← des     ·       ◐       ·
+▶ imp     ●       ·       ·
+· tst     ·       ·       ·
+· ops     ·       ·       ○
+● T1 · PRJ-142 pagination works
+  implementation · waiting
+  ↗ api-contract.md
+Decisions
+◐ D1 Reuse the existing search table
+```
+
+Local artifacts are links; `https` opens the browser. The pane is a dock by default; an inline pane or AbovePrompt band are viable alternatives for narrow terminals.
+
+### Markdown (tests and text-only hosts)
 
 The core renders Markdown for hosts and tests:
 
@@ -88,7 +110,7 @@ Manual commands are exact and immediate:
 Automatic inference runs after a completed turn:
 
 1. OpenCode emits `session.execution.succeeded`; Claude Code fires `turn.complete`.
-2. OpenCode asks the free decision model (`opencode/jev-1.13-free`) whether anything changed, what kind of change it was, which phase is active and which thread should have focus. Claude Code skips this gate.
+2. OpenCode asks the free decision model (`opencode/jev-1.13-free`) whether anything changed, what kind of change it was, which phase is active and which thread should have focus. Claude Code uses `$.model.classify` for the same gate.
 3. If the gate reports no change, the text pass is skipped.
 4. Otherwise the adapter sends the current state, the last few messages and the gate hints to the session model.
 5. The model returns a JSON patch in the same command vocabulary as `/sdlc`.
@@ -162,7 +184,7 @@ Load the directory as a plugin for one session:
 claude --plugin-dir /absolute/path/to/integrations/sdlc-mod
 ```
 
-Or add it to a local marketplace/plugin configuration. `/sdlc` is registered on session start, and the status line appears under the prompt. Claude Code has no decision-model gate; it runs the text pass after each completed turn.
+Or add it to a local marketplace/plugin configuration. `/sdlc` is registered on session start and opens the docked pane; the status line appears under the prompt. State is stored per session in the plugin's `$.store` under `sdlc:<sessionId>`, so it survives restarts and is reloaded on `/clear`, `/resume` and `/branch`. Claude Code uses `$.model.classify` for the gate and `$.model.complete` with `haiku` for the text pass.
 
 ## Commands
 
@@ -193,11 +215,11 @@ The palette command `SDLC: Toggle details` collapses or expands artifacts and de
 
 ## Local-only boundary
 
-- OpenCode stores state per session in the plugin's durable server storage (`session/<sessionID>`) and mirrors it through an in-memory cache over RPC. Claude Code keeps it in the mod process.
-- It survives plugin reloads, TUI restarts and server restarts; deleting the session removes its entry.
+- OpenCode stores state per session in the plugin's durable server storage (`session/<sessionID>`) and mirrors it through an in-memory cache over RPC. Claude Code stores it under `sdlc:<sessionId>` in `$.store`.
+- Both survive plugin reloads and restarts; OpenCode removes the entry when the session is deleted. Claude’s store is cleaned up by Claude’s normal store retention.
+- Threads record completed phases, so the matrix does not invent phase history.
 - It is not synchronized across machines or with the ECR.
 - It is not written to the repository, `.sdlc/`, the ECR or a shared service.
-- It is not synchronized between sessions or machines.
 - It does not grant tool, merge, deploy or publication authority.
 - Authority is not part of this state; permissions and the ECR remain the authority.
 - The ECR remains the durable authority for accepted decisions and evidence.
