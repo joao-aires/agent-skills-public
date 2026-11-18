@@ -5,8 +5,9 @@
   "type": "module",
   "description": "Local, session-scoped SDLC engagement state for OpenCode and Claude Code.",
   "exports": {
-    ".": "./core/state.js",
-    "./tui": "./src/tui.tsx"
+    ".": "./src/server.ts",
+    "./tui": "./src/tui.tsx",
+    "./rpc": "./src/rpc.ts"
   },
   "scripts": {
     "test": "node --test core/*.test.js"

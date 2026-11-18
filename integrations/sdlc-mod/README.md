@@ -2,6 +2,8 @@
 
 `sdlc-mod` keeps the current conversation's SDLC state visible while you move between requirements, design, implementation, testing and operations. It is a local, session-scoped working aid. It does not replace the ECR, persist project history or grant authority.
 
+The state updates from two sources: explicit `/sdlc` commands, and a guarded inference pass after each completed turn. Inferred entries are marked `~`.
+
 ## What it tracks
 
 - current focus thread;
@@ -84,11 +86,68 @@ Next transition: design → implementation (needs seam accepted)
 Authority: read=repo; write=none; publish=false; implement=false; deploy=false
 ```
 
+## How it updates
+
+Manual commands are exact and immediate:
+
+```text
+/sdlc focus T2
+/sdlc decision add user "use the existing search table"
+```
+
+Automatic inference runs after a completed turn:
+
+1. OpenCode emits `session.execution.succeeded`; Claude Code fires `turn.complete`.
+2. The adapter waits briefly, then sends the current state and the last few messages to the session model.
+3. The model returns a JSON patch in the same command vocabulary as `/sdlc`.
+4. The patch is filtered before it is applied: unknown or duplicate items, unsupported operations, authority changes, decision resolutions and resets are rejected.
+5. The state changes and the sidebar, status line and dialog update.
+
+Rules enforced on inferred changes:
+
+- only focus, thread add/status/park/resume, decision add and transition changes;
+- decisions are added as `open`, never accepted or rejected;
+- authority is never inferred;
+- threads are deduplicated by activity and software type, decisions by statement;
+- low-confidence patches are dropped;
+- child sessions and extraction-generated turns do not re-trigger extraction.
+
+Inferred entries carry `~` in the sidebar and dialog:
+
+```text
+Decisions
+◐ ~D1 use the existing search table
+Next
+~ design → implementation
+```
+
+Turn inference off for the current server with `/sdlc auto off`, or set `"auto": false` in the plugin options. Manual commands keep working either way.
+
+The inference call uses the session's model, so it inherits that model's cost and availability. Set `includeMessages` and `debounceMs` to trade context for cost; a failed or slow extraction never blocks the chat.
+
 ## Install
 
 ### OpenCode
 
-This is a TUI-only plugin. Add the package to `cli.json`:
+The package has a server part and a TUI part. Register the server part in `opencode.json` so inference and state live in the session server:
+
+```json
+{
+  "plugins": [
+    {
+      "package": "/absolute/path/to/integrations/sdlc-mod",
+      "options": {
+        "auto": true,
+        "debounceMs": 1500,
+        "minConfidence": 0.7,
+        "includeMessages": 8
+      }
+    }
+  ]
+}
+```
+
+Register the TUI part in `cli.json`:
 
 ```json
 {
@@ -96,7 +155,9 @@ This is a TUI-only plugin. Add the package to `cli.json`:
 }
 ```
 
-Reload the TUI. The status line appears under the prompt, the SDLC section appears in the session sidebar, and `/sdlc` is available in the command palette.
+Reload OpenCode. The status line appears under the prompt, the SDLC section appears in the session sidebar, and `/sdlc` is available in the command palette. Manual commands and inference share the server-side state over RPC.
+
+If only the TUI part is registered, the status line and dialog cannot reach the state store and `/sdlc` commands report an error.
 
 ### Claude Code
 
@@ -121,6 +182,7 @@ Or add it to a local marketplace/plugin configuration. `/sdlc` is registered on 
 /sdlc decision resolve D1
 /sdlc decision reopen D1
 /sdlc transition design implementation "seam accepted"
+/sdlc auto on|off
 /sdlc reset
 /sdlc help
 ```
@@ -131,8 +193,8 @@ The palette command `SDLC: Toggle sidebar section` collapses or expands the side
 
 ## Local-only boundary
 
-- State is held in OpenCode TUI memory or in the Claude Code mod process.
-- It is discarded when the session/TUI ends.
+- State is held in the OpenCode server process, keyed by session, and mirrored by the TUI over RPC. Claude Code keeps it in the mod process.
+- It is discarded when the server or session ends.
 - It is not written to the repository, `.sdlc/`, the ECR or a shared service.
 - It is not synchronized between sessions or machines.
 - It does not grant tool, merge, deploy or publication authority.
@@ -147,8 +209,11 @@ sdlc-mod/
   core/state.js       schema, validation, reducer, Markdown rendering
   core/view.js        glyphs, summaries and authority labels
   core/commands.js    textual command parsing
+  core/extract.js     inference prompt, parsing, guards and dedupe
   core/*.test.js      Node test suites
-  src/tui.tsx         OpenCode TUI adapter: status line, sidebar, dialog
+  src/rpc.ts          shared RPC schema
+  src/server.ts       OpenCode server part: state, inference, RPC
+  src/tui.tsx         OpenCode TUI part: status line, sidebar, dialog
   hooks/register.js   Claude Code mod adapter
   .claude-plugin/     Claude Code manifest
   hooks/hooks.json    Claude Code hooks module declaration
@@ -167,6 +232,9 @@ The host adapters import `@opencode/plugin` or run inside Claude Code; they are 
 
 ## Safety
 
+- Treat inferred entries (`~`) as proposals, not facts; correct them with `/sdlc` commands.
+- Turn inference off with `/sdlc auto off` or `"auto": false` when the extra model call is unwanted.
+- Inference sends the recent transcript to the session model; do not enable it where that is unacceptable.
 - Do not put secrets, credentials or customer data in state.
 - Treat the status line as a reading aid, not proof of authority.
 - The mod never approves a tool call, merge, release or deployment.
