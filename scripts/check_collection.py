@@ -36,6 +36,11 @@ def prose(text):
     return "\n".join(lines)
 
 
+def without_inline_code(text):
+    """Inline code is example text, not a link: `![alt](./x.png)`."""
+    return re.sub(r"`[^`\n]*`", "", text)
+
+
 def anchors(text):
     counts, result = Counter(), set()
     for heading in re.findall(r"^#{1,6}\s+(.+?)\s*#*\s*$", prose(text), re.M):
@@ -77,8 +82,9 @@ def check_links(root):
     for document in maintained_documents(root):
         body = prose(document.read_text())
         # Inline links/images and reference definitions. External URLs are not fetched.
-        targets = re.findall(r"!?\[[^]\n]*\]\(([^\s)]+)(?:\s+[^)]*)?\)", body)
-        targets += re.findall(r"^\s*\[[^]]+\]:\s*<?([^\s>]+)>?", body, re.M)
+        links = without_inline_code(body)
+        targets = re.findall(r"!?\[[^]\n]*\]\(([^\s)]+)(?:\s+[^)]*)?\)", links)
+        targets += re.findall(r"^\s*\[[^]]+\]:\s*<?([^\s>]+)>?", links, re.M)
         for value in targets:
             link = urlsplit(value.strip("<>"))
             if link.scheme or link.netloc:
@@ -231,8 +237,9 @@ def check_package_links(package, local_names, notices):
             continue
         seen.add(document)
         body = prose(document.read_text())
-        targets = re.findall(r"!?\[[^]\n]*\]\(([^\s)]+)(?:\s+[^)]*)?\)", body)
-        targets += re.findall(r"^\s*\[[^]]+\]:\s*<?([^\s>]+)>?", body, re.M)
+        links = without_inline_code(body)
+        targets = re.findall(r"!?\[[^]\n]*\]\(([^\s)]+)(?:\s+[^)]*)?\)", links)
+        targets += re.findall(r"^\s*\[[^]]+\]:\s*<?([^\s>]+)>?", links, re.M)
         for value in targets:
             link = urlsplit(value.strip("<>"))
             if link.scheme or link.netloc:
