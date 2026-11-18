@@ -1,3 +1,5 @@
+import { readFile } from "node:fs/promises"
+import { spawn } from "node:child_process"
 import { createEffect, createSignal, For, Show } from "solid-js"
 import { Plugin } from "@opencode/plugin/tui"
 import { emptyState, renderCompact } from "../core/state.js"
@@ -43,7 +45,7 @@ const PHASE_LABEL = {
 function SdlcSidebar(props) {
   const theme = props.context.theme
   const current = () => props.state()
-  const columns = () => matrixThreads(current(), 3)
+  const columns = () => matrixThreads(current(), 3, props.view.page ?? 0)
   const focus = () => current().threads.find((thread) => thread.id === current().focusThreadId) ?? null
   const focusPhase = () => focus()?.activity ?? null
 
@@ -60,7 +62,7 @@ function SdlcSidebar(props) {
   }
 
   const phaseColor = (phase) => {
-    const marker = phaseMarker(phase, focusPhase())
+    const marker = phaseMarker(phase, focusPhase(), focus()?.completedPhases ?? [])
     if (marker === "✓") return theme.text.feedback.success.base
     if (marker === "▶") return theme.text.base
     return theme.text.muted
@@ -126,7 +128,7 @@ function SdlcSidebar(props) {
               <box flexDirection="row">
                 <box width={10} flexShrink={0}>
                   <text fg={phaseColor(phase)}>
-                    {phaseMarker(phase, focusPhase())} {PHASE_LABEL[phase]}
+                    {phaseMarker(phase, focusPhase(), focus()?.completedPhases ?? [])} {PHASE_LABEL[phase]}
                   </text>
                 </box>
                 <For each={columns().shown}>
@@ -139,11 +141,13 @@ function SdlcSidebar(props) {
               </box>
             )}
           </For>
-          <Show when={columns().hidden > 0}>
+          <Show when={columns().pages > 1}>
             <text fg={theme.text.muted}>
-              {"+"}
-              {columns().hidden}
-              {" more threads"}
+              {"page "}
+              {columns().page + 1}
+              {"/"}
+              {columns().pages}
+              {" · palette: SDLC thread page"}
             </text>
           </Show>
         </box>
@@ -165,6 +169,7 @@ function SdlcSidebar(props) {
             {focus().activity}
             {" · "}
             {focus().status}
+            {focus().status === "blocked" && focus().blockReason ? ` · ${focus().blockReason}` : ""}
           </text>
         </box>
       </Show>
@@ -173,7 +178,12 @@ function SdlcSidebar(props) {
         <Show when={focus()?.artifacts?.length}>
           <For each={focus().artifacts}>
             {(artifact) => (
-              <text fg={theme.text.muted} wrapMode="none" truncate>
+              <text
+                fg={theme.text.base}
+                wrapMode="none"
+                truncate
+                onMouseUp={() => props.openArtifact(artifact)}
+              >
                 {"  ↗ "}
                 {artifact.label}
               </text>
@@ -274,12 +284,26 @@ function SdlcDialog(props) {
                     {thread.status}
                   </text>
                 </box>
-                <Show when={thread.stoppingPoint || thread.artifacts?.length}>
-                  <text fg={theme.text.muted} wrapMode="none" truncate>
+                <Show when={thread.status === "blocked" && thread.blockReason}>
+                  <text fg={theme.text.feedback.error.base} wrapMode="none" truncate>
                     {"    "}
-                    {thread.stoppingPoint ?? "no stopping point"}
-                    {thread.artifacts?.length ? ` · ${thread.artifacts.map((artifact) => artifact.label).join(" · ")}` : ""}
+                    {thread.blockReason}
                   </text>
+                </Show>
+                <Show when={thread.artifacts?.length}>
+                  <For each={thread.artifacts}>
+                    {(artifact) => (
+                      <text
+                        fg={theme.text.base}
+                        wrapMode="none"
+                        truncate
+                        onMouseUp={() => props.openArtifact(artifact)}
+                      >
+                        {"    ↗ "}
+                        {artifact.label}
+                      </text>
+                    )}
+                  </For>
                 </Show>
               </box>
             )}
@@ -320,14 +344,32 @@ function SdlcDialog(props) {
   )
 }
 
+function ArtifactPreview(props) {
+  const theme = props.context.theme
+  return (
+    <box flexDirection="column" gap={1} padding={1}>
+      <text fg={theme.text.base}>
+        <b>{props.title}</b>
+      </text>
+      <scrollbox flexGrow={1} focused>
+        <text fg={theme.text.muted} wrapMode="word">
+          {props.content}
+        </text>
+      </scrollbox>
+      <text fg={theme.text.muted}>Esc closes this view</text>
+    </box>
+  )
+}
+
 export default Plugin.define({
   id: "sdlc-mod.tui",
   setup(context) {
     const [view, updateView] = context.storage.memory("sdlc-view", {
-      initial: { open: true },
+      initial: { open: true, page: 0 },
     })
     const [mirror, setMirror] = createSignal(new Map())
     const requested = new Set()
+    const inFlight = new Set()
 
     const rpc = () => context.client.rpc(Sdlc)
 
@@ -342,9 +384,12 @@ export default Plugin.define({
 
     const stateFor = (sessionID) => () => mirror().get(sessionID) ?? emptyState(sessionID ?? null)
 
-    const ensure = (sessionID, attempt = 0) => {
-      if (!sessionID || requested.has(sessionID)) return
+    const ensure = (sessionID, attempt = 0, force = false) => {
+      if (!sessionID) return
+      if (!force && requested.has(sessionID)) return
+      if (inFlight.has(sessionID)) return
       requested.add(sessionID)
+      inFlight.add(sessionID)
       rpc()
         .snapshot({ sessionID })
         .then((result) => put(sessionID, result.state))
@@ -352,7 +397,12 @@ export default Plugin.define({
           requested.delete(sessionID)
           if (attempt < 6) setTimeout(() => ensure(sessionID, attempt + 1), 500)
         })
+        .finally(() => inFlight.delete(sessionID))
     }
+
+    const resync = setInterval(() => {
+      for (const sessionID of requested) ensure(sessionID, 0, true)
+    }, 15_000)
 
     let unsubscribe = () => {}
     try {
@@ -361,6 +411,40 @@ export default Plugin.define({
       })
     } catch {
       // The server part is not registered; snapshots will surface the error.
+    }
+
+    function openExternal(url) {
+      try {
+        const command = process.platform === "darwin" ? "open" : process.platform === "win32" ? "cmd" : "xdg-open"
+        const args = process.platform === "win32" ? ["/c", "start", "", url] : [url]
+        spawn(command, args, { detached: true, stdio: "ignore" }).unref()
+      } catch {
+        context.ui.toast.show({ message: `Could not open ${url}`, variant: "error" })
+      }
+    }
+
+    async function openArtifact(artifact) {
+      if (!artifact?.href) return
+      if (/^https?:\/\//i.test(artifact.href)) {
+        openExternal(artifact.href)
+        context.ui.toast.show({ message: `Opening ${artifact.label}`, variant: "success" })
+        return
+      }
+      if (!/^file:\/\//i.test(artifact.href)) {
+        context.ui.toast.show({ message: `Unsupported artifact link: ${artifact.href}`, variant: "error" })
+        return
+      }
+      try {
+        const path = decodeURIComponent(artifact.href.replace(/^file:\/\//, ""))
+        const content = await readFile(path, "utf8")
+        context.ui.dialog.set({ size: "large", centered: true })
+        context.ui.dialog.show(() => <ArtifactPreview context={context} title={artifact.label} content={content} />)
+      } catch (error) {
+        context.ui.toast.show({
+          message: `Could not read ${artifact.label}: ${String(error?.message ?? error)}`,
+          variant: "error",
+        })
+      }
     }
 
     context.keymap.layer(() => ({
@@ -401,7 +485,9 @@ export default Plugin.define({
                 const result = await rpc().snapshot({ sessionID })
                 put(sessionID, result.state)
                 context.ui.dialog.set({ size: "large", centered: true })
-                context.ui.dialog.show(() => <SdlcDialog context={context} state={stateFor(sessionID)} />)
+                context.ui.dialog.show(() => (
+                  <SdlcDialog context={context} state={stateFor(sessionID)} openArtifact={openArtifact} />
+                ))
                 return
               }
 
@@ -426,6 +512,51 @@ export default Plugin.define({
             ).catch(() => {})
           },
         },
+        {
+          id: "sdlc.page.next",
+          title: "SDLC: Next thread page",
+          group: "SDLC",
+          palette: true,
+          run: () => {
+            Promise.resolve(
+              updateView((draft) => {
+                draft.page = (draft.page ?? 0) + 1
+              }),
+            ).catch(() => {})
+          },
+        },
+        {
+          id: "sdlc.page.prev",
+          title: "SDLC: Previous thread page",
+          group: "SDLC",
+          palette: true,
+          run: () => {
+            Promise.resolve(
+              updateView((draft) => {
+                draft.page = (draft.page ?? 0) - 1
+              }),
+            ).catch(() => {})
+          },
+        },
+        {
+          id: "sdlc.preview",
+          title: "SDLC: Preview focus artifact",
+          group: "SDLC",
+          palette: true,
+          run: () => {
+            const route = context.ui.router.current()
+            const sessionID = route.type === "session" ? route.sessionID : undefined
+            if (!sessionID) return
+            const current = stateFor(sessionID)()
+            const focus = current.threads.find((thread) => thread.id === current.focusThreadId)
+            const artifact = focus?.artifacts?.[0]
+            if (!artifact) {
+              context.ui.toast.show({ message: "No artifact on the focus thread.", variant: "warning" })
+              return
+            }
+            void openArtifact(artifact)
+          },
+        },
       ],
       bindings: ["sdlc.state"],
     }))
@@ -447,10 +578,14 @@ export default Plugin.define({
           ensure={ensure}
           view={view}
           updateView={updateView}
+          openArtifact={openArtifact}
         />
       ),
     })
 
-    return () => unsubscribe()
+    return () => {
+      unsubscribe()
+      clearInterval(resync)
+    }
   },
 })

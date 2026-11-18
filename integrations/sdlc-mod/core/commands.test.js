@@ -55,3 +55,10 @@ test("the state command returns the same object so adapters can skip writes", ()
 test("rejects an unknown command", () => {
   assert.throws(() => runCommand("nope", emptyState()), /unknown command/);
 });
+
+test("keeps a block reason", () => {
+  const state = runCommand('thread add "pagination works" implementation', emptyState()).state;
+  const blocked = runCommand('thread block T1 "waiting on API"', state).state;
+  assert.equal(blocked.threads[0].status, "blocked");
+  assert.equal(blocked.threads[0].blockReason, "waiting on API");
+});

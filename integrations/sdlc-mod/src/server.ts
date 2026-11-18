@@ -1,7 +1,7 @@
 import { Plugin } from "@opencode/plugin"
 import { Sdlc } from "./rpc.js"
 import { apply as applyState, emptyState } from "../core/state.js"
-import { applyExtraction, buildExtractionPrompt, parseExtraction } from "../core/extract.js"
+import { applyExtraction, buildExtractionPrompt, latestUserText, parseExtraction } from "../core/extract.js"
 import {
   buildDecisionInput,
   buildDecisionQuestions,
@@ -44,18 +44,30 @@ export default Plugin.define({
 
     async function ensureState(sessionID) {
       const cached = store.get(sessionID)
-      if (cached && cached.version === 2) return cached
+      if (cached && cached.version === 3) return cached
       if (loading.has(sessionID)) return loading.get(sessionID)
 
       const promise = (async () => {
-        let saved
-        try {
-          saved = await ctx.storage.get(keyFor(sessionID))
-        } catch {
-          saved = undefined
-        }
+        const saved = await ctx.storage.get(keyFor(sessionID))
         const savedState = saved as any
-        const state = savedState && savedState.version === 2 ? savedState : emptyState(sessionID)
+        let state = emptyState(sessionID)
+        if (savedState?.version === 3) {
+          state = savedState
+        } else if (savedState?.version === 2) {
+          state = {
+            ...savedState,
+            version: 3,
+            threads: (savedState.threads ?? []).map((thread) => ({
+              ...thread,
+              completedPhases: Array.isArray(thread.completedPhases) ? thread.completedPhases : [],
+              blockReason: thread.blockReason ?? null,
+            })),
+            decisions: (savedState.decisions ?? []).map((decision) => ({
+              ...decision,
+              artifacts: Array.isArray(decision.artifacts) ? decision.artifacts : [],
+            })),
+          }
+        }
         store.set(sessionID, state)
         return state
       })()
@@ -77,15 +89,27 @@ export default Plugin.define({
       }
     }
 
+    const mutations = new Map()
+
+    function withMutation(sessionID, task) {
+      const previous = mutations.get(sessionID) ?? Promise.resolve()
+      const run = previous.catch(() => {}).then(task)
+      mutations.set(sessionID, run)
+      return run.finally(() => {
+        if (mutations.get(sessionID) === run) mutations.delete(sessionID)
+      })
+    }
+
     let registration
     registration = await ctx.rpc.register(Sdlc, {
       snapshot: async ({ sessionID }) => ({ state: await ensureState(sessionID) }),
-      apply: async ({ sessionID, command }) => {
-        const next = applyState(await ensureState(sessionID), command)
-        await persist(sessionID, next)
-        await registration.events.emit("updated", { sessionID, state: next })
-        return { state: next }
-      },
+      apply: async ({ sessionID, command }) =>
+        withMutation(sessionID, async () => {
+          const next = applyState(await ensureState(sessionID), command)
+          await persist(sessionID, next)
+          await registration.events.emit("updated", { sessionID, state: next })
+          return { state: next }
+        }),
       setAuto: async ({ enabled }) => {
         autoEnabled = Boolean(enabled)
         if (!autoEnabled) clearTimers()
@@ -95,7 +119,8 @@ export default Plugin.define({
 
     const timers = new Map()
     const running = new Set()
-    const cooldown = new Map()
+    const generating = new Set()
+    const lastExtracted = new Map()
     const deleted = new Set()
 
     function clearTimers() {
@@ -145,6 +170,9 @@ export default Plugin.define({
       try {
         let before = await ensureState(sessionID)
         const messages = await ctx.session.context({ sessionID })
+        const lastMessage = [...messages].reverse().find((message) => message?.id)
+        if (lastMessage?.id && lastExtracted.get(sessionID) === lastMessage.id) return
+        if (lastMessage?.id) lastExtracted.set(sessionID, lastMessage.id)
         const decision = await decide(sessionID, messages, before)
         const threshold = Number(options.gateThreshold)
         const focus = before.threads.find((thread) => thread.id === before.focusThreadId)
@@ -156,19 +184,24 @@ export default Plugin.define({
             currentFocus: before.focusThreadId,
           })
 
-        let structural = before
-        for (const command of gateCommands(decision, before)) {
-          try {
-            structural = applyState(structural, command)
-          } catch {
-            // A structural hint that no longer applies is ignored.
+        const hints = latestUserText(messages)
+        const structural = await withMutation(sessionID, async () => {
+          if (deleted.has(sessionID)) return null
+          const current = await ensureState(sessionID)
+          let next = current
+          for (const command of gateCommands(decision, current, { latestText: hints })) {
+            try {
+              next = applyState(next, command)
+            } catch {
+              // A structural hint that no longer applies is ignored.
+            }
           }
-        }
-        if (JSON.stringify(structural) !== JSON.stringify(before)) {
-          before = structural
-          await persist(sessionID, before)
-          await registration.events.emit("updated", { sessionID, state: before })
-        }
+          if (JSON.stringify(next) === JSON.stringify(current)) return current
+          await persist(sessionID, next)
+          await registration.events.emit("updated", { sessionID, state: next })
+          return next
+        })
+        if (structural) before = structural
         if (!extract) return
 
         const prompt = buildExtractionPrompt({
@@ -177,22 +210,30 @@ export default Plugin.define({
           includeMessages: Number(options.includeMessages) || 8,
           hints: decisionHints(decision),
         })
-        const response = await ctx.session.generate({ sessionID, prompt })
+        generating.add(sessionID)
+        let response
+        try {
+          response = await ctx.session.generate({ sessionID, prompt })
+        } finally {
+          generating.delete(sessionID)
+        }
         if (deleted.has(sessionID)) return
         const parsed = parseExtraction(response?.text)
         if (!parsed) return
 
-        const result = applyExtraction(before, parsed, {
-          minConfidence: Number(options.minConfidence) || 0.7,
+        await withMutation(sessionID, async () => {
+          if (deleted.has(sessionID)) return
+          const current = await ensureState(sessionID)
+          const result = applyExtraction(current, parsed, {
+            minConfidence: Number(options.minConfidence) || 0.7,
+          })
+          if (!result.changed || !result.applied.length) return
+          await persist(sessionID, result.state)
+          await registration.events.emit("updated", { sessionID, state: result.state })
         })
-        if (!result.changed || !result.applied.length) return
-
-        await persist(sessionID, result.state)
-        await registration.events.emit("updated", { sessionID, state: result.state })
       } catch (error) {
       } finally {
         running.delete(sessionID)
-        cooldown.set(sessionID, Date.now() + 3000)
       }
     }
 
@@ -211,7 +252,8 @@ export default Plugin.define({
             const timer = timers.get(sessionID)
             if (timer) clearTimeout(timer)
             timers.delete(sessionID)
-            cooldown.delete(sessionID)
+            lastExtracted.delete(sessionID)
+            generating.delete(sessionID)
             store.delete(sessionID)
             loading.delete(sessionID)
             void ctx.storage.remove(keyFor(sessionID)).catch(() => {})
@@ -229,7 +271,7 @@ export default Plugin.define({
           }
           if (!autoEnabled) continue
 
-          if (Date.now() < (cooldown.get(sessionID) ?? 0)) continue
+          if (generating.has(sessionID)) continue
           const session = await ctx.session.get({ sessionID }).catch(() => undefined)
           if (!session || session.parentID) continue
           schedule(sessionID)

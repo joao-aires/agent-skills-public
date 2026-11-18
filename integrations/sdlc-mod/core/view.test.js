@@ -37,7 +37,7 @@ test("shows a local id plus the tracker id when present", () => {
 });
 
 test("fills a phase matrix cell from phase and status", () => {
-  const thread = { id: "T1", activity: "implementation", status: "waiting" };
+  const thread = { id: "T1", activity: "implementation", status: "waiting", completedPhases: ["requirements"] };
   assert.equal(matrixCell(thread, "requirements", "T1"), "✓");
   assert.equal(matrixCell(thread, "implementation", "T1"), "●");
   assert.equal(matrixCell({ ...thread, status: "blocked" }, "implementation", "T1"), "!");
@@ -47,20 +47,34 @@ test("fills a phase matrix cell from phase and status", () => {
 });
 
 test("marks previous, current and future phases", () => {
-  assert.equal(phaseMarker("design", "implementation"), "✓");
+  assert.equal(phaseMarker("design", "implementation", ["design"]), "✓");
+  assert.equal(phaseMarker("design", "implementation"), "←");
   assert.equal(phaseMarker("implementation", "implementation"), "▶");
-  assert.equal(phaseMarker("testing", "implementation"), "○");
-  assert.equal(phaseMarker("testing", null), "○");
+  assert.equal(phaseMarker("testing", "implementation"), "·");
+  assert.equal(phaseMarker("testing", null), "·");
 });
 
-test("keeps matrix columns stable and includes the focus thread", () => {
+test("pages matrix columns without reordering around focus", () => {
   const threads = Array.from({ length: 5 }, (_, index) => ({
     id: `T${index + 1}`,
     activity: "design",
     status: "waiting",
   }));
   const state = { threads, focusThreadId: "T5" };
-  const { shown, hidden } = matrixThreads(state, 4);
-  assert.deepEqual(shown.map((thread) => thread.id), ["T1", "T2", "T3", "T5"]);
-  assert.equal(hidden, 1);
+  const first = matrixThreads(state, 3, 0);
+  assert.deepEqual(first.shown.map((thread) => thread.id), ["T1", "T2", "T3"]);
+  assert.equal(first.pages, 2);
+  const second = matrixThreads(state, 3, 1);
+  assert.deepEqual(second.shown.map((thread) => thread.id), ["T4", "T5"]);
+  assert.equal(second.page, 1);
+  assert.equal(second.hidden, 3);
+});
+
+test("does not mark unreached phases as done", () => {
+  const thread = { id: "T3", activity: "operations", status: "parked", completedPhases: [] };
+  assert.equal(matrixCell(thread, "implementation", "T3"), "·");
+  assert.equal(
+    matrixCell({ ...thread, completedPhases: ["implementation"] }, "implementation", "T3"),
+    "✓",
+  );
 });

@@ -11,7 +11,7 @@ export const ACTIVITIES = ["requirements", "design", "implementation", "testing"
 
 export function emptyState(sessionId = null) {
   return {
-    version: 2,
+    version: 3,
     sessionId,
     focusThreadId: null,
     threads: [],
@@ -52,18 +52,37 @@ function optionalString(value, name) {
   return requireString(value, name);
 }
 
+function validHref(href) {
+  return /^(https?:\/\/|file:\/\/)/i.test(href);
+}
+
 function requireArtifacts(value) {
   if (value === undefined || value === null) return [];
   if (!Array.isArray(value)) throw new Error("artifacts must be an array");
   return value.map((artifact) => {
     if (!artifact || typeof artifact !== "object") throw new Error("artifact must be an object");
+    const href = requireString(artifact.href, "artifact href");
+    if (!validHref(href)) throw new Error("artifact href must be http(s) or file");
     return {
       label: requireString(artifact.label, "artifact label"),
-      href: requireString(artifact.href, "artifact href"),
+      href,
       kind: artifact.kind === "url" ? "url" : "file",
     };
   });
 }
+
+function requireCompletedPhases(value) {
+  if (value === undefined || value === null) return [];
+  if (!Array.isArray(value)) throw new Error("completedPhases must be an array");
+  const phases = [];
+  for (const phase of value) {
+    const activity = requireActivity(phase);
+    if (!phases.includes(activity)) phases.push(activity);
+  }
+  return phases;
+}
+
+const PHASE_INDEX = new Map(ACTIVITIES.map((activity, index) => [activity, index]));
 
 function findThread(state, id) {
   const thread = state.threads.find((item) => item.id === id);
@@ -87,6 +106,7 @@ function validArtifacts(artifacts) {
         artifact.label.trim() !== "" &&
         typeof artifact.href === "string" &&
         artifact.href.trim() !== "" &&
+        validHref(artifact.href) &&
         (artifact.kind === "file" || artifact.kind === "url"),
     )
   );
@@ -95,7 +115,7 @@ function validArtifacts(artifacts) {
 export function validateState(state) {
   const errors = [];
   if (!state || typeof state !== "object") return ["state must be an object"];
-  if (state.version !== 2) errors.push("version must be 2");
+  if (state.version !== 3) errors.push("version must be 3");
   if (!Array.isArray(state.threads)) errors.push("threads must be an array");
   if (!Array.isArray(state.decisions)) errors.push("decisions must be an array");
 
@@ -105,8 +125,21 @@ export function validateState(state) {
     if (threadIds.has(thread.id)) errors.push(`duplicate thread id ${thread.id}`);
     threadIds.add(thread.id);
     if (typeof thread.name !== "string" || thread.name.trim() === "") errors.push(`thread ${thread.id} needs a name`);
-    if (typeof thread.activity !== "string" || thread.activity.trim() === "") {
-      errors.push(`thread ${thread.id} needs an activity`);
+    if (!ACTIVITIES.includes(thread.activity)) {
+      errors.push(`thread ${thread.id} has invalid activity ${thread.activity}`);
+    }
+    if (!Array.isArray(thread.completedPhases)) {
+      errors.push(`thread ${thread.id} completedPhases must be an array`);
+    } else {
+      const seen = new Set();
+      for (const phase of thread.completedPhases) {
+        if (!ACTIVITIES.includes(phase)) errors.push(`thread ${thread.id} has invalid completed phase ${phase}`);
+        if (seen.has(phase)) errors.push(`thread ${thread.id} has duplicate completed phase ${phase}`);
+        seen.add(phase);
+      }
+    }
+    if (thread.blockReason !== null && thread.blockReason !== undefined && typeof thread.blockReason !== "string") {
+      errors.push(`thread ${thread.id} blockReason must be a string`);
     }
     if (!THREAD_STATUSES.includes(thread.status)) errors.push(`invalid thread status ${thread.status}`);
     if (thread.ticket !== null && thread.ticket !== undefined && typeof thread.ticket !== "string") {
@@ -164,7 +197,9 @@ export function apply(previous, command) {
         softwareType: optionalString(command.softwareType, "softwareType"),
         stoppingPoint: optionalString(command.stoppingPoint, "stoppingPoint"),
         status: command.status ?? "waiting",
+        completedPhases: requireCompletedPhases(command.completedPhases),
         artifacts: requireArtifacts(command.artifacts),
+        blockReason: null,
         owner: optionalString(command.owner, "owner"),
         source,
         updatedAt: now,
@@ -182,12 +217,21 @@ export function apply(previous, command) {
       const thread = findThread(state, requireString(command.id, "thread id"));
       if (!THREAD_STATUSES.includes(command.status)) throw new Error(`invalid thread status ${command.status}`);
       thread.status = command.status;
+      thread.blockReason = command.status === "blocked" ? optionalString(command.reason, "reason") : null;
       thread.updatedAt = now;
       break;
     }
     case "thread.phase": {
       const thread = findThread(state, requireString(command.id, "thread id"));
-      thread.activity = requireActivity(command.activity);
+      const activity = requireActivity(command.activity);
+      const currentIndex = PHASE_INDEX.get(thread.activity);
+      const nextIndex = PHASE_INDEX.get(activity);
+      if (nextIndex > currentIndex && !thread.completedPhases.includes(thread.activity)) {
+        thread.completedPhases.push(thread.activity);
+      } else if (nextIndex < currentIndex) {
+        thread.completedPhases = thread.completedPhases.filter((phase) => PHASE_INDEX.get(phase) < nextIndex);
+      }
+      thread.activity = activity;
       thread.updatedAt = now;
       break;
     }
@@ -208,6 +252,7 @@ export function apply(previous, command) {
       const thread = findThread(state, requireString(command.id, "thread id"));
       thread.status = "parked";
       thread.parkReason = optionalString(command.reason, "reason");
+      thread.blockReason = null;
       thread.updatedAt = now;
       break;
     }
@@ -215,12 +260,14 @@ export function apply(previous, command) {
       const thread = findThread(state, requireString(command.id, "thread id"));
       thread.status = "waiting";
       thread.parkReason = null;
+      thread.blockReason = null;
       thread.updatedAt = now;
       break;
     }
     case "thread.close": {
       const thread = findThread(state, requireString(command.id, "thread id"));
       thread.status = "done";
+      thread.blockReason = null;
       thread.updatedAt = now;
       if (state.focusThreadId === thread.id) {
         state.focusThreadId = state.threads.find((item) => item.status !== "done")?.id ?? null;
@@ -323,8 +370,9 @@ export function renderMarkdown(state) {
     const marker = thread.id === current.focusThreadId ? "●" : thread.status === "parked" ? "○" : "◐";
     const ticket = thread.ticket ? ` [${thread.ticket}]` : "";
     const artifacts = thread.artifacts?.length ? ` — ${thread.artifacts.map((artifact) => artifact.label).join(", ")}` : "";
+    const blocked = thread.status === "blocked" && thread.blockReason ? ` — ${thread.blockReason}` : "";
     lines.push(
-      `- ${marker} ${thread.id}${ticket} — ${thread.name} — ${thread.activity}${thread.softwareType ? ` (${thread.softwareType})` : ""} — ${thread.status}${thread.stoppingPoint ? ` — ${thread.stoppingPoint}` : ""}${artifacts}`,
+      `- ${marker} ${thread.id}${ticket} — ${thread.name} — ${thread.activity}${thread.softwareType ? ` (${thread.softwareType})` : ""} — ${thread.status}${blocked}${thread.stoppingPoint ? ` — ${thread.stoppingPoint}` : ""}${artifacts}`,
     );
   }
   lines.push("", "Decisions:");

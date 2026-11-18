@@ -87,7 +87,7 @@ export function parseCommand(input) {
       });
     }
     if (action === "block") {
-      return command("thread.status", `Blocked ${id}.`, { id, status: "blocked" });
+      return command("thread.status", `Blocked ${id}.`, { id, status: "blocked", reason: tail.join(" ") || null });
     }
     if (action === "close") return command("thread.close", `Closed ${id}.`, { id });
     if (action === "park") {

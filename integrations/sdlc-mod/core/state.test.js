@@ -17,7 +17,7 @@ function sample() {
 
 test("adds a named thread and focuses the first one", () => {
   const state = sample();
-  assert.equal(state.version, 2);
+  assert.equal(state.version, 3);
   assert.equal(state.threads.length, 1);
   assert.equal(state.threads[0].name, "pagination works");
   assert.equal(state.threads[0].ticket, "PROJ-142");
@@ -25,12 +25,24 @@ test("adds a named thread and focuses the first one", () => {
   assert.deepEqual(validateState(state), []);
 });
 
-test("moves a thread between phases and attaches a ticket", () => {
+test("moves a thread between phases, records history and attaches a ticket", () => {
   let state = sample();
   state = apply(state, { type: "thread.phase", id: "T1", activity: "testing" });
   assert.equal(state.threads[0].activity, "testing");
+  assert.deepEqual(state.threads[0].completedPhases, ["implementation"]);
+  state = apply(state, { type: "thread.phase", id: "T1", activity: "design" });
+  assert.equal(state.threads[0].activity, "design");
+  assert.deepEqual(state.threads[0].completedPhases, []);
   state = apply(state, { type: "thread.ticket", id: "T1", ticket: "PROJ-999" });
   assert.equal(state.threads[0].ticket, "PROJ-999");
+});
+
+test("records a block reason", () => {
+  let state = sample();
+  state = apply(state, { type: "thread.status", id: "T1", status: "blocked", reason: "waiting on API" });
+  assert.equal(state.threads[0].blockReason, "waiting on API");
+  state = apply(state, { type: "thread.resume", id: "T1" });
+  assert.equal(state.threads[0].blockReason, null);
 });
 
 test("attaches artifacts to threads and decisions", () => {
@@ -115,4 +127,17 @@ test("does not mutate the input state", () => {
   const next = apply(state, { type: "thread.add", name: "work", activity: "design" });
   assert.equal(state.threads.length, 0);
   assert.equal(next.threads.length, 1);
+});
+
+test("rejects non-http artifact links", () => {
+  const state = sample();
+  assert.throws(
+    () =>
+      apply(state, {
+        type: "thread.artifact",
+        id: "T1",
+        artifact: { label: "bad", href: "javascript:alert(1)", kind: "url" },
+      }),
+    /artifact href must be http/,
+  );
 });
