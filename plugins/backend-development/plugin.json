@@ -1,10 +1,10 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "backend-development",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Framework-independent service authority, state, durable work, failure, architecture pattern selection, HTTP and GraphQL contracts, event-driven integration and distributed-systems reasoning.",
   "author": {
-    "name": "João Aires"
+    "name": "Jo\u00e3o Aires"
   },
   "repository": "https://github.com/joao-aires/agent-skills-public",
   "license": "MIT"
