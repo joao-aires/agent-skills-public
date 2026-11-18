@@ -206,33 +206,60 @@ export function apply(previous, command) {
   return state;
 }
 
+/**
+ * Renderers run against host-owned reactive stores. A store update can expose
+ * the value while it is still being written, so rendering reads a completed
+ * shape instead of assuming every collection is present.
+ */
+function readable(state) {
+  const fallback = emptyState();
+  if (!state || typeof state !== "object") return fallback;
+  const authority = state.authority && typeof state.authority === "object" ? state.authority : {};
+  return {
+    ...fallback,
+    ...state,
+    threads: Array.isArray(state.threads) ? state.threads : fallback.threads,
+    decisions: Array.isArray(state.decisions) ? state.decisions : fallback.decisions,
+    authority: {
+      read: Array.isArray(authority.read) ? authority.read : fallback.authority.read,
+      write: Array.isArray(authority.write) ? authority.write : fallback.authority.write,
+      publish: Boolean(authority.publish),
+      implement: Boolean(authority.implement),
+      deploy: Boolean(authority.deploy),
+    },
+  };
+}
+
 export function focusedThread(state) {
-  return state.threads.find((thread) => thread.id === state.focusThreadId) ?? null;
+  const current = readable(state);
+  return current.threads.find((thread) => thread.id === current.focusThreadId) ?? null;
 }
 
 export function renderCompact(state) {
-  const focus = focusedThread(state);
-  const open = state.decisions.filter((decision) => decision.status === "open").length;
+  const current = readable(state);
+  const focus = focusedThread(current);
+  const open = current.decisions.filter((decision) => decision.status === "open").length;
   const label = focus ? `${focus.activity}${focus.softwareType ? `:${focus.softwareType}` : ""}` : "no focus";
-  return `SDLC · ${label} · ${state.threads.length} thread${state.threads.length === 1 ? "" : "s"} · ${open} open`;
+  return `SDLC · ${label} · ${current.threads.length} thread${current.threads.length === 1 ? "" : "s"} · ${open} open`;
 }
 
 export function renderMarkdown(state) {
+  const current = readable(state);
   const lines = ["## Engagement state", ""];
-  const focus = focusedThread(state);
+  const focus = focusedThread(current);
   lines.push(`Focus: ${focus ? `${focus.id} — ${focus.activity}${focus.softwareType ? ` (${focus.softwareType})` : ""}` : "none"}`);
   lines.push("", "Threads:");
-  if (!state.threads.length) lines.push("- None");
-  for (const thread of state.threads) {
-    const marker = thread.id === state.focusThreadId ? "●" : thread.status === "parked" ? "○" : "◐";
+  if (!current.threads.length) lines.push("- None");
+  for (const thread of current.threads) {
+    const marker = thread.id === current.focusThreadId ? "●" : thread.status === "parked" ? "○" : "◐";
     lines.push(`- ${marker} ${thread.id} — ${thread.activity}${thread.softwareType ? ` — ${thread.softwareType}` : ""} — ${thread.stoppingPoint ?? "no stopping point"} — ${thread.status}${thread.parkReason ? ` (${thread.parkReason})` : ""}`);
   }
   lines.push("", "Decisions:");
-  if (!state.decisions.length) lines.push("- None");
-  for (const decision of state.decisions) {
+  if (!current.decisions.length) lines.push("- None");
+  for (const decision of current.decisions) {
     lines.push(`- ${decision.id} — ${decision.status} — ${decision.owner ?? "unowned"} — ${decision.statement}`);
   }
-  lines.push("", `Next transition: ${state.nextTransition ? `${state.nextTransition.from ?? "?"} → ${state.nextTransition.to ?? "?"}${state.nextTransition.needs ? ` (needs ${state.nextTransition.needs})` : ""}` : "none"}`);
-  lines.push("", `Authority: read=${state.authority.read.join(",") || "none"}; write=${state.authority.write.join(",") || "none"}; publish=${state.authority.publish}; implement=${state.authority.implement}; deploy=${state.authority.deploy}`);
+  lines.push("", `Next transition: ${current.nextTransition ? `${current.nextTransition.from ?? "?"} → ${current.nextTransition.to ?? "?"}${current.nextTransition.needs ? ` (needs ${current.nextTransition.needs})` : ""}` : "none"}`);
+  lines.push("", `Authority: read=${current.authority.read.join(",") || "none"}; write=${current.authority.write.join(",") || "none"}; publish=${current.authority.publish}; implement=${current.authority.implement}; deploy=${current.authority.deploy}`);
   return lines.join("\n");
 }

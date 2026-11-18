@@ -23,6 +23,12 @@ test("focuses, adds a decision, and renders state", () => {
   assert.match(shown.markdown, /Focus: T2/);
 });
 
+test("the state command returns the same object so adapters can skip writes", () => {
+  const state = emptyState();
+  assert.equal(runCommand("state", state).state, state);
+  assert.equal(runCommand("", state).state, state);
+});
+
 test("rejects an unknown command", () => {
   assert.throws(() => runCommand("nope", emptyState()), /unknown command/);
 });
