@@ -1,6 +1,6 @@
 {
   "name": "sdlc-mod",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "type": "module",
   "description": "Local, session-scoped SDLC engagement state for OpenCode and Claude Code.",

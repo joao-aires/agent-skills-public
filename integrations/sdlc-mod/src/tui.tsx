@@ -2,7 +2,7 @@ import { createEffect, createSignal, For, Show } from "solid-js"
 import { Plugin } from "@opencode/plugin/tui"
 import { emptyState, renderCompact } from "../core/state.js"
 import { HELP, parseCommand } from "../core/commands.js"
-import { authorityText, decisionGlyph, summaryLabel, threadGlyph } from "../core/view.js"
+import { decisionGlyph, summaryLabel, threadCode, threadGlyph } from "../core/view.js"
 import { Sdlc } from "./rpc.js"
 
 /**
@@ -35,7 +35,6 @@ function SdlcSidebar(props) {
   const theme = props.context.theme
   const current = () => props.state()
   const focused = (thread) => thread.id === current().focusThreadId
-  const auth = () => authorityText(current().authority)
   createEffect(() => {
     props.ensure(props.sessionID)
   })
@@ -75,7 +74,7 @@ function SdlcSidebar(props) {
                     </text>
                     <text fg={theme.text.muted} flexShrink={0}>
                       {thread.source === "inferred" ? "~" : ""}
-                      {thread.id}
+                      {threadCode(thread)}
                     </text>
                     <text
                       fg={focused(thread) ? theme.text.base : theme.text.muted}
@@ -85,8 +84,7 @@ function SdlcSidebar(props) {
                       wrapMode="none"
                       truncate
                     >
-                      {thread.activity}
-                      {thread.softwareType ? `:${thread.softwareType}` : ""}
+                      {thread.name}
                     </text>
                     <Show when={thread.status !== "waiting"}>
                       <text fg={threadColor(theme, thread, focused(thread))} flexShrink={0}>
@@ -124,35 +122,6 @@ function SdlcSidebar(props) {
               )}
             </For>
           </Show>
-
-          <Show when={current().nextTransition}>
-            <text fg={theme.text.base}>
-              <b>Next</b>
-            </text>
-            <text fg={theme.text.muted} wrapMode="none" truncate>
-              {current().nextTransition.source === "inferred" ? "~ " : ""}
-              {current().nextTransition.from ?? "?"} → {current().nextTransition.to ?? "?"}
-            </text>
-            <Show when={current().nextTransition.needs}>
-              <text fg={theme.text.muted} wrapMode="none" truncate>
-                {"needs "}
-                {current().nextTransition.needs}
-              </text>
-            </Show>
-          </Show>
-
-          <text fg={theme.text.base}>
-            <b>Authority</b>
-          </text>
-          <text fg={theme.text.muted} wrapMode="none" truncate>
-            {"read "}
-            {auth().read}
-            {" · write "}
-            {auth().write}
-          </text>
-          <text fg={theme.text.muted} wrapMode="none" truncate>
-            {auth().flags}
-          </text>
         </box>
       </Show>
     </box>
@@ -163,7 +132,6 @@ function SdlcDialog(props) {
   const theme = props.context.theme
   const current = () => props.state()
   const focused = (thread) => thread.id === current().focusThreadId
-  const authority = () => authorityText(current().authority)
 
   return (
     <box flexDirection="column" gap={1} padding={1}>
@@ -180,57 +148,58 @@ function SdlcDialog(props) {
         </text>
         <Show
           when={current().threads.length > 0}
-          fallback={<text fg={theme.text.muted}>No threads yet. /sdlc thread add design frontend "design accepted"</text>}
+          fallback={<text fg={theme.text.muted}>No threads yet. /sdlc thread add "pagination works" implementation</text>}
         >
           <box flexDirection="row" gap={1}>
             <text fg={theme.text.muted} width={1}>
               {" "}
             </text>
-            <text fg={theme.text.muted} width={4}>
-              {"  ID"}
+            <text fg={theme.text.muted} width={14}>
+              ID
             </text>
-            <text fg={theme.text.muted} flexGrow={2}>
-              Activity
+            <text fg={theme.text.muted} flexGrow={3}>
+              Work
             </text>
-            <text fg={theme.text.muted} width={10}>
-              Type
+            <text fg={theme.text.muted} width={14}>
+              Phase
             </text>
             <text fg={theme.text.muted} width={8}>
               Status
             </text>
-            <text fg={theme.text.muted} flexGrow={1}>
-              Stopping point
-            </text>
           </box>
           <For each={current().threads}>
             {(thread) => (
-              <box flexDirection="row" gap={1} minWidth={0}>
-                <text fg={threadColor(theme, thread, focused(thread))}>
-                  {threadGlyph(thread, focused(thread))}
-                </text>
-                <text fg={theme.text.muted} width={4}>
-                  {thread.source === "inferred" ? "~" : ""}
-                  {thread.id}
-                </text>
-                <text
-                  fg={focused(thread) ? theme.text.base : theme.text.muted}
-                  flexGrow={2}
-                  flexShrink={1}
-                  minWidth={0}
-                  wrapMode="none"
-                  truncate
-                >
-                  {thread.activity}
-                </text>
-                <text fg={theme.text.muted} width={10} wrapMode="none" truncate>
-                  {thread.softwareType ?? "—"}
-                </text>
-                <text fg={threadColor(theme, thread, focused(thread))} width={8}>
-                  {thread.status}
-                </text>
-                <text fg={theme.text.muted} flexGrow={1} flexShrink={1} minWidth={0} wrapMode="none" truncate>
-                  {thread.stoppingPoint ?? "no stopping point"}
-                </text>
+              <box flexDirection="column">
+                <box flexDirection="row" gap={1} minWidth={0}>
+                  <text fg={threadColor(theme, thread, focused(thread))}>{threadGlyph(thread, focused(thread))}</text>
+                  <text fg={theme.text.muted} width={14} wrapMode="none" truncate>
+                    {thread.source === "inferred" ? "~" : ""}
+                    {threadCode(thread)}
+                  </text>
+                  <text
+                    fg={focused(thread) ? theme.text.base : theme.text.muted}
+                    flexGrow={3}
+                    flexShrink={1}
+                    minWidth={0}
+                    wrapMode="none"
+                    truncate
+                  >
+                    {thread.name}
+                  </text>
+                  <text fg={theme.text.muted} width={14} wrapMode="none" truncate>
+                    {thread.activity}
+                  </text>
+                  <text fg={threadColor(theme, thread, focused(thread))} width={8}>
+                    {thread.status}
+                  </text>
+                </box>
+                <Show when={thread.stoppingPoint || thread.artifacts?.length}>
+                  <text fg={theme.text.muted} wrapMode="none" truncate>
+                    {"    "}
+                    {thread.stoppingPoint ?? "no stopping point"}
+                    {thread.artifacts?.length ? ` · ${thread.artifacts.map((artifact) => artifact.label).join(" · ")}` : ""}
+                  </text>
+                </Show>
               </box>
             )}
           </For>
@@ -257,43 +226,12 @@ function SdlcDialog(props) {
                   {decision.statement}
                 </text>
                 <text fg={theme.text.muted} flexShrink={0}>
-                  {decision.owner ?? "unowned"}
+                  {decision.threadId ?? decision.owner ?? "unowned"}
                 </text>
               </box>
             )}
           </For>
         </Show>
-      </box>
-
-      <Show when={current().nextTransition}>
-        <box flexDirection="column">
-          <text fg={theme.text.base}>
-            <b>Next transition{current().nextTransition.source === "inferred" ? " ~" : ""}</b>
-          </text>
-          <text fg={theme.text.muted}>
-            {current().nextTransition.from ?? "?"} → {current().nextTransition.to ?? "?"}
-            {current().nextTransition.needs ? ` · needs ${current().nextTransition.needs}` : ""}
-          </text>
-        </box>
-      </Show>
-
-      <box flexDirection="column">
-        <text fg={theme.text.base}>
-          <b>Authority</b>
-        </text>
-        <box flexDirection="row" gap={2}>
-          <text fg={theme.text.muted} width={10}>
-            read
-          </text>
-          <text fg={theme.text.base}>{authority().read}</text>
-        </box>
-        <box flexDirection="row" gap={2}>
-          <text fg={theme.text.muted} width={10}>
-            write
-          </text>
-          <text fg={theme.text.base}>{authority().write}</text>
-        </box>
-        <text fg={theme.text.muted}>{authority().flags}</text>
       </box>
 
       <text fg={theme.text.muted}>Local to this session · not the ECR · Esc closes this view</text>

@@ -12,8 +12,8 @@ import {
 test("asks for change, intent, activity and focus", () => {
   const state = emptyState();
   state.threads.push(
-    { id: "T1", activity: "design", softwareType: "frontend" },
-    { id: "T2", activity: "backend", softwareType: null },
+    { id: "T1", name: "API contract", activity: "design", softwareType: "frontend" },
+    { id: "T2", name: "pagination works", activity: "implementation", softwareType: null },
   );
 
   const questions = buildDecisionQuestions(state);
@@ -27,7 +27,7 @@ test("asks for change, intent, activity and focus", () => {
     ["none", "new", "T1", "T2"],
   );
   const t1 = questions[3].choices.find((choice) => choice.value === "T1");
-  assert.match(t1.label, /T1 design:frontend/);
+  assert.match(t1.label, /T1 API contract/);
 });
 
 test("builds input from state and recent messages", () => {
@@ -44,13 +44,13 @@ test("interprets predicate and choice answers", () => {
   const decision = interpretDecisions({
     answers: [
       { type: "predicate", name: "changed", probability: 0.66 },
-      { type: "choice", name: "intent", choice: "transition", confidence: 0.9 },
+      { type: "choice", name: "intent", choice: "phase", confidence: 0.9 },
       { type: "choice", name: "activity", choice: "implementation", confidence: 1 },
       { type: "choice", name: "focus", choice: "T1", confidence: 0.8 },
     ],
   });
   assert.equal(decision.probability, 0.66);
-  assert.equal(decision.intent, "transition");
+  assert.equal(decision.intent, "phase");
   assert.equal(decision.activity, "implementation");
   assert.equal(decision.focus, "T1");
 });
@@ -69,7 +69,7 @@ test("handles an error answer without losing the rest", () => {
 
 test("gates extraction on probability and intent confidence", () => {
   assert.equal(shouldExtract(null), true, "a failed gate must fall back to extraction");
-  assert.equal(shouldExtract({ probability: 0.66, intent: "transition", intentConfidence: 0.9 }), true);
+  assert.equal(shouldExtract({ probability: 0.66, intent: "phase", intentConfidence: 0.9 }), true);
   assert.equal(shouldExtract({ probability: 0.2, intent: "none", intentConfidence: 0.95 }), false);
   assert.equal(shouldExtract({ probability: 0.2, intent: "decision", intentConfidence: 0.4 }), false);
   assert.equal(shouldExtract({ probability: 0.2, intent: "decision", intentConfidence: 0.8 }), true);
@@ -103,8 +103,8 @@ test("gates extraction on probability and intent confidence", () => {
 test("turns a decision into compact hints", () => {
   assert.equal(decisionHints(null), null);
   assert.equal(
-    decisionHints({ activity: "implementation", intent: "transition", focus: "T1" }),
-    "activity=implementation, intent=transition, focus=T1",
+    decisionHints({ activity: "implementation", intent: "phase", focus: "T1" }),
+    "activity=implementation, intent=phase, focus=T1",
   );
   assert.equal(decisionHints({ activity: "none", intent: "none", focus: "none" }), null);
 });

@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { emptyState } from "./state.js";
-import { authorityText, decisionGlyph, summaryLabel, threadGlyph } from "./view.js";
+import { decisionGlyph, summaryLabel, threadCode, threadGlyph } from "./view.js";
 
 test("marks the focused thread and its lifecycle state", () => {
   assert.equal(threadGlyph({ status: "waiting" }, true), "●");
@@ -30,22 +30,8 @@ test("summarises threads and open decisions", () => {
   assert.equal(summaryLabel(undefined), "0 threads · 0 open");
 });
 
-test("renders empty and populated authority", () => {
-  const empty = authorityText(emptyState().authority);
-  assert.deepEqual(empty, {
-    read: "—",
-    write: "—",
-    flags: "publish no · implement no · deploy no",
-  });
-
-  const granted = authorityText({
-    read: ["repo", "docs"],
-    write: ["docs"],
-    publish: true,
-    implement: false,
-    deploy: true,
-  });
-  assert.equal(granted.read, "repo, docs");
-  assert.equal(granted.write, "docs");
-  assert.equal(granted.flags, "publish yes · implement no · deploy yes");
+test("shows a local id plus the tracker id when present", () => {
+  assert.equal(threadCode({ id: "T1", ticket: "PROJ-142" }), "T1 · PROJ-142");
+  assert.equal(threadCode({ id: "T2", ticket: null }), "T2");
+  assert.equal(threadCode(null), "");
 });
