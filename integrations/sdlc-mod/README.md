@@ -176,6 +176,24 @@ Reload OpenCode. The status line appears under the prompt, the SDLC section appe
 
 If only the TUI part is registered, the status line and dialog cannot reach the state store and `/sdlc` commands report an error.
 
+### OpenCode Desktop GUI
+
+Desktop loads the same plugin from `opencode.json` and uses the exported `./gui-experimental` bundle. It adds:
+
+- a **side panel** with the phase/thread matrix, focus block and decisions;
+- a **composer pill** with the focus, counts and thread jump rows;
+- a **`/sdlc` slash command** in the desktop composer.
+
+The prebuilt bundle is committed as `dist/gui-experimental.cjs`; users do not need a build step. To rebuild after changing `src/gui.tsx`:
+
+```bash
+cd integrations/sdlc-mod
+npm install
+npm run build:gui
+```
+
+The GUI plugin API is experimental. A package listed only in `cli.json` is not enough for Desktop; it must also be in `opencode.json`. Artifact links open externally through the desktop host.
+
 ### Claude Code
 
 Load the directory as a plugin for one session:
@@ -239,6 +257,9 @@ sdlc-mod/
   src/rpc.ts          shared RPC schema
   src/server.ts       OpenCode server part: state, inference, RPC
   src/tui.tsx         OpenCode TUI part: status line, sidebar, dialog
+  src/gui.tsx         OpenCode Desktop GUI: panel, composer pill, command
+  dist/               prebuilt GUI bundle
+  vite.config.ts      GUI build configuration
   hooks/register.js   Claude Code mod adapter
   .claude-plugin/     Claude Code manifest
   hooks/hooks.json    Claude Code hooks module declaration

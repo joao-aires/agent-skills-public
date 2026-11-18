@@ -8,3 +8,7 @@ __pycache__/
 .agent-depot/
 .venv/
 built-plugins/
+
+# The GUI part is loaded by OpenCode Desktop as a prebuilt bundle.
+!integrations/sdlc-mod/dist/
+!integrations/sdlc-mod/dist/**
