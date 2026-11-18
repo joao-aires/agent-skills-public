@@ -12,14 +12,23 @@ const LEGACY_PHASES = { operations: "maintenance" };
 
 export function migrateState(saved) {
   if (!saved || typeof saved !== "object") return null;
-  if (saved.version === 4) return saved;
+  if (saved.version === 4) {
+    return {
+      ...saved,
+      threads: (saved.threads ?? []).map((thread) => {
+        const { activity: _legacy, ...rest } = thread;
+        return rest;
+      }),
+    };
+  }
   if (saved.version === 3 || saved.version === 2) {
     const threads = (saved.threads ?? []).map((thread) => {
+      const { activity: _legacy, ...rest } = thread;
       const phase = LEGACY_PHASES[thread.phase ?? thread.activity] ?? thread.phase ?? thread.activity ?? "requirements";
       const completed = (Array.isArray(thread.completedPhases) ? thread.completedPhases : [])
         .map((item) => LEGACY_PHASES[item] ?? item);
       return {
-        ...thread,
+        ...rest,
         phase,
         completedPhases: [...new Set(completed)],
         blockReason: thread.blockReason ?? null,
