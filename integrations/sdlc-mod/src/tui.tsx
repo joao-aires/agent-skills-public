@@ -189,10 +189,10 @@ function SdlcDialog(props) {
             <text fg={theme.text.muted} width={4}>
               {"  ID"}
             </text>
-            <text fg={theme.text.muted} flexGrow={1}>
+            <text fg={theme.text.muted} flexGrow={2}>
               Activity
             </text>
-            <text fg={theme.text.muted} width={12}>
+            <text fg={theme.text.muted} width={10}>
               Type
             </text>
             <text fg={theme.text.muted} width={8}>
@@ -214,7 +214,7 @@ function SdlcDialog(props) {
                 </text>
                 <text
                   fg={focused(thread) ? theme.text.base : theme.text.muted}
-                  flexGrow={1}
+                  flexGrow={2}
                   flexShrink={1}
                   minWidth={0}
                   wrapMode="none"
@@ -222,7 +222,7 @@ function SdlcDialog(props) {
                 >
                   {thread.activity}
                 </text>
-                <text fg={theme.text.muted} width={12} wrapMode="none" truncate>
+                <text fg={theme.text.muted} width={10} wrapMode="none" truncate>
                   {thread.softwareType ?? "—"}
                 </text>
                 <text fg={threadColor(theme, thread, focused(thread))} width={8}>
