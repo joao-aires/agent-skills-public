@@ -20,7 +20,7 @@ import {
  * the ECR. The TUI mirrors it over RPC.
  */
 
-const sessions = new Map()
+const store = ((globalThis as any).__sdlcModSessions ??= new Map())
 let autoEnabled = true
 let options = {
   auto: true,
@@ -44,7 +44,7 @@ export default Plugin.define({
       snapshot: async ({ sessionID }) => ({ state: stateFor(sessionID) }),
       apply: async ({ sessionID, command }) => {
         const next = applyState(stateFor(sessionID), command)
-        sessions.set(sessionID, next)
+        store.set(sessionID, next)
         await registration.events.emit("updated", { sessionID, state: next })
         return { state: next }
       },
@@ -127,7 +127,7 @@ export default Plugin.define({
         }
         if (JSON.stringify(structural) !== JSON.stringify(before)) {
           before = structural
-          sessions.set(sessionID, before)
+          store.set(sessionID, before)
           await registration.events.emit("updated", { sessionID, state: before })
         }
         if (!extract) return
@@ -147,7 +147,7 @@ export default Plugin.define({
         })
         if (!result.changed || !result.applied.length) return
 
-        sessions.set(sessionID, result.state)
+        store.set(sessionID, result.state)
         await registration.events.emit("updated", { sessionID, state: result.state })
       } catch (error) {
       } finally {
@@ -200,10 +200,10 @@ function modelRef(value) {
 }
 
 function stateFor(sessionID) {
-  let state = sessions.get(sessionID)
-  if (!state) {
+  let state = store.get(sessionID)
+  if (!state || state.version !== 2) {
     state = emptyState(sessionID)
-    sessions.set(sessionID, state)
+    store.set(sessionID, state)
   }
   return state
 }
