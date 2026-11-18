@@ -1,14 +1,15 @@
+import { ACTIVITIES as PHASES } from "./state.js";
 import { normaliseMessages } from "./extract.js";
 
 export const DEFAULT_DECISION_MODEL = "opencode/jev-1.13-free";
 
-export const ACTIVITIES = ["requirements", "design", "implementation", "testing", "operations", "none"];
+export const ACTIVITIES = [...PHASES, "none"];
 
 const INTENTS = [
   { value: "none", label: "no change" },
   { value: "focus", label: "focus change" },
   { value: "decision", label: "decision" },
-  { value: "transition", label: "transition" },
+  { value: "phase", label: "phase change" },
   { value: "thread", label: "thread change" },
   { value: "park", label: "park" },
   { value: "resume", label: "resume" },
@@ -35,7 +36,7 @@ export function buildDecisionQuestions(state) {
     { value: "new", label: "new thread" },
     ...threads.map((thread) => ({
       value: thread.id,
-      label: `${thread.id} ${thread.activity}${thread.softwareType ? `:${thread.softwareType}` : ""}`,
+      label: `${thread.id} ${thread.name}`,
     })),
   ];
 
@@ -56,7 +57,7 @@ export function buildDecisionQuestions(state) {
     {
       type: "choice",
       name: "activity",
-      instructions: "Which activity is the work in after the latest user message?",
+      instructions: "Which phase is the work in after the latest user message?",
       choices: ACTIVITIES.map((activity) => ({ value: activity, label: activity })),
     },
     {

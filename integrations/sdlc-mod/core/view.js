@@ -28,13 +28,7 @@ export function summaryLabel(state) {
   return `${threads} thread${threads === 1 ? "" : "s"} · ${open} open`;
 }
 
-export function authorityText(authority) {
-  const read = Array.isArray(authority?.read) && authority.read.length ? authority.read.join(", ") : "—";
-  const write = Array.isArray(authority?.write) && authority.write.length ? authority.write.join(", ") : "—";
-  const flag = (value) => (value ? "yes" : "no");
-  return {
-    read,
-    write,
-    flags: `publish ${flag(authority?.publish)} · implement ${flag(authority?.implement)} · deploy ${flag(authority?.deploy)}`,
-  };
+export function threadCode(thread) {
+  if (!thread) return "";
+  return thread.ticket ? `${thread.id} · ${thread.ticket}` : thread.id;
 }

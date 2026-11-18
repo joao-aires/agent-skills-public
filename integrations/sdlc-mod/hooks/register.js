@@ -22,7 +22,7 @@ export function register(on) {
     await $.command.register({
       name: "sdlc",
       description: "Show or update local SDLC engagement state",
-      argumentHint: "state|focus|thread|decision|transition|auto|reset",
+      argumentHint: "state|focus|thread|decision|auto|reset",
     });
     $.ui.status(renderCompact(state));
     return next(event);

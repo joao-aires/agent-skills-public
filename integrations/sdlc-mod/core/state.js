@@ -5,24 +5,17 @@
  * durable ECR, and it never grants authority.
  */
 
-export const THREAD_STATUSES = ["current", "waiting", "blocked", "parked", "done"];
+export const THREAD_STATUSES = ["waiting", "blocked", "parked", "done"];
 export const DECISION_STATUSES = ["open", "accepted", "superseded", "rejected"];
+export const ACTIVITIES = ["requirements", "design", "implementation", "testing", "operations"];
 
 export function emptyState(sessionId = null) {
   return {
-    version: 1,
+    version: 2,
     sessionId,
     focusThreadId: null,
     threads: [],
     decisions: [],
-    nextTransition: null,
-    authority: {
-      read: [],
-      write: [],
-      publish: false,
-      implement: false,
-      deploy: false,
-    },
   };
 }
 
@@ -46,6 +39,32 @@ function requireString(value, name) {
   return value.trim();
 }
 
+function requireActivity(value) {
+  const activity = requireString(value, "activity");
+  if (!ACTIVITIES.includes(activity)) {
+    throw new Error(`activity must be one of ${ACTIVITIES.join(", ")}`);
+  }
+  return activity;
+}
+
+function optionalString(value, name) {
+  if (value === undefined || value === null || value === "") return null;
+  return requireString(value, name);
+}
+
+function requireArtifacts(value) {
+  if (value === undefined || value === null) return [];
+  if (!Array.isArray(value)) throw new Error("artifacts must be an array");
+  return value.map((artifact) => {
+    if (!artifact || typeof artifact !== "object") throw new Error("artifact must be an object");
+    return {
+      label: requireString(artifact.label, "artifact label"),
+      href: requireString(artifact.href, "artifact href"),
+      kind: artifact.kind === "url" ? "url" : "file",
+    };
+  });
+}
+
 function findThread(state, id) {
   const thread = state.threads.find((item) => item.id === id);
   if (!thread) throw new Error(`unknown thread ${id}`);
@@ -58,34 +77,64 @@ function findDecision(state, id) {
   return decision;
 }
 
+function validArtifacts(artifacts) {
+  return (
+    Array.isArray(artifacts) &&
+    artifacts.every(
+      (artifact) =>
+        artifact &&
+        typeof artifact.label === "string" &&
+        artifact.label.trim() !== "" &&
+        typeof artifact.href === "string" &&
+        artifact.href.trim() !== "" &&
+        (artifact.kind === "file" || artifact.kind === "url"),
+    )
+  );
+}
+
 export function validateState(state) {
   const errors = [];
   if (!state || typeof state !== "object") return ["state must be an object"];
-  if (state.version !== 1) errors.push("version must be 1");
+  if (state.version !== 2) errors.push("version must be 2");
   if (!Array.isArray(state.threads)) errors.push("threads must be an array");
   if (!Array.isArray(state.decisions)) errors.push("decisions must be an array");
+
   const threadIds = new Set();
   for (const thread of state.threads ?? []) {
     if (!/^T\d+$/.test(thread.id)) errors.push(`invalid thread id ${thread.id}`);
     if (threadIds.has(thread.id)) errors.push(`duplicate thread id ${thread.id}`);
     threadIds.add(thread.id);
-    if (!THREAD_STATUSES.includes(thread.status)) {
-      errors.push(`invalid thread status ${thread.status}`);
+    if (typeof thread.name !== "string" || thread.name.trim() === "") errors.push(`thread ${thread.id} needs a name`);
+    if (typeof thread.activity !== "string" || thread.activity.trim() === "") {
+      errors.push(`thread ${thread.id} needs an activity`);
     }
-    if (!thread.activity) errors.push(`thread ${thread.id} needs an activity`);
+    if (!THREAD_STATUSES.includes(thread.status)) errors.push(`invalid thread status ${thread.status}`);
+    if (thread.ticket !== null && thread.ticket !== undefined && typeof thread.ticket !== "string") {
+      errors.push(`thread ${thread.id} ticket must be a string`);
+    }
+    if (!validArtifacts(thread.artifacts)) errors.push(`thread ${thread.id} has invalid artifacts`);
   }
   if (state.focusThreadId && !threadIds.has(state.focusThreadId)) {
     errors.push(`focus thread ${state.focusThreadId} is not present`);
   }
+
   const decisionIds = new Set();
   for (const decision of state.decisions ?? []) {
     if (!/^D\d+$/.test(decision.id)) errors.push(`invalid decision id ${decision.id}`);
     if (decisionIds.has(decision.id)) errors.push(`duplicate decision id ${decision.id}`);
     decisionIds.add(decision.id);
+    if (typeof decision.statement !== "string" || decision.statement.trim() === "") {
+      errors.push(`decision ${decision.id} needs a statement`);
+    }
     if (!DECISION_STATUSES.includes(decision.status)) {
       errors.push(`invalid decision status ${decision.status}`);
     }
+    if (decision.threadId && !threadIds.has(decision.threadId)) {
+      errors.push(`decision ${decision.id} references unknown thread ${decision.threadId}`);
+    }
+    if (!validArtifacts(decision.artifacts)) errors.push(`decision ${decision.id} has invalid artifacts`);
   }
+
   return errors;
 }
 
@@ -102,18 +151,22 @@ export function apply(previous, command) {
   if (!command || typeof command !== "object") throw new Error("command must be an object");
   const state = clone(previous);
   const now = new Date().toISOString();
+  const source = command.source === "inferred" ? "inferred" : "manual";
 
   switch (command.type) {
     case "thread.add": {
       const id = nextId("T", state.threads);
       const thread = {
         id,
-        activity: requireString(command.activity, "activity"),
-        softwareType: command.softwareType ? requireString(command.softwareType, "softwareType") : null,
-        stoppingPoint: command.stoppingPoint ? requireString(command.stoppingPoint, "stoppingPoint") : null,
+        ticket: optionalString(command.ticket, "ticket"),
+        name: requireString(command.name, "thread name"),
+        activity: requireActivity(command.activity),
+        softwareType: optionalString(command.softwareType, "softwareType"),
+        stoppingPoint: optionalString(command.stoppingPoint, "stoppingPoint"),
         status: command.status ?? "waiting",
-        owner: command.owner ?? null,
-        source: command.source === "inferred" ? "inferred" : "manual",
+        artifacts: requireArtifacts(command.artifacts),
+        owner: optionalString(command.owner, "owner"),
+        source,
         updatedAt: now,
       };
       if (!THREAD_STATUSES.includes(thread.status)) throw new Error(`invalid thread status ${thread.status}`);
@@ -132,10 +185,29 @@ export function apply(previous, command) {
       thread.updatedAt = now;
       break;
     }
+    case "thread.phase": {
+      const thread = findThread(state, requireString(command.id, "thread id"));
+      thread.activity = requireActivity(command.activity);
+      thread.updatedAt = now;
+      break;
+    }
+    case "thread.ticket": {
+      const thread = findThread(state, requireString(command.id, "thread id"));
+      thread.ticket = requireString(command.ticket, "ticket");
+      thread.updatedAt = now;
+      break;
+    }
+    case "thread.artifact": {
+      const thread = findThread(state, requireString(command.id, "thread id"));
+      const artifact = requireArtifacts([command.artifact])[0];
+      if (!thread.artifacts.some((item) => item.href === artifact.href)) thread.artifacts.push(artifact);
+      thread.updatedAt = now;
+      break;
+    }
     case "thread.park": {
       const thread = findThread(state, requireString(command.id, "thread id"));
       thread.status = "parked";
-      thread.parkReason = command.reason ? requireString(command.reason, "reason") : null;
+      thread.parkReason = optionalString(command.reason, "reason");
       thread.updatedAt = now;
       break;
     }
@@ -157,12 +229,15 @@ export function apply(previous, command) {
     }
     case "decision.add": {
       const id = nextId("D", state.decisions);
+      if (command.threadId) findThread(state, command.threadId);
       state.decisions.push({
         id,
         statement: requireString(command.statement, "decision statement"),
-        owner: command.owner ? requireString(command.owner, "owner") : null,
+        owner: optionalString(command.owner, "owner"),
         status: command.status ?? "open",
-        source: command.source === "inferred" ? "inferred" : "manual",
+        threadId: optionalString(command.threadId, "thread id"),
+        artifacts: requireArtifacts(command.artifacts),
+        source,
         updatedAt: now,
       });
       if (!DECISION_STATUSES.includes(command.status ?? "open")) {
@@ -182,23 +257,20 @@ export function apply(previous, command) {
       decision.updatedAt = now;
       break;
     }
-    case "transition.set":
-      state.nextTransition = {
-        from: command.from ? requireString(command.from, "from") : null,
-        to: command.to ? requireString(command.to, "to") : null,
-        needs: command.needs ? requireString(command.needs, "needs") : null,
-        source: command.source === "inferred" ? "inferred" : "manual",
-      };
+    case "decision.thread": {
+      const decision = findDecision(state, requireString(command.id, "decision id"));
+      if (command.threadId) findThread(state, command.threadId);
+      decision.threadId = optionalString(command.threadId, "thread id");
+      decision.updatedAt = now;
       break;
-    case "authority.set":
-      state.authority = {
-        read: Array.isArray(command.read) ? command.read.map(String) : state.authority.read,
-        write: Array.isArray(command.write) ? command.write.map(String) : state.authority.write,
-        publish: Boolean(command.publish ?? state.authority.publish),
-        implement: Boolean(command.implement ?? state.authority.implement),
-        deploy: Boolean(command.deploy ?? state.authority.deploy),
-      };
+    }
+    case "decision.artifact": {
+      const decision = findDecision(state, requireString(command.id, "decision id"));
+      const artifact = requireArtifacts([command.artifact])[0];
+      if (!decision.artifacts.some((item) => item.href === artifact.href)) decision.artifacts.push(artifact);
+      decision.updatedAt = now;
       break;
+    }
     case "reset":
       return emptyState(previous.sessionId);
     default:
@@ -209,6 +281,11 @@ export function apply(previous, command) {
   return state;
 }
 
+export function focusedThread(state) {
+  const current = readable(state);
+  return current.threads.find((thread) => thread.id === current.focusThreadId) ?? null;
+}
+
 /**
  * Renderers run against host-owned reactive stores. A store update can expose
  * the value while it is still being written, so rendering reads a completed
@@ -217,32 +294,19 @@ export function apply(previous, command) {
 function readable(state) {
   const fallback = emptyState();
   if (!state || typeof state !== "object") return fallback;
-  const authority = state.authority && typeof state.authority === "object" ? state.authority : {};
   return {
     ...fallback,
     ...state,
     threads: Array.isArray(state.threads) ? state.threads : fallback.threads,
     decisions: Array.isArray(state.decisions) ? state.decisions : fallback.decisions,
-    authority: {
-      read: Array.isArray(authority.read) ? authority.read : fallback.authority.read,
-      write: Array.isArray(authority.write) ? authority.write : fallback.authority.write,
-      publish: Boolean(authority.publish),
-      implement: Boolean(authority.implement),
-      deploy: Boolean(authority.deploy),
-    },
   };
-}
-
-export function focusedThread(state) {
-  const current = readable(state);
-  return current.threads.find((thread) => thread.id === current.focusThreadId) ?? null;
 }
 
 export function renderCompact(state) {
   const current = readable(state);
   const focus = focusedThread(current);
   const open = current.decisions.filter((decision) => decision.status === "open").length;
-  const label = focus ? `${focus.activity}${focus.softwareType ? `:${focus.softwareType}` : ""}` : "no focus";
+  const label = focus ? focus.name : "no focus";
   return `SDLC · ${label} · ${current.threads.length} thread${current.threads.length === 1 ? "" : "s"} · ${open} open`;
 }
 
@@ -250,19 +314,27 @@ export function renderMarkdown(state) {
   const current = readable(state);
   const lines = ["## Engagement state", ""];
   const focus = focusedThread(current);
-  lines.push(`Focus: ${focus ? `${focus.id} — ${focus.activity}${focus.softwareType ? ` (${focus.softwareType})` : ""}` : "none"}`);
+  lines.push(
+    `Focus: ${focus ? `${focus.id} — ${focus.name} (${focus.activity}${focus.softwareType ? `, ${focus.softwareType}` : ""})` : "none"}`,
+  );
   lines.push("", "Threads:");
   if (!current.threads.length) lines.push("- None");
   for (const thread of current.threads) {
     const marker = thread.id === current.focusThreadId ? "●" : thread.status === "parked" ? "○" : "◐";
-    lines.push(`- ${marker} ${thread.id} — ${thread.activity}${thread.softwareType ? ` — ${thread.softwareType}` : ""} — ${thread.stoppingPoint ?? "no stopping point"} — ${thread.status}${thread.parkReason ? ` (${thread.parkReason})` : ""}`);
+    const ticket = thread.ticket ? ` [${thread.ticket}]` : "";
+    const artifacts = thread.artifacts?.length ? ` — ${thread.artifacts.map((artifact) => artifact.label).join(", ")}` : "";
+    lines.push(
+      `- ${marker} ${thread.id}${ticket} — ${thread.name} — ${thread.activity}${thread.softwareType ? ` (${thread.softwareType})` : ""} — ${thread.status}${thread.stoppingPoint ? ` — ${thread.stoppingPoint}` : ""}${artifacts}`,
+    );
   }
   lines.push("", "Decisions:");
   if (!current.decisions.length) lines.push("- None");
   for (const decision of current.decisions) {
-    lines.push(`- ${decision.id} — ${decision.status} — ${decision.owner ?? "unowned"} — ${decision.statement}`);
+    const thread = decision.threadId ? ` — ${decision.threadId}` : "";
+    const artifacts = decision.artifacts?.length ? ` — ${decision.artifacts.map((artifact) => artifact.label).join(", ")}` : "";
+    lines.push(
+      `- ${decision.id} — ${decision.status} — ${decision.owner ?? "unowned"} — ${decision.statement}${thread}${artifacts}`,
+    );
   }
-  lines.push("", `Next transition: ${current.nextTransition ? `${current.nextTransition.from ?? "?"} → ${current.nextTransition.to ?? "?"}${current.nextTransition.needs ? ` (needs ${current.nextTransition.needs})` : ""}` : "none"}`);
-  lines.push("", `Authority: read=${current.authority.read.join(",") || "none"}; write=${current.authority.write.join(",") || "none"}; publish=${current.authority.publish}; implement=${current.authority.implement}; deploy=${current.authority.deploy}`);
   return lines.join("\n");
 }

@@ -1,4 +1,4 @@
-import { apply } from "./state.js";
+import { ACTIVITIES, apply } from "./state.js";
 
 const MAX_MESSAGES = 8;
 const MAX_MESSAGE_CHARS = 1200;
@@ -11,20 +11,21 @@ Return only a JSON object with this shape:
 
 Allowed commands:
 - {"type":"thread.focus","id":"T1"}
-- {"type":"thread.add","activity":"design","softwareType":"frontend","stoppingPoint":"design accepted"}
+- {"type":"thread.add","name":"pagination works","activity":"implementation","softwareType":"backend","stoppingPoint":"pagination works"}
+- {"type":"thread.phase","id":"T1","activity":"testing"}
 - {"type":"thread.status","id":"T1","status":"waiting|blocked|parked"}
 - {"type":"thread.park","id":"T1","reason":"why it is parked"}
 - {"type":"thread.resume","id":"T1"}
-- {"type":"decision.add","statement":"the decision","owner":"user or unowned"}
-- {"type":"transition.set","from":"design","to":"implementation","needs":"what must be accepted"}
+- {"type":"decision.add","statement":"the decision","owner":"user or unowned","threadId":"T1"}
 
 Rules:
+- A thread is a unit of work with a short name. Its activity is the current phase: requirements, design, implementation, testing or operations.
 - Report only changes supported by the conversation after the state shown below.
 - Do not repeat threads or decisions that already exist.
 - Add a decision only when the conversation accepts it or leaves it explicitly open; it is always recorded as open.
-- Never set authority, resolve or reopen decisions, close threads or reset state.
-- Use existing thread ids for focus and status changes. Do not focus a thread added in the same response.
-- Use short activity names such as requirements, design, implementation, testing or operations.
+- Never resolve or reopen decisions, close threads or reset state.
+- Use existing thread ids for focus, phase and status changes. Do not focus a thread added in the same response.
+- Move an existing thread to a new phase instead of creating a second thread for the same work.
 - Confidence describes this update, not the whole conversation.
 - Return {"confidence":1,"commands":[]} when nothing changed.`;
 
@@ -119,7 +120,7 @@ export function guardCommands(commands, state, { confidence = 1, minConfidence =
   const threads = Array.isArray(state?.threads) ? state.threads : [];
   const decisions = Array.isArray(state?.decisions) ? state.decisions : [];
   const threadById = new Map(threads.map((thread) => [thread.id, thread]));
-  const threadKeys = new Set(threads.map(threadKey));
+  const threadNames = new Set(threads.map((thread) => nameKey(thread.name)));
   const decisionKeys = new Set(decisions.map((decision) => statementKey(decision.statement)));
   const batchThreads = new Set();
   const batchDecisions = new Set();
@@ -129,16 +130,17 @@ export function guardCommands(commands, state, { confidence = 1, minConfidence =
     if (!raw || typeof raw !== "object") continue;
 
     if (raw.type === "thread.add") {
+      const name = text(raw.name);
       const activity = text(raw.activity);
-      if (!activity) continue;
-      const softwareType = text(raw.softwareType) || null;
-      const key = `${activity.toLowerCase()}|${(softwareType ?? "").toLowerCase()}`;
-      if (threadKeys.has(key) || batchThreads.has(key)) continue;
+      if (!name || !ACTIVITIES.includes(activity)) continue;
+      const key = nameKey(name);
+      if (threadNames.has(key) || batchThreads.has(key)) continue;
       batchThreads.add(key);
       guarded.push({
         type: "thread.add",
+        name,
         activity,
-        softwareType,
+        softwareType: text(raw.softwareType) || null,
         stoppingPoint: text(raw.stoppingPoint) || null,
         source: "inferred",
       });
@@ -152,12 +154,19 @@ export function guardCommands(commands, state, { confidence = 1, minConfidence =
       continue;
     }
 
+    if (raw.type === "thread.phase") {
+      const thread = threadById.get(text(raw.id));
+      if (!thread || !ACTIVITIES.includes(raw.activity)) continue;
+      if (thread.activity === raw.activity) continue;
+      guarded.push({ type: "thread.phase", id: thread.id, activity: raw.activity });
+      continue;
+    }
+
     if (raw.type === "thread.status") {
-      const id = text(raw.id);
-      const thread = threadById.get(id);
+      const thread = threadById.get(text(raw.id));
       if (!thread || !["waiting", "blocked", "parked"].includes(raw.status)) continue;
       if (thread.status === raw.status) continue;
-      guarded.push({ type: "thread.status", id, status: raw.status });
+      guarded.push({ type: "thread.status", id: thread.id, status: raw.status });
       continue;
     }
 
@@ -180,25 +189,17 @@ export function guardCommands(commands, state, { confidence = 1, minConfidence =
       if (!statement) continue;
       const key = statementKey(statement);
       if (decisionKeys.has(key) || batchDecisions.has(key)) continue;
+      const threadId = text(raw.threadId) || null;
+      if (threadId && !threadById.has(threadId)) continue;
       batchDecisions.add(key);
       guarded.push({
         type: "decision.add",
         statement,
         owner: text(raw.owner) || "unassigned",
         status: "open",
+        threadId,
         source: "inferred",
       });
-      continue;
-    }
-
-    if (raw.type === "transition.set") {
-      const to = text(raw.to);
-      if (!to) continue;
-      const from = text(raw.from) || null;
-      const needs = text(raw.needs) || null;
-      const current = state?.nextTransition;
-      if (current && current.from === from && current.to === to && current.needs === needs) continue;
-      guarded.push({ type: "transition.set", from, to, needs, source: "inferred" });
     }
   }
 
@@ -235,8 +236,8 @@ export function applyExtraction(state, extraction, options = {}) {
   };
 }
 
-function threadKey(thread) {
-  return `${String(thread.activity ?? "").toLowerCase()}|${String(thread.softwareType ?? "").toLowerCase()}`;
+function nameKey(name) {
+  return String(name ?? "").toLowerCase().replace(/\s+/g, " ").trim();
 }
 
 function statementKey(statement) {
