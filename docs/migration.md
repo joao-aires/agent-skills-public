@@ -164,3 +164,17 @@ Structural renames:
 `data-recovery` and `observability` are retired. Recovery design lives in `design-system/references/reliability-disaster-recovery.md`, recovery procedures in `guide-runbook`, and readiness evidence in `run-production-readiness-review`. Observability design lives in `design-system/references/observability-and-monitoring.md`; incident response owns response and operations review owns recurring hygiene.
 
 Rebuild bundles rather than overlaying an old installation.
+
+## Repository documentation paths
+
+The repository's own guides moved from `documentation/` to `docs/`. Relative links inside the repository were updated in the same change. External bookmarks or copied links need the new paths:
+
+| Previous path | Current path |
+| --- | --- |
+| `documentation/` | `docs/` |
+| `documentation/start-here.md` | `docs/usage.md#choose-a-path` |
+| `documentation/railway-analogy.md` | Removed; `docs/architecture.md` explains composition and fallback |
+| `documentation/maintainers/capability-expansion.md` | Removed; `docs/maintainers/sources.md` and the maintainer guide own current decisions |
+| `documentation/maintainers/guidance-audit.md` | Removed; `skill-authoring` and the maintainer guide own the authoring rule |
+
+Plugin package names, skill names and project artifact paths are unaffected. A project's own `documentation/` folder remains a valid project convention; this change applies only to this repository.

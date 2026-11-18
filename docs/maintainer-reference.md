@@ -36,8 +36,8 @@ python scripts/artifact_registry.py --check
 python scripts/skill_map.py --inventory
 # Regenerate a Mermaid diagram (requires Node/npx and a local Chrome):
 # PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
-#   npx -y @mermaid-js/mermaid-cli -i documentation/diagrams/<name>.mmd \
-#   -o documentation/images/<name>.svg -b white --size 1400
+#   npx -y @mermaid-js/mermaid-cli -i docs/diagrams/<name>.mmd \
+#   -o docs/images/<name>.svg -b white --size 1400
 python -m unittest discover -s tests -v
 ```
 

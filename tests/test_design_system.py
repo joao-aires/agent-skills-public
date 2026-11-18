@@ -87,7 +87,7 @@ class DesignSystemTests(unittest.TestCase):
         self.assertIn('Design validation', text)
 
     def test_documentation_states_software_type_is_not_metadata(self):
-        text = (ROOT / 'documentation/metadata.md').read_text()
+        text = (ROOT / 'docs/metadata.md').read_text()
         self.assertIn('software type is not skill metadata', text.lower())
         self.assertIn('software_type', text)
 
@@ -96,7 +96,7 @@ class DesignSystemTests(unittest.TestCase):
         self.assertIn('software-types.md', readme)
         self.assertIn('design-proposal.md', readme)
         self.assertIn('engagement-state.md', readme)
-        guide = (ROOT / 'documentation/sdlc.md').read_text()
+        guide = (ROOT / 'docs/sdlc.md').read_text()
         self.assertIn('software-types.md', guide)
         self.assertIn('design-proposal.md', guide)
 
@@ -118,7 +118,7 @@ class DesignSystemTests(unittest.TestCase):
                     self.assertIn(heading, text)
 
     def test_metadata_defines_the_guide_kind(self):
-        text = (ROOT / 'documentation/metadata.md').read_text()
+        text = (ROOT / 'docs/metadata.md').read_text()
         for kind in ('system', 'activity', 'method', 'workflow', 'guide', 'reference'):
             with self.subTest(kind=kind):
                 self.assertIn(f'`{kind}`', text)
@@ -127,7 +127,7 @@ class DesignSystemTests(unittest.TestCase):
         self.assertIn('artifact guide registry', text.lower())
 
     def test_skill_map_includes_guides_and_counts(self):
-        text = (ROOT / 'documentation/skills-map.md').read_text()
+        text = (ROOT / 'docs/skills-map.md').read_text()
         self.assertIn('158 skills', text)
         for name in ('guide-design-spec', 'guide-architecture-views',
                      'guide-state-machine', 'guide-compatibility-matrix',

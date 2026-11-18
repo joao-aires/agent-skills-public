@@ -23,7 +23,7 @@ codex plugin marketplace add joao-aires/agent-skills-public --ref claude-marketp
 
 Open the plugin browser in a supported Codex client, install `sdlc` from Agent Skills Public, then start a new session.
 
-For a local build instead, you need Git and Python 3.10+. Follow [installation](documentation/installation.md#build-the-bundles) to create a virtual environment, build the bundles and load them in your client. The same page covers OpenCode, Pi, VS Code, ChatGPT desktop and updates.
+For a local build instead, you need Git and Python 3.10+. Follow [installation](docs/installation.md#build-the-bundles) to create a virtual environment, build the bundles and load them in your client. The same page covers OpenCode, Pi, VS Code, ChatGPT desktop and updates.
 
 ### First useful result
 
@@ -64,27 +64,27 @@ The collection has 21 plugins: 9 generic and 12 technical. Technical guidance ap
 
 Unlike a prompt collection, each skill names the outcome it owns, where it stops and what evidence completes the work. Plugins remain independent, so installing one does not pull in another or choose a technology for the project.
 
-![Seven SDLC phases from project planning through maintenance, with feedback and shared expertise](documentation/images/sdlc-cycle.svg)
+![Seven SDLC phases from project planning through maintenance, with feedback and shared expertise](docs/images/sdlc-cycle.svg)
 
-The cycle shows outcome dependencies, not a required sequence of skill invocations. Enter at the activity the work needs, repeat implementation and verification as evidence demands, and reopen earlier decisions when product or operating evidence changes. [SDLC coverage](documentation/sdlc.md) explains the phases and entry points.
+The cycle shows outcome dependencies, not a required sequence of skill invocations. Enter at the activity the work needs, repeat implementation and verification as evidence demands, and reopen earlier decisions when product or operating evidence changes. [SDLC coverage](docs/sdlc.md) explains the phases and entry points.
 
 ## Documentation
 
-Start with the [documentation map](documentation/README.md) for the full set by reader need.
+Start with the [documentation map](docs/README.md) for the full set by reader need.
 
 | Guide | Question it answers |
 | --- | --- |
-| [Installation](documentation/installation.md) | How do I build, load, update and check the bundles? |
-| [Usage](documentation/usage.md) | Which activity should I request, and what should I expect? |
-| [Architecture](documentation/architecture.md) | How do activities, methods and technical guidance compose? |
-| [SDLC coverage](documentation/sdlc.md) | Where does each capability fit in the lifecycle? |
-| [Engineering artifacts](documentation/artifact-workflow.md) | How do I record a change, choose a home and hand off work? |
-| [Migration](documentation/migration.md) | How do I replace an older installation or skill name? |
-| [Maintainer reference](documentation/maintainer-reference.md) | How do I change, validate and evaluate the collection? |
+| [Installation](docs/installation.md) | How do I build, load, update and check the bundles? |
+| [Usage](docs/usage.md) | Which activity should I request, and what should I expect? |
+| [Architecture](docs/architecture.md) | How do activities, methods and technical guidance compose? |
+| [SDLC coverage](docs/sdlc.md) | Where does each capability fit in the lifecycle? |
+| [Engineering artifacts](docs/artifact-workflow.md) | How do I record a change, choose a home and hand off work? |
+| [Migration](docs/migration.md) | How do I replace an older installation or skill name? |
+| [Maintainer reference](docs/maintainer-reference.md) | How do I change, validate and evaluate the collection? |
 
 ## Development
 
-Use a virtual environment and the validation dependencies from [installation](documentation/installation.md#build-the-bundles). From the repository root:
+Use a virtual environment and the validation dependencies from [installation](docs/installation.md#build-the-bundles). From the repository root:
 
 ```bash
 python scripts/validate_plugins.py
@@ -95,7 +95,7 @@ python scripts/build_plugins.py --all --destination /tmp/built-agent-plugins
 python scripts/check_collection.py --built /tmp/built-agent-plugins
 ```
 
-The destination must be new. The checks validate manifests, metadata, links, source pins, package resources and complete builds; they do not establish client discovery or agent behavior. Diagram sources under `documentation/diagrams/` are rendered to `documentation/images/` with Mermaid; the [maintainer reference](documentation/maintainer-reference.md#maintaining-the-collection) has the command.
+The destination must be new. The checks validate manifests, metadata, links, source pins, package resources and complete builds; they do not establish client discovery or agent behavior. Diagram sources under `docs/diagrams/` are rendered to `docs/images/` with Mermaid; the [maintainer reference](docs/maintainer-reference.md#maintaining-the-collection) has the command.
 
 ## Support and contribution
 
@@ -109,4 +109,4 @@ Guidance is versioned here and installed from a build. A client's discovery, inv
 
 ## License
 
-Repository-authored material is MIT licensed; see [LICENSE](LICENSE). Acquired skills retain their upstream licenses. Generated bundles include per-skill notices, and the [source catalogue](documentation/maintainers/sources.md) records origins, pins and adaptations.
+Repository-authored material is MIT licensed; see [LICENSE](LICENSE). Acquired skills retain their upstream licenses. Generated bundles include per-skill notices, and the [source catalogue](docs/maintainers/sources.md) records origins, pins and adaptations.

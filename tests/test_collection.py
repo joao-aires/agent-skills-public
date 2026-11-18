@@ -13,11 +13,11 @@ spec.loader.exec_module(collection)
 
 class CollectionTests(unittest.TestCase):
     def fixture(self, root):
-        (root / "documentation").mkdir()
-        (root / "README.md").write_text("[Start](documentation/usage.md#start)\n")
+        (root / "docs").mkdir()
+        (root / "README.md").write_text("[Start](docs/usage.md#start)\n")
         (root / "AGENTS.md").write_text("Instructions\n")
-        (root / "documentation/usage.md").write_text("# Start\n")
-        (root / "documentation/migration.md").write_text("| `old-name` | `new-name` |\n")
+        (root / "docs/usage.md").write_text("# Start\n")
+        (root / "docs/migration.md").write_text("| `old-name` | `new-name` |\n")
 
     def test_broken_heading_and_stale_name_fail_but_fenced_examples_do_not(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -25,12 +25,12 @@ class CollectionTests(unittest.TestCase):
             write_depot(root)
             self.fixture(root)
             self.assertFalse(collection.check_links(root)[0])
-            (root / "README.md").write_text("[Start](documentation/usage.md#missing)\nUse `old-name`.\n```md\n[Example](missing.md)\n```\n")
+            (root / "README.md").write_text("[Start](docs/usage.md#missing)\nUse `old-name`.\n```md\n[Example](missing.md)\n```\n")
             errors, _ = collection.check_links(root)
             self.assertEqual(len(errors), 2)
             self.assertTrue(any("missing heading" in error for error in errors))
             self.assertTrue(any("obsolete skill" in error for error in errors))
-            nested = root / "documentation/maintainers"
+            nested = root / "docs/maintainers"
             nested.mkdir()
             (nested / "sources.md").write_text("[Missing](absent.md)\n")
             errors, _ = collection.check_links(root)
@@ -39,7 +39,7 @@ class CollectionTests(unittest.TestCase):
     def test_svg_sources_must_parse_as_svg_xml(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
-            images = root / "documentation/images"
+            images = root / "docs/images"
             images.mkdir(parents=True)
             svg = images / "cycle.svg"
             svg.write_text('<svg xmlns="http://www.w3.org/2000/svg"><text>A &amp; B</text></svg>')
@@ -63,10 +63,10 @@ class CollectionTests(unittest.TestCase):
             current = root / 'plugins/example/skills/new-name'
             current.mkdir(parents=True)
             (current / 'SKILL.md').write_text('# New method\n')
-            (root / 'documentation/migration.md').write_text(
+            (root / 'docs/migration.md').write_text(
                 '| `old-name` | `new-name` |\n'
             )
-            (root / 'documentation/usage.md').write_text(
+            (root / 'docs/usage.md').write_text(
                 '# Start\nOld-name is available.\n'
                 '[Old name](../plugins/example/skills/new-name/SKILL.md)\n'
             )
@@ -75,7 +75,7 @@ class CollectionTests(unittest.TestCase):
             self.assertTrue(any('obsolete skill link label Old name' in x for x in errors))
 
             # Historical migration mappings remain intentionally exempt.
-            (root / 'documentation/usage.md').write_text(
+            (root / 'docs/usage.md').write_text(
                 '# Start\nSee [reference](https://example.com/something/old-name/guide).\n'
             )
             self.assertFalse(collection.check_links(root)[0])
@@ -89,7 +89,7 @@ class CollectionTests(unittest.TestCase):
             skill.mkdir(parents=True)
             (skill / "SKILL.md").write_text("# Local method\n")
             (skill.parent.parent / "plugin.json").write_text('{"name":"example"}')
-            sources = root / "documentation/maintainers/sources.md"
+            sources = root / "docs/maintainers/sources.md"
             sources.parent.mkdir(parents=True)
             valid = (
                 "The collection has 1 independent packages and 1 skills: 1 local and 0 acquired.\n"
@@ -189,7 +189,7 @@ class CollectionTests(unittest.TestCase):
             root = Path(tmp)
             write_depot(root)
             self.fixture(root)
-            (root / 'documentation/usage.md').write_text(
+            (root / 'docs/usage.md').write_text(
                 '# Start\nReference it as `![alt](./settings-after.png)`.\n')
             self.assertFalse(collection.check_links(root)[0])
 
@@ -209,12 +209,12 @@ class CollectionTests(unittest.TestCase):
             root = Path(tmp)
             write_depot(root)
             self.fixture(root)
-            (root / 'documentation/diagrams').mkdir()
-            (root / 'documentation/images').mkdir()
-            (root / 'documentation/migration.md').write_text('| `old-name` | `new-name` |\n')
-            (root / 'documentation/diagrams/flow.mmd').write_text('A["new-name"]\n')
+            (root / 'docs/diagrams').mkdir()
+            (root / 'docs/images').mkdir()
+            (root / 'docs/migration.md').write_text('| `old-name` | `new-name` |\n')
+            (root / 'docs/diagrams/flow.mmd').write_text('A["new-name"]\n')
             self.assertFalse(collection.check_links(root)[0])
-            (root / 'documentation/diagrams/flow.mmd').write_text('A["old-name"]\n')
+            (root / 'docs/diagrams/flow.mmd').write_text('A["old-name"]\n')
             self.assertTrue(any('obsolete skill name old-name' in error
                                 for error in collection.check_links(root)[0]))
 

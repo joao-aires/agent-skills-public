@@ -3,18 +3,18 @@
 ## Source and ownership
 
 - Edit owning sources under `plugins/<bundle>/`: `plugin.json`, `skills/<name>/SKILL.md`, neighboring resources and package-root framing. Build output is generated.
-- Use the [ownership map](documentation/maintainers/sources.md#plugin-ownership) to locate a capability. `agent-depot.json` owns accepted artifact commits, destinations and per-artifact `metadata.packaging`; `agent-depot.lock.json` owns snapshot identities. Managed upstream folders are immutable inputs; the builder applies adaptations only to generated bundles.
+- Use the [ownership map](docs/maintainers/sources.md#plugin-ownership) to locate a capability. `agent-depot.json` owns accepted artifact commits, destinations and per-artifact `metadata.packaging`; `agent-depot.lock.json` owns snapshot identities. Managed upstream folders are immutable inputs; the builder applies adaptations only to generated bundles.
 - Put new collection-specific methods and workflow expectations in authored companion skills or package framing. Do not patch acquired instructions to add them, including through new build-time rewrites. Existing declared output adaptations still require explicit review during upstream updates; their presence is not a reason to add another semantic patch.
 - Keep packages self-contained. Preserve original strategy/visual resources, complete upstream groups, native invocation controls and licenses. Acquire public sources through Agent Depot at reviewed artifact commit pins and record adaptations in notices; never redistribute private installed skills.
 
-For acquisition and updates, follow [upstream maintenance](documentation/maintainers/upstreams.md). Ordinary builds use committed resources and never fetch upstream repositories.
+For acquisition and updates, follow [upstream maintenance](docs/maintainers/upstreams.md). Ordinary builds use committed resources and never fetch upstream repositories.
 
 ## Architecture and authoring
 
 - Preserve independently useful generic activities, application disciplines, technical expertise and supporting capabilities. Development is the default build; technical packages are explicit additions and do not select an application stack.
 - Select optional expertise by capability and actual available descriptions, without hardcoded cross-package names or a dependency resolver. Required same-package resources may use precise relative links. Without a specialist, retain acceptance standards using project evidence, general expertise and primary sources; distinguish missing guidance from missing tools or decisions.
 - Write decision principles with applicability and completion evidence. Keep ordinary implementation choices with the project and agent; reserve strict sequences for real dependencies. Link conditional detail with a reading trigger, and keep each rule with its owner.
-- Match the guidance to its job: workflows explain transitions, craft explains judgment, reference explains mechanisms and maintenance explains what to retain or change. Keep the reasoning intelligible, use structure according to meaning and follow the [authoring guidance](documentation/maintainer-reference.md#keep-guidance-focused). No common template or expansion of every short skill is required.
+- Match the guidance to its job: workflows explain transitions, craft explains judgment, reference explains mechanisms and maintenance explains what to retain or change. Keep the reasoning intelligible, use structure according to meaning and follow the [authoring guidance](docs/maintainer-reference.md#keep-guidance-focused). No common template or expansion of every short skill is required.
 - Generalize findings into decision guidance; put concrete reproductions in `evals/` or justified deterministic tests. Avoid incident-specific prohibition lists, generated applications, scaffolds and mandatory process machinery.
 - Preserve explicit-only activity controls and the requested action scope. Descriptive metadata does not enforce permissions. Add MCP connections or client hooks only for a concrete need with documented setup.
 - Use lowercase kebab-case: short activities for tasks and recognizable disciplines for support. Preserve upstream names and established operations terminology. Rename folders, frontmatter and maintained references together; record old names in migration notes without duplicate aliases.
@@ -29,7 +29,7 @@ For acquisition and updates, follow [upstream maintenance](documentation/maintai
 
 ## Verification
 
-Use the virtual environment and dependencies in [installation](documentation/installation.md#build-the-bundles).
+Use the virtual environment and dependencies in [installation](docs/installation.md#build-the-bundles).
 
 | Check | Command |
 | --- | --- |
@@ -48,14 +48,14 @@ Use the virtual environment and dependencies in [installation](documentation/ins
 
 | Need | Source |
 | --- | --- |
-| Composition, discovery and fallback | [Architecture](documentation/architecture.md) |
+| Composition, discovery and fallback | [Architecture](docs/architecture.md) |
 | Artifact model, planes and homes | [SDLC plugin README](plugins/sdlc/README.md) |
 | Software types and required design evidence | [Software types](plugins/sdlc/skills/artifact-system/references/software-types.md) |
 | Design options, proposal, validation and review | [Design activity](plugins/sdlc/skills/design/SKILL.md), [design proposal](plugins/sdlc/skills/artifact-system/references/contracts/design-proposal.md) |
 | Focus, parallel threads and reopens | [Engagement state](plugins/sdlc/skills/activity-system/references/engagement-state.md) |
-| Skill, pack and phase metadata | [Metadata contract](documentation/metadata.md) |
-| Contribution procedure, naming and build/check commands | [Maintainer guide](documentation/maintainer-reference.md) |
-| Sources, licenses, adaptations and ownership | [Source catalogue](documentation/maintainers/sources.md) |
+| Skill, pack and phase metadata | [Metadata contract](docs/metadata.md) |
+| Contribution procedure, naming and build/check commands | [Maintainer guide](docs/maintainer-reference.md) |
+| Sources, licenses, adaptations and ownership | [Source catalogue](docs/maintainers/sources.md) |
 | Eval suite, cases and recorded limits | [Evaluation suite](evals/README.md) |
-| New framework, language or platform | [Adding stack support](documentation/maintainers/adding-stack-support.md) |
-| Replacing old packages or names | [Migration](documentation/migration.md) |
+| New framework, language or platform | [Adding stack support](docs/maintainers/adding-stack-support.md) |
+| Replacing old packages or names | [Migration](docs/migration.md) |
