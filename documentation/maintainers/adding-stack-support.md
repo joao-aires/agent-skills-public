@@ -2,7 +2,7 @@
 
 Use this guide to add language, framework or platform expertise without creating another development process. Start from a real project need and the [existing skill map](../sdlc-reference.md#skills-by-area). A new stack usually needs focused technical conventions; product decisions, system design, implementation and verification keep their existing owners.
 
-The Go examples below illustrate an extension. This collection does not currently package Go-specific guidance, and these examples do not establish Go support.
+The examples below use a hypothetical Elixir conventions skill. This collection does not package Elixir guidance; the example shows the shape of an extension, not an available capability.
 
 ## 1. Define the useful boundary
 
@@ -15,7 +15,7 @@ Describe the requests the addition should improve and the technologies that make
 | A separately useful installation choice | Add a plugin bundle containing the relevant skills and resources |
 | A new user outcome with a different stopping point | Consider a task entry point; a new framework alone does not need one |
 
-For example, Go service conventions could explain module/dependency management, request cancellation, database transactions, migrations, diagnostics and suitable verification tools. product-direction still selects useful scope; design-system and backend-design still establish boundaries and service contracts. The Go guidance explains how the chosen stack realizes those decisions.
+For example, Elixir service conventions could explain module and dependency management, request cancellation, database transactions, migrations, diagnostics and suitable verification tools. product-direction still selects useful scope; design-system and backend-design still establish boundaries and service contracts. The Elixir guidance would explain how the chosen stack realizes those decisions.
 
 Keep accepted project choices. State defaults for compatible new projects and conditions for alternatives. Select guidance from actual installed capabilities; adding support must not cause unrelated Python applications to migrate or require every bundle to be installed.
 
@@ -23,16 +23,16 @@ Keep accepted project choices. State defaults for compatible new projects and co
 
 Place a skill at `plugins/<bundle>/skills/<name>/SKILL.md`. Use a clear discipline or technology name and keep the folder and frontmatter name identical. The [naming and invocation reference](../maintainer-reference.md#naming-and-invocation) explains the independent metadata dimensions.
 
-An illustrative Go conventions skill could begin:
+An illustrative Elixir conventions skill could begin:
 
 ```yaml
 ---
-name: go-conventions
-description: Build, extend or review Go services; use for Go modules, request
+name: elixir-conventions
+description: Build, extend or review Elixir services; use for Elixir modules, request
   lifecycles, persistence, diagnostics and stack-specific verification.
 metadata:
   scope: stack-specific
-  stack: Go
+  stack: Elixir
   role: support
   invocation: both
 user-invocable: false
@@ -84,4 +84,4 @@ Build into a fresh destination with explicit selections that include the additio
 
 Before claiming behavioral support, run appropriately scoped [evaluations](../../evals/README.md) and retain the evidence at the tested revision. Useful cases include a matching-stack implementation, an existing application whose different stack must remain intact, and a standalone installation missing optional methods. Verify relevant application behavior with the stack's real tools; package checks alone cannot establish it. Native, live-service and publication boundaries require their own capabilities and authorization.
 
-For the illustrative Go extension, a representative path would be: design the service contract with generic methods, implement it using Go conventions, exercise meaningful service behavior with compatible tools, then verify the applicable build and delivery artifacts. Evaluate whether the agent applies that expertise within the requested activity and stops at the agreed outcome. A small bug fix should still remain a small bug fix.
+For the illustrative Elixir extension, a representative path would be: design the service contract with generic methods, implement it using Elixir conventions, exercise meaningful service behavior with compatible tools, then verify the applicable build and delivery artifacts. Evaluate whether the agent applies that expertise within the requested activity and stops at the agreed outcome. A small bug fix should still remain a small bug fix.
