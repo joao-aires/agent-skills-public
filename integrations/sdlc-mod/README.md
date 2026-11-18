@@ -59,7 +59,7 @@ Local to this session · not the ECR · Esc closes this view
 
 ### Claude Code pane
 
-`/sdlc` opens a docked Pane with the same matrix, focus block and decisions. The compact line stays under the prompt, so the state remains visible when the pane is closed or the terminal is narrow. Pane width comes from `bodyColumns`; page buttons are `p` and `n`.
+A compact AbovePrompt band stays above the prompt: `SDLC`, focus and thread chips, the current phase/name, counts and an `open` button. `/sdlc` opens the docked Pane with the same matrix, focus block and decisions. The status line remains under the prompt as a third fallback. Pane width comes from `bodyColumns`; page buttons are `p` and `n`.
 
 ```text
 SDLC
