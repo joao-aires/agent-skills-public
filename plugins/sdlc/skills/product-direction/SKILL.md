@@ -1,19 +1,19 @@
 ---
-name: product-management
-description: Shape product direction from user problems, evidence and constraints. Use for discovery, prioritization, useful first slices, success measures and product sequencing before development or when new evidence changes priorities; reuse accepted decisions for defined changes.
+name: product-direction
+description: Set product direction from user problems, evidence and constraints. Use for discovery, prioritization, useful first slices, success measures and product sequencing before development or when new evidence changes priorities; reuse accepted decisions for defined changes.
 user-invocable: true
 metadata:
   kind: method
   origin: local
-  pack: product
-  domain: product
+  pack: sdlc
+  domain: development
   phase: planning
   scope: generic
   invocation: both
   role: support
 ---
 
-# Decide which product outcome to pursue
+# Set product direction
 
 
 Help decide which user problem to address, what to deliver first and how to find out whether it helped. Apply directly to a product question or as support in an authorized development engagement.
@@ -30,7 +30,7 @@ Read existing product decisions, supplied research, feedback and actual behavior
 
 Identify what the proposed feature would change in the current workflow. Compare it with a simpler product, a process change or an existing tool when those could solve the same problem. Investigate technical facts before asking the user to settle priorities, intended usage or commitments.
 
-Use [business strategy](../business-strategy/SKILL.md) when the question concerns competitive position, value capture or business viability. Work within accepted strategy; new product evidence can explain why a strategic decision needs revisiting.
+Use installed `business-strategy` expertise when the question concerns competitive position, value capture or business viability. Work within accepted strategy; new product evidence can explain why a strategic decision needs revisiting.
 
 ## Choose a useful slice and what to defer
 

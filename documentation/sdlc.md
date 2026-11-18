@@ -31,7 +31,8 @@ Green labels identify entry-point skills or directly requested activities; dashe
 
 | Need or missing outcome | Appropriate entry point |
 | --- | --- |
-| Business direction and product priority | `business-strategy`, `product-management` |
+| Business direction | `business-strategy` |
+| Product direction, priority or first slice | [product-direction](../plugins/sdlc/skills/product-direction/SKILL.md) |
 | Engineering requirements and acceptance | [refine](../plugins/sdlc/skills/refine/SKILL.md), supported by [requirements-engineering](../plugins/sdlc/skills/requirements-engineering/SKILL.md) when substantive |
 | Architecture, user experience or interface contracts | `design`, with `design-system`, `interface-design` or `backend-design` expertise when applicable |
 | Agreed implementation needs dependency ordering | Request an implementation breakdown |
@@ -86,7 +87,7 @@ Direct strategy, design, documentation and specialist requests can end at their 
 
 ## Before and around the cycle
 
-- Product discovery and direction: [product-management](../plugins/strategy/skills/product-management/SKILL.md) owns user problems, priorities, useful scope and success signals; business-strategy owns viability and positioning. These decisions inform project planning and may be reopened by evidence.
+- Product discovery and direction: [product-direction](../plugins/sdlc/skills/product-direction/SKILL.md) owns user problems, priorities, useful scope and success signals; business-strategy owns viability and positioning, and `define-positioning` owns the positioning decision. These decisions inform project planning and may be reopened by evidence.
 - Foundations: `setup` uses [project-conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and relevant [CI/CD pipeline design](../plugins/development-tooling/skills/ci-cd-pipelines/SKILL.md). Establish foundations after sufficient product and architecture decisions for a new project; maintain them as conditions change.
 - Feedback: [run-product-feedback-analysis](../plugins/sdlc/skills/run-product-feedback-analysis/SKILL.md) evaluates existing user evidence and records a product-feedback analysis for product direction; incident learning addresses reliability and may also expose missing requirements or design protections.
 - Changes to consequential decisions: follow [the shared decision policy](../plugins/sdlc/skills/activity-system/references/authority.md#consequential-findings) and continue independent authorized work. Do not invent acceptance or account permissions.
@@ -115,7 +116,7 @@ Use [plan](../plugins/sdlc/skills/plan/SKILL.md) to agree why a change is worth 
 
 ### 2. Requirements analysis
 
-Start with [refine](../plugins/sdlc/skills/refine/SKILL.md). For new systems, significant changes, rearchitecture or uncertain requirements, use its supporting [requirements-engineering](../plugins/sdlc/skills/requirements-engineering/SKILL.md) method to elicit needs, define functional and measurable quality constraints, validate conflicts and link acceptance to evidence. Preserve accepted product intent; product-management is not repeated as a development phase. Requirements may be ready for solution design before implementation architecture is decided.
+Start with [refine](../plugins/sdlc/skills/refine/SKILL.md). For new systems, significant changes, rearchitecture or uncertain requirements, use its supporting [requirements-engineering](../plugins/sdlc/skills/requirements-engineering/SKILL.md) method to elicit needs, define functional and measurable quality constraints, validate conflicts and link acceptance to evidence. Preserve accepted product intent; product-direction is not repeated as a development phase. Requirements may be ready for solution design before implementation architecture is decided.
 
 ### 3. Design
 

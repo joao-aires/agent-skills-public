@@ -152,6 +152,8 @@ Structural renames:
 | `production-readiness` | [run-production-readiness-review](../plugins/sdlc/skills/run-production-readiness-review/SKILL.md) |
 | `dependencies` | [run-dependency-maintenance](../plugins/sdlc/skills/run-dependency-maintenance/SKILL.md) |
 | `learn-from-product-feedback` | [run-product-feedback-analysis](../plugins/sdlc/skills/run-product-feedback-analysis/SKILL.md) in `sdlc` |
+| `product-management` | [product-direction](../plugins/sdlc/skills/product-direction/SKILL.md) in `sdlc`; removed from `strategy` with no alias, so rebuild and reinstall |
+| `business-opportunity-analysis` | Retired; use [business-strategy](../plugins/strategy/skills/business-strategy/SKILL.md) |
 | `postmortem` | [run-postmortem](../plugins/sdlc/skills/run-postmortem/SKILL.md) |
 | `resilience-testing` | [testing-resilience](../plugins/sdlc/skills/testing-resilience/SKILL.md) |
 | `journey-testing` | [testing-journey](../plugins/frontend-development/skills/testing-journey/SKILL.md) in `frontend-development` |

@@ -41,7 +41,7 @@ The [installation guide](installation.md#load-them-in-your-client) links the cli
 
 ## Product decisions and specialist methods
 
-Select strategy for product-management and business direction; product feedback analysis is an sdlc activity. Ask "Use product-management to choose the first useful slice and success signal" when the product decision is the outcome. Ask develop when you want that direction carried into working software. Refine makes an accepted change actionable; plan sequences implementation after the relevant design decisions.
+Select strategy for business direction; use `product-direction` in sdlc for product priorities and success signals, and `run-product-feedback-analysis` for product feedback evidence. Ask "Use product-direction to choose the first useful slice and success signal" when the product decision is the outcome. Ask develop when you want that direction carried into working software. Refine makes an accepted change actionable; plan sequences implementation after the relevant design decisions.
 
 Frontend-development provides one integrated interface-design method for information architecture, interaction, visual craft and critique, plus design research, independent UX writing and usability research. The package ships several optional design methods: `ui-ux-pro-max` for candidate styles and UX rules, `impeccable` for rendered critique and refinement, and `design-research` for product and precedent research. Choose by the decision; no single method is mandatory. `design-research` asks once about optional Mobbin or Refero access and continues with repository evidence, user references, public product research and local prototypes when those services are unavailable. For consequential UI work, expect at least three materially different directions, a request for feedback and a recorded decision before implementation. Creative, subject-specific art direction is conditionally available inside interface-design when choices are open; ordinary changes preserve the existing system. Application-specific specialists contribute archetype patterns and domain semantics, while the accepted frontend platform constrains and implements the design. Backend-development provides service design across stacks, with dedicated REST, GraphQL, event-driven, distributed-systems and architecture-pattern methods.
 
@@ -150,7 +150,7 @@ Add the relevant bundle and request its installed skill by name. Examples:
 - Use `cli-development` to shape a command surface before implementation.
 - Use `ci-cd-pipelines` for provider-neutral pipeline and promotion design, `tooling-conventions` for workflow authoring and script selection, then `github-actions-hardening` for a security review.
 
-See [skills by area](sdlc-reference.md#skills-by-area) for the wider selection. `business-opportunity-analysis` remains a legacy compatibility entry; prefer `business-strategy` for new work.
+See [skills by area](sdlc-reference.md#skills-by-area) for the wider selection. The legacy opportunity-analysis entry is retired; use `business-strategy` for new work.
 
 ## Scheduled and event-triggered tasks
 
