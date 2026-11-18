@@ -1,0 +1,8 @@
+{
+  "name": "sdlc-mod",
+  "version": "0.1.0",
+  "description": "Local, session-scoped SDLC engagement state for Claude Code.",
+  "author": {
+    "name": "João Aires"
+  }
+}

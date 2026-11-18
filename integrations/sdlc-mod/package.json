@@ -1,0 +1,22 @@
+{
+  "name": "sdlc-mod",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Local, session-scoped SDLC engagement state for OpenCode and Claude Code.",
+  "exports": {
+    ".": "./core/state.js",
+    "./tui": "./src/tui.tsx"
+  },
+  "scripts": {
+    "test": "node --test core/*.test.js"
+  },
+  "dependencies": {
+    "@opencode/plugin": "latest"
+  },
+  "peerDependencies": {
+    "@opentui/core": ">=0.6.6",
+    "@opentui/solid": ">=0.6.6",
+    "solid-js": ">=1.9.0"
+  }
+}
