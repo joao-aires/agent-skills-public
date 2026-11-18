@@ -184,6 +184,49 @@ async function infer($, answer) {
   });
 }
 
+function renderBand($, e) {
+  const elements = $.ui.resolve(e);
+  const { Box, Text, Button } = elements;
+  const focus = state.threads.find((thread) => thread.id === state.focusThreadId) ?? null;
+  const pages = matrixThreads(state, 3, 0);
+  const chips = pages.shown.map((thread) => {
+    const color =
+      thread.id === state.focusThreadId
+        ? "green"
+        : thread.status === "blocked"
+          ? "red"
+          : thread.status === "parked"
+            ? "gray"
+            : "yellow";
+    return Text({
+      children: [`${threadGlyph(thread, thread.id === state.focusThreadId)} ${thread.id}`],
+      color,
+    });
+  });
+  const fullLabel = focus ? `${focus.activity} · ${focus.name}` : "no focus";
+  const labelBudget = Math.max(12, (e.props.bodyColumns ?? 80) - 44);
+  const label = fullLabel.length > labelBudget ? `${fullLabel.slice(0, labelBudget - 1)}…` : fullLabel;
+
+  return Box({
+    flexDirection: "row",
+    columnGap: 1,
+    children: [
+      Text({ children: ["SDLC"], weight: "semibold" }),
+      ...chips,
+      ...(pages.hidden > 0 ? [Text({ children: [`+${pages.hidden}`], dimColor: true })] : []),
+      Text({ children: [label], dimColor: true, wrap: "truncate", maxLines: 1 }),
+      Text({ children: [summaryLabel(state)], dimColor: true }),
+      Button({
+        label: "open",
+        hotkey: "o",
+        onPress: async () => {
+          await openPane($);
+        },
+      }),
+    ],
+  });
+}
+
 function renderPane($, e) {
   const elements = $.ui.resolve(e);
   const { Box, Text, Button, Link } = elements;
@@ -386,6 +429,10 @@ export function register(on) {
     } catch (error) {
       return { text: `SDLC: ${String(error?.message ?? error)}` };
     }
+  });
+
+  on("ui.render", { component: "AbovePrompt" }, async ($, event, next) => {
+    return renderBand($, event);
   });
 
   on("ui.render", { component: "Pane" }, async ($, event, next) => {
