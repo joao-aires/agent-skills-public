@@ -143,6 +143,15 @@ Do not also register the directory in `cli.json`: that file is for TUI-only pack
 
 Only sessions the server knows are accepted. An unknown or deleted session ID is rejected rather than given empty state.
 
+### Experimental host adapters
+
+This layer adds two adapters on top of the core mod. Neither is exercised by CI or by an installed host in this repository, so treat them as experimental until they are smoke-tested:
+
+- **OpenCode Desktop**: exported as `./gui-experimental`, adding a side panel, a composer pill and `/sdlc`. Desktop loads GUI parts only from the global `opencode.json(c)`.
+- **Claude Code**: `hooks/register.js` adds an AbovePrompt band and a docked Pane, stores state per session in `$.store` under `sdlc:<sessionId>`, and uses `$.model.classify` plus `$.model.complete`.
+
+Known limits: the Desktop GUI API is experimental; on Claude Code releases before 2.1.299 a tree that sets `weight` does not draw; local `file://` artifact links are not clickable in Claude Desktop; and `turn.complete` inference is awaited, so a slow model delays the turn.
+
 ## Commands
 
 ```text
