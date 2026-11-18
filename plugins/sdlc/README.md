@@ -316,7 +316,7 @@ The conceptual model explains the layers; this map locates them in `sdlc`. It is
 | --- | --- |
 | Systems | `artifact-system` (artifact types, planes, homes, contracts, quality, assurance) and `activity-system` (activity selection, stopping points, transitions, engagement state, authority) |
 | Activities | Requested engagements with a result, stopping point and transitions — see below |
-| Workflows | Ordered sequences requested explicitly — `git-contributions`, `write-spec`, `retro` |
+| Workflows | Ordered sequences requested explicitly — `git-contributions`, `write-spec`, `retro`; acquired `grill-me`, `grill-with-docs`, `grilling`, `to-questionnaire` |
 | Methods | Subject expertise that deepens work without starting an activity — see below |
 | Guides | Artifact craft and review for one artifact type — the `guide-*` class |
 | Acquired methods | Upstream expertise packaged with native controls preserved |
@@ -369,11 +369,11 @@ The conceptual model explains the layers; this map locates them in `sdlc`. It is
 
 ### Guides
 
-The `guide-*` skills are `kind: guide`. They own structure, conventions, examples, common failures and review for their artifact type; the matching [contract](skills/artifact-system/references/contracts/README.md) owns lifecycle, authority, maturity, evidence and handoff. Use the [guide registry](skills/artifact-system/references/guide-registry.md) rather than this map to select one.
+The `guide-*` skills are `kind: guide`. They own structure, conventions, examples, common failures, review and the artifact's reader handoff for their artifact type; the matching [contract](skills/artifact-system/references/contracts/README.md) owns lifecycle, authority, maturity, evidence and the phase handoff. Use the [guide registry](skills/artifact-system/references/guide-registry.md) rather than this map to select one.
 
 ### Acquired methods
 
-`code-review`, `codebase-design`, `diagnosing-bugs`, `tdd`, `grilling`, `to-questionnaire` and `writing-for-agents` arrive through Agent Depot with their upstream bodies and native controls. `grilling` and `to-questionnaire` are workflow-shaped upstream entries; treat them as acquired methods when composing, not as local activities.
+`code-review`, `codebase-design`, `diagnosing-bugs`, `tdd` and `writing-for-agents` arrive through Agent Depot with their upstream bodies and native controls. `grill-me`, `grill-with-docs`, `grilling` and `to-questionnaire` are acquired workflows, listed above; they keep their upstream workflow shape and are not local activities.
 
 ### Intentional hybrids
 

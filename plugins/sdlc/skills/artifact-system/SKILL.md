@@ -54,7 +54,7 @@ Read [the artifact model](references/model.md) for the fields and plane table. U
 2. **Classify** the artifact type and primary plane using the [catalog](references/catalog.md). Identify secondary relations; do not force a cross-plane artifact into one box.
 3. **Resolve the home** with [artifact homes](references/homes.md). Use the established home; if none exists, choose the type default within authorized scope and record a portable pointer.
 4. **Read the contract** for the artifact type. Fill each section to its sufficiency floor, not just its heading. A section that only links elsewhere for its substance is an index, not a record.
-5. **Use the domain method** for the subject (product, architecture, operations, security, API) and available writing-craft expertise for the prose. The contract states the outcome; the domain and craft skills teach how to achieve it.
+5. **Use the matched guide and domain method.** Read the guide for this artifact type for structure, conventions and review, the domain method for the subject (product, architecture, operations, security, API) and available writing-craft expertise for the prose. The contract states the outcome; the guide, domain and craft skills teach how to achieve it.
 6. **Apply the [quality bar](references/quality-bar.md)**: self-contained context, explicit maturity and evidence, reader sufficiency, resolvable links, render fidelity and one authority.
 7. **Check at handoffs** with [artifact assurance](references/assurance.md): consistency, convergence, coverage and freshness across the artifact graph.
 8. **Persist and report** the actual home, revision and access. A tool call is not proof that the reader can open the artifact.
@@ -74,7 +74,7 @@ The [catalog](references/catalog.md) owns selection, authority and default homes
 
 Every artifact type has a contract and, where the craft is distinct, a guide. The guide owns structure, conventions, examples, common failures and review; the contract owns lifecycle, authority, maturity, evidence and handoff.
 
-The one-to-one pairing is the [guide registry](references/guide-registry.md). Guides are self-contained writing methods and may be used inside an activity or requested directly.
+The one-to-one pairing is the [guide registry](references/guide-registry.md). Guides are self-contained artifact craft and may be used inside an activity or requested directly.
 
 ## Present outcomes
 
