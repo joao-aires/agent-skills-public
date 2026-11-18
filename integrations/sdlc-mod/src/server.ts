@@ -84,13 +84,15 @@ export default Plugin.define({
     let registration
     registration = await ctx.rpc.register(Sdlc, {
       snapshot: async ({ sessionID }) => ({ state: await ensureState(assertSessionID(sessionID)) }),
-      apply: async ({ sessionID, command }) =>
-        withMutation(assertSessionID(sessionID), async () => {
+      apply: async ({ sessionID, command }) => {
+        assertSessionID(sessionID)
+        return withMutation(async () => {
           const next = applyState(await ensureState(sessionID), command)
           await persist(sessionID, next)
           await registration.events.emit("updated", { sessionID, state: next })
           return { state: next }
-        }),
+        })
+      },
       setAuto: async ({ enabled }) => {
         autoEnabled = Boolean(enabled)
         if (!autoEnabled) clearTimers()
@@ -166,7 +168,7 @@ export default Plugin.define({
           })
 
         const hints = latestUserText(messages)
-        const structural = await withMutation(sessionID, async () => {
+        const structural = await withMutation(async () => {
           if (deleted.has(sessionID)) return null
           const current = await ensureState(sessionID)
           let next = current
@@ -202,7 +204,7 @@ export default Plugin.define({
         const parsed = parseExtraction(response?.text)
         if (!parsed) return
 
-        await withMutation(sessionID, async () => {
+        await withMutation(async () => {
           if (deleted.has(sessionID)) return
           const current = await ensureState(sessionID)
           const result = applyExtraction(current, parsed, {
