@@ -50,11 +50,13 @@ test("builds a prompt with state and recent transcript", () => {
     state,
     messages: [{ role: "user", text: "requirements are accepted" }],
     includeMessages: 4,
+    hints: "activity=design",
   });
   assert.match(prompt, /Current state:/);
   assert.match(prompt, /"id": "T1"/);
   assert.match(prompt, /USER: requirements are accepted/);
   assert.match(prompt, /Never set authority/);
+  assert.match(prompt, /Decision model hints/);
 });
 
 test("guards unsupported and duplicate commands", () => {
