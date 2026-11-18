@@ -184,6 +184,15 @@ class CollectionTests(unittest.TestCase):
                     errors, _ = collection.check_package_links(package, set(), notices)
                     self.assertEqual(bool(errors), index < len(resources) - 1)
 
+    def test_inline_code_examples_are_not_links(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_depot(root)
+            self.fixture(root)
+            (root / 'documentation/usage.md').write_text(
+                '# Start\nReference it as `![alt](./settings-after.png)`.\n')
+            self.assertFalse(collection.check_links(root)[0])
+
     def test_nested_reference_and_asset_documents_are_scanned(self):
         with tempfile.TemporaryDirectory() as tmp:
             root = Path(tmp)
