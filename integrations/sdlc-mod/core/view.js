@@ -37,13 +37,13 @@ export function threadCode(thread) {
   return thread.ticket ? `${thread.id} · ${thread.ticket}` : thread.id;
 }
 
-export function phaseMarker(phase, focusActivity) {
+export function phaseMarker(phase, focusActivity, completedPhases = []) {
   const index = PHASES.indexOf(phase);
   const focus = PHASES.indexOf(focusActivity);
-  if (index === -1 || focus === -1) return "○";
-  if (index < focus) return "✓";
+  if (index === -1 || focus === -1) return "·";
+  if (index < focus) return completedPhases.includes(phase) ? "✓" : "←";
   if (index === focus) return "▶";
-  return "○";
+  return "·";
 }
 
 export function matrixCell(thread, phase, focusThreadId) {
@@ -51,7 +51,7 @@ export function matrixCell(thread, phase, focusThreadId) {
   const index = PHASES.indexOf(phase);
   const current = PHASES.indexOf(thread.activity);
   if (index === -1 || current === -1) return "·";
-  if (index < current) return "✓";
+  if (index < current) return thread.completedPhases?.includes(phase) ? "✓" : "·";
   if (index > current) return "·";
   if (thread.status === "done") return "✓";
   if (thread.status === "blocked") return "!";
@@ -60,16 +60,14 @@ export function matrixCell(thread, phase, focusThreadId) {
 }
 
 /**
- * Stable column selection: id order, capped, with the focus thread included.
+ * Stable column paging: id order, capped. The focus block carries the focus
+ * thread separately, so pages never reorder when focus changes.
  */
-export function matrixThreads(state, limit = 4) {
+export function matrixThreads(state, limit = 4, page = 0) {
   const threads = Array.isArray(state?.threads) ? [...state.threads] : [];
   threads.sort((left, right) => left.id.localeCompare(right.id, undefined, { numeric: true }));
-  const focus = threads.find((thread) => thread.id === state?.focusThreadId);
-  let shown = threads.slice(0, limit);
-  if (focus && !shown.includes(focus)) {
-    shown = [...threads.slice(0, Math.max(0, limit - 1)), focus];
-    shown.sort((left, right) => left.id.localeCompare(right.id, undefined, { numeric: true }));
-  }
-  return { shown, hidden: Math.max(0, threads.length - shown.length) };
+  const pages = Math.max(1, Math.ceil(threads.length / limit));
+  const safePage = ((Number(page) || 0) % pages + pages) % pages;
+  const shown = threads.slice(safePage * limit, safePage * limit + limit);
+  return { shown, hidden: Math.max(0, threads.length - shown.length), page: safePage, pages };
 }

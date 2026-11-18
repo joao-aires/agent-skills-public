@@ -1,5 +1,5 @@
 import { ACTIVITIES as PHASES } from "./state.js";
-import { normaliseMessages } from "./extract.js";
+import { normaliseMessages, promptState } from "./extract.js";
 
 export const DEFAULT_DECISION_MODEL = "opencode/jev-1.13-free";
 
@@ -23,7 +23,7 @@ export function buildDecisionInput({ state, messages, includeMessages = 2 }) {
 
   return [
     "Current state:",
-    JSON.stringify(state, null, 2),
+    JSON.stringify(promptState(state), null, 2),
     "Conversation:",
     transcript || "(no text)",
   ].join("\n\n");
@@ -125,18 +125,38 @@ export function shouldExtract(
  * Structural commands the gate is confident enough to apply directly.
  * Text extraction still runs afterwards for decisions and wording.
  */
-export function gateCommands(decision, state, { activityThreshold = 0.8, focusThreshold = 0.8 } = {}) {
+function namedThreadId(threads, text) {
+  const lower = String(text ?? "").toLowerCase();
+  if (!lower) return null;
+  const matches = threads.filter(
+    (thread) =>
+      lower.includes(String(thread.name ?? "").toLowerCase()) ||
+      (thread.ticket && lower.includes(String(thread.ticket).toLowerCase())),
+  );
+  return matches.length === 1 ? matches[0].id : null;
+}
+
+export function gateCommands(
+  decision,
+  state,
+  { activityThreshold = 0.8, focusThreshold = 0.8, latestText = "" } = {},
+) {
   if (!decision) return [];
   const threads = Array.isArray(state?.threads) ? state.threads : [];
   const currentFocus = state?.focusThreadId ?? null;
   const chosenFocus =
-    decision.focus && decision.focus !== "none" && threads.some((thread) => thread.id === decision.focus)
+    decision.focus &&
+    decision.focus !== "none" &&
+    decision.focusConfidence >= focusThreshold &&
+    threads.some((thread) => thread.id === decision.focus)
       ? decision.focus
       : null;
+  const namedFocus = namedThreadId(threads, latestText);
+  const target = namedFocus ?? chosenFocus ?? currentFocus;
   const commands = [];
 
-  if (chosenFocus && chosenFocus !== currentFocus && decision.focusConfidence >= focusThreshold) {
-    commands.push({ type: "thread.focus", id: chosenFocus });
+  if (target && target !== currentFocus && (namedFocus || chosenFocus)) {
+    commands.push({ type: "thread.focus", id: target });
   }
 
   if (
@@ -145,7 +165,6 @@ export function gateCommands(decision, state, { activityThreshold = 0.8, focusTh
     decision.activity !== "none" &&
     decision.activityConfidence >= activityThreshold
   ) {
-    const target = chosenFocus ?? currentFocus;
     const thread = threads.find((item) => item.id === target);
     if (thread && thread.activity !== decision.activity) {
       commands.push({ type: "thread.phase", id: target, activity: decision.activity });

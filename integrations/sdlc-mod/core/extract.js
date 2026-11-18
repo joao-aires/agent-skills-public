@@ -65,13 +65,27 @@ function truncate(text) {
   return text.length > MAX_MESSAGE_CHARS ? `${text.slice(0, MAX_MESSAGE_CHARS)}…` : text;
 }
 
+export function promptState(state) {
+  const artifacts = (items) => (Array.isArray(items) ? items.map(({ label, kind }) => ({ label, kind })) : []);
+  return {
+    ...state,
+    threads: (state?.threads ?? []).map((thread) => ({ ...thread, artifacts: artifacts(thread.artifacts) })),
+    decisions: (state?.decisions ?? []).map((decision) => ({ ...decision, artifacts: artifacts(decision.artifacts) })),
+  };
+}
+
+export function latestUserText(messages) {
+  const users = normaliseMessages(messages).filter((message) => message.role === "user");
+  return users.at(-1)?.text ?? "";
+}
+
 export function buildExtractionInput({ state, messages, includeMessages = MAX_MESSAGES, hints = null }) {
   const transcript = normaliseMessages(messages)
     .slice(-includeMessages)
     .map((message) => `${message.role.toUpperCase()}: ${message.text}`)
     .join("\n\n");
 
-  const parts = ["Current state:", JSON.stringify(state, null, 2)];
+  const parts = ["Current state:", JSON.stringify(promptState(state), null, 2)];
   if (hints) {
     parts.push("Decision model hints (advisory; verify against the conversation):", hints);
   }

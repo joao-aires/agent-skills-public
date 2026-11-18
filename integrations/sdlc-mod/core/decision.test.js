@@ -143,3 +143,38 @@ test("turns a decision into compact hints", () => {
   );
   assert.equal(decisionHints({ activity: "none", intent: "none", focus: "none" }), null);
 });
+
+test("uses the named thread instead of a low-confidence focus choice", () => {
+  const state = emptyState();
+  state.threads.push(
+    {
+      id: "T1",
+      name: "pagination works",
+      activity: "implementation",
+      status: "waiting",
+      completedPhases: [],
+      artifacts: [],
+    },
+    {
+      id: "T2",
+      name: "API contract",
+      activity: "design",
+      status: "waiting",
+      completedPhases: [],
+      artifacts: [],
+    },
+  );
+  state.focusThreadId = "T1";
+
+  assert.deepEqual(
+    gateCommands(
+      { intent: "phase", activity: "testing", activityConfidence: 1, focus: "T1", focusConfidence: 0.2 },
+      state,
+      { latestText: "move API contract to testing" },
+    ),
+    [
+      { type: "thread.focus", id: "T2" },
+      { type: "thread.phase", id: "T2", activity: "testing" },
+    ],
+  );
+});

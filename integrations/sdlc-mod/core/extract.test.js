@@ -7,6 +7,7 @@ import {
   guardCommands,
   normaliseMessages,
   parseExtraction,
+  promptState,
 } from "./extract.js";
 
 test("parses fenced and bare JSON extraction", () => {
@@ -143,4 +144,24 @@ test("is idempotent across repeated extractions", () => {
   const second = applyExtraction(first.state, extraction);
   assert.equal(second.applied.length, 0);
   assert.equal(second.changed, false);
+});
+
+test("redacts artifact hrefs from prompt state", () => {
+  const state = emptyState();
+  state.threads.push({
+    id: "T1",
+    name: "pagination works",
+    activity: "implementation",
+    status: "waiting",
+    completedPhases: [],
+    artifacts: [{ label: "api-contract.md", href: "file:///Users/me/secret/api-contract.md", kind: "file" }],
+  });
+  const prompt = buildExtractionPrompt({
+    state,
+    messages: [{ role: "user", text: "move it" }],
+  });
+  assert.match(prompt, /api-contract\.md/);
+  assert.doesNotMatch(prompt, /Users\/me\/secret/);
+  assert.doesNotMatch(prompt, /file:\/\//);
+  assert.equal(promptState(state).threads[0].artifacts[0].href, undefined);
 });
