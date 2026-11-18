@@ -98,10 +98,12 @@ Manual commands are exact and immediate:
 Automatic inference runs after a completed turn:
 
 1. OpenCode emits `session.execution.succeeded`; Claude Code fires `turn.complete`.
-2. The adapter waits briefly, then sends the current state and the last few messages to the session model.
-3. The model returns a JSON patch in the same command vocabulary as `/sdlc`.
-4. The patch is filtered before it is applied: unknown or duplicate items, unsupported operations, authority changes, decision resolutions and resets are rejected.
-5. The state changes and the sidebar, status line and dialog update.
+2. OpenCode asks the free decision model (`opencode/jev-1.13-free`) whether anything changed, what kind of change it was, which activity is active and which thread should have focus. Claude Code skips this gate.
+3. If the gate reports no change, the text pass is skipped.
+4. Otherwise the adapter sends the current state, the last few messages and the gate hints to the session model.
+5. The model returns a JSON patch in the same command vocabulary as `/sdlc`.
+6. The patch is filtered before it is applied: unknown or duplicate items, unsupported operations, authority changes, decision resolutions and resets are rejected.
+7. The state changes and the sidebar, status line and dialog update.
 
 Rules enforced on inferred changes:
 
@@ -123,7 +125,7 @@ Next
 
 Turn inference off for the current server with `/sdlc auto off`, or set `"auto": false` in the plugin options. Manual commands keep working either way.
 
-The inference call uses the session's model, so it inherits that model's cost and availability. Set `includeMessages` and `debounceMs` to trade context for cost; a failed or slow extraction never blocks the chat.
+The gate is free and fast; the text pass uses the session's model only when the gate reports a change. Set `includeMessages`, `debounceMs` and `gateThreshold` to trade context and sensitivity for cost. If the decision model is unavailable, the adapter falls back to the text pass instead of dropping the update. A failed or slow extraction never blocks the chat.
 
 ## Install
 
@@ -140,7 +142,10 @@ The package has a server part and a TUI part. Register the server part in `openc
         "auto": true,
         "debounceMs": 1500,
         "minConfidence": 0.7,
-        "includeMessages": 8
+        "includeMessages": 8,
+        "gate": true,
+        "gateThreshold": 0.5,
+        "decisionModel": "opencode/jev-1.13-free"
       }
     }
   ]
