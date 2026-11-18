@@ -25,15 +25,23 @@ SDLC · pagination works · 3 threads · 1 open
 
 ```text
 ▼ SDLC 3 threads · 1 open
-● T1 · PROJ-142  pagination works
-   → pagination works
-◐ T2 · PROJ-151  API contract  waiting
-○ T3  cache spike  parked
+        T1      T2      T3
+      PRJ-142 PRJ-151
+✓ req     ✓       ✓       ✓
+✓ des     ✓       ◐       ✓
+▶ imp     ●       ·       ✓
+○ tst     ·       ·       ✓
+○ ops     ·       ·       ○
+● T1 · PRJ-142 pagination works
+  implementation · waiting
+  ↗ api-contract.md
 Decisions
 ◐ D1 Reuse the existing search table
 ```
 
-Click the header, or run the palette command `SDLC: Toggle sidebar section`, to collapse it. The section lives in the session sidebar, so it is only visible while the sidebar is open.
+The matrix shows phases as rows and thread codes as columns; the ticket sits under the code. Cells are `✓` done, `●` focus, `◐` waiting, `!` blocked, `○` parked, `·` not reached. The focus block below carries the work name, phase, status and artifacts. Up to three threads get columns; additional threads are counted below.
+
+Click the header, or run the palette command `SDLC: Toggle sidebar section`, to collapse it. Collapse hides artifacts and decisions; the matrix and focus block stay. The section lives in the session sidebar, so it is only visible while the sidebar is open.
 
 `/sdlc state` opens a large dialog with aligned columns:
 

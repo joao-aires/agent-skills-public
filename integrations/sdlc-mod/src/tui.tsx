@@ -2,7 +2,7 @@ import { createEffect, createSignal, For, Show } from "solid-js"
 import { Plugin } from "@opencode/plugin/tui"
 import { emptyState, renderCompact } from "../core/state.js"
 import { HELP, parseCommand } from "../core/commands.js"
-import { decisionGlyph, summaryLabel, threadCode, threadGlyph } from "../core/view.js"
+import { decisionGlyph, matrixCell, matrixThreads, phaseMarker, PHASES, summaryLabel, threadCode, threadGlyph } from "../core/view.js"
 import { Sdlc } from "./rpc.js"
 
 /**
@@ -31,10 +31,22 @@ function SdlcStatus(props) {
   return <text>{renderCompact(props.state())}</text>
 }
 
+const PHASE_LABEL = {
+  requirements: "req",
+  design: "des",
+  implementation: "imp",
+  testing: "tst",
+  operations: "ops",
+}
+
+
 function SdlcSidebar(props) {
   const theme = props.context.theme
   const current = () => props.state()
-  const focused = (thread) => thread.id === current().focusThreadId
+  const columns = () => matrixThreads(current(), 3)
+  const focus = () => current().threads.find((thread) => thread.id === current().focusThreadId) ?? null
+  const focusPhase = () => focus()?.activity ?? null
+
   createEffect(() => {
     props.ensure(props.sessionID)
   })
@@ -45,6 +57,22 @@ function SdlcSidebar(props) {
         draft.open = !draft.open
       }),
     ).catch(() => {})
+  }
+
+  const phaseColor = (phase) => {
+    const marker = phaseMarker(phase, focusPhase())
+    if (marker === "✓") return theme.text.feedback.success.base
+    if (marker === "▶") return theme.text.base
+    return theme.text.muted
+  }
+
+  const cellColor = (thread, phase) => {
+    const cell = matrixCell(thread, phase, current().focusThreadId)
+    if (cell === "✓") return theme.text.feedback.success.base
+    if (cell === "!") return theme.text.feedback.error.base
+    if (cell === "◐") return theme.text.feedback.warning.base
+    if (cell === "·" || cell === "○") return theme.text.muted
+    return theme.text.base
   }
 
   return (
@@ -59,70 +87,123 @@ function SdlcSidebar(props) {
         </text>
       </box>
 
-      <Show when={props.view.open}>
+      <Show
+        when={columns().shown.length > 0}
+        fallback={<text fg={theme.text.muted}>No threads · /sdlc thread add</text>}
+      >
         <box flexDirection="column">
-          <Show
-            when={current().threads.length > 0}
-            fallback={<text fg={theme.text.muted}>No threads · /sdlc thread add</text>}
-          >
-            <For each={current().threads}>
+          <box flexDirection="row">
+            <box width={10} flexShrink={0}>
+              <text> </text>
+            </box>
+            <For each={columns().shown}>
               {(thread) => (
-                <box flexDirection="column">
-                  <box flexDirection="row" gap={1} minWidth={0}>
-                    <text fg={threadColor(theme, thread, focused(thread))}>
-                      {threadGlyph(thread, focused(thread))}
-                    </text>
-                    <text fg={theme.text.muted} flexShrink={0}>
-                      {thread.source === "inferred" ? "~" : ""}
-                      {threadCode(thread)}
-                    </text>
-                    <text
-                      fg={focused(thread) ? theme.text.base : theme.text.muted}
-                      flexGrow={1}
-                      flexShrink={1}
-                      minWidth={0}
-                      wrapMode="none"
-                      truncate
-                    >
-                      {thread.name}
-                    </text>
-                    <Show when={thread.status !== "waiting"}>
-                      <text fg={threadColor(theme, thread, focused(thread))} flexShrink={0}>
-                        {thread.status}
-                      </text>
-                    </Show>
-                  </box>
-                  <Show when={focused(thread) && thread.stoppingPoint}>
-                    <text fg={theme.text.muted} wrapMode="none" truncate>
-                      {"   → "}
-                      {thread.stoppingPoint}
-                    </text>
-                  </Show>
+                <box width={9} flexShrink={0} flexDirection="row" justifyContent="center">
+                  <text fg={thread.id === current().focusThreadId ? theme.text.base : theme.text.muted}>
+                    {thread.source === "inferred" ? "~" : ""}
+                    {thread.id}
+                  </text>
                 </box>
               )}
             </For>
-          </Show>
-
-          <Show when={current().decisions.length > 0}>
-            <text fg={theme.text.base}>
-              <b>Decisions</b>
+          </box>
+          <box flexDirection="row">
+            <box width={10} flexShrink={0}>
+              <text> </text>
+            </box>
+            <For each={columns().shown}>
+              {(thread) => (
+                <box width={9} flexShrink={0} flexDirection="row" justifyContent="center">
+                  <text fg={theme.text.muted} wrapMode="none" truncate>
+                    {thread.ticket ?? ""}
+                  </text>
+                </box>
+              )}
+            </For>
+          </box>
+          <For each={PHASES}>
+            {(phase) => (
+              <box flexDirection="row">
+                <box width={10} flexShrink={0}>
+                  <text fg={phaseColor(phase)}>
+                    {phaseMarker(phase, focusPhase())} {PHASE_LABEL[phase]}
+                  </text>
+                </box>
+                <For each={columns().shown}>
+                  {(thread) => (
+                    <box width={9} flexShrink={0} flexDirection="row" justifyContent="center">
+                      <text fg={cellColor(thread, phase)}>{matrixCell(thread, phase, current().focusThreadId)}</text>
+                    </box>
+                  )}
+                </For>
+              </box>
+            )}
+          </For>
+          <Show when={columns().hidden > 0}>
+            <text fg={theme.text.muted}>
+              {"+"}
+              {columns().hidden}
+              {" more threads"}
             </text>
-            <For each={current().decisions}>
-              {(decision) => (
-                <box flexDirection="row" gap={1} minWidth={0}>
-                  <text fg={decisionColor(theme, decision.status)}>{decisionGlyph(decision.status)}</text>
-                  <text fg={theme.text.muted} flexShrink={0}>
-                    {decision.source === "inferred" ? "~" : ""}
-                    {decision.id}
-                  </text>
-                  <text fg={theme.text.muted} flexGrow={1} flexShrink={1} minWidth={0} wrapMode="none" truncate>
-                    {decision.statement}
-                  </text>
-                </box>
-              )}
-            </For>
           </Show>
         </box>
+      </Show>
+
+      <Show when={focus()}>
+        <box flexDirection="column">
+          <box flexDirection="row" gap={1} minWidth={0}>
+            <text fg={threadColor(theme, focus(), true)}>{threadGlyph(focus(), true)}</text>
+            <text fg={theme.text.muted} flexShrink={0}>
+              {threadCode(focus())}
+            </text>
+            <text fg={theme.text.base} flexGrow={1} flexShrink={1} minWidth={0} wrapMode="none" truncate>
+              <b>{focus().name}</b>
+            </text>
+          </box>
+          <text fg={theme.text.muted} wrapMode="none" truncate>
+            {"  "}
+            {focus().activity}
+            {" · "}
+            {focus().status}
+          </text>
+        </box>
+      </Show>
+
+      <Show when={props.view.open}>
+        <Show when={focus()?.artifacts?.length}>
+          <For each={focus().artifacts}>
+            {(artifact) => (
+              <text fg={theme.text.muted} wrapMode="none" truncate>
+                {"  ↗ "}
+                {artifact.label}
+              </text>
+            )}
+          </For>
+        </Show>
+
+        <Show when={current().decisions.length > 0}>
+          <text fg={theme.text.base}>
+            <b>Decisions</b>
+          </text>
+          <For each={current().decisions}>
+            {(decision) => (
+              <box flexDirection="row" gap={1} minWidth={0}>
+                <text fg={decisionColor(theme, decision.status)}>{decisionGlyph(decision.status)}</text>
+                <text fg={theme.text.muted} flexShrink={0}>
+                  {decision.source === "inferred" ? "~" : ""}
+                  {decision.id}
+                </text>
+                <text fg={theme.text.muted} flexGrow={1} flexShrink={1} minWidth={0} wrapMode="none" truncate>
+                  {decision.statement}
+                </text>
+              </box>
+            )}
+          </For>
+        </Show>
+      </Show>
+
+      <Show when={!props.view.open}>
+        <text fg={theme.text.muted}>expand for artifacts and decisions</text>
       </Show>
     </box>
   )
