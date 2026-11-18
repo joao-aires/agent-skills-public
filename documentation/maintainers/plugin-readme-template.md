@@ -2,7 +2,7 @@
 
 A package README is framing for two readers: someone deciding whether to install the package, and a maintainer deciding where a rule belongs. It is not a second skill catalog. Keep per-skill detail in `SKILL.md` and link the catalog or registry that already owns the list.
 
-Use the template proportionately. A small package needs Purpose, Responsibilities, Boundaries and Maintenance; it can fold the rest into a sentence or two. A package with a real model — `sdlc` is the current example — keeps the model in the README and may link a `MODEL.md` appendix when the detail would crowd the default reading path. Aim for roughly 50–100 lines. Depth is justified by a model the reader must hold, not by completeness.
+Use the template proportionately. A small package needs Purpose, Responsibilities, Boundaries and Maintenance; it can fold the rest into a sentence or two. A package with a real model — `sdlc` is the current example — keeps the model in the README and may link a `MODEL.md` appendix when the detail would crowd the default reading path. Aim for roughly 50–100 lines. A package that carries an artifact model and many skills will run longer; `sdlc` is the deliberate exception, not the target. Depth is justified by a model the reader must hold, not by completeness.
 
 Compare the [sdlc README](../../plugins/sdlc/README.md) for a model-heavy package and the [documentation README](../../plugins/documentation/README.md) for a compact one.
 
@@ -33,7 +33,7 @@ If the model needs more than a screen, put the detail in `MODEL.md` and link it 
 
 | Skill | Type | Owns | Stops at | Not for |
 | --- | --- | --- | --- | --- |
-| [<Skill>](skills/<skill>/SKILL.md) | activity, method, guide, workflow or system | <Responsibility> | <Boundary> | <Nearest adjacent owner> |
+| [<Skill>](skills/<skill>/SKILL.md) | activity, method, guide, workflow, system or reference | <Responsibility> | <Boundary> | <Nearest adjacent owner> |
 
 ## How it materialized
 

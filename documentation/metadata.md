@@ -28,13 +28,13 @@ Every local skill declares the following in `SKILL.md` frontmatter. Acquired ski
 | `method` | Reusable expertise that deepens work without starting another activity: judgment, tradeoffs and evidence | `design-system`, `requirements-engineering`, `tdd` |
 | `workflow` | An ordered sequence inside or around an activity, usually requested explicitly | `git-contributions`, `write-spec`, `retro` |
 | `guide` | Artifact-shaped craft for one artifact type: structure, conventions, examples, common failures and review questions | `guide-adr`, `guide-runbook`, `guide-prd` |
-| `reference` | Stable lookup detail loaded for one branch or a deeper question; no current skill is classified this way | — |
+| `reference` | Stable lookup detail loaded for one branch or a deeper question; reserved for material that is looked up rather than applied, and no current skill is classified this way | — |
 
 The distinctions that matter most:
 
 - **Activity versus method.** An activity changes what the requester has afterward and owns a stopping point. A method deepens a concern inside that engagement without starting another activity.
 - **Method versus workflow.** A method supplies judgment and tradeoffs. A workflow supplies an ordered sequence, often for a named operation such as contributing a change.
-- **Method versus guide.** A method owns a subject and how to reason about it. A guide owns how to shape one artifact well. Artifact guides are `kind: guide`; their matching contract still owns lifecycle, authority, maturity, evidence and handoff.
+- **Method versus guide.** A method owns a subject and how to reason about it. A guide owns how to shape one artifact well. Artifact guides are `kind: guide`; their matching contract still owns lifecycle, authority, maturity, evidence and the phase handoff, while the guide owns the artifact's reader handoff.
 - **Guide versus reference.** A guide is prescriptive craft that tells the writer what good looks like. A reference is lookup material consulted for a detail.
 - **System versus everything else.** A system owns shared vocabulary and rules that other skills compose; it should not be selected as if it were a single engagement.
 
