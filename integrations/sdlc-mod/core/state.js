@@ -9,6 +9,27 @@ export const THREAD_STATUSES = ["waiting", "blocked", "parked", "done"];
 export const DECISION_STATUSES = ["open", "accepted", "superseded", "rejected"];
 export const ACTIVITIES = ["requirements", "design", "implementation", "testing", "operations"];
 
+export function migrateState(saved) {
+  if (!saved || typeof saved !== "object") return null;
+  if (saved.version === 3) return saved;
+  if (saved.version === 2) {
+    return {
+      ...saved,
+      version: 3,
+      threads: (saved.threads ?? []).map((thread) => ({
+        ...thread,
+        completedPhases: Array.isArray(thread.completedPhases) ? thread.completedPhases : [],
+        blockReason: thread.blockReason ?? null,
+      })),
+      decisions: (saved.decisions ?? []).map((decision) => ({
+        ...decision,
+        artifacts: Array.isArray(decision.artifacts) ? decision.artifacts : [],
+      })),
+    };
+  }
+  return null;
+}
+
 export function emptyState(sessionId = null) {
   return {
     version: 3,

@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { apply, emptyState, renderCompact, renderMarkdown, validateState } from "./state.js";
+import { apply, emptyState, migrateState, renderCompact, renderMarkdown, validateState } from "./state.js";
 
 function sample() {
   let state = emptyState("s1");
@@ -140,4 +140,27 @@ test("rejects non-http artifact links", () => {
       }),
     /artifact href must be http/,
   );
+});
+
+test("migrates v2 state to completed phase history", () => {
+  const v2 = {
+    version: 2,
+    sessionId: "s1",
+    focusThreadId: "T1",
+    threads: [
+      {
+        id: "T1",
+        name: "pagination works",
+        activity: "implementation",
+        status: "waiting",
+        artifacts: [],
+      },
+    ],
+    decisions: [{ id: "D1", statement: "x", status: "open", artifacts: [] }],
+  };
+  const v3 = migrateState(v2);
+  assert.equal(v3.version, 3);
+  assert.deepEqual(v3.threads[0].completedPhases, []);
+  assert.equal(v3.threads[0].blockReason, null);
+  assert.equal(migrateState({ version: 1 }), null);
 });
