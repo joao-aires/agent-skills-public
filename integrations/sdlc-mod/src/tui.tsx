@@ -13,9 +13,16 @@ export default Plugin.define({
       initial: emptyState(),
     })
 
+    /**
+     * Replace the stored value field by field.
+     *
+     * `next` is never the live draft, and no key is deleted: assigning a
+     * partial state would make the reactive status line read `state.threads`
+     * while it is undefined.
+     */
     function replaceState(next) {
+      if (!next || next === state) return
       updateState((draft) => {
-        for (const key of Object.keys(draft)) delete draft[key]
         Object.assign(draft, next)
       })
     }
@@ -35,7 +42,7 @@ export default Plugin.define({
           run: async (input) => {
             try {
               const result = runCommand(input, state)
-              if (result.state) replaceState(result.state)
+              if (result.state && result.state !== state) replaceState(result.state)
               if (result.markdown) {
                 await context.ui.dialog.alert({ title: "SDLC state", message: result.markdown })
               } else if (result.message) {

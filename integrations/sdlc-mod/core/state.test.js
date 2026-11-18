@@ -47,6 +47,13 @@ test("rejects an unknown focus and an invalid transition", () => {
   assert.throws(() => apply(state, { type: "unknown" }), /unknown command/);
 });
 
+test("renders partial or missing state without throwing", () => {
+  assert.match(renderCompact(undefined), /no focus · 0 threads · 0 open/);
+  assert.match(renderCompact({ focusThreadId: null }), /no focus/);
+  assert.match(renderMarkdown({}), /Threads:\n- None/);
+  assert.match(renderMarkdown({ threads: undefined, decisions: undefined }), /Authority: read=none/);
+});
+
 test("does not mutate the input state", () => {
   const state = emptyState();
   const next = apply(state, { type: "thread.add", activity: "test" });
