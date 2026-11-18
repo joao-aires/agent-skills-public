@@ -432,7 +432,13 @@ export function register(on) {
   });
 
   on("ui.render", { component: "AbovePrompt" }, async ($, event, next) => {
-    return renderBand($, event);
+    const band = renderBand($, event);
+    const passthrough = await next(event);
+    const { Box } = $.ui.resolve(event);
+    return Box({
+      flexDirection: "column",
+      children: passthrough ? [band, passthrough] : [band],
+    });
   });
 
   on("ui.render", { component: "Pane" }, async ($, event, next) => {
