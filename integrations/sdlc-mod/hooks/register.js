@@ -1,4 +1,5 @@
-import { apply, emptyState, renderCompact } from "../core/state.js";
+import { apply, emptyState, migrateState, renderCompact } from "../core/state.js";
+import { createQueue } from "../core/queue.js";
 import { HELP, parseCommand } from "../core/commands.js";
 import {
   applyExtraction,
@@ -32,38 +33,11 @@ let state = emptyState();
 let sessionID = null;
 let auto = true;
 let page = 0;
-let queue = Promise.resolve();
-
 function key(id) {
   return `sdlc:${id}`;
 }
 
-function mutate(task) {
-  const run = queue.then(task, task);
-  queue = run.catch(() => {});
-  return run;
-}
-
-function migrate(saved) {
-  if (!saved || typeof saved !== "object") return null;
-  if (saved.version === 3) return saved;
-  if (saved.version === 2) {
-    return {
-      ...saved,
-      version: 3,
-      threads: (saved.threads ?? []).map((thread) => ({
-        ...thread,
-        completedPhases: Array.isArray(thread.completedPhases) ? thread.completedPhases : [],
-        blockReason: thread.blockReason ?? null,
-      })),
-      decisions: (saved.decisions ?? []).map((decision) => ({
-        ...decision,
-        artifacts: Array.isArray(decision.artifacts) ? decision.artifacts : [],
-      })),
-    };
-  }
-  return null;
-}
+const mutate = createQueue();
 
 async function load($) {
   sessionID = await $.session.id();
@@ -73,7 +47,7 @@ async function load($) {
   } catch {
     saved = undefined;
   }
-  state = migrate(saved) ?? emptyState(sessionID);
+  state = migrateState(saved) ?? emptyState(sessionID);
   page = 0;
 }
 

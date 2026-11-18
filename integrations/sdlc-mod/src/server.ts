@@ -1,6 +1,7 @@
 import { Plugin } from "@opencode/plugin"
 import { Sdlc } from "./rpc.js"
-import { apply as applyState, emptyState } from "../core/state.js"
+import { apply as applyState, emptyState, migrateState } from "../core/state.js"
+import { createQueue } from "../core/queue.js"
 import { applyExtraction, buildExtractionPrompt, latestUserText, parseExtraction } from "../core/extract.js"
 import {
   buildDecisionInput,
@@ -49,25 +50,7 @@ export default Plugin.define({
 
       const promise = (async () => {
         const saved = await ctx.storage.get(keyFor(sessionID))
-        const savedState = saved as any
-        let state = emptyState(sessionID)
-        if (savedState?.version === 3) {
-          state = savedState
-        } else if (savedState?.version === 2) {
-          state = {
-            ...savedState,
-            version: 3,
-            threads: (savedState.threads ?? []).map((thread) => ({
-              ...thread,
-              completedPhases: Array.isArray(thread.completedPhases) ? thread.completedPhases : [],
-              blockReason: thread.blockReason ?? null,
-            })),
-            decisions: (savedState.decisions ?? []).map((decision) => ({
-              ...decision,
-              artifacts: Array.isArray(decision.artifacts) ? decision.artifacts : [],
-            })),
-          }
-        }
+        const state = migrateState(saved as any) ?? emptyState(sessionID)
         store.set(sessionID, state)
         return state
       })()
@@ -89,16 +72,7 @@ export default Plugin.define({
       }
     }
 
-    const mutations = new Map()
-
-    function withMutation(sessionID, task) {
-      const previous = mutations.get(sessionID) ?? Promise.resolve()
-      const run = previous.catch(() => {}).then(task)
-      mutations.set(sessionID, run)
-      return run.finally(() => {
-        if (mutations.get(sessionID) === run) mutations.delete(sessionID)
-      })
-    }
+    const withMutation = createQueue()
 
     let registration
     registration = await ctx.rpc.register(Sdlc, {
