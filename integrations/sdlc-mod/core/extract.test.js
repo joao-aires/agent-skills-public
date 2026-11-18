@@ -11,7 +11,7 @@ import {
 } from "./extract.js";
 
 test("parses fenced and bare JSON extraction", () => {
-  const fenced = '```json\n{"confidence":0.8,"commands":[{"type":"thread.add","name":"work","activity":"design"}]}\n```';
+  const fenced = '```json\n{"confidence":0.8,"commands":[{"type":"thread.add","name":"work","phase":"design"}]}\n```';
   assert.equal(parseExtraction(fenced).commands[0].name, "work");
   assert.equal(parseExtraction('{"confidence":0.4,"commands":[]}').confidence, 0.4);
 });
@@ -46,12 +46,12 @@ test("normalises host transcripts without reasoning blocks", () => {
 
 test("builds a prompt with state, hints and recent transcript", () => {
   const state = emptyState();
-  state.threads.push({ id: "T1", name: "pagination works", activity: "implementation", status: "waiting", artifacts: [] });
+  state.threads.push({ id: "T1", name: "pagination works", phase: "implementation", status: "waiting", artifacts: [] });
   const prompt = buildExtractionPrompt({
     state,
     messages: [{ role: "user", text: "pagination is moving to testing" }],
     includeMessages: 4,
-    hints: "activity=testing",
+    hints: "phase=testing",
   });
   assert.match(prompt, /Current state:/);
   assert.match(prompt, /"name": "pagination works"/);
@@ -62,18 +62,18 @@ test("builds a prompt with state, hints and recent transcript", () => {
 
 test("guards unsupported and duplicate commands", () => {
   let state = emptyState();
-  state = apply(state, { type: "thread.add", name: "pagination works", activity: "implementation" });
-  state = apply(state, { type: "thread.add", name: "API contract", activity: "design" });
+  state = apply(state, { type: "thread.add", name: "pagination works", phase: "implementation" });
+  state = apply(state, { type: "thread.add", name: "API contract", phase: "design" });
   state = apply(state, { type: "decision.add", statement: "Use the existing table", status: "accepted" });
 
   const guarded = guardCommands(
     [
-      { type: "thread.add", name: "pagination works", activity: "design" },
-      { type: "thread.add", name: "settings panel", activity: "design" },
-      { type: "thread.add", name: "bad activity", activity: "backend" },
+      { type: "thread.add", name: "pagination works", phase: "design" },
+      { type: "thread.add", name: "settings panel", phase: "design" },
+      { type: "thread.add", name: "bad phase", phase: "backend" },
       { type: "thread.focus", id: "T9" },
       { type: "thread.focus", id: "T2" },
-      { type: "thread.phase", id: "T1", activity: "testing" },
+      { type: "thread.phase", id: "T1", phase: "testing" },
       { type: "thread.status", id: "T1", status: "done" },
       { type: "thread.status", id: "T1", status: "blocked" },
       { type: "thread.park", id: "T1", reason: "waiting on the seam" },
@@ -100,7 +100,7 @@ test("guards unsupported and duplicate commands", () => {
 });
 
 test("drops every command below the confidence threshold", () => {
-  const commands = [{ type: "thread.add", name: "work", activity: "design" }];
+  const commands = [{ type: "thread.add", name: "work", phase: "design" }];
   assert.deepEqual(guardCommands(commands, emptyState(), { confidence: 0.4, minConfidence: 0.7 }), []);
 });
 
@@ -111,7 +111,7 @@ test("applies an extraction and marks inferred items", () => {
     {
       confidence: 0.9,
       commands: [
-        { type: "thread.add", name: "pagination works", activity: "implementation", softwareType: "backend" },
+        { type: "thread.add", name: "pagination works", phase: "implementation", softwareType: "backend" },
         { type: "decision.add", statement: "use the existing search table", owner: "user" },
       ],
     },
@@ -134,7 +134,7 @@ test("is idempotent across repeated extractions", () => {
   const extraction = {
     confidence: 1,
     commands: [
-      { type: "thread.add", name: "pagination works", activity: "implementation" },
+      { type: "thread.add", name: "pagination works", phase: "implementation" },
       { type: "decision.add", statement: "use the existing table" },
     ],
   };
@@ -151,7 +151,7 @@ test("redacts artifact hrefs from prompt state", () => {
   state.threads.push({
     id: "T1",
     name: "pagination works",
-    activity: "implementation",
+    phase: "implementation",
     status: "waiting",
     completedPhases: [],
     artifacts: [{ label: "api-contract.md", href: "file:///Users/me/secret/api-contract.md", kind: "file" }],

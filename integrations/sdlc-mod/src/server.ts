@@ -45,13 +45,13 @@ export default Plugin.define({
 
     async function ensureState(sessionID) {
       const cached = store.get(sessionID)
-      if (cached && cached.version === 3) return cached
+      if (cached && cached.version === 4) return cached
       if (loading.has(sessionID)) return loading.get(sessionID)
 
       const promise = (async () => {
         const saved = await ctx.storage.get(keyFor(sessionID))
         const state = migrateState(saved as any) ?? emptyState(sessionID)
-        store.set(sessionID, state)
+        cache(sessionID, state)
         return state
       })()
 
@@ -64,7 +64,7 @@ export default Plugin.define({
     }
 
     async function persist(sessionID, state) {
-      store.set(sessionID, state)
+      cache(sessionID, state)
       try {
         await ctx.storage.set(keyFor(sessionID), state)
       } catch {
@@ -81,11 +81,30 @@ export default Plugin.define({
       return value
     }
 
+    async function assertKnownSession(sessionID: string) {
+      const session = await ctx.session.get({ sessionID }).catch(() => undefined)
+      if (!session) throw new Error("unknown session")
+      return sessionID
+    }
+
+    function cache(sessionID, state) {
+      store.set(sessionID, state)
+      // Bound the cache: the durable copy lives in storage.
+      while (store.size > 200) {
+        const oldest = store.keys().next().value
+        if (oldest === undefined || oldest === sessionID) break
+        store.delete(oldest)
+      }
+    }
+
     let registration
     registration = await ctx.rpc.register(Sdlc, {
-      snapshot: async ({ sessionID }) => ({ state: await ensureState(assertSessionID(sessionID)) }),
+      snapshot: async ({ sessionID }) => {
+        await assertKnownSession(assertSessionID(sessionID))
+        return { state: await ensureState(sessionID) }
+      },
       apply: async ({ sessionID, command }) => {
-        assertSessionID(sessionID)
+        await assertKnownSession(assertSessionID(sessionID))
         return withMutation(async () => {
           const next = applyState(await ensureState(sessionID), command)
           await persist(sessionID, next)
@@ -163,7 +182,7 @@ export default Plugin.define({
           !decision ||
           shouldExtract(decision, {
             probabilityThreshold: Number.isFinite(threshold) ? threshold : 0.5,
-            currentActivity: focus?.activity ?? null,
+            currentPhase: focus?.phase ?? null,
             currentFocus: before.focusThreadId,
           })
 

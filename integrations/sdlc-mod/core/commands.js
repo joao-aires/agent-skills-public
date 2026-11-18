@@ -64,7 +64,7 @@ export function parseCommand(input) {
       if (!phase) throw new Error("thread add needs a phase");
       return command("thread.add", "Thread added.", {
         name: threadName,
-        activity: phase,
+        phase: phase,
         softwareType: softwareType ?? null,
         stoppingPoint: stopping.length ? stopping.join(" ") : null,
       });
@@ -72,7 +72,7 @@ export function parseCommand(input) {
     if (!id) throw new Error(`thread ${action} needs a thread id`);
     if (action === "phase") {
       if (!tail[0]) throw new Error("thread phase needs a phase");
-      return command("thread.phase", `Moved ${id} to ${tail[0]}.`, { id, activity: tail[0] });
+      return command("thread.phase", `Moved ${id} to ${tail[0]}.`, { id, phase: tail[0] });
     }
     if (action === "ticket") {
       if (!tail[0]) throw new Error("thread ticket needs a ticket id");

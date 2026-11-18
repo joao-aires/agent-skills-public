@@ -47,7 +47,7 @@ function SdlcSidebar(props) {
   const current = () => props.state()
   const columns = () => matrixThreads(current(), 3, props.view.page ?? 0)
   const focus = () => current().threads.find((thread) => thread.id === current().focusThreadId) ?? null
-  const focusPhase = () => focus()?.activity ?? null
+  const focusPhase = () => focus()?.phase ?? null
 
   createEffect(() => {
     props.ensure(props.sessionID)
@@ -166,7 +166,7 @@ function SdlcSidebar(props) {
           </box>
           <text fg={theme.text.muted} wrapMode="none" truncate>
             {"  "}
-            {focus().activity}
+            {focus().phase}
             {" · "}
             {focus().status}
             {focus().status === "blocked" && focus().blockReason ? ` · ${focus().blockReason}` : ""}
@@ -278,7 +278,7 @@ function SdlcDialog(props) {
                     {thread.name}
                   </text>
                   <text fg={theme.text.muted} width={14} wrapMode="none" truncate>
-                    {thread.activity}
+                    {thread.phase}
                   </text>
                   <text fg={threadColor(theme, thread, focused(thread))} width={8}>
                     {thread.status}
@@ -399,8 +399,14 @@ export default Plugin.define({
 
     const stateFor = (sessionID) => () => mirror().get(sessionID) ?? emptyState(sessionID ?? null)
 
+    // Sessions we have ever asked about. Kept separately from `requested` so a
+    // failed first snapshot is retried for the rest of the session instead of
+    // leaving the sidebar empty.
+    const known = new Set<string>()
+
     const ensure = (sessionID, attempt = 0, force = false) => {
       if (!sessionID) return
+      known.add(sessionID)
       if (!force && requested.has(sessionID)) return
       if (inFlight.has(sessionID)) return
       requested.add(sessionID)
@@ -410,23 +416,35 @@ export default Plugin.define({
         .then((result) => put(sessionID, result.state))
         .catch(() => {
           requested.delete(sessionID)
+          resubscribe()
           if (attempt < 6) setTimeout(() => ensure(sessionID, attempt + 1), 500)
         })
         .finally(() => inFlight.delete(sessionID))
     }
 
     const resync = setInterval(() => {
-      for (const sessionID of requested) ensure(sessionID, 0, true)
+      for (const sessionID of known) ensure(sessionID, 0, true)
     }, 15_000)
 
     let unsubscribe = () => {}
-    try {
-      unsubscribe = rpc().events.on("updated", (event) => {
-        put(event.data.sessionID, event.data.state)
-      })
-    } catch {
-      // The server part is not registered; snapshots will surface the error.
+    let subscribed = false
+    const resubscribe = () => {
+      try {
+        unsubscribe()
+      } catch {
+        // Already closed.
+      }
+      subscribed = false
+      try {
+        unsubscribe = rpc().events.on("updated", (event) => {
+          put(event.data.sessionID, event.data.state)
+        })
+        subscribed = true
+      } catch {
+        // The server part is not registered yet; snapshots surface the error.
+      }
     }
+    resubscribe()
 
     function openExternal(url) {
       try {

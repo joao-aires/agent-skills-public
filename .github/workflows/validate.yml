@@ -18,6 +18,8 @@ jobs:
         run: node .agent-depot/tool/dist/cli.js --json verify
       - name: Test upstream maintenance automation
         run: node --test tests/upstream_update.test.mjs
+      - name: Test the sdlc integration core
+        run: node --test integrations/sdlc-mod/core/*.test.js
       - name: Set up Python
         uses: actions/setup-python@6d4fd22b20465ccc0f7354476588e8df7c9ca0e0 # v7.1.0
         with:

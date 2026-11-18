@@ -10,17 +10,17 @@ import {
   shouldExtract,
 } from "./decision.js";
 
-test("asks for change, intent, activity and focus", () => {
+test("asks for change, intent, phase and focus", () => {
   const state = emptyState();
   state.threads.push(
-    { id: "T1", name: "API contract", activity: "design", softwareType: "frontend" },
-    { id: "T2", name: "pagination works", activity: "implementation", softwareType: null },
+    { id: "T1", name: "API contract", phase: "design", softwareType: "frontend" },
+    { id: "T2", name: "pagination works", phase: "implementation", softwareType: null },
   );
 
   const questions = buildDecisionQuestions(state);
   assert.deepEqual(
     questions.map((question) => question.name),
-    ["changed", "intent", "activity", "focus"],
+    ["changed", "intent", "phase", "focus"],
   );
   assert.equal(questions[0].type, "predicate");
   assert.deepEqual(
@@ -46,13 +46,13 @@ test("interprets predicate and choice answers", () => {
     answers: [
       { type: "predicate", name: "changed", probability: 0.66 },
       { type: "choice", name: "intent", choice: "phase", confidence: 0.9 },
-      { type: "choice", name: "activity", choice: "implementation", confidence: 1 },
+      { type: "choice", name: "phase", choice: "implementation", confidence: 1 },
       { type: "choice", name: "focus", choice: "T1", confidence: 0.8 },
     ],
   });
   assert.equal(decision.probability, 0.66);
   assert.equal(decision.intent, "phase");
-  assert.equal(decision.activity, "implementation");
+  assert.equal(decision.phase, "implementation");
   assert.equal(decision.focus, "T1");
 });
 
@@ -61,10 +61,10 @@ test("handles an error answer without losing the rest", () => {
     answers: [
       { type: "predicate", name: "changed", probability: 0.2 },
       { type: "choice", name: "intent", choice: "none", confidence: 0.95 },
-      { type: "error", name: "activity", message: "unavailable" },
+      { type: "error", name: "phase", message: "unavailable" },
     ],
   });
-  assert.equal(decision.activity, null);
+  assert.equal(decision.phase, null);
   assert.equal(decision.intent, "none");
 });
 
@@ -77,24 +77,24 @@ test("gates extraction on probability and intent confidence", () => {
   assert.equal(shouldExtract({ probability: 0.2, intent: "none", intentConfidence: 0.95 }, { probabilityThreshold: 0.1 }), true);
   assert.equal(
     shouldExtract(
-      { probability: 0.35, intent: "none", intentConfidence: 0.66, activity: "testing", activityConfidence: 1 },
-      { currentActivity: "implementation" },
+      { probability: 0.35, intent: "none", intentConfidence: 0.66, phase: "testing", phaseConfidence: 1 },
+      { currentPhase: "implementation" },
     ),
     true,
-    "an activity change must survive a weak predicate",
+    "an phase change must survive a weak predicate",
   );
   assert.equal(
     shouldExtract(
-      { probability: 0.2, intent: "none", intentConfidence: 0.95, activity: "implementation", activityConfidence: 1 },
-      { currentActivity: "implementation" },
+      { probability: 0.2, intent: "none", intentConfidence: 0.95, phase: "implementation", phaseConfidence: 1 },
+      { currentPhase: "implementation" },
     ),
     false,
-    "the same activity with no intent stays gated",
+    "the same phase with no intent stays gated",
   );
   assert.equal(
     shouldExtract(
-      { probability: 0.25, intent: "none", intentConfidence: 0.9, activity: "implementation", activityConfidence: 1, focus: "T2", focusConfidence: 0.9 },
-      { currentActivity: "implementation", currentFocus: "T1" },
+      { probability: 0.25, intent: "none", intentConfidence: 0.9, phase: "implementation", phaseConfidence: 1, focus: "T2", focusConfidence: 0.9 },
+      { currentPhase: "implementation", currentFocus: "T1" },
     ),
     true,
     "a focus change must survive a weak predicate",
@@ -104,22 +104,22 @@ test("gates extraction on probability and intent confidence", () => {
 test("applies confident phase and focus changes structurally", () => {
   const state = emptyState();
   state.threads.push(
-    { id: "T1", name: "pagination works", activity: "implementation", status: "waiting", artifacts: [] },
-    { id: "T2", name: "API contract", activity: "design", status: "waiting", artifacts: [] },
+    { id: "T1", name: "pagination works", phase: "implementation", status: "waiting", artifacts: [] },
+    { id: "T2", name: "API contract", phase: "design", status: "waiting", artifacts: [] },
   );
   state.focusThreadId = "T1";
 
   assert.deepEqual(
     gateCommands(
-      { intent: "phase", activity: "testing", activityConfidence: 1, focus: "T1", focusConfidence: 1 },
+      { intent: "phase", phase: "testing", phaseConfidence: 1, focus: "T1", focusConfidence: 1 },
       state,
     ),
-    [{ type: "thread.phase", id: "T1", activity: "testing" }],
+    [{ type: "thread.phase", id: "T1", phase: "testing" }],
   );
 
   assert.deepEqual(
     gateCommands(
-      { intent: "phase", activity: "design", activityConfidence: 1, focus: "T2", focusConfidence: 0.9 },
+      { intent: "phase", phase: "design", phaseConfidence: 1, focus: "T2", focusConfidence: 0.9 },
       state,
     ),
     [{ type: "thread.focus", id: "T2" }],
@@ -127,21 +127,21 @@ test("applies confident phase and focus changes structurally", () => {
 
   assert.deepEqual(
     gateCommands(
-      { intent: "phase", activity: "testing", activityConfidence: 0.4, focus: "new", focusConfidence: 1 },
+      { intent: "phase", phase: "testing", phaseConfidence: 0.4, focus: "new", focusConfidence: 1 },
       state,
     ),
     [],
   );
-  assert.deepEqual(gateCommands({ intent: "decision", activity: "testing", activityConfidence: 1 }, state), []);
+  assert.deepEqual(gateCommands({ intent: "decision", phase: "testing", phaseConfidence: 1 }, state), []);
 });
 
 test("turns a decision into compact hints", () => {
   assert.equal(decisionHints(null), null);
   assert.equal(
-    decisionHints({ activity: "implementation", intent: "phase", focus: "T1" }),
-    "activity=implementation, intent=phase, focus=T1",
+    decisionHints({ phase: "implementation", intent: "phase", focus: "T1" }),
+    "phase=implementation, intent=phase, focus=T1",
   );
-  assert.equal(decisionHints({ activity: "none", intent: "none", focus: "none" }), null);
+  assert.equal(decisionHints({ phase: "none", intent: "none", focus: "none" }), null);
 });
 
 test("uses the named thread instead of a low-confidence focus choice", () => {
@@ -150,7 +150,7 @@ test("uses the named thread instead of a low-confidence focus choice", () => {
     {
       id: "T1",
       name: "pagination works",
-      activity: "implementation",
+      phase: "implementation",
       status: "waiting",
       completedPhases: [],
       artifacts: [],
@@ -158,7 +158,7 @@ test("uses the named thread instead of a low-confidence focus choice", () => {
     {
       id: "T2",
       name: "API contract",
-      activity: "design",
+      phase: "design",
       status: "waiting",
       completedPhases: [],
       artifacts: [],
@@ -168,13 +168,13 @@ test("uses the named thread instead of a low-confidence focus choice", () => {
 
   assert.deepEqual(
     gateCommands(
-      { intent: "phase", activity: "testing", activityConfidence: 1, focus: "T1", focusConfidence: 0.2 },
+      { intent: "phase", phase: "testing", phaseConfidence: 1, focus: "T1", focusConfidence: 0.2 },
       state,
       { latestText: "move API contract to testing" },
     ),
     [
       { type: "thread.focus", id: "T2" },
-      { type: "thread.phase", id: "T2", activity: "testing" },
+      { type: "thread.phase", id: "T2", phase: "testing" },
     ],
   );
 });

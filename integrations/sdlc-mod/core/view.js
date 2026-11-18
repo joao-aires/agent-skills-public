@@ -1,6 +1,6 @@
-import { ACTIVITIES } from "./state.js";
+import { PHASES } from "./state.js";
 
-export const PHASES = ACTIVITIES;
+export { PHASES };
 
 /**
  * Pure display helpers shared by the host adapters.
@@ -37,9 +37,9 @@ export function threadCode(thread) {
   return thread.ticket ? `${thread.id} · ${thread.ticket}` : thread.id;
 }
 
-export function phaseMarker(phase, focusActivity, completedPhases = []) {
+export function phaseMarker(phase, focusPhase, completedPhases = []) {
   const index = PHASES.indexOf(phase);
-  const focus = PHASES.indexOf(focusActivity);
+  const focus = PHASES.indexOf(focusPhase);
   if (index === -1 || focus === -1) return "·";
   if (index < focus) return completedPhases.includes(phase) ? "✓" : "←";
   if (index === focus) return "▶";
@@ -49,7 +49,7 @@ export function phaseMarker(phase, focusActivity, completedPhases = []) {
 export function matrixCell(thread, phase, focusThreadId) {
   if (!thread) return "·";
   const index = PHASES.indexOf(phase);
-  const current = PHASES.indexOf(thread.activity);
+  const current = PHASES.indexOf(thread.phase);
   if (index === -1 || current === -1) return "·";
   if (index < current) return thread.completedPhases?.includes(phase) ? "✓" : "·";
   if (index > current) return "·";
