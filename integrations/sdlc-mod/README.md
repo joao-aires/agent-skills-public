@@ -193,8 +193,9 @@ The palette command `SDLC: Toggle details` collapses or expands artifacts and de
 
 ## Local-only boundary
 
-- State is held in the OpenCode server process, keyed by session, and mirrored by the TUI over RPC. Claude Code keeps it in the mod process.
-- It survives plugin reloads for the life of the OpenCode server, and is discarded when the server stops.
+- OpenCode stores state per session in the plugin's durable server storage (`session/<sessionID>`) and mirrors it through an in-memory cache over RPC. Claude Code keeps it in the mod process.
+- It survives plugin reloads, TUI restarts and server restarts; deleting the session removes its entry.
+- It is not synchronized across machines or with the ECR.
 - It is not written to the repository, `.sdlc/`, the ECR or a shared service.
 - It is not synchronized between sessions or machines.
 - It does not grant tool, merge, deploy or publication authority.

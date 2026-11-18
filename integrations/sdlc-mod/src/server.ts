@@ -15,9 +15,9 @@ import {
 /**
  * OpenCode server adapter.
  *
- * State lives in this server process, keyed by session, and is discarded when
- * the server stops. It is not written to the repository or synchronized with
- * the ECR. The TUI mirrors it over RPC.
+ * State is stored per session in the plugin's durable server storage, cached
+ * in this process, and mirrored by the TUI over RPC. It is not written to the
+ * repository or synchronized with the ECR.
  */
 
 const store = ((globalThis as any).__sdlcModSessions ??= new Map())
@@ -39,12 +39,50 @@ export default Plugin.define({
     options = { ...options, ...(ctx.options ?? {}) }
     autoEnabled = options.auto !== false
 
+    const loading = new Map()
+    const keyFor = (sessionID) => `session/${sessionID}`
+
+    async function ensureState(sessionID) {
+      const cached = store.get(sessionID)
+      if (cached && cached.version === 2) return cached
+      if (loading.has(sessionID)) return loading.get(sessionID)
+
+      const promise = (async () => {
+        let saved
+        try {
+          saved = await ctx.storage.get(keyFor(sessionID))
+        } catch {
+          saved = undefined
+        }
+        const savedState = saved as any
+        const state = savedState && savedState.version === 2 ? savedState : emptyState(sessionID)
+        store.set(sessionID, state)
+        return state
+      })()
+
+      loading.set(sessionID, promise)
+      try {
+        return await promise
+      } finally {
+        loading.delete(sessionID)
+      }
+    }
+
+    async function persist(sessionID, state) {
+      store.set(sessionID, state)
+      try {
+        await ctx.storage.set(keyFor(sessionID), state)
+      } catch {
+        // The in-memory state is still valid for this server lifetime.
+      }
+    }
+
     let registration
     registration = await ctx.rpc.register(Sdlc, {
-      snapshot: async ({ sessionID }) => ({ state: stateFor(sessionID) }),
+      snapshot: async ({ sessionID }) => ({ state: await ensureState(sessionID) }),
       apply: async ({ sessionID, command }) => {
-        const next = applyState(stateFor(sessionID), command)
-        store.set(sessionID, next)
+        const next = applyState(await ensureState(sessionID), command)
+        await persist(sessionID, next)
         await registration.events.emit("updated", { sessionID, state: next })
         return { state: next }
       },
@@ -104,7 +142,7 @@ export default Plugin.define({
       if (!autoEnabled || running.has(sessionID)) return
       running.add(sessionID)
       try {
-        let before = stateFor(sessionID)
+        let before = await ensureState(sessionID)
         const messages = await ctx.session.context({ sessionID })
         const decision = await decide(sessionID, messages, before)
         const threshold = Number(options.gateThreshold)
@@ -160,11 +198,18 @@ export default Plugin.define({
     void (async () => {
       try {
         for await (const event of ctx.event.subscribe({
-          types: ["session.execution.succeeded", "session.execution.started"],
+          types: ["session.execution.succeeded", "session.execution.started", "session.deleted"],
           signal: controller.signal,
         })) {
           const sessionID = event?.data?.sessionID ?? event?.data?.id
           if (!sessionID) continue
+
+          if (event.type === "session.deleted") {
+            store.delete(sessionID)
+            loading.delete(sessionID)
+            void ctx.storage.remove(keyFor(sessionID)).catch(() => {})
+            continue
+          }
 
           if (event.type === "session.execution.started") {
             const timer = timers.get(sessionID)
@@ -199,12 +244,4 @@ function modelRef(value) {
   return { providerID, id: rest.join("/") }
 }
 
-function stateFor(sessionID) {
-  let state = store.get(sessionID)
-  if (!state || state.version !== 2) {
-    state = emptyState(sessionID)
-    store.set(sessionID, state)
-  }
-  return state
-}
 
