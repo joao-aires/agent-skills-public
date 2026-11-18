@@ -374,7 +374,11 @@ export function register(on) {
   on("turn.complete", async ($, event, next) => {
     const result = await next(event);
     if (event.agentId === undefined && !event.isAborted) {
-      await infer($, event.answer);
+      try {
+        await infer($, event.answer);
+      } catch {
+        // Inference is best effort and never blocks the turn.
+      }
     }
     return result;
   });
