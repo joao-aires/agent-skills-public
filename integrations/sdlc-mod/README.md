@@ -11,13 +11,60 @@
 - next transition;
 - current read/write/publish/implement/deploy authority.
 
-The compact view is one line:
+## Views
+
+The compact view is one line under the prompt:
 
 ```text
 SDLC · design:frontend · 2 threads · 1 open
 ```
 
-The full view is Markdown for the current conversation:
+### Sidebar and dialog (OpenCode)
+
+The same state is drawn in a collapsible sidebar section:
+
+```text
+▼ SDLC 2 threads · 1 open
+● T2 design:frontend
+   → design accepted
+◐ T1 backend:backend
+○ T3 spike:cache              parked
+Decisions
+✓ D1 use the existing search table
+◐ D2 error copy owner
+Next
+design → implementation
+needs seam accepted
+Authority
+read repo · write —
+publish no · implement no · deploy no
+```
+
+Click the header, or run the palette command `SDLC: Toggle sidebar section`, to collapse it. The section lives in the session sidebar, so it is only visible while the sidebar is open.
+
+`/sdlc state` opens a large dialog with aligned columns:
+
+```text
+Engagement state  2 threads · 1 open
+Threads
+    ID Activity    Type         Status   Stopping point
+● T2   design      frontend     current  design accepted
+◐ T1   backend     backend      waiting  seam accepted
+Decisions
+✓ D1   accepted    use the existing search table   user
+◐ D2   open        error copy owner                unowned
+Next transition
+design → implementation · needs seam accepted
+Authority
+read        repo
+write       —
+publish no · implement no · deploy no
+Local to this session · not the ECR · Esc closes this view
+```
+
+### Markdown (Claude Code and tests)
+
+The core also renders Markdown for hosts and tests:
 
 ```markdown
 ## Engagement state
@@ -49,7 +96,7 @@ This is a TUI-only plugin. Add the package to `cli.json`:
 }
 ```
 
-Reload the TUI. The status line appears under the prompt, and `/sdlc` is available in the command palette.
+Reload the TUI. The status line appears under the prompt, the SDLC section appears in the session sidebar, and `/sdlc` is available in the command palette.
 
 ### Claude Code
 
@@ -78,7 +125,9 @@ Or add it to a local marketplace/plugin configuration. `/sdlc` is registered on 
 /sdlc help
 ```
 
-`state` shows the Markdown view. Other commands update the local state and the status line.
+`state` opens the large dialog in OpenCode and the Markdown view in Claude Code. Other commands update the local state, the status line and the sidebar.
+
+The palette command `SDLC: Toggle sidebar section` collapses or expands the sidebar section without a mouse.
 
 ## Local-only boundary
 
@@ -95,10 +144,11 @@ If you need cross-session or cross-agent state, use the ECR engagement-state sec
 
 ```text
 sdlc-mod/
-  core/state.js       schema, validation, reducer, rendering
+  core/state.js       schema, validation, reducer, Markdown rendering
+  core/view.js        glyphs, summaries and authority labels
   core/commands.js    textual command parsing
-  core/state.test.js  Node test suite
-  src/tui.tsx         OpenCode TUI adapter
+  core/*.test.js      Node test suites
+  src/tui.tsx         OpenCode TUI adapter: status line, sidebar, dialog
   hooks/register.js   Claude Code mod adapter
   .claude-plugin/     Claude Code manifest
   hooks/hooks.json    Claude Code hooks module declaration
