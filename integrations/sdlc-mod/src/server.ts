@@ -7,6 +7,7 @@ import {
   buildDecisionQuestions,
   DEFAULT_DECISION_MODEL,
   decisionHints,
+  gateCommands,
   interpretDecisions,
   shouldExtract,
 } from "../core/decision.js"
@@ -103,21 +104,34 @@ export default Plugin.define({
       if (!autoEnabled || running.has(sessionID)) return
       running.add(sessionID)
       try {
-        const before = stateFor(sessionID)
+        let before = stateFor(sessionID)
         const messages = await ctx.session.context({ sessionID })
         const decision = await decide(sessionID, messages, before)
         const threshold = Number(options.gateThreshold)
         const focus = before.threads.find((thread) => thread.id === before.focusThreadId)
-        if (
-          decision &&
-          !shouldExtract(decision, {
+        const extract =
+          !decision ||
+          shouldExtract(decision, {
             probabilityThreshold: Number.isFinite(threshold) ? threshold : 0.5,
             currentActivity: focus?.activity ?? null,
             currentFocus: before.focusThreadId,
           })
-        ) {
-          return
+
+        let structural = before
+        for (const command of gateCommands(decision, before)) {
+          try {
+            structural = applyState(structural, command)
+          } catch {
+            // A structural hint that no longer applies is ignored.
+          }
         }
+        if (JSON.stringify(structural) !== JSON.stringify(before)) {
+          before = structural
+          sessions.set(sessionID, before)
+          await registration.events.emit("updated", { sessionID, state: before })
+        }
+        if (!extract) return
+
         const prompt = buildExtractionPrompt({
           state: before,
           messages,
