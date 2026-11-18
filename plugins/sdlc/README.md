@@ -302,7 +302,7 @@ Requirements engineering, design-system, guide-system-documentation, security, o
 
 ### Writing craft
 
-Technical writing lives in the documentation plugin. It owns reader fit, explanation, structure, examples, precision, navigation and presentation. It takes audience, purpose and required sections from the artifact contract. It does not own placement, status, evidence or content contracts.
+Technical writing and agent-instruction craft live in the documentation plugin. `technical-writing` owns reader fit, explanation, structure, examples, precision, navigation and presentation; `writing-for-agents` owns instruction structure, pointers and progressive disclosure for skills and `AGENTS.md`/`CLAUDE.md`. Technical writing takes audience, purpose and required sections from the artifact contract. Neither owns placement, status, evidence or content contracts.
 
 ### Explicit upstream workflows
 
@@ -375,7 +375,7 @@ The `guide-*` skills are `kind: guide`. They own structure, conventions, example
 
 ### Acquired methods
 
-`code-review`, `codebase-design`, `diagnosing-bugs`, `tdd` and `writing-for-agents` arrive through Agent Depot with their upstream bodies and native controls. `grill-me`, `grill-with-docs`, `grilling` and `to-questionnaire` are acquired workflows, listed above; they keep their upstream workflow shape and are not local activities.
+`code-review`, `codebase-design`, `diagnosing-bugs` and `tdd` arrive through Agent Depot with their upstream bodies and native controls. `grill-me`, `grill-with-docs`, `grilling` and `to-questionnaire` are acquired workflows, listed above; they keep their upstream workflow shape and are not local activities. `writing-for-agents` moved to `documentation`, which owns writing craft.
 
 ### Intentional hybrids
 
@@ -436,7 +436,7 @@ A compact artifact can pass; a long artifact can fail. The test is whether the r
 
 ## Migration
 
-Use `activity-system` for routing, `test` for verification and the repository artifact home map for placement. `guide-system-documentation` explains and records the current system. For old names and removal notes, see the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
+Use `activity-system` for routing, `test` for verification and the repository artifact home map for placement. `guide-system-documentation` explains and records the current system. `writing-for-agents` moved to the documentation bundle; rebuild and reinstall documentation so the skill is discovered from its new owner. For old names and removal notes, see the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
 
 ## MCP connections
 

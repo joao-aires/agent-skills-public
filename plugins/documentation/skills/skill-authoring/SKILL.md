@@ -17,7 +17,7 @@ metadata:
 
 A skill is a scoped capability contract. It tells an agent what outcome it owns, how to reach it, which judgment and local standards matter, what evidence proves completion, and what to load, execute or look up.
 
-This method is the operational loop for creating or revising one. The repository maintainer guide owns the repository-wide rule; `writing-for-agents` owns instruction-writing mechanics when installed; [technical-writing](../technical-writing/SKILL.md) owns prose craft. Do not duplicate those methods here.
+This method is the operational loop for creating or revising one. The repository maintainer guide owns the repository-wide rule; [writing-for-agents](../writing-for-agents/SKILL.md) owns instruction-writing mechanics; [technical-writing](../technical-writing/SKILL.md) owns prose craft. Do not duplicate those methods here.
 
 ## Reading path
 

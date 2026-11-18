@@ -132,7 +132,7 @@ A skill tells an agent what outcome it owns, how to reach it, which judgment and
 
 Use **progressive disclosure**: keep the entry point legible and inline what every branch needs; push conditional detail into a reference with a clear trigger. Use a script when the work is deterministic or repetitive, rather than asking the agent to reproduce it from prose. Use an asset when the output needs a stable artifact.
 
-Anthropic's skill-creator informs this anatomy; this repository's `writing-for-agents` reference owns the finer instruction-writing levers, and `technical-writing` owns prose craft. Do not duplicate those methods here.
+Anthropic's skill-creator informs this anatomy; the documentation plugin's `writing-for-agents` reference owns the finer instruction-writing levers, and `technical-writing` owns prose craft. Do not duplicate those methods here.
 
 #### Knowledge ownership
 

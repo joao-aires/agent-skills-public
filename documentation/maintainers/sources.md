@@ -14,8 +14,8 @@ The [manifest](../../agent-depot.json) declares repositories, accepted artifact 
 | ai-langchain-development | [langchain-ai/langchain-skills](https://github.com/langchain-ai/langchain-skills) | langchain-fundamentals, langgraph-fundamentals, langgraph-persistence, langchain-dependencies |
 | ai-python-development | [anthropics/skills](https://github.com/anthropics/skills) | mcp-builder |
 | backend-python-development | [trailofbits/skills](https://github.com/trailofbits/skills) | modern-python |
-| sdlc | [mattpocock/skills](https://github.com/mattpocock/skills) | code-review, codebase-design, diagnosing-bugs, grill-with-docs, tdd, grill-me, grilling, to-questionnaire, writing-for-agents |
-| documentation | [mattpocock/skills](https://github.com/mattpocock/skills) | handoff |
+| sdlc | [mattpocock/skills](https://github.com/mattpocock/skills) | code-review, codebase-design, diagnosing-bugs, grill-with-docs, tdd, grill-me, grilling, to-questionnaire |
+| documentation | [mattpocock/skills](https://github.com/mattpocock/skills) | handoff, writing-for-agents |
 | development-tooling | [github/awesome-copilot](https://github.com/github/awesome-copilot) | github-actions-hardening |
 | development-tooling | [microsoft/playwright-cli](https://github.com/microsoft/playwright-cli) | playwright-cli |
 | development-tooling | [trailofbits/skills](https://github.com/trailofbits/skills) | supply-chain-risk-auditor |
@@ -58,7 +58,7 @@ The original [creative implementation reference](../../plugins/frontend-developm
 
 ## Matt Pocock selection
 
-The selection below reviews 27 upstream skills at [the pinned revision](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d). The current build retains 10: nine in `sdlc` and `handoff` in `documentation`. Two are integrated into local owners, five are replaced by local methods, and one is retired. Exclusions keep the bundle focused; they do not judge upstream quality.
+The selection below reviews 27 upstream skills at [the pinned revision](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d). The current build retains 10: eight in `sdlc`, with `handoff` and `writing-for-agents` in `documentation`. Two are integrated into local owners, five are replaced by local methods, and one is retired. Exclusions keep the bundle focused; they do not judge upstream quality.
 
 | Skill | Decision | Reason or constraint |
 | --- | --- | --- |
@@ -88,7 +88,7 @@ The selection below reviews 27 upstream skills at [the pinned revision](https://
 | Architecture scan | Integrate into `improve` | The scan becomes an optional reference; no HTML/CDN/interview requirement. |
 | retro | Replace with local method | Keeps session learning but drops foreign repository and reviewer-agent assumptions. |
 | handoff | Move to `documentation` | It is a reader-facing context note, not an SDLC activity. |
-| writing-for-agents | Keep | Instruction structure, pointers and progressive disclosure; complements Humanizer's prose editing. |
+| writing-for-agents | Keep, move to `documentation` | Instruction structure, pointers and progressive disclosure; complements Humanizer's prose editing and belongs with documentation craft. |
 
 ## Application references
 
@@ -192,7 +192,7 @@ The Community candidates above remain references. The MIT better-interface repos
 
 ## Documentation methods
 
-I use technical-writing for cross-type writing craft. The `guide-system-documentation` skill explains current architecture, including structural, runtime, interface and deployment views; design-system owns proposed architecture. The artifact system owns artifact contracts, planes, homes, quality and assurance. These are original local skills; no upstream resources or invocation controls are imported.
+I use technical-writing for cross-type writing craft. The documentation bundle also owns skill and agent-instruction writing: `skill-authoring` is local guidance, while the acquired `writing-for-agents` reference keeps its upstream body and license. The `guide-system-documentation` skill explains current architecture, including structural, runtime, interface and deployment views; design-system owns proposed architecture. The artifact system owns artifact contracts, planes, homes, quality and assurance. The local skills import no upstream resources or invocation controls beyond the declared acquired snapshot.
 
 `skill-authoring` is original local guidance for this collection. Its skill anatomy, progressive-disclosure model and authoring loop are informed by Anthropic's [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) and by the pinned `writing-for-agents` reference; the local method adds the repository's capability boundary, knowledge-ownership rule, cross-plugin composition, evaluation and packaging requirements. No upstream text is copied.
 
@@ -278,7 +278,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 21 independent packages and 158 skills: 128 local and 30 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 21 independent packages and 158 skills: 128 local and 30 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer and writing-for-agents use documentation-local packaging and the Python MCP wrapper uses Python-local conventions.
 
 Skills carry a small classification layer: `kind` (system, activity, method, workflow, guide or reference), `origin` (local or upstream), `scope`, `invocation` and `role`. Local skills are validated for the required fields; acquired labels come from `agent-depot.json` and are injected at build time without editing upstream bytes. Run `python scripts/skill_inventory.py` for the generated maintainer matrix.
 
@@ -291,11 +291,11 @@ The collection has 9 generic capability packages and 12 optional technical packa
 | Plugin | Applicability | Skills | Responsibility |
 | --- | --- | --- | --- |
 | `strategy` | Generic | 15 | Business strategy triggers, market/competitive/positioning decisions, strategy briefs and local strategy guides. |
-| `sdlc` | Generic | 66 | Full SDLC: activities, artifact model, design-system architecture and tactical design, delivery, operations, security, governance, project foundations and verification. |
+| `sdlc` | Generic | 65 | Full SDLC: activities, artifact model, design-system architecture and tactical design, delivery, operations, security, governance, project foundations and verification. |
 | `frontend-development` | Generic | 7 | Integrated interface design, design research, UX writing, usability research and UI journey testing across web, desktop and mobile. |
 | `backend-development` | Generic | 6 | Service authority, state, failure, durable work, architecture pattern selection, HTTP and GraphQL contracts, event-driven integration and distributed-systems reasoning. |
 | `ai-development` | Generic | 4 | AI application/architecture and protocol design; evaluation methods and programs; AI-specific operating decisions and evidence. |
-| `documentation` | Generic support | 5 | Cross-type technical writing craft, intuitive explanation, skill authoring, session handoff and prose editing. |
+| `documentation` | Generic support | 6 | Cross-type technical writing craft, intuitive explanation, skill authoring, agent-instruction craft, session handoff and prose editing. |
 | `visualization` | Generic support | 3 | Diagrams, presentations and interactive system explanation; preserve executable resources. |
 | `backend-python-development` | Technical | 3 | Python/FastAPI/persistence and Python automation; no backend service required for CLI work. |
 | `frontend-reactjs-development` | Technical | 5 | React/Next.js/shadcn/Tailwind and their actual component APIs. |
@@ -433,7 +433,6 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [testing-resilience](../../plugins/sdlc/skills/testing-resilience/SKILL.md) | Local | `sdlc` |
 | [to-questionnaire](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/to-questionnaire) | Upstream | `sdlc` |
 | [write-spec](../../plugins/sdlc/skills/write-spec/SKILL.md) | Local | `sdlc` |
-| [writing-for-agents](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/writing-for-agents) | Upstream | `sdlc` |
 | [design-research](../../plugins/frontend-development/skills/design-research/SKILL.md) | Local | `frontend-development` |
 | [impeccable](https://github.com/pbakaus/impeccable/tree/c3bb418ee38ee49a6b999b7752c1368f3123a2bd/plugin/skills/impeccable) | Upstream | `frontend-development` |
 | [interface-design](../../plugins/frontend-development/skills/interface-design/SKILL.md) | Local | `frontend-development` |
@@ -456,6 +455,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [humanizer](https://github.com/blader/humanizer/tree/225a6f39ac85f76ee48dbad772ea4abe4ed6c9d8/.) | Upstream | `documentation` |
 | [skill-authoring](../../plugins/documentation/skills/skill-authoring/SKILL.md) | Local | `documentation` |
 | [technical-writing](../../plugins/documentation/skills/technical-writing/SKILL.md) | Local | `documentation` |
+| [writing-for-agents](https://github.com/mattpocock/skills/tree/4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d/skills/productivity/writing-for-agents) | Upstream | `documentation` |
 | [architecture-diagramming](../../plugins/visualization/skills/architecture-diagramming/SKILL.md) | Local | `visualization` |
 | [presentation-building](../../plugins/visualization/skills/presentation-building/SKILL.md) | Local | `visualization` |
 | [system-flow-explorer](../../plugins/visualization/skills/system-flow-explorer/SKILL.md) | Local | `visualization` |
@@ -516,9 +516,9 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 
 ### Resource and invocation closure
 
-Keep the retained Matt methods together with their real dependencies: the grill trio, `to-questionnaire`, `tdd`, `code-review`, `diagnosing-bugs`, `codebase-design` and `writing-for-agents` remain in `sdlc`; `handoff` lives in `documentation`. Local `research`, `domain-modeling`, `prototype` and `retro` replace the former acquisitions and keep their names so existing explicit workflows still resolve. Humanizer lives in documentation without making prose editing a hard dependency of development. Use Humanizer when available; ordinary writing still proceeds without it.
+Keep the retained Matt methods together with their real dependencies: the grill trio, `to-questionnaire`, `tdd`, `code-review`, `diagnosing-bugs` and `codebase-design` remain in `sdlc`; `handoff` and `writing-for-agents` live in `documentation`. Local `research`, `domain-modeling`, `prototype` and `retro` replace the former acquisitions and keep their names so existing explicit workflows still resolve. Humanizer lives in documentation without making prose editing a hard dependency of development. Use Humanizer when available; ordinary writing still proceeds without it.
 
-Shared framing and owned Markdown references are checked within each package. Development uses activity-system; documentation uses its package README and technical writing skill; strategy and operations remain self-contained without duplicated composition files. Optional methods are selected by capability, and no shared file outside the package is required. Keep the complete Humanizer, diagram/presentation/explorer, supply-chain scripts, AKS references, ADK pair and LangChain group. Moving an acquired skill changes its destination and may require adaptation changes, but its reviewed source pin, license and native controls remain authoritative.
+Shared framing and owned Markdown references are checked within each package. Development uses activity-system; documentation uses its package README plus technical-writing, skill-authoring and writing-for-agents; strategy and operations remain self-contained without duplicated composition files. Optional methods are selected by capability, and no shared file outside the package is required. Keep the complete Humanizer, diagram/presentation/explorer, supply-chain scripts, AKS references, ADK pair and LangChain group. Moving an acquired skill changes its destination and may require adaptation changes, but its reviewed source pin, license and native controls remain authoritative.
 
 Figma remains optional tooling declared by frontend-development; the React technical package has no inherited Figma endpoint. Tool availability and authorized file access are separate from installing interface methods. Distribution uses complete built plugins. The legacy symlink helper is a migration aid for local skills and does not establish package independence.
 

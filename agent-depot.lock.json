@@ -1,6 +1,6 @@
 {
   "schemaVersion": 2,
-  "manifestHash": "4e4b1e68f89b77d4969d95e2aa819087a743ed2a3ea4e50b2db4cfcde07e1497",
+  "manifestHash": "cf50dbd6f8668a5e6473cf3d3117e54c71ef84b4b01d88f722262792f423f488",
   "sources": {
     "vercel-labs-agent-skills": {
       "repository": "https://github.com/vercel-labs/agent-skills.git"
@@ -2020,7 +2020,7 @@
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "kind": "skill",
       "path": "skills/productivity/writing-for-agents",
-      "destination": "plugins/sdlc/skills/writing-for-agents",
+      "destination": "plugins/documentation/skills/writing-for-agents",
       "resources": [
         {
           "path": "LICENSE",
@@ -2029,11 +2029,10 @@
       ],
       "metadata": {
         "packaging": {
-          "plugin": "sdlc",
+          "plugin": "documentation",
           "license": "MIT",
           "license_path": "LICENSE",
           "adaptations": [
-            "workflow-framing",
             "documentation-paths",
             "usage-labels",
             "support-visibility"
@@ -2044,8 +2043,8 @@
             "role": "support",
             "kind": "method",
             "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
+            "pack": "craft",
+            "domain": "documentation",
             "phase": "cross-phase"
           }
         }

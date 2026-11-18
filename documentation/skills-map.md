@@ -32,9 +32,9 @@ Two core models, a method layer, three cross-cutting dimensions:
 | Pack | Skills |
 | --- | ---: |
 | `technical` | 67 |
-| `sdlc` | 66 |
+| `sdlc` | 65 |
 | `product` | 15 |
-| `craft` | 10 |
+| `craft` | 11 |
 
 | Kind | Skills |
 | --- | ---: |

@@ -134,6 +134,9 @@ The acquired SDLC set was reviewed against the local activity, artifact and meth
 | `prototype` | Local [prototype](../plugins/sdlc/skills/prototype/SKILL.md) |
 | `retro` | Local [retro](../plugins/sdlc/skills/retro/SKILL.md) |
 | `handoff` | Moved to [documentation](../plugins/documentation/skills/handoff/SKILL.md) |
+| `writing-for-agents` | Moved to [documentation](../plugins/documentation/skills/writing-for-agents/SKILL.md); the documentation bundle now owns agent-instruction craft |
+
+`writing-for-agents` keeps its upstream body, source pin, license and native controls. Its destination, packaging plugin and `pack: craft` labels now follow the documentation package; rebuild both `sdlc` and `documentation` so the old copy is removed and the new owner is discovered.
 
 Structural renames:
 
