@@ -7,7 +7,7 @@ function sample() {
   state = apply(state, {
     type: "thread.add",
     name: "pagination works",
-    activity: "implementation",
+    phase: "implementation",
     softwareType: "backend",
     ticket: "PROJ-142",
     stoppingPoint: "pagination works",
@@ -17,7 +17,7 @@ function sample() {
 
 test("adds a named thread and focuses the first one", () => {
   const state = sample();
-  assert.equal(state.version, 3);
+  assert.equal(state.version, 4);
   assert.equal(state.threads.length, 1);
   assert.equal(state.threads[0].name, "pagination works");
   assert.equal(state.threads[0].ticket, "PROJ-142");
@@ -27,12 +27,12 @@ test("adds a named thread and focuses the first one", () => {
 
 test("moves a thread between phases, records history and attaches a ticket", () => {
   let state = sample();
-  state = apply(state, { type: "thread.phase", id: "T1", activity: "testing" });
-  assert.equal(state.threads[0].activity, "testing");
+  state = apply(state, { type: "thread.phase", id: "T1", phase: "testing" });
+  assert.equal(state.threads[0].phase, "testing");
   assert.deepEqual(state.threads[0].completedPhases, ["implementation"]);
-  state = apply(state, { type: "thread.phase", id: "T1", activity: "design" });
-  assert.equal(state.threads[0].activity, "design");
-  assert.deepEqual(state.threads[0].completedPhases, []);
+  state = apply(state, { type: "thread.phase", id: "T1", phase: "design" });
+  assert.equal(state.threads[0].phase, "design");
+  assert.deepEqual(state.threads[0].completedPhases, ["implementation", "testing"]);
   state = apply(state, { type: "thread.ticket", id: "T1", ticket: "PROJ-999" });
   assert.equal(state.threads[0].ticket, "PROJ-999");
 });
@@ -74,7 +74,7 @@ test("switches focus and parks a thread", () => {
   state = apply(state, {
     type: "thread.add",
     name: "API contract",
-    activity: "design",
+    phase: "design",
     softwareType: "frontend",
   });
   state = apply(state, { type: "thread.focus", id: "T2" });
@@ -109,8 +109,8 @@ test("rejects an unknown focus, invalid phase and unknown command", () => {
   const state = emptyState();
   assert.throws(() => apply(state, { type: "thread.focus", id: "T9" }), /unknown thread T9/);
   assert.throws(
-    () => apply(state, { type: "thread.add", name: "work", activity: "backend" }),
-    /activity must be one of/,
+    () => apply(state, { type: "thread.add", name: "work", phase: "backend" }),
+    /phase must be one of/,
   );
   assert.throws(() => apply(state, { type: "unknown" }), /unknown command/);
 });
@@ -124,7 +124,7 @@ test("renders partial or missing state without throwing", () => {
 
 test("does not mutate the input state", () => {
   const state = emptyState();
-  const next = apply(state, { type: "thread.add", name: "work", activity: "design" });
+  const next = apply(state, { type: "thread.add", name: "work", phase: "design" });
   assert.equal(state.threads.length, 0);
   assert.equal(next.threads.length, 1);
 });
@@ -151,16 +151,53 @@ test("migrates v2 state to completed phase history", () => {
       {
         id: "T1",
         name: "pagination works",
-        activity: "implementation",
+        phase: "implementation",
         status: "waiting",
         artifacts: [],
       },
     ],
     decisions: [{ id: "D1", statement: "x", status: "open", artifacts: [] }],
   };
-  const v3 = migrateState(v2);
-  assert.equal(v3.version, 3);
-  assert.deepEqual(v3.threads[0].completedPhases, []);
-  assert.equal(v3.threads[0].blockReason, null);
+  const v4 = migrateState(v2);
+  assert.equal(v4.version, 4);
+  assert.deepEqual(v4.threads[0].completedPhases, []);
+  assert.equal(v4.threads[0].blockReason, null);
   assert.equal(migrateState({ version: 1 }), null);
+});
+
+test("reset clears an invalid persisted state instead of throwing", () => {
+  const corrupt = { version: 4, sessionId: "s1", focusThreadId: "T9", threads: [], decisions: [] };
+  const state = apply(corrupt, { type: "reset" });
+  assert.equal(state.version, 4);
+  assert.equal(state.sessionId, "s1");
+  assert.deepEqual(state.threads, []);
+  assert.equal(state.focusThreadId, null);
+});
+
+test("moving backward keeps the phases already visited", () => {
+  let state = sample();
+  state = apply(state, { type: "thread.phase", id: "T1", phase: "testing" });
+  state = apply(state, { type: "thread.phase", id: "T1", phase: "design" });
+  assert.equal(state.threads[0].phase, "design");
+  assert.deepEqual(state.threads[0].completedPhases, ["implementation", "testing"]);
+  state = apply(state, { type: "thread.phase", id: "T1", phase: "deployment" });
+  assert.deepEqual(state.threads[0].completedPhases, ["implementation", "testing", "design"]);
+});
+
+test("migrates the five-phase v3 state to seven phases", () => {
+  const v3 = {
+    version: 3,
+    sessionId: "s1",
+    focusThreadId: "T1",
+    decisions: [],
+    threads: [{
+      id: "T1", name: "ops work", activity: "operations", status: "waiting",
+      completedPhases: ["requirements", "operations"], artifacts: [], blockReason: null,
+    }],
+  };
+  const v4 = migrateState(v3);
+  assert.equal(v4.version, 4);
+  assert.equal(v4.threads[0].phase, "maintenance");
+  assert.deepEqual(v4.threads[0].completedPhases, ["requirements", "maintenance"]);
+  assert.deepEqual(validateState(v4), []);
 });

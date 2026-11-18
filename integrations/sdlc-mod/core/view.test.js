@@ -37,13 +37,13 @@ test("shows a local id plus the tracker id when present", () => {
 });
 
 test("fills a phase matrix cell from phase and status", () => {
-  const thread = { id: "T1", activity: "implementation", status: "waiting", completedPhases: ["requirements"] };
+  const thread = { id: "T1", phase: "implementation", status: "waiting", completedPhases: ["requirements"] };
   assert.equal(matrixCell(thread, "requirements", "T1"), "✓");
   assert.equal(matrixCell(thread, "implementation", "T1"), "●");
   assert.equal(matrixCell({ ...thread, status: "blocked" }, "implementation", "T1"), "!");
   assert.equal(matrixCell({ ...thread, status: "parked" }, "implementation", "T1"), "○");
   assert.equal(matrixCell(thread, "testing", "T1"), "·");
-  assert.equal(matrixCell(thread, "throughout", "T1"), "·");
+  assert.equal(matrixCell(thread, "maintenance", "T1"), "·");
 });
 
 test("marks previous, current and future phases", () => {
@@ -57,7 +57,7 @@ test("marks previous, current and future phases", () => {
 test("pages matrix columns without reordering around focus", () => {
   const threads = Array.from({ length: 5 }, (_, index) => ({
     id: `T${index + 1}`,
-    activity: "design",
+    phase: "design",
     status: "waiting",
   }));
   const state = { threads, focusThreadId: "T5" };
@@ -71,7 +71,7 @@ test("pages matrix columns without reordering around focus", () => {
 });
 
 test("does not mark unreached phases as done", () => {
-  const thread = { id: "T3", activity: "operations", status: "parked", completedPhases: [] };
+  const thread = { id: "T3", phase: "maintenance", status: "parked", completedPhases: [] };
   assert.equal(matrixCell(thread, "implementation", "T3"), "·");
   assert.equal(
     matrixCell({ ...thread, completedPhases: ["implementation"] }, "implementation", "T3"),

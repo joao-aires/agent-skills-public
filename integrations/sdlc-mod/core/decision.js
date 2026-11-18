@@ -1,9 +1,9 @@
-import { ACTIVITIES as PHASES } from "./state.js";
+import { PHASES } from "./state.js";
 import { normaliseMessages, promptState } from "./extract.js";
 
 export const DEFAULT_DECISION_MODEL = "opencode/jev-1.13-free";
 
-export const ACTIVITIES = [...PHASES, "none"];
+export const PHASE_CHOICES = [...PHASES, "none"];
 
 const INTENTS = [
   { value: "none", label: "no change" },
@@ -56,9 +56,9 @@ export function buildDecisionQuestions(state) {
     },
     {
       type: "choice",
-      name: "activity",
+      name: "phase",
       instructions: "Which phase is the work in after the latest user message?",
-      choices: ACTIVITIES.map((activity) => ({ value: activity, label: activity })),
+      choices: PHASE_CHOICES.map((phase) => ({ value: phase, label: phase })),
     },
     {
       type: "choice",
@@ -77,15 +77,15 @@ export function interpretDecisions(result) {
 
   const changed = byName.get("changed");
   const intent = byName.get("intent");
-  const activity = byName.get("activity");
+  const phase = byName.get("phase");
   const focus = byName.get("focus");
 
   return {
     probability: typeof changed?.probability === "number" ? changed.probability : null,
     intent: typeof intent?.choice === "string" ? intent.choice : null,
     intentConfidence: typeof intent?.confidence === "number" ? intent.confidence : 0,
-    activity: typeof activity?.choice === "string" ? activity.choice : null,
-    activityConfidence: typeof activity?.confidence === "number" ? activity.confidence : 0,
+    phase: typeof phase?.choice === "string" ? phase.choice : null,
+    phaseConfidence: typeof phase?.confidence === "number" ? phase.confidence : 0,
     focus: typeof focus?.choice === "string" ? focus.choice : null,
     focusConfidence: typeof focus?.confidence === "number" ? focus.confidence : 0,
   };
@@ -97,16 +97,16 @@ export function interpretDecisions(result) {
  */
 export function shouldExtract(
   decision,
-  { probabilityThreshold = 0.5, intentThreshold = 0.7, activityThreshold = 0.8, currentActivity = null, currentFocus = null } = {},
+  { probabilityThreshold = 0.5, intentThreshold = 0.7, phaseThreshold = 0.8, currentPhase = null, currentFocus = null } = {},
 ) {
   if (!decision || decision.probability === null) return true;
   if (decision.probability >= probabilityThreshold) return true;
   if (decision.intent && decision.intent !== "none" && decision.intentConfidence >= intentThreshold) return true;
   if (
-    decision.activity &&
-    decision.activity !== "none" &&
-    decision.activity !== currentActivity &&
-    decision.activityConfidence >= activityThreshold
+    decision.phase &&
+    decision.phase !== "none" &&
+    decision.phase !== currentPhase &&
+    decision.phaseConfidence >= phaseThreshold
   ) {
     return true;
   }
@@ -114,7 +114,7 @@ export function shouldExtract(
     decision.focus &&
     decision.focus !== "none" &&
     decision.focus !== currentFocus &&
-    decision.focusConfidence >= activityThreshold
+    decision.focusConfidence >= phaseThreshold
   ) {
     return true;
   }
@@ -139,7 +139,7 @@ function namedThreadId(threads, text) {
 export function gateCommands(
   decision,
   state,
-  { activityThreshold = 0.8, focusThreshold = 0.8, latestText = "" } = {},
+  { phaseThreshold = 0.8, focusThreshold = 0.8, latestText = "" } = {},
 ) {
   if (!decision) return [];
   const threads = Array.isArray(state?.threads) ? state.threads : [];
@@ -161,13 +161,13 @@ export function gateCommands(
 
   if (
     decision.intent === "phase" &&
-    decision.activity &&
-    decision.activity !== "none" &&
-    decision.activityConfidence >= activityThreshold
+    decision.phase &&
+    decision.phase !== "none" &&
+    decision.phaseConfidence >= phaseThreshold
   ) {
     const thread = threads.find((item) => item.id === target);
-    if (thread && thread.activity !== decision.activity) {
-      commands.push({ type: "thread.phase", id: target, activity: decision.activity });
+    if (thread && thread.phase !== decision.phase) {
+      commands.push({ type: "thread.phase", id: target, phase: decision.phase });
     }
   }
 
@@ -177,7 +177,7 @@ export function gateCommands(
 export function decisionHints(decision) {
   if (!decision) return null;
   const hints = [];
-  if (decision.activity && decision.activity !== "none") hints.push(`activity=${decision.activity}`);
+  if (decision.phase && decision.phase !== "none") hints.push(`phase=${decision.phase}`);
   if (decision.intent && decision.intent !== "none") hints.push(`intent=${decision.intent}`);
   if (decision.focus && decision.focus !== "none") hints.push(`focus=${decision.focus}`);
   return hints.length ? hints.join(", ") : null;

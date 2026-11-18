@@ -7,20 +7,29 @@
 
 export const THREAD_STATUSES = ["waiting", "blocked", "parked", "done"];
 export const DECISION_STATUSES = ["open", "accepted", "superseded", "rejected"];
-export const ACTIVITIES = ["requirements", "design", "implementation", "testing", "operations"];
+export const PHASES = ["planning", "requirements", "design", "implementation", "testing", "deployment", "maintenance"];
+const LEGACY_PHASES = { operations: "maintenance" };
 
 export function migrateState(saved) {
   if (!saved || typeof saved !== "object") return null;
-  if (saved.version === 3) return saved;
-  if (saved.version === 2) {
+  if (saved.version === 4) return saved;
+  if (saved.version === 3 || saved.version === 2) {
+    const threads = (saved.threads ?? []).map((thread) => {
+      const phase = LEGACY_PHASES[thread.phase ?? thread.activity] ?? thread.phase ?? thread.activity ?? "requirements";
+      const completed = (Array.isArray(thread.completedPhases) ? thread.completedPhases : [])
+        .map((item) => LEGACY_PHASES[item] ?? item);
+      return {
+        ...thread,
+        phase,
+        completedPhases: [...new Set(completed)],
+        blockReason: thread.blockReason ?? null,
+        artifacts: Array.isArray(thread.artifacts) ? thread.artifacts : [],
+      };
+    });
     return {
       ...saved,
-      version: 3,
-      threads: (saved.threads ?? []).map((thread) => ({
-        ...thread,
-        completedPhases: Array.isArray(thread.completedPhases) ? thread.completedPhases : [],
-        blockReason: thread.blockReason ?? null,
-      })),
+      version: 4,
+      threads,
       decisions: (saved.decisions ?? []).map((decision) => ({
         ...decision,
         artifacts: Array.isArray(decision.artifacts) ? decision.artifacts : [],
@@ -32,7 +41,7 @@ export function migrateState(saved) {
 
 export function emptyState(sessionId = null) {
   return {
-    version: 3,
+    version: 4,
     sessionId,
     focusThreadId: null,
     threads: [],
@@ -60,12 +69,12 @@ function requireString(value, name) {
   return value.trim();
 }
 
-function requireActivity(value) {
-  const activity = requireString(value, "activity");
-  if (!ACTIVITIES.includes(activity)) {
-    throw new Error(`activity must be one of ${ACTIVITIES.join(", ")}`);
+function requirePhase(value) {
+  const phase = requireString(value, "phase");
+  if (!PHASES.includes(phase)) {
+    throw new Error(`phase must be one of ${PHASES.join(", ")}`);
   }
-  return activity;
+  return phase;
 }
 
 function optionalString(value, name) {
@@ -97,13 +106,13 @@ function requireCompletedPhases(value) {
   if (!Array.isArray(value)) throw new Error("completedPhases must be an array");
   const phases = [];
   for (const phase of value) {
-    const activity = requireActivity(phase);
-    if (!phases.includes(activity)) phases.push(activity);
+    const phase = requirePhase(phase);
+    if (!phases.includes(phase)) phases.push(phase);
   }
   return phases;
 }
 
-const PHASE_INDEX = new Map(ACTIVITIES.map((activity, index) => [activity, index]));
+const PHASE_INDEX = new Map(PHASES.map((phase, index) => [phase, index]));
 
 function findThread(state, id) {
   const thread = state.threads.find((item) => item.id === id);
@@ -136,7 +145,7 @@ function validArtifacts(artifacts) {
 export function validateState(state) {
   const errors = [];
   if (!state || typeof state !== "object") return ["state must be an object"];
-  if (state.version !== 3) errors.push("version must be 3");
+  if (state.version !== 4) errors.push("version must be 4");
   if (!Array.isArray(state.threads)) errors.push("threads must be an array");
   if (!Array.isArray(state.decisions)) errors.push("decisions must be an array");
 
@@ -146,15 +155,15 @@ export function validateState(state) {
     if (threadIds.has(thread.id)) errors.push(`duplicate thread id ${thread.id}`);
     threadIds.add(thread.id);
     if (typeof thread.name !== "string" || thread.name.trim() === "") errors.push(`thread ${thread.id} needs a name`);
-    if (!ACTIVITIES.includes(thread.activity)) {
-      errors.push(`thread ${thread.id} has invalid activity ${thread.activity}`);
+    if (!PHASES.includes(thread.phase)) {
+      errors.push(`thread ${thread.id} has invalid phase ${thread.phase}`);
     }
     if (!Array.isArray(thread.completedPhases)) {
       errors.push(`thread ${thread.id} completedPhases must be an array`);
     } else {
       const seen = new Set();
       for (const phase of thread.completedPhases) {
-        if (!ACTIVITIES.includes(phase)) errors.push(`thread ${thread.id} has invalid completed phase ${phase}`);
+        if (!PHASES.includes(phase)) errors.push(`thread ${thread.id} has invalid completed phase ${phase}`);
         if (seen.has(phase)) errors.push(`thread ${thread.id} has duplicate completed phase ${phase}`);
         seen.add(phase);
       }
@@ -201,8 +210,11 @@ function ensureValid(state) {
  * Apply one local command and return a new state. The input is not mutated.
  */
 export function apply(previous, command) {
-  ensureValid(previous);
   if (!command || typeof command !== "object") throw new Error("command must be an object");
+  if (command.type === "reset") {
+    return emptyState(previous && typeof previous === "object" ? previous.sessionId : null);
+  }
+  ensureValid(previous);
   const state = clone(previous);
   const now = new Date().toISOString();
   const source = command.source === "inferred" ? "inferred" : "manual";
@@ -214,7 +226,7 @@ export function apply(previous, command) {
         id,
         ticket: optionalString(command.ticket, "ticket"),
         name: requireString(command.name, "thread name"),
-        activity: requireActivity(command.activity),
+        phase: requirePhase(command.phase),
         softwareType: optionalString(command.softwareType, "softwareType"),
         stoppingPoint: optionalString(command.stoppingPoint, "stoppingPoint"),
         status: command.status ?? "waiting",
@@ -244,15 +256,11 @@ export function apply(previous, command) {
     }
     case "thread.phase": {
       const thread = findThread(state, requireString(command.id, "thread id"));
-      const activity = requireActivity(command.activity);
-      const currentIndex = PHASE_INDEX.get(thread.activity);
-      const nextIndex = PHASE_INDEX.get(activity);
-      if (nextIndex > currentIndex && !thread.completedPhases.includes(thread.activity)) {
-        thread.completedPhases.push(thread.activity);
-      } else if (nextIndex < currentIndex) {
-        thread.completedPhases = thread.completedPhases.filter((phase) => PHASE_INDEX.get(phase) < nextIndex);
+      const phase = requirePhase(command.phase);
+      if (thread.phase !== phase && !thread.completedPhases.includes(thread.phase)) {
+        thread.completedPhases.push(thread.phase);
       }
-      thread.activity = activity;
+      thread.phase = phase;
       thread.updatedAt = now;
       break;
     }
@@ -383,7 +391,7 @@ export function renderMarkdown(state) {
   const lines = ["## Engagement state", ""];
   const focus = focusedThread(current);
   lines.push(
-    `Focus: ${focus ? `${focus.id} — ${focus.name} (${focus.activity}${focus.softwareType ? `, ${focus.softwareType}` : ""})` : "none"}`,
+    `Focus: ${focus ? `${focus.id} — ${focus.name} (${focus.phase}${focus.softwareType ? `, ${focus.softwareType}` : ""})` : "none"}`,
   );
   lines.push("", "Threads:");
   if (!current.threads.length) lines.push("- None");
@@ -393,7 +401,7 @@ export function renderMarkdown(state) {
     const artifacts = thread.artifacts?.length ? ` — ${thread.artifacts.map((artifact) => artifact.label).join(", ")}` : "";
     const blocked = thread.status === "blocked" && thread.blockReason ? ` — ${thread.blockReason}` : "";
     lines.push(
-      `- ${marker} ${thread.id}${ticket} — ${thread.name} — ${thread.activity}${thread.softwareType ? ` (${thread.softwareType})` : ""} — ${thread.status}${blocked}${thread.stoppingPoint ? ` — ${thread.stoppingPoint}` : ""}${artifacts}`,
+      `- ${marker} ${thread.id}${ticket} — ${thread.name} — ${thread.phase}${thread.softwareType ? ` (${thread.softwareType})` : ""} — ${thread.status}${blocked}${thread.stoppingPoint ? ` — ${thread.stoppingPoint}` : ""}${artifacts}`,
     );
   }
   lines.push("", "Decisions:");

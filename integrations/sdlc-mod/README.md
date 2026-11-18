@@ -1,6 +1,6 @@
 # sdlc-mod: local SDLC engagement state
 
-`sdlc-mod` keeps the current conversation's SDLC state visible while you move between requirements, design, implementation, testing and operations. It is a local, session-scoped working aid. It does not replace the ECR, persist project history or grant authority.
+`sdlc-mod` keeps the current conversation's SDLC state visible while you move between planning, requirements, design, implementation, testing, deployment and maintenance. It is a local, session-scoped working aid. It does not replace the ECR, persist project history or grant authority.
 
 A thread is a unit of work with a short name and a current phase. It may carry a local id (`T1`), a tracker ticket (`PROJ-142`), a software type, a stopping point and artifact links. The state updates from explicit `/sdlc` commands and a guarded inference pass after each completed turn. Inferred entries are marked `~`.
 
@@ -51,39 +51,12 @@ Threads
     ID             Work              Phase           Status   Stopping point
 ● ~T1 · PROJ-142   pagination works  implementation  waiting  pagination works
 ◐ T2 · PROJ-151    API contract      design          waiting  API contract
-○ T3               cache spike       operations      parked   return after v1
+○ T3               cache spike       maintenance      parked   return after v1
 Decisions
 ◐ ~D1  open  Reuse the existing search table  T1
 Local to this session · not the ECR · Esc closes this view
 ```
 
-### Claude Code pane
-
-A compact AbovePrompt band stays above the prompt: `SDLC`, focus and thread chips, the current phase/name, counts and an `open` button. `/sdlc` opens the docked Pane with the same matrix, focus block and decisions. The status line remains under the prompt as a third fallback. Pane width comes from `bodyColumns`; page buttons are `p` and `n`.
-
-```text
-SDLC
-        T1      T2      T3
-      PRJ-142 PRJ-151
-← req     ·       ·       ·
-← des     ·       ◐       ·
-▶ imp     ●       ·       ·
-· tst     ·       ·       ·
-· ops     ·       ·       ○
-● T1 · PRJ-142 pagination works
-  implementation · waiting
-  ↗ api-contract.md
-Decisions
-◐ D1 Reuse the existing search table
-```
-
-Local artifacts are links; `https` opens the browser. The pane is a dock by default; an inline pane or AbovePrompt band are viable alternatives for narrow terminals.
-
-### Markdown (tests and text-only hosts)
-
-The core renders Markdown for hosts and tests:
-
-```markdown
 ## Engagement state
 
 Focus: T1 — pagination works (implementation, backend)
@@ -109,8 +82,8 @@ Manual commands are exact and immediate:
 
 Automatic inference runs after a completed turn:
 
-1. OpenCode emits `session.execution.succeeded`; Claude Code fires `turn.complete`.
-2. OpenCode asks the free decision model (`opencode/jev-1.13-free`) whether anything changed, what kind of change it was, which phase is active and which thread should have focus. Claude Code uses `$.model.classify` for the same gate.
+1. The host reports a completed turn.
+2. OpenCode asks the free decision model (`opencode/jev-1.13-free`) whether anything changed, what kind of change it was, which phase is active and which thread should have focus.
 3. If the gate reports no change, the text pass is skipped.
 4. Otherwise the adapter sends the current state, the last few messages and the gate hints to the session model.
 5. The model returns a JSON patch in the same command vocabulary as `/sdlc`.
@@ -142,7 +115,7 @@ The gate is free and fast; the text pass uses the session's model only when the 
 
 ### OpenCode
 
-The package has a server part and a TUI part. Register the server part in `opencode.json` so inference and state live in the session server:
+Register the package once in `opencode.json`. One entry loads both parts: the server part owns state and inference, and the TUI part supplies the status line, sidebar and `/sdlc`.
 
 ```json
 {
@@ -164,45 +137,11 @@ The package has a server part and a TUI part. Register the server part in `openc
 }
 ```
 
-Register the TUI part in `cli.json`:
-
-```json
-{
-  "plugins": ["/absolute/path/to/integrations/sdlc-mod"]
-}
-```
-
 Reload OpenCode. The status line appears under the prompt, the SDLC section appears in the session sidebar, and `/sdlc` is available in the command palette. Manual commands and inference share the server-side state over RPC.
 
-If only the TUI part is registered, the status line and dialog cannot reach the state store and `/sdlc` commands report an error.
+Do not also register the directory in `cli.json`: that file is for TUI-only packages and would load the parts twice.
 
-### OpenCode Desktop GUI
-
-Desktop loads the same plugin from `opencode.json` and uses the exported `./gui-experimental` bundle. It adds:
-
-- a **side panel** with the phase/thread matrix, focus block and decisions;
-- a **composer pill** with the focus, counts and thread jump rows;
-- a **`/sdlc` slash command** in the desktop composer.
-
-The prebuilt bundle is committed as `dist/gui-experimental.cjs`; users do not need a build step. To rebuild after changing `src/gui.tsx`:
-
-```bash
-cd integrations/sdlc-mod
-npm install
-npm run build:gui
-```
-
-The GUI plugin API is experimental. A package listed only in `cli.json` is not enough for Desktop; it must also be in `opencode.json`. Artifact links open externally through the desktop host.
-
-### Claude Code
-
-Load the directory as a plugin for one session:
-
-```bash
-claude --plugin-dir /absolute/path/to/integrations/sdlc-mod
-```
-
-Or add it to a local marketplace/plugin configuration. `/sdlc` is registered on session start and opens the docked pane; the status line appears under the prompt. State is stored per session in the plugin's `$.store` under `sdlc:<sessionId>`, so it survives restarts and is reloaded on `/clear`, `/resume` and `/branch`. Claude Code uses `$.model.classify` for the gate and `$.model.complete` with `haiku` for the text pass.
+Only sessions the server knows are accepted. An unknown or deleted session ID is rejected rather than given empty state.
 
 ## Commands
 
@@ -227,14 +166,14 @@ Or add it to a local marketplace/plugin configuration. `/sdlc` is registered on 
 /sdlc help
 ```
 
-`state` opens the large dialog in OpenCode and the Markdown view in Claude Code. Other commands update the local state, the status line and the sidebar.
+`state` opens the large dialog. Other commands update the local state, the status line and the sidebar.
 
 The palette command `SDLC: Toggle details` collapses or expands artifacts and decisions without a mouse.
 
 ## Local-only boundary
 
-- OpenCode stores state per session in the plugin's durable server storage (`session/<sessionID>`) and mirrors it through an in-memory cache over RPC. Claude Code stores it under `sdlc:<sessionId>` in `$.store`.
-- Both survive plugin reloads and restarts; OpenCode removes the entry when the session is deleted. Claude’s store is cleaned up by Claude’s normal store retention.
+- State is stored per session in the plugin's durable server storage (`session/<sessionID>`) and mirrored through a bounded in-memory cache over RPC.
+- It survives plugin reloads and restarts. The entry is removed when the session is deleted.
 - Threads record completed phases, so the matrix does not invent phase history.
 - It is not synchronized across machines or with the ECR.
 - It is not written to the repository, `.sdlc/`, the ECR or a shared service.
@@ -257,12 +196,7 @@ sdlc-mod/
   src/rpc.ts          shared RPC schema
   src/server.ts       OpenCode server part: state, inference, RPC
   src/tui.tsx         OpenCode TUI part: status line, sidebar, dialog
-  src/gui.tsx         OpenCode Desktop GUI: panel, composer pill, command
-  dist/               prebuilt GUI bundle
-  vite.config.ts      GUI build configuration
-  hooks/register.js   Claude Code mod adapter
-  .claude-plugin/     Claude Code manifest
-  hooks/hooks.json    Claude Code hooks module declaration
+  # Host adapters live in the follow-up adapter PR until they are verified.
 ```
 
 ## Development
@@ -274,7 +208,7 @@ cd integrations/sdlc-mod
 npm test
 ```
 
-The host adapters import `@opencode/plugin` or run inside Claude Code; they are not exercised by the core test suite. Test them in an installed host session.
+The TUI part imports `@opencode/plugin` and is not exercised by the core test suite; test it in an installed OpenCode session.
 
 ## Safety
 

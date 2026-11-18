@@ -8,7 +8,7 @@ test("parses a quoted thread name, phase, type and stopping point", () => {
   const result = runCommand('thread add "pagination works" implementation backend "pagination works"', state);
   state = result.state;
   assert.equal(state.threads[0].name, "pagination works");
-  assert.equal(state.threads[0].activity, "implementation");
+  assert.equal(state.threads[0].phase, "implementation");
   assert.equal(state.threads[0].softwareType, "backend");
   assert.equal(state.threads[0].stoppingPoint, "pagination works");
 });
@@ -24,7 +24,7 @@ test("focuses, moves a thread, links tickets and artifacts, and renders state", 
   state = runCommand('decision add user "accept the seam"', state).state;
   state = runCommand("decision thread D1 T1", state).state;
   assert.equal(state.focusThreadId, "T2");
-  assert.equal(state.threads[0].activity, "testing");
+  assert.equal(state.threads[0].phase, "testing");
   assert.equal(state.threads[0].ticket, "PROJ-142");
   assert.equal(state.threads[0].artifacts[0].kind, "url");
   assert.equal(state.decisions[0].threadId, "T1");

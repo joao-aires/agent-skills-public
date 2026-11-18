@@ -1,4 +1,4 @@
-import { ACTIVITIES, apply } from "./state.js";
+import { PHASES, apply } from "./state.js";
 
 const MAX_MESSAGES = 8;
 const MAX_MESSAGE_CHARS = 1200;
@@ -11,15 +11,15 @@ Return only a JSON object with this shape:
 
 Allowed commands:
 - {"type":"thread.focus","id":"T1"}
-- {"type":"thread.add","name":"pagination works","activity":"implementation","softwareType":"backend","stoppingPoint":"pagination works"}
-- {"type":"thread.phase","id":"T1","activity":"testing"}
+- {"type":"thread.add","name":"pagination works","phase":"implementation","softwareType":"backend","stoppingPoint":"pagination works"}
+- {"type":"thread.phase","id":"T1","phase":"testing"}
 - {"type":"thread.status","id":"T1","status":"waiting|blocked|parked"}
 - {"type":"thread.park","id":"T1","reason":"why it is parked"}
 - {"type":"thread.resume","id":"T1"}
 - {"type":"decision.add","statement":"the decision","owner":"user or unowned","threadId":"T1"}
 
 Rules:
-- A thread is a unit of work with a short name. Its activity is the current phase: requirements, design, implementation, testing or operations.
+- A thread is a unit of work with a short name. Its phase is the current phase: requirements, design, implementation, testing or operations.
 - Report only changes supported by the conversation after the state shown below.
 - Do not repeat threads or decisions that already exist.
 - Add a decision only when the conversation accepts it or leaves it explicitly open; it is always recorded as open.
@@ -145,15 +145,15 @@ export function guardCommands(commands, state, { confidence = 1, minConfidence =
 
     if (raw.type === "thread.add") {
       const name = text(raw.name);
-      const activity = text(raw.activity);
-      if (!name || !ACTIVITIES.includes(activity)) continue;
+      const phase = text(raw.phase);
+      if (!name || !PHASES.includes(phase)) continue;
       const key = nameKey(name);
       if (threadNames.has(key) || batchThreads.has(key)) continue;
       batchThreads.add(key);
       guarded.push({
         type: "thread.add",
         name,
-        activity,
+        phase,
         softwareType: text(raw.softwareType) || null,
         stoppingPoint: text(raw.stoppingPoint) || null,
         source: "inferred",
@@ -170,9 +170,9 @@ export function guardCommands(commands, state, { confidence = 1, minConfidence =
 
     if (raw.type === "thread.phase") {
       const thread = threadById.get(text(raw.id));
-      if (!thread || !ACTIVITIES.includes(raw.activity)) continue;
-      if (thread.activity === raw.activity) continue;
-      guarded.push({ type: "thread.phase", id: thread.id, activity: raw.activity });
+      if (!thread || !PHASES.includes(raw.phase)) continue;
+      if (thread.phase === raw.phase) continue;
+      guarded.push({ type: "thread.phase", id: thread.id, phase: raw.phase });
       continue;
     }
 
