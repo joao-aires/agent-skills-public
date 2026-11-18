@@ -96,6 +96,7 @@ export default Plugin.define({
     const timers = new Map()
     const running = new Set()
     const cooldown = new Map()
+    const deleted = new Set()
 
     function clearTimers() {
       for (const timer of timers.values()) clearTimeout(timer)
@@ -139,7 +140,7 @@ export default Plugin.define({
     }
 
     async function extract(sessionID) {
-      if (!autoEnabled || running.has(sessionID)) return
+      if (!autoEnabled || running.has(sessionID) || deleted.has(sessionID)) return
       running.add(sessionID)
       try {
         let before = await ensureState(sessionID)
@@ -165,7 +166,7 @@ export default Plugin.define({
         }
         if (JSON.stringify(structural) !== JSON.stringify(before)) {
           before = structural
-          store.set(sessionID, before)
+          await persist(sessionID, before)
           await registration.events.emit("updated", { sessionID, state: before })
         }
         if (!extract) return
@@ -177,6 +178,7 @@ export default Plugin.define({
           hints: decisionHints(decision),
         })
         const response = await ctx.session.generate({ sessionID, prompt })
+        if (deleted.has(sessionID)) return
         const parsed = parseExtraction(response?.text)
         if (!parsed) return
 
@@ -185,7 +187,7 @@ export default Plugin.define({
         })
         if (!result.changed || !result.applied.length) return
 
-        store.set(sessionID, result.state)
+        await persist(sessionID, result.state)
         await registration.events.emit("updated", { sessionID, state: result.state })
       } catch (error) {
       } finally {
@@ -205,6 +207,11 @@ export default Plugin.define({
           if (!sessionID) continue
 
           if (event.type === "session.deleted") {
+            deleted.add(sessionID)
+            const timer = timers.get(sessionID)
+            if (timer) clearTimeout(timer)
+            timers.delete(sessionID)
+            cooldown.delete(sessionID)
             store.delete(sessionID)
             loading.delete(sessionID)
             void ctx.storage.remove(keyFor(sessionID)).catch(() => {})
@@ -212,6 +219,7 @@ export default Plugin.define({
           }
 
           if (event.type === "session.execution.started") {
+            deleted.delete(sessionID)
             const timer = timers.get(sessionID)
             if (timer) {
               clearTimeout(timer)
