@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import { emptyState, renderMarkdown } from "./state.js";
-import { runCommand } from "./commands.js";
+import { runCommand, parseCommand } from "./commands.js";
 
 test("parses quoted activity and stopping point", () => {
   let state = emptyState();
@@ -27,6 +27,18 @@ test("the state command returns the same object so adapters can skip writes", ()
   const state = emptyState();
   assert.equal(runCommand("state", state).state, state);
   assert.equal(runCommand("", state).state, state);
+});
+
+test("parses auto and read commands without applying them", () => {
+  assert.deepEqual(parseCommand("auto off"), { kind: "auto", enabled: false });
+  assert.deepEqual(parseCommand("auto on"), { kind: "auto", enabled: true });
+  assert.equal(parseCommand("state").kind, "read");
+  assert.throws(() => parseCommand("auto maybe"), /auto needs on or off/);
+});
+
+test("keeps manual additions marked as manual", () => {
+  const state = runCommand("thread add design frontend", emptyState()).state;
+  assert.equal(state.threads[0].source, "manual");
 });
 
 test("rejects an unknown command", () => {

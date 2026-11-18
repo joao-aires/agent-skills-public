@@ -1,17 +1,13 @@
-import { For, Show } from "solid-js"
+import { createEffect, createSignal, For, Show } from "solid-js"
 import { Plugin } from "@opencode/plugin/tui"
 import { emptyState, renderCompact } from "../core/state.js"
-import { runCommand } from "../core/commands.js"
+import { HELP, parseCommand } from "../core/commands.js"
 import { authorityText, decisionGlyph, summaryLabel, threadGlyph } from "../core/view.js"
+import { Sdlc } from "./rpc.js"
 
 /**
- * OpenCode TUI adapter. State lives in memory for the current TUI session.
- * It is not written to the repository or shared with other sessions.
- *
- * The state is shown in three places:
- * - a compact status line under the prompt;
- * - a collapsible sidebar section;
- * - a large dialog for the full view.
+ * OpenCode TUI adapter. The server part owns the state; this part mirrors it
+ * over RPC and renders the status line, sidebar section and dialog.
  */
 
 function threadColor(theme, thread, focused) {
@@ -28,11 +24,22 @@ function decisionColor(theme, status) {
   return theme.text.feedback.warning.base
 }
 
+function SdlcStatus(props) {
+  createEffect(() => {
+    props.ensure(props.sessionID)
+  })
+  return <text>{renderCompact(props.state())}</text>
+}
+
 function SdlcSidebar(props) {
   const theme = props.context.theme
-  const state = props.state
-  const focused = (thread) => thread.id === state.focusThreadId
-  const auth = () => authorityText(state.authority)
+  const current = () => props.state()
+  const focused = (thread) => thread.id === current().focusThreadId
+  const auth = () => authorityText(current().authority)
+  createEffect(() => {
+    props.ensure(props.sessionID)
+  })
+
   const toggle = () => {
     Promise.resolve(
       props.updateView((draft) => {
@@ -49,17 +56,17 @@ function SdlcSidebar(props) {
           <b>SDLC</b>
         </text>
         <text fg={theme.text.muted} flexGrow={1} flexShrink={1} minWidth={0} wrapMode="none" truncate>
-          {summaryLabel(state)}
+          {summaryLabel(current())}
         </text>
       </box>
 
       <Show when={props.view.open}>
         <box flexDirection="column">
           <Show
-            when={state.threads.length > 0}
+            when={current().threads.length > 0}
             fallback={<text fg={theme.text.muted}>No threads · /sdlc thread add</text>}
           >
-            <For each={state.threads}>
+            <For each={current().threads}>
               {(thread) => (
                 <box flexDirection="column">
                   <box flexDirection="row" gap={1} minWidth={0}>
@@ -67,6 +74,7 @@ function SdlcSidebar(props) {
                       {threadGlyph(thread, focused(thread))}
                     </text>
                     <text fg={theme.text.muted} flexShrink={0}>
+                      {thread.source === "inferred" ? "~" : ""}
                       {thread.id}
                     </text>
                     <text
@@ -97,15 +105,16 @@ function SdlcSidebar(props) {
             </For>
           </Show>
 
-          <Show when={state.decisions.length > 0}>
+          <Show when={current().decisions.length > 0}>
             <text fg={theme.text.base}>
               <b>Decisions</b>
             </text>
-            <For each={state.decisions}>
+            <For each={current().decisions}>
               {(decision) => (
                 <box flexDirection="row" gap={1} minWidth={0}>
                   <text fg={decisionColor(theme, decision.status)}>{decisionGlyph(decision.status)}</text>
                   <text fg={theme.text.muted} flexShrink={0}>
+                    {decision.source === "inferred" ? "~" : ""}
                     {decision.id}
                   </text>
                   <text fg={theme.text.muted} flexGrow={1} flexShrink={1} minWidth={0} wrapMode="none" truncate>
@@ -116,17 +125,18 @@ function SdlcSidebar(props) {
             </For>
           </Show>
 
-          <Show when={state.nextTransition}>
+          <Show when={current().nextTransition}>
             <text fg={theme.text.base}>
               <b>Next</b>
             </text>
             <text fg={theme.text.muted} wrapMode="none" truncate>
-              {state.nextTransition.from ?? "?"} → {state.nextTransition.to ?? "?"}
+              {current().nextTransition.source === "inferred" ? "~ " : ""}
+              {current().nextTransition.from ?? "?"} → {current().nextTransition.to ?? "?"}
             </text>
-            <Show when={state.nextTransition.needs}>
+            <Show when={current().nextTransition.needs}>
               <text fg={theme.text.muted} wrapMode="none" truncate>
                 {"needs "}
-                {state.nextTransition.needs}
+                {current().nextTransition.needs}
               </text>
             </Show>
           </Show>
@@ -151,9 +161,9 @@ function SdlcSidebar(props) {
 
 function SdlcDialog(props) {
   const theme = props.context.theme
-  const state = props.state
-  const focused = (thread) => thread.id === state.focusThreadId
-  const authority = () => authorityText(state.authority)
+  const current = () => props.state()
+  const focused = (thread) => thread.id === current().focusThreadId
+  const authority = () => authorityText(current().authority)
 
   return (
     <box flexDirection="column" gap={1} padding={1}>
@@ -161,7 +171,7 @@ function SdlcDialog(props) {
         <text fg={theme.text.base}>
           <b>Engagement state</b>
         </text>
-        <text fg={theme.text.muted}>{summaryLabel(state)}</text>
+        <text fg={theme.text.muted}>{summaryLabel(current())}</text>
       </box>
 
       <box flexDirection="column">
@@ -169,7 +179,7 @@ function SdlcDialog(props) {
           <b>Threads</b>
         </text>
         <Show
-          when={state.threads.length > 0}
+          when={current().threads.length > 0}
           fallback={<text fg={theme.text.muted}>No threads yet. /sdlc thread add design frontend "design accepted"</text>}
         >
           <box flexDirection="row" gap={1}>
@@ -192,13 +202,14 @@ function SdlcDialog(props) {
               Stopping point
             </text>
           </box>
-          <For each={state.threads}>
+          <For each={current().threads}>
             {(thread) => (
               <box flexDirection="row" gap={1} minWidth={0}>
                 <text fg={threadColor(theme, thread, focused(thread))}>
                   {threadGlyph(thread, focused(thread))}
                 </text>
                 <text fg={theme.text.muted} width={4}>
+                  {thread.source === "inferred" ? "~" : ""}
                   {thread.id}
                 </text>
                 <text
@@ -230,12 +241,13 @@ function SdlcDialog(props) {
         <text fg={theme.text.base}>
           <b>Decisions</b>
         </text>
-        <Show when={state.decisions.length > 0} fallback={<text fg={theme.text.muted}>No decisions recorded</text>}>
-          <For each={state.decisions}>
+        <Show when={current().decisions.length > 0} fallback={<text fg={theme.text.muted}>No decisions recorded</text>}>
+          <For each={current().decisions}>
             {(decision) => (
               <box flexDirection="row" gap={1} minWidth={0}>
                 <text fg={decisionColor(theme, decision.status)}>{decisionGlyph(decision.status)}</text>
                 <text fg={theme.text.muted} width={4}>
+                  {decision.source === "inferred" ? "~" : ""}
                   {decision.id}
                 </text>
                 <text fg={decisionColor(theme, decision.status)} width={10}>
@@ -253,14 +265,14 @@ function SdlcDialog(props) {
         </Show>
       </box>
 
-      <Show when={state.nextTransition}>
+      <Show when={current().nextTransition}>
         <box flexDirection="column">
           <text fg={theme.text.base}>
-            <b>Next transition</b>
+            <b>Next transition{current().nextTransition.source === "inferred" ? " ~" : ""}</b>
           </text>
           <text fg={theme.text.muted}>
-            {state.nextTransition.from ?? "?"} → {state.nextTransition.to ?? "?"}
-            {state.nextTransition.needs ? ` · needs ${state.nextTransition.needs}` : ""}
+            {current().nextTransition.from ?? "?"} → {current().nextTransition.to ?? "?"}
+            {current().nextTransition.needs ? ` · needs ${current().nextTransition.needs}` : ""}
           </text>
         </box>
       </Show>
@@ -290,27 +302,46 @@ function SdlcDialog(props) {
 }
 
 export default Plugin.define({
-  id: "sdlc-mod",
+  id: "sdlc-mod.tui",
   setup(context) {
-    const [state, updateState] = context.storage.memory("sdlc-state", {
-      initial: emptyState(),
-    })
     const [view, updateView] = context.storage.memory("sdlc-view", {
       initial: { open: true },
     })
+    const [mirror, setMirror] = createSignal(new Map())
+    const requested = new Set()
 
-    /**
-     * Replace the stored value field by field.
-     *
-     * `next` is never the live draft, and no key is deleted: assigning a
-     * partial state would make the reactive status line read `state.threads`
-     * while it is undefined.
-     */
-    function replaceState(next) {
-      if (!next || next === state) return
-      updateState((draft) => {
-        Object.assign(draft, next)
+    const rpc = () => context.client.rpc(Sdlc)
+
+    const put = (sessionID, state) => {
+      if (!sessionID || !state) return
+      setMirror((previous) => {
+        const next = new Map(previous)
+        next.set(sessionID, state)
+        return next
       })
+    }
+
+    const stateFor = (sessionID) => () => mirror().get(sessionID) ?? emptyState(sessionID ?? null)
+
+    const ensure = (sessionID, attempt = 0) => {
+      if (!sessionID || requested.has(sessionID)) return
+      requested.add(sessionID)
+      rpc()
+        .snapshot({ sessionID })
+        .then((result) => put(sessionID, result.state))
+        .catch(() => {
+          requested.delete(sessionID)
+          if (attempt < 6) setTimeout(() => ensure(sessionID, attempt + 1), 500)
+        })
+    }
+
+    let unsubscribe = () => {}
+    try {
+      unsubscribe = rpc().events.on("updated", (event) => {
+        put(event.data.sessionID, event.data.state)
+      })
+    } catch {
+      // The server part is not registered; snapshots will surface the error.
     }
 
     context.keymap.layer(() => ({
@@ -326,15 +357,38 @@ export default Plugin.define({
           enabled: () => true,
           suggested: true,
           run: async (input) => {
+            const route = context.ui.router.current()
+            const sessionID = route.type === "session" ? route.sessionID : undefined
+            if (!sessionID) {
+              context.ui.toast.show({ message: "Open a session first.", variant: "warning" })
+              return
+            }
+
             try {
-              const result = runCommand(input, state)
-              if (result.state && result.state !== state) replaceState(result.state)
-              if (result.markdown) {
-                context.ui.dialog.set({ size: "large", centered: true })
-                context.ui.dialog.show(() => <SdlcDialog context={context} state={state} />)
-              } else if (result.message) {
-                context.ui.toast.show({ message: result.message, variant: "success" })
+              const parsed = parseCommand(input)
+              if (parsed.kind === "help") {
+                context.ui.dialog.alert({ title: "SDLC commands", message: HELP })
+                return
               }
+              if (parsed.kind === "auto") {
+                const result = await rpc().setAuto({ enabled: parsed.enabled })
+                context.ui.toast.show({
+                  message: `Automatic state inference ${result.enabled ? "on" : "off"}.`,
+                  variant: "success",
+                })
+                return
+              }
+              if (parsed.kind === "read") {
+                const result = await rpc().snapshot({ sessionID })
+                put(sessionID, result.state)
+                context.ui.dialog.set({ size: "large", centered: true })
+                context.ui.dialog.show(() => <SdlcDialog context={context} state={stateFor(sessionID)} />)
+                return
+              }
+
+              const result = await rpc().apply({ sessionID, command: parsed.command })
+              put(sessionID, result.state)
+              context.ui.toast.show({ message: parsed.message, variant: "success" })
             } catch (error) {
               context.ui.toast.show({ message: String(error?.message ?? error), variant: "error" })
             }
@@ -359,12 +413,25 @@ export default Plugin.define({
 
     context.ui.slot({
       append: "prompt.footer.status",
-      render: () => <text>{renderCompact(state)}</text>,
+      render: (input) => (
+        <SdlcStatus context={context} sessionID={input?.sessionID} state={stateFor(input?.sessionID)} ensure={ensure} />
+      ),
     })
 
     context.ui.slot({
       append: "sidebar.content",
-      render: () => <SdlcSidebar context={context} state={state} view={view} updateView={updateView} />,
+      render: (input) => (
+        <SdlcSidebar
+          context={context}
+          sessionID={input?.sessionID}
+          state={stateFor(input?.sessionID)}
+          ensure={ensure}
+          view={view}
+          updateView={updateView}
+        />
+      ),
     })
+
+    return () => unsubscribe()
   },
 })

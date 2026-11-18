@@ -113,6 +113,7 @@ export function apply(previous, command) {
         stoppingPoint: command.stoppingPoint ? requireString(command.stoppingPoint, "stoppingPoint") : null,
         status: command.status ?? "waiting",
         owner: command.owner ?? null,
+        source: command.source === "inferred" ? "inferred" : "manual",
         updatedAt: now,
       };
       if (!THREAD_STATUSES.includes(thread.status)) throw new Error(`invalid thread status ${thread.status}`);
@@ -161,6 +162,7 @@ export function apply(previous, command) {
         statement: requireString(command.statement, "decision statement"),
         owner: command.owner ? requireString(command.owner, "owner") : null,
         status: command.status ?? "open",
+        source: command.source === "inferred" ? "inferred" : "manual",
         updatedAt: now,
       });
       if (!DECISION_STATUSES.includes(command.status ?? "open")) {
@@ -185,6 +187,7 @@ export function apply(previous, command) {
         from: command.from ? requireString(command.from, "from") : null,
         to: command.to ? requireString(command.to, "to") : null,
         needs: command.needs ? requireString(command.needs, "needs") : null,
+        source: command.source === "inferred" ? "inferred" : "manual",
       };
       break;
     case "authority.set":
