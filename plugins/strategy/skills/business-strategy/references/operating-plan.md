@@ -153,7 +153,7 @@ The handoff should state:
 
 Do not turn the operating plan into a feature roadmap. Do not let product planning silently change the strategy by redefining the target customer or the success measure.
 
-Use [product management](../../product-management/SKILL.md) for the product decision itself. Product evidence returns to this plan as a change in confidence or a reason to reopen the relevant strategic question.
+Use installed `product-direction` expertise for the product decision itself. Product evidence returns to this plan as a change in confidence or a reason to reopen the relevant strategic question.
 
 ## Failure modes
 

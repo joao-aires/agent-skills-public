@@ -15,7 +15,7 @@ Describe the requests the addition should improve and the technologies that make
 | A separately useful installation choice | Add a plugin bundle containing the relevant skills and resources |
 | A new user outcome with a different stopping point | Consider a task entry point; a new framework alone does not need one |
 
-For example, Go service conventions could explain module/dependency management, request cancellation, database transactions, migrations, diagnostics and suitable verification tools. Product-management still selects useful scope; design-system and backend-design still establish boundaries and service contracts. The Go guidance explains how the chosen stack realizes those decisions.
+For example, Go service conventions could explain module/dependency management, request cancellation, database transactions, migrations, diagnostics and suitable verification tools. product-direction still selects useful scope; design-system and backend-design still establish boundaries and service contracts. The Go guidance explains how the chosen stack realizes those decisions.
 
 Keep accepted project choices. State defaults for compatible new projects and conditions for alternatives. Select guidance from actual installed capabilities; adding support must not cause unrelated Python applications to migrate or require every bundle to be installed.
 

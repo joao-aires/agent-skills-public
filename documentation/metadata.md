@@ -63,7 +63,7 @@ So `user-invocable: false` means “not a direct slash command,” not “hidden
 | `sdlc` | The full lifecycle: development, delivery, operations, security and governance | `activity-system`, `release`, `run-incident-response`, `run-compliance-assessment` |
 | `technical` | Stack and platform implementation expertise | Frontend, backend, database, AI, language, tooling and platform packs |
 | `craft` | Cross-type presentation and authoring craft | Documentation, visualization |
-| `product` | Product direction and commercial design | Strategy, SaaS design |
+| `product` | Pre-SDLC strategy direction and business design | Strategy packs |
 
 A pack is an install/update boundary. It is not an execution sequence.
 
