@@ -5,6 +5,7 @@ import {
   buildDecisionInput,
   buildDecisionQuestions,
   decisionHints,
+  gateCommands,
   interpretDecisions,
   shouldExtract,
 } from "./decision.js";
@@ -98,6 +99,40 @@ test("gates extraction on probability and intent confidence", () => {
     true,
     "a focus change must survive a weak predicate",
   );
+});
+
+test("applies confident phase and focus changes structurally", () => {
+  const state = emptyState();
+  state.threads.push(
+    { id: "T1", name: "pagination works", activity: "implementation", status: "waiting", artifacts: [] },
+    { id: "T2", name: "API contract", activity: "design", status: "waiting", artifacts: [] },
+  );
+  state.focusThreadId = "T1";
+
+  assert.deepEqual(
+    gateCommands(
+      { intent: "phase", activity: "testing", activityConfidence: 1, focus: "T1", focusConfidence: 1 },
+      state,
+    ),
+    [{ type: "thread.phase", id: "T1", activity: "testing" }],
+  );
+
+  assert.deepEqual(
+    gateCommands(
+      { intent: "phase", activity: "design", activityConfidence: 1, focus: "T2", focusConfidence: 0.9 },
+      state,
+    ),
+    [{ type: "thread.focus", id: "T2" }],
+  );
+
+  assert.deepEqual(
+    gateCommands(
+      { intent: "phase", activity: "testing", activityConfidence: 0.4, focus: "new", focusConfidence: 1 },
+      state,
+    ),
+    [],
+  );
+  assert.deepEqual(gateCommands({ intent: "decision", activity: "testing", activityConfidence: 1 }, state), []);
 });
 
 test("turns a decision into compact hints", () => {

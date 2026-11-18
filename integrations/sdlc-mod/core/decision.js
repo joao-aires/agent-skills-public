@@ -121,6 +121,40 @@ export function shouldExtract(
   return false;
 }
 
+/**
+ * Structural commands the gate is confident enough to apply directly.
+ * Text extraction still runs afterwards for decisions and wording.
+ */
+export function gateCommands(decision, state, { activityThreshold = 0.8, focusThreshold = 0.8 } = {}) {
+  if (!decision) return [];
+  const threads = Array.isArray(state?.threads) ? state.threads : [];
+  const currentFocus = state?.focusThreadId ?? null;
+  const chosenFocus =
+    decision.focus && decision.focus !== "none" && threads.some((thread) => thread.id === decision.focus)
+      ? decision.focus
+      : null;
+  const commands = [];
+
+  if (chosenFocus && chosenFocus !== currentFocus && decision.focusConfidence >= focusThreshold) {
+    commands.push({ type: "thread.focus", id: chosenFocus });
+  }
+
+  if (
+    decision.intent === "phase" &&
+    decision.activity &&
+    decision.activity !== "none" &&
+    decision.activityConfidence >= activityThreshold
+  ) {
+    const target = chosenFocus ?? currentFocus;
+    const thread = threads.find((item) => item.id === target);
+    if (thread && thread.activity !== decision.activity) {
+      commands.push({ type: "thread.phase", id: target, activity: decision.activity });
+    }
+  }
+
+  return commands;
+}
+
 export function decisionHints(decision) {
   if (!decision) return null;
   const hints = [];
