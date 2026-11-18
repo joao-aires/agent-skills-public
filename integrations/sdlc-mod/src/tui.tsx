@@ -318,21 +318,36 @@ function SdlcDialog(props) {
         <Show when={current().decisions.length > 0} fallback={<text fg={theme.text.muted}>No decisions recorded</text>}>
           <For each={current().decisions}>
             {(decision) => (
-              <box flexDirection="row" gap={1} minWidth={0}>
-                <text fg={decisionColor(theme, decision.status)}>{decisionGlyph(decision.status)}</text>
-                <text fg={theme.text.muted} width={4}>
-                  {decision.source === "inferred" ? "~" : ""}
-                  {decision.id}
-                </text>
-                <text fg={decisionColor(theme, decision.status)} width={10}>
-                  {decision.status}
-                </text>
-                <text fg={theme.text.base} flexGrow={1} flexShrink={1} minWidth={0} wrapMode="none" truncate>
-                  {decision.statement}
-                </text>
-                <text fg={theme.text.muted} flexShrink={0}>
-                  {decision.threadId ?? decision.owner ?? "unowned"}
-                </text>
+              <box flexDirection="column">
+                <box flexDirection="row" gap={1} minWidth={0}>
+                  <text fg={decisionColor(theme, decision.status)}>{decisionGlyph(decision.status)}</text>
+                  <text fg={theme.text.muted} width={4}>
+                    {decision.source === "inferred" ? "~" : ""}
+                    {decision.id}
+                  </text>
+                  <text fg={decisionColor(theme, decision.status)} width={10}>
+                    {decision.status}
+                  </text>
+                  <text fg={theme.text.base} flexGrow={1} flexShrink={1} minWidth={0} wrapMode="none" truncate>
+                    {decision.statement}
+                  </text>
+                  <text fg={theme.text.muted} flexShrink={0}>
+                    {decision.threadId ?? decision.owner ?? "unowned"}
+                  </text>
+                </box>
+                <For each={decision.artifacts ?? []}>
+                  {(artifact) => (
+                    <text
+                      fg={theme.text.base}
+                      wrapMode="none"
+                      truncate
+                      onMouseUp={() => props.openArtifact(artifact)}
+                    >
+                      {"    ↗ "}
+                      {artifact.label}
+                    </text>
+                  )}
+                </For>
               </box>
             )}
           </For>

@@ -74,11 +74,18 @@ export default Plugin.define({
 
     const withMutation = createQueue()
 
+    function assertSessionID(value) {
+      if (typeof value !== "string" || !/^[A-Za-z0-9_-]+$/.test(value)) {
+        throw new Error("invalid session id")
+      }
+      return value
+    }
+
     let registration
     registration = await ctx.rpc.register(Sdlc, {
-      snapshot: async ({ sessionID }) => ({ state: await ensureState(sessionID) }),
+      snapshot: async ({ sessionID }) => ({ state: await ensureState(assertSessionID(sessionID)) }),
       apply: async ({ sessionID, command }) =>
-        withMutation(sessionID, async () => {
+        withMutation(assertSessionID(sessionID), async () => {
           const next = applyState(await ensureState(sessionID), command)
           await persist(sessionID, next)
           await registration.events.emit("updated", { sessionID, state: next })
