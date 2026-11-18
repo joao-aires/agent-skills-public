@@ -263,7 +263,7 @@ Every artifact type has a contract and, where the craft is distinct, a guide. Th
 
 - **Document guides:** `guide-prd`, `guide-rfc`, `guide-adr`, `guide-ecr`, `guide-design-proposal`, `guide-system-documentation`, `guide-issue`, `guide-pr`, `guide-research-report`, `guide-release-note`, `guide-readme`.
 - **Operational guides:** `guide-runbook`, `guide-incident-record`, `guide-postmortem`, `guide-assurance-assessment`.
-- **Artifact/view guides:** `guide-design-spec`, `guide-architecture-views`, `guide-architecture-views`, `guide-state-machine`, `guide-compatibility-matrix`.
+- **Artifact/view guides:** `guide-design-spec`, `guide-architecture-views`, `guide-state-machine`, `guide-compatibility-matrix`.
 
 Each guide can be used inside an activity or requested directly. The guides are self-contained writing methods; they do not link into the artifact system.
 

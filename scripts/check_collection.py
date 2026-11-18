@@ -50,10 +50,12 @@ def anchors(text):
 
 
 def maintained_documents(root):
-    managed = {root / s['destination'] / 'SKILL.md' for s in load_sources(root, verify=False)}
-    return sorted({root / "README.md", root / "AGENTS.md",
-                   *(root / "documentation").rglob("*.md"), *root.glob("plugins/*/*.md"),
-                   *root.glob("plugins/*/skills/*/SKILL.md")} - managed)
+    managed = {root / s['destination'] for s in load_sources(root, verify=False)}
+    documents = {root / "README.md", root / "AGENTS.md",
+                 *(root / "documentation").rglob("*.md"), *root.glob("plugins/*/*.md"),
+                 *root.glob("plugins/*/skills/*/**/*.md")}
+    return sorted(d for d in documents
+                  if not any(parent in managed for parent in d.parents))
 
 
 def check_svg_xml(root):
@@ -98,6 +100,13 @@ def check_links(root):
     # These nouns remain valid artifact or concept names after their former
     # skill was renamed or merged. Link resolution still catches stale paths.
     ambiguous = {"runbook", "postmortem", "observability", "data-recovery", "dependencies", "production-readiness"}
+    for asset in sorted([*(root / "documentation/diagrams").glob("*.mmd"),
+                         *(root / "documentation/images").glob("*.svg")]):
+        text = asset.read_text()
+        for old in sorted(retired - ambiguous):
+            if re.search(r"(?<![\w-])" + re.escape(old) + r"(?![\w-])", text, re.I):
+                errors.append(f"{asset.relative_to(root)}: obsolete skill name {old}")
+
     for document in maintained_documents(root):
         if document.name in {"migration.md", "maintainer-reference.md"}:
             continue

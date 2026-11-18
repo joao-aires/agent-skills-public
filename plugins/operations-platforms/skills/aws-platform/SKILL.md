@@ -119,9 +119,9 @@ Do not acquire action-heavy AWS skills raw, do not reproduce every service, and 
 | Release authorization and served-outcome verification | `release` |
 | Application configuration and secret consumption | `application-configuration` |
 | Capacity, scaling and unit-cost tradeoffs | `analyze-capacity-cost` |
-| Backup, restore and data-recovery design | data recovery capability |
+| Backup, restore and data-recovery design | continuity and disaster-recovery design, `guide-runbook` |
 | IAM/network threat modeling and credential lifecycle | security design and maintenance capabilities |
-| Provider-neutral observability and SLO design | `observability` |
+| Provider-neutral observability and SLO design | `design-system` observability guidance |
 
 ## Report evidence
 

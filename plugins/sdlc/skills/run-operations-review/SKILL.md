@@ -47,12 +47,12 @@ Use [references/review-register.md](references/review-register.md) to record the
 | Domain | Check | Deep-work handoff |
 | --- | --- | --- |
 | Registries/artifact stores | Quota, growth, largest consumers, retention behavior, unexpected repos/tags | Scoped cleanup below |
-| Databases/cache/storage | Free capacity, growth rate, utilization, quota/mount pressure, projected exhaustion | `capacity and cost`, `run-incident-response` |
-| Backups | Job success, newest point, coverage, retention, restore-test age | `data recovery` |
-| Dependencies/security | Update queues, failed checks, overdue/unshipped findings | `security maintenance` |
-| Credentials/access | Expiry lead time, accountable owners, duplicate records, stale grants | `security maintenance`, local access policy |
-| Observability | Collection health, repeated errors, noise and silent gaps | `observability`, `reliability design` |
-| Scheduled environments | Sleep/wake behavior, timezone, consumers/jobs, backups, controller conflicts, alerts | `capacity and cost`; JVM specialist only for Java |
+| Databases/cache/storage | Free capacity, growth rate, utilization, quota/mount pressure, projected exhaustion | `analyze-capacity-cost`, `run-incident-response` |
+| Backups | Job success, newest point, coverage, retention, restore-test age | `guide-runbook` and continuity/disaster-recovery design |
+| Dependencies/security | Update queues, failed checks, overdue/unshipped findings | `run-security-maintenance` |
+| Credentials/access | Expiry lead time, accountable owners, duplicate records, stale grants | `run-security-maintenance`, local access policy |
+| Observability | Collection health, repeated errors, noise and silent gaps | `design-system` observability guidance; recurring hygiene through this review |
+| Scheduled environments | Sleep/wake behavior, timezone, consumers/jobs, backups, controller conflicts, alerts | `analyze-capacity-cost`; JVM specialist only for Java |
 | Documentation/ownership | Runbook correctness, links, known problems, service/owner changes | Update local guidance or map gaps |
 
 Do not expand a targeted review into every domain unnecessarily. For a comprehensive review, state coverage and skipped areas explicitly.

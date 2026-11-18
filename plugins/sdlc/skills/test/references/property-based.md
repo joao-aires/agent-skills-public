@@ -6,7 +6,7 @@ Use this reference when a promise is a rule over an input domain rather than one
 
 Ground the property in an accepted contract — a specification, type, documented invariant, caller expectation or an existing behavior the change must preserve. A property that the implementation defines rather than satisfies adds runtime without adding evidence.
 
-Prefer the strongest property the code supports:
+Choose the strongest property the code can actually satisfy:
 
 | Shape | Example |
 | --- | --- |
@@ -47,7 +47,7 @@ Do not weaken an assertion, remove a boundary or widen an accepted precondition 
 
 A property test can run for a long time while asserting nothing:
 
-- **Tautology.** The assertion restates the implementation or is true for every possible implementation. Pick a property that constrains the result without recomputing it. Determinism can be a real property when the operation is not obviously pure, such as serialization over unordered collections, hashing or anything reading the clock.
+- **Tautology.** The assertion restates the implementation or is true for every possible implementation. Choose a property that constrains the result without re-deriving it. Determinism can be a real property when the operation is not obviously pure, such as serialization over unordered collections, hashing or anything reading the clock.
 - **Vacuity.** A filter rejects nearly every generated input, or contradictory assumptions leave no cases. Generate the valid domain directly and keep filters for relationships that cannot be expressed in the generator.
 - **Missing assertion.** The body calls the operation and checks nothing. A smoke run is not a property.
 - **Borrowed oracle.** The oracle duplicates the implementation's logic, so a shared bug passes. Use an independent reference, an algebraic law or a cheaper verifier.

@@ -128,7 +128,7 @@ Run exercises against an isolated target with external side effects suppressed, 
 - Repeat after material changes in topology, schema, provider, keys or ownership, and after an incident that revealed a new dependency.
 - Record what was not exercised. A successful restore does not prove failover; a successful failover does not prove failback.
 
-Use [resilience testing](../../testing-resilience/SKILL.md) for controlled component and dependency faults, and [capacity and cost](../../analyze-capacity-cost/SKILL.md) when the strategy's standing cost or recovery-site capacity is the question.
+Use [testing resilience](../../testing-resilience/SKILL.md) for controlled component and dependency faults, and [analyze capacity and cost](../../analyze-capacity-cost/SKILL.md) when the strategy's standing cost or recovery-site capacity is the question.
 
 ## Record the continuity design
 

@@ -101,7 +101,7 @@ Separate locally instrumented, exported and backend-verified states. A dashboard
 
 - **SLO targets and error budgets** come from requirements and [reliability](reliability.md); this reference does not invent a target.
 - **Incident response and runbooks** own detection, escalation, mitigation and recovery procedure; use [run-incident-response](../../run-incident-response/SKILL.md) and [runbook guide](../../guide-runbook/SKILL.md).
-- **Recurring telemetry hygiene** — missing fields, drift, redaction regressions, pipeline cost — belongs to [operations review](../../run-operations-review/SKILL.md).
+- **Recurring telemetry hygiene** — missing fields, drift, redaction regressions, pipeline cost — belongs to [recurring operations review](../../run-operations-review/SKILL.md).
 - **Instrumentation and pipeline implementation** belong to the implementing activity for the accepted stack.
 
 Return the outcome model, the SLI and measurement points, the instrumentation contract, the pipeline boundary, the retention and privacy decisions, and the verification plan. Mark what is designed, implemented and verified separately. An optional implementation reference for declarative monitoring exists in [Terraform monitoring](terraform-monitoring.md); current provider validation is still required.

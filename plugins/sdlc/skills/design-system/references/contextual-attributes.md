@@ -37,7 +37,7 @@ Compliance asks which legal, contractual or assurance obligations apply to this 
 - Design the boundary and data flow that a control depends on; do not invent the control's applicability or claim certification.
 - Record the evidence the design will make possible — audit events, access records, retention behavior, residency — and what remains organizational.
 
-[Compliance readiness](../../run-compliance-assessment/SKILL.md) owns applicability, control derivation and assurance evidence. System design supplies the architecture, data flow and provider responsibility split that those controls depend on. An EU region, an encryption toggle or a vendor certificate is not compliance by itself.
+[Compliance assessment](../../run-compliance-assessment/SKILL.md) owns applicability, control derivation and assurance evidence. System design supplies the architecture, data flow and provider responsibility split that those controls depend on. An EU region, an encryption toggle or a vendor certificate is not compliance by itself.
 
 ## Portability
 

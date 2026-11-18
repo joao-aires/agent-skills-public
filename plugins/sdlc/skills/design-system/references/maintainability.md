@@ -50,7 +50,7 @@ A dependency that cannot be upgraded without a coordinated outage is a design ri
 
 ## Onboarding and legibility
 
-A design should let a new contributor find where a behavior lives and why. Name the entry point, the authoritative record and the boundary that would otherwise require archaeology. Keep current-system documentation aligned through [system documentation](../../guide-system-documentation/SKILL.md) rather than duplicating architecture in this design.
+A design should let a new contributor find where a behavior lives and why. Name the entry point, the authoritative record and the boundary that would otherwise require archaeology. Keep current-system documentation aligned through the [system documentation guide](../../guide-system-documentation/SKILL.md) rather than duplicating architecture in this design.
 
 Legibility is not a request for more documents. It is the ability to answer "where does this happen, what may I change, and how would I know I broke it?" from the design and the code.
 

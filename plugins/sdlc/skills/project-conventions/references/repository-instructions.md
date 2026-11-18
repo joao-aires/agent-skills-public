@@ -2,7 +2,7 @@
 
 Use this method when creating, auditing or pruning AGENTS.md, CLAUDE.md or an equivalent project instruction file, or when a change makes its existing commands and conventions stale. Keep the work inside the requested repository and files. General documentation upkeep does not require a repository-wide instruction audit.
 
-This method absorbs the reviewed Sentry `agents-md` skill (getsentry/skills at `f57ada2d0b640406ea7e25b11d636c530e77c58b`). Its line targets, template sections and sample attribution block are heuristics; the guidance here owns the outcome.
+This method absorbs the reviewed Sentry repository-instruction acquisition (getsentry/skills at `f57ada2d0b640406ea7e25b11d636c530e77c58b`). Its line targets, template sections and sample attribution block are heuristics; the guidance here owns the outcome.
 
 ## Establish what the next contributor needs
 

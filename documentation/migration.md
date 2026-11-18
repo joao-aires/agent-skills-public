@@ -52,7 +52,7 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `operational-housekeeping` | `run-operations-review` |
 | `runbook-engineering` | `guide-runbook` |
 | `runbook-authoring` | `guide-runbook` |
-| `observability-operations` | `observability` |
+| `observability-operations` | `design-system` observability guidance |
 | `protect-and-restore-data` | `guide-runbook` plus `design-system` continuity design |
 | `deliver-reliable-changes` | `test` (verification and completion evidence) |
 | Upstream `implement` | Local `implement` activity; upstream source link in the plugin README, no copied body |
@@ -103,9 +103,9 @@ The legacy helper supports local symlink installations from this checkout:
 
 It repairs managed unchanged-name links, including broken links to old `skills/` or package paths, while preserving unrelated entries. It adds local skills only, requires the checkout to remain in place and does not migrate renamed basenames, copied directories or other checkouts. Inspect and clean up those entries manually. New installations should use complete built plugins.
 
-## Security package ownership
+## Security ownership
 
-Security/privacy design now belongs to the independently selected `security` package, alongside identity/access guidance. To retain specialist depth, include that package when rebuilding. Replace the previous development installation rather than overlaying files so its former security skill is removed; otherwise two copies may be discovered. The skill name is unchanged. Development retains essential boundary/verification reasoning and selects optional expertise by capability. No identity provider, account or live credential configuration is migrated.
+Security and privacy design belongs to `sdlc`'s [design-security](../plugins/sdlc/skills/design-security/SKILL.md); recurring security work belongs to [run-security-maintenance](../plugins/sdlc/skills/run-security-maintenance/SKILL.md). Retain optional identity/access and specialist depth by capability. Replace the previous installation rather than overlaying files so a former security skill is removed; otherwise two copies may be discovered. No identity provider, account or live credential configuration is migrated.
 
 ## Committed upstream snapshots
 
@@ -141,6 +141,7 @@ Structural renames:
 | --- | --- |
 | `system-design` | [design-system](../plugins/sdlc/skills/design-system/SKILL.md) |
 | `system-documentation` + `guide-architecture-set` | [guide-system-documentation](../plugins/sdlc/skills/guide-system-documentation/SKILL.md) |
+| `guide-c4-view` + `guide-sequence-view` | [guide-architecture-views](../plugins/sdlc/skills/guide-architecture-views/SKILL.md) |
 | `runbook` | [guide-runbook](../plugins/sdlc/skills/guide-runbook/SKILL.md) |
 | `security-and-privacy-design` + `security-auth-development` | [design-security](../plugins/sdlc/skills/design-security/SKILL.md) |
 | `security-maintenance` | [run-security-maintenance](../plugins/sdlc/skills/run-security-maintenance/SKILL.md) |

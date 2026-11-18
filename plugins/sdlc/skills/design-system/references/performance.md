@@ -42,7 +42,7 @@ Performance and capacity are the same question seen from different ends: whether
 - Decide the scaling signal and its lag. Scaling on the wrong signal responds after the user has already waited.
 - Define degradation: queue, shed, serve cached or partial results, or fail explicitly. An overloaded system that accepts unbounded work converts a latency incident into a data and recovery one.
 
-Use [capacity and cost](../../analyze-capacity-cost/SKILL.md) for the demand model, saturation analysis, scaling mechanics and provider sizing. Do not restate its arithmetic here. For the design-time demand, headroom and scaling plan, read [capacity planning](capacity-planning.md).
+Use [Analyze capacity and cost](../../analyze-capacity-cost/SKILL.md) for the demand model, saturation analysis, scaling mechanics and provider sizing. Do not restate its arithmetic here. For the design-time demand, headroom and scaling plan, read [capacity planning](capacity-planning.md).
 
 ## Design for the tail
 
@@ -80,6 +80,6 @@ Match the measurement to the claim:
 - Separate application limits from generator, network or shared-environment limits before concluding anything about the service.
 - Measure the distribution, not a mean, and retain sample counts, failures and drops.
 - Performance-testing expertise owns the load tooling, scenario mechanics, thresholds and execution targets when installed. Use it for the test; keep the design claim and the accepted target here.
-- [Resilience testing](../../testing-resilience/SKILL.md) owns controlled failure injection. Combined load and fault testing is a separate scoped experiment.
+- [Testing resilience](../../testing-resilience/SKILL.md) owns controlled failure injection. Combined load and fault testing is a separate scoped experiment.
 
 Report the design budget, the workload and environment, the measured outcome, the limits of the evidence and the assumption that would invalidate the design. A passing load test does not establish that real users experience the target.

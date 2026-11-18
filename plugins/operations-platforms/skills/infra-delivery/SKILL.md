@@ -148,7 +148,7 @@ Use installed guidance by capability; absence changes depth, not the outcomes ab
 | Configuration schema, environment values and secret consumption | `application-configuration` |
 | Capacity and cost effect of the delivered platform | `analyze-capacity-cost` |
 | Provider syntax, CLI and adapter mechanics | `tooling-conventions` |
-| Backup, restore and data recovery design | data recovery capability |
+| Backup, restore and data recovery design | continuity and disaster-recovery design, `guide-runbook` |
 | Security review of trust boundaries and credentials | security design and maintenance capabilities |
 
 ## Sources

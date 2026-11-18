@@ -35,7 +35,7 @@ Read [activity system](../activity-system/SKILL.md) for scope and stopping point
 | Cost drivers, unit economics, attribution and exit cost | [Cost planning](references/cost-planning.md) |
 | Signals, SLIs, measurement points and telemetry pipeline boundaries | [Observability and monitoring](references/observability-and-monitoring.md) |
 
-For writing the artifact this activity produces, read [guide-design-proposal](../guide-design-proposal/SKILL.md), [guide-architecture-views](../guide-architecture-views/SKILL.md), [guide-architecture-views](../guide-architecture-views/SKILL.md), [guide-state-machine](../guide-state-machine/SKILL.md) for structure, conventions and review.
+For writing the artifact this activity produces, read [guide-design-proposal](../guide-design-proposal/SKILL.md), [guide-architecture-views](../guide-architecture-views/SKILL.md), [guide-state-machine](../guide-state-machine/SKILL.md) for structure, conventions and review.
 
 ## Choose the depth
 

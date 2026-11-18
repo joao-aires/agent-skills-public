@@ -22,7 +22,7 @@ Consult [facilitation-guide.md](facilitation-guide.md) for deeper implementation
 5. Analyze trigger, contributing conditions, propagation, barriers, detection, response and recovery. Do not force all incidents into one root cause or a fixed five-whys chain.
 6. Derive specific learning and candidate actions with a causal rationale and observable completion criterion. Distinguish confirmed correction from hypotheses to investigate.
 7. Draft the review in the local format with impact, timeline, analysis, what worked, gaps, unknowns and actions. Mark owner/reviewer confirmation pending where needed.
-8. Review for factual accuracy, psychological safety, useful depth and testable prevention. Hand approved work to `postmortem` or return the register directly.
+8. Review for factual accuracy, psychological safety, useful depth and testable prevention. Hand approved work to the postmortem record or return the register directly.
 
 For proxy/security or detection-gap incidents, consult the [worked review case](proxy-security-review.md) when useful. Reconcile inconsistent clocks and distinguish confirmed impact from plausible shared-consumer exposure. A claim that an issue is “not detectable” needs a measurement-boundary analysis, not unquestioned acceptance.
 

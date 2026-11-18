@@ -24,7 +24,7 @@ Use it alongside the activities that own the surrounding decisions:
 | `design-system` | Architecture choices, service/data/client/deployment boundaries, option comparison and the design record. |
 | `backend-design` | Service behavior, authority, state, transactions, interface contracts and recovery inside the selected boundaries. |
 | `testing-resilience` (when available) | Controlled fault experiments, their authorization, injection, stop conditions and evidence. |
-| `observability` (when available) | Signal contracts, instrumentation, pipeline behavior and telemetry evidence. Reliability design owns SLIs, SLOs and alert policy. |
+| `design-system` observability guidance (when available) | Signal contracts, pipeline behavior and telemetry evidence. Instrumentation stays with the stack's telemetry tooling. Reliability design owns SLIs, SLOs and alert policy. |
 | This skill | The cross-service reasoning those owners consume: consistency, replication, partitioning, consensus, time, failure detection, bounded interaction, idempotency, recovery, capacity and how to test the reasoning. |
 
 Event and message contract design belongs to event-driven-design; broker mechanics are not repeated here. Read [failure and consistency](references/failure-and-consistency.md) when selecting a guarantee or diagnosing divergence, and [resilience checklist](references/resilience-checklist.md) when reviewing retries, timeouts, breakers, backpressure and recovery.
@@ -137,7 +137,7 @@ Measure arrival rate, latency distribution, saturation and errors per dependency
 
 Watch for hot keys and shards, connection and thread pools, queue age, GC pauses, cross-zone bandwidth and cost, and dependency rate limits. Recovery and replay are capacity events. A system that survives steady state can still fail when every worker reconnects, every cache is cold or a backlog drains at once.
 
-Each claimed guarantee needs a signal that would disprove it: replica lag and leader changes for replication, conflict rate for multi-writer, retry and timeout rates for interaction bounds, queue age for backpressure, unknown outcomes and divergence checks for idempotency and repair, failover duration for recovery. Cross-host correlation is approximate because clocks disagree; correlate with trace and causal identifiers. Implement signals with observability and define targets with reliability design.
+Each claimed guarantee needs a signal that would disprove it: replica lag and leader changes for replication, conflict rate for multi-writer, retry and timeout rates for interaction bounds, queue age for backpressure, unknown outcomes and divergence checks for idempotency and repair, failover duration for recovery. Cross-host correlation is approximate because clocks disagree; correlate with trace and causal identifiers. Implement signals with the stack's telemetry tooling and define targets with reliability design.
 
 ## Test the reasoning, not only the code
 

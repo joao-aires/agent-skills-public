@@ -93,7 +93,7 @@ Partition count, consumer concurrency, message size, fetch and batch settings, p
 
 Signals worth defining: publish failure rate, end-to-end event age, consumer lag in records and in time, per-partition skew, rebalance rate, retry and dead-letter counts and age, dedupe hits, outbox backlog, schema rejection and deserialization failure. Propagate trace and correlation context; log event id, type and source rather than full sensitive payloads. Publication success is not business-effect success.
 
-Defer SLO targets to reliability design and signal implementation to `observability` when available. Define what a healthy flow looks like, including a consumer that is running but not progressing.
+Defer SLO targets to reliability design; implement signals with the stack's telemetry tooling, using `design-system` observability guidance when available. Define what a healthy flow looks like, including a consumer that is running but not progressing.
 
 ## Test the contract and its failure modes
 

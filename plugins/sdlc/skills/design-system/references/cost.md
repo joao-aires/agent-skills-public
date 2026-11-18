@@ -2,7 +2,7 @@
 
 Cost is a design consequence, not only an optimization task after launch. The architecture chooses which resources exist, how much they are used per unit of work, what is paid for continuously and how hard it is to leave a provider. This reference connects those choices to the methods that measure and improve them; it does not contain prices, discount schedules or optimization tactics.
 
-Capacity and cost are two views of one decision: whether the resources delivering the accepted outcome are proportionate to its value. Read [capacity and cost](../../analyze-capacity-cost/SKILL.md) for demand, sizing, attribution and verified savings, and [cost planning](cost-planning.md) for the design-time cost model.
+Capacity and cost are two views of one decision: whether the resources delivering the accepted outcome are proportionate to its value. Read [Analyze capacity and cost](../../analyze-capacity-cost/SKILL.md) for demand, sizing, attribution and verified savings, and [cost planning](cost-planning.md) for the design-time cost model.
 
 ## What design decides
 
@@ -16,7 +16,7 @@ Capacity and cost are two views of one decision: whether the resources deliverin
 
 | Question | Where it is owned |
 | --- | --- |
-| Demand model, saturation, scaling and recovery-site capacity | [Capacity and cost](../../analyze-capacity-cost/SKILL.md) and [capacity planning](../../analyze-capacity-cost/references/capacity.md) |
+| Demand model, saturation, scaling and recovery-site capacity | [Analyze capacity and cost](../../analyze-capacity-cost/SKILL.md) and [capacity planning](../../analyze-capacity-cost/references/capacity.md) |
 | Bill attribution, avoidable spend, commitments and provider tradeoffs | [Cost optimization](../../analyze-capacity-cost/references/cost.md) |
 | Unit economics, showback, chargeback and margin | FinOps framework and unit-economics capability; use the organisation's finance and product owners |
 | The cost of a specific provider service or configuration | Current first-party provider documentation and the actual contract |

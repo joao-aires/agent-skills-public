@@ -22,7 +22,7 @@ The evaluation pair is deliberately split. `ai-testing` is the method for choosi
 | Plan, gate and report an evaluation program | [AI evaluation](skills/ai-evaluation/SKILL.md) |
 | Implement a selected Python/DeepEval suite | `ai-deepeval-testing` when installed and chosen |
 | Verify application behavior, contracts and persisted journeys | `test` when installed |
-| Implement traces, metrics and logs | `observability` when installed |
+| Implement traces, metrics and logs | `design-system` observability guidance when available; stack telemetry tooling |
 | Make the delivery decision | `release` when installed |
 
 ## Boundaries

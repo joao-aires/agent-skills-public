@@ -60,7 +60,7 @@ Stop at a supported diagnosis or a precise evidence gap. Do not prescribe a rest
 - Prefer the least destructive discriminating check. Preserve events and logs before a restart or replacement when practical.
 - A rollout restart or pod deletion can mitigate an effect while erasing evidence; label it as mitigation, not cause.
 - Mutate only within granted authority. Deleting pods, PVCs or namespaces, changing probes or policy, scaling and failing over have different consequences.
-- If the cause is intended-state design, hand off to `kubernetes-resource-engineering`; if data is lost or corrupted, use data-recovery expertise; if customers are affected now, use run-incident-response.
+- If the cause is intended-state design, hand off to `kubernetes-resource-engineering`; if data is lost or corrupted, use continuity/disaster-recovery expertise; if customers are affected now, use run-incident-response.
 - Verify the result through the original workload path and independent signals, not only a pod becoming Ready.
 
 ## Distribution and access limits

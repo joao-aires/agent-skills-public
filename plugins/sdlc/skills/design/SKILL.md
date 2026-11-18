@@ -34,6 +34,7 @@ Use the [artifact system](../artifact-system/SKILL.md) for the handoff and [arti
 | How to test the direction before building | [Design validation](references/design-validation.md) |
 | Is the proposal ready to hand off? | [Design review](references/design-review.md) |
 | What must the record contain? | [Design proposal contract](../artifact-system/references/contracts/design-proposal.md) |
+| Recovery or operating procedure the design establishes | [Runbook guide](../guide-runbook/SKILL.md) |
 | Architecture decisions and boundaries | [design-system](../design-system/SKILL.md) |
 | Proposed versus current C4 and sequence views | [Diagram lifecycle](../artifact-system/references/diagram-lifecycle.md) |
 | Parallel design threads and reopens | [Engagement state](../activity-system/references/engagement-state.md) |
