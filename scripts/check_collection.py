@@ -63,6 +63,19 @@ def maintained_documents(root):
                   if not any(parent in managed for parent in d.parents))
 
 
+def relative_links(document):
+    """Yield (value, resolved target, fragment) for local Markdown links and definitions."""
+    text = without_inline_code(prose(document.read_text()))
+    values = re.findall(r"!?\[[^]\n]*\]\(([^\s)]+)(?:\s+[^)]*)?\)", text)
+    values += re.findall(r"^\s*\[[^]]+\]:\s*<?([^\s>]+)>?", text, re.M)
+    for value in values:
+        link = urlsplit(value.strip("<>"))
+        if link.scheme or link.netloc:
+            continue
+        target = (document.parent / unquote(link.path)).resolve() if link.path else document
+        yield value, target, link.fragment
+
+
 def check_svg_xml(root):
     """Reject invalid maintained SVG sources before they reach generated docs."""
     errors = []
@@ -79,21 +92,14 @@ def check_svg_xml(root):
 
 def check_links(root):
     errors, checked = [], 0
-    for document in maintained_documents(root):
-        body = prose(document.read_text())
-        # Inline links/images and reference definitions. External URLs are not fetched.
-        links = without_inline_code(body)
-        targets = re.findall(r"!?\[[^]\n]*\]\(([^\s)]+)(?:\s+[^)]*)?\)", links)
-        targets += re.findall(r"^\s*\[[^]]+\]:\s*<?([^\s>]+)>?", links, re.M)
-        for value in targets:
-            link = urlsplit(value.strip("<>"))
-            if link.scheme or link.netloc:
-                continue
-            target = (document.parent / unquote(link.path)).resolve() if link.path else document
+    documents = maintained_documents(root)
+    for document in documents:
+        # External URLs are not fetched.
+        for value, target, fragment in relative_links(document):
             checked += 1
             if not target.exists():
                 errors.append(f"{document.relative_to(root)}: missing {value}")
-            elif link.fragment and target.suffix == ".md" and unquote(link.fragment) not in anchors(target.read_text()):
+            elif fragment and target.suffix == ".md" and unquote(fragment) not in anchors(target.read_text()):
                 errors.append(f"{document.relative_to(root)}: missing heading {value}")
     # Migration is the maintained rename map. Historical selection notes are exempt.
     migration = (root / "documentation/migration.md").read_text()
@@ -113,7 +119,7 @@ def check_links(root):
             if re.search(r"(?<![\w-])" + re.escape(old) + r"(?![\w-])", text, re.I):
                 errors.append(f"{asset.relative_to(root)}: obsolete skill name {old}")
 
-    for document in maintained_documents(root):
+    for document in documents:
         if document.name in {"migration.md", "maintainer-reference.md"}:
             continue
         body = prose(document.read_text())
@@ -236,22 +242,14 @@ def check_package_links(package, local_names, notices):
         if document in seen or not document.is_file():
             continue
         seen.add(document)
-        body = prose(document.read_text())
-        links = without_inline_code(body)
-        targets = re.findall(r"!?\[[^]\n]*\]\(([^\s)]+)(?:\s+[^)]*)?\)", links)
-        targets += re.findall(r"^\s*\[[^]]+\]:\s*<?([^\s>]+)>?", links, re.M)
-        for value in targets:
-            link = urlsplit(value.strip("<>"))
-            if link.scheme or link.netloc:
-                continue
-            target = (document.parent / unquote(link.path)).resolve() if link.path else document
+        for value, target, fragment in relative_links(document):
             checked += 1
             if not target.is_relative_to(package):
                 errors.append(f"{package.name}: resource escapes package: {document.relative_to(package)} -> {value}")
             elif not target.exists():
                 errors.append(f"{package.name}: missing resource: {document.relative_to(package)} -> {value}")
             elif target.suffix == ".md":
-                if link.fragment and unquote(link.fragment) not in anchors(target.read_text()):
+                if fragment and unquote(fragment) not in anchors(target.read_text()):
                     errors.append(f"{package.name}: missing resource heading: {document.relative_to(package)} -> {value}")
                 queue.append(target)
     return errors, checked

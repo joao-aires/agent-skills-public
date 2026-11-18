@@ -55,7 +55,7 @@ Skills carry a small classification layer:
 - `origin`: `local` or `upstream`.
 - `scope`, `invocation` and `role`: generic/stack-specific, user/agent/both and task/support labels.
 
-The full artifact and activity catalogs remain the source of truth for artifact types, homes and evidence. Skill metadata is for discovery and maintenance, not execution routing. `python scripts/skill_inventory.py` prints the generated maintainer matrix: Skill, Pack, Domain, Kind, Phase, Origin, Scope, Invocation, Role and Plugin.
+The full artifact and activity catalogs remain the source of truth for artifact types, homes and evidence. Skill metadata is for discovery and maintenance, not execution routing. `python scripts/skill_map.py --inventory` prints the generated maintainer matrix: Skill, Pack, Domain, Kind, Phase, Origin, Scope, Invocation, Role and Plugin.
 
 ### Software types are a component property
 
