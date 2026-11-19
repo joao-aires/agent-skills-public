@@ -1,10 +1,10 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "saas-development",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "SaaS tenant/customer and commercial lifecycle design, supporting services, billing and entitlements, organization identity, dashboards and scoped readiness.",
   "author": {
-    "name": "João Aires"
+    "name": "Jo\u00e3o Aires"
   },
   "repository": "https://github.com/joao-aires/agent-skills-public",
   "license": "MIT"

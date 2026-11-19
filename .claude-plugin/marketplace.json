@@ -15,7 +15,7 @@
       "name": "ai-development",
       "source": "./ai-development",
       "description": "Provider-independent AI application design, evaluation programs, testing methods and operations; models, context, tools, harnesses and protocols.",
-      "version": "0.15.0"
+      "version": "0.15.1"
     },
     {
       "name": "ai-langchain-development",
@@ -33,7 +33,7 @@
       "name": "backend-development",
       "source": "./backend-development",
       "description": "Framework-independent service authority, state, durable work, failure, architecture pattern selection, HTTP and GraphQL contracts, event-driven integration and distributed-systems reasoning.",
-      "version": "0.3.1"
+      "version": "0.3.2"
     },
     {
       "name": "backend-python-development",
@@ -51,19 +51,19 @@
       "name": "database-development",
       "source": "./database-development",
       "description": "Database design and evidence-led performance methods independent of engine, application language or hosting platform.",
-      "version": "0.1.2"
+      "version": "0.1.3"
     },
     {
       "name": "database-postgresql-development",
       "source": "./database-postgresql-development",
       "description": "PostgreSQL schema, transactions, performance and operations, plus an acquired Supabase Postgres best-practices skill and reviewed upstream references.",
-      "version": "0.2.0"
+      "version": "0.2.1"
     },
     {
       "name": "development-tooling",
       "source": "./development-tooling",
       "description": "Selected Bash, CLI design, provider-neutral CI/CD pipeline design, browser/load testing, container/registry, diagnostics and supply-chain tooling.",
-      "version": "0.3.0"
+      "version": "0.3.1"
     },
     {
       "name": "documentation",
@@ -75,7 +75,7 @@
       "name": "frontend-development",
       "source": "./frontend-development",
       "description": "Integrated interface design, design research, visual craft, UX writing, usability research and UI journey testing across application types.",
-      "version": "0.7.0"
+      "version": "0.7.1"
     },
     {
       "name": "frontend-native-development",
@@ -99,13 +99,13 @@
       "name": "operations-platforms",
       "source": "./operations-platforms",
       "description": "Selected JVM, Kubernetes, AWS, infrastructure-delivery and Azure AKS implementation, diagnosis and optimization.",
-      "version": "0.2.1"
+      "version": "0.2.2"
     },
     {
       "name": "saas-development",
       "source": "./saas-development",
       "description": "SaaS tenant/customer and commercial lifecycle design, supporting services, billing and entitlements, organization identity, dashboards and scoped readiness.",
-      "version": "0.2.1"
+      "version": "0.2.2"
     },
     {
       "name": "sdlc",
@@ -129,7 +129,7 @@
       "name": "visualization",
       "source": "./visualization",
       "description": "Architecture diagrams, interactive system explanation and presentations.",
-      "version": "0.1.2"
+      "version": "0.1.3"
     }
   ]
 }
