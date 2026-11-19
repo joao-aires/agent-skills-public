@@ -14,10 +14,11 @@ metadata:
   pack: product
   domain: product
   phase: planning
-  version: '2.4'
+  version: '2.5'
   scope: generic
   invocation: user
   role: task
+  references: ../../references/sources.md
 ---
 
 # Business Strategy
@@ -108,6 +109,12 @@ For substantive ongoing strategy work, preserve a durable current thesis and the
 
 The names `strategy-state.md` and `decision-log.md` below denote those roles. If no suitable records exist, use those filenames and the templates in `assets/` as starting points. Adapt structure to the decision; a bounded question can remain in the conversation. Read existing state before re-analysis, update the thesis when evidence changes and record material choices, reversals and reopening conditions in the decision history. If no writable workspace exists, maintain the same distinctions in the conversation.
 
+## Durable Outputs
+
+A strategy engagement may leave durable records such as the **strategy brief** — the current choices, economics, exclusions, assumptions and falsifiers — and the **market and competitive analysis** that supports it. Keep them consistent with the persistent state. Use `assets/strategy-brief.md` as a starting structure when no accepted brief exists; a bounded question can stay in the conversation. When a market or competitive analysis needs a durable, reviewable record, use the SDLC `research-report` contract rather than inventing a second artifact type; until an artifact contract exists, keep the brief in `strategy-state.md`.
+
+Product requirements, product roadmaps and engineering change records belong to the development lifecycle (SDLC). Strategy-level outcome and economic measures belong to the operating plan; product success measures within an accepted strategy belong to [product management](../product-management/SKILL.md). This skill supplies the direction those artifacts must remain consistent with; it does not produce a second copy of them.
+
 # Six Fundamental Strategy Questions
 
 These questions are the primary structure of the skill. They are **not a fixed sequence or six mandatory report sections**. Strategy is iterative: evidence from one question can reopen any other question.
@@ -144,7 +151,7 @@ Use as relevant:
 
 - `references/decision-framing.md`
 - `references/research-protocol.md`
-- `references/market-system-documentation.md`
+- `references/market-system-mapping.md`
 - `references/customer-behavior-and-culture.md`
 - `references/competitive-dynamics.md`
 - `references/market-sizing.md`
@@ -171,7 +178,7 @@ Separate the **first market** from the **long-term destination**.
 Use as relevant:
 
 - `references/wedge-selection.md`
-- `references/market-system-documentation.md`
+- `references/market-system-mapping.md`
 - `references/customer-behavior-and-culture.md`
 - `references/market-sizing.md`
 
@@ -399,9 +406,21 @@ Load references selectively.
 - `references/research-protocol.md` — claim-led research, compact evidence tracking, contradiction handling
 - `references/strategy-stress-testing.md` — pre-mortem, failure mechanisms, coherence and verdict
 
+### Validation and discovery
+
+- `references/idea-validation.md` — premise challenge, assumption ledger, validation plan and precommitted continue/pivot/kill criteria
+- `references/customer-discovery.md` — ICP, status quo, behavioral interviews, commitment signals and discovery evidence limits
+
+### Entry and commercial design
+
+- `references/market-entry.md` — beachhead and mode selection, entry sequencing, competitor profiles and monitoring triggers
+- `references/value-proposition.md` — alternatives, unique attributes, value proof, best-fit customer and switching anxieties
+- `references/pricing-and-packaging.md` — value-based pricing, willingness-to-pay evidence, packaging, margins and payback
+- `references/go-to-market.md` — motion and channel selection, launch gates, growth loops, funnel metrics and a 90-day plan
+
 ### Market reality
 
-- `references/market-system-documentation.md` — actors, value chain, budgets, profit pools, bottlenecks
+- `references/market-system-mapping.md` — actors, value chain, budgets, profit pools, bottlenecks
 - `references/customer-behavior-and-culture.md` — workflow, trust, behavior change, organizational/geographic context
 - `references/competitive-dynamics.md` — three competition levels, trajectories, bundling, internal build/OSS
 
@@ -420,6 +439,19 @@ Load references selectively.
 - `references/financial-scenario-modeling.md` — revenue paths, sensitivities, what-must-be-true
 - `references/valuation-framework.md` — contextual multiples and strategic acquisition value
 - `references/open-source-commercialization.md` — OSS adoption, commercial boundary, monetization and GTM
+
+### Decisions, execution and capital
+
+- `references/experiments-and-pmf.md` — assumption-to-test ladder, precommitted bars, evidence grades and retention interpretation
+- `references/choice-cascade-and-strategy-brief.md` — Playing to Win and Rumelt structures, exclusions, falsifiers and the strategy brief
+- `references/operating-plan.md` — outcome OKRs, initiative portfolio, capacity, cadence, decision rights and product handoff
+- `references/strategy-review-and-pivot.md` — review cadence, tripwires, steelman and attack, continue/narrow/park/kill
+- `references/capital-and-finance.md` — fundraising readiness, round sizing, instruments, investor process and model sanity
+
+### Templates and sources
+
+- `assets/` — compact starting templates for a validation plan, interview guide, strategy brief, GTM plan, operating plan, review, capital plan, unit-economics record and bet record; adapt or omit sections rather than filling them with invented evidence
+- [Source and license record](../../references/sources.md) — reviewed sources, license findings and the decision not to acquire
 
 ## Recommended Deep Output
 
