@@ -3,7 +3,7 @@ name: guide-pr
 description: Guide to writing a pull request description. Covers why, what changed, design impact, validation, risk, release and reviewer links.
 user-invocable: true
 metadata:
-  kind: method
+  kind: guide
   origin: local
   pack: sdlc
   domain: development
