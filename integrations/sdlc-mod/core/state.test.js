@@ -1,0 +1,203 @@
+import assert from "node:assert/strict";
+import test from "node:test";
+import { apply, emptyState, migrateState, renderCompact, renderMarkdown, validateState } from "./state.js";
+
+function sample() {
+  let state = emptyState("s1");
+  state = apply(state, {
+    type: "thread.add",
+    name: "pagination works",
+    phase: "implementation",
+    softwareType: "backend",
+    ticket: "PROJ-142",
+    stoppingPoint: "pagination works",
+  });
+  return state;
+}
+
+test("adds a named thread and focuses the first one", () => {
+  const state = sample();
+  assert.equal(state.version, 4);
+  assert.equal(state.threads.length, 1);
+  assert.equal(state.threads[0].name, "pagination works");
+  assert.equal(state.threads[0].ticket, "PROJ-142");
+  assert.equal(state.focusThreadId, "T1");
+  assert.deepEqual(validateState(state), []);
+});
+
+test("moves a thread between phases, records history and attaches a ticket", () => {
+  let state = sample();
+  state = apply(state, { type: "thread.phase", id: "T1", phase: "testing" });
+  assert.equal(state.threads[0].phase, "testing");
+  assert.deepEqual(state.threads[0].completedPhases, ["implementation"]);
+  state = apply(state, { type: "thread.phase", id: "T1", phase: "design" });
+  assert.equal(state.threads[0].phase, "design");
+  assert.deepEqual(state.threads[0].completedPhases, ["implementation", "testing"]);
+  state = apply(state, { type: "thread.ticket", id: "T1", ticket: "PROJ-999" });
+  assert.equal(state.threads[0].ticket, "PROJ-999");
+});
+
+test("records a block reason", () => {
+  let state = sample();
+  state = apply(state, { type: "thread.status", id: "T1", status: "blocked", reason: "waiting on API" });
+  assert.equal(state.threads[0].blockReason, "waiting on API");
+  state = apply(state, { type: "thread.resume", id: "T1" });
+  assert.equal(state.threads[0].blockReason, null);
+});
+
+test("attaches artifacts to threads and decisions", () => {
+  let state = sample();
+  state = apply(state, {
+    type: "thread.artifact",
+    id: "T1",
+    artifact: { label: "api-contract.md", href: "file:///tmp/api-contract.md", kind: "file" },
+  });
+  state = apply(state, {
+    type: "decision.add",
+    statement: "reuse the search table",
+    owner: "user",
+    threadId: "T1",
+  });
+  state = apply(state, {
+    type: "decision.artifact",
+    id: "D1",
+    artifact: { label: "PROJ-151", href: "https://linear.app/acme/issue/PROJ-151", kind: "url" },
+  });
+  assert.equal(state.threads[0].artifacts.length, 1);
+  assert.equal(state.decisions[0].threadId, "T1");
+  assert.equal(state.decisions[0].artifacts[0].kind, "url");
+  assert.deepEqual(validateState(state), []);
+});
+
+test("switches focus and parks a thread", () => {
+  let state = sample();
+  state = apply(state, {
+    type: "thread.add",
+    name: "API contract",
+    phase: "design",
+    softwareType: "frontend",
+  });
+  state = apply(state, { type: "thread.focus", id: "T2" });
+  assert.equal(state.focusThreadId, "T2");
+  state = apply(state, { type: "thread.park", id: "T1", reason: "waiting on contract" });
+  assert.equal(state.threads[0].status, "parked");
+  assert.equal(state.threads[0].parkReason, "waiting on contract");
+  state = apply(state, { type: "thread.resume", id: "T1" });
+  assert.equal(state.threads[0].status, "waiting");
+});
+
+test("adds and resolves decisions", () => {
+  let state = emptyState();
+  state = apply(state, { type: "decision.add", statement: "use the existing search table", owner: "user" });
+  assert.equal(state.decisions[0].id, "D1");
+  assert.equal(state.decisions[0].status, "open");
+  state = apply(state, { type: "decision.resolve", id: "D1" });
+  assert.equal(state.decisions[0].status, "accepted");
+});
+
+test("renders compact and durable Markdown forms", () => {
+  let state = sample();
+  state = apply(state, { type: "decision.add", statement: "accept the seam", owner: "user", threadId: "T1" });
+  assert.match(renderCompact(state), /SDLC · pagination works · 1 thread · 1 open/);
+  const markdown = renderMarkdown(state);
+  assert.match(markdown, /## Engagement state/);
+  assert.match(markdown, /T1 \[PROJ-142\] — pagination works — implementation/);
+  assert.match(markdown, /D1 — open — user — accept the seam — T1/);
+});
+
+test("rejects an unknown focus, invalid phase and unknown command", () => {
+  const state = emptyState();
+  assert.throws(() => apply(state, { type: "thread.focus", id: "T9" }), /unknown thread T9/);
+  assert.throws(
+    () => apply(state, { type: "thread.add", name: "work", phase: "backend" }),
+    /phase must be one of/,
+  );
+  assert.throws(() => apply(state, { type: "unknown" }), /unknown command/);
+});
+
+test("renders partial or missing state without throwing", () => {
+  assert.match(renderCompact(undefined), /no focus · 0 threads · 0 open/);
+  assert.match(renderCompact({ focusThreadId: null }), /no focus/);
+  assert.match(renderMarkdown({}), /Threads:\n- None/);
+  assert.match(renderMarkdown({ threads: undefined, decisions: undefined }), /Decisions:\n- None/);
+});
+
+test("does not mutate the input state", () => {
+  const state = emptyState();
+  const next = apply(state, { type: "thread.add", name: "work", phase: "design" });
+  assert.equal(state.threads.length, 0);
+  assert.equal(next.threads.length, 1);
+});
+
+test("rejects non-http artifact links", () => {
+  const state = sample();
+  assert.throws(
+    () =>
+      apply(state, {
+        type: "thread.artifact",
+        id: "T1",
+        artifact: { label: "bad", href: "javascript:alert(1)", kind: "url" },
+      }),
+    /artifact href must be http/,
+  );
+});
+
+test("migrates v2 state to completed phase history", () => {
+  const v2 = {
+    version: 2,
+    sessionId: "s1",
+    focusThreadId: "T1",
+    threads: [
+      {
+        id: "T1",
+        name: "pagination works",
+        phase: "implementation",
+        status: "waiting",
+        artifacts: [],
+      },
+    ],
+    decisions: [{ id: "D1", statement: "x", status: "open", artifacts: [] }],
+  };
+  const v4 = migrateState(v2);
+  assert.equal(v4.version, 4);
+  assert.deepEqual(v4.threads[0].completedPhases, []);
+  assert.equal(v4.threads[0].blockReason, null);
+  assert.equal(migrateState({ version: 1 }), null);
+});
+
+test("reset clears an invalid persisted state instead of throwing", () => {
+  const corrupt = { version: 4, sessionId: "s1", focusThreadId: "T9", threads: [], decisions: [] };
+  const state = apply(corrupt, { type: "reset" });
+  assert.equal(state.version, 4);
+  assert.equal(state.sessionId, "s1");
+  assert.deepEqual(state.threads, []);
+  assert.equal(state.focusThreadId, null);
+});
+
+test("moving backward keeps the phases already visited", () => {
+  let state = sample();
+  state = apply(state, { type: "thread.phase", id: "T1", phase: "testing" });
+  state = apply(state, { type: "thread.phase", id: "T1", phase: "design" });
+  assert.equal(state.threads[0].phase, "design");
+  assert.deepEqual(state.threads[0].completedPhases, ["implementation", "testing"]);
+  state = apply(state, { type: "thread.phase", id: "T1", phase: "deployment" });
+  assert.deepEqual(state.threads[0].completedPhases, ["implementation", "testing", "design"]);
+});
+
+test("migrates the five-phase v3 state to seven phases", () => {
+  const v3 = {
+    version: 3,
+    sessionId: "s1",
+    focusThreadId: "T1",
+    decisions: [],
+    threads: [{
+      id: "T1", name: "ops work", activity: "operations", status: "waiting",
+      completedPhases: ["requirements", "operations"], artifacts: [], blockReason: null,
+    }],
+  };
+  const v4 = migrateState(v3);
+  assert.equal(v4.version, 4);
+  assert.equal(v4.threads[0].phase, "maintenance");
+  assert.deepEqual(v4.threads[0].completedPhases, ["requirements", "maintenance"]);
+  assert.deepEqual(validateState(v4), []);
+});
