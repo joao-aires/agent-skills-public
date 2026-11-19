@@ -20,7 +20,7 @@ metadata:
 
 The subject is the **working environment**, not the product and not the people. A retro finds the few changes that would make the next session need less correction and better evidence, then stops before applying them.
 
-Read [writing-for-agents](../writing-for-agents/SKILL.md) for how an instruction earns its place, and route durable repository changes through [project conventions](../project-conventions/SKILL.md). That skill owns the repository's instruction surface, structure and checks.
+Read [writing-for-agents](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/documentation/skills/writing-for-agents/SKILL.md) for how an instruction earns its place, and route durable repository changes through [project conventions](../project-conventions/SKILL.md). That skill owns the repository's instruction surface, structure and checks.
 
 ## Fix the evidence
 
@@ -73,7 +73,7 @@ Name the file or mechanism that exists. If the right home does not exist, the ca
 For durable instruction changes, involve both owners:
 
 - [project conventions](../project-conventions/SKILL.md) owns where the instruction, check or repository structure belongs;
-- [writing-for-agents](../writing-for-agents/SKILL.md) owns whether the wording, pointer and information hierarchy will actually change behavior.
+- [writing-for-agents](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/documentation/skills/writing-for-agents/SKILL.md) owns whether the wording, pointer and information hierarchy will actually change behavior.
 
 A check belongs to the toolchain or CI owner. A navigation entry belongs to the repository's docs index or the component that hides the dependency. A tool-economy change belongs to the command, tool or access owner. Do not create a new standards document or a new agent split merely to hold a candidate.
 

@@ -177,6 +177,7 @@ The acquired SDLC methods were reviewed against the local activity, artifact and
 | Security diff review | Removed as a skill; general security-diff guidance is a `harden` reference |
 | Localized methods | `research`, `domain-modeling`, `prototype` and `retro` are local methods |
 | Session handoff | Moved to `documentation` |
+| Agent-instruction craft | `writing-for-agents` moved to `documentation`; it owns instruction structure, pointers and progressive disclosure |
 | Operating procedures | Merged into `guide-runbook` author/exercise/audit |
 | Current-system documentation | Merged into `guide-system-documentation` |
 | Security design | Merged into `design-security` |

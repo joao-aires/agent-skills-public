@@ -1,6 +1,6 @@
 # Documentation plugin: explanation, technical writing and prose craft
 
-The `documentation` plugin is a focused writing bundle. It supplies the cross-type craft for making product and engineering ideas understandable: live explanation, document-level technical writing and optional prose editing.
+The `documentation` plugin is a focused writing bundle. It supplies the cross-type craft for making product and engineering ideas understandable: live explanation, document-level technical writing, agent-facing instruction craft and optional prose editing.
 
 It does not own documentation placement, artifact contracts or architecture coverage. Those belong to the artifact system, the activity system and the repository's artifact home map.
 
@@ -12,9 +12,10 @@ It does not own documentation placement, artifact contracts or architecture cove
 | [Technical writing](skills/technical-writing/SKILL.md) | Reader fit, explanation inside a document, structure, examples, precision, navigation and presentation for product and engineering documents |
 | [Humanizer](skills/humanizer/SKILL.md) | Optional prose polish that preserves technical meaning, caveats, commands and links |
 | [Skill authoring](skills/skill-authoring/SKILL.md) | Create, revise or review a skill: capability boundary, form, progressive disclosure, knowledge ownership, testing and integration |
+| [Writing for agents](skills/writing-for-agents/SKILL.md) | Instruction structure for skills, `AGENTS.md`/`CLAUDE.md` and pointed-to references: context pointers, information hierarchy, progressive disclosure and pruning |
 | [Handoff](skills/handoff/SKILL.md) | Compact a conversation into a temporary handoff note for another agent, with references, redaction and suggested skills |
 
-The plugin is useful when the question is "how should this be explained or written for its reader?" It is not the place to decide what a document must contain, where it lives or what status it carries.
+The plugin is useful when the question is "how should this be explained or written for its reader, including an agent that must follow it?" It is not the place to decide what a document must contain, where it lives or what status it carries.
 
 ## How it composes
 
@@ -29,6 +30,7 @@ The plugin is useful when the question is "how should this be explained or writt
 | How do I review the finished document? | [Review rubric](skills/technical-writing/references/review-rubric.md) |
 | How do I polish the prose? | [Humanizer](skills/humanizer/SKILL.md) |
 | How do I create or revise a skill? | [Skill authoring](skills/skill-authoring/SKILL.md) |
+| How do I write instructions an agent must follow? | [Writing for agents](skills/writing-for-agents/SKILL.md) |
 | How do I hand this session to another agent? | [Handoff](skills/handoff/SKILL.md) |
 | How do I explain the current system architecture? | [System mapping](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/sdlc/skills/guide-system-documentation/SKILL.md) |
 
@@ -71,4 +73,4 @@ This plugin does not own an architecture document set, a documentation portfolio
 
 ## Migration
 
-The former architecture and writing skills are retired names. Use `guide-system-documentation` for current-state architecture documentation and `technical-writing` for writing craft. `explain` is a separate local skill for reader-specific explanation; it does not replace `technical-writing` or `guide-system-documentation`. The former package composition file is retired; composition guidance lives in the activity system. See the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
+`writing-for-agents` moved here from `sdlc`; the documentation bundle now owns agent-facing instruction craft alongside prose and document craft. The former architecture and writing skills are retired names. Use `guide-system-documentation` for current-state architecture documentation and `technical-writing` for writing craft. `explain` is a separate local skill for reader-specific explanation; it does not replace `technical-writing` or `guide-system-documentation`. The former package composition file is retired; composition guidance lives in the activity system. See the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).

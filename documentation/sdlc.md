@@ -160,7 +160,7 @@ Maintenance is one lifecycle outcome with four complementary responsibilities: *
 
 ## Across phases
 
-[Technical writing](../plugins/documentation/skills/technical-writing/SKILL.md) supplies cross-type writing craft and reader review. [Guide to system documentation](../plugins/sdlc/skills/guide-system-documentation/SKILL.md) explains structural/runtime/interface/deployment views with source evidence. The [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) owns artifact contracts, homes, quality and assurance; design-system owns design choices.
+[Technical writing](../plugins/documentation/skills/technical-writing/SKILL.md) supplies cross-type writing craft and reader review. [Writing for agents](../plugins/documentation/skills/writing-for-agents/SKILL.md) supplies instruction structure for skills and agent-facing documents. [Guide to system documentation](../plugins/sdlc/skills/guide-system-documentation/SKILL.md) explains structural/runtime/interface/deployment views with source evidence. The [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) owns artifact contracts, homes, quality and assurance; design-system owns design choices.
 
 Research, explicit clarification, prose editing, documentation, Git contributions, security and operating constraints can support any relevant phase. Review is not confined to a final gate. Requirements and design can run as parallel threads, and design and verification can recur during implementation; a phase label does not restrict when guidance is useful. Use [engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) to keep the current focus, open threads and reopens explicit.
 

@@ -19,7 +19,7 @@ Start with **sdlc** for the full software lifecycle. Add product, interface, bac
 | Workflow | [sdlc](plugins/sdlc/), [strategy](plugins/strategy/) | Full SDLC work and product direction; business strategy triggers and guides |
 | Design | [sdlc](plugins/sdlc/) | Architecture and tactical system design, materially different options, artifact guides, seam and a recorded decision |
 | Application disciplines | [frontend-development](plugins/frontend-development/), [backend-development](plugins/backend-development/), [ai-development](plugins/ai-development/) | Interface methods; service behavior; AI design/testing/operations |
-| Supporting capabilities | [documentation](plugins/documentation/), [visualization](plugins/visualization/) | Writing and architecture explanation; diagrams, presentations and explorers |
+| Supporting capabilities | [documentation](plugins/documentation/), [visualization](plugins/visualization/) | Writing, agent-instruction craft and architecture explanation; diagrams, presentations and explorers |
 | Host state integration | [integrations/sdlc-mod](integrations/sdlc-mod/) | Optional local SDLC conversation state for OpenCode and Claude Code |
 | Backend/client implementation | [backend-python-development](plugins/backend-python-development/), [frontend-reactjs-development](plugins/frontend-reactjs-development/), [frontend-native-development](plugins/frontend-native-development/) | Accepted Python; React; Tauri/Expo/native implementation |
 | Browser extensions | [browser-extension-development](plugins/browser-extension-development/) | Chrome/MV3 architecture, permissions, extension UI, runtime testing and store delivery. |

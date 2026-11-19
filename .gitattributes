@@ -13,6 +13,7 @@ plugins/development-tooling/skills/playwright-cli/** -text
 plugins/development-tooling/skills/supply-chain-risk-auditor/** -text
 plugins/documentation/skills/handoff/** -text
 plugins/documentation/skills/humanizer/** -text
+plugins/documentation/skills/writing-for-agents/** -text
 plugins/frontend-development/skills/impeccable/** -text
 plugins/frontend-development/skills/ui-ux-pro-max/** -text
 plugins/frontend-reactjs-development/skills/shadcn/** -text
@@ -28,4 +29,3 @@ plugins/sdlc/skills/grill-with-docs/** -text
 plugins/sdlc/skills/grilling/** -text
 plugins/sdlc/skills/tdd/** -text
 plugins/sdlc/skills/to-questionnaire/** -text
-plugins/sdlc/skills/writing-for-agents/** -text
