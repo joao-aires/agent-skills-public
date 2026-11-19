@@ -25,6 +25,8 @@ Read [activity system](../activity-system/SKILL.md). Read [verification](../test
 
 Use the relevant codebase and history to find a problem that matters in practice. Look for changes that repeatedly touch unrelated modules, expensive operations in an important journey, failures that are difficult to diagnose, inconsistent interactions, or slow and unreliable development checks. Follow the evidence far enough to distinguish a cause from a disliked coding style.
 
+For an architecture request, read [architecture scan](references/architecture-scan.md) for hotspot-weighted scoping, candidate criteria and presentation. Its visual before/after report is optional and stays outside the repository unless the user asks for it. The scan stops at findings; implementation needs its own request.
+
 For each worthwhile opportunity, make the proposal assessable:
 
 - Identify who is affected and what evidence shows the problem.
@@ -48,6 +50,6 @@ Choose the relevant analysis without imposing another process:
 | --- | --- |
 | UX | Use available integrated interface-design expertise for interaction intent, visual critique and affected-surface consistency against the accepted design. Seek UX-writing expertise separately for consequential copy. Reuse existing decisions for narrow fixes rather than initiating a redesign. |
 | Usability evidence | Use available research expertise for a requested study or actual observations. |
-| Architecture | Examine responsibilities, dependency direction, ownership, coupling/change hotspots, seams and testability. Use codebase-design/domain-modeling where useful, without forcing deep-module vocabulary, HTML reports or interviews. |
+| Architecture | Examine responsibilities, dependency direction, ownership, coupling/change hotspots, seams and testability. The [architecture scan](references/architecture-scan.md) offers hotspot-weighted candidates, the deletion test and recommendation strength when an architecture assessment is requested; use [codebase-design](../codebase-design/SKILL.md) and domain modeling where useful. Neither the scan nor its optional before/after report is mandatory. |
 
 More abstractions are not inherently better. Tracker proposals/creation and live experiments follow the task's explicit scope.

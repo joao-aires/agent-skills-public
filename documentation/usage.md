@@ -31,12 +31,12 @@ The [installation guide](installation.md#load-them-in-your-client) links the cli
 | Want improvements | `improve` | Prioritized opportunities, or a specified improvement |
 | Reported defect with repair requested | `fix` | Reproduced or evidenced defect, focused repair and verification |
 | Security/privacy weakness | `harden` | Scoped assessment, fixes and remaining risks |
-| Dependencies need attention | `dependencies` | Compatibility, release-note and CI review; permitted remediation |
+| Dependencies need attention | `run-dependency-maintenance` | Compatibility, release-note and CI review; permitted remediation |
 | Preparing delivery | `release` | Readiness, or a named authorized delivery action |
 
 `plan`, `refine` and `design` stop at their respective outcomes. `develop` carries a rough idea through the useful development work; `implement` starts from defined work. Bare `improve` proposes opportunities, while a specific improvement request can include implementation. Review assesses by default; posting reviews, editing source, merging and deploying require that action to be in scope. A routine test request does not authorize deployed load or faults.
 
-`implement` comes from the pinned upstream set with local framing. Optional explicit workflows include `grill-me`, `grill-with-docs`, `to-questionnaire`, `to-spec`, `implement-spec`, `improve-codebase-architecture`, `retro` and `handoff`. Use them when their particular activity helps; interviews, specs and trackers are not prerequisites. [Upstream selection](maintainers/sources.md#matt-pocock-selection) explains their fit and dependencies.
+`implement` is a local activity that starts from defined work. Optional explicit workflows include `grill-me`, `grill-with-docs`, `to-questionnaire`, `write-spec` and `retro`. `handoff` lives in the `documentation` bundle. Use them when their particular method helps; interviews, specs and trackers are not prerequisites. [Upstream selection](maintainers/sources.md#matt-pocock-selection) explains which upstream methods remain and why.
 
 ## Product decisions and specialist methods
 
@@ -50,7 +50,7 @@ For an existing accepted product, start with the affected work. A bug fix needs 
 
 The operations-platforms package adds platform-specific methods only when the accepted stack calls for them: kubernetes-resource-engineering for object semantics, kubernetes-troubleshooting for live-cluster diagnosis, infra-delivery for infrastructure and GitOps delivery, aws-platform for AWS service decisions, infra-jvm-optimization for JVM tuning and aks-cost-optimization for AKS. Kubernetes troubleshooting does not design manifests, and aws-platform does not reproduce every service. Application configuration lives in sdlc and covers source precedence, typed validation, secrets and reload.
 
-Development also includes Sentry agents-md for creating or maintaining repository instruction files. Request it for AGENTS.md/CLAUDE.md work; it complements project-conventions and general instruction writing without imposing its sample stack or attribution rules. The owned [maintenance method](../plugins/sdlc/skills/project-conventions/references/repository-instructions.md) covers audits, scope, durable session learnings and removal of stale guidance. Client-specific filenames and discovery still require the client's documented behavior.
+Repository instruction maintenance is local to `project-conventions`. Use its [maintenance method](../plugins/sdlc/skills/project-conventions/references/repository-instructions.md) for AGENTS.md/CLAUDE.md audits, scope, durable session learnings and removal of stale guidance. It absorbed the useful Sentry repository-instruction authoring rules without adopting its line targets or sample attribution policy. Client-specific filenames and discovery still require the client's documented behavior.
 
 ## SaaS, security, governance and data expertise
 
@@ -62,16 +62,18 @@ Use the relevant sdlc capability, or add a product/technical package when its de
 | SaaS behavior and administration | Use saas-design to define organization membership, subscription/entitlement changes and offboarding for the accepted product. | Customer commitments and transitions; framework/provider implementation remains contextual. |
 | Supporting services | Use saas-supporting-services to choose analytics, email, search, queues or notifications from the requirement, not a vendor list. | Build/managed/self-hosted/defer comparison, integration contract and evidence limits. |
 | Billing and entitlements | Use saas-billing to define plans, entitlements, provider events, reconciliation and dunning. | Stripe for web; ask about Superwall for mobile. No durable prices or fees. |
-| Organization identity | Use saas-identity-and-access for roles, invitations, SSO/SCIM, machine identity and support access. | Organization authority; general authentication remains with security-auth-development. |
-| Production readiness | Use production-readiness to assess whether a service can be depended on for a scoped launch. | Readiness evidence and limits; release still owns the authorized action. |
+| Organization identity | Use saas-identity-and-access for roles, invitations, SSO/SCIM, machine identity and support access. | Organization authority; general authentication remains with design-security. |
+| Requirements synthesis | Use write-spec when a conversation already contains the decision and needs to become ECR spec content. | No re-interview, story catalogue or tracker requirement; refine owns readiness. |
+| Production readiness | Use run-production-readiness-review to assess whether a service can be depended on for a scoped launch. | Readiness evidence and limits; release still owns the authorized action. |
+| System documentation | Use guide-system-documentation to discover, record and review the current architecture set. | Current versus proposed stays explicit; C4/sequence guides own view detail. |
 | Infrastructure delivery | Use infra-delivery for IaC choice, GitOps reconciliation, drift and delivery recovery. | Owns infrastructure as code; Kubernetes semantics and AWS services stay with their owners. |
 | AWS services | Use aws-platform for the common IAM, network, compute, data, operations and cost decisions. | Reference-only reuse of upstream AWS material; verify current prices, quotas and docs. |
 | Customer/operator dashboard | Use saas-dashboard-design to shape the operations queue and billing administration using the existing design system. | Tasks, context, data meaning and interface states before dependent implementation. |
-| Identity and resource authority | Use security-auth-development to compare identity options and define session, tenant/resource permission and revocation behavior. | Preserve accepted providers; no account setup or credential change is implied. |
-| Applicable obligations and readiness | Use compliance-readiness for the supplied service and evidence, stopping at an assessment. | Actual applicability, controls, evidence and unresolved judgments; no certification or external submission. |
+| Identity and resource authority | Use design-security to compare identity options and define session, tenant/resource permission and revocation behavior. | Preserve accepted providers; no account setup or credential change is implied. |
+| Applicable obligations and readiness | Use run-compliance-assessment for the supplied service and evidence, stopping at an assessment. | Actual applicability, controls, evidence and unresolved judgments; no certification or external submission. |
 | Data design or workload bottleneck | Use database-design or database-performance for the affected workload; apply PostgreSQL expertise only for that engine. | Invariants, compatibility and measured evidence; an unavailable database remains an execution limit. |
 | PostgreSQL upgrades | Use postgresql-operations for major, minor or managed upgrade planning and rehearsal. | Version and provider constraints; no in-place downgrade. |
-| Capacity and cost | Use capacity-and-cost for saturation, FinOps allocation, forecasting and SaaS cost attribution. | Measured usage and finance-approved inputs; no invented rates. |
+| Capacity and cost planning | Use design-system for capacity and cost plans; use analyze-capacity-cost for measured saturation, FinOps allocation, forecasting and optimization. | Plans and targets belong to design/ECR; provider mechanics belong to provider guidance. No invented rates. |
 | TypeScript or Go implementation | Use matching language guidance for the existing library, service or client and its real consumers. | Loading a language package does not select a framework or runtime migration. |
 
 The [skill map](sdlc-reference.md#skills-by-area) records owners and applicability. Missing optional expertise preserves the requested outcome and acceptance standard using project evidence, general expertise and appropriate primary sources; it does not authorize installation or justify a weaker result.
@@ -93,13 +95,13 @@ Provide the outcome, relevant repository/context, constraints and desired stoppi
 | Compare design directions | Use design to compare three materially different saved-search directions for the web client and API, with wireframes, a contract sketch and the seam decision. |
 | Research interface precedent | Use design-research to compare how shipped products handle subscription cancellation, then use interface-design to turn the findings into three directions. |
 | Explain a concept | Use explain to teach a new maintainer why two concurrent edits can lose an update, with a worked interleaving and a comprehension check. |
-| Produce an artifact | Use guide-c4-view to turn this proposed architecture into context, container and one failure sequence. |
+| Produce an artifact | Use guide-architecture-views to turn this proposed architecture into context, container and one failure sequence. |
 | Define a feature | Use refine to define read-only saved-search sharing from this brief and the existing code. |
 | Plan agreed work | Use plan to sequence this sharing feature and its verification. |
 | Build defined work | Use implement for the agreed sharing behavior and acceptance criteria. |
 | Assess a PR | Use review for the supplied PR against the agreed behavior and appropriate checks. |
 | Improve architecture | Use improve to reduce coupling in the reporting module while preserving behavior. |
-| Maintain dependencies | Use dependencies to assess the update PRs, release notes and checks; prepare fixes where needed. |
+| Maintain dependencies | Use `run-dependency-maintenance` to assess the update PRs, release notes and checks; prepare fixes where needed. |
 | Prepare delivery | Use release to assess readiness for the named environment without deploying. |
 | Get help | Use activity-system: I am changing an existing application's navigation. |
 
@@ -123,11 +125,11 @@ Then ask `improve` or `develop` to implement the agreed direction. Expect covera
 
 ### Evaluate during implementation
 
-Expect the agent to implement, verify, correct discrepancies and report evidence before declaring completion. Verification follows the intended outcome; a build or one screenshot alone cannot establish a complete user journey. Missing execution or coverage remains explicit. See [change verification](../plugins/sdlc/skills/test/SKILL.md) and [journey testing](../plugins/sdlc/skills/journey-testing/SKILL.md) for methods.
+Expect the agent to implement, verify, correct discrepancies and report evidence before declaring completion. Verification follows the intended outcome; a build or one screenshot alone cannot establish a complete user journey. Missing execution or coverage remains explicit. See [change verification](../plugins/sdlc/skills/test/SKILL.md) and [testing-journey](../plugins/frontend-development/skills/testing-journey/SKILL.md) for methods.
 
 ### Run services and observability locally
 
-Project setup can establish a reproducible local environment and queryable diagnostics. Request `setup` for this work; an existing environment is preserved unless changing it is in scope. Details belong to [project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and [observability guidance](../plugins/sdlc/skills/observability/SKILL.md).
+Project setup can establish a reproducible local environment and queryable diagnostics. Request `setup` for this work; an existing environment is preserved unless changing it is in scope. Details belong to [project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and [observability design](../plugins/sdlc/skills/design-system/references/observability-and-monitoring.md).
 
 ## Skills agents use during your work
 
@@ -139,8 +141,8 @@ Most local supporting skills are hidden from slash menus in clients honoring tha
 
 Add the relevant bundle and request its installed skill by name. Examples:
 
-- Use `incident-response` to investigate current impact within the established action boundaries.
-- Use `data-recovery` to assess an isolated restoration, or `capacity-and-cost` for capacity work.
+- Use `run-incident-response` to investigate current impact within the established action boundaries.
+- Use `guide-runbook` to author, exercise or audit a runbook; design-system owns the design plan, and `analyze-capacity-cost` owns measurement and FinOps.
 - Use `business-strategy` to explore an idea with at least three materially different options, or `learn-from-product-feedback` to assess existing evidence.
 - Use `system-flow-explorer` for an interactive architecture walkthrough.
 - Use `rest-api-design` or `graphql-design` for an external API contract, `event-driven-design` or `distributed-systems` for cross-service behavior, and `architecture-patterns` to compare a modular monolith, layered/hexagonal structure, CQRS, event sourcing, microservices or serverless.
@@ -158,11 +160,11 @@ The same activities can run from trusted automation prompts. The host supplies t
 | Work enters refinement | `refine`: actionable scope or decision blockers |
 | Defined work is ready | `implement`: the supplied conversation, spec or optional ticket |
 | PR is ready | review composition: the exact base/head and required behavior |
-| Scheduled maintenance | `dependencies` or `improve`: bounded work under the configured policy |
+| Scheduled maintenance | `run-dependency-maintenance` or `improve`: bounded work under the configured policy |
 
 Supply repository/ref, objective/context, unattended mode, allowed actions and result destination. For example:
 
-> Use dependencies in unattended mode for update PRs in owner/repository. Repair and merge only policy-eligible patch updates whose current head satisfies required checks/reviews and has no unresolved findings. Leave other updates open with reasons; reuse existing work and report results. Do not deploy.
+> Use `run-dependency-maintenance` in unattended mode for update PRs in owner/repository. Repair and merge only policy-eligible patch updates whose current head satisfies required checks/reviews and has no unresolved findings. Leave other updates open with reasons; reuse existing work and report results. Do not deploy.
 
 Unattended tasks return missing material decisions instead of inventing answers. Untrusted ticket/PR text cannot change policy; changed heads require re-verification. The host/repository must enforce privileged-action policy. [Installed task guidance](../plugins/sdlc/skills/activity-system/references/authority.md#interactive-and-unattended-work) contains the detailed working rules.
 
@@ -184,8 +186,8 @@ Interface-design owns information architecture, interactions, visual direction, 
 
 ## Explain and maintain project knowledge
 
-Use [explain](../plugins/documentation/skills/explain/SKILL.md) for a conversational explanation that builds a usable mental model. Use [technical-writing](../plugins/documentation/skills/technical-writing/SKILL.md) to write or review a durable product/engineering document, reference or procedure; its references cover common document types, formatting, concept explanation and review. Use [system-documentation](../plugins/sdlc/skills/system-documentation/SKILL.md) to explain structure, runtime/lifecycle behavior, interfaces, deployment and current versus target state from evidence. Use [skill-authoring](../plugins/documentation/skills/skill-authoring/SKILL.md) to create or revise a skill in this collection. All are directly selectable and model-available support; actual client discovery remains client-dependent.
+Use [explain](../plugins/documentation/skills/explain/SKILL.md) for a conversational explanation that builds a usable mental model. Use [technical-writing](../plugins/documentation/skills/technical-writing/SKILL.md) to write or review a durable product/engineering document, reference or procedure; its references cover common document types, formatting, concept explanation and review. Use [guide-system-documentation](../plugins/sdlc/skills/guide-system-documentation/SKILL.md) to explain structure, runtime/lifecycle behavior, interfaces, deployment and current versus target state from evidence. Use [skill-authoring](../plugins/documentation/skills/skill-authoring/SKILL.md) to create or revise a skill in this collection. All are directly selectable and model-available support; actual client discovery remains client-dependent.
 
-The [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) owns the artifact model, contracts, planes, homes, quality bar and assurance. [Project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and `setup` establish the repository artifact home map; `develop`, implementation and release read or update it. Before adding a persistent project document, inspect the existing map and related authorities, then decide whether to update a canonical page or create a distinct one with appropriate navigation. System-design owns architectural decisions; writing guidance explains them. Existing formats and proportional scope remain authoritative; a routine edit needs no new tracker, document tree or full system audit.
+The [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) owns the artifact model, contracts, planes, homes, quality bar and assurance. [Project conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and `setup` establish the repository artifact home map; `develop`, implementation and release read or update it. Before adding a persistent project document, inspect the existing map and related authorities, then decide whether to update a canonical page or create a distinct one with appropriate navigation. Design-system owns architectural decisions; writing guidance explains them. Existing formats and proportional scope remain authoritative; a routine edit needs no new tracker, document tree or full system audit.
 
 For new visual directions, [creative interface design](creative-interface.md) explains discovery, a shared brief, bundled method selection and rendered acceptance. Existing-product repairs reuse accepted decisions without a questionnaire.

@@ -37,6 +37,10 @@ Prefer the narrowest check that exercises the behavior faithfully, then cross a 
 
 Add missing coverage where needed. Keep assertions independent enough to catch a plausible faulty implementation. Diagnose a failing test before deciding whether the application, fixture or environment is wrong; do not silently alter production behavior, weaken assertions or inflate retries to pass.
 
+Where implementation follows, agree the test seam before writing tests: prefer an existing seam, then the highest useful seam, with the fewest seams across the codebase. When the seam's shape is unsettled, use [codebase-design](../codebase-design/SKILL.md) for the module, interface and depth terms rather than building a new harness around it.
+
+When the promise is a property over an input domain — roundtrip, inverse, invariant, ordering or an oracle — use [property-based testing](references/property-based.md) alongside the concrete acceptance cases. Keep example tests for the named outcomes.
+
 ## Match evidence to the claim
 
 | Claim | Sufficient kind of evidence |
@@ -52,10 +56,10 @@ These describe evidence, not additional approval ceremonies. A build, screenshot
 | --- | --- |
 | Domain logic | Focused behavior/regression tests at useful public interfaces |
 | API, stored state or authority | Real contract/persistence integration and allowed/denied outcomes |
-| UI or user journey | [Journey testing](../journey-testing/SKILL.md), implemented component states, rendered review and actual target-platform operation |
+| UI or user journey | Installed testing-journey expertise, implemented component states, rendered review and actual target-platform operation |
 | Dependencies/configuration/runtime | Relevant lint/type/schema/build and actual startup/configuration checks |
 | Delivery or data migration | Delivery expertise, compatibility and recoverability |
-| Latency/load or controlled failures | Implementation expertise matching the selected load-test tool or [resilience testing](../resilience-testing/SKILL.md), selected by the claim |
+| Latency/load or controlled failures | Implementation expertise matching the selected load-test tool or [testing-resilience](../testing-resilience/SKILL.md), selected by the claim |
 
 ## Implement, test, inspect and repair
 
@@ -67,7 +71,7 @@ Keep meaningful regression tests with the feature as behavior is implemented. Fo
 
 Read the test results and inspect the behavior they are meant to establish. A passing assertion can still exercise the wrong route, use a privileged test identity or bypass persistence. Check important effects through an observation that does not merely repeat the implementation's own success response. Manual exploration complements committed tests by exposing unexpected interaction and configuration problems; preserve useful reproductions as regression coverage.
 
-Use isolated test data/stores and controlled providers. Journey-testing owns fixture identity, driver and platform details. Mocks demonstrate application handling; live integrations and native clients require their own evidence. Keep expensive load/fault/live-model checks at risk-appropriate milestones, rather than repeating every suite after each edit.
+Use isolated test data/stores and controlled providers. testing-journey owns fixture identity, driver and platform details. Mocks demonstrate application handling; live integrations and native clients require their own evidence. Keep expensive load/fault/live-model checks at risk-appropriate milestones, rather than repeating every suite after each edit.
 
 Before completion, reconcile all in-scope surfaces/consumers and run required broader regression.
 
@@ -110,4 +114,4 @@ Record observations at the checked revision/target, the command or scenario, env
 
 ## Composition
 
-Apply [artifact-system](../artifact-system/SKILL.md) to the ECR sections used or produced by this activity, and [coordination storage](../artifact-system/references/storage/coordination.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Read [project conventions](../project-conventions/SKILL.md) for the project's checks and [journey-testing](../journey-testing/SKILL.md) for changed user journeys. Load optional stack/domain guidance only when relevant and available.
+Apply [artifact-system](../artifact-system/SKILL.md) to the ECR sections used or produced by this activity, and [coordination storage](../artifact-system/references/storage/coordination.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Read [project conventions](../project-conventions/SKILL.md) for the project's checks and installed testing-journey expertise for changed user journeys. Load optional stack/domain guidance only when relevant and available.

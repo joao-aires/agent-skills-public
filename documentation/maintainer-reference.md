@@ -63,7 +63,7 @@ Labels do not enforce permissions. `user-invocable` controls the direct user com
 | --- | --- |
 | Engagement, stopping point and requested execution | Activity entry point and activity-system |
 | Product priorities, useful scope and success signal | product-management; business-strategy owns business direction |
-| Architecture / service behavior | system-design / backend-design / architecture-patterns |
+| Architecture / service behavior | design-system / backend-design / architecture-patterns |
 | Visual direction / interaction behavior / critique | interface-design |
 | AI application/capability/protocol design | ai-development |
 | AI testing/evaluation strategy | ai-testing |

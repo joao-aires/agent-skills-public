@@ -1,5 +1,6 @@
 from depot_fixture import write_depot
 import importlib.util
+import json
 from pathlib import Path
 import shutil
 import tempfile
@@ -182,3 +183,39 @@ class CollectionTests(unittest.TestCase):
                     (conventions / 'SKILL.md').write_text('# Local implementation\n')
                     errors, _ = collection.check_package_links(package, set(), notices)
                     self.assertEqual(bool(errors), index < len(resources) - 1)
+
+    def test_nested_reference_and_asset_documents_are_scanned(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_depot(root)
+            self.fixture(root)
+            refs = root / 'plugins/example/skills/method/references'
+            refs.mkdir(parents=True)
+            (refs / 'detail.md').write_text('[Missing](absent.md)\n')
+            errors, _ = collection.check_links(root)
+            self.assertTrue(any('detail.md: missing absent.md' in error for error in errors))
+
+    def test_diagrams_must_not_name_retired_skills(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            write_depot(root)
+            self.fixture(root)
+            (root / 'documentation/diagrams').mkdir()
+            (root / 'documentation/images').mkdir()
+            (root / 'documentation/migration.md').write_text('| `old-name` | `new-name` |\n')
+            (root / 'documentation/diagrams/flow.mmd').write_text('A["new-name"]\n')
+            self.assertFalse(collection.check_links(root)[0])
+            (root / 'documentation/diagrams/flow.mmd').write_text('A["old-name"]\n')
+            self.assertTrue(any('obsolete skill name old-name' in error
+                                for error in collection.check_links(root)[0]))
+
+    def test_gitattributes_covers_every_acquired_destination(self):
+        root = Path(__file__).resolve().parents[1]
+        if not (root / 'agent-depot.json').exists():
+            self.skipTest('no acquisition manifest')
+        depot = json.loads((root / 'agent-depot.json').read_text())
+        expected = {a.get('destination') or a['metadata']['destination']
+                    for a in depot['artifacts'].values()}
+        attributed = {line.split('/**')[0] for line in (root / '.gitattributes').read_text().splitlines()
+                      if line and not line.startswith('#')}
+        self.assertEqual(attributed, expected)

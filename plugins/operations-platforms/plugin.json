@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "operations-platforms",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Selected JVM, Kubernetes, AWS, infrastructure-delivery and Azure AKS implementation, diagnosis and optimization.",
   "author": {
     "name": "João Aires"

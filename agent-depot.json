@@ -37,9 +37,6 @@
     "blader-humanizer": {
       "repository": "https://github.com/blader/humanizer.git"
     },
-    "getsentry-skills": {
-      "repository": "https://github.com/getsentry/skills.git"
-    },
     "pbakaus-impeccable": {
       "repository": "https://github.com/pbakaus/impeccable.git"
     },
@@ -249,75 +246,6 @@
             "pack": "technical",
             "domain": "backend",
             "phase": "cross-phase"
-          }
-        }
-      }
-    },
-    "development--property-based-testing": {
-      "source": "trailofbits-skills",
-      "commit": "82fe8226252622fa807643bdca1710901198553a",
-      "kind": "skill",
-      "path": "plugins/property-based-testing/skills/property-based-testing",
-      "destination": "plugins/sdlc/skills/property-based-testing",
-      "resources": [
-        {
-          "path": "LICENSE",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "sdlc",
-          "license": "CC-BY-SA-4.0",
-          "license_path": "LICENSE",
-          "adaptations": [
-            "usage-labels",
-            "support-visibility"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "agent",
-            "role": "support",
-            "kind": "method",
-            "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
-            "phase": "verification"
-          }
-        }
-      }
-    },
-    "development--differential-review": {
-      "source": "trailofbits-skills",
-      "commit": "82fe8226252622fa807643bdca1710901198553a",
-      "kind": "skill",
-      "path": "plugins/differential-review/skills/differential-review",
-      "destination": "plugins/sdlc/skills/differential-review",
-      "resources": [
-        {
-          "path": "LICENSE",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "sdlc",
-          "license": "CC-BY-SA-4.0",
-          "license_path": "LICENSE",
-          "adaptations": [
-            "inline-adversarial-review",
-            "usage-labels",
-            "support-visibility"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "agent",
-            "role": "support",
-            "kind": "method",
-            "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
-            "phase": "verification"
           }
         }
       }
@@ -677,226 +605,12 @@
         }
       }
     },
-    "development--domain-modeling": {
-      "source": "mattpocock-skills",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "kind": "skill",
-      "path": "skills/engineering/domain-modeling",
-      "destination": "plugins/sdlc/skills/domain-modeling",
-      "resources": [
-        {
-          "path": "LICENSE",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "sdlc",
-          "license": "MIT",
-          "license_path": "LICENSE",
-          "adaptations": [
-            "workflow-framing",
-            "documentation-paths",
-            "usage-labels",
-            "support-visibility"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "agent",
-            "role": "support",
-            "kind": "method",
-            "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
-            "phase": "design"
-          }
-        }
-      }
-    },
     "development--grill-with-docs": {
       "source": "mattpocock-skills",
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "kind": "skill",
       "path": "skills/engineering/grill-with-docs",
       "destination": "plugins/sdlc/skills/grill-with-docs",
-      "resources": [
-        {
-          "path": "LICENSE",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "sdlc",
-          "license": "MIT",
-          "license_path": "LICENSE",
-          "adaptations": [
-            "workflow-framing",
-            "documentation-paths",
-            "usage-labels"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "user",
-            "role": "task",
-            "kind": "workflow",
-            "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
-            "phase": "cross-phase"
-          }
-        }
-      }
-    },
-    "development--implement-spec": {
-      "source": "mattpocock-skills",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "kind": "skill",
-      "path": "skills/engineering/implement-spec",
-      "destination": "plugins/sdlc/skills/implement-spec",
-      "resources": [
-        {
-          "path": "LICENSE",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "sdlc",
-          "license": "MIT",
-          "license_path": "LICENSE",
-          "adaptations": [
-            "workflow-framing",
-            "documentation-paths",
-            "usage-labels",
-            "tracker-neutral"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "user",
-            "role": "task",
-            "kind": "activity",
-            "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
-            "phase": "implementation"
-          }
-        }
-      }
-    },
-    "development--improve-codebase-architecture": {
-      "source": "mattpocock-skills",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "kind": "skill",
-      "path": "skills/engineering/improve-codebase-architecture",
-      "destination": "plugins/sdlc/skills/improve-codebase-architecture",
-      "resources": [
-        {
-          "path": "LICENSE",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "sdlc",
-          "license": "MIT",
-          "license_path": "LICENSE",
-          "adaptations": [
-            "workflow-framing",
-            "documentation-paths",
-            "usage-labels"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "user",
-            "role": "task",
-            "kind": "workflow",
-            "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
-            "phase": "cross-phase"
-          }
-        }
-      }
-    },
-    "development--prototype": {
-      "source": "mattpocock-skills",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "kind": "skill",
-      "path": "skills/engineering/prototype",
-      "destination": "plugins/sdlc/skills/prototype",
-      "resources": [
-        {
-          "path": "LICENSE",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "sdlc",
-          "license": "MIT",
-          "license_path": "LICENSE",
-          "adaptations": [
-            "workflow-framing",
-            "documentation-paths",
-            "usage-labels",
-            "support-visibility"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "agent",
-            "role": "support",
-            "kind": "method",
-            "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
-            "phase": "design"
-          }
-        }
-      }
-    },
-    "development--research": {
-      "source": "mattpocock-skills",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "kind": "skill",
-      "path": "skills/engineering/research",
-      "destination": "plugins/sdlc/skills/research",
-      "resources": [
-        {
-          "path": "LICENSE",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "sdlc",
-          "license": "MIT",
-          "license_path": "LICENSE",
-          "adaptations": [
-            "workflow-framing",
-            "documentation-paths",
-            "usage-labels",
-            "support-visibility"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "agent",
-            "role": "support",
-            "kind": "method",
-            "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
-            "phase": "cross-phase"
-          }
-        }
-      }
-    },
-    "development--retro": {
-      "source": "mattpocock-skills",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "kind": "skill",
-      "path": "skills/engineering/retro",
-      "destination": "plugins/sdlc/skills/retro",
       "resources": [
         {
           "path": "LICENSE",
@@ -958,42 +672,6 @@
             "pack": "sdlc",
             "domain": "development",
             "phase": "implementation"
-          }
-        }
-      }
-    },
-    "development--to-spec": {
-      "source": "mattpocock-skills",
-      "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
-      "kind": "skill",
-      "path": "skills/engineering/to-spec",
-      "destination": "plugins/sdlc/skills/to-spec",
-      "resources": [
-        {
-          "path": "LICENSE",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "sdlc",
-          "license": "MIT",
-          "license_path": "LICENSE",
-          "adaptations": [
-            "workflow-framing",
-            "documentation-paths",
-            "usage-labels",
-            "tracker-neutral"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "user",
-            "role": "task",
-            "kind": "workflow",
-            "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
-            "phase": "cross-phase"
           }
         }
       }
@@ -1074,7 +752,7 @@
       "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
       "kind": "skill",
       "path": "skills/productivity/handoff",
-      "destination": "plugins/sdlc/skills/handoff",
+      "destination": "plugins/documentation/skills/handoff",
       "resources": [
         {
           "path": "LICENSE",
@@ -1083,11 +761,10 @@
       ],
       "metadata": {
         "packaging": {
-          "plugin": "sdlc",
+          "plugin": "documentation",
           "license": "MIT",
           "license_path": "LICENSE",
           "adaptations": [
-            "workflow-framing",
             "documentation-paths",
             "usage-labels"
           ],
@@ -1097,8 +774,8 @@
             "role": "task",
             "kind": "workflow",
             "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
+            "pack": "craft",
+            "domain": "documentation",
             "phase": "cross-phase"
           }
         }
@@ -1311,41 +988,6 @@
             "origin": "upstream",
             "pack": "craft",
             "domain": "documentation",
-            "phase": "cross-phase"
-          }
-        }
-      }
-    },
-    "development--agents-md": {
-      "source": "getsentry-skills",
-      "commit": "f57ada2d0b640406ea7e25b11d636c530e77c58b",
-      "kind": "skill",
-      "path": "skills/agents-md",
-      "destination": "plugins/sdlc/skills/agents-md",
-      "resources": [
-        {
-          "path": "LICENSE",
-          "destination": "UPSTREAM-LICENSE.txt"
-        }
-      ],
-      "metadata": {
-        "packaging": {
-          "plugin": "sdlc",
-          "license": "Apache-2.0",
-          "license_path": "LICENSE",
-          "adaptations": [
-            "workflow-framing",
-            "instruction-authoring-framing",
-            "usage-labels"
-          ],
-          "labels": {
-            "scope": "generic",
-            "invocation": "both",
-            "role": "support",
-            "kind": "method",
-            "origin": "upstream",
-            "pack": "sdlc",
-            "domain": "development",
             "phase": "cross-phase"
           }
         }

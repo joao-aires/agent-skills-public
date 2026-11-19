@@ -1,6 +1,6 @@
 # Guidance audit: capability, detail and authority
 
-Audit date: 2026-11-16. Scope: 143 skills in 21 plugins at audit time, with 104 local and 39 acquired skills; `skill-authoring` now applies the same rule to future changes. The rule applied is [own the capability, disclose the detail, link the authority](../maintainer-reference.md#own-the-capability-disclose-the-detail-link-the-authority).
+Audit date: 2026-11-16. Scope at audit time: 143 skills in 21 plugins, with 104 local and 39 acquired skills. These counts describe that snapshot; the generated [skills map](../skills-map.md) is the current inventory. The rule recorded here applies to future changes; `skill-authoring` now applies the same rule to future changes. The rule applied is [own the capability, disclose the detail, link the authority](../maintainer-reference.md#own-the-capability-disclose-the-detail-link-the-authority).
 
 ## Method
 
@@ -19,7 +19,7 @@ The scan is a prioritization aid, not a quality score. A short skill can still d
 | **P1** | Fixed in this pass | `architecture-patterns` body table now points to the full reference matrix |
 | **P2** | Fixed in this pass | `cli-development`, `rest-api-design`, `graphql-design`, `event-driven-design` Kafka reference, `tooling-conventions` workflow authoring |
 | **P3** | Review opportunistically; mostly local method or contract | `business-strategy` references, `artifact-system` references |
-| **Keep** | Decision-focused local guidance | `explain`, `technical-writing`, `design-research`, `ai-evaluation`, `distributed-systems`, `system-design`, `guide-*` |
+| **Keep** | Decision-focused local guidance | `explain`, `technical-writing`, `design-research`, `ai-evaluation`, `distributed-systems`, `design-system`, `guide-*` |
 | **Exempt** | Acquired snapshots; never edit bytes | 39 upstream skills |
 
 ## Findings
@@ -39,7 +39,7 @@ The scan is a prioritization aid, not a quality score. A short skill can still d
 | `business-strategy` references | 3,052 reference lines across frameworks, market systems, economics and research methods. | **P3.** Large but mostly local synthesis. Audit for passages that merely summarize a named framework; keep the decision rules, comparison matrices and source pointers. Do not rewrite the strategy method wholesale. |
 | `artifact-system` references | 3,388 reference lines of contracts, registry, homes, quality and storage guidance. | **P3, mostly keep.** These are local contracts and decision rules, not external documentation. Review only for repeated contract content when a contract is next changed. |
 | `distributed-systems` | 185-line body with consistency, replication, failure and capacity reasoning. | **Keep.** It is a decision method with stable concepts; the external sources are linked. |
-| `system-design`, `ai-evaluation`, `explain`, `technical-writing`, `design-research` | Decision-oriented method bodies with conditional references. | **Keep.** No clear documentation-shadow problem. |
+| `design-system`, `ai-evaluation`, `explain`, `technical-writing`, `design-research` | Decision-oriented method bodies with conditional references. | **Keep.** No clear documentation-shadow problem. |
 | `guide-*` artifact guides | Local artifact structure and review methods. | **Keep.** They are the local standard for artifact shape, not a copy of a vendor doc. |
 | Acquired skills | 39 snapshots including framework, design and platform guidance. | **Exempt.** Preserve bytes and native resources. A local skill may name the acquired capability; it must not pretend the upstream snapshot is current or complete. |
 

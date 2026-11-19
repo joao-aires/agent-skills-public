@@ -2,7 +2,7 @@
 
 [Current status](#current-status) · [Run a scenario](#run-and-grade-a-scenario) · [Generation trials](#generation-trials) · [Evidence limits](#recorded-evidence-and-limits) · [Maintainer guide](../maintainer-reference.md)
 
-The [evaluation specification](../../evals/development-workflows.json) defines behavior cases and generation trials across a twenty-flow coverage map. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
+The [evaluation specification](../../evals/development-workflows.json) defines behavior cases and generation trials across the flow matrix. It separates actor inputs from evaluator criteria. Definition checks run in CI; behavioral trials require their own fixtures, capabilities and execution.
 
 ## Application scenario battery
 
@@ -147,4 +147,4 @@ Past trials established some bounded application and tool behavior and also expo
 | Figma | Scoped design reads/writes and cleanup were observed; design-stage work did not establish a complete implementation handoff, token/component fidelity or application journeys |
 | Existing agent sessions and voice | Replay, CLI continuation and fixture events did not establish the required live attachment, protocol support or real-time behavior |
 
-Keep each result tied to its actual guidance/application revision, client/model configuration, fixtures, interventions and artifacts. A provider error, incomplete output or coordinator repair cannot be converted into an independent passing run. No broad production-readiness, native-parity or live-quality claim follows from package checks or isolated successes.
+Keep each result tied to its actual guidance/application revision, client/model configuration, fixtures, interventions and artifacts. A provider error, incomplete output or coordinator repair cannot be converted into an independent passing run. No broad run-production-readiness-review, native-parity or live-quality claim follows from package checks or isolated successes.

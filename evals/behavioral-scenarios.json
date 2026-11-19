@@ -12,7 +12,7 @@
         "refine",
         "requirements-engineering",
         "design",
-        "system-design",
+        "design-system",
         "implement",
         "test",
         "code-review",
@@ -46,7 +46,7 @@
       "skills": [
         "activity-system",
         "artifact-system",
-        "system-documentation",
+        "guide-system-documentation",
         "refine",
         "design",
         "implement",

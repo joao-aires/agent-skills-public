@@ -17,7 +17,7 @@ Start with **sdlc** for the full software lifecycle. Add product, interface, bac
 | Capability | Plugins | Installation choice |
 | --- | --- | --- |
 | Workflow | [sdlc](plugins/sdlc/), [strategy](plugins/strategy/) | Full SDLC work; business/product direction |
-| Design | [sdlc](plugins/sdlc/) | Materially different options, artifact guides, seam and a recorded decision |
+| Design | [sdlc](plugins/sdlc/) | Architecture and tactical system design, materially different options, artifact guides, seam and a recorded decision |
 | Application disciplines | [frontend-development](plugins/frontend-development/), [backend-development](plugins/backend-development/), [ai-development](plugins/ai-development/) | Interface methods; service behavior; AI design/testing/operations |
 | Supporting capabilities | [documentation](plugins/documentation/), [visualization](plugins/visualization/) | Writing and architecture explanation; diagrams, presentations and explorers |
 | Backend/client implementation | [backend-python-development](plugins/backend-python-development/), [frontend-reactjs-development](plugins/frontend-reactjs-development/), [frontend-native-development](plugins/frontend-native-development/) | Accepted Python; React; Tauri/Expo/native implementation |
@@ -26,9 +26,9 @@ Start with **sdlc** for the full software lifecycle. Add product, interface, bac
 | Selected tools/platforms | [development-tooling](plugins/development-tooling/), [operations-platforms](plugins/operations-platforms/) | Bash/testing/CI/container/diagnostics tools; JVM/Kubernetes troubleshooting, infrastructure delivery, AWS and AKS |
 | Database engineering | [database-development](plugins/database-development/) | Data contracts, consistency, schema evolution and evidence-led performance methods. |
 | PostgreSQL implementation | [database-postgresql-development](plugins/database-postgresql-development/) | PostgreSQL development, diagnostics, upgrades and operating mechanics, plus an acquired Supabase best-practices skill. |
-| Security engineering | [sdlc](plugins/sdlc/) | Identity/access and security/privacy design inside the lifecycle. |
+| Security engineering | [sdlc](plugins/sdlc/) | Unified security/privacy and identity/access design inside the lifecycle. |
 | SaaS applications | [saas-development](plugins/saas-development/) | Tenant/customer and commercial lifecycle, multi-tenancy, billing, organization identity, supporting services, dashboards and scoped readiness. |
-| Governance and assurance | [sdlc](plugins/sdlc/) | Applicability, accountable controls and GDPR/SOC 2 readiness evidence inside the lifecycle. |
+| Governance and assurance | [sdlc](plugins/sdlc/) | Scoped compliance assessment, accountable controls and GDPR/SOC 2/CCPA readiness evidence inside the lifecycle. |
 | TypeScript implementation | [typescript-development](plugins/typescript-development/) | Runtime/module/package contracts and TypeScript implementation verification without React. |
 | Go implementation | [go-development](plugins/go-development/) | Go module/package, lifecycle, error and verification contracts for services, libraries and CLIs. |
 

@@ -56,7 +56,7 @@ Record prepared, released, deployed and target-verified states separately in the
 
 ## Recover deliberately
 
-Keep a usable rollback or roll-forward route: the previous artifact and configuration, compatibility constraints, and a clear recovery input. Reverting application code does not undo data writes or delivered events; prefer a compatible forward fix when reversal would lose data, and point to the application's data-recovery runbook when restoration is required. Claim production recovery only for mechanics actually exercised in a safe environment.
+Keep a usable rollback or roll-forward route: the previous artifact and configuration, compatibility constraints, and a clear recovery input. Reverting application code does not undo data writes or delivered events; prefer a compatible forward fix when reversal would lose data, and point to the application's runbook and continuity design when restoration is required. Claim production recovery only for mechanics actually exercised in a safe environment.
 
 ## Report
 

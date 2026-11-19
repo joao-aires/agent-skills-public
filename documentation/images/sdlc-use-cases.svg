@@ -64,7 +64,7 @@
 <text x="1377.5" y="579" font-size="20" fill="#157466" font-weight="550" text-anchor="middle" >Repair when requested</text>
 <rect x="44" y="641" width="1512" height="108" rx="12" fill="white" stroke="#c5d2df"/>
 <text x="66" y="679" font-size="24" fill="#172c41" font-weight="700" text-anchor="start" >Operating a system</text>
-<g data-skill="true" data-use="direct"><rect x="58" y="690.0" width="280" height="34" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="66" y="716" font-size="20" fill="#176044" font-weight="400" text-anchor="start" >incident-response</text></g>
+<g data-skill="true" data-use="direct"><rect x="58" y="690.0" width="280" height="34" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="66" y="716" font-size="20" fill="#176044" font-weight="400" text-anchor="start" >run-incident-response</text></g>
 <rect x="380" y="666" width="267" height="60" rx="9" fill="#fbf0df" stroke="#fbf0df"/>
 <text x="513.5" y="703" font-size="20" fill="#8a591c" font-weight="550" text-anchor="middle" >Assess current impact</text>
 <path d="M649 696 H662" stroke="#315f91" stroke-width="2" marker-end="url(#arrow)"/>

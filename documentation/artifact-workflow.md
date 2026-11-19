@@ -15,7 +15,7 @@ Every durable engineering output is an artifact: an ECR, PRD, roadmap, RFC, ADR,
 | Know what the next phase actually needs | [Handoff](../plugins/sdlc/skills/artifact-system/references/handoff.md) |
 | Persist a coordination record | [Coordination storage](../plugins/sdlc/skills/artifact-system/references/storage/coordination.md) |
 | Hand work to an implementer or reviewer | [Issue contract](../plugins/sdlc/skills/artifact-system/references/contracts/issue.md) and [PR contract](../plugins/sdlc/skills/artifact-system/references/contracts/pr.md) |
-| Document architecture as a set | [Architecture-set contract](../plugins/sdlc/skills/artifact-system/references/contracts/architecture-set.md) and [system documentation](../plugins/sdlc/skills/system-documentation/SKILL.md) |
+| Document architecture as a set | [Architecture-set contract](../plugins/sdlc/skills/artifact-system/references/contracts/architecture-set.md) and [system documentation guide](../plugins/sdlc/skills/guide-system-documentation/SKILL.md) |
 | Write a runbook, README, guide or release note | [Runbook](../plugins/sdlc/skills/artifact-system/references/contracts/runbook.md), [Repository README](../plugins/sdlc/skills/artifact-system/references/contracts/repository-readme.md), [guide](../plugins/sdlc/skills/artifact-system/references/contracts/guide.md), [release note](../plugins/sdlc/skills/artifact-system/references/contracts/release-note.md) |
 | Check sufficiency, links and rendered output | [Artifact quality bar](../plugins/sdlc/skills/artifact-system/references/quality-bar.md) |
 | Explain structure and interactions with accurate views | [Diagram lifecycle](../plugins/sdlc/skills/artifact-system/references/diagram-lifecycle.md) |

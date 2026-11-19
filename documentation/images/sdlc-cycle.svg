@@ -29,7 +29,7 @@
 <text x="1180.0" y="212" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">Reproducible foundations</text>
 <text x="1180.0" y="235" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Keep builds, checks and delivery</text>
 <text x="1180.0" y="254" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">repeatable and recoverable.</text>
-<g><g data-skill="true" data-use="direct"><rect x="970.0" y="281.0" width="96" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="1018.0" y="296.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">setup</text></g><g data-skill="true" data-use="support"><rect x="1078.0" y="281.0" width="312.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="1234.0" y="296.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">delivery-pipelines</text></g></g>
+<g><g data-skill="true" data-use="direct"><rect x="970.0" y="281.0" width="96" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="1018.0" y="296.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">setup</text></g><g data-skill="true" data-use="support"><rect x="1078.0" y="281.0" width="312.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="1234.0" y="296.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">ci-cd-pipelines</text></g></g>
 </g>
 </g>
 <g aria-label="The project baseline informs all three parts of the flow" fill="none" stroke="#526580" stroke-width="2">
@@ -104,17 +104,17 @@
 <rect x="386.1" y="287.4" width="210" height="209" rx="12" fill="white" stroke="#9aaecb"/>
 <text x="491.1" y="311" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b">7. Maintenance</text>
 <text x="491.1" y="327" text-anchor="middle" font-size="11.3" fill="#526580">Operate · recover · improve</text>
-<g aria-label="Respond &amp; restore: incident-response">
+<g aria-label="Respond &amp; restore: run-incident-response">
 <text x="491.1" y="343" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Respond &amp; restore</text>
-<g data-skill="true" data-use="direct"><rect x="394.1" y="347" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="362" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">incident-response</text></g>
+<g data-skill="true" data-use="direct"><rect x="394.1" y="347" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="362" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">run-incident-response</text></g>
 </g>
-<g aria-label="Reliability &amp; signals: observability-operations">
+<g aria-label="Reliability &amp; signals: design-system">
 <text x="491.1" y="382" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Reliability &amp; signals</text>
-<g data-skill="true" data-use="direct"><rect x="394.1" y="386" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="401" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">observability-operations</text></g>
+<g data-skill="true" data-use="direct"><rect x="394.1" y="386" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="401" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">design-system</text></g>
 </g>
-<g aria-label="Learn &amp; prevent: postmortem-followup">
+<g aria-label="Learn &amp; prevent: run-postmortem">
 <text x="491.1" y="421" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Learn &amp; prevent</text>
-<g data-skill="true" data-use="direct"><rect x="394.1" y="425" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="440" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">postmortem-followup</text></g>
+<g data-skill="true" data-use="direct"><rect x="394.1" y="425" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="440" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">run-postmortem</text></g>
 </g>
 <g aria-label="Maintain &amp; evolve: improve · dependencies">
 <text x="491.1" y="460" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Maintain &amp; evolve</text>
@@ -167,7 +167,7 @@
 <text x="260.0" y="1344" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">Research &amp; shared knowledge</text>
 <text x="260.0" y="1367" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Make decisions from evidence and</text>
 <text x="260.0" y="1386" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">keep explanations and records current.</text>
-<g data-skill="true" data-use="support"><rect x="50.0" y="1401.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="260.0" y="1416.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">research · documentation-writing</text></g>
+<g data-skill="true" data-use="support"><rect x="50.0" y="1401.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="260.0" y="1416.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">research · technical-writing</text></g>
 </g>
 <g data-card="true">
 <rect x="500" y="1320" width="440" height="110" rx="12" fill="white" stroke="#c5d2df"/>
@@ -181,7 +181,7 @@
 <text x="1180.0" y="1344" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">Architecture &amp; quality methods</text>
 <text x="1180.0" y="1367" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Bring system choices and test</text>
 <text x="1180.0" y="1386" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">evidence into relevant work.</text>
-<g data-skill="true" data-use="support"><rect x="970.0" y="1401.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="1180.0" y="1416.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">system-design · journey-testing</text></g>
+<g data-skill="true" data-use="support"><rect x="970.0" y="1401.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="1180.0" y="1416.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">design-system · testing-journey</text></g>
 </g>
 <text x="40" y="1463" text-anchor="start" font-size="21" font-weight="700" fill="#15233b">Technical &amp; domain expertise for the accepted stack</text>
 <text x="40" y="1486" text-anchor="start" font-size="14" font-weight="400" fill="#526580">Inform feasibility and requirements; apply through design, implementation, testing, delivery and maintenance.</text>
@@ -204,7 +204,7 @@
 <text x="1180.0" y="1524" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">AI &amp; delivery platforms</text>
 <text x="1180.0" y="1547" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Match AI tasks and delivery constraints.</text>
 <text x="1180.0" y="1566" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Agents · evaluation · CI &amp; infrastructure</text>
-<g data-skill="true" data-use="support"><rect x="970.0" y="1597.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="1180.0" y="1612.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">ai-development · delivery-pipelines</text></g>
+<g data-skill="true" data-use="support"><rect x="970.0" y="1597.0" width="420.0" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="1180.0" y="1612.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#903e3e">ai-development · ci-cd-pipelines</text></g>
 </g>
 <text x="720" y="1653" text-anchor="middle" font-size="14" font-weight="400" fill="#526580">Specialists are optional; preserve the outcome and verification standard when guidance is absent.</text>
 </g>

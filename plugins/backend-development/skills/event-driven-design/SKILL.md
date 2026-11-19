@@ -93,7 +93,7 @@ Partition count, consumer concurrency, message size, fetch and batch settings, p
 
 Signals worth defining: publish failure rate, end-to-end event age, consumer lag in records and in time, per-partition skew, rebalance rate, retry and dead-letter counts and age, dedupe hits, outbox backlog, schema rejection and deserialization failure. Propagate trace and correlation context; log event id, type and source rather than full sensitive payloads. Publication success is not business-effect success.
 
-Defer SLO targets to reliability design and signal implementation to `observability` when available. Define what a healthy flow looks like, including a consumer that is running but not progressing.
+Defer SLO targets to reliability design; implement signals with the stack's telemetry tooling, using `design-system` observability guidance when available. Define what a healthy flow looks like, including a consumer that is running but not progressing.
 
 ## Test the contract and its failure modes
 
@@ -103,7 +103,7 @@ Defer SLO targets to reliability design and signal implementation to `observabil
 - Exercise producer crash after commit and before publish, consumer crash after effect and before commit, rebalance mid-batch, broker unavailability and schema-registry unavailability.
 - For an external effect, prove the provider deduplicates or reconciliation prevents repetition.
 
-Use `resilience-testing` when available for controlled fault experiments, their authorization and their evidence rules. A local or embedded broker, a mocked producer or a successful publish does not establish cluster behavior.
+Use `testing-resilience` when available for controlled fault experiments, their authorization and their evidence rules. A local or embedded broker, a mocked producer or a successful publish does not establish cluster behavior.
 
 ## Keep the reasoning when the broker changes
 

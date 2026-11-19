@@ -17,7 +17,7 @@ metadata:
 
 Use this activity when a decision needs evaluation evidence across several cases, changes or operating conditions, rather than one bounded check. It owns the evaluation program: the decision and claim, acceptance, dataset and slice governance, graders, baseline and experiment, gates, production sampling, reporting and authority.
 
-It composes [AI testing](../ai-testing/SKILL.md) for what to evaluate and what the evidence means, `ai-deepeval-testing` when that Python implementation is selected, `test` for application verification when installed, `observability` for execution signals when installed, and the project's delivery authority or `release` when available. This skill does not own the evaluation method, the selected runner or the deployment.
+It composes [AI testing](../ai-testing/SKILL.md) for what to evaluate and what the evidence means, `ai-deepeval-testing` when that Python implementation is selected, `test` for application verification when installed, `design-system` observability guidance for execution signals when available, and the project's delivery authority or `release` when available. This skill does not own the evaluation method, the selected runner or the deployment.
 
 | Field | This activity |
 | --- | --- |
@@ -133,7 +133,7 @@ A completed evaluation supports a decision; it does not authorize merge, deploym
 | Program mechanics: dataset versions, slices, variance, denominators, gates, evidence levels | [Evaluation program](../ai-testing/references/evaluation-program.md) |
 | Selected Python/DeepEval implementation | `ai-deepeval-testing` when installed and chosen |
 | Application, contract, persistence and journey verification | `test` when available |
-| Traces, signals and execution diagnosis | `observability` when available |
+| Traces, signals and execution diagnosis | `design-system` observability guidance when available; project telemetry tooling |
 | Delivery readiness, promotion and recovery | `release` when available |
 | Evidence record and artifact homes | The project's ECR/verification record and artifact conventions |
 

@@ -15,7 +15,7 @@ metadata:
 
 # Fix a defect
 
-Read [activity system](../activity-system/SKILL.md). Confirm the requested stopping point and scope. For an active service incident, use available incident-response expertise for impact, mitigation and recovery. Use this repair method when a source change is authorized.
+Read [activity system](../activity-system/SKILL.md). Confirm the requested stopping point and scope. For an active service incident, use available run-incident-response expertise for impact, mitigation and recovery. Use this repair method when a source change is authorized.
 
 1. Establish intended behavior from the report, existing contracts, decisions and affected callers. Separate observations from hypotheses. Use [defect diagnosis](../diagnosing-bugs/SKILL.md) to reproduce the failure and test the likely cause. If reproduction is unavailable, record the evidence and limits before proposing a repair.
 2. Choose a focused correction. Trace which existing paths use the changed condition or state transition, including what happens after errors, retries or cancellation when applicable. Preserve behavior that the request leaves in scope. Use relevant design expertise when the repair changes a contract, state transition or boundary. Apply [implementation preparation](../activity-system/references/implementation-preparation.md) when ordering work or verification needs care.
