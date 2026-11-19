@@ -4,9 +4,9 @@ Diagrams are **source-controlled knowledge and proposed designs**, not decoratio
 
 ## Who owns what
 
-- **system-documentation** traces current entry points, runtime relations, data journeys and evidence, and establishes or maintains canonical C4 context/container and relevant component views, sequences, state/dataflow and deployment boundaries. These are evidence-backed descriptions of **what currently exists**, not intended design.
+- **design-system** traces current entry points, runtime relations, data journeys and evidence, and establishes or maintains canonical C4 context/container and relevant component views, sequences, state/dataflow and deployment boundaries. These are evidence-backed descriptions of **what currently exists**, not intended design.
 - **requirements-engineering / interface-design** define user intent, journey/wireflows, actors, branches and observable outcomes; they do not turn a proposed queue or database into a requirement.
-- **system-design / design** own proposed responsibilities/architecture, tradeoffs, affected C4 context/container/component views and critical user-to-system sequence diagrams. Diagrams must label *proposed* and the baseline revision.
+- **design-system / design** own proposed responsibilities/architecture, tradeoffs, affected C4 context/container/component views and critical user-to-system sequence diagrams. Diagrams must label *proposed* and the baseline revision.
 - **plan** uses accepted target views to order slices, migrations and verification; it references them instead of copying them.
 - **implement/test/review** compare actual change with proposal at a specific revision, adjust design decisions and canonical documentation as warranted, and expose unresolved variance.
 - **release/operations** distinguish merged application code from deployed observed targets; reconcile deployment/operations views based on real evidence rather than commit existence alone.

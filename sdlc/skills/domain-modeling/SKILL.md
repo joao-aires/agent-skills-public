@@ -1,88 +1,88 @@
 ---
 name: domain-modeling
-description: Build and sharpen a project's domain model. Use when discussing codebase
-  terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR.
-user-invocable: false
+description: Sharpen a project's domain language while designing. Use when terms are overloaded
+  or inconsistent, boundaries are unclear, or a resolved term or consequential choice
+  needs a glossary entry or decision record.
+user-invocable: true
 metadata:
-  scope: generic
-  invocation: agent
-  role: support
   kind: method
-  origin: upstream
+  origin: local
   pack: sdlc
-  domain: development
+  domain: design
   phase: design
+  scope: generic
+  invocation: both
+  role: support
 ---
 
-Read [activity system](../activity-system/SKILL.md) before applying this skill.
+# Domain modeling: make the language carry the design
 
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
 
-# Domain Modeling
+Domain modeling is the active discipline of deciding what the project's words mean while the design is still forming. Reading a glossary for vocabulary is not this method. This method changes terms, tests their boundaries against concrete behavior, and records the resolution where the project already keeps shared language and decisions. Use [artifact system](../artifact-system/SKILL.md) to choose the artifact and [artifact homes](../artifact-system/references/homes.md) to place it.
 
-Actively build and sharpen the project's domain model as you design. This is the *active* discipline: challenging terms, inventing edge-case scenarios, and writing the glossary and decisions down the moment they crystallise. (Merely *reading* `GLOSSARY.md` for vocabulary is not this skill: that's a one-line habit any skill can do. This skill is for when you're changing the model, not just consuming it.)
+## Reading path
 
-## File structure
+| Need | Read |
+| --- | --- |
+| Where glossary entries and decisions live | [Artifact system](../artifact-system/SKILL.md), [artifact homes](../artifact-system/references/homes.md) |
+| What a decision record must contain | [Decision record contract](../artifact-system/references/contracts/adr.md), [guide-adr](../guide-adr/SKILL.md) |
+| Sharper prompts, edge cases and recording triggers | [Terminology notes](references/terminology.md) |
+| Where the method is used | [refine](../refine/SKILL.md), [design](../design/SKILL.md) |
 
-Most repos have a single context:
+## Find the terms that carry weight
 
-```
-/
-├── GLOSSARY.md
-├── docs/
-│   └── adr/
-│       ├── 0001-event-sourced-orders.md
-│       └── 0002-postgres-for-write-model.md
-└── src/
-```
+A term is load-bearing when a different reading changes behavior, a boundary, ownership, state, an obligation or a test. Look for:
 
-If a `GLOSSARY-MAP.md` exists at the root, the repo has multiple contexts. The map points to where each one lives:
+- one word used for two concepts, such as "account" meaning both the customer and the login;
+- two words used for one concept, such as "cancel", "void" and "revoke";
+- a vague word hiding a decision, such as "sync", "active", "deleted" or "admin";
+- a term the code, documentation and accepted decisions define differently.
 
-```
-/
-├── GLOSSARY-MAP.md
-├── docs/
-│   └── adr/                          ← system-wide decisions
-├── src/
-│   ├── ordering/
-│   │   ├── GLOSSARY.md
-│   │   └── documentation/decisions/adr/                 ← context-specific decisions
-│   └── billing/
-│       ├── GLOSSARY.md
-│       └── documentation/decisions/adr/
-```
+Challenge the ambiguity directly: state the readings you heard, the consequence of each and the canonical term you propose. Do not silently rename the user's language or the code; ask which meaning is intended. Preserve a term that a platform, regulator or upstream contract already owns rather than redefining it locally.
 
-Create files lazily: only when you have something to write. If no `GLOSSARY.md` exists, create one when the first term is resolved. If no `documentation/decisions/adr/` exists, create it when the first ADR is needed.
+## Test the model with edge scenarios
 
-## During the session
+Definitions are cheap until a boundary case arrives. Invent concrete scenarios that force the distinction:
 
-### Challenge against the glossary
+- partial success, duplicate requests, retries and replays;
+- two actors changing the same thing at once;
+- a permission or ownership change while work is pending;
+- deletion, retention, export and legacy records;
+- migration, backfill or data created under an older rule;
+- empty, new, suspended or never-activated cases;
+- time, quantity, currency, rounding or proration where meaning depends on them.
 
-When the user uses a term that conflicts with the existing language in `GLOSSARY.md`, call it out immediately. "Your glossary defines 'cancellation' as X, but you seem to mean Y. Which is it?"
+For each scenario, ask which term applies, what the actor observes and which state or obligation follows. A definition that cannot answer the scenario is still open.
 
-### Sharpen fuzzy language
+## Cross-check code and accepted decisions
 
-When the user uses vague or overloaded terms, propose a precise canonical term. "You're saying 'account': do you mean the Customer or the User? Those are different things."
+When the stated model and the code, schema, tests or accepted decision disagree, surface the contradiction with the evidence: "The code cancels the whole order, but the model says partial cancellation exists. Which is authoritative?" Resolve the conflict before the new term spreads into requirements, design or tests. Do not update the code or the decision to match a definition that has not been agreed.
 
-### Discuss concrete scenarios
+Read the identifiers, fields, labels and API names that already claim the idea. A term that exists only in conversation is a proposal; a term the code and users already rely on has a migration cost. Name that cost before changing it.
 
-When domain relationships are being discussed, stress-test them with specific scenarios. Invent scenarios that probe edge cases and force the user to be precise about the boundaries between concepts.
+## Record the resolved language
 
-### Cross-reference with code
+Write a resolved term to the project's existing glossary or knowledge home, using the home map rather than a habitual path. The default is `docs/glossary.md`, but preserve an established glossary or docs site. Do not impose a root `GLOSSARY.md`, a glossary map file or a new documentation tree.
 
-When the user states how something works, check whether the code agrees. If you find a contradiction, surface it: "Your code cancels entire Orders, but you just said partial cancellation is possible. Which is right?"
+Keep the glossary terminology only: one term, one meaning, the boundary that matters and any accepted decision it depends on. Implementation rules, state machines and behavioral requirements belong in the ECR, design record or requirements, not in the glossary. If no glossary home exists and creating one is not authorized, report the suggested entry and its home instead of writing it.
 
-### Update GLOSSARY.md inline
+Capture the resolution when the term is settled enough to reuse. Do not batch terminology changes until the end of the work; by then the old word has already spread into requirements and tests.
 
-When a term is resolved, update `GLOSSARY.md` right there. Don't batch these up: capture them as they happen. Use the format in [GLOSSARY-FORMAT.md](./GLOSSARY-FORMAT.md).
+## Record a decision only when it earns one
 
-`GLOSSARY.md` should be totally devoid of implementation details. Do not treat `GLOSSARY.md` as a spec, a scratch pad, or a repository for implementation decisions. It is a glossary and nothing else.
+Use the existing [decision record contract](../artifact-system/references/contracts/adr.md) and [ADR guide](../guide-adr/SKILL.md) when a resolved choice must outlive the work. Offer an ADR or PDR only when all three are true:
 
-### Offer ADRs sparingly
+1. the choice is hard to reverse;
+2. a future reader would be surprised without the context;
+3. the result came from a real trade-off between credible alternatives.
 
-Only offer to create an ADR when all three are true:
+If any condition is missing, keep the rationale in the design record, ECR or code. A reversible naming choice, an obvious rule or a decision with no alternative does not need a record. Follow the local contract fields and supersession rules; do not impose `docs/adr/` or a fixed one-paragraph record format.
 
-1. **Hard to reverse**: the cost of changing your mind later is meaningful
-2. **Surprising without context**: a future reader will wonder "why did they do it this way?"
-3. **The result of a real trade-off**: there were genuine alternatives and you picked one for specific reasons
+The glossary owns terminology, not rationale. The decision record owns the accepted choice and its consequences. Do not copy one into the other, and do not use a decision record to settle a definition that the glossary should carry.
 
-If any of the three is missing, skip the ADR. Use the format in [ADR-FORMAT.md](./ADR-FORMAT.md).
+## Use it inside the work
+
+Apply this method during [refine](../refine/SKILL.md) when acceptance depends on a term, during [design](../design/SKILL.md) when options change the model, and during a grilling interview when the user's answers expose a boundary. The sharpened language should appear in requirement names, acceptance criteria, interface contracts and tests.
+
+Stop when the terms that could change behavior or a decision are defined, checked against evidence and recorded in their existing home. Do not chase every synonym or produce a taxonomy the project will not use. Read [terminology notes](references/terminology.md) for sharper prompts, recording triggers and examples.

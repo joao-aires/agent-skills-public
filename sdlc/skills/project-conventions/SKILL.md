@@ -35,7 +35,7 @@ Read the request, existing code and accepted decisions before choosing structure
 - Resolve ambiguity that changes the product or data boundary, and make reversible implementation choices without another planning ceremony.
 - Use the conversation as scope unless a separate spec is useful; require no tickets or tracker.
 
-Use system-design after product refinement and for consequential feature architecture before dependent planning/implementation. Derive platform, runtime and service choices from accepted requirements and operating constraints; reuse an existing stack and layout unless changing them solves an agreed problem. Add AI or a protocol interface for a concrete capability. Select matching technical guidance only when available; its installation is not acceptance of that technology.
+Use design-system after product refinement and for consequential feature architecture before dependent planning/implementation. Derive platform, runtime and service choices from accepted requirements and operating constraints; reuse an existing stack and layout unless changing them solves an agreed problem. Add AI or a protocol interface for a concrete capability. Select matching technical guidance only when available; its installation is not acceptance of that technology.
 
 ## Adopt an existing project and assess the change
 
@@ -119,7 +119,7 @@ Make useful diagnostics queryable without introducing a monitoring vendor.
 
 ## Include operating constraints in design
 
-Assess changed data flows and authority boundaries, seeking matching security/privacy expertise when available. Identify critical latency/concurrency constraints, durable state and meaningful recovery needs early; choose simple hosting that meets them. Bring capacity, cost and data-recovery guidance into design when relevant rather than treating them as production afterthoughts. Use delivery expertise when creating CI/CD. Do not introduce platforms or complete operations frameworks merely because their skills are available.
+Assess changed data flows and authority boundaries, seeking matching security/privacy expertise when available. Identify critical latency/concurrency constraints, durable state and meaningful recovery needs early; choose simple hosting that meets them. Bring capacity, cost and disaster-recovery guidance into design when relevant rather than treating them as production afterthoughts. Use delivery expertise when creating CI/CD. Do not introduce platforms or complete operations frameworks merely because their skills are available.
 
 Agree the authoritative PRD/requirements, implemented architecture and target-design sources when establishing foundations. Use the project's existing work tracker or a lightweight ledger; add detail only when it answers a real decision. Keep operations observability and service-level definitions alongside runbooks, with candidate/approved/measured states explicit. Do not force a document tree or full planning ceremony on a routine fix.
 

@@ -26,7 +26,7 @@ Start from the accepted user task, architecture and consequential failure modes.
 | Plan the decision, dataset governance, gates, production sampling and reporting | `ai-evaluation` when installed |
 | Implement selected Python/DeepEval checks | `ai-deepeval-testing` when installed and chosen |
 | Verify application behavior, contracts and persisted journeys | `test` when installed |
-| Understand traces and execution signals | `observability` when installed |
+| Understand traces and execution signals | `design-system` observability guidance when available; project telemetry tooling |
 
 `ai-testing` owns the evaluation method: what to evaluate and what the evidence can establish. `ai-evaluation` owns the program-level activity that composes this method with a selected implementation and the project's decision authority. An implementation skill owns its runner and API; this method does not require one.
 

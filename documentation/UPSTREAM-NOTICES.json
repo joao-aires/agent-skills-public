@@ -4,6 +4,31 @@
     "license": "MIT",
     "license_path": "LICENSE",
     "adaptations": [
+      "documentation-paths",
+      "usage-labels"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "user",
+      "role": "task",
+      "kind": "workflow",
+      "origin": "upstream",
+      "pack": "craft",
+      "domain": "documentation",
+      "phase": "cross-phase"
+    },
+    "artifact": "development--handoff",
+    "destination": "plugins/documentation/skills/handoff",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/productivity/handoff",
+    "installed_skill": "handoff"
+  },
+  {
+    "plugin": "documentation",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
       "composition-framing",
       "usage-labels",
       "support-visibility"

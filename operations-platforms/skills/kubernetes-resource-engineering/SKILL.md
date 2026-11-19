@@ -51,4 +51,4 @@ Establish Deployments/jobs/stateful/infrastructure roles, target namespace, imag
 
 ## Completion evidence
 
-Return resource/config/chart changes, target render matrix, security/reliability rationale, tests/schema/policy/admission results and specific exemptions or inaccessible live checks. Use `infra-jvm-optimization` for measured runtime tuning, credential management expertise for secret authority and data recovery expertise for restore design rather than duplicate their workflows.
+Return resource/config/chart changes, target render matrix, security/reliability rationale, tests/schema/policy/admission results and specific exemptions or inaccessible live checks. Use `infra-jvm-optimization` for measured runtime tuning, credential management expertise for secret authority and continuity/disaster-recovery expertise for restore design rather than duplicate their workflows.

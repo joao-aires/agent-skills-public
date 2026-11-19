@@ -1,56 +1,108 @@
 ---
 name: retro
-description: Conduct a retrospective on a coding session.
+description: Review a session for durable improvements to instructions, checks, navigation
+  and tool economy. Use when asked what should change so future runs need less correction.
+  Stops at candidates; applying them is separately authorized.
+user-invocable: true
 disable-model-invocation: true
 metadata:
-  scope: generic
-  invocation: user
-  role: task
   kind: workflow
-  origin: upstream
+  origin: local
   pack: sdlc
   domain: development
   phase: cross-phase
+  scope: generic
+  invocation: user
+  role: support
 ---
 
-Read [activity system](../activity-system/SKILL.md) before applying this skill.
+# Retro: turn a session into durable improvements
 
+The subject is the **working environment**, not the product and not the people. A retro finds the few changes that would make the next session need less correction and better evidence, then stops before applying them.
 
-The user has asked for a **retrospective**. You are suggesting improvements to the coding agent's **environment** to improve future runs.
+Read [writing-for-agents](../writing-for-agents/SKILL.md) for how an instruction earns its place, and route durable repository changes through [project conventions](../project-conventions/SKILL.md). That skill owns the repository's instruction surface, structure and checks.
 
-## Steps
+## Fix the evidence
 
-1. Call the Skill tool with `writing-for-agents` for the writing style guide.
+Use the session the user names, otherwise the current one. Read the actual transcript, tool calls, diffs, commands and outputs. Separate what happened from what the user remembers and from what the agent claimed it did. Note the revision, environment and any part of the session that was not observable.
 
-2. Read the primary sources for the session the user specifies. This may mean searching through session logs on this machine. If the user doesn't specify a session, default to the current one.
+A candidate needs an observed cost: a wrong turn, a repeated search, a missed check, a correction the user had to make, an expensive call that returned little, or a failure that a guardrail would have caught. Do not propose improvements from general preference or from a single stylistic dislike.
 
-3. Look for candidates for improvement in these categories.
+## Find the costly moments
 
-- **Navigation**: how easy was it for the agent to find the right files? Are there hidden dependencies between files? Would a **navigation pointer** make it easier? _Use when_ the session took a long time to find a piece of information.
-- **Automated checks**: are there automated checks that could catch errors the agent made? Linting, typing, tests, filesystem linters? Read the repo's own check command first (its `package.json`/build-tool `lint`/`check` scripts, its CI workflow), so a check that already exists but sits unwired or silently broken is the finding, not a reinvention. A repo with no **guardrail** (no pre-commit hook and no CI job running its lint/typecheck/test command) is itself a finding: an un-linted repo is a standing missed opportunity, not a neutral default. _Use when_ the agent made a mistake an automated check could have caught, or the repo has no guardrail at all.
-- **Coding standards**: should the **reviewer agent** be given a new rule to enforce? Should an existing rule be removed or clarified? Classify the violation first: a **mechanical** one (a fixed syntactic pattern, a banned API, an import shape, a file-location rule) gets a deterministic check, full stop: a custom rule in the repo's own linter, a new pre-commit hook, or a new CI job, whichever the repo's language and existing guardrail make cheapest. Default to building the check over writing the rule. Reserve `CODING_STANDARDS.md` for genuine **judgement calls** (cross-file consistency, "matches the surrounding style," anything no guardrail could ever substitute for). _Use when_ the reviewer agent failed to catch a mistake.
-- **Global AGENTS.md**: are there any steering instructions that should be moved to coding standards (or automated checks) instead? _Use when_ the AGENTS.md file is particularly large - in the repo OR the user's global scope.
-- **Tool economy**: did the agent make expensive tool calls that could be streamlined? Is there any custom tooling (CLI's, MCP's) that is particularly token-inefficient? _Use when_ the agent made an expensive tool call.
-- **No-ops**: look for instructions in steering files that don't modify the agent's behavior. _Use when_ the steering files are large and unwieldy.
-- **Information access**: look for opportunities to increase the agent's access to information. Teeing dev server logs, readonly access to third-party services. _Use when_ a crucial piece of information was not available to the agent.
+Walk the session in order and mark where work stalled or repeated:
 
-4. Present these candidates to the user, in order of severity.
+- the agent guessed at a convention instead of finding it, or found it only after searching several files;
+- the same information was read, restated or rediscovered across turns;
+- a mechanical error shipped and was caught by the user rather than a check;
+- an instruction was present but ignored, or absent and had to be supplied;
+- a command, tool or service produced more noise than the decision needed;
+- a fact was unavailable and the agent substituted an assumption;
+- the owner had to restate scope, authority or a constraint.
 
-## Reference
+Group those into four durable categories:
 
-### Implementation vs Review
+| Category | Look for | Durable fix |
+| --- | --- | --- |
+| Instructions | repeated correction, missing convention, oversized, duplicated or no-op steering | a rule at the narrowest owner; prefer deleting or merging before adding |
+| Checks | a mistake a deterministic check could catch; an existing check that is unwired, slow or silently broken | wire or repair the existing check, then add the smallest missing one |
+| Navigation | slow discovery, hidden dependency, stale pointer, information far from its use | a pointer, index entry or move near the entry point |
+| Tool economy | repeated reads, expensive calls, noisy output, missing access | fewer round trips, a focused command or output, read-only access to the needed signal |
 
-Remember that all work goes through two stages: implementation and review. The implementation agent has the most **context pressure**. They are responsible for exploration, writing code, and debugging failures.
+Prefer the smallest fix that changes the observed behavior. A new document, a new agent or a broader process is usually more expensive than the problem.
 
-The review agent has the least context pressure - it receives a diff, so no exploration needed. It often does not need to write code or debug.
+## Classify before recommending
 
-This means that the review agent should be responsible for imposing coding standards, not the implementation agent.
+A **mechanical violation** is a fixed, checkable pattern: a banned API, an import shape, a required file location, a missing command, a schema or formatting rule. Its durable fix is an executable check — a lint rule, typecheck, test, schema validation, hook or CI job — in the toolchain the repository already uses.
 
-### Files
+A **judgement call** is not reducible to a deterministic check: cross-file consistency, matching the surrounding style, choosing a boundary, interpreting an ambiguous request, deciding when an exception is justified. Its durable fix is a short rule at the instruction surface the relevant actor actually reads.
 
-You have access to several files in the repo:
+Use the distinction honestly:
 
-- `CLAUDE.md`/`AGENTS.md`: these files are pushed to the context window of any agent working in this repo. They should be used incredibly sparingly, usually only for **navigation pointers** to other files.
-- `CODING_STANDARDS.md`: this file is read during review, not implementation. Add **navigation pointers** to docs folders if the standards file gets more than 1,000 lines long.
-- Docs: use docs as references files, pointed to by other files. Look for existing docs before writing new ones.
-- Skills: use skills for docs (since their description goes into the agent's context window), or for user-invoked commands. Follow the advice in the `writing-for-agents` skill.
+- do not write a rule for something a check can enforce; the check is more reliable and cheaper to keep true;
+- do not force a check for a judgement call; a brittle check teaches the agent to satisfy the check rather than the intent;
+- when a mechanical violation has no feasible check, say why, and place the narrowest rule at the point of use;
+- when a rule is ignored repeatedly, the problem may be its location, wording or competing instructions, not its absence.
+
+## Route to the existing owner
+
+Do not assume a particular repository shape or agent topology. A repository may have no `CODING_STANDARDS.md`, no `package.json` scripts, no lint command, no pre-commit hook, and no separate implementation and review agents. Read what exists: contributor instructions, task runner, CI, hooks, docs index, test layout and the roles that actually participated.
+
+Name the file or mechanism that exists. If the right home does not exist, the candidate is to establish it through [project conventions](../project-conventions/SKILL.md), with an owner, a cost and a verification path — not to invent a parallel standards file.
+
+For durable instruction changes, involve both owners:
+
+- [project conventions](../project-conventions/SKILL.md) owns where the instruction, check or repository structure belongs;
+- [writing-for-agents](../writing-for-agents/SKILL.md) owns whether the wording, pointer and information hierarchy will actually change behavior.
+
+A check belongs to the toolchain or CI owner. A navigation entry belongs to the repository's docs index or the component that hides the dependency. A tool-economy change belongs to the command, tool or access owner. Do not create a new standards document or a new agent split merely to hold a candidate.
+
+## Present the candidates
+
+Order by severity: failures that escaped first, then repeated cost, then hygiene. For each candidate give:
+
+- the observed evidence, with the turn, command or tool call that shows it;
+- the category and the classification (check or rule);
+- the proposed owner and the file or mechanism that would hold it;
+- the smallest change, and whether it adds, rewrites, moves or removes something;
+- the expected effect on the next session and how you would notice it worked;
+- the cost, risk and confidence.
+
+Separate "add" candidates from "remove or merge" candidates. A retro that only adds is usually growing the problem. Name a candidate you considered and rejected, with the reason, when the user is likely to ask.
+
+## Stop at candidates
+
+Do not edit instructions, checks, configuration, documentation or code during the retro. Applying a candidate is new work with its own scope, owner and verification; perform it only when the user separately authorizes it.
+
+Do not recommend a change that requires authority the session does not have. Name the owner, the decision and the evidence that would justify it. Stop when the costly moments are accounted for, the candidates have an owner and a cost, and further analysis would only improve phrasing.
+
+## Anti-patterns
+
+- **Session diary** — narrating the session instead of naming durable causes.
+- **Rule for a mechanical pattern** — writing prose where a check would be deterministic.
+- **Check for a judgement call** — encoding taste as a brittle gate.
+- **One-off promotion** — turning a workaround for this incident into a repository rule.
+- **New document reflex** — creating a file instead of fixing the pointer, owner or existing instruction.
+- **Assumed topology** — prescribing an implementation/reviewer split or a `CODING_STANDARDS.md` that the repository does not use.
+- **Uncosted advice** — recommending a change without saying who maintains it or what it costs.
+- **Applying during review** — editing the environment the retro is supposed to assess.

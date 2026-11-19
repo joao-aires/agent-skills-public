@@ -1,9 +1,11 @@
 ---
 name: application-configuration
-description: Design, implement or review how an application loads, validates and changes
-  configuration and secrets across local, CI and production targets. Use for source
-  precedence, typed settings, environment parity, runtime reload, multi-tenant defaults,
-  feature-flag boundaries, secret delivery, rotation and scanning.
+description: >-
+  Own the application configuration contract: how an application loads, validates
+  and changes configuration and secrets across local, CI and production targets.
+  Use for source precedence, typed settings, environment parity, runtime reload,
+  multi-tenant defaults, feature-flag boundaries and secret-consumption failure
+  behavior. Credential custody and target delivery remain with their owners.
 metadata:
   kind: method
   origin: local
@@ -157,21 +159,23 @@ A schema pass, a rendered ConfigMap, a green CI check or a manager update proves
 
 ## Composition
 
-Use installed guidance by capability; absence changes the depth, not the outcomes above.
+Use installed guidance by capability; absence changes the depth, not the outcomes above. This method owns how the application consumes configuration and secrets. It does not own credential custody, target delivery, identity or release authority.
 
 | Need | Capability |
 | --- | --- |
+| Accepted configuration and secret policy in requirements | `requirements-engineering` and the ECR |
 | Release boundary, target authorization and served-state verification | `release` |
 | Repository layout, local setup, examples and configuration checks | `project-conventions` |
-| Security-sensitive choices, trust boundaries and data exposure | `security-and-privacy-design` |
-| Credential inventory, rotation, revocation and scanning operations | `security-maintenance` |
-| Identity, sessions, tokens and tenant authority | `security-auth-development` |
+| Security-sensitive choices, trust boundaries and data exposure | `design-security` |
+| Credential inventory, rotation, revocation and scanning operations | `run-security-maintenance` |
+| Identity, sessions, tokens and tenant authority | `design-security` |
+| Paid entitlement and plan authority (separate from a feature flag) | `saas-billing` |
 | Environment separation, artifact identity and gate design | `ci-cd-pipelines` |
 | Selected provider's configuration and secret-store mechanics | `tooling-conventions` |
 | Kubernetes ConfigMap/Secret consumption and workload reload | `kubernetes-resource-engineering` |
 | Infrastructure-delivered configuration and desired-state reconciliation | `infra-delivery` |
 | AWS-native configuration and secret services | `aws-platform` |
-| Signals that reveal effective configuration and failed reloads | `observability` |
+| Signals that reveal effective configuration and failed reloads | `design-system` observability and monitoring reference |
 | Behavior tests for startup, reload and tenant isolation | `test` |
 
 ## Sources

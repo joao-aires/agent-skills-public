@@ -12,6 +12,7 @@ It does not own documentation placement, artifact contracts or architecture cove
 | [Technical writing](skills/technical-writing/SKILL.md) | Reader fit, explanation inside a document, structure, examples, precision, navigation and presentation for product and engineering documents |
 | [Humanizer](skills/humanizer/SKILL.md) | Optional prose polish that preserves technical meaning, caveats, commands and links |
 | [Skill authoring](skills/skill-authoring/SKILL.md) | Create, revise or review a skill: capability boundary, form, progressive disclosure, knowledge ownership, testing and integration |
+| [Handoff](skills/handoff/SKILL.md) | Compact a conversation into a temporary handoff note for another agent, with references, redaction and suggested skills |
 
 The plugin is useful when the question is "how should this be explained or written for its reader?" It is not the place to decide what a document must contain, where it lives or what status it carries.
 
@@ -28,7 +29,8 @@ The plugin is useful when the question is "how should this be explained or writt
 | How do I review the finished document? | [Review rubric](skills/technical-writing/references/review-rubric.md) |
 | How do I polish the prose? | [Humanizer](skills/humanizer/SKILL.md) |
 | How do I create or revise a skill? | [Skill authoring](skills/skill-authoring/SKILL.md) |
-| How do I explain the current system architecture? | [System mapping](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/sdlc/skills/system-documentation/SKILL.md) |
+| How do I hand this session to another agent? | [Handoff](skills/handoff/SKILL.md) |
+| How do I explain the current system architecture? | [System mapping](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/sdlc/skills/guide-system-documentation/SKILL.md) |
 
 The artifact contract supplies the audience, purpose, required sections and status. The domain method supplies the subject explanation. This plugin supplies the craft.
 
@@ -63,10 +65,10 @@ A PRD, ADR, runbook and architecture view need different structure, tone and lev
 
 ## Architecture explanation
 
-Current-state architecture explanation lives with [system mapping](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/sdlc/skills/system-documentation/SKILL.md) in the development plugin. Proposed architecture lives with `system-design`. The artifact system owns the architecture-set contract, status, evidence, home and maintenance triggers.
+Current-state architecture explanation lives with [system mapping](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/sdlc/skills/guide-system-documentation/SKILL.md) in the development plugin. Proposed architecture lives with `design-system`. The artifact system owns the architecture-set contract, status, evidence, home and maintenance triggers.
 
 This plugin does not own an architecture document set, a documentation portfolio or repository placement.
 
 ## Migration
 
-The former architecture and writing skills are retired names. Use `system-documentation` for current-state architecture documentation and `technical-writing` for writing craft. `explain` is a separate local skill for reader-specific explanation; it does not replace `technical-writing` or `system-documentation`. The former package composition file is retired; composition guidance lives in the activity system. See the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
+The former architecture and writing skills are retired names. Use `guide-system-documentation` for current-state architecture documentation and `technical-writing` for writing craft. `explain` is a separate local skill for reader-specific explanation; it does not replace `technical-writing` or `guide-system-documentation`. The former package composition file is retired; composition guidance lives in the activity system. See the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
