@@ -6,7 +6,7 @@ Do not edit by hand.
 | Artifact | Contract | Guide |
 | --- | --- | --- |
 | Product brief / PRD | [prd.md](contracts/prd.md) | [guide-prd](../../guide-prd/SKILL.md) |
-| Roadmap | [roadmap.md](contracts/roadmap.md) | product method and technical writing |
+| Roadmap | [roadmap.md](contracts/roadmap.md) | [guide-roadmap](../../guide-roadmap/SKILL.md) |
 | Product feedback analysis | [product-feedback-analysis.md](contracts/product-feedback-analysis.md) | [guide-product-feedback-analysis](../../guide-product-feedback-analysis/SKILL.md) |
 | ECR | [ecr.md](contracts/ecr.md) | [guide-ecr](../../guide-ecr/SKILL.md) |
 | Research report | [research-report.md](contracts/research-report.md) | [guide-research-report](../../guide-research-report/SKILL.md) |
@@ -16,6 +16,7 @@ Do not edit by hand.
 | Issue | [issue.md](contracts/issue.md) | [guide-issue](../../guide-issue/SKILL.md) |
 | Pull request | [pr.md](contracts/pr.md) | [guide-pr](../../guide-pr/SKILL.md) |
 | Architecture set | [architecture-set.md](contracts/architecture-set.md) | [guide-system-documentation](../../guide-system-documentation/SKILL.md) |
+| Data model | [data-model.md](contracts/data-model.md) | [guide-data-model](../../guide-data-model/SKILL.md) |
 | C4 view | [c4-view.md](contracts/c4-view.md) | [guide-architecture-views](../../guide-architecture-views/SKILL.md) |
 | Sequence view | [sequence-view.md](contracts/sequence-view.md) | [guide-architecture-views](../../guide-architecture-views/SKILL.md) |
 | State machine | [state-machine.md](contracts/state-machine.md) | [guide-state-machine](../../guide-state-machine/SKILL.md) |

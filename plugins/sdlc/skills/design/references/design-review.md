@@ -33,7 +33,7 @@ It complements [artifact assurance](../../artifact-system/references/assurance.m
 - Does each option have a linked artifact a reviewer can judge?
 - Is the fidelity comparable across options?
 - Does the linked artifact show the states that matter: empty, loading, error, denied, stale, conflict?
-- For a C4, sequence or data view, is current versus proposed explicit?
+- For a C4, sequence or data-model view, is current versus proposed explicit?
 - For an AI option, is the evaluation plan or behavior shown?
 - For a library/CLI, is the public surface and compatibility shown?
 

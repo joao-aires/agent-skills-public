@@ -137,7 +137,7 @@ A plane describes the artifact's primary role. It is **not** a storage bucket.
 | --- | --- | --- | --- |
 | Intent | Why and what to pursue | PRD, roadmap, product feedback analysis, product decision record | Product, leadership |
 | Coordination | Track a change, its decisions and evidence | ECR, research report, RFC, issue, PR | Change participants, reviewers |
-| System knowledge | Explain the implemented system | Architecture set, contracts, API reference, ADRs, runbooks, SLOs | Contributors, operators |
+| System knowledge | Explain the implemented system | Architecture set, data model, contracts, API reference, ADRs, runbooks, SLOs | Contributors, operators |
 | Implementation | Build and verify the system | Code, tests, migrations, configuration | Engineers, reviewers |
 | Delivery and operations | Release and operate | Release notes, changelog, deployment records, incidents, postmortems | Operators, maintainers |
 | Entry and knowledge | Help someone start or learn | README, guides, tutorials, glossary, contributor guide | New users, contributors |
@@ -262,9 +262,9 @@ Use the [design activity](skills/design/SKILL.md), the [option set](skills/desig
 
 Every artifact type has a contract and, where the craft is distinct, a guide. The contract owns lifecycle, authority, maturity, evidence and handoff; the guide owns structure, conventions, examples, common failures and review. The full one-to-one pairing is the [guide registry](skills/artifact-system/references/guide-registry.md).
 
-- **Document guides:** `guide-prd`, `guide-product-feedback-analysis`, `guide-rfc`, `guide-adr`, `guide-ecr`, `guide-design-proposal`, `guide-system-documentation`, `guide-issue`, `guide-pr`, `guide-research-report`, `guide-release-note`, `guide-readme`.
+- **Document guides:** `guide-prd`, `guide-roadmap`, `guide-product-feedback-analysis`, `guide-rfc`, `guide-adr`, `guide-ecr`, `guide-design-proposal`, `guide-system-documentation`, `guide-issue`, `guide-pr`, `guide-research-report`, `guide-release-note`, `guide-readme`.
 - **Operational guides:** `guide-runbook`, `guide-incident-record`, `guide-postmortem`, `guide-assurance-assessment`.
-- **Artifact/view guides:** `guide-design-spec`, `guide-architecture-views`, `guide-state-machine`, `guide-compatibility-matrix`.
+- **Artifact/view guides:** `guide-design-spec`, `guide-data-model`, `guide-architecture-views`, `guide-state-machine`, `guide-compatibility-matrix`.
 
 Each guide can be used inside an activity or requested directly. The guides are self-contained artifact-writing guides; they do not link into the artifact system.
 
@@ -278,7 +278,7 @@ The storage mechanics for coordination artifacts now live inside `artifact-syste
 
 ### `guide-system-documentation` and `design-system`
 
-`guide-system-documentation` discovers, documents and reviews the **current** system: entry points, runtime relations, data journeys, deployment topology and the architecture document set. It records each component's [software type](skills/artifact-system/references/software-types.md) and constraints in the inventory. `design-system` owns **proposed** design at two depths: strategic architecture design and tactical system design. It uses the [option set](skills/design/references/option-set.md) and records the decision in the [design proposal](skills/artifact-system/references/contracts/design-proposal.md). The artifact system owns the architecture-set contract, status, evidence and home.
+`guide-system-documentation` discovers, documents and reviews the **current** system: entry points, runtime relations, data journeys, deployment topology and the architecture document set. It records each component's [software type](skills/artifact-system/references/software-types.md) and constraints in the inventory. `design-system` owns **proposed** design at two depths: strategic architecture design and tactical system design. It uses the [option set](skills/design/references/option-set.md) and records the decision in the [design proposal](skills/artifact-system/references/contracts/design-proposal.md). The artifact system owns the architecture-set contract, status, evidence and home. `guide-data-model` owns the data-model artifact — entities, ownership, identity, invariants, retention and evolution. The `database-design` method owns logical and physical data design, migration mechanics and engine behavior; this artifact records the accepted model.
 
 ### `test`
 

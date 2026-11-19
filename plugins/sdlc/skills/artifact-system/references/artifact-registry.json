@@ -10,10 +10,9 @@
     {
       "type": "roadmap",
       "contract": "contracts/roadmap.md",
-      "guide": null,
+      "guide": "guide-roadmap",
       "plane": "intent",
-      "home": "product/project workspace",
-      "guidance": "product method and technical writing"
+      "home": "product/project workspace"
     },
     {
       "type": "product-feedback-analysis",
@@ -77,6 +76,13 @@
       "guide": "guide-system-documentation",
       "plane": "system-knowledge",
       "home": "application docs/architecture"
+    },
+    {
+      "type": "data-model",
+      "contract": "contracts/data-model.md",
+      "guide": "guide-data-model",
+      "plane": "system-knowledge",
+      "home": "application docs/architecture or database workspace"
     },
     {
       "type": "c4-view",

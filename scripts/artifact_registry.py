@@ -23,6 +23,7 @@ NAMES = {
     'issue': 'Issue',
     'pull-request': 'Pull request',
     'architecture-set': 'Architecture set',
+    'data-model': 'Data model',
     'c4-view': 'C4 view',
     'sequence-view': 'Sequence view',
     'state-machine': 'State machine',

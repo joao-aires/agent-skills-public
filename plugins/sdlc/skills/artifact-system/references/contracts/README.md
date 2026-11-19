@@ -53,6 +53,7 @@ Read [handoff](../handoff.md) for the phase-to-phase matrix and the rule that a 
 | Artifact | Contract | Primary reader |
 | --- | --- | --- |
 | Architecture set | [architecture-set.md](architecture-set.md) | Contributors, architects, operators |
+| Data model | [data-model.md](data-model.md) | Contributors, architects, data owners, operators |
 | C4 view | [c4-view.md](c4-view.md) | Contributors, architects, operators |
 | Sequence view | [sequence-view.md](sequence-view.md) | Implementers, reviewers, operators |
 | State machine | [state-machine.md](state-machine.md) | Implementers, testers, reviewers |

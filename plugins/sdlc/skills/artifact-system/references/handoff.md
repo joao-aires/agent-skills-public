@@ -23,7 +23,7 @@ A handoff can be assembled from linked artifacts. The reader should be able to s
 | --- | --- | --- | --- |
 | Planning | Requirements | Outcome, first useful slice, feasibility, constraints, next decision | PRD/roadmap, ECR overview, research report, product feedback analysis |
 | Requirements | Design | Actors and permissions, behavior, observable acceptance, constraints, open decisions | ECR requirements/acceptance, PRD, issue, research report, product feedback analysis |
-| Design | Implementation preparation | Decision, affected components and types, alternatives, linked design artifacts, seam, validation, start/blocked | Design proposal, design specification, C4/sequence/state views, RFC/ADR |
+| Design | Implementation preparation | Decision, affected components and types, alternatives, linked design artifacts, seam, validation, start/blocked | Design proposal, design specification, data model, C4/sequence/state views, RFC/ADR |
 | Implementation preparation | Implementation | Ordered increments, dependencies, verification per slice, migration and rollback | ECR implementation strategy, implementation-preparation reference, issue |
 | Implementation | Verification and review | Actual revision, changed behavior, protected behavior, planned checks, deviations | Code/tests, ECR implementation/verification, PR |
 | Verification and review | Release | Checked behavior, evidence, findings, gaps, risk, readiness | ECR verification, PR, test evidence |

@@ -1,6 +1,6 @@
 # Engineering artifacts and workspaces
 
-Every durable engineering output is an artifact: an ECR, PRD, roadmap, product feedback analysis, RFC, ADR, issue, PR, architecture view, runbook, README, guide, code module, test suite or release note. Each has a type, a primary plane, a home, an authority, a maturity and relations. The ECR is the coordination spine for a change, not the only artifact.
+Every durable engineering output is an artifact: an ECR, PRD, roadmap, product feedback analysis, RFC, ADR, issue, PR, architecture view, data model, runbook, README, guide, code module, test suite or release note. Each has a type, a primary plane, a home, an authority, a maturity and relations. The ECR is the coordination spine for a change, not the only artifact.
 
 | Need | Owning guidance |
 | --- | --- |
@@ -16,6 +16,7 @@ Every durable engineering output is an artifact: an ECR, PRD, roadmap, product f
 | Persist a coordination record | [Coordination storage](../plugins/sdlc/skills/artifact-system/references/storage/coordination.md) |
 | Hand work to an implementer or reviewer | [Issue contract](../plugins/sdlc/skills/artifact-system/references/contracts/issue.md) and [PR contract](../plugins/sdlc/skills/artifact-system/references/contracts/pr.md) |
 | Document architecture as a set | [Architecture-set contract](../plugins/sdlc/skills/artifact-system/references/contracts/architecture-set.md) and [system documentation guide](../plugins/sdlc/skills/guide-system-documentation/SKILL.md) |
+| Document durable facts and their rules | [Data model contract](../plugins/sdlc/skills/artifact-system/references/contracts/data-model.md) and [data model guide](../plugins/sdlc/skills/guide-data-model/SKILL.md) |
 | Write a runbook, README, guide or release note | [Runbook](../plugins/sdlc/skills/artifact-system/references/contracts/runbook.md), [Repository README](../plugins/sdlc/skills/artifact-system/references/contracts/repository-readme.md), [guide](../plugins/sdlc/skills/artifact-system/references/contracts/guide.md), [release note](../plugins/sdlc/skills/artifact-system/references/contracts/release-note.md) |
 | Check sufficiency, links and rendered output | [Artifact quality bar](../plugins/sdlc/skills/artifact-system/references/quality-bar.md) |
 | Explain structure and interactions with accurate views | [Diagram lifecycle](../plugins/sdlc/skills/artifact-system/references/diagram-lifecycle.md) |
@@ -52,6 +53,7 @@ A repository should record where its durable artifacts live. Put a short pointer
 | Product brief / PRD | `docs/product/` | Canonical product intent | Product lead | Outcome, scope or priority changes |
 | Product feedback analysis | `docs/product/feedback/` | Canonical product evidence for a decision | Product lead | New evidence changes scope, findings or the next decision |
 | Architecture set | `docs/architecture/` | Canonical implemented architecture | Architect | Boundary, interface or deployment changes |
+| Data model | `docs/architecture/data-model.md` | Canonical logical data model | Data owner / architect | Entity, ownership, invariant, retention or evolution changes |
 | ADRs | `docs/decisions/` | Canonical decision history | Architect / tech lead | A consequential decision is accepted or superseded |
 | Runbooks | `ops/<application>/runbooks/` | Canonical operations | SRE | Failure, recovery or escalation changes |
 | Guides | `docs/guides/` | Canonical how-to | Docs owner | Workflow or command changes |
