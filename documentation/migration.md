@@ -97,8 +97,8 @@ For other moved resources, locate the owning skill in the [catalogue](maintainer
 The legacy helper supports local symlink installations from this checkout:
 
 ```bash
-./scripts/sync-skills.sh status
-./scripts/sync-skills.sh sync
+./scripts/sync_skills.py status
+./scripts/sync_skills.py sync
 ```
 
 It repairs managed unchanged-name links, including broken links to old `skills/` or package paths, while preserving unrelated entries. It adds local skills only, requires the checkout to remain in place and does not migrate renamed basenames, copied directories or other checkouts. Inspect and clean up those entries manually. New installations should use complete built plugins.

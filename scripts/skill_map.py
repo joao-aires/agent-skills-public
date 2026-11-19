@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """Generate a filterable skills map from skill metadata.
 
-Writes documentation/skills-map.html and documentation/skills-map.md.
-The map is derived, so it cannot drift from the skill frontmatter.
+Writes documentation/skills-map.html and documentation/skills-map.md, or prints the
+maintainer inventory matrix with --inventory. Both views are derived from the same
+skill metadata and agent-depot labels, so they cannot drift from each other.
 """
 import argparse
 import html
@@ -267,12 +268,28 @@ Run `python scripts/skill_map.py` to regenerate this page and the HTML explorer.
     destination.write_text(page)
 
 
+INVENTORY_FIELDS = ('name', 'pack', 'domain', 'kind', 'phase', 'origin',
+                    'scope', 'invocation', 'role', 'plugin')
+
+
+def write_inventory(rows):
+    print('| Skill | Pack | Domain | Kind | Phase | Origin | Scope | Invocation | Role | Plugin |')
+    print('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |')
+    for row in rows:
+        print('| ' + ' | '.join(row[field] for field in INVENTORY_FIELDS) + ' |')
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--output-dir', type=Path, default=OUTPUT)
+    parser.add_argument('--inventory', action='store_true',
+                        help='print the maintainer classification matrix instead of writing the map')
     args = parser.parse_args()
-    args.output_dir.mkdir(parents=True, exist_ok=True)
     rows = build_rows()
+    if args.inventory:
+        write_inventory(sorted(rows, key=lambda row: (row['plugin'], row['name'])))
+        return
+    args.output_dir.mkdir(parents=True, exist_ok=True)
     write_html(rows, args.output_dir / 'skills-map.html')
     write_markdown(rows, args.output_dir / 'skills-map.md')
     print(f'Wrote {len(rows)} skills to {args.output_dir / "skills-map.html"} and .md')

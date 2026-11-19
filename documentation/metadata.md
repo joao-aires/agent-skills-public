@@ -77,7 +77,7 @@ A pack is an install/update boundary. It is not an execution sequence.
 | Engagement focus, threads and reopens | `plugins/sdlc/skills/activity-system/references/engagement-state.md` |
 | Local skill classification | Each `SKILL.md` frontmatter |
 | Acquired skill classification and pins | `agent-depot.json` and `agent-depot.lock.json` |
-| Generated maintainer view | `python scripts/skill_inventory.py` |
+| Generated maintainer view | `python scripts/skill_map.py --inventory` |
 | Package ownership and counts | `documentation/maintainers/sources.md` |
 
 Do not duplicate artifact types, homes, phases or evidence rules in every skill. Skill metadata classifies the skill; the artifact and activity catalogs own the detailed model.
@@ -88,7 +88,7 @@ Do not duplicate artifact types, homes, phases or evidence rules in every skill.
 | --- | --- |
 | Skill metadata, packs and containment | `python scripts/validate_plugins.py` |
 | Maintained links and names | `python scripts/check_collection.py` |
-| Generated skill inventory | `python scripts/skill_inventory.py` |
+| Generated skill inventory | `python scripts/skill_map.py --inventory` |
 | Scenario definitions | `python scripts/validate_evaluations.py` |
 
 Local skills require the full classification. Acquired labels are validated from `agent-depot.json`; do not add them by editing upstream files.
