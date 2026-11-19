@@ -211,7 +211,7 @@ The [Anthropic skills collection](https://github.com/anthropics/skills/tree/dbd4
 
 These references inform original authoring; this review does not acquire more upstream skills or change existing pins. Adopt a writing technique when it clarifies the local method, while retaining the collection's scope, optional composition and proportional execution. Client-specific tools, rigid collaboration counts and technical defaults need their own applicability assessment. Readability and meaningful depth require author judgment and reader feedback; resemblance to an upstream format does not establish effectiveness.
 
-The [product-management plugin](https://github.com/anthropics/knowledge-work-plugins/tree/33d3dea41a341b341d4f5da2e8801ae0c89be2b8/product-management) supplies further examples of domain explanation, evidence synthesis and recognizable results. Its specification, research, metrics, roadmap and brainstorming methods support different forms of work. Their useful lesson is the connection between a method and its result, rather than common report sections. Fixed idea counts, scoring thresholds, repeated intake and connected-service assumptions remain contextual choices.
+The [Anthropic product management plugin](https://github.com/anthropics/knowledge-work-plugins/tree/33d3dea41a341b341d4f5da2e8801ae0c89be2b8/product-management) supplies further examples of domain explanation, evidence synthesis and recognizable results. Its specification, research, metrics, roadmap and brainstorming methods support different forms of work. Their useful lesson is the connection between a method and its result, rather than common report sections. Fixed idea counts, scoring thresholds, repeated intake and connected-service assumptions remain contextual choices.
 
 The following official plugins were reviewed at [5826794](https://github.com/anthropics/claude-plugins-official/tree/58267944f92187b7d6a1c822165c96c81c864806/plugins):
 
@@ -232,7 +232,7 @@ I separate the requested activity, reusable discipline and technical implementat
 | Decision | Ownership and boundary |
 | --- | --- |
 | Business direction | Business-strategy retains its original strategic model and resources. |
-| Product direction | Product-management owns problem evidence, priorities, useful scope, success signals and sequencing. Product-feedback owns evidence synthesis; refine owns the entry point for engineering requirements, supported by requirements-engineering for substantive elicitation, quality constraints and validation. |
+| Product direction | product-direction owns problem evidence, priorities, useful scope, success signals and sequencing. Product-feedback owns evidence synthesis; refine owns the entry point for engineering requirements, supported by requirements-engineering for substantive elicitation, quality constraints and validation. |
 | System and service design | Design-system owns architectural boundaries; backend-design owns service authority, state, failure and consumer contracts. Python conventions retain concrete runtime/persistence mechanics. |
 | Interface design | Interface-design owns general information architecture, flows, interaction behavior, visual direction/tokens and evidence-based critique. Application/archetype specialists own domain semantics and product-type patterns; React, native and other technical conventions inform feasible design and implement accepted decisions with compatible primitives. |
 | AI design, testing and operations | Ai-development owns application/capability/protocol design; ai-testing owns evaluation strategy/evidence; ai-operations owns AI operating outcomes. Ai-conventions, ai-deepeval-testing and python-ai-observability supply selected Python implementations. Framework and backend deployment expertise remain separate. |
@@ -242,7 +242,7 @@ I reviewed Anthropic's product-brainstorming and roadmap-update skills at [33eed
 
 I also reviewed prioritize-features and identify-assumptions-new at [phuryn/pm-skills 07b34f6](https://github.com/phuryn/pm-skills/tree/07b34f64ee828df08953f505b7f747aef85ae7c6/pm-product-discovery/skills), under its [MIT license](https://github.com/phuryn/pm-skills/blob/07b34f64ee828df08953f505b7f747aef85ae7c6/LICENSE). They connect impact, effort, uncertainty and product risk, but prescribe a top-five result or a fixed eight-category treatment and introduce additional skill/framework dependencies. I keep these as reviewed references rather than import their orchestrations or scoring conventions. This is a scope and composition decision, not a demonstrated quality ranking.
 
-Product-management is original local guidance. It uses the accepted product outcomes and existing evidence/decision principles, with optional frameworks and no required research format, tracker, scoring formula or commercial study. Acquired resources retain reviewed pins, licenses and native controls, with scoped adaptations recorded in notices. The same principle guides the visual/backend/AI ownership split: preserve useful technical invariants and explicit preferences without repeating an entire product process in each stack.
+product-direction is original local guidance. It uses the accepted product outcomes and existing evidence/decision principles, with optional frameworks and no required research format, tracker, scoring formula or commercial study. Acquired resources retain reviewed pins, licenses and native controls, with scoped adaptations recorded in notices. The same principle guides the visual/backend/AI ownership split: preserve useful technical invariants and explicit preferences without repeating an entire product process in each stack.
 
 Independently installable bundles retain concise essential defaults and discover optional methods through the observed inventory. Missing guidance does not select another stack, authorize installation or eliminate required outcomes. I preserve the seven-phase lifecycle, project foundations, implementation/verification loop and consequential-decision policy. Repository checks do not establish improved routing or application outcomes; see [evaluation status](evaluations.md#current-status).
 
@@ -278,7 +278,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 21 independent packages and 145 skills: 115 local and 30 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
+The collection has 21 independent packages and 158 skills: 128 local and 30 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer uses documentation-local package framing and the Python MCP wrapper uses Python-local conventions.
 
 Skills carry a small classification layer: `kind` (system, activity, method, workflow, guide or reference), `origin` (local or upstream), `scope`, `invocation` and `role`. Local skills are validated for the required fields; acquired labels come from `agent-depot.json` and are injected at build time without editing upstream bytes. Run `python scripts/skill_inventory.py` for the generated maintainer matrix.
 
@@ -290,8 +290,8 @@ The collection has 9 generic capability packages and 12 optional technical packa
 
 | Plugin | Applicability | Skills | Responsibility |
 | --- | --- | --- | --- |
-| `strategy` | Generic | 3 | Business direction, product priorities and evidence-based strategy. |
-| `sdlc` | Generic | 65 | Full SDLC: activities, artifact model, design-system architecture and tactical design, delivery, operations, security, governance, project foundations and verification. |
+| `strategy` | Generic | 15 | Business strategy triggers, market/competitive/positioning decisions, strategy briefs and local strategy guides. |
+| `sdlc` | Generic | 66 | Full SDLC: activities, artifact model, design-system architecture and tactical design, delivery, operations, security, governance, project foundations and verification. |
 | `frontend-development` | Generic | 7 | Integrated interface design, design research, UX writing, usability research and UI journey testing across web, desktop and mobile. |
 | `backend-development` | Generic | 6 | Service authority, state, failure, durable work, architecture pattern selection, HTTP and GraphQL contracts, event-driven integration and distributed-systems reasoning. |
 | `ai-development` | Generic | 4 | AI application/architecture and protocol design; evaluation methods and programs; AI-specific operating decisions and evidence. |
@@ -349,13 +349,25 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 145 skills and their current owners</summary>
+<summary>All 158 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
-| [business-opportunity-analysis](../../plugins/strategy/skills/business-opportunity-analysis/SKILL.md) | Local | `strategy` |
+| [build-strategic-roadmap](../../plugins/strategy/skills/build-strategic-roadmap/SKILL.md) | Local | `strategy` |
 | [business-strategy](../../plugins/strategy/skills/business-strategy/SKILL.md) | Local | `strategy` |
-| [product-management](../../plugins/strategy/skills/product-management/SKILL.md) | Local | `strategy` |
+| [define-positioning](../../plugins/strategy/skills/define-positioning/SKILL.md) | Local | `strategy` |
+| [design-business-model](../../plugins/strategy/skills/design-business-model/SKILL.md) | Local | `strategy` |
+| [discover-customers](../../plugins/strategy/skills/discover-customers/SKILL.md) | Local | `strategy` |
+| [craft-competitive-analysis](../../plugins/strategy/skills/craft-competitive-analysis/SKILL.md) | Local | `strategy` |
+| [craft-strategy-brief](../../plugins/strategy/skills/craft-strategy-brief/SKILL.md) | Local | `strategy` |
+| [model-finances](../../plugins/strategy/skills/model-finances/SKILL.md) | Local | `strategy` |
+| [plan-go-to-market](../../plugins/strategy/skills/plan-go-to-market/SKILL.md) | Local | `strategy` |
+| [raise-capital](../../plugins/strategy/skills/raise-capital/SKILL.md) | Local | `strategy` |
+| [review-strategy](../../plugins/strategy/skills/review-strategy/SKILL.md) | Local | `strategy` |
+| [run-market-scan](../../plugins/strategy/skills/run-market-scan/SKILL.md) | Local | `strategy` |
+| [set-strategy](../../plugins/strategy/skills/set-strategy/SKILL.md) | Local | `strategy` |
+| [test-assumptions](../../plugins/strategy/skills/test-assumptions/SKILL.md) | Local | `strategy` |
+| [validate-idea](../../plugins/strategy/skills/validate-idea/SKILL.md) | Local | `strategy` |
 | [activity-system](../../plugins/sdlc/skills/activity-system/SKILL.md) | Local | `sdlc` |
 | [analyze-capacity-cost](../../plugins/sdlc/skills/analyze-capacity-cost/SKILL.md) | Local | `sdlc` |
 | [application-configuration](../../plugins/sdlc/skills/application-configuration/SKILL.md) | Local | `sdlc` |
@@ -399,6 +411,7 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [implement](../../plugins/sdlc/skills/implement/SKILL.md) | Local | `sdlc` |
 | [improve](../../plugins/sdlc/skills/improve/SKILL.md) | Local | `sdlc` |
 | [plan](../../plugins/sdlc/skills/plan/SKILL.md) | Local | `sdlc` |
+| [product-direction](../../plugins/sdlc/skills/product-direction/SKILL.md) | Local | `sdlc` |
 | [project-conventions](../../plugins/sdlc/skills/project-conventions/SKILL.md) | Local | `sdlc` |
 | [prototype](../../plugins/sdlc/skills/prototype/SKILL.md) | Local | `sdlc` |
 | [refine](../../plugins/sdlc/skills/refine/SKILL.md) | Local | `sdlc` |
@@ -511,7 +524,7 @@ Figma remains optional tooling declared by frontend-development; the React techn
 
 ### Verification coverage
 
-The assignment covers 115 local skills and 30 distinct acquired skills exactly once, with no omissions or duplicate owners.
+The assignment covers 128 local skills and 30 distinct acquired skills exactly once, with no omissions or duplicate owners.
 
 All packages build together with `--all` and independently with explicit selection. Package checks verify inventories, local-resource parity, notices, required framing, and transitive owned Markdown links staying inside their bundle. CI also checks the default sdlc-only build. These checks do not establish agent behavior; behavioral evaluations remain deferred.
 

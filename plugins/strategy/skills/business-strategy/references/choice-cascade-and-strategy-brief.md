@@ -157,7 +157,7 @@ Adapt the sections to the decision. A light engagement may need only decision, d
 
 ### What the brief is not
 
-- It is not a product requirements document. Requirements describe behavior for a specific product increment and belong to product management and the development lifecycle.
+- It is not a product requirements document. Requirements describe behavior for a specific product increment and belong to product direction and the development lifecycle.
 - It is not a roadmap. A roadmap sequences product outcomes and delivery over time and is owned by product direction.
 - It is not an engineering change record. The change record tracks a specific change, its design, implementation and verification.
 - It is not a pitch deck. The deck is a projection of the brief for a specific audience and must not become the authority.

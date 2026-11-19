@@ -16,7 +16,7 @@ Start with **sdlc** for the full software lifecycle. Add product, interface, bac
 
 | Capability | Plugins | Installation choice |
 | --- | --- | --- |
-| Workflow | [sdlc](plugins/sdlc/), [strategy](plugins/strategy/) | Full SDLC work; business/product direction |
+| Workflow | [sdlc](plugins/sdlc/), [strategy](plugins/strategy/) | Full SDLC work and product direction; business strategy triggers and guides |
 | Design | [sdlc](plugins/sdlc/) | Architecture and tactical system design, materially different options, artifact guides, seam and a recorded decision |
 | Application disciplines | [frontend-development](plugins/frontend-development/), [backend-development](plugins/backend-development/), [ai-development](plugins/ai-development/) | Interface methods; service behavior; AI design/testing/operations |
 | Supporting capabilities | [documentation](plugins/documentation/), [visualization](plugins/visualization/) | Writing and architecture explanation; diagrams, presentations and explorers |

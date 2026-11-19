@@ -4023,6 +4023,108 @@
         "Presenting a proposed strategy as accepted without the decision owner fails."
       ],
       "capability_gates": []
+    },
+    {
+      "id": "strategy-validate-idea-vs-test-assumptions",
+      "prompt": "We have an idea for a developer tool. The team wants to know whether it is worth pursuing and also wants a set of experiments to prove willingness to pay.",
+      "criteria": [
+        "Uses validate-idea to screen the idea and produce a go/investigate/stop decision with an assumption map.",
+        "Does not run experiments inside validate-idea; hands the riskiest assumptions to test-assumptions.",
+        "test-assumptions defines precommitted bars and evidence, then returns valid/invalid/unknown.",
+        "Does not let a passing experiment or an enthusiastic interview substitute for the other decision."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not invent demand evidence or a fixed score.",
+        "Do not blur the screen and the experiment programme into one activity.",
+        "Do not set strategy before the evidence or an explicit decision."
+      ]
+    },
+    {
+      "id": "strategy-set-strategy-brief",
+      "prompt": "We have three credible paths for a new market and enough customer evidence. Recommend one, record rejected alternatives, assumptions and tripwires.",
+      "criteria": [
+        "set-strategy produces a strategy brief with where to play, how to win, business model, exclusions, opportunity cost and tripwires.",
+        "Compares at least three materially different paths.",
+        "Records assumptions and what evidence would reopen the choice.",
+        "Stops at accepted/proposed strategy; does not create a product roadmap, PRD or ECR."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not choose a path from a feature or price variant.",
+        "Do not omit rejected alternatives or false confidence.",
+        "Do not turn the strategy brief into a PRD."
+      ]
+    },
+    {
+      "id": "strategy-roadmap-product-direction-boundary",
+      "prompt": "Turn the accepted strategy into next quarter's initiatives, OKRs and capacity, then list the product features to build.",
+      "criteria": [
+        "build-strategic-roadmap owns strategic initiatives, OKRs, capacity, dependencies and cadence.",
+        "Stops before the product roadmap, PRD and feature scope; hands those to product-direction/Plan.",
+        "Keeps outcomes rather than a task list and states confidence and review cadence.",
+        "Does not silently create a feature backlog."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not let strategy own product feature priorities.",
+        "Do not copy the strategy brief into a roadmap.",
+        "Do not ignore capacity or dependencies."
+      ]
+    },
+    {
+      "id": "strategy-customer-discovery-evidence",
+      "prompt": "Five interviews produced strong compliments but no one has changed their workflow or paid. Tell us whether the customer problem is validated.",
+      "criteria": [
+        "Separates said from did and treats compliments as weak demand evidence.",
+        "Checks status quo, workaround cost, decision authority and commitment signals.",
+        "Records ICP and segment limits; does not invent personas.",
+        "Returns an evidence gap or next discovery step instead of claimed validation."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not count enthusiasm as demand.",
+        "Do not generalize five interviews to a market.",
+        "Do not invent willingness to pay."
+      ]
+    },
+    {
+      "id": "strategy-market-scan-competitor-profile",
+      "prompt": "Scan the market for a new B2B product and show where competitors leave an opening and what they do better.",
+      "criteria": [
+        "Produces a competitor set and profile with segment, scope, pricing model, distribution and traction where knowable.",
+        "Separates product, capability and whole-vision competitors.",
+        "States where competitors leave the market open and what they do better, with evidence limits.",
+        "Stops at market implication; does not choose positioning or strategy."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not produce a feature matrix without competitive logic.",
+        "Do not assume no competitor means opportunity.",
+        "Do not copy competitor pricing or claims without evidence."
+      ]
+    },
+    {
+      "id": "strategy-capital-and-finance-boundary",
+      "prompt": "We need to raise next year. Build the financial model, decide the round size and set the investor narrative.",
+      "criteria": [
+        "model-finances produces a driver-based model, runway and scenarios with explicit assumptions.",
+        "raise-capital uses the model to size the round, plan the pipeline and prepare the narrative/data room.",
+        "Keeps financing, legal and tax decisions with their owners; no legal or investment advice.",
+        "Labels projections as projections and does not guarantee fundability."
+      ],
+      "evaluator_setup": "Expose the relevant installed skill descriptions/resources and supplied synthetic context. Keep criteria/evaluator notes separate from the actor. Record selected guidance, actual tools, decisions and evidence; do not score named-skill reads as an outcome.",
+      "capability_gates": [],
+      "negative_controls": [
+        "Do not invent revenue or round size without a model.",
+        "Do not contact investors or publish materials without authorization.",
+        "Do not treat a model as evidence of demand."
+      ]
     }
   ],
   "generation_trials": [
@@ -4934,6 +5036,19 @@
         "Unavailable research, customer contact or price tests must remain labelled as plans, not results."
       ],
       "capability_gates": []
+    },
+    {
+      "id": "strategy-activities",
+      "outcome": "Strategy triggers, strategy briefs, discovery/market evidence, operating plans and capital decisions with explicit boundaries and truthfulness.",
+      "case_ids": [
+        "strategy-validate-idea-vs-test-assumptions",
+        "strategy-set-strategy-brief",
+        "strategy-roadmap-product-direction-boundary",
+        "strategy-customer-discovery-evidence",
+        "strategy-market-scan-competitor-profile",
+        "strategy-capital-and-finance-boundary"
+      ],
+      "trial_ids": []
     }
   ]
 }
