@@ -110,14 +110,14 @@
     {
       "name": "sdlc",
       "source": "./sdlc",
-      "description": "Full SDLC activities, artifact and activity systems, design-system architecture and tactical design, requirements, delivery, operations, security, governance and selected upstream methods.",
-      "version": "1.9.1"
+      "description": "Full SDLC activities, artifact and activity systems, design-system architecture and tactical design, requirements, product feedback analysis, delivery, operations, security and governance assurance.",
+      "version": "1.10.0"
     },
     {
       "name": "strategy",
       "source": "./strategy",
-      "description": "Multi-option business strategy, product priorities and evidence-based product learning.",
-      "version": "0.1.4"
+      "description": "Multi-option business strategy, product priorities and evidence-based business direction.",
+      "version": "0.1.5"
     },
     {
       "name": "typescript-development",

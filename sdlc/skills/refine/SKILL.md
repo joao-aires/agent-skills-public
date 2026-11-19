@@ -21,6 +21,8 @@ Read [activity system](../activity-system/SKILL.md).
 
 For the ECR requirements section this activity produces, read the [ECR contract](../artifact-system/references/contracts/ecr.md) and apply [requirements-engineering](../requirements-engineering/SKILL.md). When the request also produces an issue, read [guide-issue](../guide-issue/SKILL.md). When an accepted conversation or decision should become a written specification rather than requirements alone, use [write-spec](../write-spec/SKILL.md).
 
+When a current [product feedback analysis](../artifact-system/references/contracts/product-feedback-analysis.md) exists, use it as evidence for requirements: link its findings, limits and open questions instead of re-deriving or copying the analysis.
+
 Record the agreed behavior, constraints and observable acceptance. When the next contributor needs a ticket, use the issue guidance in the [artifact system](../artifact-system/SKILL.md) for the handoff and [engineering workspace](../artifact-system/references/storage/coordination.md) for persistence. Resolve the artifact home with [artifact homes](../artifact-system/references/homes.md) before writing. Read [project-conventions](../project-conventions/SKILL.md) for affected project constraints. For new systems, substantial features, refactors, migrations, rearchitecture or work with materially uncertain actors, quality constraints or acceptance, read and apply [requirements-engineering](../requirements-engineering/SKILL.md) as supporting expertise. For a small well-defined fix, use only the applicable requirements checks without requiring a fuller analysis. Load other optional stack/domain guidance selected through the development workflow only when relevant and available.
 
 ## Establish the change

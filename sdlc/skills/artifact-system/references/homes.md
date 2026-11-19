@@ -10,6 +10,7 @@ Use this reference to resolve the home before creating, moving or linking an art
 | --- | --- | --- |
 | Product brief / PRD | Product/project workspace | Application repository `docs/product/` when the team keeps product docs with code |
 | Roadmap | Product/project workspace | Application repository `docs/product/roadmap.md` |
+| Product feedback analysis | Engineering workspace | Application repository `docs/product/feedback/` when the team keeps durable product knowledge with code |
 | ECR | Engineering workspace | Connected document provider; authorized filesystem or Git-backed workspace |
 | Research report | Engineering workspace | Application repository only when the report is durable project knowledge and that home is authorized |
 | RFC | Engineering workspace | Application repository `docs/decisions/` or `docs/rfcs/` when the proposal is durable project knowledge |
@@ -50,6 +51,7 @@ The repository should contain a small map that answers: where does each artifact
 | Artifact | Home | Authority | Owner | Update when |
 | --- | --- | --- | --- | --- |
 | Product brief / PRD | `docs/product/` | Canonical product intent | Product lead | Outcome, scope or priority changes |
+| Product feedback analysis | `docs/product/feedback/` | Canonical product evidence for a decision | Product lead | New evidence changes scope, findings or the next decision |
 | Architecture set | `docs/architecture/` | Canonical implemented architecture | Architect | Boundary, interface or deployment changes |
 | ADRs | `docs/decisions/` | Canonical decision history | Architect / tech lead | A consequential decision is accepted or superseded |
 | API reference | Generated from `openapi/`, linked from `docs/reference/` | Canonical contract | Backend lead | Contract changes |

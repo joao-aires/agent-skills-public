@@ -19,6 +19,8 @@ metadata:
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
 
+Existing user evidence that drives a product decision belongs to [run-product-feedback-analysis](../run-product-feedback-analysis/SKILL.md) and its analysis artifact; use a research report for any other bounded inquiry and link the analysis rather than restating it.
+
 Research reduces the uncertainty that blocks a decision. The result is a defensible answer: what the evidence establishes, what it does not, and what the decision owner should do next. The [research report contract](../artifact-system/references/contracts/research-report.md) owns the record when one is warranted; [guide-research-report](../guide-research-report/SKILL.md) owns its craft. Use [artifact system](../artifact-system/SKILL.md) to choose the record and [artifact homes](../artifact-system/references/homes.md) to place it.
 
 ## Reading path
