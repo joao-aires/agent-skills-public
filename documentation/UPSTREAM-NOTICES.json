@@ -29,6 +29,32 @@
     "license": "MIT",
     "license_path": "LICENSE",
     "adaptations": [
+      "documentation-paths",
+      "usage-labels",
+      "support-visibility"
+    ],
+    "labels": {
+      "scope": "generic",
+      "invocation": "agent",
+      "role": "support",
+      "kind": "method",
+      "origin": "upstream",
+      "pack": "craft",
+      "domain": "documentation",
+      "phase": "cross-phase"
+    },
+    "artifact": "development--writing-for-agents",
+    "destination": "plugins/documentation/skills/writing-for-agents",
+    "repository": "https://github.com/mattpocock/skills.git",
+    "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
+    "path": "skills/productivity/writing-for-agents",
+    "installed_skill": "writing-for-agents"
+  },
+  {
+    "plugin": "documentation",
+    "license": "MIT",
+    "license_path": "LICENSE",
+    "adaptations": [
       "composition-framing",
       "usage-labels",
       "support-visibility"

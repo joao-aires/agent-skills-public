@@ -9,13 +9,10 @@ metadata:
   role: support
   kind: method
   origin: upstream
-  pack: sdlc
-  domain: development
+  pack: craft
+  domain: documentation
   phase: cross-phase
 ---
-
-Read [activity system](../activity-system/SKILL.md) before applying this skill.
-
 
 Reference for writing any document an agent consumes: a skill, an `AGENTS.md` / `CLAUDE.md`, a doc reached by a pointer. The packaging differs; the writing does not: the same levers make each one predictable, since the agent takes the same _process_ every run rather than producing the same output.
 

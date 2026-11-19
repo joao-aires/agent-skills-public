@@ -68,8 +68,8 @@
     {
       "name": "documentation",
       "source": "./documentation",
-      "description": "Cross-type technical writing craft, intuitive explanation, skill authoring, session handoff and prose editing.",
-      "version": "0.6.0"
+      "description": "Cross-type technical writing craft, intuitive explanation, skill authoring, agent-instruction craft, session handoff and prose editing.",
+      "version": "0.6.1"
     },
     {
       "name": "frontend-development",
@@ -111,7 +111,7 @@
       "name": "sdlc",
       "source": "./sdlc",
       "description": "Full SDLC activities, artifact and activity systems, design-system architecture and tactical design, requirements, product direction, product feedback analysis, delivery, operations, security and governance assurance.",
-      "version": "1.12.0"
+      "version": "1.12.1"
     },
     {
       "name": "strategy",

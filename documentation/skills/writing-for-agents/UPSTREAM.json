@@ -1,9 +1,8 @@
 {
-  "plugin": "sdlc",
+  "plugin": "documentation",
   "license": "MIT",
   "license_path": "LICENSE",
   "adaptations": [
-    "workflow-framing",
     "documentation-paths",
     "usage-labels",
     "support-visibility"
@@ -14,12 +13,12 @@
     "role": "support",
     "kind": "method",
     "origin": "upstream",
-    "pack": "sdlc",
-    "domain": "development",
+    "pack": "craft",
+    "domain": "documentation",
     "phase": "cross-phase"
   },
   "artifact": "development--writing-for-agents",
-  "destination": "plugins/sdlc/skills/writing-for-agents",
+  "destination": "plugins/documentation/skills/writing-for-agents",
   "repository": "https://github.com/mattpocock/skills.git",
   "commit": "4588b32ecab9ecc9fc8cc6b6c5e7d675b6004b0d",
   "path": "skills/productivity/writing-for-agents",
