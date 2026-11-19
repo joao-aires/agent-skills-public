@@ -124,7 +124,11 @@ When data is available:
 CAC payback ≈ CAC / monthly gross profit from new customer
 ```
 
-For developer-led or open-source-led businesses, distinguish community acquisition from enterprise sales cost.
+Use gross profit rather than contribution here so the denominator matches the margin definition below. For developer-led or open-source-led businesses, distinguish community acquisition from enterprise sales cost.
+
+```text
+LTV ≈ monthly gross profit from that customer × expected lifetime months
+```
 
 ## Revenue-quality checklist
 
@@ -142,3 +146,5 @@ Assess:
 - dependency on third-party platforms
 
 Then explain which dimensions most influence scalability, strategic flexibility, and valuation.
+
+Starting structure: [`assets/unit-economics-record.md`](../assets/unit-economics-record.md). Adapt or omit sections; do not fill it with invented evidence.

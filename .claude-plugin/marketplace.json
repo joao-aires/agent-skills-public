@@ -117,7 +117,7 @@
       "name": "strategy",
       "source": "./strategy",
       "description": "Multi-option business strategy, product priorities and evidence-based business direction.",
-      "version": "0.1.5"
+      "version": "0.2.0"
     },
     {
       "name": "typescript-development",
