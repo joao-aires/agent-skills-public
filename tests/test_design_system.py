@@ -100,7 +100,7 @@ class DesignSystemTests(unittest.TestCase):
         self.assertIn('software-types.md', guide)
         self.assertIn('design-proposal.md', guide)
 
-    def test_artifact_guides_are_prefixed_sdlc_methods(self):
+    def test_artifact_guides_are_explicit_guides(self):
         guides = sorted((ROOT / 'plugins/sdlc/skills').glob('guide-*/SKILL.md'))
         self.assertEqual(len(guides), 19)
         for path in guides:
@@ -109,13 +109,22 @@ class DesignSystemTests(unittest.TestCase):
                 front = path.read_text().split('---', 2)[1]
                 metadata = yaml.safe_load(front)
                 labels = metadata['metadata']
-                self.assertEqual(labels['kind'], 'method')
+                self.assertEqual(labels['kind'], 'guide')
                 self.assertEqual(labels['pack'], 'sdlc')
                 self.assertEqual(labels['role'], 'support')
                 self.assertEqual(labels['invocation'], 'both')
                 text = path.read_text()
                 for heading in ('## Minimum content', '## Common failures', '## Handoff'):
                     self.assertIn(heading, text)
+
+    def test_metadata_defines_the_guide_kind(self):
+        text = (ROOT / 'documentation/metadata.md').read_text()
+        for kind in ('system', 'activity', 'method', 'workflow', 'guide', 'reference'):
+            with self.subTest(kind=kind):
+                self.assertIn(f'`{kind}`', text)
+        self.assertIn('`kind: guide`', text)
+        self.assertIn('`guide-adr`', text)
+        self.assertIn('artifact guide registry', text.lower())
 
     def test_skill_map_includes_guides_and_counts(self):
         text = (ROOT / 'documentation/skills-map.md').read_text()

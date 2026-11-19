@@ -45,6 +45,17 @@ def load():
     return json.loads(REGISTRY.read_text())['artifacts']
 
 
+def guide_kind(path):
+    parts = path.read_text().split('---', 2)
+    if len(parts) < 3:
+        return None
+    for line in parts[1].splitlines():
+        key, _, value = line.partition(':')
+        if key.strip() == 'kind':
+            return value.strip().strip('"\'')
+    return None
+
+
 def validate():
     errors = []
     entries = load()
@@ -70,11 +81,13 @@ def validate():
             path = GUIDES / guide / 'SKILL.md'
             if not path.is_file():
                 errors.append(f'{name}: missing guide {guide}')
+            elif guide_kind(path) != 'guide':
+                errors.append(f'{name}: {guide} is not declared kind: guide')
             guide_names.add(guide)
     known_contracts = {p.name for p in CONTRACTS.glob('*.md') if p.name not in {'README.md', 'TEMPLATE.md'}}
     for missing in sorted(known_contracts - contract_paths):
         errors.append(f'contract has no registry entry: {missing}')
-    known_guides = {p.parent.name for p in GUIDES.glob('guide-*/SKILL.md')}
+    known_guides = {p.parent.name for p in GUIDES.glob('*/SKILL.md') if guide_kind(p) == 'guide'}
     for missing in sorted(known_guides - guide_names):
         errors.append(f'guide has no registry entry: {missing}')
     for extra in sorted(guide_names - known_guides):

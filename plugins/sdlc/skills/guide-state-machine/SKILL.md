@@ -3,7 +3,7 @@ name: guide-state-machine
 description: Guide to producing and reviewing state machines. Use for states, triggers, guards, terminal states, denied transitions, invariants and concurrent or retried behavior.
 user-invocable: true
 metadata:
-  kind: method
+  kind: guide
   origin: local
   pack: sdlc
   domain: development

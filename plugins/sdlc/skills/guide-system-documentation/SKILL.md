@@ -3,7 +3,7 @@ name: guide-system-documentation
 description: Guide to discovering, tracing, creating and reviewing the current-system architecture set. Covers evidence, boundaries, responsibilities, runtime behavior, interfaces, deployment, current versus proposed state and document quality.
 user-invocable: true
 metadata:
-  kind: method
+  kind: guide
   origin: local
   pack: sdlc
   domain: development

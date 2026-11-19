@@ -18,11 +18,11 @@ flowchart LR
   D -.-> A
 ```
 
-Two core models, one method layer, three cross-cutting dimensions:
+Two core models, a method layer, three cross-cutting dimensions:
 
 - **Activity** — what work is requested and where it stops.
 - **Artifact** — what durable output exists, with authority, home, maturity, relations and evidence.
-- **Method** — how to deepen or produce the work; `guide-*` methods own artifact craft.
+- **Method** — how to deepen or produce the work; `kind: guide` skills own artifact craft.
 - **Dimensions** — phase, role, software type, home and evidence filter the two core models.
 
 ## Counts
@@ -38,8 +38,9 @@ Two core models, one method layer, three cross-cutting dimensions:
 
 | Kind | Skills |
 | --- | ---: |
-| `method` | 106 |
+| `method` | 87 |
 | `activity` | 26 |
+| `guide` | 19 |
 | `workflow` | 8 |
 | `system` | 2 |
 

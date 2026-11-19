@@ -19,7 +19,8 @@ The rest of the plugin is composed from a small set of concepts. Two are core mo
 | --- | --- | --- |
 | **Artifact** | What durable output is produced? | Core model — `artifact-system` |
 | **Activity** | What work is requested, and where does it stop? | Core model — `activity-system` |
-| **Method** | What reusable expertise deepens the work? | Supporting capability — TDD, code review, requirements engineering, `guide-*` artifact guides |
+| **Method** | What reusable expertise deepens the work? | Supporting capability — TDD, code review, requirements engineering |
+| **Guide** | How should this one artifact be shaped? | Supporting capability — the `guide-*` artifact guides and their review questions |
 | **Workflow** | What ordered sequence carries the work out? | Composition pattern — e.g. the contribution workflow |
 | **Role** | Who participates? | Dimension — product, implementer, reviewer, operator |
 | **Phase** | Where in the SDLC lifecycle? | Dimension — planning, requirements, design, implementation, verification, release, maintenance |
@@ -27,7 +28,7 @@ The rest of the plugin is composed from a small set of concepts. Two are core mo
 | **Home** | Where does the artifact live? | Dimension — engineering workspace, repo, tracker, provider, operations repo |
 | **Evidence** | What supports the claim? | Quality and assurance — quality bar, artifact assurance |
 
-Artifact and activity are the core. Method, workflow, role, phase, home and evidence are not competing top-level systems; they are layers or dimensions applied to those two models.
+Artifact and activity are the core. Method, guide, workflow, role, phase, home and evidence are not competing top-level systems; they are layers or dimensions applied to those two models.
 
 ### Workflow is a composition, not a third core model
 
@@ -47,7 +48,7 @@ If the same ordered sequence is reused across several activities, it can become 
 
 Skills carry a small classification layer:
 
-- `kind`: `system`, `activity`, `method`, `workflow` or `reference`.
+- `kind`: `system`, `activity`, `method`, `workflow`, `guide` or `reference`.
 - `pack`: `sdlc`, `technical`, `craft` or `product`.
 - `domain`: the owning lifecycle/capability area, such as development, delivery, operations, security, governance, frontend, backend, database, AI, documentation or visualization.
 - `phase`: `planning`, `requirements`, `design`, `implementation`, `verification`, `release`, `maintenance` or `cross-phase`.
@@ -265,7 +266,7 @@ Every artifact type has a contract and, where the craft is distinct, a guide. Th
 - **Operational guides:** `guide-runbook`, `guide-incident-record`, `guide-postmortem`, `guide-assurance-assessment`.
 - **Artifact/view guides:** `guide-design-spec`, `guide-architecture-views`, `guide-state-machine`, `guide-compatibility-matrix`.
 
-Each guide can be used inside an activity or requested directly. The guides are self-contained writing methods; they do not link into the artifact system.
+Each guide can be used inside an activity or requested directly. The guides are self-contained artifact-writing guides; they do not link into the artifact system.
 
 ### Coordination storage
 
@@ -306,6 +307,79 @@ Technical writing lives in the documentation plugin. It owns reader fit, explana
 ### Explicit upstream workflows
 
 `grill-me`, `grill-with-docs`, `grilling` and `to-questionnaire` remain explicit upstream workflows with their names, bodies and native controls preserved. `write-spec` and `retro` are local explicit workflows. `handoff` moved to `documentation`. The activity catalog lists explicit workflows separately from default activities.
+
+## Responsibility map
+
+The conceptual model explains the layers; this map locates them in `sdlc`. It is a map, not a second catalog: choose work from the [activity catalog](skills/activity-system/references/catalog.md) and pair artifacts with guides through the [guide registry](skills/artifact-system/references/guide-registry.md).
+
+| Layer | Owns |
+| --- | --- |
+| Systems | `artifact-system` (artifact types, planes, homes, contracts, quality, assurance) and `activity-system` (activity selection, stopping points, transitions, engagement state, authority) |
+| Activities | Requested engagements with a result, stopping point and transitions — see below |
+| Workflows | Ordered sequences requested explicitly — `git-contributions`, `write-spec`, `retro`; acquired `grill-me`, `grill-with-docs`, `grilling`, `to-questionnaire` |
+| Methods | Subject expertise that deepens work without starting an activity — see below |
+| Guides | Artifact craft and review for one artifact type — the `guide-*` class |
+| Acquired methods | Upstream expertise packaged with native controls preserved |
+
+### Activities
+
+| Activity | Owns |
+| --- | --- |
+| `setup` | Project foundations, commands and the artifact home map |
+| `plan` | A scoped decision to proceed, investigate or defer |
+| `refine` | Actionable requirements and observable acceptance |
+| `design` | Options and an accepted, limited or blocked design decision before code |
+| `develop` | A composite engagement from rough idea to a verified slice |
+| `implement` | An implemented and verified change through the contribution flow |
+| `test` | Checks, observations, results and coverage gaps |
+| `release` | A prepared readiness assessment or an authorized delivery |
+| `run-production-readiness-review` | A scoped readiness verdict or precise gaps |
+| `fix` | A diagnosed, verified repair and handoff |
+| `improve` | Prioritized findings or a focused implementation for an explicit objective |
+| `harden` | Scoped security/privacy fixes and residual risk |
+| `run-dependency-maintenance` | Per-item compatibility evidence and disposition for updates |
+| `run-incident-response` | A stabilized service with evidence and handover |
+| `run-security-maintenance` | Verified rotation, revocation or patched targets |
+| `run-operations-review` | Prioritized operational findings and bounded actions |
+| `run-postmortem` | A reviewed postmortem with verified actions |
+
+### Workflows
+
+| Workflow | Owns |
+| --- | --- |
+| `git-contributions` | Worktree, verification, commit, push and PR mechanics; the PR contract owns the artifact's content |
+| `write-spec` | Turning an existing conversation or decision into a spec |
+| `retro` | Retrospective learning from a coding session |
+
+### Methods
+
+| Method | Owns |
+| --- | --- |
+| `design-system` | Strategic architecture and tactical system design, including quality attributes |
+| `requirements-engineering` | Elicitation, measurable constraints, conflict validation and acceptance links |
+| `design-security` | Trust boundaries, authority placement and security/privacy decisions |
+| `testing-resilience` | Failure, recovery and degradation verification |
+| `domain-modeling` | Domain language, boundaries and model decisions |
+| `project-conventions` | Repository foundations and placement conventions |
+| `prototype` | Time-boxed design exploration that answers a named question |
+| `research` | Decision-oriented investigation and evidence |
+| `application-configuration` | Configuration precedence, validation, secrets and reload behavior |
+| `analyze-capacity-cost` | Capacity and cost evidence for operational decisions |
+| `run-compliance-assessment` | Scoped compliance evidence, gaps and disposition |
+
+### Guides
+
+The `guide-*` skills are `kind: guide`. They own structure, conventions, examples, common failures, review and the artifact's reader handoff for their artifact type; the matching [contract](skills/artifact-system/references/contracts/README.md) owns lifecycle, authority, maturity, evidence and the phase handoff. Use the [guide registry](skills/artifact-system/references/guide-registry.md) rather than this map to select one.
+
+### Acquired methods
+
+`code-review`, `codebase-design`, `diagnosing-bugs`, `tdd` and `writing-for-agents` arrive through Agent Depot with their upstream bodies and native controls. `grill-me`, `grill-with-docs`, `grilling` and `to-questionnaire` are acquired workflows, listed above; they keep their upstream workflow shape and are not local activities.
+
+### Intentional hybrids
+
+- `guide-system-documentation` and `guide-runbook` are guides that also own creation, exercise and review practice for their artifact class. Their `kind` stays `guide`; the work they support remains an activity or method elsewhere.
+- `develop` is a composite engagement activity: it can carry refine, design, implement and verify in one request when implementation is authorized. It is still one activity with one stopping point.
+- `run-compliance-assessment` is an assurance assessment named `run-*`. The name records the operation; its `kind` is `method` because it attaches evidence to the activity that owns the decision.
 
 ## Composability and reusability rules
 

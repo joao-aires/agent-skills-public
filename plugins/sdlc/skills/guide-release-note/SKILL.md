@@ -3,7 +3,7 @@ name: guide-release-note
 description: Guide to writing a release note or changelog. Covers what shipped, target, changes, migration, compatibility, verification and rollback.
 user-invocable: true
 metadata:
-  kind: method
+  kind: guide
   origin: local
   pack: sdlc
   domain: delivery

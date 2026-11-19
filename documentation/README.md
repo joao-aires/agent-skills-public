@@ -14,6 +14,7 @@ Start with the outcome you need. These pages have one dominant purpose each; dee
 | See request patterns and examples | [Usage](usage.md) |
 | Match an artifact to its contract and guide | [Artifact catalog](../plugins/sdlc/skills/artifact-system/references/catalog.md) |
 | Classify a skill or maintain a pack | [Metadata contract](metadata.md) and [maintainer reference](maintainer-reference.md) |
+| Write or review a package README | [Plugin README template](maintainers/plugin-readme-template.md) |
 | Maintain sources, licenses and counts | [Source catalogue](maintainers/sources.md) |
 | Plan the next capability additions | [Capability expansion roadmap](maintainers/capability-expansion.md) |
 | Audit skills against the guidance principle | [Guidance audit](maintainers/guidance-audit.md) |

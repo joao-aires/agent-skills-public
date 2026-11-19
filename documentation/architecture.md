@@ -13,6 +13,7 @@ The repository builds 21 independently selectable plugins: 9 generic capability 
 | Requested activity | Outcome, action scope, stopping point and completion evidence | Design a service without implementing it; implement and verify an accepted feature |
 | Reusable discipline | Reasoning about a particular concern | Product priorities, service contracts, interaction behavior, reliability or delivery recovery |
 | Technical expertise | Realize accepted decisions with compatible implementation details | A chosen runtime, framework, CI provider, database, protocol SDK or platform driver |
+| Artifact craft | Structure, conventions, examples, review and reader handoff for one artifact type | A guide for an ECR, design proposal or runbook |
 | Supporting capability | Independently useful help during relevant work | Documentation, research, diagrams and explanation |
 
 These are responsibilities rather than a mandatory pipeline. An existing feature reuses accepted product and architecture decisions. A specialist question can end at its own result. The [lifecycle map](sdlc.md) explains how outcomes relate across phases; it does not require every skill to run.
