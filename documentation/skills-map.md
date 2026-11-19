@@ -27,20 +27,20 @@ Two core models, a method layer, three cross-cutting dimensions:
 
 ## Counts
 
-142 skills · 21 plugins · 4 packs · 20 domains
+143 skills · 21 plugins · 4 packs · 20 domains
 
 | Pack | Skills |
 | --- | ---: |
 | `technical` | 67 |
-| `sdlc` | 61 |
+| `sdlc` | 63 |
 | `craft` | 10 |
-| `product` | 4 |
+| `product` | 3 |
 
 | Kind | Skills |
 | --- | ---: |
 | `method` | 87 |
 | `activity` | 26 |
-| `guide` | 19 |
+| `guide` | 20 |
 | `workflow` | 8 |
 | `system` | 2 |
 
@@ -55,6 +55,7 @@ Two core models, a method layer, three cross-cutting dimensions:
 | [guide-ecr](../plugins/sdlc/skills/guide-ecr/SKILL.md) | development | Guide to writing an Engineering Change Record. Covers overview, problem, requirements, solution design, implementation, verification and decisions across a change. |
 | [guide-issue](../plugins/sdlc/skills/guide-issue/SKILL.md) | development | Guide to writing an actionable issue. Covers context, intended outcome, scope, acceptance, constraints, verification, dependencies and ownership. |
 | [guide-pr](../plugins/sdlc/skills/guide-pr/SKILL.md) | development | Guide to writing a pull request description. Covers why, what changed, design impact, validation, risk, release and reviewer links. |
+| [guide-product-feedback-analysis](../plugins/sdlc/skills/guide-product-feedback-analysis/SKILL.md) | development | Guide to writing a product feedback analysis. Covers the decision question, scope, evidence limits, said versus did, findings, competing explanations, implications and open gaps. |
 | [guide-research-report](../plugins/sdlc/skills/guide-research-report/SKILL.md) | development | Guide to writing a decision-oriented research report. Covers question, recommendation, evidence, alternatives, limits and open decision. |
 | [guide-rfc](../plugins/sdlc/skills/guide-rfc/SKILL.md) | development | Guide to writing a request for comments or technical proposal. Covers problem, current state, affected components, proposal, alternatives, impact and open decision. |
 | [guide-state-machine](../plugins/sdlc/skills/guide-state-machine/SKILL.md) | development | Guide to producing and reviewing state machines. Use for states, triggers, guards, terminal states, denied transitions, invariants and concurrent or retried behavior. |

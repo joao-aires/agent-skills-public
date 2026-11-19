@@ -7,6 +7,7 @@ Do not edit by hand.
 | --- | --- | --- |
 | Product brief / PRD | [prd.md](contracts/prd.md) | [guide-prd](../../guide-prd/SKILL.md) |
 | Roadmap | [roadmap.md](contracts/roadmap.md) | product method and technical writing |
+| Product feedback analysis | [product-feedback-analysis.md](contracts/product-feedback-analysis.md) | [guide-product-feedback-analysis](../../guide-product-feedback-analysis/SKILL.md) |
 | ECR | [ecr.md](contracts/ecr.md) | [guide-ecr](../../guide-ecr/SKILL.md) |
 | Research report | [research-report.md](contracts/research-report.md) | [guide-research-report](../../guide-research-report/SKILL.md) |
 | RFC | [rfc.md](contracts/rfc.md) | [guide-rfc](../../guide-rfc/SKILL.md) |
