@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "strategy",
-  "version": "0.2.0",
-  "description": "Multi-option business strategy, product priorities and evidence-based business direction.",
+  "version": "0.3.0",
+  "description": "Business strategy triggers, market/competitive/positioning decisions, strategy briefs and local strategy guides.",
   "author": {
     "name": "João Aires"
   },

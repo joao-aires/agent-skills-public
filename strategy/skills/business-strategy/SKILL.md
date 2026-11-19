@@ -35,7 +35,28 @@ The objective is to determine:
 - why the advantage can persist;
 - what evidence should cause the strategy to change.
 
-For product scope, prioritization, first useful slices and success measures within an accepted strategy, use [product management](../product-management/SKILL.md). This skill retains business direction, competitive position, economics and value-capture decisions. Product evidence can reopen strategy without making every feature a new strategy engagement.
+For product scope, prioritization, first useful slices and success measures within an accepted strategy, use installed `product-direction` expertise. This skill retains business direction, competitive position, economics and value-capture decisions. Product evidence can reopen strategy without making every feature a new strategy engagement.
+
+## Trigger Activities
+
+This skill owns the strategy logic: the six questions, modes, evidence discipline and references. Start from the request through the thin activity that owns its stopping point and handoff; load only the references that activity needs.
+
+| Request | Activity |
+|---|---|
+| Is this idea worth more investment? | [validate-idea](../validate-idea/SKILL.md) |
+| Who is the customer, and what do they do today? | [discover-customers](../discover-customers/SKILL.md) |
+| What does the market, segment or competition look like? | [run-market-scan](../run-market-scan/SKILL.md) |
+| What is our position, category and value claim? | [define-positioning](../define-positioning/SKILL.md) |
+| How do we charge, package and make the economics work? | [design-business-model](../design-business-model/SKILL.md) |
+| How do we reach and launch to the buyer? | [plan-go-to-market](../plan-go-to-market/SKILL.md) |
+| What experiment would prove or disprove this? | [test-assumptions](../test-assumptions/SKILL.md) |
+| What should the strategy be, and what are we excluding? | [set-strategy](../set-strategy/SKILL.md) |
+| What are the strategic initiatives, OKRs and capacity? | [build-strategic-roadmap](../build-strategic-roadmap/SKILL.md) |
+| Does the strategy still hold, and should we pivot or stop? | [review-strategy](../review-strategy/SKILL.md) |
+| Should we raise, how much, and for which milestone? | [raise-capital](../raise-capital/SKILL.md) |
+| What do the numbers, scenarios and runway say? | [model-finances](../model-finances/SKILL.md) |
+
+The activities are entry points, not a second copy of the method. **`set-strategy` is the commit and synthesis activity**: analysis, validation and design become a strategy only when it produces the integrated choices, exclusions, falsifiers and an accepted or explicitly proposed brief.
 
 ## Core Principles
 
@@ -111,9 +132,9 @@ The names `strategy-state.md` and `decision-log.md` below denote those roles. If
 
 ## Durable Outputs
 
-A strategy engagement may leave durable records such as the **strategy brief** — the current choices, economics, exclusions, assumptions and falsifiers — and the **market and competitive analysis** that supports it. Keep them consistent with the persistent state. Use `assets/strategy-brief.md` as a starting structure when no accepted brief exists; a bounded question can stay in the conversation. When a market or competitive analysis needs a durable, reviewable record, use the SDLC `research-report` contract rather than inventing a second artifact type; until an artifact contract exists, keep the brief in `strategy-state.md`.
+A strategy engagement may leave durable records such as the **strategy brief** — the current choices, economics, exclusions, assumptions and falsifiers — and the **market and competitive analysis** that supports it. Keep them consistent with the persistent state. Use `assets/strategy-brief.md` as a starting structure when no accepted brief exists; a bounded question can stay in the conversation. For the craft and review of the brief, use [craft-strategy-brief](../craft-strategy-brief/SKILL.md); for competitive analysis, [craft-competitive-analysis](../craft-competitive-analysis/SKILL.md). When a market or competitive analysis needs a durable, reviewable record, use the SDLC `research-report` contract rather than inventing a second artifact type; until an artifact contract exists, keep the brief in `strategy-state.md`.
 
-Product requirements, product roadmaps and engineering change records belong to the development lifecycle (SDLC). Strategy-level outcome and economic measures belong to the operating plan; product success measures within an accepted strategy belong to [product management](../product-management/SKILL.md). This skill supplies the direction those artifacts must remain consistent with; it does not produce a second copy of them.
+Product requirements, product roadmaps and engineering change records belong to the development lifecycle (SDLC). Strategy-level outcome and economic measures belong to the operating plan; product success measures within an accepted strategy belong to `product-direction` in `sdlc`. This skill supplies the direction those artifacts must remain consistent with; it does not produce a second copy of them.
 
 # Six Fundamental Strategy Questions
 

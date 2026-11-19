@@ -357,6 +357,7 @@ The conceptual model explains the layers; this map locates them in `sdlc`. It is
 | Method | Owns |
 | --- | --- |
 | `design-system` | Strategic architecture and tactical system design, including quality attributes |
+| `product-direction` | The product problem, priority, first useful slice and success signal within accepted strategy |
 | `requirements-engineering` | Elicitation, measurable constraints, conflict validation and acceptance links |
 | `design-security` | Trust boundaries, authority placement and security/privacy decisions |
 | `testing-resilience` | Failure, recovery and degradation verification |
