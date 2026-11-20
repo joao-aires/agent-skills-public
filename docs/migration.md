@@ -44,7 +44,7 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `documentation-writing` | `technical-writing` |
 | `engineering-workspace` | `artifact-system` storage references (`coordination`, `filesystem`, `providers`) |
 | `reliability-design` | `design-system` reliability reference |
-| `delivery-pipelines` | `release` delivery-pipelines reference |
+| `delivery-pipelines` | `ci-cd-pipelines` for pipeline design; `release` for the authorized action |
 | `plan-application-capacity`, `optimize-application-cost` | `analyze-capacity-cost` |
 | `credential-lifecycle`, `vulnerability-management` | `run-security-maintenance` |
 | `postmortem-facilitation`, `postmortem-followup` | `run-postmortem` |
@@ -56,8 +56,6 @@ Update saved references to renamed local skills. Upstream names remain unchanged
 | `protect-and-restore-data` | `guide-runbook` plus `design-system` continuity design |
 | `deliver-reliable-changes` | `test` (verification and completion evidence) |
 | Upstream `implement` | Local `implement` activity; upstream source link in the plugin README, no copied body |
-
-The local `review` and `change-review` activities are retired as separate skills. Review is now a composition: `code-review` for the code-diff axes, `test` for verification evidence, artifact assurance for convergence, and the guides/quality bar for artifact checks. Because “review” is an ordinary word used throughout the documentation, it is intentionally not listed as a retired skill identity in the table above.
 | `workflow-help` | `activity-system` (help mode) |
 | `engineering-artifacts` | `artifact-system` |
 | `documentation-conventions` | No direct replacement. Placement and home resolution move to `artifact-system`; the project-specific artifact home map is established by `setup` and `project-conventions`. |
@@ -65,12 +63,14 @@ The local `review` and `change-review` activities are retired as separate skills
 | `test-application-performance` | `performance-testing` |
 | `test-application-resilience` | `testing-resilience` |
 | `build-evaluated-ai` | `ai-development` |
-| `build-delivery-pipelines` | `delivery-pipelines` |
+| `build-delivery-pipelines` | `ci-cd-pipelines` for pipeline design; `release` for the authorized action |
 | `design-secure-features` | `design-security` |
 | `contribute-code` | `git-contributions` |
 | `architecture-diagraming` | `architecture-diagramming` |
 | Standalone `backup-recovery` | `guide-runbook` plus `design-system` continuity design |
-| Standalone `cicd-release-management` | `delivery-pipelines` |
+| Standalone `cicd-release-management` | `ci-cd-pipelines` for pipeline design; `release` for the authorized action |
+
+The local `review` and `change-review` activities are retired as separate skills. Review is now a composition: `code-review` for the code-diff axes, `test` for verification evidence, artifact assurance for convergence, and the guides and quality bar for artifact checks. Because "review" is an ordinary word used throughout the documentation, it is intentionally not listed as a retired skill identity in the table above.
 
 The artifact-system rename reflects a broader model, not just a new name. The skill now covers artifact types across intent, coordination, system knowledge, implementation, delivery and entry planes. `documentation-conventions` is retired: its generic placement method moved into the artifact system's artifact-homes reference, and its project-specific map is now a repository artifact established by `setup` and `project-conventions`. Update saved prompts to use `artifact-system` and the repository artifact home map.
 
@@ -164,3 +164,17 @@ Structural renames:
 `data-recovery` and `observability` are retired. Recovery design lives in `design-system/references/reliability-disaster-recovery.md`, recovery procedures in `guide-runbook`, and readiness evidence in `run-production-readiness-review`. Observability design lives in `design-system/references/observability-and-monitoring.md`; incident response owns response and operations review owns recurring hygiene.
 
 Rebuild bundles rather than overlaying an old installation.
+
+## Repository documentation paths
+
+The repository's own guides moved from `documentation/` to `docs/`. Relative links inside the repository were updated in the same change. External bookmarks or copied links need the new paths:
+
+| Previous path | Current path |
+| --- | --- |
+| `documentation/` | `docs/` |
+| `documentation/start-here.md` | `docs/usage.md#choose-a-path` |
+| `documentation/railway-analogy.md` | Removed; `docs/architecture.md` explains composition and fallback |
+| `documentation/maintainers/capability-expansion.md` | Removed; `docs/maintainers/sources.md` and the maintainer guide own current decisions |
+| `documentation/maintainers/guidance-audit.md` | Removed; `skill-authoring` and the maintainer guide own the authoring rule |
+
+Plugin package names, skill names and project artifact paths are unaffected. A project's own `documentation/` folder remains a valid project convention; this change applies only to this repository.

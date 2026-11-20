@@ -162,20 +162,19 @@ For any skill-only client, retain the complete built package and use supported d
 
 ## Select additional bundles
 
-Explicit `--plugin` arguments replace the default selection; repeat sdlc when you want it included. For a Python/React application with generic interface/service/delivery methods:
+Explicit `--plugin` arguments replace the default selection; repeat sdlc when you want it included. For a Python/React application with generic interface and service methods:
 
 ```bash
 python scripts/build_plugins.py \
   --plugin sdlc \
   --plugin frontend-development \
   --plugin backend-development \
-  --plugin delivery \
   --plugin backend-python-development \
   --plugin frontend-reactjs-development \
   --destination ./built-python-react
 ```
 
-Add strategy for product/business work, and documentation or visualization for those capabilities. Operations, delivery, security and governance are included in sdlc. AI-development supplies generic AI methods without a provider framework; select ai-python-development, ai-adk-development or ai-langchain-development only for an accepted implementation. Tool and infrastructure expertise are explicit additions too. See the [plugin catalogue](../README.md#choose-your-plugins).
+Select an exact plugin name from the [plugin table](../README.md#what-it-does). Unknown names fail the build; there is no separate `delivery` plugin because delivery, operations, security and governance are included in sdlc. Add strategy for product and business work, and documentation or visualization for those capabilities. AI-development supplies generic AI methods without a provider framework; select ai-python-development, ai-adk-development or ai-langchain-development only for an accepted implementation. Tool and infrastructure expertise are explicit additions too.
 
 To inspect every package rather than choose an application stack:
 
@@ -228,4 +227,4 @@ Each server acts as the signed-in user and inherits that account's permissions. 
 
 Linear also exposes read-only access at `https://mcp.linear.app/mcp/readonly`. GitHub exposes read-only variants such as `https://api.githubcopilot.com/mcp/readonly`; the declared `X-MCP-Toolsets: default,projects` header adds Projects tools to its default set. Use a read-only endpoint when the task only needs to inspect work.
 
-After installation, [choose your first activity](usage.md#skills-you-invoke).
+After installation, [choose your first activity](usage.md#invoke-an-activity).

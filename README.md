@@ -1,46 +1,12 @@
-# Agent Plugins
+# Agent Skills Public
 
-I use these skill bundles to build and operate applications and explore product ideas. My local skills capture conventions; bundled upstream skills add specialist techniques. Plugins follow the [Agent Plugins standard](https://agent-plugins.org/specification).
+A collection of reusable skills for coding agents. It packages the activities, methods and technical guidance I use to take software work from a rough request through design, implementation, verification and operation. Each plugin is an independent installation choice: no plugin requires another, and an activity keeps its outcome when optional specialist guidance is absent.
 
-Start with **sdlc** for the full software lifecycle. Add product, interface, backend, AI or technical methods when useful; delivery, operations, security and governance are included in sdlc. Existing project decisions take precedence; tickets are optional.
-
-| Start here | Go |
-| --- | --- |
-| Install or update the bundles | [Installation](documentation/installation.md) |
-| Choose a start-to-finish task path | [Start here](documentation/start-here.md) |
-| Understand the concepts and choose what to read | [Documentation map](documentation/README.md) |
-| See request patterns and examples | [Usage](documentation/usage.md) |
-| Maintain the collection | [Maintainer reference](documentation/maintainer-reference.md) |
-
-## Choose your plugins
-
-| Capability | Plugins | Installation choice |
-| --- | --- | --- |
-| Workflow | [sdlc](plugins/sdlc/), [strategy](plugins/strategy/) | Full SDLC work and product direction; business strategy triggers and guides |
-| Design | [sdlc](plugins/sdlc/) | Architecture and tactical system design, materially different options, artifact guides, seam and a recorded decision |
-| Application disciplines | [frontend-development](plugins/frontend-development/), [backend-development](plugins/backend-development/), [ai-development](plugins/ai-development/) | Interface methods; service behavior; AI design/testing/operations |
-| Supporting capabilities | [documentation](plugins/documentation/), [visualization](plugins/visualization/) | Writing, agent-instruction craft and architecture explanation; diagrams, presentations and explorers |
-| Host state integration | [integrations/sdlc-mod](integrations/sdlc-mod/) | Optional local SDLC conversation state for OpenCode and Claude Code |
-| Backend/client implementation | [backend-python-development](plugins/backend-python-development/), [frontend-reactjs-development](plugins/frontend-reactjs-development/), [frontend-native-development](plugins/frontend-native-development/) | Accepted Python; React; Tauri/Expo/native implementation |
-| Browser extensions | [browser-extension-development](plugins/browser-extension-development/) | Chrome/MV3 architecture, permissions, extension UI, runtime testing and store delivery. |
-| AI implementation | [ai-python-development](plugins/ai-python-development/), [ai-adk-development](plugins/ai-adk-development/), [ai-langchain-development](plugins/ai-langchain-development/) | Python/provider/MCP APIs; ADK; LangChain/LangGraph |
-| Selected tools/platforms | [development-tooling](plugins/development-tooling/), [operations-platforms](plugins/operations-platforms/) | Bash/testing/CI/container/diagnostics tools; JVM/Kubernetes troubleshooting, infrastructure delivery, AWS and AKS |
-| Database engineering | [database-development](plugins/database-development/) | Data contracts, consistency, schema evolution and evidence-led performance methods. |
-| PostgreSQL implementation | [database-postgresql-development](plugins/database-postgresql-development/) | PostgreSQL development, diagnostics, upgrades and operating mechanics, plus an acquired Supabase best-practices skill. |
-| Security engineering | [sdlc](plugins/sdlc/) | Unified security/privacy and identity/access design inside the lifecycle. |
-| SaaS applications | [saas-development](plugins/saas-development/) | Tenant/customer and commercial lifecycle, multi-tenancy, billing, organization identity, supporting services, dashboards and scoped readiness. |
-| Governance and assurance | [sdlc](plugins/sdlc/) | Scoped compliance assessment, accountable controls and GDPR/SOC 2/CCPA readiness evidence inside the lifecycle. |
-| TypeScript implementation | [typescript-development](plugins/typescript-development/) | Runtime/module/package contracts and TypeScript implementation verification without React. |
-| Go implementation | [go-development](plugins/go-development/) | Go module/package, lifecycle, error and verification contracts for services, libraries and CLIs. |
-
-The collection has 9 generic plugins and 12 technical plugins. Technical expertise applies only to matching accepted choices. No plugin requires installing another; an activity retains its outcome when optional guidance is absent.
+It is for people who use an agent such as Claude Code, Codex, OpenCode, Pi or VS Code with GitHub Copilot and want consistent engineering judgment rather than an ad-hoc prompt for each task. The repository is maintained for my own work and published as-is. Package and link checks run in CI; behavioral coverage is partial and recorded in the [evaluation notes](evals/README.md#recorded-evidence-and-limits).
 
 ## Quick start
 
-<a id="1-build-the-bundles"></a>
-<a id="2-load-them-in-your-client"></a>
-
-Install the published **sdlc** bundle, then add other capabilities as needed. The generated `claude-marketplace` branch contains complete bundles and catalogs for both clients.
+The published packages live on the generated `claude-marketplace` branch, which holds complete bundles and catalogs for Claude Code and Codex. You do not need this checkout to install them.
 
 **Claude Code**
 
@@ -55,56 +21,92 @@ claude plugin install sdlc@agent-skills-public
 codex plugin marketplace add joao-aires/agent-skills-public --ref claude-marketplace
 ```
 
-Open the plugin browser in a supported Codex client, install sdlc from Agent Skills Public, then start a new session. Open the application repository and confirm discovery before beginning work.
+Open the plugin browser in a supported Codex client, install `sdlc` from Agent Skills Public, then start a new session.
 
-[Installation and updates](documentation/installation.md) covers local builds, ChatGPT desktop, OpenCode, Pi, VS Code and other clients. It also explains marketplace refresh versus installed-plugin updates. If published output is unavailable, use the local-build route.
+For a local build instead, you need Git and Python 3.10+. Follow [installation](docs/installation.md#build-the-bundles) to create a virtual environment, build the bundles and load them in your client. The same page covers OpenCode, Pi, VS Code, ChatGPT desktop and updates.
 
-<a id="3-make-a-first-request"></a>
+### First useful result
 
-### Make a first request
+Open an application repository and start a new session so the client discovers the installed skills. Then request an activity by name and state the outcome and stopping point:
 
-Choose the activity explicitly: `/sdlc:develop` in Claude Code, or `develop` through Codex's skill picker. See [client setup and compatibility](documentation/installation.md#load-them-in-your-client) first. Plain requests below work where explicit skill selection by name is supported.
+```text
+Use develop to add read-only sharing to saved searches. Preserve the existing
+architecture, UI and private defaults. Ask about consequential decisions,
+state reversible assumptions and prepare a PR without merging.
+```
 
-| Starting point | Example request |
+In Claude Code the explicit form is `/sdlc:develop`; in Codex, select `develop` in the skill picker. A plain request such as "Use develop to..." works where the client supports selection by name.
+
+Expect the agent to inspect the repository, ask only about choices that materially change the result, make reversible assumptions explicit, implement a working slice and report checks and gaps. It stops where you asked it to; merge, deployment and external writes need separate authority.
+
+If you do not know which activity fits, use `/sdlc:activity-system` or ask `activity-system` for help.
+
+## What it does
+
+The `sdlc` bundle covers the full lifecycle: planning, requirements, design, implementation, testing, delivery, operations, security and governance. Add other bundles only for the capabilities the work needs.
+
+| Need | Install |
 | --- | --- |
-| New idea | Use develop to build a saved-search application. Ask about important decisions, state reversible assumptions and implement a useful first slice. Prepare a PR. |
-| Existing application | Use develop to add read-only sharing to saved searches. Preserve the existing architecture, UI and private defaults. |
-| Assess current work | Use test to verify the changed journey, then review the diff against the agreed behavior. |
+| Full software lifecycle, artifact guides, architecture and verification | [sdlc](plugins/sdlc/) |
+| Product and business direction | [strategy](plugins/strategy/) |
+| Interface design, design research and frontend implementation | [frontend-development](plugins/frontend-development/); [frontend-reactjs-development](plugins/frontend-reactjs-development/) or [frontend-native-development](plugins/frontend-native-development/) for an accepted stack |
+| Service design and backend implementation | [backend-development](plugins/backend-development/); [backend-python-development](plugins/backend-python-development/) for Python |
+| AI feature design, evaluation and operation | [ai-development](plugins/ai-development/); [ai-python-development](plugins/ai-python-development/), [ai-adk-development](plugins/ai-adk-development/) or [ai-langchain-development](plugins/ai-langchain-development/) for an implementation |
+| Data and database engineering | [database-development](plugins/database-development/); [database-postgresql-development](plugins/database-postgresql-development/) for PostgreSQL |
+| SaaS product behavior | [saas-development](plugins/saas-development/) |
+| Browser extensions | [browser-extension-development](plugins/browser-extension-development/) |
+| Platforms, delivery tooling and diagnostics | [operations-platforms](plugins/operations-platforms/), [development-tooling](plugins/development-tooling/) |
+| TypeScript or Go implementation | [typescript-development](plugins/typescript-development/), [go-development](plugins/go-development/) |
+| Writing, agent-instruction craft, diagrams and interactive explanation | [documentation](plugins/documentation/), [visualization](plugins/visualization/) |
+| Optional local SDLC state for OpenCode | [integrations/sdlc-mod](integrations/sdlc-mod/) |
 
-The agent should clarify consequential unknowns, define relevant behavior before coding, verify the result and report evidence or gaps. It proceeds within the requested scope; merge and deployment are separate actions. Use the `activity-system` help mode when unsure where to start.
+The collection has 21 plugins: 9 generic and 12 technical. Technical guidance applies only when the project has accepted the matching technology. The integration entry is separate from the plugin bundles: it is a local OpenCode plugin, not an Agent Plugin package.
 
-## How the guidance fits together
+Unlike a prompt collection, each skill names the outcome it owns, where it stops and what evidence completes the work. Plugins remain independent, so installing one does not pull in another or choose a technology for the project.
 
-Request the activity and stopping point. The agent seeks relevant expertise by capability and applies technical guidance only to the accepted stack. Specialists improve the work when available; without them, the activity still owns its outcome and uses project evidence, general expertise and appropriate primary sources. Missing execution tools remain a distinct verification limit.
+![Seven SDLC phases from project planning through maintenance, with feedback and shared expertise](docs/images/sdlc-cycle.svg)
 
-Plugins package capabilities; they are not dependency layers. Read [architecture and composition](documentation/architecture.md) for selection, fallback and the independent package boundaries.
-
-## SDLC coverage
-
-The [engineering artifacts and workspaces guide](documentation/artifact-workflow.md) shows how to record an engineering change, share a standalone research result and hand off work through an issue or PR. It links the artifact model, planes, homes, contracts, shared quality bar, workspace choices and proposed versus implemented diagram guidance. The [artifact system design note](plugins/sdlc/README.md) explains why code, tests, docs and change records are all artifacts with distinct authority, homes and evidence.
-
-
-![Seven SDLC phases from project planning through maintenance, with feedback and shared expertise](documentation/images/sdlc-cycle.svg)
-
-`develop` spans the useful cycle. Enter at the activity the work needs, repeat implementation and verification as evidence demands, and reopen affected decisions when product or operational learning changes the context. Project foundations and relevant specialist guidance support the work throughout. The arrows show outcome dependencies and feedback, not required task invocations or permission to release or deploy. Start with `plan` when deciding what to pursue, `refine` for requirements, or `develop` when you want an authorized end-to-end result; implementation preparation follows the relevant design decisions.
-
-[Compare typical starting points](documentation/sdlc.md#different-starting-points), [choose an activity](documentation/usage.md#skills-you-invoke) or explore the [linked skill map](documentation/sdlc.md).
+The cycle shows outcome dependencies, not a required sequence of skill invocations. Enter at the activity the work needs, repeat implementation and verification as evidence demands, and reopen earlier decisions when product or operating evidence changes. [SDLC coverage](docs/sdlc.md) explains the phases and entry points.
 
 ## Documentation
 
+Start with the [documentation map](docs/README.md) for the full set by reader need.
+
 | Guide | Question it answers |
 | --- | --- |
-| [Installation](documentation/installation.md) | How do I build, load and check the bundles? |
-| [Usage](documentation/usage.md) | What should I invoke, provide and expect? |
-| [Architecture](documentation/architecture.md) | How do skills compose, and what happens when expertise is absent? |
-| [SDLC coverage](documentation/sdlc.md) | Which skills support each phase and area? |
-| [Migration](documentation/migration.md) | How do I update an existing installation? |
-| [Maintainer reference](documentation/maintainer-reference.md) | How do I change, validate and evaluate the collection? |
+| [Installation](docs/installation.md) | How do I build, load, update and check the bundles? |
+| [Usage](docs/usage.md) | Which activity should I request, and what should I expect? |
+| [Architecture](docs/architecture.md) | How do activities, methods and technical guidance compose? |
+| [SDLC coverage](docs/sdlc.md) | Where does each capability fit in the lifecycle? |
+| [Engineering artifacts](docs/artifact-workflow.md) | How do I record a change, choose a home and hand off work? |
+| [Migration](docs/migration.md) | How do I replace an older installation or skill name? |
+| [Maintainer reference](docs/maintainer-reference.md) | How do I change, validate and evaluate the collection? |
 
-The bundles contain guidance and resources, without generated applications, configured MCP servers or hooks. Client tools and application dependencies are configured separately.
+## Development
 
-## Contributing
+Use a virtual environment and the validation dependencies from [installation](docs/installation.md#build-the-bundles). From the repository root:
 
-Keep guidance concise and project-independent. Run `python scripts/validate_plugins.py`, `python scripts/check_collection.py` and `python -m unittest discover -s tests -v` after changes. Local material is MIT; upstream resources retain their own licenses. See [AGENTS.md](AGENTS.md), the [maintainer checks](documentation/maintainer-reference.md#maintaining-the-collection) and [adding support for a tech stack](documentation/maintainers/adding-stack-support.md).
+```bash
+python scripts/validate_plugins.py
+python scripts/check_collection.py
+npm --prefix evals run lint
+python -m unittest discover -s tests -v
+python scripts/build_plugins.py --all --destination /tmp/built-agent-plugins
+python scripts/check_collection.py --built /tmp/built-agent-plugins
+```
 
-For new visual products or expressive web experiences, see [creative interface design](documentation/creative-interface.md): bundled design methods, discovery and feedback, implementation mechanisms and evidence-based acceptance.
+The destination must be new. The checks validate manifests, metadata, links, source pins, package resources and complete builds; they do not establish client discovery or agent behavior. Diagram sources under `docs/diagrams/` are rendered to `docs/images/` with Mermaid; the [maintainer reference](docs/maintainer-reference.md#maintaining-the-collection) has the command.
+
+## Support and contribution
+
+Use [GitHub Issues](https://github.com/joao-aires/agent-skills-public/issues) for defects and focused questions. There is no response-time commitment. Read [AGENTS.md](AGENTS.md) for repository rules and use the [git-contributions](plugins/sdlc/skills/git-contributions/SKILL.md) method for worktrees, commits and pull requests. Update affected documentation and run the checks above before opening a PR.
+
+## Status and limits
+
+This is a maintained personal collection, not a supported product or a compliance control. It contains instructions and resources only: no generated applications, configured MCP servers, credentials or deployment automation. Optional MCP endpoints are declared in plugin manifests; declaring one does not connect it. The `sdlc-mod` integration is a local state aid and does not grant or record authority.
+
+Guidance is versioned here and installed from a build. A client's discovery, invocation controls and instruction adherence depend on its version and configuration. Behavioral evaluation is incomplete: the [evaluation notes](evals/README.md#recorded-evidence-and-limits) record which scenarios ran, what they observed and what remains unverified. Package checks do not establish application correctness, production readiness or compliance.
+
+## License
+
+Repository-authored material is MIT licensed; see [LICENSE](LICENSE). Acquired skills retain their upstream licenses. Generated bundles include per-skill notices, and the [source catalogue](docs/maintainers/sources.md) records origins, pins and adaptations.

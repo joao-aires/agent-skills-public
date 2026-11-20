@@ -436,7 +436,7 @@ A compact artifact can pass; a long artifact can fail. The test is whether the r
 
 ## Migration
 
-Use `activity-system` for routing, `test` for verification and the repository artifact home map for placement. `guide-system-documentation` explains and records the current system. `writing-for-agents` moved to the documentation bundle; rebuild and reinstall documentation so the skill is discovered from its new owner. For old names and removal notes, see the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md).
+Use `activity-system` for routing, `test` for verification and the repository artifact home map for placement. `guide-system-documentation` explains and records the current system. `writing-for-agents` moved to the documentation bundle; rebuild and reinstall documentation so the skill is discovered from its new owner. For old names and removal notes, see the [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/docs/migration.md).
 
 ## MCP connections
 
@@ -474,5 +474,5 @@ Linear also exposes a read-only endpoint at `https://mcp.linear.app/mcp/readonly
 | Composition and fallback | [activity composition](skills/activity-system/references/composition.md) |
 | Coordination storage | [coordination storage](skills/artifact-system/references/storage/coordination.md) |
 | Repository foundations | [project conventions](skills/project-conventions/SKILL.md) |
-| User-facing guide | [engineering artifacts and workspaces](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/artifact-workflow.md) |
-| Migration from old names | [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/migration.md) |
+| User-facing guide | [engineering artifacts and workspaces](https://github.com/joao-aires/agent-skills-public/blob/main/docs/artifact-workflow.md) |
+| Migration from old names | [migration guide](https://github.com/joao-aires/agent-skills-public/blob/main/docs/migration.md) |

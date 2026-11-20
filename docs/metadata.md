@@ -53,7 +53,6 @@ The [artifact guide registry](../plugins/sdlc/skills/artifact-system/references/
 
 So `user-invocable: false` means “not a direct slash command,” not “hidden from the agent.” An agent can still read and apply the skill. `disable-model-invocation: true` is the actual auto-invocation gate.
 
-
 **Software type is not skill metadata.** A skill such as `design` is reusable across frontend, backend, AI and library/CLI work. The type belongs to the component and is recorded in the change, engagement thread or component inventory. Do not add a `software_type` field to `SKILL.md` or to acquired labels. Read [software types](../plugins/sdlc/skills/artifact-system/references/software-types.md) for the four types and the type-versus-constraint rules.
 
 ## Pack types
@@ -78,7 +77,7 @@ A pack is an install/update boundary. It is not an execution sequence.
 | Local skill classification | Each `SKILL.md` frontmatter |
 | Acquired skill classification and pins | `agent-depot.json` and `agent-depot.lock.json` |
 | Generated maintainer view | `python scripts/skill_map.py --inventory` |
-| Package ownership and counts | `documentation/maintainers/sources.md` |
+| Package ownership and counts | `docs/maintainers/sources.md` |
 
 Do not duplicate artifact types, homes, phases or evidence rules in every skill. Skill metadata classifies the skill; the artifact and activity catalogs own the detailed model.
 

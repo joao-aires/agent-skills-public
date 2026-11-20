@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Generate a filterable skills map from skill metadata.
 
-Writes documentation/skills-map.html and documentation/skills-map.md, or prints the
+Writes docs/skills-map.html and docs/skills-map.md, or prints the
 maintainer inventory matrix with --inventory. Both views are derived from the same
 skill metadata and agent-depot labels, so they cannot drift from each other.
 """
@@ -13,8 +13,7 @@ from pathlib import Path
 import yaml
 
 ROOT = Path(__file__).resolve().parents[1]
-OUTPUT = ROOT / 'documentation'
-
+OUTPUT = ROOT / 'docs'
 
 def acquired_labels():
     data = json.loads((ROOT / 'agent-depot.json').read_text())
@@ -26,13 +25,11 @@ def acquired_labels():
             labels[value['destination']] = packaging.get('labels', {})
     return labels
 
-
 def frontmatter(path):
     parts = path.read_text().split('---', 2)
     if len(parts) != 3:
         return {}
     return yaml.safe_load(parts[1]) or {}
-
 
 def build_rows():
     acquired = acquired_labels()
@@ -59,13 +56,11 @@ def build_rows():
         })
     return sorted(rows, key=lambda r: (r['pack'], r['domain'], r['kind'], r['name']))
 
-
 def counts(rows, key):
     result = {}
     for row in rows:
         result[row[key]] = result.get(row[key], 0) + 1
     return dict(sorted(result.items(), key=lambda item: (-item[1], item[0])))
-
 
 def table_rows(rows):
     cells = []
@@ -96,7 +91,6 @@ def table_rows(rows):
         )
     return '\n'.join(cells)
 
-
 def summary(rows):
     return (
         f"{len(rows)} skills · "
@@ -105,14 +99,11 @@ def summary(rows):
         f"{len({r['domain'] for r in rows})} domains"
     )
 
-
 def pack_summary(rows):
     return ' · '.join(f"{name} {count}" for name, count in counts(rows, 'pack').items())
 
-
 def kind_summary(rows):
     return ' · '.join(f"{name} {count}" for name, count in counts(rows, 'kind').items())
-
 
 def write_html(rows, destination):
     page = f'''<!doctype html>
@@ -208,7 +199,6 @@ for (const node of Object.values(nodes)) node.addEventListener('change', apply);
 '''
     destination.write_text(page)
 
-
 def write_markdown(rows, destination):
     packs = '\n'.join(f"| `{name}` | {count} |" for name, count in counts(rows, 'pack').items())
     kinds = '\n'.join(f"| `{name}` | {count} |" for name, count in counts(rows, 'kind').items())
@@ -267,17 +257,14 @@ Run `python scripts/skill_map.py` to regenerate this page and the HTML explorer.
 '''
     destination.write_text(page)
 
-
 INVENTORY_FIELDS = ('name', 'pack', 'domain', 'kind', 'phase', 'origin',
                     'scope', 'invocation', 'role', 'plugin')
-
 
 def write_inventory(rows):
     print('| Skill | Pack | Domain | Kind | Phase | Origin | Scope | Invocation | Role | Plugin |')
     print('| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |')
     for row in rows:
         print('| ' + ' | '.join(row[field] for field in INVENTORY_FIELDS) + ' |')
-
 
 def main():
     parser = argparse.ArgumentParser()
@@ -293,7 +280,6 @@ def main():
     write_html(rows, args.output_dir / 'skills-map.html')
     write_markdown(rows, args.output_dir / 'skills-map.md')
     print(f'Wrote {len(rows)} skills to {args.output_dir / "skills-map.html"} and .md')
-
 
 if __name__ == '__main__':
     main()

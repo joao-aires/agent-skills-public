@@ -36,7 +36,7 @@ A skill that cannot state its stopping point is probably an activity. A skill th
 `kind` is conceptual: `system`, `activity`, `method`, `workflow`, `guide` or `reference`.
 `role` is packaging: `task` or `support`.
 
-They are independent. A method can be a task entry point; an activity can be support in a larger composition. Native invocation controls are separate again. Use [metadata](https://github.com/joao-aires/agent-skills-public/blob/main/documentation/metadata.md) for the current fields and meanings.
+They are independent. A method can be a task entry point; an activity can be support in a larger composition. Native invocation controls are separate again. Use [metadata](https://github.com/joao-aires/agent-skills-public/blob/main/docs/metadata.md) for the current fields and meanings.
 
 ## Description and trigger
 

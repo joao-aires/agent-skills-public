@@ -57,7 +57,7 @@ def anchors(text):
 def maintained_documents(root):
     managed = {root / s['destination'] for s in load_sources(root, verify=False)}
     documents = {root / "README.md", root / "AGENTS.md",
-                 *(root / "documentation").rglob("*.md"), *root.glob("plugins/*/*.md"),
+                 *(root / "docs").rglob("*.md"), *root.glob("plugins/*/*.md"),
                  *root.glob("plugins/*/skills/*/**/*.md")}
     return sorted(d for d in documents
                   if not any(parent in managed for parent in d.parents))
@@ -79,7 +79,7 @@ def relative_links(document):
 def check_svg_xml(root):
     """Reject invalid maintained SVG sources before they reach generated docs."""
     errors = []
-    for asset in sorted((root / "documentation/images").glob("*.svg")):
+    for asset in sorted((root / "docs/images").glob("*.svg")):
         try:
             document = ET.parse(asset)
         except ET.ParseError as exc:
@@ -102,7 +102,7 @@ def check_links(root):
             elif fragment and target.suffix == ".md" and unquote(fragment) not in anchors(target.read_text()):
                 errors.append(f"{document.relative_to(root)}: missing heading {value}")
     # Migration is the maintained rename map. Historical selection notes are exempt.
-    migration = (root / "documentation/migration.md").read_text()
+    migration = (root / "docs/migration.md").read_text()
     old_names = set()
     for row in migration.splitlines():
         if row.startswith("| `") or row.startswith("| Standalone `"):
@@ -112,8 +112,8 @@ def check_links(root):
     # These nouns remain valid artifact or concept names after their former
     # skill was renamed or merged. Link resolution still catches stale paths.
     ambiguous = {"runbook", "postmortem", "observability", "data-recovery", "dependencies", "production-readiness"}
-    for asset in sorted([*(root / "documentation/diagrams").glob("*.mmd"),
-                         *(root / "documentation/images").glob("*.svg")]):
+    for asset in sorted([*(root / "docs/diagrams").glob("*.mmd"),
+                         *(root / "docs/images").glob("*.svg")]):
         text = asset.read_text()
         for old in sorted(retired - ambiguous):
             if re.search(r"(?<![\w-])" + re.escape(old) + r"(?![\w-])", text, re.I):
@@ -151,7 +151,7 @@ def check_links(root):
 
 def check_source_catalogue(root):
     """Keep the maintained ownership table aligned with real packaged skills."""
-    document = root / "documentation/maintainers/sources.md"
+    document = root / "docs/maintainers/sources.md"
     if not document.exists():
         return []
     body = document.read_text()
