@@ -1,9 +1,10 @@
 ---
 name: project-conventions
 description: Establish or maintain an application repository's structure, stack constraints,
-  scoped AGENTS.md, local setup and delivery conventions. Use when explicitly asked
-  to start, organize or review a project, or when the requested change affects those
-  foundations; keep ordinary feature work within existing conventions.
+  repository instruction files for coding agents, local setup and delivery conventions.
+  Use when starting, organizing or reviewing a project, or when repository guidance,
+  commands or agent instructions need to be created, audited or updated; keep ordinary
+  feature work within existing conventions.
 metadata:
   kind: method
   origin: local
