@@ -89,7 +89,7 @@ Do not duplicate artifact types, homes, phases or evidence rules in every skill.
 | Skill metadata, packs and containment | `python scripts/validate_plugins.py` |
 | Maintained links and names | `python scripts/check_collection.py` |
 | Generated skill inventory | `python scripts/skill_map.py --inventory` |
-| Scenario definitions | `python scripts/validate_evaluations.py` |
+| Eval config and case lint | `npm --prefix evals run lint` |
 
 Local skills require the full classification. Acquired labels are validated from `agent-depot.json`; do not add them by editing upstream files.
 

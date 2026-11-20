@@ -1,0 +1,36 @@
+description: artifact-system-plane-and-home
+metadata:
+  gate: pr
+  stage: cross-phase
+  kind: artifact
+vars:
+  id: artifact-system-plane-and-home
+  prompt: |
+    Classify these artifacts: docs/architecture/current.md, docs/runbook/oncall.md,
+    docs/ecr/search-filter.md and tests/test_search.py. Also classify
+    docs/architecture/proposed-export.md. Write docs/classification.md with a markdown
+    table using the columns Artifact, Type, Plane, Home, Authority, Maturity. Label the
+    proposed view as proposed, not current. Do not edit or publish anything else.
+  fixture: fixtures/artifact-workspace
+  timeout_sec: 300
+  expect:
+    exit: 0
+    files:
+      present: [docs/classification.md]
+      contains:
+        docs/classification.md:
+          - docs/architecture/current.md
+          - docs/runbook/oncall.md
+          - docs/ecr/search-filter.md
+          - tests/test_search.py
+          - proposed
+          - coordination
+          - implementation
+    diff:
+      max_files: 1
+      allowed: [docs/classification.md]
+  judge:
+    rubric: Plane is distinguished from storage home, the ECR is a coordination spine, and proposed claims are not presented as current.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

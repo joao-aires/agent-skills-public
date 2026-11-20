@@ -1,0 +1,29 @@
+description: compact-ecr-local-fix
+metadata:
+  gate: pr
+  stage: implement
+  kind: artifact
+vars:
+  id: compact-ecr-local-fix
+  prompt: |
+    Fix the pagination defect described in BUG.md. Keep the smallest correct change, run
+    the existing tests, and record the repair in ECR.md with the headings "Change" and
+    "Verification". State that release and deployment are not applicable. Do not create a
+    plan, a design package or an architecture record.
+  fixture: fixtures/bug-fix
+  timeout_sec: 300
+  expect:
+    exit: 0
+    headings:
+      ECR.md: [Change, Verification]
+    commands:
+      - run: python3 -m unittest -q
+        exit: 0
+    diff:
+      max_files: 4
+      allowed: [inventory.py, test_inventory.py, ECR.md]
+  judge:
+    rubric: The record is proportionate to a one-component local fix and does not add empty design or architecture sections.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

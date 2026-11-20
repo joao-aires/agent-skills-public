@@ -76,12 +76,12 @@ From a checkout with the [validation dependencies installed](../installation.md#
 ```bash
 python scripts/validate_plugins.py
 python scripts/check_collection.py
-python scripts/validate_evaluations.py
+npm --prefix evals run lint
 python -m unittest discover -s tests -v
 ```
 
 Build into a fresh destination with explicit selections that include the addition. A new manifest participates in the all-plugin and independent CI builds automatically. Run `python scripts/check_collection.py --built <destination>` against a complete all-plugin build; that checker expects every package unless repeated `--plugin` arguments identify an intentionally selected build. Use both complete and independent builds for a packaging contribution. Check inventories, notices, resource parity and duplicate names before publishing. The [maintainer guide](../maintainer-reference.md#maintaining-the-collection) owns the general contribution checks.
 
-Before claiming behavioral support, run appropriately scoped [evaluations](evaluations.md) and retain the evidence at the tested revision. Useful cases include a matching-stack implementation, an existing application whose different stack must remain intact, and a standalone installation missing optional methods. Verify relevant application behavior with the stack's real tools; package checks alone cannot establish it. Native, live-service and publication boundaries require their own capabilities and authorization.
+Before claiming behavioral support, run appropriately scoped [evaluations](../../evals/README.md) and retain the evidence at the tested revision. Useful cases include a matching-stack implementation, an existing application whose different stack must remain intact, and a standalone installation missing optional methods. Verify relevant application behavior with the stack's real tools; package checks alone cannot establish it. Native, live-service and publication boundaries require their own capabilities and authorization.
 
 For the illustrative Go extension, a representative path would be: design the service contract with generic methods, implement it using Go conventions, exercise meaningful service behavior with compatible tools, then verify the applicable build and delivery artifacts. Evaluate whether the agent applies that expertise within the requested activity and stops at the agreed outcome. A small bug fix should still remain a small bug fix.

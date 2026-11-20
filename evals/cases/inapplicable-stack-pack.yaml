@@ -1,0 +1,31 @@
+description: inapplicable-stack-pack
+metadata:
+  gate: nightly
+  stage: implement
+  kind: artifact
+vars:
+  id: inapplicable-stack-pack
+  bundles: sdlc,frontend-reactjs-development
+  prompt: |
+    Add a NoteCount component to this Vue 3 application that renders "N notes" for the
+    current note list. Follow the existing single-file-component and Composition API
+    conventions. Do not introduce React or change the build setup.
+  fixture: fixtures/vue-project
+  timeout_sec: 600
+  expect:
+    exit: 0
+    files:
+      present: [src/components/NoteCount.vue]
+      contains:
+        src/components/NoteCount.vue: ['<template>', note]
+    commands:
+      - run: '! grep -rEq "from[[:space:]]+.react.|require\(.react.\)" src package.json'
+        exit: 0
+    diff:
+      max_files: 4
+      allowed: [src/, tests/, README.md]
+  judge:
+    rubric: The implementation follows the project's Vue conventions and does not apply the installed React pack as if it were the project stack.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

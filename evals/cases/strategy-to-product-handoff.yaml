@@ -1,0 +1,30 @@
+description: strategy-to-product-handoff
+metadata:
+  gate: nightly
+  stage: refine
+  kind: artifact
+vars:
+  id: strategy-to-product-handoff
+  prompt: |
+    Turn the accepted strategy brief in docs/strategy/brief.md into a product direction and
+    a handoff for the first slice. Write docs/product/direction.md. Link the strategy brief,
+    name the target customer, the outcome and one success measure, and state the evidence
+    limits. Do not invent new market research or pricing.
+  fixture: fixtures/strategy-workspace
+  timeout_sec: 600
+  expect:
+    exit: 0
+    files:
+      present: [docs/product/direction.md]
+      contains:
+        docs/product/direction.md: [success measure, limit]
+    links:
+      docs/product/direction.md: [../strategy/brief.md]
+    diff:
+      max_files: 2
+      allowed: [docs/product/]
+  judge:
+    rubric: The handoff carries accepted strategy into a bounded product direction without inventing market evidence or a feature roadmap.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

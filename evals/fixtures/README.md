@@ -1,6 +1,6 @@
-# Behavioral evaluation fixtures
+# Eval fixtures
 
-Initial states for the scenarios in `evals/behavioral-scenarios.json`. Copy a fixture to a fresh temporary directory before each run; never run the actor in the fixture itself.
+Initial states for the cases in `evals/cases/`. The provider copies a fixture to a fresh temporary directory before each run; never run the actor in the fixture itself.
 
 | Fixture | Initial state | Check |
 | --- | --- | --- |
@@ -9,7 +9,12 @@ Initial states for the scenarios in `evals/behavioral-scenarios.json`. Copy a fi
 | `bug-fix` | Pagination library with a deliberate off-by-one | `python3 -m unittest -v` → 3 failures |
 | `ideation` | `IDEA.md` only | No code, tests or docs exist |
 
-## Run
+Other fixtures are named by their cases: `notes-cli`, `design-system-app`, `boundary-service`,
+`release-app`, `dependency-records`, `artifact-workspace`, `feedback-workspace`,
+`strategy-workspace`, `vue-project`, `auth-service`, `readiness-service`, `architecture-notes`
+and `empty`.
+
+## Inspect a fixture
 
 ```bash
 tmp=$(mktemp -d)

@@ -1,0 +1,36 @@
+description: design-small-change-no-ceremony
+metadata:
+  gate: pr
+  stage: design
+  kind: artifact
+vars:
+  id: design-small-change-no-ceremony
+  prompt: |
+    Use design to change the save button label from "Save" to "Save changes" and align its
+    spacing with the existing design system. Record the decision in
+    docs/design/save-button.md with a "Decision" heading and name the token you reuse.
+    Do not implement the change.
+  fixture: fixtures/design-system-app
+  timeout_sec: 300
+  expect:
+    exit: 0
+    files:
+      present: [docs/design/save-button.md]
+      contains:
+        docs/design/save-button.md:
+          - Save changes
+          - --space-
+      not_contains:
+        docs/design/save-button.md:
+          - Option A
+          - three options
+    headings:
+      docs/design/save-button.md: [Decision]
+    diff:
+      max_files: 2
+      allowed: [docs/design/]
+  judge:
+    rubric: The decision is short, reuses the accepted design system and does not invent an option set or new visual direction.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

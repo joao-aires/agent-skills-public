@@ -16,7 +16,7 @@ Use this page when changing the collection. For installation and everyday use, s
 | Add a framework, language or platform | [Adding stack support](maintainers/adding-stack-support.md) |
 | Acquire, verify or update committed snapshots | [Upstream maintenance](maintainers/upstreams.md) |
 | Check origins, licenses, adaptations or selection decisions | [Sources and compatibility](maintainers/sources.md) |
-| Run behavior trials or inspect evidence and open limits | [Evaluating the collection](maintainers/evaluations.md) |
+| Run evals or inspect evidence and open limits | [Evaluation suite](../evals/README.md) |
 | Find skills by development phase | [SDLC map](sdlc.md) |
 | Rename or replace an installed skill | [Migration](migration.md) |
 
@@ -30,7 +30,7 @@ Use this page when changing the collection. For installation and everyday use, s
 ```bash
 python scripts/validate_plugins.py
 python scripts/check_collection.py
-python scripts/validate_evaluations.py
+npm --prefix evals run lint
 python scripts/artifact_registry.py
 # Regenerate a Mermaid diagram (requires Node/npx and a local Chrome):
 # PUPPETEER_EXECUTABLE_PATH="/Applications/Google Chrome.app/Contents/MacOS/Google Chrome" \
@@ -92,7 +92,7 @@ Select only relevant expertise, reuse accepted decisions and preserve existing s
 | Verification and completion evidence | verification |
 | Domain methods and exceptions | Relevant specialist skill |
 
-Link the owner instead of copying its rules. Optional guidance is selected from actual inventory and relevance; it does not require a dependency engine. Consolidate further only after [behavior trials](maintainers/evaluations.md#compare-and-simplify) show what agents actually read or miss.
+Link the owner instead of copying its rules. Optional guidance is selected from actual inventory and relevance; it does not require a dependency engine. Consolidate further only after [eval comparisons](../evals/README.md#compare-and-simplify) show what agents actually read or miss.
 
 When revising a skill, start from the decision it helps make and the evidence that marks completion. Keep the principle, its applicability and the required outcome together. State the desired behavior directly; reserve strict sequences for dependencies and operational invariants that require them. Use Matt's pinned `writing-for-agents` for instruction hierarchy and pruning.
 

@@ -1,0 +1,33 @@
+description: product-feedback-consumed-by-plan
+metadata:
+  gate: nightly
+  stage: refine
+  kind: decision
+vars:
+  id: product-feedback-consumed-by-plan
+  prompt: |
+    Use plan to decide the next small slice for saved search. The existing analysis at
+    docs/research/product-feedback-2026-11.md is the only product evidence authority. Do
+    not rerun it, contact users, add tracking or invent evidence. Write the decision to
+    docs/plan/next-slice.md, cite the analysis path and state the open decision it leaves.
+  fixture: fixtures/feedback-workspace
+  timeout_sec: 600
+  expect:
+    exit: 0
+    files:
+      present: [docs/plan/next-slice.md]
+      contains:
+        docs/plan/next-slice.md:
+          - docs/research/product-feedback-2026-11.md
+          - open decision
+    commands:
+      - run: 'test "$(find docs -name "*feedback*" -type f | wc -l | tr -d " ")" = 1'
+        exit: 0
+    diff:
+      max_files: 2
+      allowed: [docs/plan/]
+  judge:
+    rubric: The plan consumes the supplied analysis and its limits; it does not produce a second feedback narrative or new user evidence.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

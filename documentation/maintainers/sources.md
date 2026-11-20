@@ -244,7 +244,7 @@ I also reviewed prioritize-features and identify-assumptions-new at [phuryn/pm-s
 
 product-direction is original local guidance. It uses the accepted product outcomes and existing evidence/decision principles, with optional frameworks and no required research format, tracker, scoring formula or commercial study. Acquired resources retain reviewed pins, licenses and native controls, with scoped adaptations recorded in notices. The same principle guides the visual/backend/AI ownership split: preserve useful technical invariants and explicit preferences without repeating an entire product process in each stack.
 
-Independently installable bundles retain concise essential defaults and discover optional methods through the observed inventory. Missing guidance does not select another stack, authorize installation or eliminate required outcomes. I preserve the seven-phase lifecycle, project foundations, implementation/verification loop and consequential-decision policy. Repository checks do not establish improved routing or application outcomes; see [evaluation status](evaluations.md#current-status).
+Independently installable bundles retain concise essential defaults and discover optional methods through the observed inventory. Missing guidance does not select another stack, authorize installation or eliminate required outcomes. I preserve the seven-phase lifecycle, project foundations, implementation/verification loop and consequential-decision policy. Repository checks do not establish improved routing or application outcomes; see [evaluation status](../../evals/README.md#current-status).
 
 <a id="target-plugin-ownership"></a>
 

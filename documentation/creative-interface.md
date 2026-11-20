@@ -16,7 +16,7 @@ The existing [visual direction](../plugins/frontend-development/skills/interface
 
 ## Acceptance protocol
 
-The [evaluation specification](../evals/development-workflows.json) includes `creative-premium-landing`, `creative-existing-dashboard`, `creative-motion-workspace`, `design-feedback-resumption`, and `bundled-design-routing`. These are defined acceptance scenarios, not recorded proof of improved agent performance. Use the [evaluation procedure](maintainers/evaluations.md) to retain actual execution evidence.
+The runnable suite includes a design-proportionality case and a product-feedback planning case in [`evals/cases/`](../evals/cases/), mapped through [`flows.yaml`](../evals/flows.yaml). These are defined acceptance checks, not recorded proof of improved agent performance. Use the [evaluation procedure](../evals/README.md) to retain actual execution evidence. Keep the broader baseline/candidate generation comparison below as a separate, explicitly recorded study.
 
 For a baseline/candidate comparison, build `frontend-development` at main before this change and at the candidate commit in separate disposable directories. Use the same model/version, starting repository, prompt, supplied assets, tool permissions, time/token budget, browser/device profile and user replies. Keep evaluator criteria out of actor context. Run each generation scenario at least three times per revision when resources allow; counterbalance order and have reviewers assess anonymized outputs. Record deviations and incomplete runs. Compare quality and cost together rather than accepting extra work as automatic improvement.
 
