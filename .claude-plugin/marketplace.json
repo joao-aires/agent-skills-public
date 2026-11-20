@@ -111,7 +111,7 @@
       "name": "sdlc",
       "source": "./sdlc",
       "description": "Full SDLC activities, artifact and activity systems, design-system architecture and tactical design, requirements, product direction, product feedback analysis, delivery, operations, security and governance assurance.",
-      "version": "1.12.2"
+      "version": "1.12.3"
     },
     {
       "name": "strategy",
