@@ -7,13 +7,10 @@ description: >-
   changing an existing one, independent of the implementation language.
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: tooling
   phase: design
   scope: generic
   invocation: both
-  role: support
 user-invocable: true
 ---
 

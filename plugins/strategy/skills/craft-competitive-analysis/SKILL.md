@@ -4,13 +4,10 @@ description: 'Craft and review competitive analysis: choose the competitor set, 
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: product
   domain: product
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Competitive analysis guide

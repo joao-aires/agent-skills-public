@@ -4,13 +4,10 @@ description: Design a GraphQL schema and API contract covering domain types, nul
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: backend
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Design the GraphQL schema as a contract

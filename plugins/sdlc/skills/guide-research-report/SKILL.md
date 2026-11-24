@@ -4,13 +4,10 @@ description: Guide to writing a decision-oriented research report. Covers questi
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: development
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Research report guide

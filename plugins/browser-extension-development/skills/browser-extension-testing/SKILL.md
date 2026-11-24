@@ -4,13 +4,10 @@ description: Plan and execute Chrome MV3 unit, component and real-extension test
 user-invocable: false
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: browser-extension
   phase: cross-phase
   scope: stack-specific
   invocation: both
-  role: support
   stack: Chrome, Manifest V3, Playwright, Puppeteer
   source: https://github.com/quangpl/browser-extension-skills/tree/249886cf8137086792b6c3a5a2f7adce117a9f8d
 ---

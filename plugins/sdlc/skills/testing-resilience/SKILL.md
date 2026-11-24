@@ -6,13 +6,10 @@ description: Design, implement, run or review controlled failure tests for appli
   target; choose proportionate fixtures or experiments without requiring a chaos platform.
 metadata:
   kind: method
-  origin: local
-  pack: sdlc
   domain: development
   phase: testing
   scope: generic
   invocation: agent
-  role: support
 user-invocable: false
 ---
 

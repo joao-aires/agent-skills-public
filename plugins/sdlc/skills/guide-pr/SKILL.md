@@ -4,13 +4,10 @@ description: Guide to writing a pull request description. Covers why, what chang
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: development
   phase: testing
   scope: generic
   invocation: both
-  role: support
 ---
 
 # PR guide

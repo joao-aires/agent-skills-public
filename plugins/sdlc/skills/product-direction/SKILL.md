@@ -4,13 +4,10 @@ description: Set product direction from user problems, evidence and constraints.
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: sdlc
   domain: development
   phase: planning
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Set product direction

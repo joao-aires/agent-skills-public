@@ -6,14 +6,11 @@ description: Diagnose a running Kubernetes workload or cluster problem from obse
   or managed-cluster differences. It does not provision clusters or design manifests.
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: platform
   phase: maintenance
   scope: stack-specific
   stack: Kubernetes
   invocation: both
-  role: support
 user-invocable: true
 ---
 

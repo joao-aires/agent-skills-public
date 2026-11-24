@@ -3,22 +3,19 @@ name: run-security-maintenance
 description: Run credential lifecycle and vulnerability remediation operations — inventory, issue, rotate, revoke and retire credentials, and triage, remediate and verify findings across dependencies, images, infrastructure and deployed targets.
 metadata:
   kind: activity
-  origin: local
   scope: generic
   invocation: both
-  role: task
   phase: maintenance
-  pack: sdlc
   domain: security
 ---
 
 # Run security maintenance
 
-Maintain the two security surfaces that change without a feature release: credentials and vulnerabilities. This is an operations activity, not a security design or compliance assessment. Design decisions belong to [design-security](../design-security/SKILL.md), scoped code fixes to [harden](../harden/SKILL.md), and applicability and evidence to [run-compliance-assessment](../run-compliance-assessment/SKILL.md).
+Maintain the two security surfaces that change without a feature release: credentials and vulnerabilities. Stop at verified remediation or retained residual risk.
+
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. This is an operations activity, not a security design or compliance assessment. Design decisions belong to [design-security](../design-security/SKILL.md), scoped code fixes to [harden](../harden/SKILL.md), and applicability and evidence to [run-compliance-assessment](../run-compliance-assessment/SKILL.md).
 
 Both surfaces follow the same operating loop: establish the authoritative inventory, connect each item to the actual consumer or deployed artifact, remediate within authority, verify the real target, and retain the residual risk.
-
-Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
 
 ## Choose the work
 
@@ -28,7 +25,7 @@ Read [activity system](../activity-system/SKILL.md) for scope and stopping point
 
 ## Operating rules
 
-- Use the authoritative system of record for credential metadata and scanner findings. Link it; do not create a competing Markdown copy.
+- Use the authoritative system of record for credential metadata and scanner findings. Link it. Do not create a competing Markdown copy.
 - Keep secret values out of reports, tickets, logs and generated artifacts. Record metadata and status, not values.
 - Connect each finding or credential to the affected service, artifact and environment before deciding severity or remediation.
 - Execute rotation, revocation, rollout, status and risk acceptance only within the job's explicit authority.
@@ -37,4 +34,4 @@ Read [activity system](../activity-system/SKILL.md) for scope and stopping point
 
 ## Completion evidence
 
-Report the inventory scope, findings by target, actions, verification, overdue or blocked work, residual risk and owner. Distinguish discovered, issued, migrated, verified, revoked, fixed, deployed and closed states. Use the ECR or [Run operations review](../run-operations-review/SKILL.md) for the durable summary; keep the detector and secret manager as the operational authorities.
+Report the inventory scope, findings by target, actions, verification, overdue or blocked work, residual risk and owner. Distinguish discovered, issued, migrated, verified, revoked, fixed, deployed and closed states. Use the ECR or [Run operations review](../run-operations-review/SKILL.md) for the durable summary. Keep the detector and secret manager as the operational authorities.

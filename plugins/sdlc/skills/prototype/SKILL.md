@@ -6,13 +6,10 @@ description: Build a throwaway probe that answers one design question about logi
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: sdlc
   domain: design
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Prototype: build a throwaway probe

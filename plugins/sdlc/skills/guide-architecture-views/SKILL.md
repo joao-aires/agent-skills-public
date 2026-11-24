@@ -4,13 +4,10 @@ description: Guide to producing and reviewing C4 and sequence views. Use for sys
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: visualization
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Architecture view guide

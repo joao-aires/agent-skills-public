@@ -4,13 +4,10 @@ description: Prepare or review Chrome MV3 release packages and Chrome Web Store 
 user-invocable: false
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: browser-extension
   phase: cross-phase
   scope: stack-specific
   invocation: both
-  role: support
   stack: Chrome, Manifest V3, Chrome Web Store
   source: https://github.com/quangpl/browser-extension-skills/tree/249886cf8137086792b6c3a5a2f7adce117a9f8d
 ---

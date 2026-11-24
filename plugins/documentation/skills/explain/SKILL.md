@@ -4,13 +4,10 @@ description: Explain a concept to a specific reader so they can predict, apply o
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: craft
   domain: documentation
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Explain an idea so it can be used

@@ -13,16 +13,16 @@ def write_skill(root, **overrides):
     fields = {
         "invocation": "agent",
         "kind": "method",
-        "pack": "sdlc",
         "domain": "development",
         "phase": "design",
-        "role": "support",
-        "origin": "local",
         "scope": "generic",
     }
     fields.update(overrides)
     metadata = "\n".join(f"  {key}: {value}" for key, value in fields.items())
-    path = root / "plugins/example/skills/example-skill"
+    plugin = root / "plugins/example"
+    plugin.mkdir(parents=True)
+    (plugin / "plugin.json").write_text('{"extensions": {"com.joao-aires.agent-skills": {"pack": "sdlc"}}}')
+    path = plugin / "skills/example-skill"
     path.mkdir(parents=True)
     (path / "SKILL.md").write_text(
         "---\n"

@@ -4,13 +4,10 @@ description: Define application-service behavior, authority, state and interface
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: backend
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Define backend behavior before choosing implementation details

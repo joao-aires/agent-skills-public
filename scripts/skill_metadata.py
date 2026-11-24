@@ -1,5 +1,7 @@
 """Shared Agent Skills frontmatter checks for source and built packages."""
+import json
 import re
+from pathlib import Path
 
 import yaml
 
@@ -7,6 +9,39 @@ try:
     from skill_schema import DOMAINS, INVOCATIONS, KINDS, ORIGINS, PACKS, PHASES, ROLES, SCOPES
 except ModuleNotFoundError:
     from scripts.skill_schema import DOMAINS, INVOCATIONS, KINDS, ORIGINS, PACKS, PHASES, ROLES, SCOPES
+
+SKILL_EXTENSION = 'com.joao-aires.agent-skills'
+
+
+def plugin_pack(skill):
+    """Read the pack declared once on the plugin manifest."""
+    manifest = next((parent / 'plugin.json' for parent in Path(skill).resolve().parents
+                     if (parent / 'plugin.json').is_file()), None)
+    if manifest is None:
+        raise ValueError(f'Missing plugin manifest for skill: {skill}')
+    try:
+        extensions = json.loads(manifest.read_text()).get('extensions', {})
+    except (OSError, ValueError) as error:
+        raise ValueError(f'Invalid plugin manifest {manifest}: {error}') from error
+    pack = extensions.get(SKILL_EXTENSION, {}).get('pack')
+    if pack not in PACKS:
+        raise ValueError(f'Missing or invalid plugin pack in {manifest}: {pack!r}')
+    return pack
+
+
+def derived_role(kind):
+    """Activity skills are entry points; every other kind supports one."""
+    return 'task' if kind == 'activity' else 'support'
+
+
+def local_skill_labels(metadata, skill):
+    """Merge declared local labels with the values derived from kind and the plugin."""
+    labels = dict(metadata.get('metadata') or {})
+    kind = labels.get('kind')
+    labels['origin'] = 'local'
+    labels['pack'] = plugin_pack(skill)
+    labels['role'] = labels.get('role') if kind == 'system' else derived_role(kind)
+    return labels
 
 
 def validate_skill_metadata(skill):
@@ -75,11 +110,17 @@ def validate_skill_metadata(skill):
 def validate_local_skill_classification(skill):
     """Require the small local classification layer without constraining acquired snapshots."""
     metadata = validate_skill_metadata(skill)
-    labels = metadata.get('metadata', {})
-    required = ('scope', 'invocation', 'kind', 'pack', 'domain', 'phase', 'role', 'origin')
+    labels = metadata.get('metadata') or {}
+    required = ('scope', 'invocation', 'kind', 'domain', 'phase')
     missing = [field for field in required if not labels.get(field)]
     if missing:
         raise ValueError(f'Missing local skill classification {missing}: {skill}')
-    if labels.get('origin') != 'local':
-        raise ValueError(f'Local skill origin must be local: {skill}')
+    if labels.get('kind') == 'system' and not labels.get('role'):
+        raise ValueError(f'Missing local skill role for system kind: {skill}')
+    derived = local_skill_labels(metadata, skill)
+    for field in ('origin', 'pack', 'role'):
+        if labels.get(field) and labels[field] != derived[field]:
+            raise ValueError(
+                f'Local skill {field} must be derived as {derived[field]!r}, '
+                f'not {labels[field]!r}: {skill}')
     return metadata

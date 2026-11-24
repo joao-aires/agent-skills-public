@@ -7,13 +7,10 @@ description: Design or evolve SaaS tenancy, organization/customer lifecycle and 
 license: MIT
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: saas
   phase: design
   scope: generic
   invocation: both
-  role: support
   references: ../../references/sources.md
 user-invocable: true
 ---

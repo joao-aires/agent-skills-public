@@ -9,13 +9,10 @@ description: Build an explorable, standalone HTML architecture and message-flow 
   or application feature implementation.
 metadata:
   kind: activity
-  origin: local
-  pack: craft
   domain: visualization
   phase: cross-phase
   scope: generic
   invocation: user
-  role: task
 compatibility: Python 3.10+ standard library for validation and rendering. Optional
   browser verification uses an existing Playwright installation; delivered HTML needs
   no dependencies or server.
@@ -23,23 +20,23 @@ compatibility: Python 3.10+ standard library for validation and rendering. Optio
 
 # System flow explorer
 
-Build an explanation a reader can explore without losing the user scenario. Choose a task the system supports and follow its messages, state changes and external interactions. Structural views show who owns that work; sequence views show how it unfolds. Depth changes reveal detail within the same explanation rather than creating a different story at each level.
+Build an explanation a reader can explore without losing the user scenario, and stop at the rendered explorer with its source JSON. Choose a task the system supports and follow its messages, state changes and external interactions. Structural views show who owns that work. Sequence views show how it unfolds. Depth changes reveal detail within the same explanation rather than creating a different story at each level.
 
 Produce one self-contained HTML file backed by a canonical JSON model. Use the bundled renderer rather than generating scenario-specific JavaScript. Deliver the source JSON alongside the HTML so later refinement can preserve the identities and evidence behind the views.
 
-Use this when an interactive architecture artifact is requested. For an evidence inventory or topology review without an explorer, use current-system mapping expertise when available; for a compact static diagram, use `architecture-diagramming`. Reuse their evidence rather than repeat discovery. The renderer is an optional documentation artifact, not application scaffolding.
+Use this when an interactive architecture artifact is requested. For an evidence inventory or topology review without an explorer, use current-system mapping expertise when available. For a compact static diagram, use `architecture-diagramming`. Reuse their evidence rather than repeat discovery. The renderer is an optional documentation artifact, not application scaffolding.
 
 ## Workflow
 
-1. Identify the repository/service or proposed design, the audience, and the user scenarios. Infer these from the conversation; ask only about material gaps. Repository analysis and ideation are both first-class modes. A mixed design should label each implemented, proposed, and unresolved part individually.
+1. Identify the repository/service or proposed design, the audience, and the user scenarios. Infer these from the conversation. Ask only about material gaps. Repository analysis and ideation are both first-class modes. A mixed design should label each implemented, proposed, and unresolved part individually.
 2. Read [analysis guidance](references/analysis.md). For repository work, inspect applicable agent guidance, entrypoints, route registration, service clients, persistence, and representative request paths. Treat documentation as a lead and check code. For brainstorming, record assumptions and open decisions explicitly.
-3. Read [the model contract](references/schema.md), then create JSON using `assets/minimal.json` as a structural example. Model actors and ownership before messages. Record paths/line ranges or supplied design citations in `sources`. Cite implemented claims. Use illustrative payload labels unless samples were actually observed; redact secrets and personal data.
-4. Choose useful detail from the audience, scenario and evidence; zoom controls need no separate request. Use optional `exploration` settings for initial global depth and local overrides.
+3. Read [the model contract](references/schema.md), then create JSON using `assets/minimal.json` as a structural example. Model actors and ownership before messages. Record paths/line ranges or supplied design citations in `sources`. Cite implemented claims. Use illustrative payload labels unless samples were actually observed. Redact secrets and personal data.
+4. Choose useful detail from the audience, scenario and evidence. Zoom controls need no separate request. Use optional `exploration` settings for initial global depth and local overrides.
 
-   - Keep simple flows shallow; model component drill-down when it explains behavior without invented internals.
+   - Keep simple flows shallow. Model component drill-down when it explains behavior without invented internals.
    - Add scenario roots chronologically and optional component substeps linked by `parentId`. Preserve root IDs, payloads and order while refining.
    - Put components in containers and external services/models in their own external systems.
-   - Use flow tabs for user scenarios. Sequence versus C4 is a view; context/container/component is a separate depth selector.
+   - Use flow tabs for user scenarios. Sequence versus C4 is a view. Context/container/component is a separate depth selector.
 5. Validate and render (replace paths, run from any directory):
 
    ```sh
@@ -64,9 +61,9 @@ Use this when an interactive architecture artifact is requested. For an evidence
 
 - Capture routes/methods from actual registration and clients. An existing route with a proposed envelope can have endpoint status `actual` and message status `proposed`. Unresolved endpoints have a null URL; local function calls, rendering, and navigation have no invented network endpoint.
 - Use request/response/event directions and valid JSON payloads, including JSON strings for text. Copy always serializes the complete raw value, regardless of collapsed sections.
-- When helpful, include context lifetime, state reads/writes, persistence ownership, transforms, prompt messages, tool schemas/results, and field provenance in `examples` and `payloadProvenance`. These are optional; do not impose LLM or persistence concepts on systems without them.
-- Distinguish observed samples, illustrative examples, proposed bodies, and derived projections. Ground qualitative explanations in relevant facts/citations; matching a schema proves shape, not truth. See the reference for missing-data, failure, streaming, and cancellation coverage.
-- Use the global context/container/component switch as the default level. Local system/container choices override it in either view, so several containers can be expanded independently. Collapsed systems hide their internal overrides until reopened; Reset local levels clears overrides. Keep surrounding entities and every outer interaction visible. Only modeled children are expandable. Internal substeps carry parent.child numbers and map back to their parent at shallower depths. Re-expanding restores a remembered child selection.
+- When helpful, include context lifetime, state reads/writes, persistence ownership, transforms, prompt messages, tool schemas/results, and field provenance in `examples` and `payloadProvenance`. These are optional. Do not impose LLM or persistence concepts on systems without them.
+- Distinguish observed samples, illustrative examples, proposed bodies, and derived projections. Ground qualitative explanations in relevant facts and citations. Matching a schema proves shape, not truth. See the reference for missing-data, failure, streaming, and cancellation coverage.
+- Use the global context/container/component switch as the default level. Local system/container choices override it in either view, so several containers can be expanded independently. Collapsed systems hide their internal overrides until reopened. Reset local levels clears overrides. Keep surrounding entities and every outer interaction visible. Only modeled children are expandable. Internal substeps carry parent.child numbers and map back to their parent at shallower depths. Re-expanding restores a remembered child selection.
 
 ## Resources
 

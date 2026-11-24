@@ -4,13 +4,10 @@ description: Guide to writing an incident record. Covers impact, severity, owner
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: operations
   phase: maintenance
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Incident record guide

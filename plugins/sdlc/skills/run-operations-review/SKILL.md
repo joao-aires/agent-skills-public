@@ -5,23 +5,20 @@ description: Plan and run recurring operational reviews of capacity, artifact re
   runbook ownership.
 metadata:
   kind: activity
-  origin: local
-  pack: sdlc
   domain: operations
   phase: maintenance
   scope: generic
   invocation: both
   version: '2.0'
-  role: task
 ---
 
 # Operations review
 
-Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
+Review the operating conditions that drift between feature changes, and stop at accountable findings or bounded remedies.
 
-Review the operating conditions that drift between feature changes: capacity, retention, expiry, ownership and procedures. For each check, establish which decision its result can trigger and the evidence needed to make that decision. A check with no useful response creates recurring reporting work without improving the system.
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Cover capacity, retention, expiry, ownership and procedures. For each check, establish which decision its result can trigger and the evidence needed to make that decision. A check with no useful response creates recurring reporting work without improving the system.
 
-Compare the current observation with the previous finding and local policy. Preserve unresolved age, exceptions and ownership so a repeated run follows work through rather than rediscovering it as new. Keep the review finite and return accountable findings; deeper remediation can be a separate scoped action.
+Compare the current observation with the previous finding and local policy. Preserve unresolved age, exceptions and ownership so a repeated run follows work through rather than rediscovering it as new. Keep the review finite and return accountable findings. Deeper remediation can be a separate scoped action.
 
 ## Modes and general purpose
 
@@ -30,7 +27,7 @@ Compare the current observation with the previous finding and local policy. Pres
 - During features/maintenance update capacity, retention, ownership and procedure requirements affected by the change.
 - In recurring review runs consume the last reviewed revision/register, collect current evidence, update stable findings and prepare bounded remedies.
 
-Cleanup/resource mutations need a configured target/action policy; otherwise return candidates and patches rather than deleting anything.
+Cleanup/resource mutations need a configured target/action policy. Without one, return candidates and patches rather than deleting anything.
 
 The general value is preventing operational debt and reducing toil, not reproducing a project's calendar. Prefer event-driven checks after configuration/releases/ownership changes, backed by periodic review for drift. Retire checks with no decision value and measure whether automation reduced manual effort without weakening outcomes.
 
@@ -59,7 +56,7 @@ Do not expand a targeted review into every domain unnecessarily. For a comprehen
 
 ## Capacity and cleanup
 
-Use trends and growth rate alongside current free space. Estimate time to exhaustion only with sufficient data and state its assumptions. Apply locally defined thresholds; fixed GB or percentage values from another project are not portable.
+Use trends and growth rate alongside current free space. Estimate time to exhaustion only with sufficient data and state its assumptions. Apply locally defined thresholds. Fixed GB or percentage values from another project are not portable.
 
 Before deleting artifacts, establish references from every relevant running/desired deployment, release/rollback inventory, retained builds, and retention obligations. A naming-pattern mismatch does not prove an artifact is unused. Prioritize large candidates, report expected savings, and use supported retention/dry-run tooling when available.
 
@@ -73,6 +70,6 @@ Check which workloads opt in, which controller owns replicas/suspension, and whi
 
 Record measured value, timestamp/window, policy comparison, result, action, owner, and due date. Carry forward unresolved exceptions without losing their original date. Automate stable read-only checks where useful and link the deeper runbook for remediation.
 
-Report completed checks, unknowns, material exceptions, changes made, and next review. A housekeeping review is complete when its findings are accountable; deeper remediation can remain explicitly tracked.
+Report completed checks, unknowns, material exceptions, changes made, and next review. A housekeeping review is complete when its findings are accountable. Deeper remediation can remain explicitly tracked.
 
 For retired features/services, coordinate consumer migration, remaining jobs/data, access revocation and resource/documentation cleanup with change-verification expertise. Age or naming alone is not evidence that a live dependency can be removed. Routine supported-version reviews can identify upgrade work separately from vulnerability deadlines.

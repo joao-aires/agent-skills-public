@@ -7,18 +7,17 @@ user-invocable: true
 disable-model-invocation: true
 metadata:
   kind: activity
-  origin: local
-  pack: sdlc
   domain: development
   phase: cross-phase
   scope: generic
   invocation: user
-  role: task
 ---
 
 # Harden
 
-Read [activity system](../activity-system/SKILL.md). Use [verification](../test/SKILL.md) for verified remediation and seek matching security/privacy expertise when available. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Remove or bound a concrete security or privacy weakness in the requested scope, and stop at verified remediation or a reported gap.
+
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Use [verification](../test/SKILL.md) for verified remediation and seek matching security/privacy expertise when available. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
 
 ## Assess and remediate within scope
 
@@ -26,7 +25,7 @@ Trace how untrusted input reaches the valuable action or sensitive data in scope
 
 For a security-sensitive diff, read [security diff review](references/security-diff-review.md) for the change-specific checks, removed-code history, blast radius and coverage gaps. Remediation and verification stay in this activity.
 
-Use that trace to identify a plausible failure or abuse path and its impact. Prioritize findings that can change access, expose data, corrupt state or prevent an important operation. Scanners can supply evidence about a particular class of weakness; investigate whether a finding applies to the actual application before selecting a fix.
+Use that trace to identify a plausible failure or abuse path and its impact. Prioritize findings that can change access, expose data, corrupt state or prevent an important operation. Scanners can supply evidence about a particular class of weakness. Investigate whether a finding applies to the actual application before selecting a fix.
 
 Apply bounded fixes within the request at the component that owns the protection. Verify both the legitimate operation and the attempt that must fail, including relevant ownership/tenant denial, invalid input and secret handling. A hidden control or a rejected frontend action does not establish that the underlying operation is protected.
 

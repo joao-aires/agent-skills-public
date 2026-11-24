@@ -6,11 +6,11 @@ The collection supports seven lifecycle outcomes: **planning, requirements, desi
 
 ## Work in parallel threads
 
-Work is not a single pipeline. Requirements, design, implementation and testing can run at the same time, and evidence can reopen an earlier decision. One focus is active at a time; other threads remain open.
+Work is not a single pipeline. Requirements, design, implementation and testing can run at the same time, and evidence can reopen an earlier decision. One focus is active at a time. Other threads remain open.
 
 ![Parallel requirements, design, implementation, testing and operations threads with reopen paths](images/sdlc-threads.svg)
 
-The lanes read as follows: requirements frame outcome and acceptance; design compares options, links artifacts and records the decision; implementation builds and checks; testing produces evidence and review findings; deployment releases; maintenance observes and learns. A missing state reopens design, a contradiction reopens the decision, and operating evidence can reopen requirements or design. [Engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) defines the record for focus, threads and reopens.
+The lanes read as follows. Requirements frame outcome and acceptance. Design compares options, links artifacts and records the decision. Implementation builds and checks. Testing produces evidence and review findings. Deployment releases. Maintenance observes and learns. A missing state reopens design, a contradiction reopens the decision, and operating evidence can reopen requirements or design. [Engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) defines the record for focus, threads and reopens.
 
 Every phase starts by checking its inputs, deciding what work is needed and identifying the evidence or decision the next person will need. Scale that preparation to the uncertainty. During implementation, break agreed requirements and design into deliverable increments, dependencies and checks. The [implementation preparation method](../plugins/sdlc/skills/activity-system/references/implementation-preparation.md) supports requests that stop at a breakdown.
 
@@ -22,7 +22,7 @@ Every phase starts by checking its inputs, deciding what work is needed and iden
 | Shared methods | Research, documentation, security and review provide conditional expertise across phases |
 | Technical and domain expertise | Choose by actual engineering concern and accepted stack rather than assuming a language or framework |
 
-Entry-point labels identify directly requested activities; specialist labels identify supporting expertise. They are examples, not a dependency graph. The agent still respects user scope, runtime access, credentials and separate authorization for deployment or production actions.
+Entry-point labels identify directly requested activities. Specialist labels identify supporting expertise. They are examples, not a dependency graph. The agent still respects user scope, runtime access, credentials and separate authorization for deployment or production actions.
 
 ## Entry points
 
@@ -45,7 +45,7 @@ Entry-point labels identify directly requested activities; specialist labels ide
 
 ![Six representative paths for a new product, existing feature, bug, assessment, operations or specialist question, with contextual methods and bounded outcomes](images/sdlc-use-cases.svg)
 
-The same capabilities serve full applications and bounded changes. Reuse accepted context and reopen only affected decisions. A new product needs enough outcome, feasibility, requirements and design evidence before irreversible commitments; a bug fix starts with reproduction; an incident starts with response and recovery, not product planning.
+The same capabilities serve full applications and bounded changes. Reuse accepted context and reopen only affected decisions. A new product needs enough outcome, feasibility, requirements and design evidence before irreversible commitments. A bug fix starts with reproduction. An incident starts with response and recovery, not product planning.
 
 | Starting situation | Typical work and stopping points |
 | --- | --- |
@@ -56,7 +56,7 @@ The same capabilities serve full applications and bounded changes. Reuse accepte
 | Incident, recovery or operational drift | Start with the matching operations activity and causal evidence. Turn confirmed learning into a requirement, design change or improvement only when warranted |
 | Exploration, security review or architecture question | Request research, `harden`, `code-review` or specialist expertise; stop at the requested analysis rather than beginning implementation |
 
-Direct strategy, design, documentation and specialist requests can end at their own useful results. People and trusted automation can request the same activities; the host supplies triggers, tools, credentials, limits and action scope. Implementation and testing iterate, and a passing test does not establish a deployment or recovery.
+Direct strategy, design, documentation and specialist requests can end at their own useful results. People and trusted automation can request the same activities. The host supplies triggers, tools, credentials, limits and action scope. Implementation and testing iterate, and a passing test does not establish a deployment or recovery.
 
 ## The phases
 
@@ -72,15 +72,15 @@ Start with [refine](../plugins/sdlc/skills/refine/SKILL.md). For new systems, si
 
 Use [design](../plugins/sdlc/skills/design/SKILL.md) to settle a consequential choice before implementation. Start with [software types](../plugins/sdlc/skills/artifact-system/references/software-types.md) to identify the affected components — frontend, backend, AI or library/CLI — and mark unaffected types explicitly. A software type belongs to a component, not to the project. A browser extension, REST API, multi-tenant backend or LangChain stack is a constraint on that type, not a new type.
 
-For a consequential choice, produce at least three materially different options using the [option set](../plugins/sdlc/skills/design/references/option-set.md), and represent each for its type: wireframes or prototypes for UI; contracts, sequences, C4 views or a data model for services; context and evaluation plans for AI; public-surface and compatibility views for libraries. When types meet, decide the seam once — contract, error and denial mapping, pagination, authority, retry and compatibility — instead of duplicating it.
+For a consequential choice, produce at least three materially different options using the [option set](../plugins/sdlc/skills/design/references/option-set.md), and represent each for its type. Use wireframes or prototypes for UI. Use contracts, sequences, C4 views or a data model for services. Use context and evaluation plans for AI. Use public-surface and compatibility views for libraries. When types meet, decide the seam once — contract, error and denial mapping, pagination, authority, retry and compatibility — instead of duplicating it.
 
 Record the decision in the [design proposal](../plugins/sdlc/skills/artifact-system/references/contracts/design-proposal.md) as ECR §4, an RFC or a linked design record. Validate with [design validation](../plugins/sdlc/skills/design/references/design-validation.md) when uncertainty is material, and hand off through [design review](../plugins/sdlc/skills/design/references/design-review.md).
 
-Design may run in parallel with requirements or implementation. A greenfield design can be entirely proposed with no implementation; label assumed technology as assumed. A trivial local fix does not need a comprehensive design document.
+Design may run in parallel with requirements or implementation. A greenfield design can be entirely proposed with no implementation. Label assumed technology as assumed. A trivial local fix does not need a comprehensive design document.
 
 ### 4. Implementation
 
-Break agreed work into bounded increments and choose verification for each. Use [implementation preparation](../plugins/sdlc/skills/activity-system/references/implementation-preparation.md) when dependencies, migration, recovery or coordination warrant an explicit breakdown; otherwise keep the breakdown in the ECR or the existing plan. Start with `implement` when the work is already defined and explicitly selected, or `develop` for the broader engagement. Use [git-contributions](../plugins/sdlc/skills/git-contributions/SKILL.md) for the objective worktree and matching frontend, backend, AI, database, native or platform expertise. Carry tests and affected documentation with the change.
+Break agreed work into bounded increments and choose verification for each. Use [implementation preparation](../plugins/sdlc/skills/activity-system/references/implementation-preparation.md) when dependencies, migration, recovery or coordination warrant an explicit breakdown. Otherwise keep the breakdown in the ECR or the existing plan. Start with `implement` when the work is already defined and explicitly selected, or `develop` for the broader engagement. Use [git-contributions](../plugins/sdlc/skills/git-contributions/SKILL.md) for the objective worktree and matching frontend, backend, AI, database, native or platform expertise. Carry tests and affected documentation with the change.
 
 ### 5. Testing
 
@@ -88,7 +88,7 @@ Start with [test](../plugins/sdlc/skills/test/SKILL.md), with [testing-journey](
 
 ### 6. Deployment
 
-Start with [release](../plugins/sdlc/skills/release/SKILL.md). [CI/CD pipeline design](../plugins/development-tooling/skills/ci-cd-pipelines/SKILL.md) supports provider-neutral stages, artifacts, promotion, rollout and recovery; remote actions need named authorization and a verified target. Under continuous deployment, the merge, tag or pipeline trigger is the release event: verify the rollout and served outcome rather than inventing a second manual action.
+Start with [release](../plugins/sdlc/skills/release/SKILL.md). [CI/CD pipeline design](../plugins/development-tooling/skills/ci-cd-pipelines/SKILL.md) supports provider-neutral stages, artifacts, promotion, rollout and recovery. Remote actions need named authorization and a verified target. Under continuous deployment, the merge, tag or pipeline trigger is the release event: verify the rollout and served outcome rather than inventing a second manual action.
 
 ### 7. Maintenance
 
@@ -102,15 +102,15 @@ Maintenance has four complementary responsibilities: **respond and restore**, **
 ## Before and around the cycle
 
 - **Product direction.** [product-direction](../plugins/sdlc/skills/product-direction/SKILL.md) owns user problems, priorities, useful scope and success signals. `business-strategy` owns viability and value capture, and `define-positioning` owns the positioning decision. These decisions inform planning and may be reopened by evidence.
-- **Foundations.** `setup` uses [project-conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and relevant [CI/CD pipeline design](../plugins/development-tooling/skills/ci-cd-pipelines/SKILL.md). Establish foundations after enough product and architecture decisions exist for a new project; maintain them as conditions change.
+- **Foundations.** `setup` uses [project-conventions](../plugins/sdlc/skills/project-conventions/SKILL.md) and relevant [CI/CD pipeline design](../plugins/development-tooling/skills/ci-cd-pipelines/SKILL.md). Establish foundations after enough product and architecture decisions exist for a new project. Maintain them as conditions change.
 - **Feedback.** [run-product-feedback-analysis](../plugins/sdlc/skills/run-product-feedback-analysis/SKILL.md) evaluates existing user evidence and records a product-feedback analysis for product direction. Incident learning covers reliability and can also expose missing requirements or design protections.
 - **Consequential findings.** Follow the [shared decision policy](../plugins/sdlc/skills/activity-system/references/authority.md#consequential-findings) and continue independent authorized work. Do not invent acceptance or account permissions.
 
-[Technical writing](../plugins/documentation/skills/technical-writing/SKILL.md) supplies cross-type writing craft and reader review. [Writing for agents](../plugins/documentation/skills/writing-for-agents/SKILL.md) supplies instruction structure for skills and agent-facing documents. [Guide to system documentation](../plugins/sdlc/skills/guide-system-documentation/SKILL.md) explains structural/runtime/interface/deployment views with source evidence. The [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) owns artifact contracts, homes, quality and assurance; design-system owns design choices.
+[Technical writing](../plugins/documentation/skills/technical-writing/SKILL.md) supplies cross-type writing craft and reader review. [Writing for agents](../plugins/documentation/skills/writing-for-agents/SKILL.md) supplies instruction structure for skills and agent-facing documents. [Guide to system documentation](../plugins/sdlc/skills/guide-system-documentation/SKILL.md) explains structural/runtime/interface/deployment views with source evidence. The [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) owns artifact contracts, homes, quality and assurance. Design-system owns design choices.
 
 ## Roles across the phases
 
-These are typical contributions; in a small team one person can cover several. Involve specialists when the change affects their decisions or evidence.
+These are typical contributions. In a small team, one person can cover several. Involve specialists when the change affects their decisions or evidence.
 
 | Phase | Leads | Contributes | ECR contribution |
 | --- | --- | --- | --- |
@@ -126,6 +126,6 @@ Two leads in a phase means the decision is genuinely shared, not that both sign 
 
 ## Coverage and limits
 
-The skills describe ways of working across the lifecycle; installing them does not establish application correctness, production readiness or compliance. Tooling, credentials, devices and platform-specific procedures must exist in the target environment. Package and discovery checks are recorded separately from application evidence in the [eval suite and evidence limits](../evals/README.md#recorded-evidence-and-limits).
+The skills describe ways of working across the lifecycle. Installing them does not establish application correctness, production readiness or compliance. Tooling, credentials, devices and platform-specific procedures must exist in the target environment. Package and discovery checks are recorded separately from application evidence in the [eval suite and evidence limits](../evals/README.md#recorded-evidence-and-limits).
 
-Artifact types, planes, homes and handoffs are owned by the [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md); the practical guide is [Engineering artifacts and workspaces](artifact-workflow.md). Method and diagram detail lives with the owning skills, including [test](../plugins/sdlc/skills/test/SKILL.md), [testing-journey](../plugins/frontend-development/skills/testing-journey/SKILL.md), [performance](../plugins/development-tooling/skills/performance-testing/SKILL.md), [resilience](../plugins/sdlc/skills/testing-resilience/SKILL.md) and [observability](../plugins/sdlc/skills/design-system/references/observability-and-monitoring.md).
+Artifact types, planes, homes and handoffs are owned by the [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md). The practical guide is [Engineering artifacts and workspaces](artifact-workflow.md). Method and diagram detail lives with the owning skills, including [test](../plugins/sdlc/skills/test/SKILL.md), [testing-journey](../plugins/frontend-development/skills/testing-journey/SKILL.md), [performance](../plugins/development-tooling/skills/performance-testing/SKILL.md), [resilience](../plugins/sdlc/skills/testing-resilience/SKILL.md) and [observability](../plugins/sdlc/skills/design-system/references/observability-and-monitoring.md).

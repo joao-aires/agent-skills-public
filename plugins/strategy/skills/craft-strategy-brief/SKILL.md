@@ -4,13 +4,10 @@ description: 'Craft and review a strategy brief: the current thesis, integrated 
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: product
   domain: product
   phase: planning
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Strategy brief guide

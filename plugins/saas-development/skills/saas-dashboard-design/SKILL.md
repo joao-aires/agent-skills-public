@@ -6,13 +6,10 @@ description: Design or improve SaaS customer and operator dashboards around deci
 license: MIT
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: saas
   phase: design
   scope: generic
   invocation: both
-  role: support
   references: ../../references/sources.md
 user-invocable: true
 ---

@@ -6,13 +6,10 @@ description: Cross-type technical writing craft for product and engineering docu
   artifact contracts, status and homes remain with the artifact system.
 metadata:
   kind: method
-  origin: local
-  pack: craft
   domain: documentation
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 user-invocable: true
 ---
 
@@ -30,6 +27,7 @@ The artifact contract states what the document must contain and for whom; the pr
 | Choose tables, lists, steps, prose, diagrams or disclosure | [Formatting and layout](references/formatting-and-layout.md) |
 | Make a concept understandable inside a document | [Concept explanation](references/concept-explanation.md) |
 | Review the finished document before handoff | [Review rubric](references/review-rubric.md) |
+| Apply the sentence-level pass to any prose | [Prose review](references/prose-review.md) |
 | Structure skills, repository instructions or other agent guidance | [Structured instructions](references/structured-instructions.md) |
 
 The references describe cross-type craft. The artifact contract and its guide still decide required content, status, evidence and home.
@@ -87,7 +85,7 @@ Choose presentation from the meaning:
 - Use compact tables for alternatives compared on consistent dimensions.
 - Use diagrams for relationships or sequences that prose alone obscures. Explain their meaning and provide a text equivalent where needed.
 
-Link with descriptive labels. Never rely solely on colour or visual layout to convey a boundary. Read [formatting and layout](references/formatting-and-layout.md) for the tradeoffs, accessibility checks and disclosure patterns. When writing or restructuring skills and repository instructions, read [structured instructions](references/structured-instructions.md) for conditional guidance, examples and a meaning-preservation review. Keep paragraphs where they explain context or causality; a skill does not need every presentation format.
+Link with descriptive labels. Never rely solely on colour or visual layout to convey a boundary. Read [formatting and layout](references/formatting-and-layout.md) for the tradeoffs, accessibility checks, disclosure patterns and the repository Markdown file conventions. When writing or restructuring skills and repository instructions, read [structured instructions](references/structured-instructions.md) for conditional guidance, examples and a meaning-preservation review. Keep paragraphs where they explain context or causality; a skill does not need every presentation format.
 
 ## Preserve precision and trust
 
@@ -101,7 +99,7 @@ For operational instructions, preserve safety prerequisites, expected results an
 
 Check a few realistic reader questions against the finished document: can a new contributor explain the main flow and authority boundary, can a decision-maker understand the choice and open conditions, or can an operator perform and verify the task? Review for missing prerequisites, undefined terms, ambiguous references, contradictions and misleading examples. Fix substantive gaps before polishing headings.
 
-Use the [review rubric](references/review-rubric.md) for a proportionate pass over reader questions, structure, style, content, evidence, links and accessibility. The rubric is craft review; it does not replace the artifact contract, cross-artifact assurance or code review.
+Use the [review rubric](references/review-rubric.md) for a proportionate pass over reader questions, structure, style, content, evidence, links and accessibility. Run the [prose review](references/prose-review.md) for the sentence-level pass before the document-level rubric. The rubric is craft review; it does not replace the artifact contract, cross-artifact assurance or code review.
 
 A manual reader-question review is sufficient for ordinary edits. A fresh reader or authorized independent agent can help for consequential documents; do not claim independent testing when only the author reviewed it. Use proportionate link, example, schema and command checks. Packaging and Markdown checks do not establish comprehension or factual correctness.
 

@@ -6,13 +6,10 @@ description: Diagnose and improve PostgreSQL query, locking, connection and main
 license: MIT
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: database
   phase: cross-phase
   scope: stack-specific
   invocation: both
-  role: support
   stack: PostgreSQL
   references: ../../references/sources.md
 user-invocable: true

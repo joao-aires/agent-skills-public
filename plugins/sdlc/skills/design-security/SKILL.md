@@ -3,13 +3,10 @@ name: design-security
 description: Design security into a feature or system boundary — trust boundaries, data flow, authority placement, privacy, delegation and abuse resistance, including authentication, sessions, federation, machine identity and tenant/resource access. Use when a change introduces identities, user data, external inputs, integrations or new authority; not for scoped remediation, credential operations or compliance assessment.
 metadata:
   kind: method
-  origin: local
-  pack: sdlc
   domain: security
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 user-invocable: true
 ---
 

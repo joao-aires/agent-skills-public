@@ -7,13 +7,10 @@ description: >-
   readiness and publication with the owning activity.
 metadata:
   kind: workflow
-  origin: local
-  pack: sdlc
   domain: development
   phase: requirements
   scope: generic
   invocation: both
-  role: support
 user-invocable: true
 ---
 

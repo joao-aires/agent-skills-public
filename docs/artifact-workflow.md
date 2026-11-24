@@ -24,21 +24,21 @@ Use the [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) for t
 
 ## Artifacts, contracts and guides
 
-Artifact types pair with a contract and, where the craft is distinct, a guide. The contract owns lifecycle, authority, maturity, evidence and handoff; the guide owns structure, conventions and review.
+Artifact types pair with a contract and, where the craft is distinct, a guide. The contract owns lifecycle, authority, maturity, evidence and handoff. The guide owns structure, conventions and review.
 
 ![Artifact types map to contracts and guides](images/sdlc-guide-map.svg)
 
 The map reads left to right: each artifact type has a contract, and where the craft is distinct a guide. API reference, work product, deployment record, guide and glossary have no dedicated guide for the reasons recorded in the registry.
 
-The artifact graph shows relationships across intent, coordination, system knowledge, implementation, delivery and entry. Intent informs the ECR; the ECR links the design proposal and implementation; the design proposal links the design specification and architecture views; code and tests produce review and release evidence; release and operations produce runbook, incident and postmortem knowledge; learning reopens the ECR. The ECR is one node, not the center.
+The artifact graph shows relationships across intent, coordination, system knowledge, implementation, delivery and entry. Intent informs the ECR. The ECR links the design proposal and implementation. The design proposal links the design specification and architecture views. Code and tests produce review and release evidence. Release and operations produce runbook, incident and postmortem knowledge. Learning reopens the ECR. The ECR is one node, not the center.
 
 ![Artifact graph across intent, coordination, system knowledge, implementation, delivery and entry](images/sdlc-artifact-graph.svg)
 
-A handoff is **content, not a document**. The next phase may need a decision, a design specification, a contract, a test result and an open decision from different artifacts. Read [handoff](../plugins/sdlc/skills/artifact-system/references/handoff.md) for the phase matrix; the ECR is the index, not a copy of every artifact.
+A handoff is **content, not a document**. The next phase may need a decision, a design specification, a contract, a test result and an open decision from different artifacts. Read [handoff](../plugins/sdlc/skills/artifact-system/references/handoff.md) for the phase matrix. The ECR is the index, not a copy of every artifact.
 
 ## Planes and homes
 
-Every artifact has a **primary plane** and a **home**. The plane is its role; the home is where the authoritative copy lives. They are different: a runbook is system knowledge but may live in an operations repository; an ECR is coordination knowledge that lives in the engineering workspace. Read the [artifact model](../plugins/sdlc/skills/artifact-system/references/model.md) for the plane definitions and [artifact homes](../plugins/sdlc/skills/artifact-system/references/homes.md) for resolution. Do not infer a home from a plane.
+Every artifact has a **primary plane** and a **home**. The plane is its role. The home is where the authoritative copy lives. They are different: a runbook is system knowledge but may live in an operations repository. An ECR is coordination knowledge that lives in the engineering workspace. Read the [artifact model](../plugins/sdlc/skills/artifact-system/references/model.md) for the plane definitions and [artifact homes](../plugins/sdlc/skills/artifact-system/references/homes.md) for resolution. Do not infer a home from a plane.
 
 A repository should record where its durable artifacts live. Put a short pointer in `AGENTS.md` and the full map in `docs/README.md` or `docs/artifact-homes.md`. The [artifact homes](../plugins/sdlc/skills/artifact-system/references/homes.md) reference owns the default map — artifact, home, authority, owner and update trigger — so do not copy it here.
 
@@ -90,7 +90,7 @@ This example concerns a synthetic webhook consumer. Its question is whether the 
 
 **Verification.** Run the local probe at the recorded fixture revision and retain its source and output. Record the exact environment and the cases the simulated receiver does not establish.
 
-**Status.** Ready for investigation; owner to be assigned. The production choice remains blocked on the receiver contract.
+**Status.** Ready for investigation. Owner to be assigned. The production choice remains blocked on the receiver contract.
 
 ## Example architecture handoff
 

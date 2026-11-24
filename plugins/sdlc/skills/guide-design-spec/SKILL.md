@@ -4,13 +4,10 @@ description: Guide to producing a design specification that implementation can b
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: frontend
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Design specification guide

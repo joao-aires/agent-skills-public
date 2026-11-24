@@ -20,7 +20,7 @@
  },
  "generated": {
   "repository": "joao-aires/agent-skills-public",
-  "digest": "dc4a066d",
+  "digest": "00861cf7",
   "sources": [
    "plugins/*/skills/*/SKILL.md",
    "plugins/sdlc/skills/activity-system/references/catalog.md",
@@ -4847,7 +4847,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/ai-development/skills/ai-evaluation/SKILL.md",
-    "line": 132
+    "line": 129
    },
    "note": "linked capability"
   },
@@ -4860,7 +4860,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/backend-development/skills/architecture-patterns/SKILL.md",
-    "line": 92
+    "line": 89
    },
    "note": "named capability"
   },
@@ -4873,7 +4873,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/backend-development/skills/architecture-patterns/SKILL.md",
-    "line": 93
+    "line": 90
    },
    "note": "named capability"
   },
@@ -4886,7 +4886,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/backend-development/skills/architecture-patterns/SKILL.md",
-    "line": 94
+    "line": 91
    },
    "note": "named capability"
   },
@@ -4899,7 +4899,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/backend-development/skills/graphql-design/SKILL.md",
-    "line": 134
+    "line": 131
    },
    "note": "named capability"
   },
@@ -4912,7 +4912,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/backend-development/skills/rest-api-design/SKILL.md",
-    "line": 134
+    "line": 131
    },
    "note": "named capability"
   },
@@ -4925,7 +4925,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/operations-platforms/skills/infra-delivery/SKILL.md",
-    "line": 144
+    "line": 141
    },
    "note": "named capability"
   },
@@ -4938,7 +4938,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/operations-platforms/skills/infra-delivery/SKILL.md",
-    "line": 145
+    "line": 142
    },
    "note": "named capability"
   },
@@ -4951,7 +4951,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/activity-system/SKILL.md",
-    "line": 89
+    "line": 87
    },
    "note": "linked capability"
   },
@@ -4964,7 +4964,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/application-configuration/SKILL.md",
-    "line": 166
+    "line": 163
    },
    "note": "named capability"
   },
@@ -4977,7 +4977,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/application-configuration/SKILL.md",
-    "line": 167
+    "line": 164
    },
    "note": "named capability"
   },
@@ -4990,7 +4990,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/application-configuration/SKILL.md",
-    "line": 168
+    "line": 165
    },
    "note": "named capability"
   },
@@ -5003,7 +5003,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/application-configuration/SKILL.md",
-    "line": 169
+    "line": 166
    },
    "note": "named capability"
   },
@@ -5016,7 +5016,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/application-configuration/SKILL.md",
-    "line": 170
+    "line": 167
    },
    "note": "named capability"
   },
@@ -5029,7 +5029,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/application-configuration/SKILL.md",
-    "line": 179
+    "line": 176
    },
    "note": "named capability"
   },
@@ -5042,7 +5042,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/artifact-system/SKILL.md",
-    "line": 107
+    "line": 105
    },
    "note": "linked capability"
   },
@@ -5055,7 +5055,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/develop/SKILL.md",
-    "line": 95
+    "line": 92
    },
    "note": "linked capability"
   },
@@ -5068,7 +5068,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/develop/SKILL.md",
-    "line": 95
+    "line": 92
    },
    "note": "linked capability"
   },
@@ -5081,7 +5081,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/develop/SKILL.md",
-    "line": 95
+    "line": 92
    },
    "note": "linked capability"
   },
@@ -5094,7 +5094,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/develop/SKILL.md",
-    "line": 95
+    "line": 92
    },
    "note": "linked capability"
   },
@@ -5107,7 +5107,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/git-contributions/SKILL.md",
-    "line": 70
+    "line": 67
    },
    "note": "linked capability"
   },
@@ -5159,7 +5159,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/release/SKILL.md",
-    "line": 69
+    "line": 66
    },
    "note": "linked capability"
   },
@@ -5172,7 +5172,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/run-production-readiness-review/SKILL.md",
-    "line": 98
+    "line": 95
    },
    "note": "linked capability"
   },
@@ -5185,7 +5185,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/run-production-readiness-review/SKILL.md",
-    "line": 100
+    "line": 97
    },
    "note": "linked capability"
   },
@@ -5198,7 +5198,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/run-production-readiness-review/SKILL.md",
-    "line": 100
+    "line": 97
    },
    "note": "linked capability"
   },
@@ -5211,7 +5211,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/run-production-readiness-review/SKILL.md",
-    "line": 101
+    "line": 98
    },
    "note": "linked capability"
   },
@@ -5224,7 +5224,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/run-production-readiness-review/SKILL.md",
-    "line": 101
+    "line": 98
    },
    "note": "linked capability"
   },
@@ -5237,7 +5237,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/run-production-readiness-review/SKILL.md",
-    "line": 101
+    "line": 98
    },
    "note": "linked capability"
   },
@@ -5250,7 +5250,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/run-production-readiness-review/SKILL.md",
-    "line": 102
+    "line": 99
    },
    "note": "linked capability"
   },
@@ -5263,7 +5263,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/test/SKILL.md",
-    "line": 129
+    "line": 126
    },
    "note": "linked capability"
   },
@@ -5276,7 +5276,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/test/SKILL.md",
-    "line": 129
+    "line": 126
    },
    "note": "linked capability"
   },
@@ -6614,263 +6614,293 @@
    "from": "ai-development",
    "to": "ai-testing",
    "file": "plugins/ai-development/skills/ai-development/SKILL.md",
-   "line": 125
+   "line": 122
   },
   {
    "from": "ai-development",
    "to": "ai-operations",
    "file": "plugins/ai-development/skills/ai-development/SKILL.md",
-   "line": 129
+   "line": 126
   },
   {
    "from": "ai-conventions",
    "to": "ai-deepeval-testing",
    "file": "plugins/ai-python-development/skills/ai-conventions/SKILL.md",
-   "line": 58
+   "line": 55
   },
   {
    "from": "ai-conventions",
    "to": "python-ai-observability",
    "file": "plugins/ai-python-development/skills/ai-conventions/SKILL.md",
-   "line": 59
+   "line": 56
   },
   {
    "from": "browser-extension-development",
    "to": "browser-extension-security",
    "file": "plugins/browser-extension-development/skills/browser-extension-development/SKILL.md",
-   "line": 46
+   "line": 43
   },
   {
    "from": "browser-extension-development",
    "to": "browser-extension-testing",
    "file": "plugins/browser-extension-development/skills/browser-extension-development/SKILL.md",
-   "line": 64
+   "line": 61
   },
   {
    "from": "browser-extension-development",
    "to": "browser-extension-ui",
    "file": "plugins/browser-extension-development/skills/browser-extension-development/SKILL.md",
-   "line": 64
+   "line": 61
   },
   {
    "from": "browser-extension-security",
    "to": "browser-extension-delivery",
    "file": "plugins/browser-extension-development/skills/browser-extension-security/SKILL.md",
-   "line": 63
+   "line": 60
   },
   {
    "from": "browser-extension-testing",
    "to": "browser-extension-security",
    "file": "plugins/browser-extension-development/skills/browser-extension-testing/SKILL.md",
-   "line": 51
+   "line": 48
   },
   {
    "from": "browser-extension-testing",
    "to": "browser-extension-ui",
    "file": "plugins/browser-extension-development/skills/browser-extension-testing/SKILL.md",
-   "line": 51
+   "line": 48
   },
   {
    "from": "browser-extension-ui",
    "to": "browser-extension-testing",
    "file": "plugins/browser-extension-development/skills/browser-extension-ui/SKILL.md",
-   "line": 101
+   "line": 98
   },
   {
    "from": "skill-authoring",
    "to": "writing-for-agents",
    "file": "plugins/documentation/skills/skill-authoring/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "skill-authoring",
    "to": "technical-writing",
    "file": "plugins/documentation/skills/skill-authoring/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "skill-authoring",
    "to": "technical-writing",
    "file": "plugins/documentation/skills/skill-authoring/SKILL.md",
-   "line": 28
+   "line": 25
   },
   {
    "from": "design-research",
    "to": "interface-design",
    "file": "plugins/frontend-development/skills/design-research/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "design-research",
    "to": "usability-research",
    "file": "plugins/frontend-development/skills/design-research/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "design-research",
    "to": "ui-ux-pro-max",
    "file": "plugins/frontend-development/skills/design-research/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "design-research",
    "to": "interface-design",
    "file": "plugins/frontend-development/skills/design-research/SKILL.md",
-   "line": 106
+   "line": 103
   },
   {
    "from": "interface-design",
    "to": "ui-ux-pro-max",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "interface-design",
    "to": "impeccable",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "interface-design",
    "to": "design-research",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "interface-design",
    "to": "design-research",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 40
+   "line": 37
   },
   {
    "from": "interface-design",
    "to": "ui-ux-pro-max",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 44
+   "line": 41
   },
   {
    "from": "interface-design",
    "to": "design-research",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 44
+   "line": 41
   },
   {
    "from": "interface-design",
    "to": "impeccable",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 44
+   "line": 41
   },
   {
    "from": "usability-research",
    "to": "interface-design",
    "file": "plugins/frontend-development/skills/usability-research/SKILL.md",
-   "line": 18
+   "line": 15
   },
   {
    "from": "ux-writing",
    "to": "interface-design",
    "file": "plugins/frontend-development/skills/ux-writing/SKILL.md",
+   "line": 15
+  },
+  {
+   "from": "activity-system",
+   "to": "artifact-system",
+   "file": "plugins/sdlc/skills/activity-system/SKILL.md",
    "line": 18
   },
   {
    "from": "activity-system",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/activity-system/SKILL.md",
-   "line": 20
+   "line": 32
   },
   {
    "from": "activity-system",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/activity-system/SKILL.md",
-   "line": 34
-  },
-  {
-   "from": "activity-system",
-   "to": "artifact-system",
-   "file": "plugins/sdlc/skills/activity-system/SKILL.md",
-   "line": 60
+   "line": 58
   },
   {
    "from": "analyze-capacity-cost",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/analyze-capacity-cost/SKILL.md",
-   "line": 18
+   "line": 15
   },
   {
    "from": "analyze-capacity-cost",
    "to": "design-system",
    "file": "plugins/sdlc/skills/analyze-capacity-cost/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "analyze-capacity-cost",
    "to": "run-operations-review",
    "file": "plugins/sdlc/skills/analyze-capacity-cost/SKILL.md",
-   "line": 64
+   "line": 61
   },
   {
    "from": "artifact-system",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/artifact-system/SKILL.md",
-   "line": 20
+   "line": 18
   },
   {
    "from": "design",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 21
+   "line": 20
   },
   {
    "from": "design",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 25
+   "line": 22
   },
   {
    "from": "design",
    "to": "guide-design-spec",
    "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 32
+   "line": 29
   },
   {
    "from": "design",
    "to": "guide-data-model",
    "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 32
+   "line": 29
   },
   {
    "from": "design",
    "to": "guide-architecture-views",
    "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 32
+   "line": 29
   },
   {
    "from": "design",
    "to": "guide-architecture-views",
    "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 32
+   "line": 29
   },
   {
    "from": "design",
    "to": "guide-state-machine",
    "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 32
+   "line": 29
   },
   {
    "from": "design",
    "to": "guide-compatibility-matrix",
    "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 32
+   "line": 29
   },
   {
    "from": "design",
    "to": "guide-runbook",
    "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 37
+   "line": 34
   },
   {
    "from": "design",
    "to": "guide-design-spec",
+   "file": "plugins/sdlc/skills/design/SKILL.md",
+   "line": 64
+  },
+  {
+   "from": "design",
+   "to": "guide-data-model",
+   "file": "plugins/sdlc/skills/design/SKILL.md",
+   "line": 65
+  },
+  {
+   "from": "design",
+   "to": "guide-architecture-views",
+   "file": "plugins/sdlc/skills/design/SKILL.md",
+   "line": 65
+  },
+  {
+   "from": "design",
+   "to": "guide-architecture-views",
+   "file": "plugins/sdlc/skills/design/SKILL.md",
+   "line": 65
+  },
+  {
+   "from": "design",
+   "to": "guide-state-machine",
+   "file": "plugins/sdlc/skills/design/SKILL.md",
+   "line": 65
+  },
+  {
+   "from": "design",
+   "to": "guide-compatibility-matrix",
    "file": "plugins/sdlc/skills/design/SKILL.md",
    "line": 67
   },
@@ -6878,149 +6908,137 @@
    "from": "design",
    "to": "guide-data-model",
    "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 68
-  },
-  {
-   "from": "design",
-   "to": "guide-architecture-views",
-   "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 68
-  },
-  {
-   "from": "design",
-   "to": "guide-architecture-views",
-   "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 68
-  },
-  {
-   "from": "design",
-   "to": "guide-state-machine",
-   "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 68
-  },
-  {
-   "from": "design",
-   "to": "guide-compatibility-matrix",
-   "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 70
-  },
-  {
-   "from": "design",
-   "to": "guide-data-model",
-   "file": "plugins/sdlc/skills/design/SKILL.md",
-   "line": 92
+   "line": 89
   },
   {
    "from": "design-security",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/design-security/SKILL.md",
-   "line": 18
+   "line": 15
   },
   {
    "from": "design-security",
    "to": "harden",
    "file": "plugins/sdlc/skills/design-security/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "design-security",
    "to": "run-security-maintenance",
    "file": "plugins/sdlc/skills/design-security/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "design-security",
    "to": "run-compliance-assessment",
    "file": "plugins/sdlc/skills/design-security/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "design-security",
    "to": "run-incident-response",
    "file": "plugins/sdlc/skills/design-security/SKILL.md",
-   "line": 63
+   "line": 60
   },
   {
    "from": "design-system",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/design-system/SKILL.md",
-   "line": 24
+   "line": 21
   },
   {
    "from": "design-system",
    "to": "guide-design-proposal",
    "file": "plugins/sdlc/skills/design-system/SKILL.md",
-   "line": 38
+   "line": 35
   },
   {
    "from": "design-system",
    "to": "guide-architecture-views",
    "file": "plugins/sdlc/skills/design-system/SKILL.md",
-   "line": 38
+   "line": 35
   },
   {
    "from": "design-system",
    "to": "guide-state-machine",
    "file": "plugins/sdlc/skills/design-system/SKILL.md",
-   "line": 38
+   "line": 35
   },
   {
    "from": "design-system",
    "to": "guide-system-documentation",
    "file": "plugins/sdlc/skills/design-system/SKILL.md",
-   "line": 82
+   "line": 79
   },
   {
    "from": "develop",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/develop/SKILL.md",
-   "line": 20
+   "line": 19
   },
   {
    "from": "develop",
    "to": "guide-ecr",
    "file": "plugins/sdlc/skills/develop/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "develop",
    "to": "guide-prd",
    "file": "plugins/sdlc/skills/develop/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "develop",
    "to": "guide-issue",
    "file": "plugins/sdlc/skills/develop/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "develop",
    "to": "guide-system-documentation",
    "file": "plugins/sdlc/skills/develop/SKILL.md",
-   "line": 52
+   "line": 49
   },
   {
    "from": "develop",
    "to": "plan",
    "file": "plugins/sdlc/skills/develop/SKILL.md",
-   "line": 57
+   "line": 54
   },
   {
    "from": "domain-modeling",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "domain-modeling",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "domain-modeling",
    "to": "artifact-system",
+   "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
+   "line": 25
+  },
+  {
+   "from": "domain-modeling",
+   "to": "guide-adr",
+   "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
+   "line": 26
+  },
+  {
+   "from": "domain-modeling",
+   "to": "refine",
+   "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
+   "line": 28
+  },
+  {
+   "from": "domain-modeling",
+   "to": "design",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
    "line": 28
   },
@@ -7028,341 +7046,341 @@
    "from": "domain-modeling",
    "to": "guide-adr",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 29
+   "line": 71
   },
   {
    "from": "domain-modeling",
    "to": "refine",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 31
+   "line": 83
   },
   {
    "from": "domain-modeling",
    "to": "design",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 31
-  },
-  {
-   "from": "domain-modeling",
-   "to": "guide-adr",
-   "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 74
-  },
-  {
-   "from": "domain-modeling",
-   "to": "refine",
-   "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 86
-  },
-  {
-   "from": "domain-modeling",
-   "to": "design",
-   "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 86
+   "line": 83
   },
   {
    "from": "fix",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/fix/SKILL.md",
-   "line": 18
+   "line": 17
   },
   {
    "from": "fix",
    "to": "git-contributions",
    "file": "plugins/sdlc/skills/fix/SKILL.md",
-   "line": 22
+   "line": 21
   },
   {
    "from": "fix",
    "to": "test",
    "file": "plugins/sdlc/skills/fix/SKILL.md",
-   "line": 22
+   "line": 21
   },
   {
    "from": "fix",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/fix/SKILL.md",
-   "line": 23
+   "line": 22
   },
   {
    "from": "git-contributions",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/git-contributions/SKILL.md",
-   "line": 21
+   "line": 18
   },
   {
    "from": "git-contributions",
    "to": "guide-pr",
    "file": "plugins/sdlc/skills/git-contributions/SKILL.md",
-   "line": 23
+   "line": 20
   },
   {
    "from": "git-contributions",
    "to": "project-conventions",
    "file": "plugins/sdlc/skills/git-contributions/SKILL.md",
-   "line": 37
+   "line": 34
   },
   {
    "from": "guide-runbook",
    "to": "design",
    "file": "plugins/sdlc/skills/guide-runbook/SKILL.md",
-   "line": 97
+   "line": 94
   },
   {
    "from": "guide-runbook",
    "to": "release",
    "file": "plugins/sdlc/skills/guide-runbook/SKILL.md",
-   "line": 98
+   "line": 95
   },
   {
    "from": "guide-runbook",
    "to": "run-incident-response",
    "file": "plugins/sdlc/skills/guide-runbook/SKILL.md",
-   "line": 99
+   "line": 96
   },
   {
    "from": "guide-runbook",
    "to": "run-operations-review",
    "file": "plugins/sdlc/skills/guide-runbook/SKILL.md",
-   "line": 101
+   "line": 98
   },
   {
    "from": "guide-system-documentation",
    "to": "guide-architecture-views",
    "file": "plugins/sdlc/skills/guide-system-documentation/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "harden",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/harden/SKILL.md",
-   "line": 21
+   "line": 20
   },
   {
    "from": "harden",
    "to": "test",
    "file": "plugins/sdlc/skills/harden/SKILL.md",
-   "line": 21
+   "line": 20
   },
   {
    "from": "implement",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/implement/SKILL.md",
-   "line": 18
+   "line": 17
   },
   {
    "from": "implement",
    "to": "code-review",
    "file": "plugins/sdlc/skills/implement/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "improve",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/improve/SKILL.md",
-   "line": 22
+   "line": 21
   },
   {
    "from": "improve",
    "to": "test",
    "file": "plugins/sdlc/skills/improve/SKILL.md",
-   "line": 22
+   "line": 21
   },
   {
    "from": "improve",
    "to": "git-contributions",
    "file": "plugins/sdlc/skills/improve/SKILL.md",
-   "line": 22
+   "line": 21
   },
   {
    "from": "plan",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/plan/SKILL.md",
-   "line": 20
+   "line": 19
   },
   {
    "from": "plan",
    "to": "guide-ecr",
    "file": "plugins/sdlc/skills/plan/SKILL.md",
-   "line": 22
+   "line": 21
   },
   {
    "from": "plan",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/plan/SKILL.md",
-   "line": 38
+   "line": 37
   },
   {
    "from": "plan",
    "to": "refine",
    "file": "plugins/sdlc/skills/plan/SKILL.md",
-   "line": 40
+   "line": 39
   },
   {
    "from": "project-conventions",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "project-conventions",
    "to": "guide-readme",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 24
+   "line": 21
   },
   {
    "from": "project-conventions",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 26
+   "line": 23
   },
   {
    "from": "project-conventions",
    "to": "test",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 54
+   "line": 51
   },
   {
    "from": "project-conventions",
    "to": "git-contributions",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 54
+   "line": 51
   },
   {
    "from": "project-conventions",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 59
+   "line": 56
   },
   {
    "from": "project-conventions",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 68
+   "line": 65
   },
   {
    "from": "prototype",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/prototype/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "prototype",
    "to": "design",
    "file": "plugins/sdlc/skills/prototype/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "prototype",
    "to": "design",
    "file": "plugins/sdlc/skills/prototype/SKILL.md",
-   "line": 30
+   "line": 27
   },
   {
    "from": "refine",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/refine/SKILL.md",
-   "line": 20
+   "line": 19
   },
   {
    "from": "refine",
    "to": "guide-issue",
    "file": "plugins/sdlc/skills/refine/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "refine",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/refine/SKILL.md",
-   "line": 26
+   "line": 23
   },
   {
    "from": "refine",
    "to": "project-conventions",
    "file": "plugins/sdlc/skills/refine/SKILL.md",
-   "line": 26
+   "line": 23
   },
   {
    "from": "refine",
    "to": "plan",
    "file": "plugins/sdlc/skills/refine/SKILL.md",
-   "line": 36
+   "line": 33
   },
   {
    "from": "refine",
    "to": "guide-ecr",
    "file": "plugins/sdlc/skills/refine/SKILL.md",
-   "line": 49
+   "line": 46
   },
   {
    "from": "release",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/release/SKILL.md",
-   "line": 22
+   "line": 21
   },
   {
    "from": "release",
    "to": "guide-release-note",
    "file": "plugins/sdlc/skills/release/SKILL.md",
-   "line": 24
+   "line": 21
   },
   {
    "from": "requirements-engineering",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/requirements-engineering/SKILL.md",
-   "line": 21
+   "line": 18
   },
   {
    "from": "requirements-engineering",
    "to": "guide-ecr",
    "file": "plugins/sdlc/skills/requirements-engineering/SKILL.md",
-   "line": 23
+   "line": 20
   },
   {
    "from": "requirements-engineering",
    "to": "guide-prd",
    "file": "plugins/sdlc/skills/requirements-engineering/SKILL.md",
-   "line": 23
+   "line": 20
   },
   {
    "from": "requirements-engineering",
    "to": "refine",
    "file": "plugins/sdlc/skills/requirements-engineering/SKILL.md",
-   "line": 25
+   "line": 22
   },
   {
    "from": "requirements-engineering",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/requirements-engineering/SKILL.md",
-   "line": 95
+   "line": 92
   },
   {
    "from": "research",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "research",
    "to": "run-product-feedback-analysis",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "research",
    "to": "guide-research-report",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 24
+   "line": 21
   },
   {
    "from": "research",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 24
+   "line": 21
   },
   {
    "from": "research",
    "to": "guide-research-report",
+   "file": "plugins/sdlc/skills/research/SKILL.md",
+   "line": 28
+  },
+  {
+   "from": "research",
+   "to": "plan",
+   "file": "plugins/sdlc/skills/research/SKILL.md",
+   "line": 31
+  },
+  {
+   "from": "research",
+   "to": "refine",
+   "file": "plugins/sdlc/skills/research/SKILL.md",
+   "line": 31
+  },
+  {
+   "from": "research",
+   "to": "design",
    "file": "plugins/sdlc/skills/research/SKILL.md",
    "line": 31
   },
@@ -7370,817 +7388,799 @@
    "from": "research",
    "to": "plan",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 34
+   "line": 85
   },
   {
    "from": "research",
    "to": "refine",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 34
+   "line": 85
   },
   {
    "from": "research",
    "to": "design",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 34
-  },
-  {
-   "from": "research",
-   "to": "plan",
-   "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 88
-  },
-  {
-   "from": "research",
-   "to": "refine",
-   "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 88
-  },
-  {
-   "from": "research",
-   "to": "design",
-   "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 88
+   "line": 85
   },
   {
    "from": "retro",
    "to": "project-conventions",
    "file": "plugins/sdlc/skills/retro/SKILL.md",
-   "line": 23
+   "line": 20
   },
   {
    "from": "retro",
    "to": "project-conventions",
    "file": "plugins/sdlc/skills/retro/SKILL.md",
-   "line": 71
+   "line": 68
   },
   {
    "from": "retro",
    "to": "project-conventions",
    "file": "plugins/sdlc/skills/retro/SKILL.md",
-   "line": 75
+   "line": 72
   },
   {
    "from": "run-compliance-assessment",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/run-compliance-assessment/SKILL.md",
-   "line": 19
+   "line": 16
   },
   {
    "from": "run-compliance-assessment",
    "to": "guide-assurance-assessment",
    "file": "plugins/sdlc/skills/run-compliance-assessment/SKILL.md",
-   "line": 21
+   "line": 18
   },
   {
    "from": "run-compliance-assessment",
    "to": "design-security",
    "file": "plugins/sdlc/skills/run-compliance-assessment/SKILL.md",
-   "line": 23
+   "line": 20
   },
   {
    "from": "run-compliance-assessment",
    "to": "harden",
    "file": "plugins/sdlc/skills/run-compliance-assessment/SKILL.md",
-   "line": 23
+   "line": 20
   },
   {
    "from": "run-compliance-assessment",
    "to": "run-security-maintenance",
    "file": "plugins/sdlc/skills/run-compliance-assessment/SKILL.md",
-   "line": 23
+   "line": 20
   },
   {
    "from": "run-dependency-maintenance",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/run-dependency-maintenance/SKILL.md",
-   "line": 24
+   "line": 23
   },
   {
    "from": "run-dependency-maintenance",
    "to": "project-conventions",
    "file": "plugins/sdlc/skills/run-dependency-maintenance/SKILL.md",
-   "line": 24
+   "line": 23
   },
   {
    "from": "run-dependency-maintenance",
    "to": "git-contributions",
    "file": "plugins/sdlc/skills/run-dependency-maintenance/SKILL.md",
-   "line": 24
+   "line": 23
   },
   {
    "from": "run-dependency-maintenance",
    "to": "run-security-maintenance",
    "file": "plugins/sdlc/skills/run-dependency-maintenance/SKILL.md",
-   "line": 41
+   "line": 38
   },
   {
    "from": "run-dependency-maintenance",
    "to": "harden",
    "file": "plugins/sdlc/skills/run-dependency-maintenance/SKILL.md",
-   "line": 41
+   "line": 38
   },
   {
    "from": "run-dependency-maintenance",
    "to": "release",
    "file": "plugins/sdlc/skills/run-dependency-maintenance/SKILL.md",
-   "line": 44
+   "line": 41
   },
   {
    "from": "run-incident-response",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/run-incident-response/SKILL.md",
-   "line": 21
+   "line": 20
   },
   {
    "from": "run-incident-response",
    "to": "guide-incident-record",
    "file": "plugins/sdlc/skills/run-incident-response/SKILL.md",
-   "line": 23
+   "line": 20
   },
   {
    "from": "run-incident-response",
    "to": "run-production-readiness-review",
    "file": "plugins/sdlc/skills/run-incident-response/SKILL.md",
-   "line": 40
+   "line": 37
   },
   {
    "from": "run-incident-response",
    "to": "testing-resilience",
    "file": "plugins/sdlc/skills/run-incident-response/SKILL.md",
-   "line": 42
+   "line": 39
   },
   {
    "from": "run-incident-response",
    "to": "harden",
    "file": "plugins/sdlc/skills/run-incident-response/SKILL.md",
-   "line": 44
+   "line": 41
   },
   {
    "from": "run-incident-response",
    "to": "improve",
    "file": "plugins/sdlc/skills/run-incident-response/SKILL.md",
-   "line": 44
+   "line": 41
   },
   {
    "from": "run-incident-response",
    "to": "run-postmortem",
    "file": "plugins/sdlc/skills/run-incident-response/SKILL.md",
-   "line": 45
+   "line": 42
   },
   {
    "from": "run-incident-response",
    "to": "run-operations-review",
    "file": "plugins/sdlc/skills/run-incident-response/SKILL.md",
-   "line": 46
+   "line": 43
   },
   {
    "from": "run-operations-review",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/run-operations-review/SKILL.md",
-   "line": 20
+   "line": 19
   },
   {
    "from": "run-postmortem",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/run-postmortem/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "run-postmortem",
    "to": "guide-postmortem",
    "file": "plugins/sdlc/skills/run-postmortem/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "run-product-feedback-analysis",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/run-product-feedback-analysis/SKILL.md",
-   "line": 22
+   "line": 21
   },
   {
    "from": "run-product-feedback-analysis",
    "to": "guide-product-feedback-analysis",
    "file": "plugins/sdlc/skills/run-product-feedback-analysis/SKILL.md",
-   "line": 24
+   "line": 21
   },
   {
    "from": "run-product-feedback-analysis",
    "to": "guide-product-feedback-analysis",
    "file": "plugins/sdlc/skills/run-product-feedback-analysis/SKILL.md",
-   "line": 66
+   "line": 63
   },
   {
    "from": "run-product-feedback-analysis",
    "to": "refine",
    "file": "plugins/sdlc/skills/run-product-feedback-analysis/SKILL.md",
-   "line": 84
+   "line": 81
   },
   {
    "from": "run-production-readiness-review",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/run-production-readiness-review/SKILL.md",
-   "line": 22
+   "line": 21
   },
   {
    "from": "run-production-readiness-review",
    "to": "guide-assurance-assessment",
    "file": "plugins/sdlc/skills/run-production-readiness-review/SKILL.md",
-   "line": 90
+   "line": 87
+  },
+  {
+   "from": "run-security-maintenance",
+   "to": "activity-system",
+   "file": "plugins/sdlc/skills/run-security-maintenance/SKILL.md",
+   "line": 16
   },
   {
    "from": "run-security-maintenance",
    "to": "harden",
    "file": "plugins/sdlc/skills/run-security-maintenance/SKILL.md",
-   "line": 17
+   "line": 16
   },
   {
    "from": "run-security-maintenance",
    "to": "run-compliance-assessment",
    "file": "plugins/sdlc/skills/run-security-maintenance/SKILL.md",
-   "line": 17
-  },
-  {
-   "from": "run-security-maintenance",
-   "to": "activity-system",
-   "file": "plugins/sdlc/skills/run-security-maintenance/SKILL.md",
-   "line": 21
+   "line": 16
   },
   {
    "from": "run-security-maintenance",
    "to": "run-operations-review",
    "file": "plugins/sdlc/skills/run-security-maintenance/SKILL.md",
-   "line": 40
+   "line": 37
   },
   {
    "from": "setup",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/setup/SKILL.md",
-   "line": 22
+   "line": 21
   },
   {
    "from": "setup",
    "to": "git-contributions",
    "file": "plugins/sdlc/skills/setup/SKILL.md",
-   "line": 22
+   "line": 21
   },
   {
    "from": "setup",
    "to": "guide-readme",
    "file": "plugins/sdlc/skills/setup/SKILL.md",
-   "line": 24
+   "line": 23
   },
   {
    "from": "test",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/test/SKILL.md",
-   "line": 18
+   "line": 17
   },
   {
    "from": "test",
    "to": "git-contributions",
    "file": "plugins/sdlc/skills/test/SKILL.md",
-   "line": 24
+   "line": 21
   },
   {
    "from": "test",
    "to": "codebase-design",
    "file": "plugins/sdlc/skills/test/SKILL.md",
-   "line": 40
+   "line": 37
   },
   {
    "from": "testing-resilience",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/testing-resilience/SKILL.md",
-   "line": 21
+   "line": 18
   },
   {
    "from": "write-spec",
    "to": "refine",
    "file": "plugins/sdlc/skills/write-spec/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "write-spec",
    "to": "guide-ecr",
    "file": "plugins/sdlc/skills/write-spec/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "write-spec",
    "to": "requirements-engineering",
    "file": "plugins/sdlc/skills/write-spec/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "write-spec",
    "to": "test",
    "file": "plugins/sdlc/skills/write-spec/SKILL.md",
-   "line": 52
+   "line": 49
   },
   {
    "from": "write-spec",
    "to": "tdd",
    "file": "plugins/sdlc/skills/write-spec/SKILL.md",
-   "line": 52
+   "line": 49
   },
   {
    "from": "build-strategic-roadmap",
    "to": "business-strategy",
    "file": "plugins/strategy/skills/build-strategic-roadmap/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "build-strategic-roadmap",
    "to": "set-strategy",
    "file": "plugins/strategy/skills/build-strategic-roadmap/SKILL.md",
-   "line": 24
+   "line": 21
   },
   {
    "from": "build-strategic-roadmap",
    "to": "test-assumptions",
    "file": "plugins/strategy/skills/build-strategic-roadmap/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "build-strategic-roadmap",
    "to": "plan-go-to-market",
    "file": "plugins/strategy/skills/build-strategic-roadmap/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "build-strategic-roadmap",
    "to": "review-strategy",
    "file": "plugins/strategy/skills/build-strategic-roadmap/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "business-strategy",
    "to": "validate-idea",
+   "file": "plugins/strategy/skills/business-strategy/SKILL.md",
+   "line": 42
+  },
+  {
+   "from": "business-strategy",
+   "to": "discover-customers",
+   "file": "plugins/strategy/skills/business-strategy/SKILL.md",
+   "line": 43
+  },
+  {
+   "from": "business-strategy",
+   "to": "run-market-scan",
+   "file": "plugins/strategy/skills/business-strategy/SKILL.md",
+   "line": 44
+  },
+  {
+   "from": "business-strategy",
+   "to": "define-positioning",
+   "file": "plugins/strategy/skills/business-strategy/SKILL.md",
+   "line": 45
+  },
+  {
+   "from": "business-strategy",
+   "to": "design-business-model",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 46
   },
   {
    "from": "business-strategy",
-   "to": "discover-customers",
+   "to": "plan-go-to-market",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 47
   },
   {
    "from": "business-strategy",
-   "to": "run-market-scan",
+   "to": "test-assumptions",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 48
   },
   {
    "from": "business-strategy",
-   "to": "define-positioning",
+   "to": "set-strategy",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 49
   },
   {
    "from": "business-strategy",
-   "to": "design-business-model",
+   "to": "build-strategic-roadmap",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 50
   },
   {
    "from": "business-strategy",
-   "to": "plan-go-to-market",
+   "to": "review-strategy",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 51
   },
   {
    "from": "business-strategy",
-   "to": "test-assumptions",
+   "to": "raise-capital",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 52
   },
   {
    "from": "business-strategy",
-   "to": "set-strategy",
+   "to": "model-finances",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 53
   },
   {
    "from": "business-strategy",
-   "to": "build-strategic-roadmap",
-   "file": "plugins/strategy/skills/business-strategy/SKILL.md",
-   "line": 54
-  },
-  {
-   "from": "business-strategy",
-   "to": "review-strategy",
-   "file": "plugins/strategy/skills/business-strategy/SKILL.md",
-   "line": 55
-  },
-  {
-   "from": "business-strategy",
-   "to": "raise-capital",
-   "file": "plugins/strategy/skills/business-strategy/SKILL.md",
-   "line": 56
-  },
-  {
-   "from": "business-strategy",
-   "to": "model-finances",
-   "file": "plugins/strategy/skills/business-strategy/SKILL.md",
-   "line": 57
-  },
-  {
-   "from": "business-strategy",
    "to": "craft-strategy-brief",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
-   "line": 135
+   "line": 131
   },
   {
    "from": "business-strategy",
    "to": "craft-competitive-analysis",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
-   "line": 135
+   "line": 131
   },
   {
    "from": "craft-competitive-analysis",
    "to": "run-market-scan",
    "file": "plugins/strategy/skills/craft-competitive-analysis/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "craft-competitive-analysis",
    "to": "define-positioning",
    "file": "plugins/strategy/skills/craft-competitive-analysis/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "craft-competitive-analysis",
    "to": "set-strategy",
    "file": "plugins/strategy/skills/craft-competitive-analysis/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "define-positioning",
    "to": "business-strategy",
    "file": "plugins/strategy/skills/define-positioning/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "define-positioning",
    "to": "craft-competitive-analysis",
    "file": "plugins/strategy/skills/define-positioning/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "define-positioning",
    "to": "design-business-model",
    "file": "plugins/strategy/skills/define-positioning/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "define-positioning",
    "to": "plan-go-to-market",
    "file": "plugins/strategy/skills/define-positioning/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "define-positioning",
    "to": "test-assumptions",
    "file": "plugins/strategy/skills/define-positioning/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "define-positioning",
    "to": "set-strategy",
    "file": "plugins/strategy/skills/define-positioning/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "design-business-model",
    "to": "business-strategy",
    "file": "plugins/strategy/skills/design-business-model/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "design-business-model",
    "to": "model-finances",
    "file": "plugins/strategy/skills/design-business-model/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "design-business-model",
    "to": "plan-go-to-market",
    "file": "plugins/strategy/skills/design-business-model/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "design-business-model",
    "to": "test-assumptions",
    "file": "plugins/strategy/skills/design-business-model/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "design-business-model",
    "to": "set-strategy",
    "file": "plugins/strategy/skills/design-business-model/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "discover-customers",
    "to": "business-strategy",
    "file": "plugins/strategy/skills/discover-customers/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "discover-customers",
    "to": "define-positioning",
    "file": "plugins/strategy/skills/discover-customers/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "discover-customers",
    "to": "test-assumptions",
    "file": "plugins/strategy/skills/discover-customers/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "discover-customers",
    "to": "design-business-model",
    "file": "plugins/strategy/skills/discover-customers/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "discover-customers",
    "to": "validate-idea",
    "file": "plugins/strategy/skills/discover-customers/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "discover-customers",
    "to": "set-strategy",
    "file": "plugins/strategy/skills/discover-customers/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "model-finances",
    "to": "business-strategy",
    "file": "plugins/strategy/skills/model-finances/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "model-finances",
    "to": "raise-capital",
    "file": "plugins/strategy/skills/model-finances/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "model-finances",
    "to": "design-business-model",
    "file": "plugins/strategy/skills/model-finances/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "model-finances",
    "to": "build-strategic-roadmap",
    "file": "plugins/strategy/skills/model-finances/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "plan-go-to-market",
    "to": "business-strategy",
    "file": "plugins/strategy/skills/plan-go-to-market/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "plan-go-to-market",
    "to": "build-strategic-roadmap",
    "file": "plugins/strategy/skills/plan-go-to-market/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "plan-go-to-market",
    "to": "test-assumptions",
    "file": "plugins/strategy/skills/plan-go-to-market/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "plan-go-to-market",
    "to": "model-finances",
    "file": "plugins/strategy/skills/plan-go-to-market/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "raise-capital",
    "to": "business-strategy",
    "file": "plugins/strategy/skills/raise-capital/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "raise-capital",
    "to": "model-finances",
    "file": "plugins/strategy/skills/raise-capital/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "raise-capital",
    "to": "set-strategy",
    "file": "plugins/strategy/skills/raise-capital/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "raise-capital",
    "to": "build-strategic-roadmap",
    "file": "plugins/strategy/skills/raise-capital/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "review-strategy",
    "to": "business-strategy",
    "file": "plugins/strategy/skills/review-strategy/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "review-strategy",
    "to": "set-strategy",
    "file": "plugins/strategy/skills/review-strategy/SKILL.md",
-   "line": 38
+   "line": 35
   },
   {
    "from": "review-strategy",
    "to": "set-strategy",
    "file": "plugins/strategy/skills/review-strategy/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "review-strategy",
    "to": "test-assumptions",
    "file": "plugins/strategy/skills/review-strategy/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "review-strategy",
    "to": "design-business-model",
    "file": "plugins/strategy/skills/review-strategy/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "review-strategy",
    "to": "model-finances",
    "file": "plugins/strategy/skills/review-strategy/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "review-strategy",
    "to": "plan-go-to-market",
    "file": "plugins/strategy/skills/review-strategy/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "review-strategy",
    "to": "build-strategic-roadmap",
    "file": "plugins/strategy/skills/review-strategy/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "run-market-scan",
    "to": "business-strategy",
    "file": "plugins/strategy/skills/run-market-scan/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "run-market-scan",
    "to": "craft-competitive-analysis",
    "file": "plugins/strategy/skills/run-market-scan/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "run-market-scan",
    "to": "define-positioning",
    "file": "plugins/strategy/skills/run-market-scan/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "run-market-scan",
    "to": "design-business-model",
    "file": "plugins/strategy/skills/run-market-scan/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "run-market-scan",
    "to": "set-strategy",
    "file": "plugins/strategy/skills/run-market-scan/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "run-market-scan",
    "to": "test-assumptions",
    "file": "plugins/strategy/skills/run-market-scan/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "set-strategy",
    "to": "business-strategy",
    "file": "plugins/strategy/skills/set-strategy/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "set-strategy",
    "to": "craft-strategy-brief",
    "file": "plugins/strategy/skills/set-strategy/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "set-strategy",
    "to": "build-strategic-roadmap",
    "file": "plugins/strategy/skills/set-strategy/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "set-strategy",
    "to": "plan-go-to-market",
    "file": "plugins/strategy/skills/set-strategy/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "set-strategy",
    "to": "design-business-model",
    "file": "plugins/strategy/skills/set-strategy/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "set-strategy",
    "to": "model-finances",
    "file": "plugins/strategy/skills/set-strategy/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "set-strategy",
    "to": "test-assumptions",
    "file": "plugins/strategy/skills/set-strategy/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "test-assumptions",
    "to": "business-strategy",
    "file": "plugins/strategy/skills/test-assumptions/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "test-assumptions",
    "to": "validate-idea",
    "file": "plugins/strategy/skills/test-assumptions/SKILL.md",
-   "line": 22
+   "line": 19
   },
   {
    "from": "test-assumptions",
    "to": "set-strategy",
    "file": "plugins/strategy/skills/test-assumptions/SKILL.md",
-   "line": 39
+   "line": 36
   },
   {
    "from": "test-assumptions",
    "to": "set-strategy",
    "file": "plugins/strategy/skills/test-assumptions/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "test-assumptions",
    "to": "review-strategy",
    "file": "plugins/strategy/skills/test-assumptions/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "test-assumptions",
    "to": "build-strategic-roadmap",
    "file": "plugins/strategy/skills/test-assumptions/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "validate-idea",
    "to": "business-strategy",
    "file": "plugins/strategy/skills/validate-idea/SKILL.md",
-   "line": 20
+   "line": 17
   },
   {
    "from": "validate-idea",
    "to": "discover-customers",
    "file": "plugins/strategy/skills/validate-idea/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "validate-idea",
    "to": "run-market-scan",
    "file": "plugins/strategy/skills/validate-idea/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "validate-idea",
    "to": "test-assumptions",
    "file": "plugins/strategy/skills/validate-idea/SKILL.md",
-   "line": 50
+   "line": 47
   },
   {
    "from": "validate-idea",
    "to": "set-strategy",
    "file": "plugins/strategy/skills/validate-idea/SKILL.md",
-   "line": 50
+   "line": 47
   }
  ]
 }

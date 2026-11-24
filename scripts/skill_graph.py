@@ -17,11 +17,13 @@ from pathlib import Path
 import yaml
 
 try:
+    from skill_metadata import local_skill_labels
     from skill_relationships import (
         BACKTICK_NAME, WORK_KIND, WORK_ORDER, handoff_rows, line_of,
         router_declarations, skill_links, work_targets,
     )
 except ModuleNotFoundError:
+    from scripts.skill_metadata import local_skill_labels
     from scripts.skill_relationships import (
         BACKTICK_NAME, WORK_KIND, WORK_ORDER, handoff_rows, line_of,
         router_declarations, skill_links, work_targets,
@@ -71,10 +73,12 @@ def load_skills():
         if not isinstance(frontmatter, dict):
             raise ValueError(f"{path.relative_to(ROOT)}: frontmatter is not a mapping")
         meta = frontmatter.get("metadata") or {}
-        labels = acquired.get(path.parent.name, {})
+        labels = acquired.get(path.parent.name)
+        if labels is None:
+            labels = local_skill_labels(frontmatter, path)
 
         def pick(key, default=None):
-            return meta.get(key) or labels.get(key) or default
+            return labels.get(key) or meta.get(key) or default
 
         relative = path.relative_to(ROOT)
         skills[path.parent.name] = {

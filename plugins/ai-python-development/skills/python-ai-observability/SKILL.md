@@ -4,14 +4,11 @@ description: Set up and verify Python AI observability with OpenTelemetry and co
 user-invocable: false
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: ai
   phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Python, OpenTelemetry, OTLP
-  role: support
 ---
 
 # Instrument Python AI execution

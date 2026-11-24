@@ -4,13 +4,10 @@ description: Research shipped products, flows and visual directions before settl
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: frontend
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Research interface precedent before choosing

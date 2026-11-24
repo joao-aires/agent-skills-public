@@ -6,13 +6,10 @@ description: Develop a feature in an isolated Git worktree, make Conventional Co
   a PR; respect plan-only requests and existing contribution conventions.
 metadata:
   kind: workflow
-  origin: local
-  pack: sdlc
   domain: development
   phase: implementation
   scope: generic
   invocation: both
-  role: support
 user-invocable: false
 ---
 
