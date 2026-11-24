@@ -1,6 +1,15 @@
 # Preserve the accepted upstream bytes on every platform.
 plugins/ai-adk-development/skills/adk-agent-builder/** -text
 plugins/ai-adk-development/skills/adk-architecture/** -text
+plugins/ai-adk-development/skills/adk-debug/** -text
+plugins/ai-adk-development/skills/adk-git/** -text
+plugins/ai-adk-development/skills/adk-review/** -text
+plugins/ai-adk-development/skills/adk-sample-creator/** -text
+plugins/ai-adk-development/skills/adk-setup/** -text
+plugins/ai-adk-development/skills/adk-style/** -text
+plugins/ai-adk-development/skills/adk-unit-design/** -text
+plugins/ai-adk-development/skills/adk-unit-guide/** -text
+plugins/ai-adk-development/skills/adk-verify-snippets/** -text
 plugins/ai-langchain-development/skills/langchain-dependencies/** -text
 plugins/ai-langchain-development/skills/langchain-fundamentals/** -text
 plugins/ai-langchain-development/skills/langgraph-fundamentals/** -text

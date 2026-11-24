@@ -356,6 +356,321 @@
         }
       }
     },
+    "ai-adk-development--adk-debug": {
+      "source": "google-adk-python",
+      "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
+      "kind": "skill",
+      "path": ".agents/skills/adk-debug",
+      "destination": "plugins/ai-adk-development/skills/adk-debug",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "destination": "UPSTREAM-LICENSE.txt"
+        }
+      ],
+      "metadata": {
+        "packaging": {
+          "plugin": "ai-adk-development",
+          "license": "Apache-2.0",
+          "license_path": "LICENSE",
+          "adaptations": [
+            "usage-labels",
+            "support-visibility"
+          ],
+          "labels": {
+            "scope": "stack-specific",
+            "invocation": "agent",
+            "stack": "Google ADK",
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream",
+            "pack": "technical",
+            "domain": "ai",
+            "phase": "cross-phase"
+          }
+        }
+      }
+    },
+    "ai-adk-development--adk-git": {
+      "source": "google-adk-python",
+      "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
+      "kind": "skill",
+      "path": ".agents/skills/adk-git",
+      "destination": "plugins/ai-adk-development/skills/adk-git",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "destination": "UPSTREAM-LICENSE.txt"
+        }
+      ],
+      "metadata": {
+        "packaging": {
+          "plugin": "ai-adk-development",
+          "license": "Apache-2.0",
+          "license_path": "LICENSE",
+          "adaptations": [
+            "usage-labels",
+            "support-visibility"
+          ],
+          "labels": {
+            "scope": "stack-specific",
+            "invocation": "agent",
+            "stack": "Google ADK",
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream",
+            "pack": "technical",
+            "domain": "ai",
+            "phase": "cross-phase"
+          }
+        }
+      }
+    },
+    "ai-adk-development--adk-review": {
+      "source": "google-adk-python",
+      "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
+      "kind": "skill",
+      "path": ".agents/skills/adk-review",
+      "destination": "plugins/ai-adk-development/skills/adk-review",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "destination": "UPSTREAM-LICENSE.txt"
+        }
+      ],
+      "metadata": {
+        "packaging": {
+          "plugin": "ai-adk-development",
+          "license": "Apache-2.0",
+          "license_path": "LICENSE",
+          "adaptations": [
+            "usage-labels",
+            "support-visibility"
+          ],
+          "labels": {
+            "scope": "stack-specific",
+            "invocation": "agent",
+            "stack": "Google ADK",
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream",
+            "pack": "technical",
+            "domain": "ai",
+            "phase": "cross-phase"
+          }
+        }
+      }
+    },
+    "ai-adk-development--adk-sample-creator": {
+      "source": "google-adk-python",
+      "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
+      "kind": "skill",
+      "path": ".agents/skills/adk-sample-creator",
+      "destination": "plugins/ai-adk-development/skills/adk-sample-creator",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "destination": "UPSTREAM-LICENSE.txt"
+        }
+      ],
+      "metadata": {
+        "packaging": {
+          "plugin": "ai-adk-development",
+          "license": "Apache-2.0",
+          "license_path": "LICENSE",
+          "adaptations": [
+            "usage-labels",
+            "support-visibility"
+          ],
+          "labels": {
+            "scope": "stack-specific",
+            "invocation": "agent",
+            "stack": "Google ADK",
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream",
+            "pack": "technical",
+            "domain": "ai",
+            "phase": "cross-phase"
+          }
+        }
+      }
+    },
+    "ai-adk-development--adk-setup": {
+      "source": "google-adk-python",
+      "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
+      "kind": "skill",
+      "path": ".agents/skills/adk-setup",
+      "destination": "plugins/ai-adk-development/skills/adk-setup",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "destination": "UPSTREAM-LICENSE.txt"
+        }
+      ],
+      "metadata": {
+        "packaging": {
+          "plugin": "ai-adk-development",
+          "license": "Apache-2.0",
+          "license_path": "LICENSE",
+          "adaptations": [
+            "usage-labels",
+            "support-visibility"
+          ],
+          "labels": {
+            "scope": "stack-specific",
+            "invocation": "agent",
+            "stack": "Google ADK",
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream",
+            "pack": "technical",
+            "domain": "ai",
+            "phase": "cross-phase"
+          }
+        }
+      }
+    },
+    "ai-adk-development--adk-style": {
+      "source": "google-adk-python",
+      "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
+      "kind": "skill",
+      "path": ".agents/skills/adk-style",
+      "destination": "plugins/ai-adk-development/skills/adk-style",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "destination": "UPSTREAM-LICENSE.txt"
+        }
+      ],
+      "metadata": {
+        "packaging": {
+          "plugin": "ai-adk-development",
+          "license": "Apache-2.0",
+          "license_path": "LICENSE",
+          "adaptations": [
+            "usage-labels",
+            "support-visibility"
+          ],
+          "labels": {
+            "scope": "stack-specific",
+            "invocation": "agent",
+            "stack": "Google ADK",
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream",
+            "pack": "technical",
+            "domain": "ai",
+            "phase": "cross-phase"
+          }
+        }
+      }
+    },
+    "ai-adk-development--adk-unit-design": {
+      "source": "google-adk-python",
+      "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
+      "kind": "skill",
+      "path": ".agents/skills/adk-unit-design",
+      "destination": "plugins/ai-adk-development/skills/adk-unit-design",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "destination": "UPSTREAM-LICENSE.txt"
+        }
+      ],
+      "metadata": {
+        "packaging": {
+          "plugin": "ai-adk-development",
+          "license": "Apache-2.0",
+          "license_path": "LICENSE",
+          "adaptations": [
+            "usage-labels",
+            "support-visibility"
+          ],
+          "labels": {
+            "scope": "stack-specific",
+            "invocation": "agent",
+            "stack": "Google ADK",
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream",
+            "pack": "technical",
+            "domain": "ai",
+            "phase": "cross-phase"
+          }
+        }
+      }
+    },
+    "ai-adk-development--adk-unit-guide": {
+      "source": "google-adk-python",
+      "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
+      "kind": "skill",
+      "path": ".agents/skills/adk-unit-guide",
+      "destination": "plugins/ai-adk-development/skills/adk-unit-guide",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "destination": "UPSTREAM-LICENSE.txt"
+        }
+      ],
+      "metadata": {
+        "packaging": {
+          "plugin": "ai-adk-development",
+          "license": "Apache-2.0",
+          "license_path": "LICENSE",
+          "adaptations": [
+            "usage-labels",
+            "support-visibility"
+          ],
+          "labels": {
+            "scope": "stack-specific",
+            "invocation": "agent",
+            "stack": "Google ADK",
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream",
+            "pack": "technical",
+            "domain": "ai",
+            "phase": "cross-phase"
+          }
+        }
+      }
+    },
+    "ai-adk-development--adk-verify-snippets": {
+      "source": "google-adk-python",
+      "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
+      "kind": "skill",
+      "path": ".agents/skills/adk-verify-snippets",
+      "destination": "plugins/ai-adk-development/skills/adk-verify-snippets",
+      "resources": [
+        {
+          "path": "LICENSE",
+          "destination": "UPSTREAM-LICENSE.txt"
+        }
+      ],
+      "metadata": {
+        "packaging": {
+          "plugin": "ai-adk-development",
+          "license": "Apache-2.0",
+          "license_path": "LICENSE",
+          "adaptations": [
+            "usage-labels",
+            "support-visibility"
+          ],
+          "labels": {
+            "scope": "stack-specific",
+            "invocation": "agent",
+            "stack": "Google ADK",
+            "role": "support",
+            "kind": "method",
+            "origin": "upstream",
+            "pack": "technical",
+            "domain": "ai",
+            "phase": "cross-phase"
+          }
+        }
+      }
+    },
     "ai-langchain-development--langchain-fundamentals": {
       "source": "langchain-ai-langchain-skills",
       "commit": "16a992f09ab3ccfb642dd4f08d350d833d1990bf",
@@ -528,7 +843,7 @@
             "origin": "upstream",
             "pack": "sdlc",
             "domain": "development",
-            "phase": "verification"
+            "phase": "testing"
           }
         }
       }

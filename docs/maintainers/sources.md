@@ -10,7 +10,7 @@ The [manifest](../../agent-depot.json) declares repositories, accepted artifact 
 
 | Plugin | Source | Selected skills |
 | --- | --- | --- |
-| ai-adk-development | [google/adk-python](https://github.com/google/adk-python) | adk-agent-builder, adk-architecture |
+| ai-adk-development | [google/adk-python](https://github.com/google/adk-python) | adk-agent-builder, adk-architecture, adk-debug, adk-git, adk-review, adk-sample-creator, adk-setup, adk-style, adk-unit-design, adk-unit-guide, adk-verify-snippets |
 | ai-langchain-development | [langchain-ai/langchain-skills](https://github.com/langchain-ai/langchain-skills) | langchain-fundamentals, langgraph-fundamentals, langgraph-persistence, langchain-dependencies |
 | ai-python-development | [anthropics/skills](https://github.com/anthropics/skills) | mcp-builder |
 | backend-python-development | [trailofbits/skills](https://github.com/trailofbits/skills) | modern-python |
@@ -278,7 +278,7 @@ The [browser-extension source review](../../plugins/browser-extension-developmen
 
 ## Plugin ownership
 
-The collection has 21 independent packages and 158 skills: 128 local and 30 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer and writing-for-agents use documentation-local packaging and the Python MCP wrapper uses Python-local conventions.
+The collection has 21 independent packages and 167 skills: 128 local and 39 acquired. SDLC is the default build; 9 generic packages contain no stack-specific skills, and 12 technical packages are explicitly selected. Artifact commit pins, original resource groups and native invocation controls are preserved. Acquisition destinations follow the owners below; Humanizer and writing-for-agents use documentation-local packaging and the Python MCP wrapper uses Python-local conventions.
 
 Skills carry a small classification layer: `kind` (system, activity, method, workflow, guide or reference), `origin` (local or upstream), `scope`, `invocation` and `role`. Local skills are validated for the required fields; acquired labels come from `agent-depot.json` and are injected at build time without editing upstream bytes. Run `python scripts/skill_map.py --inventory` for the generated maintainer matrix.
 
@@ -301,7 +301,7 @@ The collection has 9 generic capability packages and 12 optional technical packa
 | `frontend-reactjs-development` | Technical | 5 | React/Next.js/shadcn/Tailwind and their actual component APIs. |
 | `browser-extension-development` | Technical | 5 | Chrome/MV3 execution contexts, permissions, extension surfaces, runtime verification and controlled store delivery. |
 | `frontend-native-development` | Technical | 1 | TypeScript/Tauri and React Native/Expo, platform lifecycle, packaging and native drivers. |
-| `ai-adk-development` | Technical | 2 | Google ADK; preserve the paired architecture/builder skills. |
+| `ai-adk-development` | Technical | 11 | Google ADK; preserve the complete upstream suite (architecture, builder, debug, review, style, unit docs, samples, snippets, git, setup). |
 | `ai-langchain-development` | Technical | 4 | LangChain/LangGraph and dependencies/persistence as a complete group. |
 | `ai-python-development` | Technical | 4 | Python provider/FastMCP adapters, DeepEval evaluation suites and OpenTelemetry AI instrumentation; no required agent framework or hosted backend. |
 | `development-tooling` | Technical | 8 | Optional Bash, CLI design, provider-neutral CI/CD pipeline design, browser/load testing, delivery/configuration tooling and lockfile audit implementations. |
@@ -349,7 +349,7 @@ Concrete preferences belong in explicitly selected technical guidance or project
 Each row has one owner. Local links lead to source; upstream links lead to the exact acquired revision. Preserve every skill's complete resources, licenses, native controls and scope. The dispositions record the separation of method outcomes from technical implementation; each package is checked independently.
 
 <details>
-<summary>All 158 skills and their current owners</summary>
+<summary>All 167 skills and their current owners</summary>
 
 | Skill | Origin | Plugin |
 | --- | --- | --- |
@@ -475,6 +475,15 @@ Each row has one owner. Local links lead to source; upstream links lead to the e
 | [native-client-development](../../plugins/frontend-native-development/skills/native-client-development/SKILL.md) | Local | `frontend-native-development` |
 | [adk-agent-builder](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-agent-builder) | Upstream | `ai-adk-development` |
 | [adk-architecture](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-architecture) | Upstream | `ai-adk-development` |
+| [adk-debug](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-debug) | Upstream | `ai-adk-development` |
+| [adk-git](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-git) | Upstream | `ai-adk-development` |
+| [adk-review](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-review) | Upstream | `ai-adk-development` |
+| [adk-sample-creator](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-sample-creator) | Upstream | `ai-adk-development` |
+| [adk-setup](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-setup) | Upstream | `ai-adk-development` |
+| [adk-style](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-style) | Upstream | `ai-adk-development` |
+| [adk-unit-design](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-unit-design) | Upstream | `ai-adk-development` |
+| [adk-unit-guide](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-unit-guide) | Upstream | `ai-adk-development` |
+| [adk-verify-snippets](https://github.com/google/adk-python/tree/6be386d8939c4898aa2c0fc8a1f7cb34e7df7904/.agents/skills/adk-verify-snippets) | Upstream | `ai-adk-development` |
 | [langchain-dependencies](https://github.com/langchain-ai/langchain-skills/tree/16a992f09ab3ccfb642dd4f08d350d833d1990bf/config/skills/langchain-dependencies) | Upstream | `ai-langchain-development` |
 | [langchain-fundamentals](https://github.com/langchain-ai/langchain-skills/tree/16a992f09ab3ccfb642dd4f08d350d833d1990bf/config/skills/langchain-fundamentals) | Upstream | `ai-langchain-development` |
 | [langgraph-fundamentals](https://github.com/langchain-ai/langchain-skills/tree/16a992f09ab3ccfb642dd4f08d350d833d1990bf/config/skills/langgraph-fundamentals) | Upstream | `ai-langchain-development` |
