@@ -17,7 +17,7 @@ Use this package when an accepted AI design needs Python implementation detail: 
 
 ## Boundaries
 
-- Evaluation cases, graders and sufficiency belong to [ai-evaluation](../ai-development/skills/ai-evaluation/SKILL.md); this package implements the chosen approach.
+- Evaluation cases, graders and sufficiency belong to [ai-evaluation](https://github.com/joao-aires/agent-skills-public/blob/main/plugins/ai-development/skills/ai-evaluation/SKILL.md); this package implements the chosen approach.
 - Product behavior, provider strategy and model choice are accepted elsewhere.
 - Serving, scaling and release belong to delivery and platform packages.
 
@@ -29,4 +29,4 @@ Use this package when an accepted AI design needs Python implementation detail: 
 
 ## Maintenance
 
-Bump `plugin.json` when packaged content changes. Keep the skill descriptions as the selection surface: a new capability needs a description that says when to use it and when not to, not a route from another skill. Acquired skills stay pinned in `agent-depot.json`; update them through [upstream maintenance](../../docs/maintainers/upstreams.md) and never edit the upstream body.
+Bump `plugin.json` when packaged content changes. Keep the skill descriptions as the selection surface: a new capability needs a description that says when to use it and when not to, not a route from another skill. Acquired skills stay pinned in `agent-depot.json`; update them through [upstream maintenance](https://github.com/joao-aires/agent-skills-public/blob/main/docs/maintainers/upstreams.md) and never edit the upstream body.
