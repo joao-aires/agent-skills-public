@@ -17,7 +17,7 @@
     "origin": "upstream",
     "pack": "sdlc",
     "domain": "development",
-    "phase": "verification"
+    "phase": "testing"
   },
   "artifact": "development--code-review",
   "destination": "plugins/sdlc/skills/code-review",

@@ -17,7 +17,7 @@ metadata:
 
 A GraphQL schema publishes the types, fields and operations clients may depend on. This method owns that published contract and the decisions that make it safe to evolve: nullability, pagination, errors, authorization, cost and federation boundaries. It does not own resolver implementation, datastore access or service behavior.
 
-Use service-contract design (`backend-design`) for operation meaning, authority, invariants, durable effects and completion. Use architecture design (`design-system`) when service, data or client boundaries change. Resolver code, middleware, server configuration and database access belong to the selected stack conventions.
+Use service-contract design (`backend-design`) for operation meaning, authority, invariants, durable effects and completion. Use architecture design when service, data or client boundaries change. Resolver code, middleware, server configuration and database access belong to the selected stack conventions.
 
 Stop when the schema and its operating rules are reviewable: the SDL or schema artifacts, the error and authorization contract, the cost policy and the verification needs. Preserve an accepted schema's naming, identity and directive conventions; record a consequential deviation rather than introducing a parallel style.
 
@@ -132,7 +132,7 @@ Verification should exercise the schema, not only resolver unit tests: represent
 | Need | Use |
 | --- | --- |
 | Operation meaning, authority, invariants, durable effects, retries and completion | `backend-design` in this package |
-| Service, data, client or deployment boundaries; federation topology | `design-system` when installed |
+| Service, data, client or deployment boundaries; federation topology | Installed system architecture guidance |
 | Design record, C4, sequence, state and compatibility artifacts | The artifact system's design-proposal, C4, sequence, state-machine and compatibility-matrix guides |
 | Server, resolver, middleware, datastore and deployment mechanics | The selected stack conventions |
 | Identity, tokens, scopes, threat modeling, metrics, traces, SLOs and alerting | Installed security, identity and observability guidance |

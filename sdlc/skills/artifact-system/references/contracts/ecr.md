@@ -169,7 +169,7 @@ When a claim is superseded, keep the prior decision traceable but mark it as sup
 
 | Completed activity | ECR content required before describing it as ready |
 | --- | --- |
-| Project planning | Desired outcome, scope, feasibility, relevant prerequisites and the next action or decision are clear or linked |
+| Planning | Desired outcome, scope, feasibility, relevant prerequisites and the next action or decision are clear or linked |
 | Refine | Outcome, affected areas, identified requirement IDs across applicable dimensions, observable acceptance and open decision owners are sufficient for design |
 | Design | Proposed target, affected software types and the seam are understood; material alternatives and linked design artifacts are resolved or blocked; the baseline revision is linked |
 | Implementation preparation | Dependency-ordered increments reference accepted requirements and design; verification, migration and rollback are covered |

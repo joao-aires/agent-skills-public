@@ -26,8 +26,8 @@ how quickly the authority can be removed. Those are product and tenancy contract
 properties of a sign-in library.
 
 This method owns the SaaS organization and access model. General authentication,
-session and authorization mechanics belong to `design-security`; privacy and
-data-flow decisions belong to `design-security`; tenant and lifecycle decisions
+session and authorization mechanics belong to security design; privacy and
+data-flow decisions belong to security design; tenant and lifecycle decisions
 belong to `saas-design`. Use those capabilities where the question is theirs, and keep the
 organization contract explicit here.
 
@@ -44,8 +44,8 @@ that must be granted, reviewed, audited and revoked.
 | SSO, SCIM, domain verification, role mapping and break-glass | [Enterprise identity](references/enterprise-identity.md) |
 | API keys, service accounts, scopes, rotation and ownership | [Machine identity](references/machine-identity.md) |
 | Support and administrative access, approval, attribution and audit | [Support access](references/support-access.md) |
-| Authentication, sessions, policy enforcement and revocation mechanics | `design-security` |
-| Data minimization, retention and provider flows | `design-security` |
+| Authentication, sessions, policy enforcement and revocation mechanics | Security design guidance |
+| Data minimization, retention and provider flows | Security design guidance |
 | Tenant isolation, lifecycle and customer closure | `saas-design` |
 
 ## Model the organization

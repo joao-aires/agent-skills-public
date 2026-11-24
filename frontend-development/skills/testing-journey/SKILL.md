@@ -8,7 +8,7 @@ metadata:
   origin: local
   pack: technical
   domain: frontend
-  phase: verification
+  phase: testing
   scope: generic
   invocation: both
   role: support

@@ -17,6 +17,17 @@ A handoff can be assembled from linked artifacts. The reader should be able to s
 - the decisions still open and their owners;
 - what may start, what must wait and what is blocked.
 
+## Delegation envelope
+
+A delegate inside the same engagement receives a **delegation envelope**, not a phase handoff. The fields are owned by [delegation](../../activity-system/references/delegation.md#the-envelope): thread and phase, outcome, inputs at a named revision, acceptance, write scope and return format. Nothing about a next phase travels, because the delegate stays inside its own phase; the bullets above are the content when ownership moves to a different phase.
+
+Two fields are easy to drop and expensive to lose:
+
+- **Thread.** The work item and the phase it is in, so the delegate knows which decision space it is working inside. A phase alone is not a thread.
+- **Revision.** The commit, file hash or target actually checked. "The latest artifact" is not a revision, and a claim without one cannot be verified later.
+
+The envelope is not a new artifact type. Record it in the change record or the pull-request description and link it; do not create a handoff document to carry it.
+
 ## Phase handoff matrix
 
 | From | To | Handoff content | May be assembled from |
@@ -25,10 +36,10 @@ A handoff can be assembled from linked artifacts. The reader should be able to s
 | Requirements | Design | Actors and permissions, behavior, observable acceptance, constraints, open decisions | ECR requirements/acceptance, PRD, issue, research report, product feedback analysis |
 | Design | Implementation preparation | Decision, affected components and types, alternatives, linked design artifacts, seam, validation, start/blocked | Design proposal, design specification, data model, C4/sequence/state views, RFC/ADR |
 | Implementation preparation | Implementation | Ordered increments, dependencies, verification per slice, migration and rollback | ECR implementation strategy, implementation-preparation reference, issue |
-| Implementation | Verification and review | Actual revision, changed behavior, protected behavior, planned checks, deviations | Code/tests, ECR implementation/verification, PR |
-| Verification and review | Release | Checked behavior, evidence, findings, gaps, risk, readiness | ECR verification, PR, test evidence |
-| Release | Operations | Target, rollout, recovery, signals, runbook/SLO updates, observed state | Release note, deployment record, runbook, signal contract |
-| Operations | Incident / learning | Impact, response, recovery evidence, open questions | Incident record, operations review, runbook |
+| Implementation | Testing | Actual revision, changed behavior, protected behavior, planned checks, deviations | Code/tests, ECR implementation/verification, PR |
+| Testing | Deployment | Checked behavior, evidence, findings, gaps, risk, readiness | ECR verification, PR, test evidence |
+| Deployment | Maintenance | Target, rollout, recovery, signals, runbook/SLO updates, observed state | Release note, deployment record, runbook, signal contract |
+| Maintenance | Incident / learning | Impact, response, recovery evidence, open questions | Incident record, operations review, runbook |
 | Incident | Postmortem | Timeline, impact, response, recovery, preserved evidence | Incident record, logs/signals, runbook |
 | Postmortem | Planning / design | Causal analysis, actions, changed assumptions, owners | Postmortem, action register, ECR/decision |
 | Any reopen | Earlier phase | What changed, invalidated premise, dependent work, pause/authority | Design proposal/ECR/decision, verification evidence |
@@ -45,19 +56,19 @@ The implementer must know the accepted decision, the affected components and typ
 
 A design specification is the usual carrier for the interface handoff: flows, screens, states, content, components, tokens, responsive behavior, accessibility, motion and assets. C4, sequence and state views carry the system handoff. A design proposal carries the decision and the rejected alternatives.
 
-### Implementation to verification
+### Implementation to testing
 
 The verifier must know the actual revision, the behavior that changed, the behavior that must not change, the checks already planned or run and any deviations from the accepted design. A summary of intentions is not evidence.
 
-### Verification to release
+### Testing to deployment
 
-The release owner must know what was actually checked, at which revision and target, what failed or was skipped, what risk remains and whether readiness is ready, limited or blocked.
+Whoever performs the deployment must know what was actually checked, at which revision and target, what failed or was skipped, what risk remains and whether readiness is ready, limited or blocked.
 
-### Release to operations
+### Deployment to maintenance
 
 The operator must know the target, rollout state, recovery path, signals, runbook changes and what was observed after release. A merge or build is not a deployment.
 
-### Operations to learning
+### Maintenance to learning
 
 The reviewer must know impact, response, recovery evidence and what remains unknown. Do not collapse customer impact into response duration.
 

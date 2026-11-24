@@ -63,17 +63,36 @@ Focus: frontend saved-searches design. Backend contract accepted; AI not affecte
 
 ## Threads
 
-A thread is one line of work with its own activity, stopping point and evidence. A thread may carry a software type:
+A thread is one line of work with its own id, current phase, stopping point and evidence. A thread may carry a software type:
 
 ```markdown
 Threads:
-- Requirements and acceptance — backend — accepted
-- Backend saved-searches contract — backend — current focus
-- Saved-searches panel — frontend — waiting on the contract
-- Seam: error and pagination — shared — open
+- T1 Saved searches — backend — implementation — running
+- T2 Export panel — frontend — testing — waiting on T1
+- T3 Seam: error and pagination — shared — design — open
 ```
 
+A thread moves through phases; it is not a phase and not a session.
+
 Read [software types](../../artifact-system/references/software-types.md) for the type evidence. A thread does not need a type when the design evidence is the same regardless of type.
+
+## Delegated execution
+
+Work divides along two axes: the **thread** and the **phase**. A delegate is one thread in one phase — `T1 · implementation`, `T2 · testing` — and it starts from artifacts rather than from another delegate's context. Two threads can sit at different phases at once; the coordinator tracks which is where.
+
+When work is delegated, the thread line carries its phase and the active delegate:
+
+```markdown
+Threads:
+- T1 Saved searches — implementation — impl delegate — running
+- T2 Export panel — testing — test delegate — waiting on T1
+```
+
+The phase boundary is what makes the handoff testable: if the next delegate can only work by inheriting the previous one's reasoning, the artifacts are incomplete. Reusing a context across phases hides that gap.
+
+A repair loop stays inside its phase. A new phase, or a decision reopened by later evidence, starts a new delegate for the affected phase.
+
+Use a single session end-to-end when the work is small or the client has no separate contexts; record that the phases shared context. [Delegation](delegation.md) owns the envelope, independence and degradation.
 
 ## Reopen protocol
 

@@ -15,7 +15,7 @@ metadata:
   origin: upstream
   pack: sdlc
   domain: development
-  phase: verification
+  phase: testing
 ---
 
 Read [activity system](../activity-system/SKILL.md) before applying this skill.

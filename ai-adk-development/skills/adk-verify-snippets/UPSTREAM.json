@@ -1,0 +1,26 @@
+{
+  "plugin": "ai-adk-development",
+  "license": "Apache-2.0",
+  "license_path": "LICENSE",
+  "adaptations": [
+    "usage-labels",
+    "support-visibility"
+  ],
+  "labels": {
+    "scope": "stack-specific",
+    "invocation": "agent",
+    "stack": "Google ADK",
+    "role": "support",
+    "kind": "method",
+    "origin": "upstream",
+    "pack": "technical",
+    "domain": "ai",
+    "phase": "cross-phase"
+  },
+  "artifact": "ai-adk-development--adk-verify-snippets",
+  "destination": "plugins/ai-adk-development/skills/adk-verify-snippets",
+  "repository": "https://github.com/google/adk-python.git",
+  "commit": "6be386d8939c4898aa2c0fc8a1f7cb34e7df7904",
+  "path": ".agents/skills/adk-verify-snippets",
+  "installed_skill": "adk-verify-snippets"
+}

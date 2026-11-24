@@ -7,7 +7,7 @@ metadata:
   origin: local
   pack: sdlc
   domain: delivery
-  phase: release
+  phase: deployment
   scope: generic
   invocation: both
   role: support

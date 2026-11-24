@@ -9,7 +9,7 @@
       "name": "ai-adk-development",
       "source": "./ai-adk-development",
       "description": "Google ADK architecture and agent implementation.",
-      "version": "0.1.1"
+      "version": "0.2.0"
     },
     {
       "name": "ai-development",

@@ -7,7 +7,7 @@ metadata:
   origin: local
   pack: sdlc
   domain: development
-  phase: verification
+  phase: testing
   scope: generic
   invocation: both
   role: task
@@ -63,6 +63,8 @@ These describe evidence, not additional approval ceremonies. A build, screenshot
 
 ## Implement, test, inspect and repair
 
+When this phase also carries implementation — a fix, a new seam, a fixture — you are the implementer for that part. Certifying it needs a separate pass: do not treat your own repair as the verification of the repair; record the change and verify the changed surface again.
+
 Keep meaningful regression tests with the feature as behavior is implemented. For each useful increment:
 
 1. Run affected fast checks and exercise the changed path using the services it needs.
@@ -81,6 +83,16 @@ Before completion, reconcile all in-scope surfaces/consumers and run required br
 A failed required command or missing driver leaves the corresponding claim partial even when other tests pass.
 
 Stop when acceptance is established or a precise blocker remains. Repeated failure without new evidence calls for diagnosis, not indefinite retries. Distinguish product defects, fixture/environment problems, stochastic evaluation and missing capabilities. Human decisions resolve unresolved product/taste questions; agent self-rating cannot supply that acceptance.
+
+## Start from artifacts, not from the implementer's context
+
+When this activity runs as a delegated context, it is the testing delegate for one thread. Start from the accepted requirements, the design and the actual revision, and read the evidence yourself. Verification is independent when it did not write the change and did not inherit its reasoning.
+
+If the change can only be verified by asking the implementer what it meant, the handoff is incomplete: name the missing artifact instead of borrowing the other context. The [delegation](../activity-system/references/delegation.md) envelope is what should have carried it.
+
+A verifier that repairs what it just certified removes the independence it was created for. Repair to diagnose — a fixture, a harness, a reproduction — and report the finding. A repair that changes production behavior reopens implementation, and the changed surface is verified again in a fresh pass.
+
+Self-assessment is not independence. Without a separate context, run the pass inline and say that it shares context.
 
 ## Carry delivery consequences forward
 
