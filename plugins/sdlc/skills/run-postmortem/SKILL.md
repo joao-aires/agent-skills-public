@@ -4,20 +4,17 @@ description: >-
   Facilitate and follow up an incident postmortem: reconstruct evidence, analyse causes and response, derive testable learning actions, and verify that the controls actually work.
 metadata:
   kind: activity
-  origin: local
   scope: generic
   invocation: both
-  role: task
   phase: maintenance
-  pack: sdlc
   domain: operations
 ---
 
 # Postmortem
 
-Use one learning loop for facilitation and follow-up. Reconstruct what happened from evidence, explain the conditions that allowed impact, derive specific actions, and verify the actions on the real target. The review can establish recovery while leaving part of the cause unknown.
+Run one learning loop for facilitation and follow-up, and stop at supported actions with owners and verification criteria.
 
-Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Reconstruct what happened from evidence, explain the conditions that allowed impact, derive specific actions, and verify them on the real target. The review can establish recovery while leaving part of the cause unknown.
 
 For writing the artifact this activity produces, read [guide-postmortem](../guide-postmortem/SKILL.md) for structure, conventions and review.
 

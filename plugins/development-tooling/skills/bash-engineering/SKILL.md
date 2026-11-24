@@ -5,15 +5,12 @@ description: Create, refactor and audit reliable Bash CLI utilities, build/opera
   semantics, portability, testable side effects and useful documentation.
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: tooling
   phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Bash
   version: '1.0'
-  role: support
 user-invocable: false
 ---
 

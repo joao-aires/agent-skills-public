@@ -4,13 +4,10 @@ description: Create, revise or review a skill in this collection. Use when addin
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: craft
   domain: documentation
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Author a capability, not a documentation page
@@ -137,6 +134,10 @@ Use the repository's the repository evaluation guide for scenario definitions an
 - For an upstream acquisition, follow the the repository upstream-maintenance policy; never edit acquired bytes.
 
 Keep each meaning in one authoritative place. When a fact already lives in the environment, a generated inventory or another skill, link or read it instead of caching a copy.
+
+## Review pass
+
+Before finishing, run the [prose review](../technical-writing/references/prose-review.md) on the skill body. One check is specific to skills: the first sentence states the job and where the skill stops, and declarations stay in `## Composition`.
 
 ## Stop and review
 

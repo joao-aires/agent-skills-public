@@ -12,6 +12,11 @@ from pathlib import Path
 
 import yaml
 
+try:
+    from skill_metadata import local_skill_labels
+except ModuleNotFoundError:
+    from scripts.skill_metadata import local_skill_labels
+
 ROOT = Path(__file__).resolve().parents[1]
 OUTPUT = ROOT / 'docs'
 
@@ -37,9 +42,12 @@ def build_rows():
     for path in sorted((ROOT / 'plugins').glob('*/skills/*/SKILL.md')):
         relative = path.parent.relative_to(ROOT).as_posix()
         metadata = frontmatter(path)
-        local_labels = metadata.get('metadata', {}) or {}
-        labels = acquired.get(relative, local_labels)
-        origin = 'upstream' if relative in acquired else local_labels.get('origin', 'local')
+        if relative in acquired:
+            labels = acquired[relative]
+            origin = 'upstream'
+        else:
+            labels = local_skill_labels(metadata, path)
+            origin = labels['origin']
         rows.append({
             'name': metadata.get('name', path.parent.name),
             'description': ' '.join((metadata.get('description') or '').split()),

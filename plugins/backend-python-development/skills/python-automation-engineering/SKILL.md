@@ -5,15 +5,12 @@ description: Design, implement, review and maintain useful Python operational au
   complete API collection, resumable mutations and verified outcomes.
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: backend
   phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Python
   version: '1.0'
-  role: support
 user-invocable: false
 ---
 

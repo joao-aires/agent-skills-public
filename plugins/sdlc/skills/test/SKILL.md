@@ -4,38 +4,35 @@ description: Select, add, run and review checks; establish completion evidence f
 user-invocable: true
 metadata:
   kind: activity
-  origin: local
-  pack: sdlc
   domain: development
   phase: testing
   scope: generic
   invocation: both
-  role: task
 ---
 
-# Verification
+# Testing
+
+Testing connects the requested outcome to observable acceptance and selects checks that can observe it. It reports what was actually established at the stated boundary, and owns acceptance evidence, suite health, the delivery consequences of the result, and the remaining gaps.
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
 
-Verification connects the requested outcome to observable acceptance, selects checks that can observe it, and reports what was actually established at the stated boundary. It includes the completion review that was formerly separate: evidence, suite health, delivery consequences and the remaining gaps.
-
 ## Establish the claim before implementation
 
-Read accepted decisions, instructions and affected contracts. Preserve the existing architecture and UI direction unless changing them is the objective. Reuse agreed answers; a conversation can be sufficient scope. Use [Git contributions](../git-contributions/SKILL.md) for the objective worktree and contribution flow.
+Read accepted decisions, instructions and affected contracts. Preserve the existing architecture and UI direction unless changing them is the objective. Reuse agreed answers. A conversation can be sufficient scope. Use [Git contributions](../git-contributions/SKILL.md) for the objective worktree and contribution flow.
 
 For a defect, reproduce the relevant failure before repairing it. Use diagnosing-bugs, tdd or specialist review where their method fits.
 
 Describe what will be different when the work succeeds: the starting condition, the action and the result a user or another consumer can observe. Include stored changes and denied actions where they matter, so the check can detect an implementation that appears successful while leaving the application in the wrong state.
 
-Keep material criteria stable; change them only when the underlying requirement has changed for a reason. Investigate a mismatch before adjusting the expected result. Record consequential assumptions and unavailable capabilities so a later report cannot turn an unexecuted check into a success claim.
+Keep material criteria stable. Change them only when the underlying requirement has changed for a reason. Investigate a mismatch before adjusting the expected result. Record consequential assumptions and unavailable capabilities so a later report cannot turn an unexecuted check into a success claim.
 
 ## Select meaningful coverage
 
 Identify what the requested change promises and what could break that promise. Inspect the existing tests and project commands before adding another test layer. Select checks that can observe the relevant result, including the previously broken condition for a bug fix and important denial or failure paths for changed behavior.
 
-Prefer the narrowest check that exercises the behavior faithfully, then cross a real integration boundary when a substitute would hide the risk. A test of a component with a fake service can establish its response to that service; it cannot establish that the actual service stores the right result.
+Prefer the narrowest check that exercises the behavior faithfully, then cross a real integration boundary when a substitute would hide the risk. A test of a component with a fake service can establish its response to that service. It cannot establish that the actual service stores the right result.
 
-Add missing coverage where needed. Keep assertions independent enough to catch a plausible faulty implementation. Diagnose a failing test before deciding whether the application, fixture or environment is wrong; do not silently alter production behavior, weaken assertions or inflate retries to pass.
+Add missing coverage where needed. Keep assertions independent enough to catch a plausible faulty implementation. Diagnose a failing test before deciding whether the application, fixture or environment is wrong. Do not silently alter production behavior, weaken assertions or inflate retries to pass.
 
 Where implementation follows, agree the test seam before writing tests: prefer an existing seam, then the highest useful seam, with the fewest seams across the codebase. When the seam's shape is unsettled, use [codebase-design](../codebase-design/SKILL.md) for the module, interface and depth terms rather than building a new harness around it.
 
@@ -50,7 +47,7 @@ When the promise is a property over an input domain — roundtrip, inverse, inva
 | Ready for deployment | Required checks pass and applicable configuration, compatibility, migration and recovery consequences are resolved. |
 | Verified after deployment | The intended revision is served and the affected journey works in the named target. |
 
-These describe evidence, not additional approval ceremonies. A build, screenshot, successful transport response or runner narrative establishes only its own boundary. Use independent observable outcomes for important effects, including persistence and denied access. Verify proposed corrections as well as the current defect; distinguish a measured result from a hypothesis or unexecuted check.
+These describe evidence, not additional approval ceremonies. A build, screenshot, successful transport response or runner narrative establishes only its own boundary. Use independent observable outcomes for important effects, including persistence and denied access. Verify proposed corrections as well as the current defect. Distinguish a measured result from a hypothesis or unexecuted check.
 
 | Changed concern | Verification owner |
 | --- | --- |
@@ -63,7 +60,7 @@ These describe evidence, not additional approval ceremonies. A build, screenshot
 
 ## Implement, test, inspect and repair
 
-When this phase also carries implementation — a fix, a new seam, a fixture — you are the implementer for that part. Certifying it needs a separate pass: do not treat your own repair as the verification of the repair; record the change and verify the changed surface again.
+When this phase also carries implementation — a fix, a new seam, a fixture — you are the implementer for that part. Certifying it needs a separate pass. Do not treat your own repair as its verification. Record the change and verify the changed surface again.
 
 Keep meaningful regression tests with the feature as behavior is implemented. For each useful increment:
 
@@ -71,9 +68,9 @@ Keep meaningful regression tests with the feature as behavior is implemented. Fo
 2. Inspect outcomes, diagnostics and relevant state against the accepted criteria.
 3. Diagnose discrepancies, repair the shared cause and recheck before dependent work. Add coverage for an observed failure at the smallest boundary that captures its cause.
 
-Read the test results and inspect the behavior they are meant to establish. A passing assertion can still exercise the wrong route, use a privileged test identity or bypass persistence. Check important effects through an observation that does not merely repeat the implementation's own success response. Manual exploration complements committed tests by exposing unexpected interaction and configuration problems; preserve useful reproductions as regression coverage.
+Read the test results and inspect the behavior they are meant to establish. A passing assertion can still exercise the wrong route, use a privileged test identity or bypass persistence. Check important effects through an observation that does not merely repeat the implementation's own success response. Manual exploration complements committed tests by exposing unexpected interaction and configuration problems. Preserve useful reproductions as regression coverage.
 
-Use isolated test data/stores and controlled providers. testing-journey owns fixture identity, driver and platform details. Mocks demonstrate application handling; live integrations and native clients require their own evidence. Keep expensive load/fault/live-model checks at risk-appropriate milestones, rather than repeating every suite after each edit.
+Use isolated test data/stores and controlled providers. testing-journey owns fixture identity, driver and platform details. Mocks demonstrate application handling. Live integrations and native clients require their own evidence. Keep expensive load/fault/live-model checks at risk-appropriate milestones, rather than repeating every suite after each edit.
 
 Before completion, reconcile all in-scope surfaces/consumers and run required broader regression.
 
@@ -82,11 +79,11 @@ Before completion, reconcile all in-scope surfaces/consumers and run required br
 
 A failed required command or missing driver leaves the corresponding claim partial even when other tests pass.
 
-Stop when acceptance is established or a precise blocker remains. Repeated failure without new evidence calls for diagnosis, not indefinite retries. Distinguish product defects, fixture/environment problems, stochastic evaluation and missing capabilities. Human decisions resolve unresolved product/taste questions; agent self-rating cannot supply that acceptance.
+Stop when acceptance is established or a precise blocker remains. Repeated failure without new evidence calls for diagnosis, not indefinite retries. Distinguish product defects, fixture/environment problems, stochastic evaluation and missing capabilities. Human decisions resolve unresolved product/taste questions. Agent self-rating cannot supply that acceptance.
 
 ## Start from artifacts, not from the implementer's context
 
-When this activity runs as a delegated context, it is the testing delegate for one thread. Start from the accepted requirements, the design and the actual revision, and read the evidence yourself. Verification is independent when it did not write the change and did not inherit its reasoning.
+When this activity runs as a delegated context, it is the testing delegate for one thread. Start from the accepted requirements, the design and the actual revision, and read the evidence yourself. Testing is independent when it did not write the change and did not inherit its reasoning.
 
 If the change can only be verified by asking the implementer what it meant, the handoff is incomplete: name the missing artifact instead of borrowing the other context. The [delegation](../activity-system/references/delegation.md) envelope is what should have carried it.
 
@@ -112,7 +109,7 @@ Diagnose flaky checks before changing waits or retries.
 - Remove redundant tests only after equivalent useful coverage exists.
 - Choose tests by behavior and risk rather than a universal coverage percentage.
 
-Review scope, correctness and avoidable complexity; resolve material findings. Keep affected knowledge current, seeking available knowledge-upkeep expertise when useful. For deprecation/removal, read [retiring behavior](references/retiring-behavior.md) before removing consumers, data or operating resources.
+Review scope, correctness and avoidable complexity. Resolve material findings. Keep affected knowledge current, seeking available knowledge-upkeep expertise when useful. For deprecation/removal, read [retiring behavior](references/retiring-behavior.md) before removing consumers, data or operating resources.
 
 Report changed behavior, rationale, actual checks/artifacts and remaining limits, with revision/environment sufficient to reproduce material findings. Preserve useful regression evidence. Distinguish planned, implemented, verified and deployed states, and publish or execute remote actions only within established authority.
 
@@ -122,7 +119,7 @@ When work crosses actors or sessions, retain the provenance needed to interpret 
 
 Apply [artifact assurance](../artifact-system/references/assurance.md) to compare actual checked behavior with accepted requirements, protected existing behavior and proposed design. Missing or failed acceptance evidence remains explicit nonconvergence, not an automatic green result.
 
-Record observations at the checked revision/target, the command or scenario, environment, result, evidence path, failed/skipped/unavailable checks, coverage gaps and design/diagram differences in the change record when authorized, or return a structured unpersisted record. Map each acceptance row to the requirement IDs it establishes; a requirement with no row is a coverage gap, not a pass. Return results, artifacts, actual boundaries and the next action. A green build alone does not establish behavior.
+Record observations at the checked revision/target, the command or scenario, environment, result, evidence path, failed/skipped/unavailable checks, coverage gaps and design/diagram differences in the change record when authorized, or return a structured unpersisted record. Map each acceptance row to the requirement IDs it establishes. A requirement with no row is a coverage gap, not a pass. Return results, artifacts, actual boundaries and the next action. A green build alone does not establish behavior.
 
 ## Composition
 

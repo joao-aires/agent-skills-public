@@ -4,13 +4,10 @@ description: Guide to writing an actionable issue. Covers context, intended outc
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: development
   phase: implementation
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Issue guide

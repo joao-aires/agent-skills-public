@@ -8,13 +8,10 @@ description: >-
   behavior. Credential custody and target delivery remain with their owners.
 metadata:
   kind: method
-  origin: local
-  pack: sdlc
   domain: development
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 user-invocable: true
 ---
 

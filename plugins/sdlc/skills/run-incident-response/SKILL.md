@@ -6,23 +6,20 @@ description: Coordinate and investigate active service incidents using impact-le
   not readiness exercises, recurring review or durable repair.
 metadata:
   kind: activity
-  origin: local
-  pack: sdlc
   domain: operations
   phase: maintenance
   scope: generic
   invocation: both
   version: '1.0'
-  role: task
 ---
 
 # Run incident response
 
-Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Use the [incident record contract](../artifact-system/references/contracts/incident-record.md) for the durable record.
+Reduce current user harm and preserve enough evidence to make the next decision, and stop at a supported mitigation or an explicit handoff.
 
-For writing the artifact this activity produces, read [guide-incident-record](../guide-incident-record/SKILL.md) for structure, conventions and review.
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Use the [incident record contract](../artifact-system/references/contracts/incident-record.md) for the durable record. For writing the artifact this activity produces, read [guide-incident-record](../guide-incident-record/SKILL.md) for structure, conventions and review.
 
-Reduce current user harm and preserve enough evidence to make the next decision. Establish what is failing now, who is affected, and which parts still work. Compare that impact with available signals so an old alert or a broken telemetry path does not define the incident by itself.
+Establish what is failing now, who is affected, and which parts still work. Compare that impact with available signals so an old alert or a broken telemetry path does not define the incident by itself.
 
 Run stabilization and investigation together. Choose a mitigation for the effect it is expected to have, observe whether that effect occurred, and revise the hypothesis when it did not. Record the target, time and result so another responder can understand what changed. Do not delay a supported mitigation to finish a perfect diagnosis.
 
@@ -31,7 +28,7 @@ Run stabilization and investigation together. Choose a mitigation for the effect
 - **Live interactive response:** establish impact, current state and response ownership promptly. Ask only questions needed for the next decision; investigate available sources meanwhile.
 - **Authorized unattended response:** execute only mitigations explicitly allowed by the incident or job policy. Missing authority becomes a concrete handoff; never treat an old alert as a new incident without current impact evidence.
 
-This activity is for active impact. A readiness exercise, procedure rehearsal or recurring signal review belongs to the owners in the boundary table; stop and hand off rather than presenting simulated actions as live operations.
+This activity is for active impact. A readiness exercise, procedure rehearsal or recurring signal review belongs to the owners in the boundary table. Stop and hand off rather than presenting simulated actions as live operations.
 
 ## Boundaries
 
@@ -50,22 +47,22 @@ Consult [references/response-guide.md](references/response-guide.md) for deeper 
 
 ## Response loop
 
-1. Read the exact alert/ticket/context and its UTC window; also recheck a window ending now. Corroborate customer/business outcomes and telemetry health. Identify scope, trend and evidence of unaffected segments.
-2. Apply local severity/major-incident criteria and name an incident lead. Separate operations, investigation, communication and timeline roles as staffing permits; explicit role ownership matters more than titles.
+1. Read the exact alert/ticket/context and its UTC window. Also recheck a window ending now. Corroborate customer/business outcomes and telemetry health. Identify scope, trend and evidence of unaffected segments.
+2. Apply local severity/major-incident criteria and name an incident lead. Separate operations, investigation, communication and timeline roles as staffing permits. Explicit role ownership matters more than titles.
 3. Select the quickest defensible reversible mitigation: rollback/config revert, flag, load control, failover, compatible scale change or scoped maintenance. Preserve volatile evidence first when practical without materially delaying restoration.
-4. Record hypothesis, expected effect, actual target, action authority, stop/rollback condition and UTC execution/result. Avoid conflicting simultaneous changes; re-evaluate when impact grows or actions fail.
-5. Investigate: align changes in code/config/platform/credentials/data/load with onset; inspect diffs and scope; compare working/failing variants. Test the strongest hypotheses with discriminating evidence. A recent change is not causal proof.
-6. Escalate ownership/access/provider boundaries with facts, scope, window, actions/results and specific assistance needed. Keep impact updates on the local cadence and immediately on material changes; use absolute next-update time rather than unsupported fix ETA.
+4. Record hypothesis, expected effect, actual target, action authority, stop/rollback condition and UTC execution/result. Avoid conflicting simultaneous changes. Re-evaluate when impact grows or actions fail.
+5. Investigate: align changes in code/config/platform/credentials/data/load with onset. Inspect diffs and scope. Compare working/failing variants. Test the strongest hypotheses with discriminating evidence. A recent change is not causal proof.
+6. Escalate ownership/access/provider boundaries with facts, scope, window, actions/results and specific assistance needed. Keep impact updates on the local cadence and immediately on material changes. Use an absolute next-update time rather than an unsupported fix ETA.
 7. Verify recovery through the original user/business path and independent signals, including served version/cache/async completion. Observe stability and track temporary controls.
 8. Handover or close: current impact, timeline, proven/unknown cause, rejected hypotheses, pending jobs/controls, next action and owner. Feed evidence to postmortem facilitation after stabilization.
 
 ## Carry a durable repair forward
 
-When a source repair is warranted, hand off the intended behavior, observed failure, affected scope, supporting signals and verification targets. Use available engineering defect-repair expertise for reproduction, design, implementation and regression checks within its authorized scope; the repair itself is not part of this activity. Keep incident mitigation, live recovery verification and communications with the incident response. Link the durable repair and its evidence from the incident record.
+When a source repair is warranted, hand off the intended behavior, observed failure, affected scope, supporting signals and verification targets. Use available engineering defect-repair expertise for reproduction, design, implementation and regression checks within its authorized scope. The repair itself is not part of this activity. Keep incident mitigation, live recovery verification and communications with the incident response. Link the durable repair and its evidence from the incident record.
 
 ## Evidence discipline
 
-Classify fact, hypothesis and unavailable information. Missing/sampled telemetry is unknown, not healthy. Compare numerator and denominator semantics before interpreting error/availability. Include silent failure, authentication/expiry, routing/cache and event-subscription changes in the investigation; avoid overfitting everything to deployments.
+Classify fact, hypothesis and unavailable information. Missing/sampled telemetry is unknown, not healthy. Compare numerator and denominator semantics before interpreting error/availability. Include silent failure, authentication/expiry, routing/cache and event-subscription changes in the investigation. Avoid overfitting everything to deployments.
 
 ## Completion evidence
 

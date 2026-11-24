@@ -4,13 +4,10 @@ description: Guide to writing a release note or changelog. Covers what shipped, 
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: delivery
   phase: deployment
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Release note guide

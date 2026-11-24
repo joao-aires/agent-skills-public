@@ -4,18 +4,15 @@ description: Commit to one integrated strategy from competing options. Frame the
 user-invocable: true
 metadata:
   kind: activity
-  origin: local
-  pack: product
   domain: product
   phase: planning
   scope: generic
   invocation: both
-  role: task
 ---
 
 # Set strategy
 
-Resolve analysis into one coherent set of choices that a competent operator can execute and a skeptic can challenge. This is the commit and synthesis activity in the strategy package.
+Resolve analysis into one coherent set of choices that a competent operator can execute and a skeptic can challenge, and stop at the accepted strategy brief.
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [choice cascade and strategy brief](../business-strategy/references/choice-cascade-and-strategy-brief.md), compare options with [strategy option set](../business-strategy/references/strategy-option-set.md), stress the result with [strategy stress testing](../business-strategy/references/strategy-stress-testing.md), and use [frameworks](../business-strategy/references/frameworks.md) only when a named lens is requested. Write the [strategy brief](../business-strategy/assets/strategy-brief.md) with [craft-strategy-brief](../craft-strategy-brief/SKILL.md).
 
@@ -31,12 +28,12 @@ Frame the decision: what must be chosen, by whom, by when, over what horizon and
 
 ## Work
 
-1. State the diagnosis or critical challenge; a goal is not a diagnosis.
+1. State the diagnosis or critical challenge. A goal is not a diagnosis.
 2. Hold at least three materially different options across customer, wedge, layer, channel or model. Reject variants that differ only in features or price.
 3. Compare options on the same fields, horizon and market definition: buyer, wedge, channel, monetization, capital intensity, time-to-value, economics, risk, durability and leading indicators.
 4. Choose with causal reasoning, then state the choice cascade — aspiration, where to play, how to win, capabilities and management systems — or the Rumelt kernel when the strategy is challenge-led. Check coherence, economics and the durability mechanism that survives a mature market.
-5. Write the exclusions and why each protects focus; name the best alternative forgone, its opportunity cost and why the trade is acceptable. Record critical assumptions with confidence, falsifiers, windows and the decision each reopens, then stress the strategy against incumbent response, non-adoption, distribution, economics, dependency and commoditization.
-6. Mark the brief proposed or accepted. Only the decision owner's acceptance makes it a commitment; record the decision and its evidence in the decision log and strategy state.
+5. Write the exclusions and why each protects focus. Name the best alternative forgone, its opportunity cost and why the trade is acceptable. Record critical assumptions with confidence, falsifiers, windows and the decision each reopens, then stress the strategy against incumbent response, non-adoption, distribution, economics, dependency and commoditization.
+6. Mark the brief proposed or accepted. Only the decision owner's acceptance makes it a commitment. Record the decision and its evidence in the decision log and strategy state.
 
 ## Output
 

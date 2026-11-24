@@ -1,23 +1,30 @@
 # Metadata contract
 
-Metadata is the repo-wide classification layer for skills, packs and the artifacts/activities they own. It exists for discovery, maintenance and generated inventories; it is not an execution router or a permission system.
+Metadata is the repo-wide classification layer for skills, packs and the artifacts/activities they own. It exists for discovery, maintenance and generated inventories. It is not an execution router or a permission system.
 
 ## Skill metadata
 
-Every local skill declares the following in `SKILL.md` frontmatter. Acquired skills receive the same labels from `agent-depot.json` at build time; their source bytes are not edited.
+Every local skill declares the following in `SKILL.md` frontmatter.
 
 | Field | Allowed values | Meaning |
 | --- | --- | --- |
 | `kind` | `system`, `activity`, `method`, `workflow`, `guide`, `reference` | The skill's conceptual role. |
-| `pack` | `sdlc`, `technical`, `craft`, `product` | The installable capability pack the skill belongs to. |
 | `domain` | `development`, `design`, `delivery`, `operations`, `security`, `governance`, `product`, `saas`, `frontend`, `backend`, `database`, `ai`, `tooling`, `platform`, `documentation`, `visualization`, `browser-extension`, `native`, `go`, `typescript` | The lifecycle stage or capability area. |
 | `phase` | `planning`, `requirements`, `design`, `implementation`, `testing`, `deployment`, `maintenance`, `cross-phase` | The primary SDLC phase, using the lifecycle names in [SDLC](sdlc.md). `deployment` covers release and rollout; `testing` covers verification and review. Use `cross-phase` for systems, assurance and methods that genuinely span the lifecycle. |
-| `origin` | `local`, `upstream` | Authored here or acquired and pinned. |
 | `scope` | `generic`, `stack-specific` | Applicability across stacks. |
 | `invocation` | `user`, `agent`, `both` | Preferred invocation surface. Native client controls still govern actual availability. |
-| `role` | `task`, `support` | Packaging role: requested activity versus supporting capability. |
 
-`kind` and `role` are different. `role` is the task/support packaging label; `kind` is the conceptual layer. `phase` is a single primary phase, not a list; the activity catalog and transitions carry multi-phase behavior.
+Three labels are derived rather than repeated on every skill:
+
+| Label | Source |
+| --- | --- |
+| `origin` | `local` for an authored skill; acquired skills are `upstream`. |
+| `pack` | `extensions["com.joao-aires.agent-skills"].pack` in the owning `plugins/<plugin>/plugin.json`. |
+| `role` | `task` for `kind: activity`, otherwise `support`. A `kind: system` skill declares its role because it is not a requested task. |
+
+Acquired skills receive the full label set from `agent-depot.json` at build time. Their source bytes are not edited.
+
+`kind` and `role` are different. `role` is the task/support packaging label. `kind` is the conceptual layer. The derived role follows the kind, except that a system declares its packaging role. `phase` is a single primary phase, not a list. The activity catalog and transitions carry multi-phase behavior.
 
 ### Kinds in use
 
@@ -34,9 +41,9 @@ The distinctions that matter most:
 
 - **Activity versus method.** An activity changes what the requester has afterward and owns a stopping point. A method deepens a concern inside that engagement without starting another activity.
 - **Method versus workflow.** A method supplies judgment and tradeoffs. A workflow supplies an ordered sequence, often for a named operation such as contributing a change.
-- **Method versus guide.** A method owns a subject and how to reason about it. A guide owns how to shape one artifact well. Artifact guides are `kind: guide`; their matching contract still owns lifecycle, authority, maturity, evidence and the phase handoff, while the guide owns the artifact's reader handoff.
+- **Method versus guide.** A method owns a subject and how to reason about it. A guide owns how to shape one artifact well. Artifact guides are `kind: guide`. Their matching contract still owns lifecycle, authority, maturity, evidence and the phase handoff, while the guide owns the artifact's reader handoff.
 - **Guide versus reference.** A guide is prescriptive craft that tells the writer what good looks like. A reference is lookup material consulted for a detail.
-- **System versus everything else.** A system owns shared vocabulary and rules that other skills compose; it should not be selected as if it were a single engagement.
+- **System versus everything else.** A system owns shared vocabulary and rules that other skills compose. It should not be selected as if it were a single engagement.
 
 The [artifact guide registry](../plugins/sdlc/skills/artifact-system/references/guide-registry.md) pairs each artifact guide with its contract. `kind: guide` does not change the skill's `role`, `invocation` or native client controls.
 
@@ -51,11 +58,11 @@ The [artifact guide registry](../plugins/sdlc/skills/artifact-system/references/
 | `invocation` (ours) | Preferred discovery surface: `user`, `agent` or `both` | **No**. It is a label, not a permission. |
 | `role` (ours) | Packaging role: `task` or `support` | **No**. |
 
-So `user-invocable: false` means “not a direct slash command,” not “hidden from the agent.” An agent can still read and apply the skill. `disable-model-invocation: true` is the actual auto-invocation gate. The `invocation` label describes who the skill serves — a human-facing request, agent selection, or both — and `both` does not imply a slash command; `user-invocable: false` can still sit beside it. Only `invocation: user` with `user-invocable: false` is contradictory, and the validator rejects it.
+So `user-invocable: false` means “not a direct slash command,” not “hidden from the agent.” An agent can still read and apply the skill. `disable-model-invocation: true` is the actual auto-invocation gate. The `invocation` label describes who the skill serves — a human-facing request, agent selection, or both — and `both` does not imply a slash command. `user-invocable: false` can still sit beside it. Only `invocation: user` with `user-invocable: false` is contradictory, and the validator rejects it.
 
 ### Router skills
 
-A router skill is a user-invoked alias that names model-invoked skills and when to reach for each. `grill-me` is the minimal form: a human-facing description, one line of body and the target skill. It lowers what a person has to remember; it is not a second routing system.
+A router skill is a user-invoked alias that names model-invoked skills and when to reach for each. `grill-me` is the minimal form: a human-facing description, one line of body and the target skill. It lowers what a person has to remember. It is not a second routing system.
 
 - **Explicit only.** Set `disable-model-invocation: true`. Descriptions remain the model's selection surface.
 - **Thin.** The body names the targets and carries no method of its own.
@@ -76,7 +83,7 @@ A capability that needs a different entry point is not automatically a router. A
 | `craft` | Cross-type presentation and authoring craft | Documentation, visualization |
 | `product` | Pre-SDLC strategy direction and business design | Strategy packs |
 
-A pack is an install/update boundary. It is not an execution sequence.
+A plugin declares one pack in its manifest, and its local skills inherit it. A pack is an install/update boundary, not an execution sequence.
 
 ## Sources of truth
 
@@ -86,12 +93,12 @@ A pack is an install/update boundary. It is not an execution sequence.
 | Software types and required design evidence | `plugins/sdlc/skills/artifact-system/references/software-types.md` |
 | Activity selection, stopping points, transitions and authority | `plugins/sdlc/skills/activity-system/` |
 | Engagement focus, threads and reopens | `plugins/sdlc/skills/activity-system/references/engagement-state.md` |
-| Local skill classification | Each `SKILL.md` frontmatter |
+| Local skill classification | Each `SKILL.md` frontmatter; the pack is in `plugin.json` |
 | Acquired skill classification and pins | `agent-depot.json` and `agent-depot.lock.json` |
 | Generated maintainer view | `python scripts/skill_map.py --inventory` |
 | Package ownership and counts | `docs/maintainers/sources.md` |
 
-Do not duplicate artifact types, homes, phases or evidence rules in every skill. Skill metadata classifies the skill; the artifact and activity catalogs own the detailed model.
+Do not duplicate artifact types, homes, phases or evidence rules in every skill. Skill metadata classifies the skill. The artifact and activity catalogs own the detailed model.
 
 ## Validation and generation
 
@@ -102,14 +109,14 @@ Do not duplicate artifact types, homes, phases or evidence rules in every skill.
 | Generated skill inventory | `python scripts/skill_map.py --inventory` |
 | Eval config and case lint | `npm --prefix evals run lint` |
 
-Local skills require the full classification. Acquired labels are validated from `agent-depot.json` when the depot is read and at build time; `validate_plugins.py` checks local skills only. Do not add acquired labels by editing upstream files.
+Local skills require `kind`, `domain`, `phase`, `scope` and `invocation`, plus `role` for a system skill. `origin`, `pack` and the non-system `role` are derived. Acquired labels are validated from `agent-depot.json` when the depot is read and at build time. `validate_plugins.py` checks local skills only. Do not add acquired labels by editing upstream files.
 
 ## Adding or moving a skill
 
-1. Choose its `kind`, `pack`, `domain` and primary `phase`.
-2. Declare the fields in the local `SKILL.md` frontmatter.
+1. Choose its `kind`, `domain` and primary `phase`.
+2. Declare those fields in the local `SKILL.md` frontmatter.
 3. Link the owning artifact contract or activity reference rather than duplicating it.
-4. Update the package README/catalog if the pack's responsibilities change.
+4. Update the package README/catalog if the plugin's responsibilities or pack change.
 5. Run the validation and inventory commands above.
 
-Moving a skill between packs changes its `pack`, `domain` and destination. Update local links, `agent-depot.json`/lock destinations for acquired skills, package counts, migration notes and the generated inventory together.
+Moving a skill between plugins changes its `domain` and destination. The destination plugin's pack applies. Update the plugin extension when the plugin's pack changes, plus local links, `agent-depot.json`/lock destinations for acquired skills, package counts, migration notes and the generated inventory.

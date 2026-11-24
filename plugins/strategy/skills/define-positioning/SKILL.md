@@ -4,20 +4,17 @@ description: Decide who the offer is for, what it is compared with, why the cust
 user-invocable: true
 metadata:
   kind: activity
-  origin: local
-  pack: product
   domain: product
   phase: design
   scope: generic
   invocation: both
-  role: task
 ---
 
 # Define positioning
 
-Make the choice obvious relative to the alternatives the customer already understands: for whom, against what, with what magnitude of difference and at what switching cost.
+Make the choice obvious relative to the alternatives the customer already understands: for whom, against what, with what magnitude of difference and at what switching cost. Stop at a recorded positioning choice product, pricing and sales can use.
 
-Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [positioning and category](../business-strategy/references/positioning-and-category.md) and [value proposition](../business-strategy/references/value-proposition.md); use [competitive dynamics](../business-strategy/references/competitive-dynamics.md) and [craft-competitive-analysis](../craft-competitive-analysis/SKILL.md) for the comparison set.
+Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [positioning and category](../business-strategy/references/positioning-and-category.md) and [value proposition](../business-strategy/references/value-proposition.md). Use [competitive dynamics](../business-strategy/references/competitive-dynamics.md) and [craft-competitive-analysis](../craft-competitive-analysis/SKILL.md) for the comparison set.
 
 ## Own the request
 

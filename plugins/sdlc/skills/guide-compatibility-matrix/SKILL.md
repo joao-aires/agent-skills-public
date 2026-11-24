@@ -4,13 +4,10 @@ description: Guide to producing and reviewing a compatibility matrix. Use for pu
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: development
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Compatibility matrix guide

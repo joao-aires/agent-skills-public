@@ -6,13 +6,10 @@ description: Build, extend or review Go services, libraries and command-line app
 license: MIT
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: go
   phase: cross-phase
   scope: stack-specific
   invocation: both
-  role: support
   stack: Go
   references: references/sources.md
 user-invocable: true

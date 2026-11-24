@@ -4,13 +4,10 @@ description: Guide to writing a product brief or PRD. Covers problem, audience, 
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: product
   phase: planning
   scope: generic
   invocation: both
-  role: support
 ---
 
 # PRD guide

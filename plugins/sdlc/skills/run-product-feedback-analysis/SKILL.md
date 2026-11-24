@@ -7,25 +7,22 @@ description: Analyze existing user feedback and product usage evidence to evalua
   without a request.
 metadata:
   kind: activity
-  origin: local
-  pack: sdlc
   domain: development
   phase: cross-phase
   scope: generic
   invocation: both
-  role: task
 user-invocable: true
 ---
 
 # Run product feedback analysis
 
-Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
+Turn user evidence into a product-feedback analysis that supports a named decision, and stop at the recorded findings and their limits.
 
-For the artifact this activity produces, read the [product-feedback-analysis contract](../artifact-system/references/contracts/product-feedback-analysis.md) and [guide-product-feedback-analysis](../guide-product-feedback-analysis/SKILL.md). Resolve its home with [artifact homes](../artifact-system/references/homes.md) before writing.
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. For the artifact this activity produces, read the [product-feedback-analysis contract](../artifact-system/references/contracts/product-feedback-analysis.md) and [guide-product-feedback-analysis](../guide-product-feedback-analysis/SKILL.md). Resolve its home with [artifact homes](../artifact-system/references/homes.md) before writing.
 
 ## Ask a decision question
 
-Start with the intended user outcome and the decision this evidence should inform: improve an interaction, investigate a problem, continue an experiment, change scope or stop. Read the product's assumptions and existing feedback. A shipped feature is an output; whether people can achieve the intended outcome is the question. Keep the activity small enough to change a real decision.
+Start with the intended user outcome and the decision this evidence should inform: improve an interaction, investigate a problem, continue an experiment, change scope or stop. Read the product's assumptions and existing feedback. A shipped feature is an output. Whether people can achieve the intended outcome is the question. Keep the activity small enough to change a real decision.
 
 Use available evidence before adding tools: support reports, user-provided interviews, usability observations, reviews and existing usage data.
 
@@ -44,12 +41,12 @@ Use available evidence before adding tools: support reports, user-provided inter
 
 Keep the source material available while building the interpretation:
 
-1. Extract distinct observations, statements and relevant behavior from each source. Retain the source, user segment and task context; keep a participant's words separate from your interpretation.
+1. Extract distinct observations, statements and relevant behavior from each source. Retain the source, user segment and task context. Keep a participant's words separate from your interpretation.
 2. Give related observations descriptive labels, then group them into candidate patterns. Group by the difficulty or unmet outcome rather than only by the requested feature. Count distinct people or accounts separately from repeated mentions.
 3. Check each candidate against its supporting records and contradictory cases. Split patterns that have different causes or user contexts, and retain important outliers rather than forcing every observation into a group.
 4. Express a supported pattern as a finding: what is happening, to whom, why it matters and which evidence establishes it. Mark an explanation that still needs testing as a hypothesis.
 
-Compare sources that can answer the same question. Usage records may help establish how often a behavior occurs; interviews may help explain the circumstances. If they disagree, check their populations, definitions and collection periods before treating either as decisive.
+Compare sources that can answer the same question. Usage records may help establish how often a behavior occurs. Interviews may help explain the circumstances. If they disagree, check their populations, definitions and collection periods before treating either as decisive.
 
 ### Interpret available measures
 
@@ -63,15 +60,15 @@ For a saved-search feature, ask whether users can save and later reuse a search.
 
 ## Write the evidence as one artifact
 
-Record the analysis in a `product-feedback-analysis` artifact instead of returning disconnected findings. Read its [contract](../artifact-system/references/contracts/product-feedback-analysis.md) for the required sections and the [guide](../guide-product-feedback-analysis/SKILL.md) for craft and review; this activity adds the synthesis, it does not own a second structure.
+Record the analysis in a `product-feedback-analysis` artifact instead of returning disconnected findings. Read its [contract](../artifact-system/references/contracts/product-feedback-analysis.md) for the required sections and the [guide](../guide-product-feedback-analysis/SKILL.md) for craft and review. This activity adds the synthesis but does not own a second structure.
 
-Keep raw records and source extracts available beside the artifact when they are durable. One analysis covers one decision and period; start a new revision or artifact when either changes. Do not add implementation, design or release sections to make it look complete.
+Keep raw records and source extracts available beside the artifact when they are durable. One analysis covers one decision and period. Start a new revision or artifact when either changes. Do not add implementation, design or release sections to make it look complete.
 
 ## Turn evidence into a small next step
 
-Follow each important finding back through the user journey. Identify where the person could no longer achieve the intended result and which explanation the evidence supports. Similar complaints can have different causes; compare the reports with actual behavior before recommending a feature.
+Follow each important finding back through the user journey. Identify where the person could no longer achieve the intended result and which explanation the evidence supports. Similar complaints can have different causes. Compare the reports with actual behavior before recommending a feature.
 
-Rank findings for the decision owner using severity, relevance to intended users, evidence strength and the cost of learning or fixing; accepting a priority belongs to the product owner. Preserve segment differences: a frequent user's success does not establish that a new user can get started. Use numerical scoring only when its inputs make the choice clearer.
+Rank findings for the decision owner using severity, relevance to intended users, evidence strength and the cost of learning or fixing. Accepting a priority belongs to the product owner. Preserve segment differences: a frequent user's success does not establish that a new user can get started. Use numerical scoring only when its inputs make the choice clearer.
 
 Recommend a response to the underlying difficulty. A feature request may reveal a problem better solved by clearer interaction, different defaults, better reliability or a narrower product promise.
 

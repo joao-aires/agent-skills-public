@@ -6,13 +6,10 @@ description: Define and deliver infrastructure and platform configuration as rec
   validation, Argo CD/Flux GitOps reconciliation, drift, pruning and recovery.
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: platform
   phase: deployment
   scope: generic
   invocation: both
-  role: support
 user-invocable: true
 ---
 

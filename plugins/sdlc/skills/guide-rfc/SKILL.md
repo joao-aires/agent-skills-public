@@ -4,13 +4,10 @@ description: Guide to writing a request for comments or technical proposal. Cove
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: development
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # RFC guide

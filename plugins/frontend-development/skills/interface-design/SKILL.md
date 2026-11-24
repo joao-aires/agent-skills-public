@@ -4,13 +4,10 @@ description: Design, inspect and improve complete user interfaces across navigat
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: frontend
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Design and refine the complete interface experience

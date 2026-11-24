@@ -6,13 +6,10 @@ description: Investigate database workload performance and compare improvements 
 license: MIT
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: database
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 user-invocable: true
 ---
 

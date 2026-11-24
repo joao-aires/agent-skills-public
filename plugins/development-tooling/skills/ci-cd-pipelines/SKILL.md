@@ -9,13 +9,10 @@ description: >-
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: tooling
   phase: deployment
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Design CI/CD pipelines

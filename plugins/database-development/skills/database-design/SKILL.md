@@ -6,13 +6,10 @@ description: Design or evolve stored data, constraints, transactions and migrati
 license: MIT
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: database
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 user-invocable: true
 ---
 

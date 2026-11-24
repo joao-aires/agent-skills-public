@@ -7,21 +7,18 @@ description: Run a scoped production-readiness review of whether a service, laun
   a release or certify the service.
 metadata:
   kind: activity
-  origin: local
-  pack: sdlc
   domain: operations
   phase: deployment
   scope: generic
   invocation: both
-  role: task
 user-invocable: true
 ---
 
 # Run production readiness review
 
-Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
+Assess whether named consumers can depend on a service for a bounded launch, change or resumption, and stop at a readiness decision with its evidence and gaps.
 
-Readiness is a claim that named consumers can depend on a named service for a bounded launch, change or resumption. Establish the service or capability, consumers and traffic population, environment, launch mode and requested decision before assessing anything. A new internal service, a public launch, a migration or cutover and a material change to an existing service carry different promises; assess the actual commitment rather than a universal maturity score.
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Readiness is a claim that named consumers can depend on a named service for a bounded launch, change or resumption. Establish the service or capability, consumers and traffic population, environment, launch mode and requested decision before assessing anything. A new internal service, a public launch, a migration or cutover and a material change to an existing service carry different promises. Assess the actual commitment rather than a universal maturity score.
 
 This activity answers "is this service ready to be depended on?" It does not answer "may we perform this release?" or "is this SaaS offering ready for this customer cohort?".
 
@@ -46,7 +43,7 @@ Identify:
 - accepted requirements, SLOs, recovery objectives, support commitments, data classification and open risks;
 - the requested decision and its decision owner.
 
-Read accepted requirements, design, threat model, test evidence, runbooks and prior incidents. Reuse existing records rather than re-deriving accepted product decisions. State what would make the answer no before collecting evidence; otherwise a checklist tends to confirm the launch.
+Read accepted requirements, design, threat model, test evidence, runbooks and prior incidents. Reuse existing records rather than re-deriving accepted product decisions. State what would make the answer no before collecting evidence. Otherwise a checklist tends to confirm the launch.
 
 ## Trace each promise to evidence
 
@@ -62,7 +59,7 @@ Read accepted requirements, design, threat model, test evidence, runbooks and pr
 
 Use [readiness evidence](references/readiness-evidence.md) as a prompt for each area, not as a scorecard.
 
-Match evidence to the claim. A declared control, manifest, architecture diagram, passing pipeline, green dashboard or successful backup job establishes only its own boundary. Distinguish designed, implemented, exercised and observed in the target. An existing service needs observation over a stated window and population; a launch can rely on staging, load, fault and recovery exercises for bounded claims when the environment and limits are named. Missing access or evidence is unknown, not a pass.
+Match evidence to the claim. A declared control, manifest, architecture diagram, passing pipeline, green dashboard or successful backup job establishes only its own boundary. Distinguish designed, implemented, exercised and observed in the target. An existing service needs observation over a stated window and population. A launch can rely on staging, load, fault and recovery exercises for bounded claims when the environment and limits are named. Missing access or evidence is unknown, not a pass.
 
 Check both success and denial/failure paths where consumers depend on them. One tenant, one replica, one region or one dependency version establishes only that scope. A recent change is a correlation, not proof of the cause or the remedy.
 
@@ -87,7 +84,7 @@ State blockers, decision ownership, excluded populations and the condition that 
 
 ## Record and hand off
 
-Use the [assurance assessment contract](../artifact-system/references/contracts/assurance-assessment.md) for a durable scoped judgment: applicability and scope, criteria or controls, evidence, gaps and disposition. Reuse an existing launch review or operations-readiness record and preserve those fields; do not create a parallel artifact type. Read [guide-assurance-assessment](../guide-assurance-assessment/SKILL.md) for the writing conventions of that record.
+Use the [assurance assessment contract](../artifact-system/references/contracts/assurance-assessment.md) for a durable scoped judgment: applicability and scope, criteria or controls, evidence, gaps and disposition. Reuse an existing launch review or operations-readiness record and preserve those fields. Do not create a parallel artifact type. Read [guide-assurance-assessment](../guide-assurance-assessment/SKILL.md) for the writing conventions of that record.
 
 Keep readiness evidence distinct from release authorization. Update an SLO, runbook, alert or release note only through its owning artifact and authority. Do not relax a target, mute an alert or waive a finding to make the verdict pass. Hand remediation to the owning activity and re-assess after a material change, incident, scale or provider change.
 
@@ -101,4 +98,4 @@ Report the verdict, scope, evidence inspected at its revision/target/window, mat
 - Use [analyze-capacity-cost](../analyze-capacity-cost/SKILL.md), [testing-resilience](../testing-resilience/SKILL.md), [design-system observability](../design-system/references/observability-and-monitoring.md), [guide-runbook](../guide-runbook/SKILL.md) and [test](../test/SKILL.md) for the evidence each owns.
 - Use [run-compliance-assessment](../run-compliance-assessment/SKILL.md) for legal or contractual obligations and the assurance-assessment contract for the record.
 
-These are optional supports, not prerequisites. Without them, apply this activity's scope, evidence and disposition checks using project records and primary sources; do not invent provider behavior or convert an unavailable specialist into a pass.
+These are optional supports, not prerequisites. Without them, apply this activity's scope, evidence and disposition checks using project records and primary sources. Do not invent provider behavior or convert an unavailable specialist into a pass.

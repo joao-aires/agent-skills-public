@@ -4,18 +4,15 @@ description: 'Design a repeatable route to the chosen customer: motion, channels
 user-invocable: true
 metadata:
   kind: activity
-  origin: local
-  pack: product
   domain: product
   phase: design
   scope: generic
   invocation: both
-  role: task
 ---
 
 # Plan go-to-market
 
-Make the chosen customer reachable, convincible and serviceable at a cost the business can sustain.
+Make the chosen customer reachable, convincible and serviceable at a cost the business can sustain. Stop at a plan with its motion, channels, readiness gates and review signals.
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [go-to-market](../business-strategy/references/go-to-market.md), use [market entry](../business-strategy/references/market-entry.md) for beachhead sequencing and [pricing and packaging](../business-strategy/references/pricing-and-packaging.md) for the commercial offer, and record the plan with the [GTM plan](../business-strategy/assets/gtm-plan.md).
 
@@ -34,7 +31,7 @@ Frame the decision: which motion and channels should reach this buyer now, what 
 1. Choose the motion from the buyer's decision path, not competitor fashion: self-serve, sales-led, product-led sales, partner, community/open-source, services-assisted, marketplace or a deliberate hybrid. State what the motion makes the product become.
 2. Score channels on reach, intent, fully loaded cost, cycle, conversion, control, learning, concentration and durability, separating evidence from assumption.
 3. Choose the launch type — capability, market, commercial or scale — and define the readiness gates before widening access.
-4. Identify the growth loop the motion relies on and its limiting factor; if no reinvestment mechanism exists, say so rather than drawing a loop. Define each funnel stage with baseline, target, source and attribution limits, pairing lagging revenue with leading behaviour.
+4. Identify the growth loop the motion relies on and its limiting factor. If no reinvestment mechanism exists, say so rather than drawing a loop. Define each funnel stage with baseline, target, source and attribution limits, pairing lagging revenue with leading behaviour.
 5. Build a bounded first plan with one primary outcome, instrumentation before launch, capacity for follow-up and a decision at the end. Check it against pricing and unit-economics assumptions and name the signals that would change the motion.
 
 ## Output

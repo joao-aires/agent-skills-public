@@ -93,6 +93,22 @@ Use a linked reference when the detail is substantial and conditional. Keep the 
 
 Do not hide prerequisites, safety stops or breaking changes behind a collapsed section or a second document. Disclosure is for optional depth, not for the conditions that make the main path safe.
 
+## Markdown file conventions
+
+These are this repository's defaults. A project config overrides them: read `.markdownlint.*`, `.editorconfig` or a formatter config first, and follow it where it disagrees.
+
+- **One paragraph per line.** Write a paragraph as one line and let the editor soft-wrap it. Do not insert hard breaks at a column width.
+- Separate blocks with one blank line. Do not use trailing spaces to force a break; start a paragraph or list instead.
+- Use ATX headings (`#`), sentence case, and no skipped levels.
+- Give each list item one idea, and keep markers consistent within a list.
+- Give every table a header row and separator, and keep cells short enough to render.
+- Fence code with a language tag; do not indent code blocks.
+- Use relative links inside the repository and the canonical URL outside it; keep the link text descriptive.
+- Use frontmatter only where the format owns it, such as a skill or a generated page.
+- End the file with one newline and no trailing whitespace.
+
+Do not reflow acquired upstream files to these defaults. Their snapshots are preserved byte for byte; the convention applies to files this repository authors.
+
 ## Review
 
 Read the rendered document, not only the source:

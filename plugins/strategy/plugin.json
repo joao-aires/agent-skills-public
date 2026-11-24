@@ -7,5 +7,10 @@
     "name": "João Aires"
   },
   "repository": "https://github.com/joao-aires/agent-skills-public",
-  "license": "MIT"
+  "license": "MIT",
+  "extensions": {
+    "com.joao-aires.agent-skills": {
+      "pack": "product"
+    }
+  }
 }

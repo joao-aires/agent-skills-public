@@ -8,22 +8,21 @@ user-invocable: true
 disable-model-invocation: true
 metadata:
   kind: activity
-  origin: local
-  pack: sdlc
   domain: development
   phase: planning
   scope: generic
   invocation: user
-  role: task
 ---
 
 # Setup
 
-Read [activity system](../activity-system/SKILL.md). Read [git-contributions](../git-contributions/SKILL.md) before foundation writes. Seek available delivery expertise for CI, artifact and recovery decisions. Read [project-conventions](../project-conventions/SKILL.md) for repository foundations and working commands. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Establish or repair the technical foundations a project needs, and stop at the requested foundation change with its evidence.
+
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Read [git-contributions](../git-contributions/SKILL.md) before foundation writes. Seek available delivery expertise for CI, artifact and recovery decisions. Read [project-conventions](../project-conventions/SKILL.md) for repository foundations and working commands. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
 
 For writing the artifact this activity produces, read [guide-readme](../guide-readme/SKILL.md) for structure, conventions and review.
 
-Setup is technical foundation work, not a substitute for product discovery. Before architecture-dependent writes, establish the intended usage, bounded journey and material platform/licensing/budget constraints. For a rough idea needing end-to-end development, use the outcomes in [new-application flow](../develop/references/new-application-flow.md) within the requested scope; a setup-only request does not authorize feature implementation or an unsolicited full business study.
+Setup is technical foundation work, not a substitute for product discovery. Before architecture-dependent writes, establish the intended usage, bounded journey and material platform/licensing/budget constraints. For a rough idea needing end-to-end development, use the outcomes in [new-application flow](../develop/references/new-application-flow.md) within the requested scope. A setup-only request does not authorize feature implementation or an unsolicited full business study.
 
 ## Establish useful foundations
 
@@ -42,7 +41,7 @@ During setup or adoption, use [engineering workspace](../artifact-system/referen
 
 Use the [artifact system](../artifact-system/SKILL.md) and its [artifact homes](../artifact-system/references/homes.md) to establish or verify where durable repository artifacts live. Record a short pointer in `AGENTS.md` and the full map in `docs/README.md` or `docs/artifact-homes.md`, covering the artifact types the project actually uses: README, guides, product brief, architecture set, ADRs, API reference, runbooks, release notes, code and tests.
 
-For each type, record the authoritative home, owner, update trigger and access boundary. Start with what exists; do not create empty folders or a theoretical documentation portfolio. If an established map already exists, verify it instead of replacing it. This map is the repository’s one-stop shop for artifact placement; the generic method stays in the artifact system.
+For each type, record the authoritative home, owner, update trigger and access boundary. Start with what exists. Do not create empty folders or a theoretical documentation portfolio. If an established map already exists, verify it instead of replacing it. This map is the repository’s one-stop shop for artifact placement. The generic method stays in the artifact system.
 
 Connect the foundations into a usable development path. A contributor should be able to obtain the required configuration, install dependencies, start the application and run its checks using the documented commands. Where persistence is part of the slice, include how the local data store is prepared and how schema changes are applied. Use sample configuration that explains required values without containing secrets.
 

@@ -55,10 +55,12 @@ Use lowercase kebab-case: short activities for tasks (`develop`, `test`, `code-r
 | --- | --- |
 | `scope` | `generic` or `stack-specific` applicability |
 | `stack` | Technologies matched by stack-specific guidance |
-| `role` | `task` entry point or `support` guidance |
 | `invocation` | Preferred `user`, `agent` or `both` usage |
+| `role` | Derived: `task` for activities, `support` otherwise; a system skill declares it |
+| `origin` | Derived: `local` for authored skills |
+| `pack` | Declared once per plugin in `plugin.json` `extensions`; local skills inherit it |
 
-Labels do not enforce permissions. `user-invocable` controls the direct user command surface; it does not hide a skill from the agent. `disable-model-invocation` is the actual agent auto-invocation gate. Support skills are agent-usable whether or not `user-invocable` is true; some set it false to keep the user command surface small. product-direction, interface-design, backend-design, UX writing and usability research are also directly selectable with `user-invocable: true`, using the same body for people and agents. Preserve upstream controls and record client limitations. [activity-system](../plugins/sdlc/skills/activity-system/SKILL.md) owns activity selection, execution scope, project fit and consequential decisions. The engineering artifact and workspace skills own their respective contracts.
+Declare only `kind`, `domain`, `phase`, `scope` and `invocation` in a local skill. The validator derives the other three and rejects a conflicting duplicate. Labels do not enforce permissions. `user-invocable` controls the direct user command surface; it does not hide a skill from the agent. `disable-model-invocation` is the actual agent auto-invocation gate. Support skills are agent-usable whether or not `user-invocable` is true; some set it false to keep the user command surface small. product-direction, interface-design, backend-design, UX writing and usability research are also directly selectable with `user-invocable: true`, using the same body for people and agents. Preserve upstream controls and record client limitations. [activity-system](../plugins/sdlc/skills/activity-system/SKILL.md) owns activity selection, execution scope, project fit and consequential decisions. The engineering artifact and workspace skills own their respective contracts.
 
 ## Capability architecture
 
@@ -78,7 +80,7 @@ Labels do not enforce permissions. `user-invocable` controls the direct user com
 
 UI design composition follows the [composition guidance](../plugins/sdlc/skills/activity-system/references/composition.md#compose-domain-interface-and-technical-guidance): the requested activity coordinates application context, general interface methods and compatible platform implementation. Future blueprint specialists advertise applicability through descriptions and conditional references; there is no global registry or fixed dependency chain.
 
-Role (task/support), applicability (generic/stack-specific) and invocation are independent dimensions. Plugins package useful capabilities and may contain multiple dimensions. Methods and adapters can use conditional references; a separate skill is justified by a coherent independently useful decision, not by the need to split every paragraph. Navigation describes needed capabilities and matches observed specialist descriptions rather than hardcoding optional skill names or using a global router.
+Role (task/support), applicability (generic/stack-specific) and invocation remain distinct dimensions, even though role follows kind for non-system skills. Plugins package useful capabilities and may contain multiple dimensions. Methods and adapters can use conditional references; a separate skill is justified by a coherent independently useful decision, not by the need to split every paragraph. Navigation describes needed capabilities and matches observed specialist descriptions rather than hardcoding optional skill names or using a global router.
 
 Select only relevant expertise, reuse accepted decisions and preserve existing stack choices. Each capability retains its essential reasoning without assuming optional plugins exist. Missing guidance falls back to project evidence, general expertise and appropriate primary sources; missing execution tools have a separate evidence boundary. See [composition fallback](../plugins/sdlc/skills/activity-system/references/composition.md#fallback-when-expertise-is-absent) and [product and capability architecture](maintainers/sources.md#product-and-capability-architecture) for the rationale and boundaries.
 
@@ -92,6 +94,8 @@ Select only relevant expertise, reuse accepted decisions and preserve existing s
 | Worktrees, commits and PRs | git-contributions |
 | Verification and completion evidence | test |
 | Domain methods and exceptions | Relevant specialist skill |
+
+Run the [prose review](../plugins/documentation/skills/technical-writing/references/prose-review.md) before committing docs, READMEs, skills or contracts; it owns the sentence-level pass and the Markdown conventions.
 
 Link the owner instead of copying its rules. Optional guidance is selected from actual inventory and relevance; it does not require a dependency engine. Consolidate further only after [eval comparisons](../evals/README.md#compare-and-simplify) show what agents actually read or miss.
 

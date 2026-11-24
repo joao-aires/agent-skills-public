@@ -4,13 +4,10 @@ description: Guide to writing an Engineering Change Record. Covers overview, pro
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: development
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 ---
 
 # ECR guide

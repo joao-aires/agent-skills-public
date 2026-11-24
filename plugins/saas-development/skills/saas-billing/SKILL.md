@@ -7,13 +7,10 @@ description: Design or assess SaaS commercial state, entitlements and billing-pr
 license: MIT
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: saas
   phase: design
   scope: generic
   invocation: both
-  role: support
   references: ../../references/sources.md
 user-invocable: true
 ---

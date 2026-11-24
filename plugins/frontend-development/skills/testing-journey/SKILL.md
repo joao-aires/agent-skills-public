@@ -5,13 +5,10 @@ description: Define, automate, explore and evaluate user journeys across web, de
   consistency, authentication, authorization, lifecycle behavior and failing journey checks.
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: frontend
   phase: testing
   scope: generic
   invocation: both
-  role: support
 user-invocable: true
 ---
 

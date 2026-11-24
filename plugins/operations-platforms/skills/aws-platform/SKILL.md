@@ -6,13 +6,10 @@ description: Design, implement or review AWS workloads across identity, network,
   WAF and Secrets Manager decisions; verify service detail against current AWS docs.
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: platform
   phase: cross-phase
   scope: stack-specific
   invocation: both
-  role: support
   stack: AWS
 user-invocable: true
 ---

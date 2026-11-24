@@ -2,9 +2,9 @@
 
 The collection separates three things that are easy to confuse: the work someone requests, the expertise that improves it and the technology chosen to implement it. A plugin is an installation and update boundary. It does not define an execution order, and no plugin requires another.
 
-Design is typed by **component**: frontend, backend, AI or library/CLI. [Software types](../plugins/sdlc/skills/artifact-system/references/software-types.md) defines the evidence a design needs for each. A software type is not a skill label, a project-wide category or a reason to split a plugin. Work may keep several threads open at once; [engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) records the focus, parallel threads and reopens.
+Design is typed by **component**: frontend, backend, AI or library/CLI. [Software types](../plugins/sdlc/skills/artifact-system/references/software-types.md) defines the evidence a design needs for each. A software type is not a skill label, a project-wide category or a reason to split a plugin. Work may keep several threads open at once. [Engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) records the focus, parallel threads and reopens.
 
-The repository builds 21 independently selectable plugins: 9 generic capability packages and 12 technical packages, containing 167 skills. `sdlc` is the default build and bundles no technical skills. The [ownership map](maintainers/sources.md#plugin-ownership) assigns every skill. Distribution uses complete built plugins; the legacy local-skill helper is a migration aid.
+The repository builds 21 independently selectable plugins: 9 generic capability packages and 12 technical packages, containing 167 skills. `sdlc` is the default build and bundles no technical skills. Each plugin declares its pack once in `plugin.json`. Its skills inherit that pack. The [ownership map](maintainers/sources.md#plugin-ownership) assigns every skill. Distribution uses complete built plugins.
 
 ## Kinds of guidance
 
@@ -16,15 +16,15 @@ The repository builds 21 independently selectable plugins: 9 generic capability 
 | Artifact guide | Structure, conventions, examples and review for one artifact type | A guide for an ECR, design proposal or runbook |
 | Supporting capability | Independently useful help during relevant work | Documentation, research, diagrams and explanation |
 
-These are responsibilities, not a pipeline. An existing feature reuses accepted product and architecture decisions. A specialist question can end at its own result. The [SDLC map](sdlc.md) explains how outcomes relate; it does not require every skill to run.
+These are responsibilities, not a pipeline. An existing feature reuses accepted product and architecture decisions. A specialist question can end at its own result. The [SDLC map](sdlc.md) explains how outcomes relate. It does not require every skill to run.
 
-A skill's task/support role, generic/stack-specific applicability and user/agent invocation are independent dimensions. The [metadata contract](metadata.md) records them. Native client controls govern discovery and invocation where supported; neither metadata nor installing a plugin grants authority to act externally. Generic skills can compare technologies without selecting a default stack. Technical guidance applies to accepted technology, not merely because it is installed.
+A skill's task/support role, generic/stack-specific applicability and user/agent invocation are independent dimensions. The [metadata contract](metadata.md) records them. Native client controls govern discovery and invocation where supported. Neither metadata nor installing a plugin grants authority to act externally. Generic skills can compare technologies without selecting a default stack. Technical guidance applies to accepted technology, not merely because it is installed.
 
 ## Select and compose by capability
 
 Workflow instructions describe the expertise a decision needs. They do not maintain lists of optional specialist names, plugin identifiers or external file paths. Descriptions are the portable selection surface, and the client's inventory is what an agent can actually discover. Without inventory access, proceed from available project guidance rather than claiming a specialist was discovered.
 
-The operational rules live with the activity system's [composition](../plugins/sdlc/skills/activity-system/references/composition.md) reference: selecting by capability, composing domain, interface and technical judgment, falling back when expertise is absent, and resolving conflicts with project or environment constraints. The model below is what those rules implement; the reference is what to follow while working.
+The operational rules live with the activity system's [composition](../plugins/sdlc/skills/activity-system/references/composition.md) reference: selecting by capability, composing domain, interface and technical judgment, falling back when expertise is absent, and resolving conflicts with project or environment constraints. The model below is what those rules implement. The reference is what to follow while working.
 
 A user can still explicitly select a known skill. Help may name observed activities, and documentation may catalogue their owners. That is different from hardcoding optional specialist identities into workflow routing.
 
@@ -43,21 +43,21 @@ A capability reaches another by one of three moves:
 
 - **Route** — the agent selects it from its description, or a person invokes it, optionally through a thin router alias. Two entry mechanisms, one move.
 - **Compose** — the activity consults supporting expertise and keeps its outcome. Declared in `## Composition` by need and area, with the fallback stated.
-- **Hand off** — ownership of the work moves, carrying the records and revisions the next owner needs. Declared at the phase boundary, not between skills. Delegation is the same move inside a phase: the activity keeps accountability while a bounded unit of work changes hands; [delegation](../plugins/sdlc/skills/activity-system/references/delegation.md) owns the envelope.
+- **Hand off** — ownership of the work moves, carrying the records and revisions the next owner needs. Declared at the phase boundary, not between skills. Delegation is the same move inside a phase: the activity keeps accountability while a bounded unit of work changes hands. [Delegation](../plugins/sdlc/skills/activity-system/references/delegation.md) owns the envelope.
 
-Authority gates a move; it is not a move. Exclusion is the nearest-neighbour boundary — what the capability is not for — and constrains selection. An artifact is a record, never the relationship itself.
+Authority gates a move. It is not a move. Exclusion is the nearest-neighbour boundary — what the capability is not for — and constrains selection. An artifact is a record, never the relationship itself.
 
-Declare only what exists. A composition name resolves inside its own package; optional expertise elsewhere is described by capability area, not by name. A handoff names its records, and a router satisfies the rules in the [metadata contract](metadata.md#router-skills). None of this is a runtime resolver: descriptions remain the selection surface, and the declared graph is an audit view, not an execution plan.
+Declare only what exists. A composition name resolves inside its own package. Optional expertise elsewhere is described by capability area, not by name. A handoff names its records, and a router satisfies the rules in the [metadata contract](metadata.md#router-skills). None of this is a runtime resolver. Descriptions remain the selection surface, and the declared graph is an audit view, not an execution plan.
 
 ## Package resources and knowledge
 
-Each plugin carries the files its own skills require: instructions, conditional references, scripts, assets, licenses and acquired dependency groups. Ordinary technical dependencies of an accepted application still exist; independence here concerns optional guidance from other plugins. Preserve reviewed upstream pins and native controls when packaging.
+Each plugin carries the files its own skills require: instructions, conditional references, scripts, assets, licenses and acquired dependency groups. Ordinary technical dependencies of an accepted application still exist. Independence here concerns optional guidance from other plugins. Preserve reviewed upstream pins and native controls when packaging.
 
-Give shared rules an owner within each bundle. Keep enough reasoning locally to perform the stated capability, with concise framing where several skills need it. Link conditional technical detail when it applies. Avoid copying a specialist method into a workflow or adding a resolver to encode optional relationships. Once selected, conclusions flow through the task context and existing project notes; no handoff schema or extra tracker is required.
+Give shared rules an owner within each bundle. Keep enough reasoning locally to perform the stated capability, with concise framing where several skills need it. Link conditional technical detail when it applies. Avoid copying a specialist method into a workflow or adding a resolver to encode optional relationships. Once selected, conclusions flow through the task context and existing project notes. No handoff schema or extra tracker is required.
 
 Writing craft follows the consumer rather than the lifecycle stage: `technical-writing` shapes human-facing documents, `writing-for-agents` shapes agent-facing instructions and skills, and `skill-authoring` owns the repository's skill contract. They share the `documentation` bundle, while artifact contracts, status, evidence and placement stay with the artifact system.
 
-Authored companion skills and package framing own the collection's additional expectations around an acquired method. Keep upstream snapshots unchanged and do not add collection expectations through build-time instruction rewrites. Existing declared output adaptations remain part of the packaging contract and need their own compatibility review; preserving source bytes does not make the output identical to upstream.
+Authored companion skills and package framing own the collection's additional expectations around an acquired method. Keep upstream snapshots unchanged and do not add collection expectations through build-time instruction rewrites. Existing declared output adaptations remain part of the packaging contract and need their own compatibility review. Preserving source bytes does not make the output identical to upstream.
 
 The [stack-extension guide](maintainers/adding-stack-support.md) explains the contribution mechanics. [Upstream maintenance](maintainers/upstreams.md) records how acquired skills are pinned, verified and updated.
 

@@ -22,9 +22,9 @@ class InvocationTests(unittest.TestCase):
             write_depot(root)
             skill = root / 'plugins/example/skills/start-work'
             (skill / 'agents').mkdir(parents=True)
-            (root / 'plugins/example/plugin.json').write_text('{"name":"example"}')
+            (root / 'plugins/example/plugin.json').write_text('{"name":"example","extensions":{"com.joao-aires.agent-skills":{"pack":"sdlc"}}}')
             (root / 'plugins/example/LICENSE').write_text('MIT License\n')
-            (skill / 'SKILL.md').write_text('---\nname: start-work\ndescription: Start a workflow on request.\ndisable-model-invocation: true\nmetadata:\n  scope: generic\n  invocation: user\n  kind: activity\n  pack: sdlc\n  domain: development\n  phase: planning\n  role: task\n  origin: local\n---\nStart the requested work.\n')
+            (skill / 'SKILL.md').write_text('---\nname: start-work\ndescription: Start a workflow on request.\ndisable-model-invocation: true\nmetadata:\n  scope: generic\n  invocation: user\n  kind: activity\n  domain: development\n  phase: planning\n---\nStart the requested work.\n')
             settings = skill / 'agents/openai.yaml'
             settings.write_text('policy:\n  allow_implicit_invocation: false\n')
             with patch.object(validator, 'ROOT', root):

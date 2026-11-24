@@ -7,13 +7,10 @@ description: Elicit, analyze, validate and maintain verifiable functional and qu
 user-invocable: false
 metadata:
   kind: method
-  origin: local
-  pack: sdlc
   domain: development
   phase: requirements
   scope: generic
   invocation: agent
-  role: support
 ---
 
 # Engineer requirements from evidence to acceptance

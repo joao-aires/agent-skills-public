@@ -6,18 +6,17 @@ description: Decide whether and what to pursue for a feature, structural change,
 user-invocable: true
 metadata:
   kind: activity
-  origin: local
-  pack: sdlc
   domain: development
   phase: planning
   scope: generic
   invocation: both
-  role: task
 ---
 
 # Plan
 
-Read [activity system](../activity-system/SKILL.md). Use this method for an open decision about pursuing or shaping work. When the outcome and scope are settled and the request is to break delivery into tasks and checks, use [implementation preparation](../activity-system/references/implementation-preparation.md) and stop at the requested breakdown.
+Decide whether and what to pursue, and stop at the planning decision, its scope and the next action.
+
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Use this method for an open decision about pursuing or shaping work. When the outcome and scope are settled and the request is to break delivery into tasks and checks, use [implementation preparation](../activity-system/references/implementation-preparation.md) and stop at the requested breakdown.
 
 For writing the artifact this activity produces, read [guide-ecr](../guide-ecr/SKILL.md) for structure, conventions and review.
 
@@ -35,6 +34,6 @@ Recommend proceeding, investigating or deferring. State the evidence behind the 
 
 ## Record the handoff
 
-Use [artifact-system](../artifact-system/SKILL.md) for artifact selection and content/presentation review, and [coordination storage](../artifact-system/references/storage/coordination.md) for discovery and authorized persistence. Resolve the artifact home with [artifact homes](../artifact-system/references/homes.md) before writing; if the repository map is missing or ambiguous, say so rather than choosing an arbitrary path. For a coherent change being carried forward, record the outcome, scope, feasibility and next decision in its ECR or link the existing authority. Keep exploratory ideas together in their existing home until there is a change to carry forward.
+Use [artifact-system](../artifact-system/SKILL.md) for artifact selection and content/presentation review, and [coordination storage](../artifact-system/references/storage/coordination.md) for discovery and authorized persistence. Resolve the artifact home with [artifact homes](../artifact-system/references/homes.md) before writing. If the repository map is missing or ambiguous, say so rather than choosing an arbitrary path. For a coherent change being carried forward, record the outcome, scope, feasibility and next decision in its ECR or link the existing authority. Keep exploratory ideas together in their existing home until there is a change to carry forward.
 
 A brief or PRD can serve independent product review. A roadmap can coordinate several changes. A ticket can hand off a concrete feasibility investigation or defined change once its work and acceptance are clear. Use [refine](../refine/SKILL.md) when the intended behavior or acceptance needs definition. A planning request stops at the planning decision and any in-scope handoff.

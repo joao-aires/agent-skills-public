@@ -4,13 +4,10 @@ description: Design event and message contracts across services, including event
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: backend
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Design events as contracts

@@ -4,6 +4,8 @@ import unittest
 
 import yaml
 
+from scripts.skill_metadata import local_skill_labels
+
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / 'plugins/sdlc/skills/artifact-system/references'
 DESIGN = ROOT / 'plugins/sdlc/skills/design'
@@ -108,7 +110,7 @@ class DesignSystemTests(unittest.TestCase):
                 self.assertTrue(path.parent.name.startswith('guide-'))
                 front = path.read_text().split('---', 2)[1]
                 metadata = yaml.safe_load(front)
-                labels = metadata['metadata']
+                labels = local_skill_labels(metadata, path)
                 self.assertEqual(labels['kind'], 'guide')
                 self.assertEqual(labels['pack'], 'sdlc')
                 self.assertEqual(labels['role'], 'support')

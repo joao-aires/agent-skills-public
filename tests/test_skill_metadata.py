@@ -47,16 +47,45 @@ class SkillMetadataTests(unittest.TestCase):
                     with self.assertRaises(ValueError):
                         validate_skill_metadata(path)
 
-    def test_local_classification_requires_kind_and_origin(self):
+    def test_local_classification_requires_kind_and_derives_origin_pack_and_role(self):
         with tempfile.TemporaryDirectory() as tmp:
-            skill = Path(tmp) / 'example'
+            root = Path(tmp)
+            (root / 'plugin.json').write_text('{"extensions": {"com.joao-aires.agent-skills": {"pack": "sdlc"}}}')
+            skill = root / 'example'
             skill.mkdir()
             path = skill / 'SKILL.md'
             metadata = dict(name='example', description='Example', metadata={
-                'scope': 'generic', 'invocation': 'agent', 'role': 'support', 'pack': 'sdlc', 'domain': 'development', 'phase': 'cross-phase'})
+                'scope': 'generic', 'invocation': 'agent', 'domain': 'development', 'phase': 'cross-phase'})
             path.write_text('---\n' + yaml.safe_dump(metadata) + '---\nGuide\n')
             with self.assertRaises(ValueError):
                 validate_local_skill_classification(path)
-            metadata['metadata'].update({'kind': 'method', 'origin': 'local'})
+            metadata['metadata'].update({'kind': 'method'})
             path.write_text('---\n' + yaml.safe_dump(metadata) + '---\nGuide\n')
             self.assertEqual(validate_local_skill_classification(path), metadata)
+
+    def test_local_classification_rejects_conflicting_derived_labels(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'plugin.json').write_text('{"extensions": {"com.joao-aires.agent-skills": {"pack": "sdlc"}}}')
+            skill = root / 'example'
+            skill.mkdir()
+            path = skill / 'SKILL.md'
+            metadata = dict(name='example', description='Example', metadata={
+                'scope': 'generic', 'invocation': 'agent', 'kind': 'method', 'domain': 'development',
+                'phase': 'cross-phase', 'role': 'task', 'origin': 'local', 'pack': 'sdlc'})
+            path.write_text('---\n' + yaml.safe_dump(metadata) + '---\nGuide\n')
+            with self.assertRaisesRegex(ValueError, 'role must be derived'):
+                validate_local_skill_classification(path)
+
+    def test_system_skill_declares_its_role(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            (root / 'plugin.json').write_text('{"extensions": {"com.joao-aires.agent-skills": {"pack": "sdlc"}}}')
+            skill = root / 'example'
+            skill.mkdir()
+            path = skill / 'SKILL.md'
+            metadata = dict(name='example', description='Example', metadata={
+                'scope': 'generic', 'invocation': 'both', 'kind': 'system', 'domain': 'development', 'phase': 'cross-phase'})
+            path.write_text('---\n' + yaml.safe_dump(metadata) + '---\nGuide\n')
+            with self.assertRaisesRegex(ValueError, 'role for system kind'):
+                validate_local_skill_classification(path)

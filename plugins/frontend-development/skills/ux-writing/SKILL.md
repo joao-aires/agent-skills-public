@@ -4,13 +4,10 @@ description: Review, write or harmonize interface labels, instructions, validati
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: frontend
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Write interface copy for the actual task

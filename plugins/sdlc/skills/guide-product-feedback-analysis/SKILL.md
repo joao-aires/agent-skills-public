@@ -4,13 +4,10 @@ description: Guide to writing a product feedback analysis. Covers the decision q
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: development
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Product feedback analysis guide

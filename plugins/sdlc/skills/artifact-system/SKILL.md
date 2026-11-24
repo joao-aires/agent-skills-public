@@ -4,8 +4,6 @@ description: Maintain engineering artifacts across intent, change, system knowle
 user-invocable: false
 metadata:
   kind: system
-  origin: local
-  pack: sdlc
   domain: development
   phase: cross-phase
   scope: generic

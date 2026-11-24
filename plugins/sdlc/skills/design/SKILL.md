@@ -7,20 +7,17 @@ description: Design UI interactions, backend contracts, AI behavior or architect
 user-invocable: true
 metadata:
   kind: activity
-  origin: local
-  pack: sdlc
   domain: development
   phase: design
   scope: generic
   invocation: both
-  role: task
 ---
 
 # Design
 
-Read [activity system](../activity-system/SKILL.md).
+Design settles a proposed solution before dependent implementation, and stops at a recorded decision others can judge. It does not implement.
 
-Design settles a proposed solution before dependent implementation. It produces a decision other people can understand: the question, the affected components, materially different options, the linked artifacts that let a reviewer judge them, the tradeoffs and the chosen direction. It does not implement.
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Design produces the question, affected components, materially different options, the linked artifacts a reviewer needs, the tradeoffs and the chosen direction.
 
 Use the [artifact system](../artifact-system/SKILL.md) for the handoff and [artifact homes](../artifact-system/references/homes.md) for persistence. Read [software types](../artifact-system/references/software-types.md) to decide what evidence the affected components need. Use the [design proposal contract](../artifact-system/references/contracts/design-proposal.md) for the record.
 
@@ -69,7 +66,7 @@ Link the artifacts that let a reviewer judge each option at comparable fidelity:
 | AI | Use the available AI testing method for the evaluation plan |
 | Library/CLI | [Compatibility matrix](../guide-compatibility-matrix/SKILL.md) |
 
-Read [software types](../artifact-system/references/software-types.md) for the typical artifacts and evidence for each component type. A text description alone is not enough when layout, interaction, contract shape, failure behavior or model quality is the question. Link the artifacts the decision needs; the guide owns structure, notation, fidelity and common failures. Use realistic content and the states that matter: empty, loading, busy, error, denied, stale, conflict.
+Read [software types](../artifact-system/references/software-types.md) for the typical artifacts and evidence for each component type. A text description alone is not enough when layout, interaction, contract shape, failure behavior or model quality is the question. Link the artifacts the decision needs. The guide owns structure, notation, fidelity and common failures. Use realistic content and the states that matter: empty, loading, busy, error, denied, stale, conflict.
 
 When the change touches more than one type, the seam is part of the option set. Decide the contract or data shape, error and denial mapping, loading/empty distinctions, pagination, authority boundaries, retry/idempotency and compatibility once. Do not let each type section invent its own seam.
 
@@ -81,15 +78,15 @@ Choose the supporting method that matches the component. Do not force one discip
 
 Work through the main user task before polishing a screen. Determine what the user must understand, which action should be easiest to find and what feedback explains the result. Cover the important empty, busy, error, denied and stale states.
 
-Incorporate material domain/archetype guidance and the accepted platform constraints early. Reuse the existing design system, tokens and components; do not invent a parallel one. Seek available interface-design, UX-writing and usability-research capability by description. If a specialist is absent, use the generic method, project evidence and primary sources; do not lower the evidence standard.
+Incorporate material domain/archetype guidance and the accepted platform constraints early. Reuse the existing design system, tokens and components. Do not invent a parallel one. Seek available interface-design, UX-writing and usability-research capability by description. If a specialist is absent, use the generic method, project evidence and primary sources. Do not lower the evidence standard.
 
-Develop a representative part far enough to judge the direction. A wireframe may answer navigation; a rendered design may answer typography, density or visual identity. Carry the accepted layout, tokens and component behavior into the other affected surfaces.
+Develop a representative part far enough to judge the direction. A wireframe may answer navigation. A rendered design may answer typography, density or visual identity. Carry the accepted layout, tokens and component behavior into the other affected surfaces.
 
 ### Backend
 
 Start with an operation the service must support. Identify its caller, the data it may access, the checks that permit the action and the stored changes that make the result true. Decide which changes must succeed together and which work can complete later. Explain what the caller can safely infer from success, rejection or timeout.
 
-Follow the operation through repeated requests, partial failure and concurrent changes where they matter. An API shape alone does not settle whether a retry duplicates work or whether an old client still works. Resolve those choices before organizing framework layers. When the change alters durable facts, ownership or their rules, record the logical model with [data model](../guide-data-model/SKILL.md); physical schema detail stays with database guidance. Use [design-system](../design-system/SKILL.md) for choices that change architectural boundaries.
+Follow the operation through repeated requests, partial failure and concurrent changes where they matter. An API shape alone does not settle whether a retry duplicates work or whether an old client still works. Resolve those choices before organizing framework layers. When the change alters durable facts, ownership or their rules, record the logical model with [data model](../guide-data-model/SKILL.md). Physical schema detail stays with database guidance. Use [design-system](../design-system/SKILL.md) for choices that change architectural boundaries.
 
 ### AI
 
@@ -139,6 +136,6 @@ Return the accepted or proposed design, the evidence and the unknowns. Name what
 
 ## Proportionality
 
-A small local change may need only a short explanation beside its acceptance criteria. A cross-component or expensive-to-reverse change benefits from an option set, linked artifacts, a seam decision and a recorded owner. Do not invoke every design mode for every change; invoke the ones whose evidence the decision actually needs.
+A small local change may need only a short explanation beside its acceptance criteria. A cross-component or expensive-to-reverse change benefits from an option set, linked artifacts, a seam decision and a recorded owner. Invoke only the design modes whose evidence the decision needs. Do not invoke every mode for every change.
 
 If new evidence invalidates the chosen direction, reopen the design decision, update the proposal and recheck dependents. Do not keep implementing on a contradicted design.

@@ -4,13 +4,10 @@ description: Select and compare backend architecture patterns — modular monoli
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: backend
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Select patterns from forces, not familiarity
