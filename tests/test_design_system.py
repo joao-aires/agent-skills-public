@@ -128,7 +128,8 @@ class DesignSystemTests(unittest.TestCase):
 
     def test_skill_map_includes_guides_and_counts(self):
         text = (ROOT / 'docs/skills-map.md').read_text()
-        self.assertIn('158 skills', text)
+        expected = len(list((ROOT / 'plugins').glob('*/skills/*/SKILL.md')))
+        self.assertIn(f'{expected} skills', text)
         for name in ('guide-design-spec', 'guide-architecture-views',
                      'guide-state-machine', 'guide-compatibility-matrix',
                      'guide-runbook', 'guide-prd', 'guide-rfc', 'guide-adr',

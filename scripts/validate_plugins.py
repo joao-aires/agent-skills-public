@@ -11,9 +11,11 @@ import yaml
 try:
     from upstream_sources import load_sources
     from skill_metadata import validate_local_skill_classification
+    from skill_relationships import validate_relationships
 except ModuleNotFoundError:
     from scripts.upstream_sources import load_sources
     from scripts.skill_metadata import validate_local_skill_classification
+    from scripts.skill_relationships import validate_relationships
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -51,8 +53,10 @@ def validate() -> list[str]:
                         raise ValueError(f"Reserved MCP environment variable: {name}")
                     for field in ("command", "cwd"):
                         value = server.get(field, "")
-                        if value.startswith("./") and not (package / value).resolve().is_relative_to(package):
-                            raise ValueError(f"Escaping MCP {field}: {name}")
+                        if value.startswith("."):
+                            resolved = (package / value).resolve()
+                            if not resolved.is_relative_to(package):
+                                raise ValueError(f"Escaping MCP {field}: {name} -> {value}")
             skill_names = set()
             for skill in sorted((package / "skills").glob("*/SKILL.md")):
                 if skill.parent.relative_to(ROOT.resolve()).as_posix() in managed:
@@ -72,6 +76,7 @@ def validate() -> list[str]:
             failures.append('Unpinned upstream commit')
         if not source.get('license'):
             failures.append('Missing upstream license')
+    failures.extend(validate_relationships(ROOT))
     return failures
 
 

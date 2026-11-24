@@ -18,7 +18,8 @@ class SkillMapTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stderr)
         lines = result.stdout.splitlines()
         self.assertEqual(lines[0], HEADER)
-        self.assertEqual(len(lines) - 2, 158)
+        expected = len(list((ROOT / 'plugins').glob('*/skills/*/SKILL.md')))
+        self.assertEqual(len(lines) - 2, expected)
         for line in lines[2:]:
             self.assertEqual(line.count('|'), HEADER.count('|'))
 

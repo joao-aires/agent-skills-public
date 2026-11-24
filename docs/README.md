@@ -13,6 +13,7 @@ These pages describe how to install, use and maintain the collection. Each page 
 | Record a change, choose an artifact home or hand off work | [Engineering artifacts and workspaces](artifact-workflow.md) |
 | Plan and evaluate a distinctive interface | [Creative interface work](creative-interface.md) |
 | Browse the generated skill inventory | [Skills map](skills-map.md) or the [filterable explorer](skills-map.html) |
+| Explore declared relationships and the model | [Skill graph](visualizations/skill-graph.html) · [relationship board](visualizations/sdlc-relationships.html) · [model JSON](visualizations/skill-graph.json) |
 | Classify a skill, pack or domain | [Metadata contract](metadata.md) |
 | Replace an old installation, package or skill name | [Migration](migration.md) |
 | Change, validate or review the collection | [Maintainer reference](maintainer-reference.md) |

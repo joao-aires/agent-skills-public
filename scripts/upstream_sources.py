@@ -8,6 +8,11 @@ import json
 from pathlib import Path
 import re
 
+try:
+    from skill_schema import DOMAINS, INVOCATIONS, KINDS, ORIGINS, PACKS, PHASES, ROLES, SCOPES
+except ModuleNotFoundError:
+    from scripts.skill_schema import DOMAINS, INVOCATIONS, KINDS, ORIGINS, PACKS, PHASES, ROLES, SCOPES
+
 
 def load_sources(root, selected=None, verify=True):
     root = Path(root)
@@ -44,6 +49,15 @@ def load_sources(root, selected=None, verify=True):
         labels = metadata.get('labels', {})
         if not isinstance(labels, dict) or any(not isinstance(v, str) for v in labels.values()):
             raise ValueError('Packaging labels must map strings to strings: ' + artifact_id)
+        vocabularies = {
+            'scope': SCOPES, 'invocation': INVOCATIONS, 'kind': KINDS,
+            'origin': ORIGINS, 'pack': PACKS, 'phase': PHASES,
+            'domain': DOMAINS, 'role': ROLES,
+        }
+        for field, allowed in vocabularies.items():
+            value = labels.get(field)
+            if value is not None and value not in allowed:
+                raise ValueError(f'Invalid packaging {field} label {value!r}: {artifact_id}')
         destination = Path(artifact['destination'])
         if (artifact['kind'] != 'skill' or len(destination.parts) != 4 or
                 destination.parts[:3] != ('plugins', plugin, 'skills') or

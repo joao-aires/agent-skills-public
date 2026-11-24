@@ -1,0 +1,506 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SDLC phases, artifacts and skills</title>
+<style>
+  :root{
+    --bg:#f4f1e9; --panel:#fffdf8; --ink:#211f1b; --muted:#6f695f; --line:#d9d2c4;
+    --planning:#5b6b7c; --requirements:#4c5fd5; --design:#7856c8; --implementation:#0f766e;
+    --testing:#a16207; --deployment:#b45309; --maintenance:#2f7d4f;
+    --intent:#b0883a; --coordination:#4c5fd5; --system:#2f7d4f; --impl:#0f766e; --delivery:#b45309;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:ui-sans-serif,-apple-system,"Segoe UI",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  header{padding:26px 30px 8px}
+  .kicker{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted)}
+  h1{font-family:ui-serif,Georgia,"Times New Roman",serif;font-weight:600;
+     font-size:clamp(26px,3vw,42px);line-height:1.06;margin:8px 0 10px;letter-spacing:-.017em}
+  .lede{max-width:88ch;color:#4a463f;font-size:14px;line-height:1.55;margin:0}
+  .controls{display:flex;flex-wrap:wrap;gap:9px;align-items:center;margin-top:15px}
+  .seg{display:inline-flex;border:1px solid var(--line);background:var(--panel);border-radius:9px;overflow:hidden}
+  .seg button{border:0;background:transparent;padding:7px 14px;font:inherit;font-size:12.5px;color:var(--muted);cursor:pointer}
+  .seg button[aria-pressed="true"]{background:var(--ink);color:#fff}
+  .chip{border:1px solid var(--line);background:var(--panel);border-radius:999px;padding:6px 11px;
+     font-size:12px;color:#4a463f;cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+  .chip[aria-pressed="false"]{opacity:.42;text-decoration:line-through}
+  .chip i{width:8px;height:8px;border-radius:2px;display:inline-block}
+  .hint{font-size:11.5px;color:var(--muted);margin-left:auto}
+  .legend{display:flex;flex-wrap:wrap;gap:13px;padding:10px 30px 12px;font-size:11.5px;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .legend i{display:inline-block;width:24px;height:0;border-top:2px solid var(--ink)}
+  .legend i.dash{border-top:1.5px dashed var(--requirements)}
+  .legend i.feedback{border-top:1.5px dashed #8f887b}
+  .legend i.guard{border-top:2px dotted #b91c1c}
+  .legend i.flow{border-top:1px solid #9aa6b2}
+  .legend i.dot{width:9px;height:9px;border:0;border-radius:50%;background:var(--accent,#999)}
+  .canvas{margin:0 24px;background:var(--panel);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+  svg{display:block;width:100%;height:auto}
+  .inspector{margin:16px 24px 30px;background:var(--panel);border:1px solid var(--line);border-radius:14px;
+     padding:22px 24px;display:grid;grid-template-columns:300px 1fr;gap:30px}
+  .inspector h2{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:0 0 8px;font-weight:600}
+  .inspector h3{font-family:ui-serif,Georgia,serif;font-size:25px;line-height:1.12;margin:0 0 8px;font-weight:600}
+  .inspector p{font-size:13px;line-height:1.55;color:#4a463f;margin:0 0 8px}
+  .tag{display:inline-block;font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;
+     border:1px solid var(--line);border-radius:999px;padding:3px 8px;color:var(--muted);margin:0 5px 7px 0}
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:8px 30px}
+  .cols h4{margin:8px 0 3px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:600}
+  .cols p{font-size:12.5px;margin:0 0 6px}
+  code{font-size:11.5px;background:#f1ece1;padding:1px 4px;border-radius:4px}
+  ul{margin:2px 0 0;padding-left:16px;font-size:12.5px;line-height:1.5}
+  .node{cursor:pointer}
+  .node:hover{opacity:.92}
+  .node.selected rect,.node.selected circle{stroke:var(--ink)!important;stroke-width:3!important}
+  .node.dim{opacity:.18}
+  .node.hl rect,.node.hl circle{stroke-width:2.3}
+  footer{padding:0 30px 34px;color:var(--muted);font-size:11.5px;line-height:1.6;max-width:1100px}
+  @media (max-width:1000px){.inspector{grid-template-columns:1fr}.cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Skill interaction model · reading artifact</div>
+  <h1>The SDLC as phases, artifacts and skills</h1>
+  <p class="lede">Seven outcomes in sequence, the artifacts that cross their boundaries, and the expertise that contributes without taking over. The board keeps each phase's outcome, artifacts and skills together; the orbit is the same model as a compact cycle.</p>
+  <div class="controls">
+    <div class="seg" role="group" aria-label="View">
+      <button id="m-board" aria-pressed="true">Board</button>
+      <button id="m-orbit" aria-pressed="false">Orbit</button>
+    </div>
+    <button class="chip" data-filter="artifacts" aria-pressed="true"><i style="background:#b0883a"></i>Artifacts</button>
+    <button class="chip" data-filter="skills" aria-pressed="true"><i style="background:#4c5fd5"></i>Skills</button>
+    <button class="chip" data-filter="context" aria-pressed="true"><i style="background:#6f695f"></i>Context</button>
+    <span class="hint">Click a phase, artifact or skill · click again to clear</span>
+  </div>
+</header>
+
+<div class="legend">
+  <span><i></i>Handoff transfers ownership</span>
+  <span><i class="dash"></i>Composition keeps the outcome</span>
+  <span><i class="feedback"></i>Feedback reopens an earlier phase</span>
+  <span><i class="guard"></i>Guard authorizes or vetoes</span>
+  <span><i class="flow"></i>Artifact produced / consumed</span>
+  <span><i class="dot" style="--accent:#b0883a"></i>Intent</span>
+  <span><i class="dot" style="--accent:#4c5fd5"></i>Coordination</span>
+  <span><i class="dot" style="--accent:#2f7d4f"></i>System knowledge</span>
+  <span><i class="dot" style="--accent:#0f766e"></i>Implementation</span>
+  <span><i class="dot" style="--accent:#b45309"></i>Delivery</span>
+</div>
+
+<div class="canvas"><svg id="viz" viewBox="0 0 1600 1010" role="img" aria-label="SDLC lifecycle board with artifacts and contributing skills"></svg></div>
+<section class="inspector" id="panel"></section>
+
+<footer>
+  Model, not runtime authority. Phases and outcomes are read from <code>docs/sdlc.md</code>; activities and artifacts from the activity catalog; artifact planes, homes and guides from the artifact registry; handoffs from <code>artifact-system/references/handoff.md</code>; skill kinds from metadata. Phase placement of artifacts is curated for reading and groups the 28 registry types into 16 principal groups. Composition edges are drawn from the skills that declare <code>## Composition</code>. A guard records an authority boundary, not a command.
+</footer>
+
+<script>
+const DATA = {
+  phases: [
+    {id:'planning', label:'Planning', short:'01', color:'var(--planning)', angle:0,
+     outcome:'Agree why the change is worth doing, its first useful scope, and whether it is feasible.',
+     activities:['plan','setup','run-product-feedback-analysis'],
+     skills:['product-direction','research'],
+     source:'docs/sdlc.md#1-project-planning'},
+    {id:'requirements', label:'Requirements', short:'02', color:'var(--requirements)', angle:51.43,
+     outcome:'Turn intent into behavior, constraints and observable acceptance that design can use.',
+     activities:['refine','write-spec'],
+     skills:['requirements-engineering'],
+     source:'docs/sdlc.md#2-requirements-analysis'},
+    {id:'design', label:'Design', short:'03', color:'var(--design)', angle:102.86,
+     outcome:'Settle consequential choices before implementation and record the accepted direction.',
+     activities:['design'],
+     skills:['design-system','domain-modeling','prototype','interface-design','backend-design','design-security'],
+     source:'docs/sdlc.md#3-design'},
+    {id:'implementation', label:'Implementation', short:'04', color:'var(--implementation)', angle:154.29,
+     outcome:'Build the accepted change in bounded increments, with verification carried alongside.',
+     activities:['implement','develop','fix','harden'],
+     skills:['git-contributions','project-conventions','application-configuration'],
+     source:'docs/sdlc.md#4-implementation'},
+    {id:'testing', label:'Testing', short:'05', color:'var(--testing)', angle:205.71,
+     outcome:'Observe real behavior, repair failures, and keep acceptance intact.',
+     activities:['test'],
+     skills:['testing-resilience','testing-journey'],
+     source:'docs/sdlc.md#5-testing'},
+    {id:'deployment', label:'Deployment', short:'06', color:'var(--deployment)', angle:257.14,
+     outcome:'Release an authorized target and verify the served outcome, not just the pipeline.',
+     activities:['release'],
+     skills:['ci-cd-pipelines'],
+     source:'docs/sdlc.md#6-deployment'},
+    {id:'maintenance', label:'Maintenance', short:'07', color:'var(--maintenance)', angle:308.57,
+     outcome:'Restore service, learn from incidents, and evolve reliability, security and dependencies.',
+     activities:['run-incident-response','run-postmortem','run-operations-review','run-security-maintenance','run-dependency-maintenance','improve'],
+     skills:['run-security-maintenance','run-dependency-maintenance'],
+     source:'docs/sdlc.md#7-maintenance'}
+  ],
+  artifacts: [
+    {id:'intent', label:'Intent set', sub:'PRD · roadmap · feedback', plane:'intent', phase:'planning',
+     consumers:['requirements','design'],
+     members:[{name:'Product brief / PRD',contract:'prd.md',guide:'guide-prd',home:'product/project workspace'},
+              {name:'Roadmap',contract:'roadmap.md',guide:'guide-roadmap',home:'product/project workspace'},
+              {name:'Product feedback analysis',contract:'product-feedback-analysis.md',guide:'guide-product-feedback-analysis',home:'engineering workspace or docs/product/feedback'}]},
+    {id:'ecr', label:'ECR spine', sub:'the change record', plane:'coordination', phase:'planning',
+     consumers:['requirements','design','implementation','testing','deployment','maintenance'],
+     members:[{name:'Engineering change record',contract:'ecr.md',guide:'guide-ecr',home:'engineering workspace'}]},
+    {id:'issue', label:'Issue / work item', sub:'coordination view', plane:'coordination', phase:'planning',
+     consumers:['implementation','testing'],
+     members:[{name:'Issue',contract:'issue.md',guide:'guide-issue',home:'configured tracker'}]},
+    {id:'research', label:'Research report', sub:'bounded inquiry', plane:'coordination', phase:'requirements',
+     consumers:['design','implementation'],
+     members:[{name:'Research report',contract:'research-report.md',guide:'guide-research-report',home:'engineering workspace'}]},
+    {id:'design-set', label:'Design set', sub:'proposal · spec · views', plane:'system', phase:'design',
+     consumers:['implementation','testing'],
+     members:[{name:'Design proposal',contract:'design-proposal.md',guide:'guide-design-proposal',home:'ECR section, RFC or linked record'},
+              {name:'Design specification',contract:'design-spec.md',guide:'guide-design-spec',home:'design workspace or application docs'},
+              {name:'Data model',contract:'data-model.md',guide:'guide-data-model',home:'docs/architecture or database workspace'},
+              {name:'C4 view',contract:'c4-view.md',guide:'guide-architecture-views',home:'architecture set or proposed record'},
+              {name:'Sequence view',contract:'sequence-view.md',guide:'guide-architecture-views',home:'architecture set or proposed record'},
+              {name:'State machine',contract:'state-machine.md',guide:'guide-state-machine',home:'design record or architecture set'}]},
+    {id:'rfc-adr', label:'RFC / decision record', sub:'durable choice', plane:'system', phase:'design',
+     consumers:['implementation','maintenance'],
+     members:[{name:'RFC',contract:'rfc.md',guide:'guide-rfc',home:'engineering workspace or docs/rfcs'},
+              {name:'Decision record',contract:'adr.md',guide:'guide-adr',home:'docs/decisions'}]},
+    {id:'architecture-set', label:'Architecture set', sub:'current system', plane:'system', phase:'design',
+     consumers:['implementation','maintenance'],
+     members:[{name:'Architecture set',contract:'architecture-set.md',guide:'guide-system-documentation',home:'application docs/architecture'}]},
+    {id:'compat', label:'Compatibility matrix', sub:'versions · consumers', plane:'system', phase:'design',
+     consumers:['testing','deployment'],
+     members:[{name:'Compatibility matrix',contract:'compatibility-matrix.md',guide:'guide-compatibility-matrix',home:'repository docs or release notes'}]},
+    {id:'work', label:'Work products', sub:'code · tests · migrations', plane:'impl', phase:'implementation',
+     consumers:['testing','deployment','maintenance'],
+     members:[{name:'Work product',contract:'work-product.md',guide:null,home:'application repository'}]},
+    {id:'pr', label:'Pull request', sub:'review view', plane:'coordination', phase:'implementation',
+     consumers:['testing'],
+     members:[{name:'Pull request',contract:'pr.md',guide:'guide-pr',home:'git provider'}]},
+    {id:'assurance', label:'Assurance assessment', sub:'evidence and gaps', plane:'system', phase:'testing',
+     consumers:['deployment'],
+     members:[{name:'Assurance assessment',contract:'assurance-assessment.md',guide:'guide-assurance-assessment',home:'engineering or compliance workspace'}]},
+    {id:'release-note', label:'Release note', sub:'what changed', plane:'delivery', phase:'deployment',
+     consumers:['maintenance'],
+     members:[{name:'Release note',contract:'release-note.md',guide:'guide-release-note',home:'git provider release or CHANGELOG'}]},
+    {id:'deploy-record', label:'Deployment record', sub:'target · rollout', plane:'delivery', phase:'deployment',
+     consumers:['maintenance'],
+     members:[{name:'Deployment record',contract:null,guide:null,home:'delivery/operations home'}]},
+    {id:'runbook', label:'Runbook', sub:'procedure · exercise', plane:'system', phase:'deployment',
+     consumers:['maintenance'],
+     members:[{name:'Runbook',contract:'runbook.md',guide:'guide-runbook',home:'operations repository or docs/operations'}]},
+    {id:'incident', label:'Incident record', sub:'impact · recovery', plane:'delivery', phase:'maintenance',
+     consumers:['maintenance'],
+     members:[{name:'Incident record',contract:'incident-record.md',guide:'guide-incident-record',home:'incident tool or operations workspace'}]},
+    {id:'postmortem', label:'Postmortem', sub:'cause · actions', plane:'delivery', phase:'maintenance',
+     consumers:['planning','design'],
+     members:[{name:'Postmortem',contract:'postmortem.md',guide:'guide-postmortem',home:'operations/documentation home'}]}
+  ],
+  skills: [
+    {id:'product-direction', label:'product-direction', kind:'method', phase:'planning', note:'Product problem, priority, first useful slice'},
+    {id:'research', label:'research', kind:'activity', phase:'planning', note:'Decision-oriented investigation'},
+    {id:'requirements-engineering', label:'requirements-engineering', kind:'method', phase:'requirements', note:'Elicitation, measurable constraints, acceptance'},
+    {id:'design-system', label:'design-system', kind:'method', phase:'design', note:'Architecture and tactical system design'},
+    {id:'domain-modeling', label:'domain-modeling', kind:'method', phase:'design', note:'Domain language, boundaries, model decisions'},
+    {id:'prototype', label:'prototype', kind:'method', phase:'design', note:'Time-boxed exploration that answers a question'},
+    {id:'interface-design', label:'interface-design', kind:'method', phase:'design', note:'Information architecture, interaction, visual craft'},
+    {id:'backend-design', label:'backend-design', kind:'method', phase:'design', note:'Service contracts, authority, durable effects'},
+    {id:'design-security', label:'design-security', kind:'method', phase:'design', note:'Trust boundaries, authority placement, privacy'},
+    {id:'git-contributions', label:'git-contributions', kind:'workflow', phase:'implementation', note:'Worktree, commits, PR mechanics'},
+    {id:'project-conventions', label:'project-conventions', kind:'method', phase:'implementation', note:'Repository foundations and instruction files'},
+    {id:'application-configuration', label:'application-configuration', kind:'method', phase:'implementation', note:'Precedence, validation, secrets, reload'},
+    {id:'testing-resilience', label:'testing-resilience', kind:'method', phase:'testing', note:'Failure, recovery, degradation'},
+    {id:'testing-journey', label:'testing-journey', kind:'method', phase:'testing', note:'Journey claims and platform evidence'},
+    {id:'ci-cd-pipelines', label:'ci-cd-pipelines', kind:'method', phase:'deployment', note:'Provider-neutral stages, promotion, recovery'},
+    {id:'run-security-maintenance', label:'run-security-maintenance', kind:'activity', phase:'maintenance', note:'Scoped security upkeep and evidence'},
+    {id:'run-dependency-maintenance', label:'run-dependency-maintenance', kind:'activity', phase:'maintenance', note:'Compatibility, advisories, remediation'}
+  ],
+  handoffs: [
+    {from:'planning', to:'requirements', label:'outcome, first slice, constraints', artifacts:['intent','ecr']},
+    {from:'requirements', to:'design', label:'behavior, acceptance, open decisions', artifacts:['ecr','research']},
+    {from:'design', to:'implementation', label:'decision, seam, linked artifacts', artifacts:['design-set','rfc-adr']},
+    {from:'implementation', to:'testing', label:'revision, changed behavior, checks', artifacts:['work','pr']},
+    {from:'testing', to:'deployment', label:'evidence, gaps, readiness', artifacts:['assurance','compat']},
+    {from:'deployment', to:'maintenance', label:'target, rollout, recovery, signals', artifacts:['release-note','deploy-record','runbook']},
+    {from:'maintenance', to:'planning', label:'operating evidence reopens the plan', artifacts:['postmortem']}
+  ],
+  feedback: [
+    {from:'maintenance', to:'design', label:'incident or postmortem reopens design'},
+    {from:'maintenance', to:'testing', label:'field evidence reopens verification'}
+  ],
+  guards: [
+    {id:'readiness', label:'run-production-readiness-review', phase:'deployment', angle:236,
+     note:'A readiness verdict is evidence for release, not release authorization.'}
+  ],
+  explicitOnly: ['setup','release','harden','improve','run-dependency-maintenance','handoff','retro','grill-me','grill-with-docs','to-questionnaire'],
+  context: [
+    {id:'strategy', label:'Strategy', count:'13 triggers', phase:'planning', angle:338, radius:632,
+     note:'Pre-SDLC direction: six questions, twelve triggers, two craft methods.'},
+    {id:'tech', label:'Technical packs', count:'12 packs · 67 skills', phase:'implementation', angle:138, radius:632,
+     note:'Optional stack expertise selected by capability; it never selects a stack for the project.'}
+  ]
+};
+
+const NS='http://www.w3.org/2000/svg';
+const svg=document.getElementById('viz');
+const panel=document.getElementById('panel');
+const state={mode:'board', selected:null, filters:{artifacts:true,skills:true,context:true}};
+const F={}; DATA.phases.forEach(p=>F[p.id]=p);
+const A={}; DATA.artifacts.forEach(a=>A[a.id]=a);
+const S={}; DATA.skills.forEach(s=>S[s.id]=s);
+
+const el=(tag,attrs={},parent=svg)=>{const n=document.createElementNS(NS,tag);
+  for(const[k,v] of Object.entries(attrs)) n.setAttribute(k,v); parent.appendChild(n); return n;};
+const tx=(x,y,s,attrs={},parent=svg)=>{const n=el('text',{x,y,...attrs},parent); n.textContent=s; return n;};
+const color=(p)=>({intent:'var(--intent)',coordination:'var(--coordination)',system:'var(--system)',impl:'var(--impl)',delivery:'var(--delivery)'}[p]||'var(--muted)');
+const polar=(cx,cy,r,deg)=>{const a=(deg-90)*Math.PI/180; return [cx+r*Math.cos(a), cy+r*Math.sin(a)];};
+const arc=(cx,cy,r,a1,a2,large=0,sweep=1)=>{const[x1,y1]=polar(cx,cy,r,a1),[x2,y2]=polar(cx,cy,r,a2);
+  return `M ${x1.toFixed(1)} ${y1.toFixed(1)} A ${r} ${r} 0 ${large} ${sweep} ${x2.toFixed(1)} ${y2.toFixed(1)}`;};
+const wrap=(s,n)=>{const w=s.split(/\s+/);let lines=[],line='';for(const x of w){if((line+' '+x).trim().length>n){lines.push(line.trim());line=x;}else line+=' '+x;}if(line.trim())lines.push(line.trim());return lines;};
+const phaseColor=id=>F[id]?F[id].color:'var(--muted)';
+
+function clear(){while(svg.firstChild) svg.removeChild(svg.firstChild);}
+function card(x,y,w,h,cls,kind,id,label,sub,accent){
+  const g=el('g',{class:`node ${cls}`,'data-kind':kind,'data-id':id,tabindex:'0',role:'button'});
+  el('rect',{x,y,width:w,height:h,rx:7,fill:'#fffdf8',stroke:'#d9d2c4','stroke-width':1},g);
+  if(accent) el('rect',{x,y,width:5,height:h,rx:2.5,fill:accent},g);
+  tx(x+14,y+15,label,{'font-size':'11.5','font-weight':'600',fill:'#211f1b'},g);
+  if(sub) tx(x+14,y+29,sub,{'font-size':'9.2',fill:'#6f695f'},g);
+  g.addEventListener('click',()=>setSelect(kind,id));
+  g.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();setSelect(kind,id);}});
+  return g;
+}
+function setSelect(kind,id){const same=state.selected&&state.selected.kind===kind&&state.selected.id===id;
+  state.selected=same?null:{kind,id}; render();}
+function related(){
+  const sel=state.selected; if(!sel) return null;
+  const set=new Set([`${sel.kind}:${sel.id}`]);
+  if(sel.kind==='phase'){
+    DATA.artifacts.forEach(a=>{if(a.phase===sel.id||a.consumers.includes(sel.id))set.add('artifact:'+a.id);});
+    DATA.skills.forEach(s=>{if(s.phase===sel.id)set.add('skill:'+s.id);});
+    if(sel.id==='deployment')set.add('guard:readiness');
+  }else if(sel.kind==='artifact'){
+    const a=A[sel.id];set.add('phase:'+a.phase);a.consumers.forEach(c=>set.add('phase:'+c));
+  }else if(sel.kind==='skill'){
+    const s=S[sel.id];set.add('phase:'+s.phase);
+    DATA.artifacts.forEach(a=>{if(a.phase===s.phase)set.add('artifact:'+a.id);});
+  }else if(sel.kind==='guard'){set.add('phase:deployment');}
+  else if(sel.kind==='context'){const c=DATA.context.find(x=>x.id===sel.id);if(c)set.add('phase:'+c.phase);}
+  return set;
+}
+function applySelection(){
+  const rel=related(); if(!rel)return;
+  svg.querySelectorAll('.node').forEach(n=>{
+    const key=n.dataset.kind+':'+n.dataset.id;
+    n.classList.toggle('dim',!rel.has(key));
+    n.classList.toggle('hl',rel.has(key));
+  });
+}
+
+function renderBoard(){
+  const W=1600,M=45,CW=190,GAP=30,TOP=96,PH=760;
+  const xs=DATA.phases.map((_,i)=>M+i*(CW+GAP));
+  // pre-lifecycle strategy
+  const sp=el('g',{class:'node','data-kind':'context','data-id':'strategy',tabindex:'0',role:'button'});
+  el('rect',{x:M,y:10,width:CW,height:28,rx:7,fill:'#fffdf8',stroke:'#cfc7b7','stroke-dasharray':'4 4'},sp);
+  tx(M+10,28,'Before the lifecycle · Strategy (13)',{'font-size':'9.5','font-weight':'600',fill:'#211f1b'},sp);
+  el('line',{x1:M+CW/2,y1:38,x2:M+CW/2,y2:TOP,stroke:'#9a9488','stroke-width':1,'stroke-dasharray':'3 6'},sp);
+  sp.addEventListener('click',()=>setSelect('context','strategy'));
+  // handoffs between phases
+  DATA.handoffs.slice(0,6).forEach((h,i)=>{
+    const x1=xs[i]+CW, x2=xs[i+1], mid=(x1+x2)/2, y=66;
+    el('line',{x1:x1+2,y1:y,x2:x2-2,y2:y,stroke:'#211f1b','stroke-width':1.5,'marker-end':'url(#arrow)'});
+    el('rect',{x:mid-34,y:40,width:68,height:16,rx:8,fill:'#f4f1e9'});
+    tx(mid,51,h.label.split(',')[0],{'text-anchor':'middle','font-size':'8.6',fill:'#6f695f'});
+  });
+  DATA.phases.forEach((p,i)=>{
+    const x=xs[i];
+    const g=el('g',{class:'node phase','data-kind':'phase','data-id':p.id,tabindex:'0',role:'button'});
+    el('rect',{x,y:TOP,width:CW,height:PH,rx:12,fill:'#fffdf8',stroke:'#d9d2c4','stroke-width':1.2},g);
+    el('rect',{x,y:TOP,width:CW,height:5,rx:2.5,fill:p.color},g);
+    tx(x+14,TOP+24,p.short,{'font-size':'9.5','letter-spacing':'.14em',fill:'#6f695f'},g);
+    tx(x+14,TOP+46,p.label,{'font-size':'15.5','font-weight':'650',fill:'#211f1b'},g);
+    wrap(p.outcome,30).slice(0,3).forEach((line,k)=>tx(x+14,TOP+66+k*12,line,{'font-size':'9.2',fill:'#6f695f'},g));
+    tx(x+14,TOP+126,'PRODUCES',{'font-size':'8.5','letter-spacing':'.12em',fill:'#8a8376'},g);
+    // ECR spine chip in every phase
+    el('rect',{x:x+12,y:TOP+136,width:CW-24,height:20,rx:4,fill:'rgba(76,95,213,.10)',stroke:'rgba(76,95,213,.35)','stroke-width':1},g);
+    tx(x+20,TOP+150,'ECR spine',{'font-size':'9','font-weight':'600',fill:'#3c4bb0'},g);
+    tx(x+CW-20,TOP+150,'spans',{'text-anchor':'end','font-size':'8','fill':'#3c4bb0'},g);
+    // artifacts
+    if(state.filters.artifacts){
+      DATA.artifacts.filter(a=>a.phase===p.id).forEach((a,j)=>{
+        const y=TOP+170+j*44;
+        const ag=card(x+12,y,CW-24,36,'artifact','artifact',a.id,a.label,a.sub,color(a.plane));
+        ag.addEventListener('click',()=>setSelect('artifact',a.id));
+      });
+    }
+    // skills
+    tx(x+14,TOP+392,'CONTRIBUTES',{'font-size':'8.5','letter-spacing':'.12em',fill:'#8a8376'},g);
+    if(state.filters.skills){
+      DATA.skills.filter(s=>s.phase===p.id).forEach((s,j)=>{
+        const y=TOP+404+j*34;
+        const sg=el('g',{class:'node skill','data-kind':'skill','data-id':s.id,tabindex:'0',role:'button'});
+        el('rect',{x:x+12,y,width:CW-24,height:28,rx:6,fill:'#fffdf8',stroke:'#d9d2c4'},sg);
+        el('circle',{cx:x+24,cy:y+14,r:3.2,fill:'#4c5fd5'},sg);
+        tx(x+33,y+17,s.label,{'font-size':'10','font-weight':'600',fill:'#211f1b'},sg);
+        if(DATA.explicitOnly.includes(s.id)) tx(x+CW-20,y+17,'explicit',{'text-anchor':'end','font-size':'7.8',fill:'#b91c1c'},sg);
+        sg.addEventListener('click',()=>setSelect('skill',s.id));
+      });
+    }
+    // guard on deployment
+    if(p.id==='deployment'){
+      const gg=el('g',{class:'node guard','data-kind':'guard','data-id':'readiness',tabindex:'0',role:'button'});
+      el('rect',{x:x+CW-58,y:TOP+16,width:46,height:18,rx:9,fill:'#fdecea',stroke:'#b91c1c'},gg);
+      tx(x+CW-35,y+TOP+29,'GATE',{'text-anchor':'middle','font-size':'8','font-weight':'700',fill:'#b91c1c'},gg);
+      gg.addEventListener('click',()=>setSelect('guard','readiness'));
+    }
+    g.addEventListener('click',()=>setSelect('phase',p.id));
+  });
+  // technical packs band
+  const tx0=xs[3], tw=xs[4]+CW-xs[3];
+  const tech=el('g',{class:'node','data-kind':'context','data-id':'tech',tabindex:'0',role:'button'});
+  el('rect',{x:tx0,y:884,width:tw,height:38,rx:8,fill:'#fffdf8',stroke:'#cfc7b7','stroke-dasharray':'4 4'},tech);
+  tx(tx0+12,907,'Technical packs · 12 packs / 67 skills',{'font-size':'9.5','font-weight':'600',fill:'#211f1b'},tech);
+  tx(tx0+12,919,'optional, selected by capability, never a stack choice',{'font-size':'8.6',fill:'#6f695f'},tech);
+  el('line',{x1:tx0+tw/2,y1:884,x2:tx0+tw/2,y2:TOP+PH,stroke:'#9a9488','stroke-width':1,'stroke-dasharray':'3 6'},tech);
+  tech.addEventListener('click',()=>setSelect('context','tech'));
+  // feedback loop
+  const x6=xs[6]+CW/2, x0=xs[0]+CW/2, by=TOP+PH, fy=960;
+  el('path',{d:`M ${x6} ${by} C ${x6} ${fy}, ${x0} ${fy}, ${x0} ${by}`,fill:'none',stroke:'#8f887b','stroke-width':1.2,'stroke-dasharray':'4 7','marker-end':'url(#arrowMuted)'});
+  tx((x0+x6)/2,fy+14,'reopen · operating evidence changes an earlier decision',{'text-anchor':'middle','font-size':'9',fill:'#6f695f'});
+}
+
+function renderOrbit(){
+  const cx=800, cy=420, PR=232, HR=300;
+  DATA.phases.forEach((p,i)=>{
+    const a=i*360/7;
+    const [x,y]=polar(cx,cy,PR,a);
+    const arts=DATA.artifacts.filter(x=>x.phase===p.id).length;
+    const sk=DATA.skills.filter(x=>x.phase===p.id).length;
+    const g=el('g',{class:'node phase','data-kind':'phase','data-id':p.id,tabindex:'0',role:'button'});
+    el('circle',{cx:x,cy:y,r:62,fill:'#fffdf8',stroke:p.color,'stroke-width':2.4},g);
+    tx(x,y-16,p.short,{'text-anchor':'middle','font-size':'9','letter-spacing':'.12em',fill:'#6f695f'},g);
+    tx(x,y+1,p.label,{'text-anchor':'middle','font-size':'12.5','font-weight':'650',fill:'#211f1b'},g);
+    tx(x,y+18,`${arts} art · ${sk} skills`,{'text-anchor':'middle','font-size':'8.5',fill:'#6f695f'},g);
+    g.addEventListener('click',()=>setSelect('phase',p.id));
+  });
+  DATA.handoffs.slice(0,6).forEach((h,i)=>{
+    const a1=i*360/7+7, a2=(i+1)*360/7-7;
+    el('path',{d:arc(cx,cy,HR,a1,a2),fill:'none',stroke:'#211f1b','stroke-width':1.6,'marker-end':'url(#arrow)'});
+  });
+  DATA.feedback.forEach(f=>{
+    const i=DATA.phases.findIndex(p=>p.id===f.from), j=DATA.phases.findIndex(p=>p.id===f.to);
+    el('path',{d:arc(cx,cy,HR+26,i*360/7+5,j*360/7-5,1,1),fill:'none',stroke:'#8f887b','stroke-width':1,'stroke-dasharray':'3 6','marker-end':'url(#arrowMuted)','opacity':'.4'});
+  });
+  const core=el('g');
+  el('circle',{cx,cy,r:70,fill:'#211f1b'},core);
+  tx(cx,cy-6,'activity',{'text-anchor':'middle','font-size':'12','font-weight':'650',fill:'#f4f1e9'},core);
+  tx(cx,cy+10,'artifact',{'text-anchor':'middle','font-size':'12','font-weight':'650',fill:'#f4f1e9'},core);
+  tx(cx,cy+28,'systems',{'text-anchor':'middle','font-size':'8.5','letter-spacing':'.08em',fill:'#b9b2a4'},core);
+  DATA.context.forEach(c=>{
+    const [x,y]=polar(cx,cy,392,c.angle);
+    const g=el('g',{class:'node','data-kind':'context','data-id':c.id,tabindex:'0',role:'button'});
+    el('rect',{x:x-88,y:y-19,width:176,height:38,rx:8,fill:'#fffdf8',stroke:'#cfc7b7','stroke-dasharray':'4 4'},g);
+    tx(x-76,y-2,c.label,{'font-size':'10.5','font-weight':'650',fill:'#211f1b'},g);
+    tx(x-76,y+11,c.count,{'font-size':'8.8',fill:'#6f695f'},g);
+    const [px,py]=polar(cx,cy,PR+62,c.angle);
+    el('line',{x1:x,y1:y,x2:px,y2:py,stroke:'#9a9488','stroke-width':1,'stroke-dasharray':'3 6',opacity:'.7'},g);
+    g.addEventListener('click',()=>setSelect('context',c.id));
+  });
+}
+
+function render(){
+  clear();
+  const rail=state.mode==='orbit';
+  svg.setAttribute('viewBox', rail?'0 0 1600 880':'0 0 1600 1010');
+  const defs=el('defs');
+  const mk=(id,c)=>{const m=el('marker',{id,markerWidth:'9',markerHeight:'9',refX:'7',refY:'4.5',orient:'auto'},defs);
+    el('path',{d:'M0,0 L9,4.5 L0,9 z',fill:c},m);};
+  mk('arrow','#211f1b'); mk('arrowMuted','#8f887b');
+  if(rail) renderOrbit(); else renderBoard();
+  applySelection();
+  renderPanel();
+}
+
+function renderPanel(){
+  const sel=state.selected;
+  if(!sel){
+    panel.innerHTML=`<div><h2>How to read this</h2><h3>Four planes, six relations</h3>
+      <p>Selection is dynamic; composition is optional; handoff transfers ownership; the artifact is the contract; a guard can veto; exclusion keeps neighbours apart.</p></div>
+      <div class="cols">
+        <div><h4>Selection</h4><p>Descriptions and metadata choose the phase. No hard edge.</p></div>
+        <div><h4>Composition</h4><p>Methods deepen the phase. The outcome and stopping point stay.</p></div>
+        <div><h4>Handoff</h4><p>The next owner takes the artifact, evidence and open decisions.</p></div>
+        <div><h4>Artifact</h4><p>The durable contract. The only hard interface between phases.</p></div>
+        <div><h4>Guard</h4><p>Readiness is evidence, not release authorization.</p></div>
+        <div><h4>Exclusion</h4><p>Near-neighbours are named so both do not fire.</p></div>
+      </div>`;
+    return;
+  }
+  if(sel.kind==='phase'){
+    const p=F[sel.id];
+    const arts=DATA.artifacts.filter(a=>a.phase===p.id);
+    const skills=DATA.skills.filter(s=>s.phase===p.id);
+    const ins=DATA.artifacts.filter(a=>a.consumers.includes(p.id)&&a.phase!==p.id);
+    const outs=DATA.handoffs.filter(h=>h.from===p.id);
+    panel.innerHTML=`<div><h2>Phase</h2><h3>${p.label}</h3>
+      <span class="tag" style="border-color:${p.color};color:${p.color}">${p.activities.length} activities</span>
+      <p>${p.outcome}</p></div>
+      <div class="cols">
+        <div><h4>Activities</h4><p>${p.activities.map(a=>`<code>${a}</code>`).join(' ')}</p>
+        <h4>Produces</h4><p>${arts.map(a=>a.label).join(' · ')||'—'}</p>
+        <h4>Consumes / reopens</h4><p>${ins.map(a=>a.label).join(' · ')||'—'}</p></div>
+        <div><h4>Contributing skills</h4><p>${skills.map(s=>s.label).join(' · ')||'—'}</p>
+        <h4>Hands off</h4><p>${outs.map(h=>`${F[h.to].label}: ${h.label}`).join('<br>')||'—'}</p>
+        <h4>Source</h4><p><code>${p.source}</code></p></div>
+      </div>`;
+    return;
+  }
+  if(sel.kind==='artifact'){
+    const a=A[sel.id];
+    panel.innerHTML=`<div><h2>Artifact group</h2><h3>${a.label}</h3>
+      <span class="tag" style="border-color:${color(a.plane)};color:${color(a.plane)}">${a.plane}</span>
+      <span class="tag">produced in ${F[a.phase].label}</span>
+      <p>Consumed by ${a.consumers.map(c=>F[c].label).join(', ')}.</p></div>
+      <div class="cols"><div><h4>Members</h4>${a.members.map(m=>`<p><b>${m.name}</b><br><span style="color:var(--muted)">${m.contract||'no contract'} · ${m.guide||'no guide'}<br>${m.home}</span></p>`).join('')}</div>
+      <div><h4>Reading rule</h4><p>The group is a reading aid. Each member has its own contract, home and guide; the group is not a new artifact type.</p></div></div>`;
+    return;
+  }
+  if(sel.kind==='skill'){
+    const s=S[sel.id];
+    panel.innerHTML=`<div><h2>Contributing skill</h2><h3>${s.label}</h3>
+      <span class="tag">${s.kind}</span><span class="tag">composes with ${F[s.phase].label}</span>
+      ${DATA.explicitOnly.includes(s.id)?'<span class="tag" style="border-color:#b91c1c;color:#b91c1c">explicit only</span>':''}
+      <p>${s.note}</p></div>
+      <div class="cols"><div><h4>Relationship</h4><p>It deepens the phase without changing the stopping point. If absent, the phase proceeds with project evidence and general expertise.</p></div>
+      <div><h4>Not routing</h4><p>The skill does not become the activity and is not a prerequisite. Selecting it does not start a lifecycle.</p></div></div>`;
+    return;
+  }
+  if(sel.kind==='guard'){
+    panel.innerHTML=`<div><h2>Guard</h2><h3>run-production-readiness-review</h3>
+      <span class="tag" style="border-color:#b91c1c;color:#b91c1c">authority boundary</span>
+      <p>A readiness verdict is evidence for release, not release authorization.</p></div>
+      <div class="cols"><div><h4>What it is</h4><p>An assessment of whether the service can be depended on, with gaps and residual risk.</p></div>
+      <div><h4>What it is not</h4><p>It does not deploy, approve a merge or replace the release activity. Named authorization and a verified target remain required.</p></div></div>`;
+    return;
+  }
+  if(sel.kind==='context'){
+    const c=DATA.context.find(x=>x.id===sel.id);
+    panel.innerHTML=`<div><h2>Context</h2><h3>${c.label}</h3><span class="tag">${c.count}</span><p>${c.note}</p></div>
+      <div class="cols"><div><h4>Not a phase</h4><p>It feeds or surrounds the lifecycle; it does not become one.</p></div>
+      <div><h4>Selection</h4><p>Optional expertise is chosen by capability, never by a hardcoded cross-package name.</p></div></div>`;
+  }
+}
+
+document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{
+  const k=b.dataset.filter; state.filters[k]=!state.filters[k];
+  b.setAttribute('aria-pressed',String(state.filters[k])); render();
+}));
+document.getElementById('m-board').addEventListener('click',()=>{state.mode='board';
+  document.getElementById('m-board').setAttribute('aria-pressed','true');
+  document.getElementById('m-orbit').setAttribute('aria-pressed','false'); render();});
+document.getElementById('m-orbit').addEventListener('click',()=>{state.mode='orbit';
+  document.getElementById('m-orbit').setAttribute('aria-pressed','true');
+  document.getElementById('m-board').setAttribute('aria-pressed','false'); render();});
+
+render();
+</script>
+</body>
+</html>

@@ -35,6 +35,8 @@ def validate_skill_metadata(skill):
             raise ValueError(f'Missing skill stack label: {skill}')
         if 'invocation' in labels and labels['invocation'] not in INVOCATIONS:
             raise ValueError(f'Invalid skill invocation label: {skill}')
+        if labels.get('invocation') == 'user' and metadata.get('user-invocable', True) is False:
+            raise ValueError(f'Invocation label requires a user surface: {skill}')
         if 'role' in labels and labels['role'] not in ROLES:
             raise ValueError(f'Invalid skill role: {skill}')
         if 'kind' in labels and labels['kind'] not in KINDS:
