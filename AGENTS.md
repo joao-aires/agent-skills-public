@@ -11,7 +11,7 @@ For acquisition and updates, follow [upstream maintenance](docs/maintainers/upst
 
 ## Architecture and authoring
 
-- Preserve independently useful generic activities, application disciplines, technical expertise and supporting capabilities. Development is the default build; technical packages are explicit additions and do not select an application stack.
+- Preserve independently useful generic activities, application disciplines, technical expertise and supporting capabilities. `sdlc` is the default build; technical packages are explicit additions and do not select an application stack.
 - Select optional expertise by capability and actual available descriptions, without hardcoded cross-package names or a dependency resolver. Required same-package resources may use precise relative links. Without a specialist, retain acceptance standards using project evidence, general expertise and primary sources; distinguish missing guidance from missing tools or decisions.
 - Write decision principles with applicability and completion evidence. Keep ordinary implementation choices with the project and agent; reserve strict sequences for real dependencies. Link conditional detail with a reading trigger, and keep each rule with its owner.
 - Match the guidance to its job: workflows explain transitions, craft explains judgment, reference explains mechanisms and maintenance explains what to retain or change. Keep the reasoning intelligible, use structure according to meaning and follow the [authoring guidance](docs/maintainer-reference.md#keep-guidance-focused). No common template or expansion of every short skill is required.
@@ -33,11 +33,12 @@ Use the virtual environment and dependencies in [installation](docs/installation
 
 | Check | Command |
 | --- | --- |
-| Manifests, metadata, pins and containment | `python scripts/validate_plugins.py` |
+| Manifests, metadata, pins, containment and declared relationships | `python scripts/validate_plugins.py` |
 | Maintained links and names | `python scripts/check_collection.py` |
 | Eval config and case lint | `npm --prefix evals run lint` |
 | Deterministic eval gate (needs OpenCode and a model) | `npm --prefix evals run eval:ci` |
-| Artifact/contract/guide registry | `python scripts/artifact_registry.py` |
+| Artifact/contract/guide registry | `python scripts/artifact_registry.py --check` |
+| Skill graph freshness | `python scripts/skill_graph.py --check` |
 | Skill classification inventory | `python scripts/skill_map.py --inventory` |
 | Packaging and validation regressions | `python -m unittest discover -s tests -v` |
 

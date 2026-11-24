@@ -17,14 +17,14 @@ metadata:
 
 Use this activity when a decision needs evaluation evidence across several cases, changes or operating conditions, rather than one bounded check. It owns the evaluation program: the decision and claim, acceptance, dataset and slice governance, graders, baseline and experiment, gates, production sampling, reporting and authority.
 
-It composes [AI testing](../ai-testing/SKILL.md) for what to evaluate and what the evidence means, `ai-deepeval-testing` when that Python implementation is selected, `test` for application verification when installed, `design-system` observability guidance for execution signals when available, and the project's delivery authority or `release` when available. This skill does not own the evaluation method, the selected runner or the deployment.
+It composes [AI testing](../ai-testing/SKILL.md) for what to evaluate and what the evidence means, installed evaluation-framework guidance for the selected implementation, application verification guidance when installed, installed observability guidance for execution signals, and the project's delivery authority. This skill does not own the evaluation method, the selected runner or the deployment.
 
 | Field | This activity |
 | --- | --- |
 | Intent | Support a named decision with evaluation evidence that is proportionate to its consequence. |
 | Output | An evaluation plan or result: claim, criteria, dataset/slices, graders, baseline, comparison, gate evidence and remaining limits. |
 | Stopping point | Evaluation plan/results and a decision recommendation. Not merge, deployment, publication or live mutation. |
-| Authority | Run evaluations only with authorized data, providers, credentials and budget. The decision owner accepts the result; the project's delivery authority or `release` owns delivery when available. |
+| Authority | Run evaluations only with authorized data, providers, credentials and budget. The decision owner accepts the result; the project's delivery authority owns delivery. |
 
 ## Frame the decision and claim
 
@@ -123,7 +123,7 @@ Report at least:
 
 Use the existing ECR verification and release section, or the project's verification record, and link the evaluation evidence. Do not create a new artifact type or copy a dashboard into a second source of truth.
 
-A completed evaluation supports a decision; it does not authorize merge, deployment, publication or live mutation. State a recommendation as go, conditional or no-go with its evidence, then hand the delivery decision to the established delivery authority, or to `release` when available, within the established authority.
+A completed evaluation supports a decision; it does not authorize merge, deployment, publication or live mutation. State a recommendation as go, conditional or no-go with its evidence, then hand the delivery decision to the established delivery authority, within the established authority.
 
 ## Composition
 
@@ -131,10 +131,10 @@ A completed evaluation supports a decision; it does not authorize merge, deploym
 | --- | --- |
 | What to evaluate, case and grader design, evidence boundaries | [`ai-testing`](../ai-testing/SKILL.md) |
 | Program mechanics: dataset versions, slices, variance, denominators, gates, evidence levels | [Evaluation program](../ai-testing/references/evaluation-program.md) |
-| Selected Python/DeepEval implementation | `ai-deepeval-testing` when installed and chosen |
-| Application, contract, persistence and journey verification | `test` when available |
-| Traces, signals and execution diagnosis | `design-system` observability guidance when available; project telemetry tooling |
-| Delivery readiness, promotion and recovery | `release` when available |
+| Selected Python/DeepEval implementation | Installed guidance for the chosen evaluation framework |
+| Application, contract, persistence and journey verification | Verification guidance for the affected surfaces |
+| Traces, signals and execution diagnosis | Installed observability guidance; project telemetry tooling |
+| Delivery readiness, promotion and recovery | Installed delivery and release guidance |
 | Evidence record and artifact homes | The project's ECR/verification record and artifact conventions |
 
 Stop when the plan or result and its limits are reported. If the request continues into deployment, merge or external publication, treat that as a separate authorized activity rather than extending this one.

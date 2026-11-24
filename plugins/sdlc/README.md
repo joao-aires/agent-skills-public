@@ -23,7 +23,7 @@ The rest of the plugin is composed from a small set of concepts. Two are core mo
 | **Guide** | How should this one artifact be shaped? | Supporting capability — the `guide-*` artifact guides and their review questions |
 | **Workflow** | What ordered sequence carries the work out? | Composition pattern — e.g. the contribution workflow |
 | **Role** | Who participates? | Dimension — product, implementer, reviewer, operator |
-| **Phase** | Where in the SDLC lifecycle? | Dimension — planning, requirements, design, implementation, verification, release, maintenance |
+| **Phase** | Where in the SDLC lifecycle? | Dimension — planning, requirements, design, implementation, testing, deployment, maintenance |
 | **Software type** | What kind of component is being designed? | Dimension — frontend, backend, AI, library/CLI; a component property, not skill metadata |
 | **Home** | Where does the artifact live? | Dimension — engineering workspace, repo, tracker, provider, operations repo |
 | **Evidence** | What supports the claim? | Quality and assurance — quality bar, artifact assurance |
@@ -51,7 +51,7 @@ Skills carry a small classification layer:
 - `kind`: `system`, `activity`, `method`, `workflow`, `guide` or `reference`.
 - `pack`: `sdlc`, `technical`, `craft` or `product`.
 - `domain`: the owning lifecycle/capability area, such as development, delivery, operations, security, governance, frontend, backend, database, AI, documentation or visualization.
-- `phase`: `planning`, `requirements`, `design`, `implementation`, `verification`, `release`, `maintenance` or `cross-phase`.
+- `phase`: `planning`, `requirements`, `design`, `implementation`, `testing`, `deployment`, `maintenance` or `cross-phase`.
 - `origin`: `local` or `upstream`.
 - `scope`, `invocation` and `role`: generic/stack-specific, user/agent/both and task/support labels.
 

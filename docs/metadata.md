@@ -11,7 +11,7 @@ Every local skill declares the following in `SKILL.md` frontmatter. Acquired ski
 | `kind` | `system`, `activity`, `method`, `workflow`, `guide`, `reference` | The skill's conceptual role. |
 | `pack` | `sdlc`, `technical`, `craft`, `product` | The installable capability pack the skill belongs to. |
 | `domain` | `development`, `design`, `delivery`, `operations`, `security`, `governance`, `product`, `saas`, `frontend`, `backend`, `database`, `ai`, `tooling`, `platform`, `documentation`, `visualization`, `browser-extension`, `native`, `go`, `typescript` | The lifecycle stage or capability area. |
-| `phase` | `planning`, `requirements`, `design`, `implementation`, `verification`, `release`, `maintenance`, `cross-phase` | The primary SDLC phase. Use `cross-phase` for systems, assurance and methods that genuinely span the lifecycle. |
+| `phase` | `planning`, `requirements`, `design`, `implementation`, `testing`, `deployment`, `maintenance`, `cross-phase` | The primary SDLC phase, using the lifecycle names in [SDLC](sdlc.md). `deployment` covers release and rollout; `testing` covers verification and review. Use `cross-phase` for systems, assurance and methods that genuinely span the lifecycle. |
 | `origin` | `local`, `upstream` | Authored here or acquired and pinned. |
 | `scope` | `generic`, `stack-specific` | Applicability across stacks. |
 | `invocation` | `user`, `agent`, `both` | Preferred invocation surface. Native client controls still govern actual availability. |
@@ -51,7 +51,19 @@ The [artifact guide registry](../plugins/sdlc/skills/artifact-system/references/
 | `invocation` (ours) | Preferred discovery surface: `user`, `agent` or `both` | **No**. It is a label, not a permission. |
 | `role` (ours) | Packaging role: `task` or `support` | **No**. |
 
-So `user-invocable: false` means “not a direct slash command,” not “hidden from the agent.” An agent can still read and apply the skill. `disable-model-invocation: true` is the actual auto-invocation gate.
+So `user-invocable: false` means “not a direct slash command,” not “hidden from the agent.” An agent can still read and apply the skill. `disable-model-invocation: true` is the actual auto-invocation gate. The `invocation` label describes who the skill serves — a human-facing request, agent selection, or both — and `both` does not imply a slash command; `user-invocable: false` can still sit beside it. Only `invocation: user` with `user-invocable: false` is contradictory, and the validator rejects it.
+
+### Router skills
+
+A router skill is a user-invoked alias that names model-invoked skills and when to reach for each. `grill-me` is the minimal form: a human-facing description, one line of body and the target skill. It lowers what a person has to remember; it is not a second routing system.
+
+- **Explicit only.** Set `disable-model-invocation: true`. Descriptions remain the model's selection surface.
+- **Thin.** The body names the targets and carries no method of its own.
+- **Targets are model-invoked.** A router cannot fire an explicit-only skill, and the target must stay reachable by its own description.
+- **No chains.** A router never points at another router.
+- **No duplication.** Do not copy the target's instructions into the alias.
+
+A capability that needs a different entry point is not automatically a router. Add one only when the alias removes a real memory or discovery burden.
 
 **Software type is not skill metadata.** A skill such as `design` is reusable across frontend, backend, AI and library/CLI work. The type belongs to the component and is recorded in the change, engagement thread or component inventory. Do not add a `software_type` field to `SKILL.md` or to acquired labels. Read [software types](../plugins/sdlc/skills/artifact-system/references/software-types.md) for the four types and the type-versus-constraint rules.
 
@@ -90,7 +102,7 @@ Do not duplicate artifact types, homes, phases or evidence rules in every skill.
 | Generated skill inventory | `python scripts/skill_map.py --inventory` |
 | Eval config and case lint | `npm --prefix evals run lint` |
 
-Local skills require the full classification. Acquired labels are validated from `agent-depot.json`; do not add them by editing upstream files.
+Local skills require the full classification. Acquired labels are validated from `agent-depot.json` when the depot is read and at build time; `validate_plugins.py` checks local skills only. Do not add acquired labels by editing upstream files.
 
 ## Adding or moving a skill
 

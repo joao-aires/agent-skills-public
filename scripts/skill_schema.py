@@ -3,7 +3,7 @@
 KINDS = {'system', 'activity', 'method', 'workflow', 'guide', 'reference'}
 PACKS = {'sdlc', 'technical', 'craft', 'product'}
 PHASES = {'planning', 'requirements', 'design', 'implementation',
-          'verification', 'release', 'maintenance', 'cross-phase'}
+          'testing', 'deployment', 'maintenance', 'cross-phase'}
 DOMAINS = {
     'development', 'delivery', 'operations', 'security', 'governance',
     'product', 'saas', 'frontend', 'backend', 'database', 'ai', 'tooling',

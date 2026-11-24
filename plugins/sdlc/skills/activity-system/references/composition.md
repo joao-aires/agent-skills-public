@@ -6,6 +6,8 @@ The requested activity owns its outcome, scope and stopping point. Supporting me
 
 Use the client's observed skill inventory or supported discovery. Match the **capability described** to the need; do not maintain a hardcoded list of specialist names, plugin identifiers or filesystem paths. A description is the portable selection surface. Metadata can help where the client exposes it.
 
+Name a resource in this package precisely when the activity requires it. Optional expertise in another package is described by **area** — the need and the kind of judgment it calls for — so the installed description does the selection. Naming another package makes an optional support look like a dependency, and it is the first thing to go stale when a specialist is renamed or not installed. Attribution is different from selection: "X owns Y" may name the owner, while "use X" describes the area, so a missing package changes depth instead of breaking the instruction.
+
 | Need encountered during work | Expertise to seek | Fit to establish |
 | --- | --- | --- |
 | Product outcome, priority or useful slice is unclear | User-problem discovery, prioritization and evidence synthesis | Actual audience, supplied evidence and requested stopping point |

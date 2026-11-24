@@ -10,7 +10,7 @@ metadata:
   origin: local
   pack: sdlc
   domain: operations
-  phase: release
+  phase: deployment
   scope: generic
   invocation: both
   role: task
@@ -31,9 +31,9 @@ This activity answers "is this service ready to be depended on?" It does not ans
 | --- | --- |
 | May we perform this release, deployment or recovery action? | [release](../release/SKILL.md) |
 | Is this service ready to be depended on by these consumers, in this environment, for this launch? | production readiness |
-| Is this SaaS offering ready for this cohort and its commercial commitments? | `saas-readiness` |
+| Is this SaaS offering ready for this cohort and its commercial commitments? | Installed SaaS readiness guidance |
 
-When more than one applies, production readiness supplies the engineering and operating evidence, `saas-readiness` evaluates the customer and commercial promise, and `release` performs an authorized action. None of them grants authority held by another.
+When more than one applies, production readiness supplies the engineering and operating evidence, installed SaaS readiness guidance evaluates the customer and commercial promise, and `release` performs an authorized action. None of them grants authority held by another.
 
 ## Establish the readiness claim
 
@@ -96,7 +96,7 @@ Report the verdict, scope, evidence inspected at its revision/target/window, mat
 ## Composition
 
 - Use [release](../release/SKILL.md) for the authorized release, deployment or recovery action; this activity does not grant it.
-- Use `saas-readiness` when customer, tenant or commercial commitments define the cohort; this activity supplies the engineering and operating evidence.
+- Use installed SaaS readiness guidance when customer, tenant or commercial commitments define the cohort; this activity supplies the engineering and operating evidence.
 - Use [continuity/DR design](../design-system/references/reliability-disaster-recovery.md) and [guide-runbook](../guide-runbook/SKILL.md) and reliability/DR expertise for recovery evidence; an active outage belongs to [run-incident-response](../run-incident-response/SKILL.md).
 - Use [analyze-capacity-cost](../analyze-capacity-cost/SKILL.md), [testing-resilience](../testing-resilience/SKILL.md), [design-system observability](../design-system/references/observability-and-monitoring.md), [guide-runbook](../guide-runbook/SKILL.md) and [test](../test/SKILL.md) for the evidence each owns.
 - Use [run-compliance-assessment](../run-compliance-assessment/SKILL.md) for legal or contractual obligations and the assurance-assessment contract for the record.

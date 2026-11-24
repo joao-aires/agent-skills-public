@@ -60,14 +60,14 @@
 <text x="710" y="549" text-anchor="middle" font-size="14" fill="#526580">End-to-end entry point: develop</text>
 <g data-card="true">
 <rect x="605" y="182" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
-<text x="710.0" y="204" text-anchor="middle" font-size="13.3" font-weight="700" fill="#15233b" >1. Project planning</text>
+<text x="710.0" y="204" text-anchor="middle" font-size="13.3" font-weight="700" fill="#15233b" >1. Planning</text>
 <text x="710.0" y="226" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Agree outcome, scope</text>
 <text x="710.0" y="243" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and feasibility.</text>
 <g data-skill="true" data-use="direct"><rect x="613" y="250" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="710.0" y="265.0" text-anchor="middle" font-size="12" font-weight="500" fill="#176044">plan</text></g>
 </g>
 <g data-card="true">
 <rect x="823.9" y="287.4" width="210" height="96" rx="12" fill="white" stroke="#9aaecb"/>
-<text x="928.9" y="309.4" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b" >2. Requirements analysis</text>
+<text x="928.9" y="309.4" text-anchor="middle" font-size="16" font-weight="700" fill="#15233b" >2. Requirements</text>
 <text x="928.9" y="331.4" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >Define behavior, constraints</text>
 <text x="928.9" y="348.4" text-anchor="middle" font-size="13" font-weight="400" fill="#354966" >and observable acceptance.</text>
 <g data-skill="true" data-use="direct"><rect x="832" y="355.4" width="80" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="872.0" y="370.4" text-anchor="middle" font-size="12" font-weight="500" fill="#176044">refine</text></g><g data-skill="true" data-use="support"><rect x="920" y="355.4" width="106" height="22" rx="5" fill="#fff7f5" stroke="#b96565" stroke-dasharray="3 2"/><text x="973.0" y="370.4" text-anchor="middle" font-size="9" font-weight="500" fill="#903e3e" textLength="94" lengthAdjust="spacingAndGlyphs">requirements-engineering</text></g>
@@ -116,9 +116,9 @@
 <text x="491.1" y="421" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Learn &amp; prevent</text>
 <g data-skill="true" data-use="direct"><rect x="394.1" y="425" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="440" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">run-postmortem</text></g>
 </g>
-<g aria-label="Maintain &amp; evolve: improve · dependencies">
+<g aria-label="Maintain &amp; evolve: improve · run-dependency-maintenance">
 <text x="491.1" y="460" text-anchor="middle" font-size="12.3" font-weight="600" fill="#15233b">Maintain &amp; evolve</text>
-<g data-skill="true" data-use="direct"><rect x="394.1" y="464" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="479" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">improve · dependencies</text></g>
+<g data-skill="true" data-use="direct"><rect x="394.1" y="464" width="194" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="491.1" y="479" text-anchor="middle" font-size="12.2" font-weight="500" fill="#176044">improve · run-dependency-maintenance</text></g>
 </g>
 </g>
 <path d="M 674 714 C 705 660 745 660 777 714" fill="none" stroke="#157466" stroke-width="2.5" marker-end="url(#repair-arrow)"/>
@@ -174,7 +174,7 @@
 <text x="720.0" y="1344" text-anchor="middle" font-size="17" font-weight="700" fill="#15233b">Review &amp; protection</text>
 <text x="720.0" y="1367" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">Assess changes and consequential</text>
 <text x="720.0" y="1386" text-anchor="middle" font-size="14" font-weight="400" fill="#354966">usage, security and privacy constraints.</text>
-<g data-skill="true" data-use="direct"><rect x="510.0" y="1401.0" width="420.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="720.0" y="1416.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">review · harden</text></g>
+<g data-skill="true" data-use="direct"><rect x="510.0" y="1401.0" width="420.0" height="22" rx="5" fill="#e7f3ef" stroke="#a4c9b4"/><text x="720.0" y="1416.0" text-anchor="middle" font-size="12.5" font-weight="500" fill="#176044">code-review · harden</text></g>
 </g>
 <g data-card="true">
 <rect x="960" y="1320" width="440" height="110" rx="12" fill="white" stroke="#c5d2df"/>

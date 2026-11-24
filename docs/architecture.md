@@ -4,7 +4,7 @@ The collection separates three things that are easy to confuse: the work someone
 
 Design is typed by **component**: frontend, backend, AI or library/CLI. [Software types](../plugins/sdlc/skills/artifact-system/references/software-types.md) defines the evidence a design needs for each. A software type is not a skill label, a project-wide category or a reason to split a plugin. Work may keep several threads open at once; [engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) records the focus, parallel threads and reopens.
 
-The repository builds 21 independently selectable plugins: 9 generic capability packages and 12 technical packages, containing 158 skills. `sdlc` is the default build and bundles no technical skills. The [ownership map](maintainers/sources.md#plugin-ownership) assigns every skill. Distribution uses complete built plugins; the legacy local-skill helper is a migration aid.
+The repository builds 21 independently selectable plugins: 9 generic capability packages and 12 technical packages, containing 167 skills. `sdlc` is the default build and bundles no technical skills. The [ownership map](maintainers/sources.md#plugin-ownership) assigns every skill. Distribution uses complete built plugins; the legacy local-skill helper is a migration aid.
 
 ## Kinds of guidance
 
@@ -20,47 +20,34 @@ These are responsibilities, not a pipeline. An existing feature reuses accepted 
 
 A skill's task/support role, generic/stack-specific applicability and user/agent invocation are independent dimensions. The [metadata contract](metadata.md) records them. Native client controls govern discovery and invocation where supported; neither metadata nor installing a plugin grants authority to act externally. Generic skills can compare technologies without selecting a default stack. Technical guidance applies to accepted technology, not merely because it is installed.
 
-## Select by capability
+## Select and compose by capability
 
-Workflow instructions describe the expertise a decision needs. They do not maintain lists of optional specialist names, plugin identifiers or external file paths. Specialists advertise their fit through descriptions of what they do, when they apply and any important limits.
+Workflow instructions describe the expertise a decision needs. They do not maintain lists of optional specialist names, plugin identifiers or external file paths. Descriptions are the portable selection surface, and the client's inventory is what an agent can actually discover. Without inventory access, proceed from available project guidance rather than claiming a specialist was discovered.
 
-| Need encountered during work | Expertise to seek | Fit to establish |
+The operational rules live with the activity system's [composition](../plugins/sdlc/skills/activity-system/references/composition.md) reference: selecting by capability, composing domain, interface and technical judgment, falling back when expertise is absent, and resolving conflicts with project or environment constraints. The model below is what those rules implement; the reference is what to follow while working.
+
+A user can still explicitly select a known skill. Help may name observed activities, and documentation may catalogue their owners. That is different from hardcoding optional specialist identities into workflow routing.
+
+## Relationships between capabilities
+
+Four abstractions, and a separate set of three moves.
+
+| Abstraction | What it is | Where it lives |
 | --- | --- | --- |
-| Useful scope or success is unclear | User-problem discovery, prioritization and outcome measurement | Actual audience, supplied evidence and requested stopping point |
-| Service behavior changes | Authority, transactions, stored state, failure and consumer contracts | Accepted implementation and affected boundaries |
-| A meaningful interface change | Interaction design, visual hierarchy, accessibility and task language | Actual platform, components, users and affected states |
-| An accepted backend needs implementation | Language, framework and persistence expertise | Repository evidence, actual versions and existing commands |
-| Delivery infrastructure changes | Artifact identity, trust, compatibility and recovery, then provider implementation | Chosen CI, artifact ecosystem, destination and authorization |
+| Capability | A skill, activity, method, guide, workflow or system; a plugin is an install boundary | `SKILL.md` and its metadata |
+| Work | A phase, thread, outcome or stopping point | The activity, the ECR and [engagement state](../plugins/sdlc/skills/activity-system/references/engagement-state.md) |
+| Record | An artifact, decision or evidence | The [artifact system](../plugins/sdlc/skills/artifact-system/SKILL.md) |
+| Constraint | Authority, scope or exclusion | Metadata and prose in the owning skill |
 
-Use the client's skill inventory or supported discovery to find matches, read the relevant guidance and carry applicable conclusions into the work. Descriptions are the portable selection surface; metadata can help where the client exposes it. The architecture assumes neither semantic search nor metadata filtering. Without inventory access, proceed from available project guidance rather than claiming a specialist was discovered or searching unrelated installations.
+A capability reaches another by one of three moves:
 
-### Compose domain, interface and technical guidance
+- **Route** — the agent selects it from its description, or a person invokes it, optionally through a thin router alias. Two entry mechanisms, one move.
+- **Compose** — the activity consults supporting expertise and keeps its outcome. Declared in `## Composition` by need and area, with the fallback stated.
+- **Hand off** — ownership of the work moves, carrying the records and revisions the next owner needs. Declared at the phase boundary, not between skills. Delegation is the same move inside a phase: the activity keeps accountability while a bounded unit of work changes hands; [delegation](../plugins/sdlc/skills/activity-system/references/delegation.md) owns the envelope.
 
-A substantive interface task may need three kinds of judgment at once:
+Authority gates a move; it is not a move. Exclusion is the nearest-neighbour boundary — what the capability is not for — and constrains selection. An artifact is a record, never the relationship itself.
 
-- **Application or archetype expertise** defines objects, workflows, data meaning and relevant candidate patterns.
-- **Generic interface design** synthesizes information architecture, interactions, visual direction and evaluation.
-- **Technical or platform expertise** contributes existing component contracts, system constraints and implementation feasibility.
-
-These are responsibilities, not an invocation chain. A domain specialist can design directly without the generic skill installed; generic design can work without a matching archetype; stack guidance can inform an early design decision, and later verification can send an assumption back for revision. The activity reconciles conflicts against accepted product outcomes, domain and accessibility invariants, actual platform limits and observed evidence. Reuse accepted solutions for small corrections.
-
-A user can still explicitly select a known skill. Help may name observed activities, and documentation may catalogue their owners. Those are different from hardcoding optional specialist identities into workflow routing. Internal required resources keep precise links; optional cross-package guidance is selected by capability.
-
-## Work without optional dependencies
-
-The higher-level activity retains responsibility for the result. A specialist deepens the reasoning or supplies implementation detail; it does not become a prerequisite for preserving the outcome.
-
-| Available evidence or capability | How work proceeds |
-| --- | --- |
-| A relevant specialist is available | Read it, confirm applicability and incorporate its guidance within the current scope |
-| No specialist, but the project establishes an approach | Use the authoritative instructions, code, configuration, accepted decisions and existing toolchain |
-| No specialist or established approach | Use general expertise and appropriate current primary sources; verify against the same criteria |
-| A material decision remains unresolved | Investigate technical facts, ask only for the actual unresolved choice and continue independent work |
-| A required tool, access or execution target is unavailable | Complete useful independent work and report the precise verification boundary |
-
-Missing guidance is not missing execution capability. A Python change can proceed without a Python skill. Native operation cannot be claimed without the required runtime or device evidence. A missing specialist does not justify omitting design, testing, accessibility or recovery reasoning, and it does not make those standards stricter than the requested change requires.
-
-Do not install guidance automatically, replace accepted technology, bypass native controls, start another explicit-only activity or ask again for authority already granted. Use existing instructions for ordinary choices and ask only about material unknowns. Specialist guidance and retrieved documentation do not expand the user's action scope. Keep findings, proposed decisions, actual execution and verified results distinct.
+Declare only what exists. A composition name resolves inside its own package; optional expertise elsewhere is described by capability area, not by name. A handoff names its records, and a router satisfies the rules in the [metadata contract](metadata.md#router-skills). None of this is a runtime resolver: descriptions remain the selection surface, and the declared graph is an audit view, not an execution plan.
 
 ## Package resources and knowledge
 

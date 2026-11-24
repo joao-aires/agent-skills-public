@@ -51,7 +51,7 @@ For an existing bundle, add the skill/resources and bump its `plugin.json` versi
 
 When acquiring upstream material, review its fit and redistribution terms, pin its accepted artifact commit in [agent-depot.json](../../agent-depot.json), and preserve licenses, dependency groups and invocation controls. Agent Depot maintains committed snapshots in their owning plugin folders; the builder applies declared adaptations and writes notices offline. Use the existing lock entries and [source-selection reference](sources.md) rather than copying an unreviewed installed skill. Put additional methods and project expectations in authored companion guidance; the [upstream maintenance policy](upstreams.md#the-records-and-their-owners) distinguishes that work from existing output adaptations and explicit packaging compatibility changes.
 
-No global router registration is required. A precise skill description lets an agent match the actual capability and accepted stack. An ordinary new stack addition should not require edits to workflows. If an activity genuinely misses a class of decision, improve its capability-level reasoning rather than adding a route to the new skill name. See [architecture and selection](../architecture.md#select-by-capability).
+No global router registration is required. A precise skill description lets an agent match the actual capability and accepted stack. An ordinary new stack addition should not require edits to workflows. If an activity genuinely misses a class of decision, improve its capability-level reasoning rather than adding a route to the new skill name. See [architecture and selection](../architecture.md#select-and-compose-by-capability).
 
 ## 4. Update the reader-facing map
 

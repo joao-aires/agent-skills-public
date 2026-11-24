@@ -11,7 +11,7 @@ metadata:
   origin: local
   pack: sdlc
   domain: delivery
-  phase: release
+  phase: deployment
   scope: generic
   invocation: user
   role: task
@@ -34,7 +34,7 @@ Resolve the requested stopping point before touching a target:
 | Authorized publish, deploy or recover action | Execute against the identified target through the established CLI/MCP/pipeline. |
 | Rollback or recovery request | Use the identified recovery path; a mutating recovery still requires the named target and its authorization. |
 
-Under continuous deployment there may be no separate release command. The activity still applies to the release event: what merge will trigger, which artifact and target it selects, whether the gates and recovery path are ready, and what evidence proves the served outcome. If no release-specific decision or verification remains, do not invoke this activity; `ci-cd-pipelines` and `test` can cover the pipeline and behavior evidence.
+Under continuous deployment there may be no separate release command. The activity still applies to the release event: what merge will trigger, which artifact and target it selects, whether the gates and recovery path are ready, and what evidence proves the served outcome. If no release-specific decision or verification remains, do not invoke this activity; delivery-pipeline design and testing guidance can cover the pipeline and behavior evidence.
 
 Identify exactly what is being released, where it will run or be distributed, and which configuration belongs to that target. Connect the artifact to its source revision and check results. Review the changes that survive replacing application code, especially schema/data changes and effects in external systems, because these determine whether rollback is sufficient.
 
@@ -54,6 +54,8 @@ Before claiming readiness, confirm that every accepted requirement ID has eviden
 
 Record prepared, released, deployed and target-verified states separately in the change record with actual artifact and target evidence when authorized.
 
+Release authority is not delegable. The release delegate executes the authorized action and verifies the result; it does not decide that authorization exists, widen the target or accept a failed verification. Give it the [delegation](../activity-system/references/delegation.md) envelope with the exact target and action. Authorization is read from the project's policy or the user, never inferred from a green pipeline.
+
 ## Recover deliberately
 
 Keep a usable rollback or roll-forward route: the previous artifact and configuration, compatibility constraints, and a clear recovery input. Reverting application code does not undo data writes or delivered events; prefer a compatible forward fix when reversal would lose data, and point to the application's runbook and continuity design when restoration is required. Claim production recovery only for mechanics actually exercised in a safe environment.
@@ -68,9 +70,9 @@ Apply [artifact-system](../artifact-system/SKILL.md) to the ECR sections used or
 
 When available and relevant, compose with:
 
-- `ci-cd-pipelines` for provider-neutral stage, promotion, gate and recovery design;
-- `tooling-conventions` for the selected provider's implementation mechanics;
-- `github-actions-hardening` when a GitHub Actions workflow is in scope;
+- installed delivery-pipeline guidance for provider-neutral stage, promotion, gate and recovery design;
+- installed tooling guidance for the selected provider's implementation mechanics;
+- installed workflow-hardening guidance when a GitHub Actions workflow is in scope;
 - stack and operations guidance by capability for runtime, data and observability consequences.
 
 These are optional supports, not prerequisites. Without them, apply this activity's own boundary, identity, verification and recovery checks using the project's commands and the identified target; do not invent provider syntax or claim unverified recovery.

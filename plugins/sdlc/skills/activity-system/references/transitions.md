@@ -16,15 +16,15 @@ A phase can also reopen an earlier decision when new evidence invalidates its pr
 | Design validation | Design | Evidence supports, limits or contradicts the direction | Updated proposal, accepted or reopened decision |
 | Design | Implementation preparation | Proposed target, affected software types, seam, alternatives and consequential decisions are understood or blocked | ECR solution design or design proposal, target views, RFC/ADR when independent |
 | Implementation preparation | Implementation | Dependency-ordered increments, verification, migration and rollback are covered | ECR implementation strategy, implementation-preparation reference |
-| Implementation | Verification and review | Actual change revision, protected behavior, deviations and planned checks are known | Work products, tests, ECR implementation/verification |
+| Implementation | Testing | Actual change revision, protected behavior, deviations and planned checks are known | Work products, tests, ECR implementation/verification |
 | Implementation | Design (reopen) | Implementation reveals a missing state, an invalid contract or a contradicted premise | Reopened design thread, updated seam, dependent work paused |
-| Verification and review | Design (reopen) | Observed behavior contradicts the accepted design or an assumption | Updated design proposal, ECR, recheck of dependents |
-| Verification and review | Release | Actual checked behavior, findings, coverage gaps and current-head evidence are available | ECR verification/change review, PR, release readiness |
-| Release | Operate | Actual artifact, target, gates, rollout/recovery and observed state are separated | Release note, deployment record, runbook/SLO updates |
-| Operate | Incident or improvement | A signal, user impact or review finding warrants action | Incident record, operations review, change proposal |
+| Testing | Design (reopen) | Observed behavior contradicts the accepted design or an assumption | Updated design proposal, ECR, recheck of dependents |
+| Testing | Deployment | Actual checked behavior, findings, coverage gaps and current-head evidence are available | ECR verification/change review, PR, release readiness |
+| Deployment | Maintenance | Actual artifact, target, gates, rollout/recovery and observed state are separated | Release note, deployment record, runbook/SLO updates |
+| Maintenance | Incident or improvement | A signal, user impact or review finding warrants action | Incident record, operations review, change proposal |
 | Incident | Recovery and postmortem | Impact is stabilized and evidence is preserved | Recovery evidence, incident record, postmortem draft |
 | Postmortem | Planning or design | Learning actions change a requirement, design, control or runbook | Postmortem, action register, ECR/decision update |
-| Operate / postmortem | Design (reopen) | A signal, incident or review changes an assumption or reveals a gap | Incident/postmortem, ECR update, new decision |
+| Maintenance / postmortem | Design (reopen) | A signal, incident or review changes an assumption or reveals a gap | Incident/postmortem, ECR update, new decision |
 
 Cross-cutting activities (`fix`, `improve`, `harden`, `run-dependency-maintenance`) can start at any point and do not require a full lifecycle. Security, privacy and governance are **methods** that attach to the activity that owns the decision and evidence; they do not form a separate phase.
 

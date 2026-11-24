@@ -88,7 +88,7 @@ Read [pattern selection](references/pattern-selection.md) for the full matrix, c
 
 | Need | Use |
 | --- | --- |
-| Architecture constraints, option set, boundaries and the design record | `design-system` |
+| Architecture constraints, option set, boundaries and the design record | Installed system architecture and design guidance |
 | Service behavior, authority, transactions, idempotency and recovery inside a boundary | `backend-design` |
 | Event, command and message contracts, ordering, replay and consumer topology | `event-driven-design` |
 | Cross-service consistency, failure, capacity and recovery reasoning | `distributed-systems` |

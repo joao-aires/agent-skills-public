@@ -15,13 +15,16 @@ flowchart LR
     I2["Checks and deviations"]
   end
 
-  subgraph Verification
+  subgraph Testing
     V1["Test and review evidence"]
   end
 
-  subgraph Operations
-    O1["Release and observe"]
-    O2["Operate and learn"]
+  subgraph Deployment
+    P1["Release and verify"]
+  end
+
+  subgraph Maintenance
+    O2["Observe, operate and learn"]
   end
 
   R1 --> R2
@@ -31,8 +34,8 @@ flowchart LR
   D3 --> I1
   I1 --> I2
   I2 --> V1
-  V1 --> O1
-  O1 --> O2
+  V1 --> P1
+  P1 --> O2
 
   I1 -.->|"missing state"| D1
   V1 -.->|"contradiction"| D3

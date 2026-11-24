@@ -40,20 +40,7 @@ A handoff is **content, not a document**. The next phase may need a decision, a 
 
 Every artifact has a **primary plane** and a **home**. The plane is its role; the home is where the authoritative copy lives. They are different: a runbook is system knowledge but may live in an operations repository; an ECR is coordination knowledge that lives in the engineering workspace. Read the [artifact model](../plugins/sdlc/skills/artifact-system/references/model.md) for the plane definitions and [artifact homes](../plugins/sdlc/skills/artifact-system/references/homes.md) for resolution. Do not infer a home from a plane.
 
-A repository should record where its durable artifacts live. Put a short pointer in `AGENTS.md` and the full map in `docs/README.md` or `docs/artifact-homes.md`.
-
-| Artifact | Home | Authority | Owner | Update when |
-| --- | --- | --- | --- | --- |
-| Product brief / PRD | `docs/product/` | Canonical product intent | Product lead | Outcome, scope or priority changes |
-| Product feedback analysis | `docs/product/feedback/` | Canonical product evidence for a decision | Product lead | New evidence changes scope, findings or the next decision |
-| Architecture set | `docs/architecture/` | Canonical implemented architecture | Architect | Boundary, interface or deployment changes |
-| Data model | `docs/architecture/data-model.md` | Canonical logical data model | Data owner / architect | Entity, ownership, invariant, retention or evolution changes |
-| ADRs | `docs/decisions/` | Canonical decision history | Architect / tech lead | A consequential decision is accepted or superseded |
-| Runbooks | `ops/<application>/runbooks/` | Canonical operations | SRE | Failure, recovery or escalation changes |
-| Guides | `docs/guides/` | Canonical how-to | Docs owner | Workflow or command changes |
-| ECR | `../engineering/changes/<name>/ecr.md` | Canonical change record | Change owner | Each phase |
-| Issue / PR | Tracker / Git provider | Views of the change | Change owner | Status or diff changes |
-| Code / tests | `src/`, `tests/` | Canonical implementation | Engineering | Every change |
+A repository should record where its durable artifacts live. Put a short pointer in `AGENTS.md` and the full map in `docs/README.md` or `docs/artifact-homes.md`. The [artifact homes](../plugins/sdlc/skills/artifact-system/references/homes.md) reference owns the default map — artifact, home, authority, owner and update trigger — so do not copy it here.
 
 `setup` establishes or verifies the map. Implementation reads it before creating or moving a durable artifact and updates it when a type, home or owner changes. A missing map is a project-foundation gap, not permission to choose an arbitrary path.
 

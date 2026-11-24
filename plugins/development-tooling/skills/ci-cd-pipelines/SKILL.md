@@ -12,7 +12,7 @@ metadata:
   origin: local
   pack: technical
   domain: tooling
-  phase: release
+  phase: deployment
   scope: generic
   invocation: both
   role: support

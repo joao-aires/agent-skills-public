@@ -169,13 +169,13 @@ Use installed guidance by capability; absence changes the depth, not the outcome
 | Security-sensitive choices, trust boundaries and data exposure | `design-security` |
 | Credential inventory, rotation, revocation and scanning operations | `run-security-maintenance` |
 | Identity, sessions, tokens and tenant authority | `design-security` |
-| Paid entitlement and plan authority (separate from a feature flag) | `saas-billing` |
-| Environment separation, artifact identity and gate design | `ci-cd-pipelines` |
-| Selected provider's configuration and secret-store mechanics | `tooling-conventions` |
-| Kubernetes ConfigMap/Secret consumption and workload reload | `kubernetes-resource-engineering` |
-| Infrastructure-delivered configuration and desired-state reconciliation | `infra-delivery` |
-| AWS-native configuration and secret services | `aws-platform` |
-| Signals that reveal effective configuration and failed reloads | `design-system` observability and monitoring reference |
+| Paid entitlement and plan authority (separate from a feature flag) | Installed billing and entitlement guidance |
+| Environment separation, artifact identity and gate design | Installed delivery-pipeline and gate design guidance |
+| Selected provider's configuration and secret-store mechanics | The selected provider's tooling guidance |
+| Kubernetes ConfigMap/Secret consumption and workload reload | Installed Kubernetes workload guidance |
+| Infrastructure-delivered configuration and desired-state reconciliation | Installed infrastructure-delivery guidance |
+| AWS-native configuration and secret services | Installed AWS platform guidance |
+| Signals that reveal effective configuration and failed reloads | Installed observability and monitoring guidance |
 | Behavior tests for startup, reload and tenant isolation | `test` |
 
 ## Sources
