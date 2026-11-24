@@ -4,13 +4,10 @@ description: Guide to authoring, exercising and auditing operational runbooks. C
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: operations
   phase: maintenance
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Runbook guide

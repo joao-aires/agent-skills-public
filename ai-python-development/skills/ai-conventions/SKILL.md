@@ -4,14 +4,11 @@ description: Implement accepted Python model/provider adapters and standalone Fa
 user-invocable: false
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: ai
   phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Python, Gemini, standalone FastMCP
-  role: support
 ---
 
 # Apply the selected AI stack

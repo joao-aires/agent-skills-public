@@ -4,13 +4,10 @@ description: Design, implement, debug or migrate Chrome Manifest V3 extensions. 
 user-invocable: false
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: browser-extension
   phase: cross-phase
   scope: stack-specific
   invocation: both
-  role: support
   stack: Chrome, Manifest V3, WXT, CRXJS
   source: https://github.com/quangpl/browser-extension-skills/tree/249886cf8137086792b6c3a5a2f7adce117a9f8d
 ---

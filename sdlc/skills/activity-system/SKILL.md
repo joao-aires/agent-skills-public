@@ -4,8 +4,6 @@ description: Route development work across activities, stopping points and suppo
 user-invocable: true
 metadata:
   kind: system
-  origin: local
-  pack: sdlc
   domain: development
   phase: cross-phase
   scope: generic

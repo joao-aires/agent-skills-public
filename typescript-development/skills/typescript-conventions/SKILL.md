@@ -7,13 +7,10 @@ description: Build, extend or review TypeScript libraries, services and clients 
 license: MIT
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: typescript
   phase: cross-phase
   scope: stack-specific
   invocation: both
-  role: support
   stack: TypeScript
   references: references/sources.md
 user-invocable: true

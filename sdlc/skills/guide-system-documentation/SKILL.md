@@ -4,13 +4,10 @@ description: Guide to discovering, tracing, creating and reviewing the current-s
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: development
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 ---
 
 # System documentation guide

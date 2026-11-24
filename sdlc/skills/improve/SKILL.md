@@ -8,24 +8,23 @@ user-invocable: true
 disable-model-invocation: true
 metadata:
   kind: activity
-  origin: local
-  pack: sdlc
   domain: development
   phase: cross-phase
   scope: generic
   invocation: user
-  role: task
 ---
 
 # Improve
 
-Read [activity system](../activity-system/SKILL.md). Read [verification](../test/SKILL.md) for baseline and verification, [git-contributions](../git-contributions/SKILL.md) for implementation when requested. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Assess codebase improvement opportunities or carry out a specified improvement objective, and stop at evidence-backed proposals or the requested verified change.
+
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Read [verification](../test/SKILL.md) for baseline and verification, [git-contributions](../git-contributions/SKILL.md) for implementation when requested. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
 
 ## Assess opportunities
 
 Use the relevant codebase and history to find a problem that matters in practice. Look for changes that repeatedly touch unrelated modules, expensive operations in an important journey, failures that are difficult to diagnose, inconsistent interactions, or slow and unreliable development checks. Follow the evidence far enough to distinguish a cause from a disliked coding style.
 
-For an architecture request, read [architecture scan](references/architecture-scan.md) for hotspot-weighted scoping, candidate criteria and presentation. Its visual before/after report is optional and stays outside the repository unless the user asks for it. The scan stops at findings; implementation needs its own request.
+For an architecture request, read [architecture scan](references/architecture-scan.md) for hotspot-weighted scoping, candidate criteria and presentation. Its visual before/after report is optional and stays outside the repository unless the user asks for it. The scan stops at findings. Implementation needs its own request.
 
 For each worthwhile opportunity, make the proposal assessable:
 
@@ -38,7 +37,7 @@ No finding or no worthwhile change is valid. A bare request returns a short prio
 
 ## Implement an authorized improvement
 
-A specific requested improvement can authorize bounded implementation. Keep a bare improvement assessment read-only; do not force another approval for routine choices already authorized.
+A specific requested improvement can authorize bounded implementation. Keep a bare improvement assessment read-only. Do not force another approval for routine choices already authorized.
 
 1. Establish a baseline, diagnose the cause and define the desired outcome.
 2. Make focused changes within scope. Preserve behavior through incremental refactoring and regression checks.

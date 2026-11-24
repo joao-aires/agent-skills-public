@@ -4,13 +4,10 @@ description: Guide to writing an architecture or product decision record. Covers
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: development
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # ADR guide

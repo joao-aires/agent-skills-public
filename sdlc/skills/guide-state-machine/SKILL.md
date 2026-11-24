@@ -4,13 +4,10 @@ description: Guide to producing and reviewing state machines. Use for states, tr
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: development
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # State machine guide

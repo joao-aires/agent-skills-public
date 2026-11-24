@@ -6,13 +6,10 @@ description: Investigate a question against primary sources and return traceable
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: sdlc
   domain: development
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Research: turn a question into traceable findings

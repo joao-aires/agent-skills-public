@@ -5,24 +5,21 @@ description: Measure and improve application/infrastructure resource efficiency,
   feature changes or recurring optimization reviews.
 metadata:
   kind: activity
-  origin: local
-  pack: technical
   domain: platform
   phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Java, JVM, Kubernetes
   version: '1.0'
-  role: task
 ---
 
 # Infrastructure and JVM optimization
 
-Treat the JVM, application concurrency and hosting resources as one system. Establish where the workload spends time and memory, then form a hypothesis about the limiting resource. A heap setting can change collection behavior without bounding the process's total memory; a replica increase can move pressure to a shared database. Examine the outcome at the user and dependency level as well as the tuned component.
+Optimize the JVM, application concurrency and hosting resources as one system, and stop at a measured change or a documented reason to keep the current configuration. Establish where the workload spends time and memory, then form a hypothesis about the limiting resource. A heap setting can change collection behavior without bounding the process's total memory. A replica increase can move pressure to a shared database. Examine the outcome at the user and dependency level as well as the tuned component.
 
 Choose a small experiment that can distinguish the hypothesis from other causes and compare it with the baseline under representative conditions. Optimize cost or throughput subject to user outcomes and stability. A smaller pod or lower heap chart alone is not proof of improvement.
 
-Use JVM flags and ergonomics only for a Java/JVM workload. For Python, Node.js or another runtime, use capacity and demand-modeling expertise and that runtime's current guidance; do not introduce Java or Kubernetes to use this skill.
+Use JVM flags and ergonomics only for a Java/JVM workload. For Python, Node.js or another runtime, use capacity and demand-modeling expertise and that runtime's current guidance. Do not introduce Java or Kubernetes to use this skill.
 
 ## Modes and evidence
 
@@ -37,10 +34,10 @@ Discover runtime/JDK version, architecture/libc, container launch flags, applica
 1. Record objectives and baseline: journey errors/latency, throughput, startup, restarts, GC pauses/CPU, RSS/heap/native memory, throttling, queue/backlog, downstream load and cost per useful work.
 2. Locate the bottleneck with failing/healthy replica and node comparisons. Distinguish warmup, sustained load, leaks, mounts/inodes/quotas and external saturation.
 3. Build the total memory/CPU/storage budget, including agents, thread stacks, direct buffers, metaspace, code cache, OS overhead and memory-backed volumes.
-4. Inspect CPU requests/limits versus JVM processor detection and framework pool sizing. A processor-count flag shapes ergonomics; it does not reserve/enforce CPU.
+4. Inspect CPU requests/limits versus JVM processor detection and framework pool sizing. A processor-count flag shapes ergonomics. It does not reserve or enforce CPU.
 5. Choose a small experiment: collector, heap strategy, pool/buffer bounds, workload concurrency, requests/limits, scheduling or scaling signal. Explain the workload-specific hypothesis and tradeoffs.
-6. Align application and infrastructure: heap/resources/scaling units; startup/readiness/liveness; preStop/application shutdown/pod grace; worker offsets/jobs; topology/PDB/rollout capacity; GitOps/autoscaler ownership.
-7. Select tests for the affected lifecycle and performance claim: cold start, representative steady/peak load, long-running soak, dependency slowness, draining or scaling. Monitor user outcome and resource budget together; a bounded configuration assessment can leave execution explicitly outstanding.
+6. Align application and infrastructure. Pair heap, resources and scaling units. Pair startup, readiness and liveness. Pair preStop, application shutdown and pod grace. Pair worker offsets and jobs. Pair topology, PDB and rollout capacity. Decide GitOps and autoscaler ownership.
+7. Select tests for the affected lifecycle and performance claim: cold start, representative steady/peak load, long-running soak, dependency slowness, draining or scaling. Monitor user outcome and resource budget together. A bounded configuration assessment can leave execution explicitly outstanding.
 8. When promotion is authorized, promote progressively with source/artifact/config identities, rollback triggers and an observation window. Preserve explicit production overrides while lower environments validate changes.
 9. Document before/after measurements, regression checks and limits. Retain or revert experiments based on evidence.
 

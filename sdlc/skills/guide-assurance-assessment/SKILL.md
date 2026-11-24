@@ -4,13 +4,10 @@ description: Guide to writing a scoped assurance assessment. Covers applicabilit
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: governance
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Assurance assessment guide

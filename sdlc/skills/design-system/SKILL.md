@@ -8,13 +8,10 @@ description: Design a system's architecture and tactical system design from prod
 user-invocable: false
 metadata:
   kind: method
-  origin: local
-  pack: sdlc
   domain: design
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Design the system around the outcome

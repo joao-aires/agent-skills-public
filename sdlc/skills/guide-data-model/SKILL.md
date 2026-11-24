@@ -4,13 +4,10 @@ description: Guide to documenting a logical data model. Covers entities and rela
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: database
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Data model guide

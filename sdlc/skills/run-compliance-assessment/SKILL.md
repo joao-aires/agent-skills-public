@@ -3,12 +3,9 @@ name: run-compliance-assessment
 description: Run a scoped assurance assessment of applicable legal, contractual and privacy requirements — establish applicability and boundary, map controls to owners and evidence, and record gaps, disposition and unclaimed scope. Use for GDPR, CCPA/CPRA, SOC 2 or SaaS subprocessor, residency, export and deletion evidence; it does not certify the service or replace legal or audit judgment.
 metadata:
   kind: method
-  origin: local
   scope: generic
   invocation: both
-  role: support
   phase: cross-phase
-  pack: sdlc
   domain: governance
 ---
 

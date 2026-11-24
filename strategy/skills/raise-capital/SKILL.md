@@ -4,20 +4,17 @@ description: 'Prepare a fundraise around a specific milestone: readiness, round 
 user-invocable: true
 metadata:
   kind: activity
-  origin: local
-  pack: product
   domain: product
   phase: planning
   scope: generic
   invocation: both
-  role: task
 ---
 
 # Raise capital
 
-Decide whether to raise, how much, for which proof and on what terms the company can live with. Capital is a strategic constraint, not a scoreboard.
+Decide whether to raise, how much, for which proof and on what terms the company can live with. Stop at a capital decision with its milestone, evidence and terms. Capital is a strategic constraint, not a scoreboard.
 
-Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [capital and finance](../business-strategy/references/capital-and-finance.md); connect the round to [financial scenario modeling](../business-strategy/references/financial-scenario-modeling.md), [revenue quality and unit economics](../business-strategy/references/revenue-quality-and-unit-economics.md) and, where valuation matters, [valuation framework](../business-strategy/references/valuation-framework.md). Record it with the [capital plan](../business-strategy/assets/capital-plan.md).
+Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [capital and finance](../business-strategy/references/capital-and-finance.md). Connect the round to [financial scenario modeling](../business-strategy/references/financial-scenario-modeling.md), [revenue quality and unit economics](../business-strategy/references/revenue-quality-and-unit-economics.md) and, where valuation matters, [valuation framework](../business-strategy/references/valuation-framework.md). Record it with the [capital plan](../business-strategy/assets/capital-plan.md).
 
 ## Own the request
 
@@ -33,8 +30,8 @@ Frame the decision: whether to raise now, how much, from whom, for which milesto
 
 1. Assess readiness against the evidence investors will test: market, wedge, demand, repeatable route, economics, team and use of funds. Name the gaps plainly rather than compensating with narrative.
 2. Define the milestone the round buys — retention, a repeatable channel, a technical or regulatory proof — and the evidence it should produce.
-3. Size bottom-up from the plan to that milestone: operating cost, working capital, contingency, expected receipts. Convert to runway and dilution; check hiring ramp and sales-capacity limits.
-4. Compare instruments on economic and control effects: safe, priced round, note, venture debt or revenue-based financing. Terms are jurisdiction-specific; the signed documents govern.
+3. Size bottom-up from the plan to that milestone: operating cost, working capital, contingency, expected receipts. Convert to runway and dilution. Check hiring ramp and sales-capacity limits.
+4. Compare instruments on economic and control effects: safe, priced round, note, venture debt or revenue-based financing. Terms are jurisdiction-specific. The signed documents govern.
 5. Build the investor pipeline as a staged process with thesis fit, warm path, conversion and cycle time, and check the data room and metric definitions for consistency with the model.
 6. State the runway, the month by which the next raise must close, the two or three sensitivities that most change the plan, and what would change the decision.
 

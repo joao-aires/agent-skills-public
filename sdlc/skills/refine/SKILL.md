@@ -6,20 +6,17 @@ description: Refine a rough idea, brief, conversation or optional tracker item i
 user-invocable: true
 metadata:
   kind: activity
-  origin: local
-  pack: sdlc
   domain: development
   phase: requirements
   scope: generic
   invocation: both
-  role: task
 ---
 
 # Refine
 
-Read [activity system](../activity-system/SKILL.md).
+Refine a request into agreed behavior, constraints and observable acceptance, and stop at requirements ready for design or implementation.
 
-For the ECR requirements section this activity produces, read the [ECR contract](../artifact-system/references/contracts/ecr.md) and apply [requirements-engineering](../requirements-engineering/SKILL.md). When the request also produces an issue, read [guide-issue](../guide-issue/SKILL.md). When an accepted conversation or decision should become a written specification rather than requirements alone, use [write-spec](../write-spec/SKILL.md).
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. For the ECR requirements section this activity produces, read the [ECR contract](../artifact-system/references/contracts/ecr.md) and apply [requirements-engineering](../requirements-engineering/SKILL.md). When the request also produces an issue, read [guide-issue](../guide-issue/SKILL.md). When an accepted conversation or decision should become a written specification rather than requirements alone, use [write-spec](../write-spec/SKILL.md).
 
 When a current [product feedback analysis](../artifact-system/references/contracts/product-feedback-analysis.md) exists, use it as evidence for requirements: link its findings, limits and open questions instead of re-deriving or copying the analysis.
 
@@ -44,9 +41,9 @@ Write requirements that another contributor could implement without reconstructi
 - Identify the screens, APIs, stored data and external consumers that need to agree about the change. Name existing behavior that constrains compatibility.
 - Describe how the result will be checked. Choose a check that observes the promised result, rather than merely showing that a function was called.
 
-Keep unresolved design choices visible. Requirements can be ready for design while still needing an architecture decision; they are not ready for implementation if that decision changes the behavior being promised.
+Keep unresolved design choices visible. Requirements can be ready for design while still needing an architecture decision. They are not ready for implementation if that decision changes the behavior being promised.
 
-Write the requirements set in the ECR using its template: the full form when the change spans areas, dimensions or a surface obligation; the compact form for a small local change. Give each requirement a stable ID and connect it to an acceptance check. The [ECR contract](../artifact-system/references/contracts/ecr.md#3-requirements-and-acceptance) and [guide](../guide-ecr/SKILL.md) own the shape; this activity produces the content.
+Write the requirements set in the ECR using its template. Use the full form when the change spans areas, dimensions or a surface obligation. Use the compact form for a small local change. Give each requirement a stable ID and connect it to an acceptance check. The [ECR contract](../artifact-system/references/contracts/ecr.md#3-requirements-and-acceptance) and [guide](../guide-ecr/SKILL.md) own the shape. This activity produces the content.
 
 For a consequential failure, establish:
 
@@ -54,14 +51,14 @@ For a consequential failure, establish:
 - whether effects may already have occurred;
 - what continuation or recovery is allowed.
 
-These decisions can produce both functional behavior and quality constraints. An actionable rejection differs from a deadline, durability or availability requirement. Derive the branches from the affected journey instead of importing an exhaustive error catalogue. A short transition description can be sufficient; use a matrix only when it makes several outcomes easier to compare.
+These decisions can produce both functional behavior and quality constraints. An actionable rejection differs from a deadline, durability or availability requirement. Derive the branches from the affected journey instead of importing an exhaustive error catalogue. A short transition description can be sufficient. Use a matrix only when it makes several outcomes easier to compare.
 
 For UI work, identify interaction decisions using available interaction design expertise. For backend work, use available service-contract design expertise for state, ownership, transactions and recovery decisions. A detailed brief does not itself authorize implementation code.
 
 ## Return readiness and open decisions
 
-Apply the requirement-quality boundary from [artifact assurance](../artifact-system/references/assurance.md): confirm each consequential actor, permission, failure/quality constraint and observable acceptance has coherent evidence; do not treat a proposed solution as a requirement. Give a scoped readiness disposition and resolve contradictions with existing accepted decisions before dependent design. Return **ready for design**, **ready for implementation** or **needs decisions** and explain the next dependency. Ready for design means required behavior, relevant quality constraints and acceptance are clear enough to evaluate solutions; ready for implementation also needs the design choices that materially change that behavior to be settled. Ready work has a clear intended result, sufficient scope and a credible verification approach. When a decision is still needed, identify the exact choice, why implementation depends on it, and which independent work can continue. Include the repository or product evidence that led to the question.
+Apply the requirement-quality boundary from [artifact assurance](../artifact-system/references/assurance.md): Confirm each consequential actor, permission, failure/quality constraint and observable acceptance has coherent evidence. Do not treat a proposed solution as a requirement. Give a scoped readiness disposition and resolve contradictions with existing accepted decisions before dependent design. Return **ready for design**, **ready for implementation** or **needs decisions** and explain the next dependency. Ready for design means required behavior, relevant quality constraints and acceptance are clear enough to evaluate solutions. Ready for implementation also needs the design choices that materially change that behavior to be settled. Ready work has a clear intended result, sufficient scope and a credible verification approach. When a decision is still needed, identify the exact choice, why implementation depends on it, and which independent work can continue. Include the repository or product evidence that led to the question.
 
-Record accepted/proposed requirements, acceptance, evidence and readiness in the ECR requirements section. A PRD owns broader product intent; an issue is an optional audience-specific summary, only published when configured and authorized. Routine work needs no exhaustive story catalogue or interview.
+Record accepted/proposed requirements, acceptance, evidence and readiness in the ECR requirements section. A PRD owns broader product intent. An issue is an optional audience-specific summary, published only when configured and authorized. Routine work needs no exhaustive story catalogue or interview.
 
 In unattended runs, return blockers rather than inventing product decisions or waiting for an absent person.

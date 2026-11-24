@@ -7,5 +7,10 @@
     "name": "Jo\u00e3o Aires"
   },
   "repository": "https://github.com/joao-aires/agent-skills-public",
-  "license": "LicenseRef-Mixed"
+  "license": "LicenseRef-Mixed",
+  "extensions": {
+    "com.joao-aires.agent-skills": {
+      "pack": "sdlc"
+    }
+  }
 }

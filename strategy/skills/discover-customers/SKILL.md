@@ -4,20 +4,17 @@ description: Establish how a target customer behaves today, what the status quo 
 user-invocable: true
 metadata:
   kind: activity
-  origin: local
-  pack: product
   domain: product
   phase: planning
   scope: generic
   invocation: both
-  role: task
 ---
 
 # Discover customers
 
-Replace the team's model of the customer with observed reality: the trigger, the current workflow, its cost, who pays and what would have to change.
+Replace the team's model of the customer with observed reality: the trigger, the current workflow, its cost, who pays and what would have to change. Stop at an evidence-backed customer model and its sample limits.
 
-Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [customer discovery](../business-strategy/references/customer-discovery.md) and [customer behavior and culture](../business-strategy/references/customer-behavior-and-culture.md); use the [interview guide](../business-strategy/assets/interview-guide.md) to keep sessions comparable.
+Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [customer discovery](../business-strategy/references/customer-discovery.md) and [customer behavior and culture](../business-strategy/references/customer-behavior-and-culture.md). Use the [interview guide](../business-strategy/assets/interview-guide.md) to keep sessions comparable.
 
 ## Own the request
 

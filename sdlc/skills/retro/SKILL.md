@@ -7,13 +7,10 @@ user-invocable: true
 disable-model-invocation: true
 metadata:
   kind: workflow
-  origin: local
-  pack: sdlc
   domain: development
   phase: cross-phase
   scope: generic
   invocation: user
-  role: support
 ---
 
 # Retro: turn a session into durable improvements

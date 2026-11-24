@@ -4,13 +4,10 @@ description: Plan task-based usability studies and analyze supplied observations
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: frontend
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Investigate usability with observable tasks

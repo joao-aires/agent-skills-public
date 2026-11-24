@@ -6,13 +6,10 @@ description: Sharpen a project's domain language while designing. Use when terms
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: sdlc
   domain: design
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Domain modeling: make the language carry the design

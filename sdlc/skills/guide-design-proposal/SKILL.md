@@ -4,13 +4,10 @@ description: Guide to writing a design proposal. Covers the decision, constraint
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: development
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Design proposal guide

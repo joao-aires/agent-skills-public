@@ -6,14 +6,11 @@ description: Build and verify TypeScript Tauri desktop clients and iOS/Android c
 user-invocable: false
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: native
   phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: TypeScript, Tauri, React Native, Expo, iOS, Android
-  role: support
 ---
 
 # Build native clients

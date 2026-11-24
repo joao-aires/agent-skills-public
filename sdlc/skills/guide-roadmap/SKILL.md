@@ -4,13 +4,10 @@ description: Guide to writing and reviewing a strategic or product roadmap. Cove
 user-invocable: true
 metadata:
   kind: guide
-  origin: local
-  pack: sdlc
   domain: product
   phase: planning
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Roadmap guide

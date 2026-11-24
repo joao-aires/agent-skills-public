@@ -7,13 +7,10 @@ description: Establish or maintain an application repository's structure, stack 
   feature work within existing conventions.
 metadata:
   kind: method
-  origin: local
-  pack: sdlc
   domain: development
   phase: cross-phase
   scope: generic
   invocation: both
-  role: support
 user-invocable: false
 ---
 

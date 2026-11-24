@@ -6,14 +6,11 @@ description: Design, implement, run or review k6 load and performance checks for
   and performance regressions; preserve target authority and existing tooling.
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: tooling
   phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Grafana k6
-  role: support
 user-invocable: false
 ---
 

@@ -4,13 +4,10 @@ description: Reason about cross-service consistency, replication, partitioning, 
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: backend
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Reason about behavior across failure boundaries

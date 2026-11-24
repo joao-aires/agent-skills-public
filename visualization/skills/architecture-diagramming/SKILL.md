@@ -3,23 +3,20 @@ name: architecture-diagramming
 description: Create or refine responsive, theme-aware HTML architecture diagrams for structural, runtime, data and deployment explanations. Use when a portable HTML diagram is requested or chosen; preserve existing notation and accepted visual direction.
 metadata:
   kind: activity
-  origin: local
-  pack: craft
   domain: visualization
   phase: design
   version: '2.0'
   scope: generic
   invocation: user
-  role: task
 ---
 
 # Explain architecture in portable HTML
 
-Create a responsive, self-contained HTML diagram when that is the requested artifact. Choose a view that answers the reader's structural, runtime, data or deployment question. For an existing project, preserve its accepted notation and visual direction; a diagramming request alone does not authorize application changes.
+Create a responsive, self-contained HTML diagram when that is the requested artifact, and stop at a rendered diagram that answers the named question. Choose a view that answers the reader's structural, runtime, data or deployment question. For an existing project, preserve its accepted notation and visual direction. A diagramming request alone does not authorize application changes.
 
 ## Establish meaning before layout
 
-Identify the audience, question, scope and source evidence. Distinguish implemented architecture, observed deployment, proposed design and unknowns. Trace important relationships to supplied context or source; use current-system mapping expertise or evidence-backed architecture explanation expertise when available for deeper discovery and semantic coverage. Keep technology lists and invented components from standing in for an explanation.
+Identify the audience, question, scope and source evidence. Distinguish implemented architecture, observed deployment, proposed design and unknowns. Trace important relationships to supplied context or source. Use current-system mapping expertise or evidence-backed architecture explanation expertise when available for deeper discovery and semantic coverage. Keep technology lists and invented components from standing in for an explanation.
 
 Choose the smallest view that answers the question. Decide what each element and connection means before arranging it:
 
@@ -36,10 +33,10 @@ Keep labels, directed relationships and boundaries consistent. Give a relationsh
 
 ## Use the HTML guide selectively
 
-Read [HTML patterns and design system](references/html-guide.md) when constructing or repairing this artifact. It retains the original layout catalogue, theming conventions, connectors and responsive techniques. Treat its dark/light palette and example layouts as a coherent starting profile; adapt visual choices to the brief and content while keeping portability and semantic clarity.
+Read [HTML patterns and design system](references/html-guide.md) when constructing or repairing this artifact. It retains the original layout catalogue, theming conventions, connectors and responsive techniques. Treat its dark/light palette and example layouts as a coherent starting profile. Adapt visual choices to the brief and content while keeping portability and semantic clarity.
 
-Use reusable CSS variables, fluid layouts and detail disclosure to keep realistic labels readable. Show connections and ordering clearly at the target widths; hiding connectors must not remove the only explanation of a relationship. Select blocks for the information they communicate rather than filling a fixed card arrangement.
+Use reusable CSS variables, fluid layouts and detail disclosure to keep realistic labels readable. Show connections and ordering clearly at the target widths. Hiding connectors must not remove the only explanation of a relationship. Select blocks for the information they communicate rather than filling a fixed card arrangement.
 
 ## Verify the delivered explanation
 
-Render the actual file and inspect representative dense/long-content views, supported themes and narrow layouts. Check readable labels, complete relationships, navigation/links and any interaction. Reconcile architectural claims with evidence separately from HTML rendering. Deliver the artifact path, evidence scope, unresolved assumptions and checks actually performed; a valid file cannot establish that a proposed system is implemented.
+Render the actual file and inspect representative dense/long-content views, supported themes and narrow layouts. Check readable labels, complete relationships, navigation/links and any interaction. Reconcile architectural claims with evidence separately from HTML rendering. Deliver the artifact path, evidence scope, unresolved assumptions and checks actually performed. A valid file cannot establish that a proposed system is implemented.

@@ -5,20 +5,17 @@ description: Design, generate, review and maintain Kubernetes application/infras
   controller ownership and rendered validation.
 metadata:
   kind: activity
-  origin: local
-  pack: technical
   domain: platform
   phase: cross-phase
   scope: stack-specific
   invocation: both
   stack: Kubernetes, Helm, Kustomize
   version: '1.0'
-  role: task
 ---
 
 # Kubernetes resource engineering
 
-Design the resources as a connected application in the actual target. Follow selectors, references, ports, identities, configuration and storage from the workload to the objects it depends on. Establish which controller owns desired state and which values each environment overrides; the effective rendered resources are the ones whose behavior needs review.
+Design and review Kubernetes resources as a connected application in the actual target, and stop at rendered, verified resources or a bounded patch. Follow selectors, references, ports, identities, configuration and storage from the workload to the objects it depends on. Establish which controller owns desired state and which values each environment overrides. The effective rendered resources are the ones whose behavior needs review.
 
 Assess the lifecycle as well as the shape of each object. Decide how the application starts, becomes ready, accepts traffic, drains and recovers, then check whether probes, rollout settings, resources and dependent jobs support that behavior. A copied base manifest or successful schema check cannot establish those relationships by itself.
 
@@ -44,7 +41,7 @@ Establish Deployments/jobs/stateful/infrastructure roles, target namespace, imag
 
 ### Render, check and deliver
 
-1. Render all affected variants with pinned tools. Test selectors/references, substitutions, image/version identity, unresolved placeholders, CRD schema coverage and exceptions; verify allowed and denied network paths.
+1. Render all affected variants with pinned tools. Test selectors/references, substitutions, image/version identity, unresolved placeholders, CRD schema coverage and exceptions. Verify allowed and denied network paths.
 2. Run schema/policy checks and authorized target admission/diff. Review deletes, immutable changes, reconciliation dependencies and CRD upgrades separately.
 3. Deliver through the existing controller workflow within target authority. Verify readiness, routing, denied boundaries, job/data outcomes and source/live reconciliation. Distinguish local from live validation.
 

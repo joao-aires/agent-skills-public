@@ -4,20 +4,17 @@ description: 'Build a driver-based financial model for a strategy or business mo
 user-invocable: true
 metadata:
   kind: activity
-  origin: local
-  pack: product
   domain: product
   phase: planning
   scope: generic
   invocation: both
-  role: task
 ---
 
 # Model finances
 
-Expose the assumptions that drive an outcome instead of presenting one impressive number. A model is a set of arguments, not a forecast.
+Expose the assumptions that drive an outcome instead of presenting one impressive number. Stop at a model with its drivers, scenarios and sensitivity made explicit. A model is a set of arguments, not a forecast.
 
-Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [financial scenario modeling](../business-strategy/references/financial-scenario-modeling.md) and [revenue quality and unit economics](../business-strategy/references/revenue-quality-and-unit-economics.md); tie pricing to [pricing and packaging](../business-strategy/references/pricing-and-packaging.md), market size to [market sizing](../business-strategy/references/market-sizing.md), and record per-segment economics with the [unit economics record](../business-strategy/assets/unit-economics-record.md).
+Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [financial scenario modeling](../business-strategy/references/financial-scenario-modeling.md) and [revenue quality and unit economics](../business-strategy/references/revenue-quality-and-unit-economics.md). Tie pricing to [pricing and packaging](../business-strategy/references/pricing-and-packaging.md), market size to [market sizing](../business-strategy/references/market-sizing.md), and record per-segment economics with the [unit economics record](../business-strategy/assets/unit-economics-record.md).
 
 ## Own the request
 

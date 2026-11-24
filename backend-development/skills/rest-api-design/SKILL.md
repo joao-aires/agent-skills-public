@@ -4,13 +4,10 @@ description: Design a REST/HTTP API contract covering resources, method and stat
 user-invocable: true
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: backend
   phase: design
   scope: generic
   invocation: both
-  role: support
 ---
 
 # Design the HTTP contract

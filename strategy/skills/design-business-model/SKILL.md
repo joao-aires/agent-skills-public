@@ -4,18 +4,15 @@ description: 'Decide how the business captures value: who pays, for what outcome
 user-invocable: true
 metadata:
   kind: activity
-  origin: local
-  pack: product
   domain: product
   phase: design
   scope: generic
   invocation: both
-  role: task
 ---
 
 # Design a business model
 
-Turn customer value into a commercially viable business: a payer, a price metric, a package, economics that survive and a reason the position persists.
+Turn customer value into a commercially viable business: a payer, a price metric, a package, economics that survive and a reason the position persists. Stop at a model with its assumptions and the evidence that would confirm or refute them.
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [pricing and packaging](../business-strategy/references/pricing-and-packaging.md), [revenue quality and unit economics](../business-strategy/references/revenue-quality-and-unit-economics.md), [economic power and value capture](../business-strategy/references/economic-power-and-value-capture.md) and [moats and control points](../business-strategy/references/moats-and-control-points.md). Record economics with the [unit economics record](../business-strategy/assets/unit-economics-record.md).
 

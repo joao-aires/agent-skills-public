@@ -7,13 +7,10 @@ description: Design or assess SaaS organization authority beyond basic authentic
 license: MIT
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: saas
   phase: design
   scope: generic
   invocation: both
-  role: support
   references: ../../references/sources.md
 user-invocable: true
 ---

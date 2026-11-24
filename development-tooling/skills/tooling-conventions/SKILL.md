@@ -6,13 +6,10 @@ description: Configure selected GitHub Actions, Docker/Compose, local quality to
 user-invocable: false
 metadata:
   kind: method
-  origin: local
-  pack: technical
   domain: tooling
   phase: cross-phase
   scope: stack-specific
   invocation: both
-  role: support
   stack: GitHub Actions, Docker, Compose, prek, Gitleaks, Playwright, OpenTelemetry Collector
 ---
 
