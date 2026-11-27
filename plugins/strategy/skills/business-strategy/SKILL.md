@@ -9,7 +9,7 @@ description: Develop, evaluate, compare, and continuously update business and pr
   strategy frameworks, or when the user wants to determine what a product or company
   should become. Treat the user's initial concept as a hypothesis, not the strategy.
 metadata:
-  kind: activity
+  kind: method
   domain: product
   phase: planning
   version: '2.5'

@@ -2,7 +2,7 @@
 name: presentation-building
 description: Create or refine portable single-file HTML slide decks, including narrative, visual direction, responsive/fullscreen layout and optional timeline navigation. Use for HTML presentation work; preserve requested formats and existing deck identity.
 metadata:
-  kind: activity
+  kind: method
   domain: visualization
   phase: cross-phase
   version: '1.0'

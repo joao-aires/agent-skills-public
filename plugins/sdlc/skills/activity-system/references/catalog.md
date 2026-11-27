@@ -1,6 +1,8 @@
 # Activity catalog: choose the work and its stopping point
 
-An activity is a requested engagement. Use this catalog to choose the activity whose **default result and stopping point** match the request. The linked skill is the activity method; supporting methods deepen the work but do not change the stopping point.
+An activity is a requested engagement. This catalog covers the **sdlc bundle**; use it to choose the activity whose **default result and stopping point** match the request. The linked skill is the activity method; supporting methods deepen the work but do not change the stopping point.
+
+The complete derived list of activities across every plugin is in the repository [skills map](https://github.com/joao-aires/agent-skills-public/blob/main/docs/skills-map.md#activities). It is generated from metadata, so it cannot drift; this page adds the curated stopping point and output columns for the sdlc bundle.
 
 ## Core activities
 

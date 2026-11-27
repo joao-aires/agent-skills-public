@@ -8,7 +8,7 @@ description: Build an explorable, standalone HTML architecture and message-flow 
   views, and architecture depth separate. Not for unrelated UI design, generic charts,
   or application feature implementation.
 metadata:
-  kind: activity
+  kind: workflow
   domain: visualization
   phase: cross-phase
   scope: generic

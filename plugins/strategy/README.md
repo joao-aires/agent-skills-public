@@ -46,7 +46,7 @@ Start from the user's question, not from the reference tree.
 
 | Skill | Type | Owns | Stops at | Not for |
 | --- | --- | --- | --- | --- |
-| [business-strategy](skills/business-strategy/SKILL.md) | activity | Strategy logic: six questions, modes, evidence discipline, references | Strategy analysis and recommendation | The execution plan or product scope |
+| [business-strategy](skills/business-strategy/SKILL.md) | method | Strategy logic: six questions, modes, evidence discipline, references | Strategy analysis and recommendation | The execution plan or product scope |
 | [craft-strategy-brief](skills/craft-strategy-brief/SKILL.md) | method | Craft and review of the strategy brief | A defensible brief | PRD, roadmap or pitch deck |
 | [craft-competitive-analysis](skills/craft-competitive-analysis/SKILL.md) | method | Competitor set, profile, trajectory, bundle risk, response craft | A decision-relevant competitive argument | A category directory or feature matrix |
 | Trigger activities | activity | One requested decision each, with its inputs, output and handoff | The named stopping point | Strategy logic they link to instead of restating |
