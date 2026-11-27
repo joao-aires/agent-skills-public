@@ -18,11 +18,13 @@ metadata:
 
 Establish or repair the technical foundations a project needs, and stop at the requested foundation change with its evidence.
 
-Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Read [git-contributions](../git-contributions/SKILL.md) before foundation writes. Seek available delivery expertise for CI, artifact and recovery decisions. Read [project-conventions](../project-conventions/SKILL.md) for repository foundations and working commands. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Read [git-contributions](../git-contributions/SKILL.md) before foundation writes. Seek available delivery expertise for CI, artifact and recovery decisions. Read [project-conventions](../project-conventions/SKILL.md) for repository foundations and working commands.
 
 For writing the artifact this activity produces, read [guide-readme](../guide-readme/SKILL.md) for structure, conventions and review.
 
 Setup is technical foundation work, not a substitute for product discovery. Before architecture-dependent writes, establish the intended usage, bounded journey and material platform/licensing/budget constraints. For a rough idea needing end-to-end development, use the outcomes in [new-application flow](../develop/references/new-application-flow.md) within the requested scope. A setup-only request does not authorize feature implementation or an unsolicited full business study.
+
+When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Establish useful foundations
 

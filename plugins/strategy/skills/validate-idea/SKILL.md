@@ -16,6 +16,8 @@ Decide whether a premise is coherent enough to spend more on, and stop at a verd
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [idea validation](../business-strategy/references/idea-validation.md), frame the decision with [decision framing](../business-strategy/references/decision-framing.md), and record the work with the [validation plan](../business-strategy/assets/validation-plan.md) when a durable record helps.
 
+When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Own the request
 
 Convert the request into a decision: whether to invest further in this premise, for whom, by when, and what "further" would cost. A request to validate a fixed concept is still a request to test the premise, not to confirm it.

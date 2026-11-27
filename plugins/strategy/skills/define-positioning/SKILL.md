@@ -16,6 +16,8 @@ Make the choice obvious relative to the alternatives the customer already unders
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [positioning and category](../business-strategy/references/positioning-and-category.md) and [value proposition](../business-strategy/references/value-proposition.md). Use [competitive dynamics](../business-strategy/references/competitive-dynamics.md) and [craft-competitive-analysis](../craft-competitive-analysis/SKILL.md) for the comparison set.
 
+When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Own the request
 
 Frame the decision: which customer, comparison set, category frame and value claim should govern product, pricing and sales choices. Positioning is a choice about what the offer is and is not.

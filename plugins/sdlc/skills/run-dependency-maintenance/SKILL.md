@@ -20,7 +20,9 @@ metadata:
 
 Update supported dependencies and runtimes within authority, and stop at a verified application change or a reported blocker. This activity does not own vulnerability triage or remediation, general supply-chain audit, package-manager or toolchain adoption, or release authorization.
 
-Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Read [project-conventions](../project-conventions/SKILL.md) for supported dependencies and [git-contributions](../git-contributions/SKILL.md) for authorized update changes. Load optional stack/domain guidance only when relevant.
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Read [project-conventions](../project-conventions/SKILL.md) for supported dependencies and [git-contributions](../git-contributions/SKILL.md) for authorized update changes.
+
+When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Review the proposed update
 

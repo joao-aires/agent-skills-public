@@ -16,6 +16,8 @@ Ask whether the current choices still deserve their cost, and stop at a keep, ch
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [strategy review and pivot](../business-strategy/references/strategy-review-and-pivot.md) and [strategy stress testing](../business-strategy/references/strategy-stress-testing.md). Record the session with the [strategy review](../business-strategy/assets/strategy-review.md) asset and the outcome in the [decision log](../business-strategy/assets/decision-log-template.md).
 
+When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Own the request
 
 Set the review's scope and decision owner: a scheduled quarterly review, a fired tripwire or a specific assumption challenge. Name the horizon and the quorum that can actually change the strategy.

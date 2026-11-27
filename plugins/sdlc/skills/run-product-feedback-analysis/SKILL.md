@@ -20,6 +20,8 @@ Turn user evidence into a product-feedback analysis that supports a named decisi
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point. For the artifact this activity produces, read the [product-feedback-analysis contract](../artifact-system/references/contracts/product-feedback-analysis.md) and [guide-product-feedback-analysis](../guide-product-feedback-analysis/SKILL.md). Resolve its home with [artifact homes](../artifact-system/references/homes.md) before writing.
 
+When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Ask a decision question
 
 Start with the intended user outcome and the decision this evidence should inform: improve an interaction, investigate a problem, continue an experiment, change scope or stop. Read the product's assumptions and existing feedback. A shipped feature is an output. Whether people can achieve the intended outcome is the question. Keep the activity small enough to change a real decision.

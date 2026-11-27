@@ -16,6 +16,8 @@ Replace the team's model of the customer with observed reality: the trigger, the
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [customer discovery](../business-strategy/references/customer-discovery.md) and [customer behavior and culture](../business-strategy/references/customer-behavior-and-culture.md). Use the [interview guide](../business-strategy/assets/interview-guide.md) to keep sessions comparable.
 
+When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Own the request
 
 State the decision this discovery can change — segment, offer, wedge, first slice or whether to keep investing — and the assumption it tests. Discovery that cannot change a decision is conversation.

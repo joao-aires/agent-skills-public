@@ -16,6 +16,8 @@ Implement the agreed slice in verified increments and stop at a pushed, green ch
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Use the [local implementation flow](../develop/references/implementation-flow.md), run [test](../test/SKILL.md) before the first increment, use [Git contributions](../git-contributions/SKILL.md) when the work needs a worktree, and run the review composition (`code-review`, artifact assurance, guides/quality bar) before pushing.
 
+When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Establish the starting point
 
 Read the accepted requirements, design, affected code, tests and project commands. Identify the target revision or, in a non-versioned workspace, the file hashes and environment. If the accepted context is missing or contradictory, stop at the precise blocker instead of guessing.

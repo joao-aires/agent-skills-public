@@ -17,6 +17,8 @@ Read [activity system](../activity-system/SKILL.md) for scope and stopping point
 
 Both surfaces follow the same operating loop: establish the authoritative inventory, connect each item to the actual consumer or deployed artifact, remediate within authority, verify the real target, and retain the residual risk.
 
+When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Choose the work
 
 - **Credentials:** inventory, issue, rotate, revoke and retire secrets, keys and certificates. Read [credentials](references/credentials.md) for the lifecycle, [secrets architecture](references/secrets-architecture.md) for delivery design and [credential record](references/credential-record.md) for the metadata record.

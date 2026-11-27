@@ -16,6 +16,8 @@ Convert strategic choices into a small set of outcomes, initiatives and decision
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [operating plan](../business-strategy/references/operating-plan.md) and record the period with the [operating plan](../business-strategy/assets/operating-plan.md) asset. Reuse the accepted [strategy brief](../business-strategy/assets/strategy-brief.md) rather than restating it.
 
+When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Own the request
 
 Frame the period, the decision owner and the outcomes the strategy requires next. Establish that the strategy is accepted. If it is still contested, return to [set-strategy](../set-strategy/SKILL.md) instead of planning execution against an unresolved choice.

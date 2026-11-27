@@ -18,7 +18,9 @@ metadata:
 
 Assess codebase improvement opportunities or carry out a specified improvement objective, and stop at evidence-backed proposals or the requested verified change.
 
-Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Read [verification](../test/SKILL.md) for baseline and verification, [git-contributions](../git-contributions/SKILL.md) for implementation when requested. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Read [verification](../test/SKILL.md) for baseline and verification, [git-contributions](../git-contributions/SKILL.md) for implementation when requested.
+
+When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Assess opportunities
 

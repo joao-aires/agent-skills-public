@@ -23,6 +23,8 @@ Establish what is failing now, who is affected, and which parts still work. Comp
 
 Run stabilization and investigation together. Choose a mitigation for the effect it is expected to have, observe whether that effect occurred, and revise the hypothesis when it did not. Record the target, time and result so another responder can understand what changed. Do not delay a supported mitigation to finish a perfect diagnosis.
 
+When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Response authority
 
 - **Live interactive response:** establish impact, current state and response ownership promptly. Ask only questions needed for the next decision; investigate available sources meanwhile.
