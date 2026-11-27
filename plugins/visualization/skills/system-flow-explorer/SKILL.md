@@ -5,8 +5,7 @@ description: Build an explorable, standalone HTML architecture and message-flow 
   service or repository's architecture, capabilities, dataflow, request lifecycle,
   sequence messages, or C4 context/container/component views; also use for brainstorming
   and refining proposed system designs with these views. Keep user scenarios, diagram
-  views, and architecture depth separate. Not for unrelated UI design, generic charts,
-  or application feature implementation.
+  views, and architecture depth separate. For unrelated UI design, generic charts or application feature implementation, use those owners.
 metadata:
   kind: workflow
   domain: visualization

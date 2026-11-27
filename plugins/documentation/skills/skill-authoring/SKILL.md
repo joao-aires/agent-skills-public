@@ -1,6 +1,10 @@
 ---
 name: skill-authoring
-description: Create, revise or review a skill in this collection. Use when adding a capability, deciding between a new skill and an expansion, writing or shortening SKILL.md, choosing references/scripts/assets, defining triggers, composing optional plugins, or evaluating whether a skill changes agent behavior. Not for writing a product document or a one-off prompt.
+description: >-
+  Expertise and methods for skill authoring. Create, revise or review a skill in this
+  collection. Use when adding a capability, deciding between a new skill and an expansion,
+  writing or shortening SKILL.md, choosing references/scripts/assets, defining triggers,
+  composing optional plugins, or evaluating whether a skill changes agent behavior. It informs the activity that composes it; that activity owns the decision and stopping point. For a product document, use technical writing; for a one-off prompt, no skill is needed.
 user-invocable: true
 metadata:
   kind: method

@@ -1,10 +1,12 @@
 ---
 name: design-system
-description: Design a system's architecture and tactical system design from product outcomes,
-  existing system evidence and operating constraints. Use after product refinement for a
-  new system, or before planning a feature that changes service, data, client or integration
-  boundaries. Choose strategic structure for hard-to-reverse decisions and a concrete
-  blueprint for runtime shape; this is not a UI component library.
+description: >-
+  Expertise and methods for system design. Design a system's architecture and tactical system
+  design from product outcomes, existing system evidence and operating constraints. Use after
+  product refinement for a new system, or before planning a feature that changes service,
+  data, client or integration boundaries. Choose strategic structure for hard-to-reverse
+  decisions and a concrete blueprint for runtime shape; this is not a UI component library. It
+  informs the activity that composes it; that activity owns the decision and stopping point.
 user-invocable: false
 metadata:
   kind: method

@@ -1,8 +1,10 @@
 ---
 name: research
-description: Investigate a question against primary sources and return traceable findings.
-  Use when facts or behavior must be verified before a planning, refinement or design
-  decision, or when reading work is delegated to a background agent.
+description: >-
+  Expertise and methods for research. Investigate a question against primary sources and
+  return traceable findings. Use when facts or behavior must be verified before a planning,
+  refinement or design decision, or when reading work is delegated to a background agent. It
+  informs the activity that composes it; that activity owns the decision and stopping point.
 user-invocable: true
 metadata:
   kind: method

@@ -1,6 +1,11 @@
 ---
 name: craft-strategy-brief
-description: 'Craft and review a strategy brief: the current thesis, integrated choices, alternatives, assumptions, economics, durability, tripwires and decision history. Use when writing, revising or critiquing a strategy brief or when a proposed strategy must become a durable record.'
+description: >-
+  Expertise and methods for strategy brief. Craft and review a strategy brief: the current
+  thesis, integrated choices, alternatives, assumptions, economics, durability, tripwires and
+  decision history. Use when writing, revising or critiquing a strategy brief or when a
+  proposed strategy must become a durable record. It informs the activity that composes it;
+  that activity owns the decision and stopping point.
 user-invocable: true
 metadata:
   kind: method

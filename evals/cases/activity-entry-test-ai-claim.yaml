@@ -1,0 +1,31 @@
+description: activity-entry-test-ai-claim
+metadata:
+  gate: nightly
+  stage: test
+  kind: review
+vars:
+  id: activity-entry-test-ai-claim
+  prompt: |
+    Test whether our RAG answers hallucinate on the support slices. Decide which activity
+    applies and which installed expertise you would consult. Do not modify application
+    code. Write `activity: <name>` and `expertise: <name or none>` to selection.txt as a
+    scratch answer, not a durable artifact.
+  fixture: fixtures/empty
+  timeout_sec: 300
+  expect:
+    exit: 0
+    files:
+      contains:
+        selection.txt:
+          - "activity:"
+          - "test"
+          - "evaluation"
+    output_matches: '(RAG|retrieval|hallucinat)'
+    diff:
+      max_files: 1
+      allowed: [selection.txt]
+  judge:
+    rubric: Selects test, names AI evaluation or AI testing expertise, and keeps the claim and stopping point with testing.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

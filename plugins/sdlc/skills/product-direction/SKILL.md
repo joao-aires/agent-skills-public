@@ -1,6 +1,11 @@
 ---
 name: product-direction
-description: Set product direction from user problems, evidence and constraints. Use for discovery, prioritization, useful first slices, success measures and product sequencing before development or when new evidence changes priorities; reuse accepted decisions for defined changes.
+description: >-
+  Expertise and methods for product direction. Set product direction from user problems,
+  evidence and constraints. Use for discovery, prioritization, useful first slices, success
+  measures and product sequencing before development or when new evidence changes priorities;
+  reuse accepted decisions for defined changes. It informs the activity that composes it; that
+  activity owns the decision and stopping point.
 user-invocable: true
 metadata:
   kind: method

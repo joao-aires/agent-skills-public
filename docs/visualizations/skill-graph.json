@@ -20,7 +20,7 @@
  },
  "generated": {
   "repository": "joao-aires/agent-skills-public",
-  "digest": "02f68f2f",
+  "digest": "62878112",
   "sources": [
    "plugins/*/skills/*/SKILL.md",
    "plugins/sdlc/skills/activity-system/references/catalog.md",
@@ -659,7 +659,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Design, build and operate AI-enabled applications and agent integrations independently of a provider. Use for model/tool workflows, context and retrieval, skills, harnesses, MCP, agent interaction or generated UI, and their evaluation and delivery; apply technical guidance only to the accepted stack.",
+   "description": "Expertise and methods for AI development. Design, build and operate AI-enabled applications and agent integrations independently of a provider. Use for model/tool workflows, context and retrieval, skills, harnesses, MCP, agent interaction or generated UI, and their evaluation and delivery; apply technical guidance only to the accepted stack. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/ai-development/skills/ai-development/SKILL.md",
    "group": "ai-development",
    "constraints": {
@@ -705,7 +705,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Define and improve AI operating behavior across task observability, quality monitoring, latency/cost, provider limits, drift, rollout and recovery. Use for AI production readiness, operational diagnosis or learning from live behavior independently of a language, telemetry SDK or monitoring backend.",
+   "description": "Expertise and methods for AI operations. Define and improve AI operating behavior across task observability, quality monitoring, latency/cost, provider limits, drift, rollout and recovery. Use for AI production readiness, operational diagnosis or learning from live behavior independently of a language, telemetry SDK or monitoring backend. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/ai-development/skills/ai-operations/SKILL.md",
    "group": "ai-development",
    "constraints": {
@@ -843,7 +843,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Implement accepted Python model/provider adapters and standalone FastMCP interfaces. Use for Gemini integration, version-matched Python MCP APIs and interaction integration; preserve established providers and frameworks.",
+   "description": "Expertise and methods for Python AI implementation. Implement accepted Python model/provider adapters and standalone FastMCP interfaces. Use for Gemini integration, version-matched Python MCP APIs and interaction integration; preserve established providers and frameworks. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/ai-python-development/skills/ai-conventions/SKILL.md",
    "group": "ai-python-development",
    "constraints": {
@@ -866,7 +866,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Implement Python AI evaluation suites with DeepEval for model, retrieval, agent trajectory, conversation and end-to-end quality. Use when DeepEval is selected or being evaluated; preserve existing evaluation tools and do not introduce model calls, hosted reporting or synthetic generation without scope.",
+   "description": "Expertise and methods for DeepEval evaluation suites. Implement Python AI evaluation suites with DeepEval for model, retrieval, agent trajectory, conversation and end-to-end quality. Use when DeepEval is selected or being evaluated; preserve existing evaluation tools and do not introduce model calls, hosted reporting or synthetic generation without scope. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/ai-python-development/skills/ai-deepeval-testing/SKILL.md",
    "group": "ai-python-development",
    "constraints": {
@@ -912,7 +912,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Set up and verify Python AI observability with OpenTelemetry and compatible model/framework instrumentation. Use for AI task/tool/retrieval traces, usage and latency signals, export/privacy configuration and operational diagnosis; keep the chosen backend and quality evaluation separate.",
+   "description": "Expertise and methods for Python AI observability. Set up and verify Python AI observability with OpenTelemetry and compatible model/framework instrumentation. Use for AI task/tool/retrieval traces, usage and latency signals, export/privacy configuration and operational diagnosis; keep the chosen backend and quality evaluation separate. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/ai-python-development/skills/python-ai-observability/SKILL.md",
    "group": "ai-python-development",
    "constraints": {
@@ -935,7 +935,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Select and compare backend architecture patterns \u2014 modular monolith, layered, hexagonal/ports-and-adapters, clean/onion, CQRS, event sourcing, microservices and serverless \u2014 by the forces that justify them, their costs and migration path. Use when an architecture proposal or option comparison needs pattern candidates, a fit check or a tradeoff review; the architecture decision, service behavior, event contracts and cross-service failure reasoning stay with their owning capabilities.",
+   "description": "Expertise and methods for backend architecture patterns. Select and compare backend architecture patterns \u2014 modular monolith, layered, hexagonal/ports-and-adapters, clean/onion, CQRS, event sourcing, microservices and serverless \u2014 by the forces that justify them, their costs and migration path. Use when an architecture proposal or option comparison needs pattern candidates, a fit check or a tradeoff review; the architecture decision, service behavior, event contracts and cross-service failure reasoning stay with their owning capabilities. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/backend-development/skills/architecture-patterns/SKILL.md",
    "group": "backend-development",
    "constraints": {
@@ -958,7 +958,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Define application-service behavior, authority, state and interface contracts independently of a framework. Use for APIs, durable jobs, stored data or integration changes before dependent implementation; preserve accepted behavior for local fixes.",
+   "description": "Expertise and methods for backend design. Define application-service behavior, authority, state and interface contracts independently of a framework. Use for APIs, durable jobs, stored data or integration changes before dependent implementation; preserve accepted behavior for local fixes. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/backend-development/skills/backend-design/SKILL.md",
    "group": "backend-development",
    "constraints": {
@@ -981,7 +981,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Reason about cross-service consistency, replication, partitioning, consensus, time, failure detection, retries, timeouts, circuit breakers, idempotency, ambiguous outcomes, multi-region recovery and capacity. Use when a design or incident depends on behavior across process, network or region boundaries; architecture decisions, service contracts, fault experiments and telemetry stay with their owning activities.",
+   "description": "Expertise and methods for distributed systems. Reason about cross-service consistency, replication, partitioning, consensus, time, failure detection, retries, timeouts, circuit breakers, idempotency, ambiguous outcomes, multi-region recovery and capacity. Use when a design or incident depends on behavior across process, network or region boundaries; architecture decisions, service contracts, fault experiments and telemetry stay with their owning activities. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/backend-development/skills/distributed-systems/SKILL.md",
    "group": "backend-development",
    "constraints": {
@@ -1004,7 +1004,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design event and message contracts across services, including event meaning, schema evolution, ordering and partitioning, delivery and idempotency, replay, retention and failure handling. Use when a change publishes or consumes events, introduces asynchronous integration or alters an existing event contract; not for broker installation or cluster operations.",
+   "description": "Expertise and methods for event-driven design. Design event and message contracts across services, including event meaning, schema evolution, ordering and partitioning, delivery and idempotency, replay, retention and failure handling. Use when a change publishes or consumes events, introduces asynchronous integration or alters an existing event contract; not for broker installation or cluster operations. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/backend-development/skills/event-driven-design/SKILL.md",
    "group": "backend-development",
    "constraints": {
@@ -1027,7 +1027,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design a GraphQL schema and API contract covering domain types, nullability, connections, errors, mutations, idempotency, N+1 and cost limits, field authorization, persisted queries, federation boundaries, deprecation, caching and public versus private surfaces. Use before implementing resolvers or changing a schema; not for resolver code or service behavior design.",
+   "description": "Expertise and methods for GraphQL API design. Design a GraphQL schema and API contract covering domain types, nullability, connections, errors, mutations, idempotency, N+1 and cost limits, field authorization, persisted queries, federation boundaries, deprecation, caching and public versus private surfaces. Use before implementing resolvers or changing a schema; not for resolver code or service behavior design. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/backend-development/skills/graphql-design/SKILL.md",
    "group": "backend-development",
    "constraints": {
@@ -1050,7 +1050,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design a REST/HTTP API contract covering resources, method and status semantics, representations, errors, collections, idempotency, conditional requests, versioning, caching, authorization boundaries, rate limits and OpenAPI. Use before implementing or changing an HTTP interface; not for service behavior design or framework setup.",
+   "description": "Expertise and methods for REST API design. Design a REST/HTTP API contract covering resources, method and status semantics, representations, errors, collections, idempotency, conditional requests, versioning, caching, authorization boundaries, rate limits and OpenAPI. Use before implementing or changing an HTTP interface; not for service behavior design or framework setup. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/backend-development/skills/rest-api-design/SKILL.md",
    "group": "backend-development",
    "constraints": {
@@ -1073,7 +1073,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Build, extend or review Python/FastAPI systems with SQLAlchemy, Alembic, contextual persistence, auth, API contracts, jobs and optional AI/FastMCP. Use for backend architecture, endpoints, migrations, transactions, integrations and verification; accept reference systems and preserve established project constraints.",
+   "description": "Expertise and methods for Python/FastAPI backend implementation. Build, extend or review Python/FastAPI systems with SQLAlchemy, Alembic, contextual persistence, auth, API contracts, jobs and optional AI/FastMCP. Use for backend architecture, endpoints, migrations, transactions, integrations and verification; accept reference systems and preserve established project constraints. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/backend-python-development/skills/backend-conventions/SKILL.md",
    "group": "backend-python-development",
    "constraints": {
@@ -1119,7 +1119,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Design, implement, review and maintain useful Python operational automations and reporting tools with ergonomic CLIs, typed boundaries, reproducible projects, complete API collection, resumable mutations and verified outcomes.",
+   "description": "Expertise and methods for Python automation engineering. Design, implement, review and maintain useful Python operational automations and reporting tools with ergonomic CLIs, typed boundaries, reproducible projects, complete API collection, resumable mutations and verified outcomes. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/backend-python-development/skills/python-automation-engineering/SKILL.md",
    "group": "backend-python-development",
    "constraints": {
@@ -1142,7 +1142,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Prepare or review Chrome MV3 release packages and Chrome Web Store readiness. Use for production ZIP contents, listing/privacy evidence, update compatibility and authorized upload/submission/publication; preserve existing CI and release policy.",
+   "description": "Expertise and methods for Chrome MV3 delivery. Prepare or review Chrome MV3 release packages and Chrome Web Store readiness. Use for production ZIP contents, listing/privacy evidence, update compatibility and authorized upload/submission/publication; preserve existing CI and release policy. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/browser-extension-development/skills/browser-extension-delivery/SKILL.md",
    "group": "browser-extension-development",
    "constraints": {
@@ -1188,7 +1188,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Design, implement or review Chrome MV3 permissions and extension trust boundaries. Use for manifest grants, content-script messaging, privileged fetch/injection, extension storage and browser-to-backend identity.",
+   "description": "Expertise and methods for Chrome MV3 security. Design, implement or review Chrome MV3 permissions and extension trust boundaries. Use for manifest grants, content-script messaging, privileged fetch/injection, extension storage and browser-to-backend identity. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/browser-extension-development/skills/browser-extension-security/SKILL.md",
    "group": "browser-extension-development",
    "constraints": {
@@ -1211,7 +1211,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Plan and execute Chrome MV3 unit, component and real-extension tests. Use for worker restart, popup/panel lifecycle, site permissions, messaging and production-package verification with a compatible browser driver.",
+   "description": "Expertise and methods for Chrome MV3 testing. Plan and execute Chrome MV3 unit, component and real-extension tests. Use for worker restart, popup/panel lifecycle, site permissions, messaging and production-package verification with a compatible browser driver. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/browser-extension-development/skills/browser-extension-testing/SKILL.md",
    "group": "browser-extension-development",
    "constraints": {
@@ -1234,7 +1234,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Design, implement or assess Chrome extension experiences by matching user tasks to suitable UI patterns and browser surfaces. Use for extension information architecture, surface lifecycle, injected UI, permission states and assets; preserve the product's design system.",
+   "description": "Expertise and methods for Chrome MV3 interface design. Design, implement or assess Chrome extension experiences by matching user tasks to suitable UI patterns and browser surfaces. Use for extension information architecture, surface lifecycle, injected UI, permission states and assets; preserve the product's design system. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/browser-extension-development/skills/browser-extension-ui/SKILL.md",
    "group": "browser-extension-development",
    "constraints": {
@@ -1257,7 +1257,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design or evolve stored data, constraints, transactions and migration behavior independently of a database engine. Use for persistence choices, schema changes, consistency boundaries and data lifecycle decisions.",
+   "description": "Expertise and methods for database design. Design or evolve stored data, constraints, transactions and migration behavior independently of a database engine. Use for persistence choices, schema changes, consistency boundaries and data lifecycle decisions. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/database-development/skills/database-design/SKILL.md",
    "group": "database-development",
    "constraints": {
@@ -1280,7 +1280,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Investigate database workload performance and compare improvements while preserving correctness and operating budgets. Use for latency, throughput, contention, connection or resource bottlenecks before choosing engine-specific tuning.",
+   "description": "Expertise and methods for database performance. Investigate database workload performance and compare improvements while preserving correctness and operating budgets. Use for latency, throughput, contention, connection or resource bottlenecks before choosing engine-specific tuning. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/database-development/skills/database-performance/SKILL.md",
    "group": "database-development",
    "constraints": {
@@ -1326,7 +1326,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Plan or perform scoped PostgreSQL backup/recovery, maintenance, replication and upgrades. Use for operating procedures and readiness with the actual hosting model, recovery objectives and authorized target.",
+   "description": "Expertise and methods for PostgreSQL operations. Plan or perform scoped PostgreSQL backup/recovery, maintenance, replication and upgrades. Use for operating procedures and readiness with the actual hosting model, recovery objectives and authorized target. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/database-postgresql-development/skills/postgresql-operations/SKILL.md",
    "group": "database-postgresql-development",
    "constraints": {
@@ -1349,7 +1349,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Diagnose and improve PostgreSQL query, locking, connection and maintenance performance using representative workload evidence. Use for slow queries, pool pressure, plan regressions and resource bottlenecks.",
+   "description": "Expertise and methods for PostgreSQL performance. Diagnose and improve PostgreSQL query, locking, connection and maintenance performance using representative workload evidence. Use for slow queries, pool pressure, plan regressions and resource bottlenecks. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/database-postgresql-development/skills/postgresql-performance/SKILL.md",
    "group": "database-postgresql-development",
    "constraints": {
@@ -1395,7 +1395,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Create, refactor and audit reliable Bash CLI utilities, build/operations scripts and CI action entrypoints with safe argument handling, explicit failure semantics, portability, testable side effects and useful documentation.",
+   "description": "Expertise and methods for Bash engineering. Create, refactor and audit reliable Bash CLI utilities, build/operations scripts and CI action entrypoints with safe argument handling, explicit failure semantics, portability, testable side effects and useful documentation. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/development-tooling/skills/bash-engineering/SKILL.md",
    "group": "development-tooling",
    "constraints": {
@@ -1418,7 +1418,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design or review provider-neutral CI/CD delivery: verification, artifact and deployment stages, artifact identity and promotion, environment and configuration separation, gate design, branching and release flow, recovery, and pipeline evidence. Use when choosing or auditing a pipeline shape rather than implementing a specific provider's syntax.",
+   "description": "Expertise and methods for CI/CD delivery. Design or review provider-neutral CI/CD delivery: verification, artifact and deployment stages, artifact identity and promotion, environment and configuration separation, gate design, branching and release flow, recovery, and pipeline evidence. Use when choosing or auditing a pipeline shape rather than implementing a specific provider's syntax. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/development-tooling/skills/ci-cd-pipelines/SKILL.md",
    "group": "development-tooling",
    "constraints": {
@@ -1441,7 +1441,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design or review a command-line application's public surface: command grammar, input precedence, streams and exit codes, interactivity, help and completion, portability, packaging, updates and compatibility. Use when shaping a new CLI or changing an existing one, independent of the implementation language.",
+   "description": "Expertise and methods for CLI design. Design or review a command-line application's public surface: command grammar, input precedence, streams and exit codes, interactivity, help and completion, portability, packaging, updates and compatibility. Use when shaping a new CLI or changing an existing one, independent of the implementation language. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/development-tooling/skills/cli-development/SKILL.md",
    "group": "development-tooling",
    "constraints": {
@@ -1487,7 +1487,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Design, implement, run or review k6 load and performance checks for application journeys locally, against an application started on a CI runner, or against a deployed non-production environment. Use for latency, concurrency, throughput, saturation and performance regressions; preserve target authority and existing tooling.",
+   "description": "Expertise and methods for k6 performance testing. Design, implement, run or review k6 load and performance checks for application journeys locally, against an application started on a CI runner, or against a deployed non-production environment. Use for latency, concurrency, throughput, saturation and performance regressions; preserve target authority and existing tooling. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/development-tooling/skills/performance-testing/SKILL.md",
    "group": "development-tooling",
    "constraints": {
@@ -1556,7 +1556,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Configure selected GitHub Actions, Docker/Compose, local quality tools, telemetry backends and web test drivers. Use for their implementation and compatibility details after the project selects those tools; preserve existing alternatives.",
+   "description": "Expertise and methods for repository tooling. Configure selected GitHub Actions, Docker/Compose, local quality tools, telemetry backends and web test drivers. Use for their implementation and compatibility details after the project selects those tools; preserve existing alternatives. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/development-tooling/skills/tooling-conventions/SKILL.md",
    "group": "development-tooling",
    "constraints": {
@@ -1579,7 +1579,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Explain a concept to a specific reader so they can predict, apply or decide, using intuition, bounded analogy, mechanism, a worked example, boundary cases and a comprehension check. Use for quick intuition, deep mechanism, decision or code explanation, and correcting a misconception. A conversational craft method, not an artifact contract.",
+   "description": "Expertise and methods for concept explanation. Explain a concept to a specific reader so they can predict, apply or decide, using intuition, bounded analogy, mechanism, a worked example, boundary cases and a comprehension check. Use for quick intuition, deep mechanism, decision or code explanation, and correcting a misconception. A conversational craft method, not an artifact contract. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/documentation/skills/explain/SKILL.md",
    "group": "documentation",
    "constraints": {
@@ -1648,7 +1648,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Create, revise or review a skill in this collection. Use when adding a capability, deciding between a new skill and an expansion, writing or shortening SKILL.md, choosing references/scripts/assets, defining triggers, composing optional plugins, or evaluating whether a skill changes agent behavior. Not for writing a product document or a one-off prompt.",
+   "description": "Expertise and methods for skill authoring. Create, revise or review a skill in this collection. Use when adding a capability, deciding between a new skill and an expansion, writing or shortening SKILL.md, choosing references/scripts/assets, defining triggers, composing optional plugins, or evaluating whether a skill changes agent behavior. It informs the activity that composes it; that activity owns the decision and stopping point. For a product document, use technical writing; for a one-off prompt, no skill is needed.",
    "path": "plugins/documentation/skills/skill-authoring/SKILL.md",
    "group": "documentation",
    "constraints": {
@@ -1671,7 +1671,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Cross-type technical writing craft for product and engineering documents, including PRDs, requirements, architecture, decisions, guides and runbooks. Use when reader fit, explanation, structure, examples or presentation need work; artifact contracts, status and homes remain with the artifact system.",
+   "description": "Expertise and methods for technical writing. Cross-type technical writing craft for product and engineering documents, including PRDs, requirements, architecture, decisions, guides and runbooks. Use when reader fit, explanation, structure, examples or presentation need work; artifact contracts, status and homes remain with the artifact system. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/documentation/skills/technical-writing/SKILL.md",
    "group": "documentation",
    "constraints": {
@@ -1717,7 +1717,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Research shipped products, flows and visual directions before settling an interface decision. Use for competitive and reference research, design benchmarks and pattern evidence; choose sources, separate observation from inference, respect access and privacy limits, and feed material into a comparable option set. Works without paid reference services.",
+   "description": "Expertise and methods for design research. Research shipped products, flows and visual directions before settling an interface decision. Use for competitive and reference research, design benchmarks and pattern evidence; choose sources, separate observation from inference, respect access and privacy limits, and feed material into a comparable option set. Works without paid reference services. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/frontend-development/skills/design-research/SKILL.md",
    "group": "frontend-development",
    "constraints": {
@@ -1763,7 +1763,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design, inspect and improve complete user interfaces across navigation, visual hierarchy, behavior, shared composition and accessibility. Use for new UI, cross-screen changes, visual refinements, design reviews and design-to-implementation handoffs; preserve accepted product direction and authorized scope.",
+   "description": "Expertise and methods for interface design. Design, inspect and improve complete user interfaces across navigation, visual hierarchy, behavior, shared composition and accessibility. Use for new UI, cross-screen changes, visual refinements, design reviews and design-to-implementation handoffs; preserve accepted product direction and authorized scope. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/frontend-development/skills/interface-design/SKILL.md",
    "group": "frontend-development",
    "constraints": {
@@ -1786,7 +1786,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Define, automate, explore and evaluate user journeys across web, desktop and mobile applications, including browser extensions. Use for UI/API/persistence changes, interaction and visual consistency, authentication, authorization, lifecycle behavior and failing journey checks.",
+   "description": "Expertise and methods for user-journey testing. Define, automate, explore and evaluate user journeys across web, desktop and mobile applications, including browser extensions. Use for UI/API/persistence changes, interaction and visual consistency, authentication, authorization, lifecycle behavior and failing journey checks. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/frontend-development/skills/testing-journey/SKILL.md",
    "group": "frontend-development",
    "constraints": {
@@ -1832,7 +1832,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Plan task-based usability studies and analyze supplied observations for a specific interface or flow. Use for research questions, participant tasks, neutral discussion guides or evidence synthesis; distinguish proposed studies, heuristic review and actual participant findings.",
+   "description": "Expertise and methods for usability research. Plan task-based usability studies and analyze supplied observations for a specific interface or flow. Use for research questions, participant tasks, neutral discussion guides or evidence synthesis; distinguish proposed studies, heuristic review and actual participant findings. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/frontend-development/skills/usability-research/SKILL.md",
    "group": "frontend-development",
    "constraints": {
@@ -1855,7 +1855,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Review, write or harmonize interface labels, instructions, validation, errors, empty states and confirmations in their task context. Use directly for UI copy or during relevant design and implementation; preserve product behavior, established voice, localization and consequential meaning.",
+   "description": "Expertise and methods for UX writing. Review, write or harmonize interface labels, instructions, validation, errors, empty states and confirmations in their task context. Use directly for UI copy or during relevant design and implementation; preserve product behavior, established voice, localization and consequential meaning. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/frontend-development/skills/ux-writing/SKILL.md",
    "group": "frontend-development",
    "constraints": {
@@ -1878,7 +1878,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Build and verify TypeScript Tauri desktop clients and iOS/Android clients connected to application backends. Use for native shell integration, accepted mobile frameworks, platform lifecycle, secure client storage, packaging and native testing; preserve established client frameworks.",
+   "description": "Expertise and methods for native client development. Build and verify TypeScript Tauri desktop clients and iOS/Android clients connected to application backends. Use for native shell integration, accepted mobile frameworks, platform lifecycle, secure client storage, packaging and native testing; preserve established client frameworks. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/frontend-native-development/skills/native-client-development/SKILL.md",
    "group": "frontend-native-development",
    "constraints": {
@@ -1901,7 +1901,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Build, extend or review React/Next.js interfaces using the selected component system, compatible styling conventions and supplied visual references. Use for dashboards, customer applications, storefronts, content sites, navigation, styling, forms and frontend architecture; preserve accepted project choices during ordinary feature work.",
+   "description": "Expertise and methods for React/Next.js frontend implementation. Build, extend or review React/Next.js interfaces using the selected component system, compatible styling conventions and supplied visual references. Use for dashboards, customer applications, storefronts, content sites, navigation, styling, forms and frontend architecture; preserve accepted project choices during ordinary feature work. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/frontend-reactjs-development/skills/frontend-conventions/SKILL.md",
    "group": "frontend-reactjs-development",
    "constraints": {
@@ -2016,7 +2016,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Build, extend or review Go services, libraries and command-line applications. Use for modules, package/API boundaries, errors, cancellation, runtime lifecycle and meaningful Go verification without requiring a framework.",
+   "description": "Expertise and methods for Go implementation. Build, extend or review Go services, libraries and command-line applications. Use for modules, package/API boundaries, errors, cancellation, runtime lifecycle and meaningful Go verification without requiring a framework. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/go-development/skills/go-conventions/SKILL.md",
    "group": "go-development",
    "constraints": {
@@ -2062,7 +2062,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design, implement or review AWS workloads across identity, network, compute, data, messaging, observability, cost, continuity and edge security. Use for IAM, VPC, ECS/EKS/Lambda, RDS/Aurora, S3, SQS/SNS, CloudWatch, budgets, Backup, Route 53, WAF and Secrets Manager decisions; verify service detail against current AWS docs.",
+   "description": "Expertise and methods for AWS platform design. Design, implement or review AWS workloads across identity, network, compute, data, messaging, observability, cost, continuity and edge security. Use for IAM, VPC, ECS/EKS/Lambda, RDS/Aurora, S3, SQS/SNS, CloudWatch, budgets, Backup, Route 53, WAF and Secrets Manager decisions; verify service detail against current AWS docs. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/operations-platforms/skills/aws-platform/SKILL.md",
    "group": "operations-platforms",
    "constraints": {
@@ -2085,7 +2085,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Define and deliver infrastructure and platform configuration as reconciled desired state across Kubernetes and cloud targets. Use for infrastructure-as-code choice, repository structure, environment promotion, policy and rendered-state validation, Argo CD/Flux GitOps reconciliation, drift, pruning and recovery.",
+   "description": "Expertise and methods for infrastructure delivery. Define and deliver infrastructure and platform configuration as reconciled desired state across Kubernetes and cloud targets. Use for infrastructure-as-code choice, repository structure, environment promotion, policy and rendered-state validation, Argo CD/Flux GitOps reconciliation, drift, pruning and recovery. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/operations-platforms/skills/infra-delivery/SKILL.md",
    "group": "operations-platforms",
    "constraints": {
@@ -2108,7 +2108,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Measure and improve application/infrastructure resource efficiency, JVM memory and GC, startup/shutdown, autoscaling, scheduling and resilience during setup, feature changes or recurring optimization reviews.",
+   "description": "Expertise and methods for JVM resource optimization. Measure and improve application/infrastructure resource efficiency, JVM memory and GC, startup/shutdown, autoscaling, scheduling and resilience during setup, feature changes or recurring optimization reviews. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/operations-platforms/skills/infra-jvm-optimization/SKILL.md",
    "group": "operations-platforms",
    "constraints": {
@@ -2154,7 +2154,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Diagnose a running Kubernetes workload or cluster problem from observed state. Use for pod lifecycle, events, current and previous logs, probes, resources and scheduling, DNS and Service endpoints, network policy, storage, and control-plane or managed-cluster differences. It does not provision clusters or design manifests.",
+   "description": "Expertise and methods for Kubernetes troubleshooting. Diagnose a running Kubernetes workload or cluster problem from observed state. Use for pod lifecycle, events, current and previous logs, probes, resources and scheduling, DNS and Service endpoints, network policy, storage, and control-plane or managed-cluster differences. It does not provision clusters or design manifests. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/operations-platforms/skills/kubernetes-troubleshooting/SKILL.md",
    "group": "operations-platforms",
    "constraints": {
@@ -2177,7 +2177,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design or assess SaaS commercial state, entitlements and billing-provider integration. Use for plans, prices, trials, upgrades, dunning, cancellation, refunds, tax and the event, reconciliation and entitlement contracts behind paid access. Independently of a particular provider except where the platform selects one.",
+   "description": "Expertise and methods for SaaS billing. Design or assess SaaS commercial state, entitlements and billing-provider integration. Use for plans, prices, trials, upgrades, dunning, cancellation, refunds, tax and the event, reconciliation and entitlement contracts behind paid access. Independently of a particular provider except where the platform selects one. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/saas-development/skills/saas-billing/SKILL.md",
    "group": "saas-development",
    "constraints": {
@@ -2200,7 +2200,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design or improve SaaS customer and operator dashboards around decisions, tenant context and actionable workflows. Use for dashboard information architecture, metrics, tables, administration and realistic interface states across frontend stacks.",
+   "description": "Expertise and methods for SaaS dashboard design. Design or improve SaaS customer and operator dashboards around decisions, tenant context and actionable workflows. Use for dashboard information architecture, metrics, tables, administration and realistic interface states across frontend stacks. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/saas-development/skills/saas-dashboard-design/SKILL.md",
    "group": "saas-development",
    "constraints": {
@@ -2223,7 +2223,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design or evolve SaaS tenancy, organization/customer lifecycle and administration independently of framework or billing provider. Use when hosted-product behavior crosses identity, commercial and operating boundaries. Entitlement state and commercial mechanics belong to saas-billing.",
+   "description": "Expertise and methods for SaaS design. Design or evolve SaaS tenancy, organization/customer lifecycle and administration independently of framework or billing provider. Use when hosted-product behavior crosses identity, commercial and operating boundaries. Entitlement state and commercial mechanics belong to saas-billing. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/saas-development/skills/saas-design/SKILL.md",
    "group": "saas-development",
    "constraints": {
@@ -2246,7 +2246,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design or assess SaaS organization authority beyond basic authentication, including membership, roles, invitations, ownership transfer, SSO/SCIM, machine identity, support access, tenant isolation and revocation. Use when hosted-product access crosses organizations, enterprise customers or operational staff.",
+   "description": "Expertise and methods for SaaS identity and access. Design or assess SaaS organization authority beyond basic authentication, including membership, roles, invitations, ownership transfer, SSO/SCIM, machine identity, support access, tenant isolation and revocation. Use when hosted-product access crosses organizations, enterprise customers or operational staff. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/saas-development/skills/saas-identity-and-access/SKILL.md",
    "group": "saas-development",
    "constraints": {
@@ -2269,7 +2269,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Assess a SaaS launch, customer rollout or capability expansion against actual commitments and operating evidence. Use for a scoped readiness verdict and prioritized gaps, without assuming every enterprise feature or authorizing release.",
+   "description": "Expertise and methods for SaaS readiness. Assess a SaaS launch, customer rollout or capability expansion against actual commitments and operating evidence. Use for a scoped readiness verdict and prioritized gaps, without assuming every enterprise feature or authorizing release. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/saas-development/skills/saas-readiness/SKILL.md",
    "group": "saas-development",
    "constraints": {
@@ -2292,7 +2292,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Select, integrate and assess the supporting services a hosted product depends on, including analytics, email, observability, hosting and edge, marketing and social automation, search, queues, notifications and support. Use for requirement-first build, buy, adopt or defer decisions and the integration contract, independently of particular vendors.",
+   "description": "Expertise and methods for SaaS supporting services. Select, integrate and assess the supporting services a hosted product depends on, including analytics, email, observability, hosting and edge, marketing and social automation, search, queues, notifications and support. Use for requirement-first build, buy, adopt or defer decisions and the integration contract, independently of particular vendors. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/saas-development/skills/saas-supporting-services/SKILL.md",
    "group": "saas-development",
    "constraints": {
@@ -2338,7 +2338,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Analyze measured capacity and cost \u2014 demand and saturation, sizing, unit economics, FinOps allocation, forecasting, optimization evidence and verification. Use for a measured review of an existing or proposed system; capacity and cost plans, targets and accepted tradeoffs belong to design-system and the requirements record.",
+   "description": "Expertise and methods for capacity and cost analysis. Analyze measured capacity and cost \u2014 demand and saturation, sizing, unit economics, FinOps allocation, forecasting, optimization evidence and verification. Use for a measured review of an existing or proposed system; capacity and cost plans, targets and accepted tradeoffs belong to design-system and the requirements record. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/sdlc/skills/analyze-capacity-cost/SKILL.md",
    "group": "sdlc method",
    "constraints": {
@@ -2361,7 +2361,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Own the application configuration contract: how an application loads, validates and changes configuration and secrets across local, CI and production targets. Use for source precedence, typed settings, environment parity, runtime reload, multi-tenant defaults, feature-flag boundaries and secret-consumption failure behavior. Credential custody and target delivery remain with their owners.",
+   "description": "Expertise and methods for application configuration. Own the application configuration contract: how an application loads, validates and changes configuration and secrets across local, CI and production targets. Use for source precedence, typed settings, environment parity, runtime reload, multi-tenant defaults, feature-flag boundaries and secret-consumption failure behavior. Credential custody and target delivery remain with their owners. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/sdlc/skills/application-configuration/SKILL.md",
    "group": "sdlc method",
    "constraints": {
@@ -2476,7 +2476,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design security into a feature or system boundary \u2014 trust boundaries, data flow, authority placement, privacy, delegation and abuse resistance, including authentication, sessions, federation, machine identity and tenant/resource access. Use when a change introduces identities, user data, external inputs, integrations or new authority; not for scoped remediation, credential operations or compliance assessment.",
+   "description": "Expertise and methods for security design. Design security into a feature or system boundary \u2014 trust boundaries, data flow, authority placement, privacy, delegation and abuse resistance, including authentication, sessions, federation, machine identity and tenant/resource access. Use when a change introduces identities, user data, external inputs, integrations or new authority; not for scoped remediation, credential operations or compliance assessment. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/sdlc/skills/design-security/SKILL.md",
    "group": "sdlc method",
    "constraints": {
@@ -2499,7 +2499,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Design a system's architecture and tactical system design from product outcomes, existing system evidence and operating constraints. Use after product refinement for a new system, or before planning a feature that changes service, data, client or integration boundaries. Choose strategic structure for hard-to-reverse decisions and a concrete blueprint for runtime shape; this is not a UI component library.",
+   "description": "Expertise and methods for system design. Design a system's architecture and tactical system design from product outcomes, existing system evidence and operating constraints. Use after product refinement for a new system, or before planning a feature that changes service, data, client or integration boundaries. Choose strategic structure for hard-to-reverse decisions and a concrete blueprint for runtime shape; this is not a UI component library. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/sdlc/skills/design-system/SKILL.md",
    "group": "sdlc method",
    "constraints": {
@@ -2568,7 +2568,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Sharpen a project's domain language while designing. Use when terms are overloaded or inconsistent, boundaries are unclear, or a resolved term or consequential choice needs a glossary entry or decision record.",
+   "description": "Expertise and methods for domain modeling. Sharpen a project's domain language while designing. Use when terms are overloaded or inconsistent, boundaries are unclear, or a resolved term or consequential choice needs a glossary entry or decision record. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/sdlc/skills/domain-modeling/SKILL.md",
    "group": "sdlc method",
    "constraints": {
@@ -3304,7 +3304,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Set product direction from user problems, evidence and constraints. Use for discovery, prioritization, useful first slices, success measures and product sequencing before development or when new evidence changes priorities; reuse accepted decisions for defined changes.",
+   "description": "Expertise and methods for product direction. Set product direction from user problems, evidence and constraints. Use for discovery, prioritization, useful first slices, success measures and product sequencing before development or when new evidence changes priorities; reuse accepted decisions for defined changes. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/sdlc/skills/product-direction/SKILL.md",
    "group": "sdlc method",
    "constraints": {
@@ -3327,7 +3327,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Establish or maintain an application repository's structure, stack constraints, repository instruction files for coding agents, local setup and delivery conventions. Use when starting, organizing or reviewing a project, or when repository guidance, commands or agent instructions need to be created, audited or updated; keep ordinary feature work within existing conventions.",
+   "description": "Expertise and methods for project conventions. Establish or maintain an application repository's structure, stack constraints, repository instruction files for coding agents, local setup and delivery conventions. Use when starting, organizing or reviewing a project, or when repository guidance, commands or agent instructions need to be created, audited or updated; keep ordinary feature work within existing conventions. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/sdlc/skills/project-conventions/SKILL.md",
    "group": "sdlc method",
    "constraints": {
@@ -3350,7 +3350,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Build a throwaway probe that answers one design question about logic, state or a user interface. Use when design validation needs observed behavior or a rendered choice, not more discussion.",
+   "description": "Expertise and methods for prototyping. Build a throwaway probe that answers one design question about logic, state or a user interface. Use when design validation needs observed behavior or a rendered choice, not more discussion. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/sdlc/skills/prototype/SKILL.md",
    "group": "sdlc method",
    "constraints": {
@@ -3419,7 +3419,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Elicit, analyze, validate and maintain verifiable functional and quality requirements for features, refactors, new systems and architecture changes. Use as supporting expertise during refine when stakeholder needs, behavior, cross-system constraints or acceptance are materially uncertain.",
+   "description": "Expertise and methods for requirements engineering. Elicit, analyze, validate and maintain verifiable functional and quality requirements for features, refactors, new systems and architecture changes. Use as supporting expertise during refine when stakeholder needs, behavior, cross-system constraints or acceptance are materially uncertain. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/sdlc/skills/requirements-engineering/SKILL.md",
    "group": "sdlc method",
    "constraints": {
@@ -3442,7 +3442,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Investigate a question against primary sources and return traceable findings. Use when facts or behavior must be verified before a planning, refinement or design decision, or when reading work is delegated to a background agent.",
+   "description": "Expertise and methods for research. Investigate a question against primary sources and return traceable findings. Use when facts or behavior must be verified before a planning, refinement or design decision, or when reading work is delegated to a background agent. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/sdlc/skills/research/SKILL.md",
    "group": "sdlc method",
    "constraints": {
@@ -3488,7 +3488,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Run a scoped assurance assessment of applicable legal, contractual and privacy requirements \u2014 establish applicability and boundary, map controls to owners and evidence, and record gaps, disposition and unclaimed scope. Use for GDPR, CCPA/CPRA, SOC 2 or SaaS subprocessor, residency, export and deletion evidence; it does not certify the service or replace legal or audit judgment.",
+   "description": "Expertise and methods for compliance assessment. Run a scoped assurance assessment of applicable legal, contractual and privacy requirements \u2014 establish applicability and boundary, map controls to owners and evidence, and record gaps, disposition and unclaimed scope. Use for GDPR, CCPA/CPRA, SOC 2 or SaaS subprocessor, residency, export and deletion evidence; it does not certify the service or replace legal or audit judgment. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/sdlc/skills/run-compliance-assessment/SKILL.md",
    "group": "sdlc method",
    "constraints": {
@@ -3741,7 +3741,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Design, implement, run or review controlled failure tests for application journeys, dependency outages, delays, worker loss and resource exhaustion. Use to verify bounded failure handling and recovery in an authorized isolated or non-production target; choose proportionate fixtures or experiments without requiring a chaos platform.",
+   "description": "Expertise and methods for resilience testing. Design, implement, run or review controlled failure tests for application journeys, dependency outages, delays, worker loss and resource exhaustion. Use to verify bounded failure handling and recovery in an authorized isolated or non-production target; choose proportionate fixtures or experiments without requiring a chaos platform. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/sdlc/skills/testing-resilience/SKILL.md",
    "group": "sdlc method",
    "constraints": {
@@ -3833,7 +3833,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Develop, evaluate, compare, and continuously update business and product strategy from first principles. Use for startup ideas, business plans, market entry, wedge/beachhead selection, positioning, competitive analysis, economic power and value capture, market structure, customer behavior and culture, future-market scenarios, TAM/SAM/SOM, pricing, go-to-market, monetization, open-source commercialization, unit economics, moats, strategic control points, revenue scenarios, valuation, named strategy frameworks, or when the user wants to determine what a product or company should become. Treat the user's initial concept as a hypothesis, not the strategy.",
+   "description": "Expertise and methods for business strategy. Develop, evaluate, compare, and continuously update business and product strategy from first principles. Use for startup ideas, business plans, market entry, wedge/beachhead selection, positioning, competitive analysis, economic power and value capture, market structure, customer behavior and culture, future-market scenarios, TAM/SAM/SOM, pricing, go-to-market, monetization, open-source commercialization, unit economics, moats, strategic control points, revenue scenarios, valuation, named strategy frameworks, or when the user wants to determine what a product or company should become. Treat the user's initial concept as a hypothesis, not the strategy. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/strategy/skills/business-strategy/SKILL.md",
    "group": "strategy",
    "constraints": {
@@ -3856,7 +3856,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Craft and review competitive analysis: choose the competitor set, profile each rival, project trajectory, assess bundle and platform risk and model likely responses. Use inside a market scan, positioning or strategy engagement; competitive analysis is a mode within strategy, not a separate skill.",
+   "description": "Expertise and methods for competitive analysis. Craft and review competitive analysis: choose the competitor set, profile each rival, project trajectory, assess bundle and platform risk and model likely responses. Use inside a market scan, positioning or strategy engagement; competitive analysis is a mode within strategy, not a separate skill. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/strategy/skills/craft-competitive-analysis/SKILL.md",
    "group": "strategy",
    "constraints": {
@@ -3879,7 +3879,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Craft and review a strategy brief: the current thesis, integrated choices, alternatives, assumptions, economics, durability, tripwires and decision history. Use when writing, revising or critiquing a strategy brief or when a proposed strategy must become a durable record.",
+   "description": "Expertise and methods for strategy brief. Craft and review a strategy brief: the current thesis, integrated choices, alternatives, assumptions, economics, durability, tripwires and decision history. Use when writing, revising or critiquing a strategy brief or when a proposed strategy must become a durable record. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/strategy/skills/craft-strategy-brief/SKILL.md",
    "group": "strategy",
    "constraints": {
@@ -4155,7 +4155,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Build, extend or review TypeScript libraries, services and clients using the accepted runtime and toolchain. Use for module/compiler configuration, public types, runtime boundaries, package compatibility and meaningful verification independently of a frontend framework.",
+   "description": "Expertise and methods for TypeScript implementation. Build, extend or review TypeScript libraries, services and clients using the accepted runtime and toolchain. Use for module/compiler configuration, public types, runtime boundaries, package compatibility and meaningful verification independently of a frontend framework. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/typescript-development/skills/typescript-conventions/SKILL.md",
    "group": "typescript-development",
    "constraints": {
@@ -4178,7 +4178,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Create or refine responsive, theme-aware HTML architecture diagrams for structural, runtime, data and deployment explanations. Use when a portable HTML diagram is requested or chosen; preserve existing notation and accepted visual direction.",
+   "description": "Expertise and methods for architecture diagramming. Create or refine responsive, theme-aware HTML architecture diagrams for structural, runtime, data and deployment explanations. Use when a portable HTML diagram is requested or chosen; preserve existing notation and accepted visual direction. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/visualization/skills/architecture-diagramming/SKILL.md",
    "group": "visualization",
    "constraints": {
@@ -4201,7 +4201,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Create or refine portable single-file HTML slide decks, including narrative, visual direction, responsive/fullscreen layout and optional timeline navigation. Use for HTML presentation work; preserve requested formats and existing deck identity.",
+   "description": "Expertise and methods for presentation building. Create or refine portable single-file HTML slide decks, including narrative, visual direction, responsive/fullscreen layout and optional timeline navigation. Use for HTML presentation work; preserve requested formats and existing deck identity. It informs the activity that composes it; that activity owns the decision and stopping point.",
    "path": "plugins/visualization/skills/presentation-building/SKILL.md",
    "group": "visualization",
    "constraints": {
@@ -4224,7 +4224,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Build an explorable, standalone HTML architecture and message-flow explorer from repository evidence or a proposed design. Use when users want to explore a service or repository's architecture, capabilities, dataflow, request lifecycle, sequence messages, or C4 context/container/component views; also use for brainstorming and refining proposed system designs with these views. Keep user scenarios, diagram views, and architecture depth separate. Not for unrelated UI design, generic charts, or application feature implementation.",
+   "description": "Build an explorable, standalone HTML architecture and message-flow explorer from repository evidence or a proposed design. Use when users want to explore a service or repository's architecture, capabilities, dataflow, request lifecycle, sequence messages, or C4 context/container/component views; also use for brainstorming and refining proposed system designs with these views. Keep user scenarios, diagram views, and architecture depth separate. For unrelated UI design, generic charts or application feature implementation, use those owners.",
    "path": "plugins/visualization/skills/system-flow-explorer/SKILL.md",
    "group": "visualization",
    "constraints": {
@@ -4860,7 +4860,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/backend-development/skills/architecture-patterns/SKILL.md",
-    "line": 89
+    "line": 97
    },
    "note": "named capability"
   },
@@ -4873,7 +4873,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/backend-development/skills/architecture-patterns/SKILL.md",
-    "line": 90
+    "line": 98
    },
    "note": "named capability"
   },
@@ -4886,7 +4886,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/backend-development/skills/architecture-patterns/SKILL.md",
-    "line": 91
+    "line": 99
    },
    "note": "named capability"
   },
@@ -4899,7 +4899,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/backend-development/skills/graphql-design/SKILL.md",
-    "line": 131
+    "line": 137
    },
    "note": "named capability"
   },
@@ -4912,7 +4912,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/backend-development/skills/rest-api-design/SKILL.md",
-    "line": 131
+    "line": 137
    },
    "note": "named capability"
   },
@@ -4925,7 +4925,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/operations-platforms/skills/infra-delivery/SKILL.md",
-    "line": 141
+    "line": 144
    },
    "note": "named capability"
   },
@@ -4938,7 +4938,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/operations-platforms/skills/infra-delivery/SKILL.md",
-    "line": 142
+    "line": 145
    },
    "note": "named capability"
   },
@@ -4964,7 +4964,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/application-configuration/SKILL.md",
-    "line": 163
+    "line": 165
    },
    "note": "named capability"
   },
@@ -4977,7 +4977,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/application-configuration/SKILL.md",
-    "line": 164
+    "line": 166
    },
    "note": "named capability"
   },
@@ -4990,7 +4990,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/application-configuration/SKILL.md",
-    "line": 165
+    "line": 167
    },
    "note": "named capability"
   },
@@ -5003,7 +5003,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/application-configuration/SKILL.md",
-    "line": 166
+    "line": 168
    },
    "note": "named capability"
   },
@@ -5016,7 +5016,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/application-configuration/SKILL.md",
-    "line": 167
+    "line": 169
    },
    "note": "named capability"
   },
@@ -5029,7 +5029,7 @@
    "confidence": "declared",
    "provenance": {
     "file": "plugins/sdlc/skills/application-configuration/SKILL.md",
-    "line": 176
+    "line": 178
    },
    "note": "named capability"
   },
@@ -6614,25 +6614,25 @@
    "from": "ai-development",
    "to": "ai-testing",
    "file": "plugins/ai-development/skills/ai-development/SKILL.md",
-   "line": 122
+   "line": 127
   },
   {
    "from": "ai-development",
    "to": "ai-operations",
    "file": "plugins/ai-development/skills/ai-development/SKILL.md",
-   "line": 126
+   "line": 131
   },
   {
    "from": "ai-conventions",
    "to": "ai-deepeval-testing",
    "file": "plugins/ai-python-development/skills/ai-conventions/SKILL.md",
-   "line": 55
+   "line": 60
   },
   {
    "from": "ai-conventions",
    "to": "python-ai-observability",
    "file": "plugins/ai-python-development/skills/ai-conventions/SKILL.md",
-   "line": 56
+   "line": 61
   },
   {
    "from": "browser-extension-development",
@@ -6656,121 +6656,121 @@
    "from": "browser-extension-security",
    "to": "browser-extension-delivery",
    "file": "plugins/browser-extension-development/skills/browser-extension-security/SKILL.md",
-   "line": 60
+   "line": 64
   },
   {
    "from": "browser-extension-testing",
    "to": "browser-extension-security",
    "file": "plugins/browser-extension-development/skills/browser-extension-testing/SKILL.md",
-   "line": 48
+   "line": 52
   },
   {
    "from": "browser-extension-testing",
    "to": "browser-extension-ui",
    "file": "plugins/browser-extension-development/skills/browser-extension-testing/SKILL.md",
-   "line": 48
+   "line": 52
   },
   {
    "from": "browser-extension-ui",
    "to": "browser-extension-testing",
    "file": "plugins/browser-extension-development/skills/browser-extension-ui/SKILL.md",
-   "line": 98
+   "line": 103
   },
   {
    "from": "skill-authoring",
    "to": "writing-for-agents",
    "file": "plugins/documentation/skills/skill-authoring/SKILL.md",
-   "line": 17
+   "line": 21
   },
   {
    "from": "skill-authoring",
    "to": "technical-writing",
    "file": "plugins/documentation/skills/skill-authoring/SKILL.md",
-   "line": 17
+   "line": 21
   },
   {
    "from": "skill-authoring",
    "to": "technical-writing",
    "file": "plugins/documentation/skills/skill-authoring/SKILL.md",
-   "line": 25
+   "line": 29
   },
   {
    "from": "design-research",
    "to": "interface-design",
    "file": "plugins/frontend-development/skills/design-research/SKILL.md",
-   "line": 17
+   "line": 23
   },
   {
    "from": "design-research",
    "to": "usability-research",
    "file": "plugins/frontend-development/skills/design-research/SKILL.md",
-   "line": 17
+   "line": 23
   },
   {
    "from": "design-research",
    "to": "ui-ux-pro-max",
    "file": "plugins/frontend-development/skills/design-research/SKILL.md",
-   "line": 17
+   "line": 23
   },
   {
    "from": "design-research",
    "to": "interface-design",
    "file": "plugins/frontend-development/skills/design-research/SKILL.md",
-   "line": 103
+   "line": 109
   },
   {
    "from": "interface-design",
    "to": "ui-ux-pro-max",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 17
+   "line": 23
   },
   {
    "from": "interface-design",
    "to": "impeccable",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 17
+   "line": 23
   },
   {
    "from": "interface-design",
    "to": "design-research",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 17
+   "line": 23
   },
   {
    "from": "interface-design",
    "to": "design-research",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 37
+   "line": 43
   },
   {
    "from": "interface-design",
    "to": "ui-ux-pro-max",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 41
+   "line": 47
   },
   {
    "from": "interface-design",
    "to": "design-research",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 41
+   "line": 47
   },
   {
    "from": "interface-design",
    "to": "impeccable",
    "file": "plugins/frontend-development/skills/interface-design/SKILL.md",
-   "line": 41
+   "line": 47
   },
   {
    "from": "usability-research",
    "to": "interface-design",
    "file": "plugins/frontend-development/skills/usability-research/SKILL.md",
-   "line": 15
+   "line": 20
   },
   {
    "from": "ux-writing",
    "to": "interface-design",
    "file": "plugins/frontend-development/skills/ux-writing/SKILL.md",
-   "line": 15
+   "line": 20
   },
   {
    "from": "activity-system",
@@ -6794,19 +6794,19 @@
    "from": "analyze-capacity-cost",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/analyze-capacity-cost/SKILL.md",
-   "line": 15
+   "line": 21
   },
   {
    "from": "analyze-capacity-cost",
    "to": "design-system",
    "file": "plugins/sdlc/skills/analyze-capacity-cost/SKILL.md",
-   "line": 19
+   "line": 25
   },
   {
    "from": "analyze-capacity-cost",
    "to": "run-operations-review",
    "file": "plugins/sdlc/skills/analyze-capacity-cost/SKILL.md",
-   "line": 61
+   "line": 67
   },
   {
    "from": "artifact-system",
@@ -6914,61 +6914,61 @@
    "from": "design-security",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/design-security/SKILL.md",
-   "line": 15
+   "line": 22
   },
   {
    "from": "design-security",
    "to": "harden",
    "file": "plugins/sdlc/skills/design-security/SKILL.md",
-   "line": 19
+   "line": 26
   },
   {
    "from": "design-security",
    "to": "run-security-maintenance",
    "file": "plugins/sdlc/skills/design-security/SKILL.md",
-   "line": 19
+   "line": 26
   },
   {
    "from": "design-security",
    "to": "run-compliance-assessment",
    "file": "plugins/sdlc/skills/design-security/SKILL.md",
-   "line": 19
+   "line": 26
   },
   {
    "from": "design-security",
    "to": "run-incident-response",
    "file": "plugins/sdlc/skills/design-security/SKILL.md",
-   "line": 60
+   "line": 67
   },
   {
    "from": "design-system",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/design-system/SKILL.md",
-   "line": 21
+   "line": 23
   },
   {
    "from": "design-system",
    "to": "guide-design-proposal",
    "file": "plugins/sdlc/skills/design-system/SKILL.md",
-   "line": 35
+   "line": 37
   },
   {
    "from": "design-system",
    "to": "guide-architecture-views",
    "file": "plugins/sdlc/skills/design-system/SKILL.md",
-   "line": 35
+   "line": 37
   },
   {
    "from": "design-system",
    "to": "guide-state-machine",
    "file": "plugins/sdlc/skills/design-system/SKILL.md",
-   "line": 35
+   "line": 37
   },
   {
    "from": "design-system",
    "to": "guide-system-documentation",
    "file": "plugins/sdlc/skills/design-system/SKILL.md",
-   "line": 79
+   "line": 81
   },
   {
    "from": "develop",
@@ -7010,55 +7010,55 @@
    "from": "domain-modeling",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 17
-  },
-  {
-   "from": "domain-modeling",
-   "to": "artifact-system",
-   "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
    "line": 19
   },
   {
    "from": "domain-modeling",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 25
+   "line": 21
+  },
+  {
+   "from": "domain-modeling",
+   "to": "artifact-system",
+   "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
+   "line": 27
   },
   {
    "from": "domain-modeling",
    "to": "guide-adr",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 26
+   "line": 28
   },
   {
    "from": "domain-modeling",
    "to": "refine",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 28
+   "line": 30
   },
   {
    "from": "domain-modeling",
    "to": "design",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 28
+   "line": 30
   },
   {
    "from": "domain-modeling",
    "to": "guide-adr",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 71
+   "line": 73
   },
   {
    "from": "domain-modeling",
    "to": "refine",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 83
+   "line": 85
   },
   {
    "from": "domain-modeling",
    "to": "design",
    "file": "plugins/sdlc/skills/domain-modeling/SKILL.md",
-   "line": 83
+   "line": 85
   },
   {
    "from": "fix",
@@ -7202,53 +7202,47 @@
    "from": "project-conventions",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 19
+   "line": 21
   },
   {
    "from": "project-conventions",
    "to": "guide-readme",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 21
+   "line": 23
   },
   {
    "from": "project-conventions",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 23
+   "line": 25
   },
   {
    "from": "project-conventions",
    "to": "test",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 51
+   "line": 53
   },
   {
    "from": "project-conventions",
    "to": "git-contributions",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 51
+   "line": 53
   },
   {
    "from": "project-conventions",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 56
+   "line": 58
   },
   {
    "from": "project-conventions",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/project-conventions/SKILL.md",
-   "line": 65
+   "line": 67
   },
   {
    "from": "prototype",
    "to": "activity-system",
-   "file": "plugins/sdlc/skills/prototype/SKILL.md",
-   "line": 17
-  },
-  {
-   "from": "prototype",
-   "to": "design",
    "file": "plugins/sdlc/skills/prototype/SKILL.md",
    "line": 19
   },
@@ -7256,7 +7250,13 @@
    "from": "prototype",
    "to": "design",
    "file": "plugins/sdlc/skills/prototype/SKILL.md",
-   "line": 27
+   "line": 21
+  },
+  {
+   "from": "prototype",
+   "to": "design",
+   "file": "plugins/sdlc/skills/prototype/SKILL.md",
+   "line": 29
   },
   {
    "from": "refine",
@@ -7310,97 +7310,97 @@
    "from": "requirements-engineering",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/requirements-engineering/SKILL.md",
-   "line": 18
+   "line": 20
   },
   {
    "from": "requirements-engineering",
    "to": "guide-ecr",
    "file": "plugins/sdlc/skills/requirements-engineering/SKILL.md",
-   "line": 20
+   "line": 22
   },
   {
    "from": "requirements-engineering",
    "to": "guide-prd",
    "file": "plugins/sdlc/skills/requirements-engineering/SKILL.md",
-   "line": 20
+   "line": 22
   },
   {
    "from": "requirements-engineering",
    "to": "refine",
    "file": "plugins/sdlc/skills/requirements-engineering/SKILL.md",
-   "line": 22
+   "line": 24
   },
   {
    "from": "requirements-engineering",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/requirements-engineering/SKILL.md",
-   "line": 92
+   "line": 94
   },
   {
    "from": "research",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 17
+   "line": 19
   },
   {
    "from": "research",
    "to": "run-product-feedback-analysis",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 19
+   "line": 21
   },
   {
    "from": "research",
    "to": "guide-research-report",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 21
+   "line": 23
   },
   {
    "from": "research",
    "to": "artifact-system",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 21
+   "line": 23
   },
   {
    "from": "research",
    "to": "guide-research-report",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 28
+   "line": 30
   },
   {
    "from": "research",
    "to": "plan",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 31
+   "line": 33
   },
   {
    "from": "research",
    "to": "refine",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 31
+   "line": 33
   },
   {
    "from": "research",
    "to": "design",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 31
+   "line": 33
   },
   {
    "from": "research",
    "to": "plan",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 85
+   "line": 87
   },
   {
    "from": "research",
    "to": "refine",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 85
+   "line": 87
   },
   {
    "from": "research",
    "to": "design",
    "file": "plugins/sdlc/skills/research/SKILL.md",
-   "line": 85
+   "line": 87
   },
   {
    "from": "retro",
@@ -7424,31 +7424,31 @@
    "from": "run-compliance-assessment",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/run-compliance-assessment/SKILL.md",
-   "line": 16
+   "line": 22
   },
   {
    "from": "run-compliance-assessment",
    "to": "guide-assurance-assessment",
    "file": "plugins/sdlc/skills/run-compliance-assessment/SKILL.md",
-   "line": 18
+   "line": 24
   },
   {
    "from": "run-compliance-assessment",
    "to": "design-security",
    "file": "plugins/sdlc/skills/run-compliance-assessment/SKILL.md",
-   "line": 20
+   "line": 26
   },
   {
    "from": "run-compliance-assessment",
    "to": "harden",
    "file": "plugins/sdlc/skills/run-compliance-assessment/SKILL.md",
-   "line": 20
+   "line": 26
   },
   {
    "from": "run-compliance-assessment",
    "to": "run-security-maintenance",
    "file": "plugins/sdlc/skills/run-compliance-assessment/SKILL.md",
-   "line": 20
+   "line": 26
   },
   {
    "from": "run-dependency-maintenance",
@@ -7652,7 +7652,7 @@
    "from": "testing-resilience",
    "to": "activity-system",
    "file": "plugins/sdlc/skills/testing-resilience/SKILL.md",
-   "line": 18
+   "line": 21
   },
   {
    "from": "write-spec",
@@ -7718,103 +7718,103 @@
    "from": "business-strategy",
    "to": "validate-idea",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
-   "line": 42
+   "line": 44
   },
   {
    "from": "business-strategy",
    "to": "discover-customers",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
-   "line": 43
-  },
-  {
-   "from": "business-strategy",
-   "to": "run-market-scan",
-   "file": "plugins/strategy/skills/business-strategy/SKILL.md",
-   "line": 44
-  },
-  {
-   "from": "business-strategy",
-   "to": "define-positioning",
-   "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 45
   },
   {
    "from": "business-strategy",
-   "to": "design-business-model",
+   "to": "run-market-scan",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 46
   },
   {
    "from": "business-strategy",
-   "to": "plan-go-to-market",
+   "to": "define-positioning",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 47
   },
   {
    "from": "business-strategy",
-   "to": "test-assumptions",
+   "to": "design-business-model",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 48
   },
   {
    "from": "business-strategy",
-   "to": "set-strategy",
+   "to": "plan-go-to-market",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 49
   },
   {
    "from": "business-strategy",
-   "to": "build-strategic-roadmap",
+   "to": "test-assumptions",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 50
   },
   {
    "from": "business-strategy",
-   "to": "review-strategy",
+   "to": "set-strategy",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 51
   },
   {
    "from": "business-strategy",
-   "to": "raise-capital",
+   "to": "build-strategic-roadmap",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 52
   },
   {
    "from": "business-strategy",
-   "to": "model-finances",
+   "to": "review-strategy",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
    "line": 53
   },
   {
    "from": "business-strategy",
+   "to": "raise-capital",
+   "file": "plugins/strategy/skills/business-strategy/SKILL.md",
+   "line": 54
+  },
+  {
+   "from": "business-strategy",
+   "to": "model-finances",
+   "file": "plugins/strategy/skills/business-strategy/SKILL.md",
+   "line": 55
+  },
+  {
+   "from": "business-strategy",
    "to": "craft-strategy-brief",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
-   "line": 131
+   "line": 133
   },
   {
    "from": "business-strategy",
    "to": "craft-competitive-analysis",
    "file": "plugins/strategy/skills/business-strategy/SKILL.md",
-   "line": 131
+   "line": 133
   },
   {
    "from": "craft-competitive-analysis",
    "to": "run-market-scan",
    "file": "plugins/strategy/skills/craft-competitive-analysis/SKILL.md",
-   "line": 17
+   "line": 22
   },
   {
    "from": "craft-competitive-analysis",
    "to": "define-positioning",
    "file": "plugins/strategy/skills/craft-competitive-analysis/SKILL.md",
-   "line": 17
+   "line": 22
   },
   {
    "from": "craft-competitive-analysis",
    "to": "set-strategy",
    "file": "plugins/strategy/skills/craft-competitive-analysis/SKILL.md",
-   "line": 17
+   "line": 22
   },
   {
    "from": "define-positioning",

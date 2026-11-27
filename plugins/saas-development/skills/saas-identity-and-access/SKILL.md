@@ -1,9 +1,12 @@
 ---
 name: saas-identity-and-access
-description: Design or assess SaaS organization authority beyond basic authentication,
-  including membership, roles, invitations, ownership transfer, SSO/SCIM, machine
-  identity, support access, tenant isolation and revocation. Use when hosted-product
-  access crosses organizations, enterprise customers or operational staff.
+description: >-
+  Expertise and methods for SaaS identity and access. Design or assess SaaS organization
+  authority beyond basic authentication, including membership, roles, invitations, ownership
+  transfer, SSO/SCIM, machine identity, support access, tenant isolation and revocation. Use
+  when hosted-product access crosses organizations, enterprise customers or operational staff.
+  It informs the activity that composes it; that activity owns the decision and stopping
+  point.
 license: MIT
 metadata:
   kind: method

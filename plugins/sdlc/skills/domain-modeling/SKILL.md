@@ -1,8 +1,10 @@
 ---
 name: domain-modeling
-description: Sharpen a project's domain language while designing. Use when terms are overloaded
-  or inconsistent, boundaries are unclear, or a resolved term or consequential choice
-  needs a glossary entry or decision record.
+description: >-
+  Expertise and methods for domain modeling. Sharpen a project's domain language while
+  designing. Use when terms are overloaded or inconsistent, boundaries are unclear, or a
+  resolved term or consequential choice needs a glossary entry or decision record. It informs
+  the activity that composes it; that activity owns the decision and stopping point.
 user-invocable: true
 metadata:
   kind: method

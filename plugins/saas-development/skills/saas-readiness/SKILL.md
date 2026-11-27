@@ -1,8 +1,11 @@
 ---
 name: saas-readiness
-description: Assess a SaaS launch, customer rollout or capability expansion against
-  actual commitments and operating evidence. Use for a scoped readiness verdict and
-  prioritized gaps, without assuming every enterprise feature or authorizing release.
+description: >-
+  Expertise and methods for SaaS readiness. Assess a SaaS launch, customer rollout or
+  capability expansion against actual commitments and operating evidence. Use for a scoped
+  readiness verdict and prioritized gaps, without assuming every enterprise feature or
+  authorizing release. It informs the activity that composes it; that activity owns the
+  decision and stopping point.
 license: MIT
 metadata:
   kind: method

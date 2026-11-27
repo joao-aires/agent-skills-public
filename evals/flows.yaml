@@ -34,11 +34,16 @@ flows:
     cases:
       - new-application
       - artifact-workspace-cross-phase
+      - activity-entry-unphased-idea
+      - activity-entry-settled-design
+      - activity-entry-implement-defined
   - id: stack-and-runtime
     outcome: An installed pack that does not match the project stack is not applied, and test evidence covers the authentication boundary.
     cases:
       - inapplicable-stack-pack
       - fixture-auth-production-boundary
+      - activity-entry-test-ai-claim
+      - activity-entry-postgres-performance
   - id: readiness-and-architecture
     outcome: A readiness verdict separates evidence from authorization, and current and proposed architecture stay distinct.
     cases:

@@ -1,6 +1,10 @@
 ---
 name: browser-extension-security
-description: Design, implement or review Chrome MV3 permissions and extension trust boundaries. Use for manifest grants, content-script messaging, privileged fetch/injection, extension storage and browser-to-backend identity.
+description: >-
+  Expertise and methods for Chrome MV3 security. Design, implement or review Chrome MV3
+  permissions and extension trust boundaries. Use for manifest grants, content-script
+  messaging, privileged fetch/injection, extension storage and browser-to-backend identity. It
+  informs the activity that composes it; that activity owns the decision and stopping point.
 user-invocable: false
 metadata:
   kind: method

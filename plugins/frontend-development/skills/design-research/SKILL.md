@@ -1,6 +1,12 @@
 ---
 name: design-research
-description: Research shipped products, flows and visual directions before settling an interface decision. Use for competitive and reference research, design benchmarks and pattern evidence; choose sources, separate observation from inference, respect access and privacy limits, and feed material into a comparable option set. Works without paid reference services.
+description: >-
+  Expertise and methods for design research. Research shipped products, flows and visual
+  directions before settling an interface decision. Use for competitive and reference
+  research, design benchmarks and pattern evidence; choose sources, separate observation from
+  inference, respect access and privacy limits, and feed material into a comparable option
+  set. Works without paid reference services. It informs the activity that composes it; that
+  activity owns the decision and stopping point.
 user-invocable: true
 metadata:
   kind: method

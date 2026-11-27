@@ -1,0 +1,31 @@
+description: activity-entry-postgres-performance
+metadata:
+  gate: nightly
+  stage: implement
+  kind: decision
+vars:
+  id: activity-entry-postgres-performance
+  prompt: |
+    The saved-search query is slow on PostgreSQL, and its design is accepted. Decide which
+    activity applies and which installed expertise you would consult. Do not modify
+    application code. Write `activity: <name>` and `expertise: <name or none>` to
+    selection.txt as a scratch answer, not a durable artifact.
+  fixture: fixtures/empty
+  timeout_sec: 300
+  expect:
+    exit: 0
+    files:
+      contains:
+        selection.txt:
+          - "activity:"
+          - "implement"
+          - "postgres"
+    output_matches: '(PostgreSQL|postgres|query|index)'
+    diff:
+      max_files: 1
+      allowed: [selection.txt]
+  judge:
+    rubric: Selects implement, names PostgreSQL or performance expertise, and does not redesign the accepted change.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

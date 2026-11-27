@@ -1,6 +1,11 @@
 ---
 name: craft-competitive-analysis
-description: 'Craft and review competitive analysis: choose the competitor set, profile each rival, project trajectory, assess bundle and platform risk and model likely responses. Use inside a market scan, positioning or strategy engagement; competitive analysis is a mode within strategy, not a separate skill.'
+description: >-
+  Expertise and methods for competitive analysis. Craft and review competitive analysis:
+  choose the competitor set, profile each rival, project trajectory, assess bundle and
+  platform risk and model likely responses. Use inside a market scan, positioning or strategy
+  engagement; competitive analysis is a mode within strategy, not a separate skill. It informs
+  the activity that composes it; that activity owns the decision and stopping point.
 user-invocable: true
 metadata:
   kind: method

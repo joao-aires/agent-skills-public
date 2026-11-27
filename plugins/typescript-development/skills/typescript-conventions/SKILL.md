@@ -1,9 +1,11 @@
 ---
 name: typescript-conventions
-description: Build, extend or review TypeScript libraries, services and clients using
-  the accepted runtime and toolchain. Use for module/compiler configuration, public
-  types, runtime boundaries, package compatibility and meaningful verification independently
-  of a frontend framework.
+description: >-
+  Expertise and methods for TypeScript implementation. Build, extend or review TypeScript
+  libraries, services and clients using the accepted runtime and toolchain. Use for
+  module/compiler configuration, public types, runtime boundaries, package compatibility and
+  meaningful verification independently of a frontend framework. It informs the activity that
+  composes it; that activity owns the decision and stopping point.
 license: MIT
 metadata:
   kind: method

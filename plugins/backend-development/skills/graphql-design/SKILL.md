@@ -1,6 +1,12 @@
 ---
 name: graphql-design
-description: Design a GraphQL schema and API contract covering domain types, nullability, connections, errors, mutations, idempotency, N+1 and cost limits, field authorization, persisted queries, federation boundaries, deprecation, caching and public versus private surfaces. Use before implementing resolvers or changing a schema; not for resolver code or service behavior design.
+description: >-
+  Expertise and methods for GraphQL API design. Design a GraphQL schema and API contract covering
+  domain types, nullability, connections, errors, mutations, idempotency, N+1 and cost limits,
+  field authorization, persisted queries, federation boundaries, deprecation, caching and
+  public versus private surfaces. Use before implementing resolvers or changing a schema; not
+  for resolver code or service behavior design. It informs the activity that composes it; that
+  activity owns the decision and stopping point.
 user-invocable: true
 metadata:
   kind: method

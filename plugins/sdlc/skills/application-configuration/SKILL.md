@@ -1,11 +1,13 @@
 ---
 name: application-configuration
 description: >-
-  Own the application configuration contract: how an application loads, validates
-  and changes configuration and secrets across local, CI and production targets.
-  Use for source precedence, typed settings, environment parity, runtime reload,
-  multi-tenant defaults, feature-flag boundaries and secret-consumption failure
-  behavior. Credential custody and target delivery remain with their owners.
+  Expertise and methods for application configuration. Own the application configuration
+  contract: how an application loads, validates and changes configuration and secrets across
+  local, CI and production targets. Use for source precedence, typed settings, environment
+  parity, runtime reload, multi-tenant defaults, feature-flag boundaries and
+  secret-consumption failure behavior. Credential custody and target delivery remain with
+  their owners. It informs the activity that composes it; that activity owns the decision and
+  stopping point.
 metadata:
   kind: method
   domain: development

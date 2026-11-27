@@ -1,8 +1,10 @@
 ---
 name: bash-engineering
-description: Create, refactor and audit reliable Bash CLI utilities, build/operations
-  scripts and CI action entrypoints with safe argument handling, explicit failure
-  semantics, portability, testable side effects and useful documentation.
+description: >-
+  Expertise and methods for Bash engineering. Create, refactor and audit reliable Bash CLI
+  utilities, build/operations scripts and CI action entrypoints with safe argument handling,
+  explicit failure semantics, portability, testable side effects and useful documentation. It
+  informs the activity that composes it; that activity owns the decision and stopping point.
 metadata:
   kind: method
   domain: tooling

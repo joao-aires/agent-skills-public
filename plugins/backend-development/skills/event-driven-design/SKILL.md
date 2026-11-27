@@ -1,6 +1,12 @@
 ---
 name: event-driven-design
-description: Design event and message contracts across services, including event meaning, schema evolution, ordering and partitioning, delivery and idempotency, replay, retention and failure handling. Use when a change publishes or consumes events, introduces asynchronous integration or alters an existing event contract; not for broker installation or cluster operations.
+description: >-
+  Expertise and methods for event-driven design. Design event and message contracts across
+  services, including event meaning, schema evolution, ordering and partitioning, delivery and
+  idempotency, replay, retention and failure handling. Use when a change publishes or consumes
+  events, introduces asynchronous integration or alters an existing event contract; not for
+  broker installation or cluster operations. It informs the activity that composes it; that
+  activity owns the decision and stopping point.
 user-invocable: true
 metadata:
   kind: method

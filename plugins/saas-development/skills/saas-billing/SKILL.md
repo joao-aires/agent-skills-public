@@ -1,9 +1,12 @@
 ---
 name: saas-billing
-description: Design or assess SaaS commercial state, entitlements and billing-provider
-  integration. Use for plans, prices, trials, upgrades, dunning, cancellation, refunds,
-  tax and the event, reconciliation and entitlement contracts behind paid access.
-  Independently of a particular provider except where the platform selects one.
+description: >-
+  Expertise and methods for SaaS billing. Design or assess SaaS commercial state, entitlements
+  and billing-provider integration. Use for plans, prices, trials, upgrades, dunning,
+  cancellation, refunds, tax and the event, reconciliation and entitlement contracts behind
+  paid access. Independently of a particular provider except where the platform selects one.
+  It informs the activity that composes it; that activity owns the decision and stopping
+  point.
 license: MIT
 metadata:
   kind: method

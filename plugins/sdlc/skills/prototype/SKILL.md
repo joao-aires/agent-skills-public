@@ -1,8 +1,10 @@
 ---
 name: prototype
-description: Build a throwaway probe that answers one design question about logic, state or
-  a user interface. Use when design validation needs observed behavior or a rendered
-  choice, not more discussion.
+description: >-
+  Expertise and methods for prototyping. Build a throwaway probe that answers one design
+  question about logic, state or a user interface. Use when design validation needs observed
+  behavior or a rendered choice, not more discussion. It informs the activity that composes
+  it; that activity owns the decision and stopping point.
 user-invocable: true
 metadata:
   kind: method

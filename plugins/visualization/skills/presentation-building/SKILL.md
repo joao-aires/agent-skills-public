@@ -1,6 +1,11 @@
 ---
 name: presentation-building
-description: Create or refine portable single-file HTML slide decks, including narrative, visual direction, responsive/fullscreen layout and optional timeline navigation. Use for HTML presentation work; preserve requested formats and existing deck identity.
+description: >-
+  Expertise and methods for presentation building. Create or refine portable single-file HTML
+  slide decks, including narrative, visual direction, responsive/fullscreen layout and
+  optional timeline navigation. Use for HTML presentation work; preserve requested formats and
+  existing deck identity. It informs the activity that composes it; that activity owns the
+  decision and stopping point.
 metadata:
   kind: method
   domain: visualization

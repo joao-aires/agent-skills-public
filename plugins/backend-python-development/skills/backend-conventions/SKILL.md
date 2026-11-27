@@ -1,9 +1,12 @@
 ---
 name: backend-conventions
-description: Build, extend or review Python/FastAPI systems with SQLAlchemy, Alembic,
-  contextual persistence, auth, API contracts, jobs and optional AI/FastMCP. Use for
-  backend architecture, endpoints, migrations, transactions, integrations and verification;
-  accept reference systems and preserve established project constraints.
+description: >-
+  Expertise and methods for Python/FastAPI backend implementation. Build, extend or review
+  Python/FastAPI systems with SQLAlchemy, Alembic, contextual persistence, auth, API
+  contracts, jobs and optional AI/FastMCP. Use for backend architecture, endpoints,
+  migrations, transactions, integrations and verification; accept reference systems and
+  preserve established project constraints. It informs the activity that composes it; that
+  activity owns the decision and stopping point.
 metadata:
   kind: method
   domain: backend

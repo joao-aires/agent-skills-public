@@ -1,11 +1,12 @@
 ---
 name: ci-cd-pipelines
 description: >-
-  Design or review provider-neutral CI/CD delivery: verification, artifact
-  and deployment stages, artifact identity and promotion, environment and configuration
-  separation, gate design, branching and release flow, recovery, and pipeline evidence.
-  Use when choosing or auditing a pipeline shape rather than implementing a specific
-  provider's syntax.
+  Expertise and methods for CI/CD delivery. Design or review provider-neutral CI/CD delivery:
+  verification, artifact and deployment stages, artifact identity and promotion, environment
+  and configuration separation, gate design, branching and release flow, recovery, and
+  pipeline evidence. Use when choosing or auditing a pipeline shape rather than implementing a
+  specific provider's syntax. It informs the activity that composes it; that activity owns the
+  decision and stopping point.
 user-invocable: true
 metadata:
   kind: method

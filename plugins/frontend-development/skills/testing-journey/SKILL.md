@@ -1,8 +1,11 @@
 ---
 name: testing-journey
-description: Define, automate, explore and evaluate user journeys across web, desktop
-  and mobile applications, including browser extensions. Use for UI/API/persistence changes, interaction and visual
-  consistency, authentication, authorization, lifecycle behavior and failing journey checks.
+description: >-
+  Expertise and methods for user-journey testing. Define, automate, explore and evaluate user
+  journeys across web, desktop and mobile applications, including browser extensions. Use for
+  UI/API/persistence changes, interaction and visual consistency, authentication,
+  authorization, lifecycle behavior and failing journey checks. It informs the activity that
+  composes it; that activity owns the decision and stopping point.
 metadata:
   kind: method
   domain: frontend

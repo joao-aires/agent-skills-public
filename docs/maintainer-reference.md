@@ -95,9 +95,14 @@ The activity and the expertise it may consult have to describe themselves in the
 | Platform | Kubernetes | K8s, Helm, manifests, workloads | design, implement, operate |
 | Browser | Chrome Manifest V3 | MV3, content script, service worker, Web Store | design, implement, test, release |
 | Frontend | React, Next.js | shadcn, Tailwind | design, implement, test |
+| Go | Go | Golang, go.mod, modules | design, implement, test |
+| TypeScript | TypeScript | TS, tsconfig, Node | design, implement, test |
+| Native | native clients | Tauri, React Native, Expo, iOS, Android | design, implement, test, release |
 | Security | security design | threat model, authn/authz, trust boundary, privacy | requirements, design, harden |
 | Requirements | requirements | spec, acceptance, scope, behavior | refine |
 | Delivery | release | deploy, ship, promote, rollback | release |
+| Visualization | architecture diagrams, presentations | C4, HTML deck, explorer | design, explain |
+| Strategy | business strategy | positioning, business model, market scan, go-to-market | plan, design |
 
 Use the canonical noun and the aliases users actually type; the noun alone under-triggers. Keep the opening to one clause and the rest specific.
 

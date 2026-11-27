@@ -1,6 +1,11 @@
 ---
 name: browser-extension-delivery
-description: Prepare or review Chrome MV3 release packages and Chrome Web Store readiness. Use for production ZIP contents, listing/privacy evidence, update compatibility and authorized upload/submission/publication; preserve existing CI and release policy.
+description: >-
+  Expertise and methods for Chrome MV3 delivery. Prepare or review Chrome MV3 release packages
+  and Chrome Web Store readiness. Use for production ZIP contents, listing/privacy evidence,
+  update compatibility and authorized upload/submission/publication; preserve existing CI and
+  release policy. It informs the activity that composes it; that activity owns the decision
+  and stopping point.
 user-invocable: false
 metadata:
   kind: method

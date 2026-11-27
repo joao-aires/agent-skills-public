@@ -1,10 +1,11 @@
 ---
 name: cli-development
 description: >-
-  Design or review a command-line application's public surface: command grammar,
-  input precedence, streams and exit codes, interactivity, help and completion,
-  portability, packaging, updates and compatibility. Use when shaping a new CLI or
-  changing an existing one, independent of the implementation language.
+  Expertise and methods for CLI design. Design or review a command-line application's public
+  surface: command grammar, input precedence, streams and exit codes, interactivity, help and
+  completion, portability, packaging, updates and compatibility. Use when shaping a new CLI or
+  changing an existing one, independent of the implementation language. It informs the
+  activity that composes it; that activity owns the decision and stopping point.
 metadata:
   kind: method
   domain: tooling
