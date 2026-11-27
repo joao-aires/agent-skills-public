@@ -18,7 +18,7 @@ Take a rough idea, feature, refactor or improvement through clarification, desig
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point. For the ECR this activity keeps current, read [guide-ecr](../guide-ecr/SKILL.md). Read [guide-prd](../guide-prd/SKILL.md) and [guide-issue](../guide-issue/SKILL.md) when those artifacts are produced.
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## When starting a new application
 

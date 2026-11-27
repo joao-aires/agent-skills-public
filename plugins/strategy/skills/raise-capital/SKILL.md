@@ -16,7 +16,7 @@ Decide whether to raise, how much, for which proof and on what terms the company
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [capital and finance](../business-strategy/references/capital-and-finance.md). Connect the round to [financial scenario modeling](../business-strategy/references/financial-scenario-modeling.md), [revenue quality and unit economics](../business-strategy/references/revenue-quality-and-unit-economics.md) and, where valuation matters, [valuation framework](../business-strategy/references/valuation-framework.md). Record it with the [capital plan](../business-strategy/assets/capital-plan.md).
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Own the request
 

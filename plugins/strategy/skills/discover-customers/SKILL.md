@@ -16,7 +16,7 @@ Replace the team's model of the customer with observed reality: the trigger, the
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [customer discovery](../business-strategy/references/customer-discovery.md) and [customer behavior and culture](../business-strategy/references/customer-behavior-and-culture.md). Use the [interview guide](../business-strategy/assets/interview-guide.md) to keep sessions comparable.
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Own the request
 

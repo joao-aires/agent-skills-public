@@ -18,7 +18,7 @@ Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply
 
 This activity starts after a premise survives triage. [validate-idea](../validate-idea/SKILL.md) challenges the premise and runs nothing. This activity designs, runs and interprets the evidence.
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Own the request
 

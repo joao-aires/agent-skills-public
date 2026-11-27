@@ -21,7 +21,7 @@ Read [activity system](../activity-system/SKILL.md) for scope and stopping point
 
 Use the [artifact system](../artifact-system/SKILL.md) for the handoff and [artifact homes](../artifact-system/references/homes.md) for persistence. Read [software types](../artifact-system/references/software-types.md) to decide what evidence the affected components need. Use the [design proposal contract](../artifact-system/references/contracts/design-proposal.md) for the record.
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Reading path
 

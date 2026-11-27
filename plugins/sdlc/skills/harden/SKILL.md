@@ -19,7 +19,7 @@ Remove or bound a concrete security or privacy weakness in the requested scope, 
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Use [verification](../test/SKILL.md) for verified remediation and seek matching security/privacy expertise when available.
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Assess and remediate within scope
 

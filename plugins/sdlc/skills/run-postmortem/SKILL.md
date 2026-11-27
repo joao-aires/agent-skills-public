@@ -18,7 +18,7 @@ Read [activity system](../activity-system/SKILL.md) for scope and stopping point
 
 For writing the artifact this activity produces, read [guide-postmortem](../guide-postmortem/SKILL.md) for structure, conventions and review.
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Choose the mode
 

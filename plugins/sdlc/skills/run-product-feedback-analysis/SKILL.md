@@ -20,7 +20,7 @@ Turn user evidence into a product-feedback analysis that supports a named decisi
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point. For the artifact this activity produces, read the [product-feedback-analysis contract](../artifact-system/references/contracts/product-feedback-analysis.md) and [guide-product-feedback-analysis](../guide-product-feedback-analysis/SKILL.md). Resolve its home with [artifact homes](../artifact-system/references/homes.md) before writing.
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Ask a decision question
 

@@ -16,7 +16,7 @@ Make the choice obvious relative to the alternatives the customer already unders
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [positioning and category](../business-strategy/references/positioning-and-category.md) and [value proposition](../business-strategy/references/value-proposition.md). Use [competitive dynamics](../business-strategy/references/competitive-dynamics.md) and [craft-competitive-analysis](../craft-competitive-analysis/SKILL.md) for the comparison set.
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Own the request
 

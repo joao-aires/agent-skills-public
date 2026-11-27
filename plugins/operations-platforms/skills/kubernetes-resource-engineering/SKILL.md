@@ -1,8 +1,11 @@
 ---
 name: kubernetes-resource-engineering
-description: Design, generate, review and maintain Kubernetes application/infrastructure
-  resources, Helm charts and Kustomize overlays with secure defaults, reliable lifecycle,
-  controller ownership and rendered validation.
+description: >-
+  Expertise and methods for Kubernetes (K8s): application and infrastructure resources,
+  Helm charts, Kustomize overlays, probes, resource budgets, networking, rollout,
+  controller ownership and rendered validation. Use when design, implementation or
+  operations needs Kubernetes-specific judgment. Informs provisioning and live
+  diagnosis; the platform owner and the incident response activity keep those decisions.
 metadata:
   kind: method
   domain: platform

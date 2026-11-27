@@ -1,11 +1,11 @@
 ---
 name: ai-evaluation
 description: >-
-  Design and run the mechanics of a program-level AI evaluation: acceptance criteria,
-  dataset and slice governance, grader choice and calibration, baselines, experiments,
-  CI gates, production sampling, regression and red-team coverage. Use inside testing,
-  design or release when an AI change, release or product claim needs evaluation evidence.
-  It supplies the mechanics; the activity owns the decision and stopping point.
+  Expertise and methods for AI evaluation programs: claims, acceptance, datasets and
+  slices, graders, baselines, gates, production sampling, regression and red-teaming.
+  Use when testing, design or release needs evaluation evidence for a model, RAG
+  pipeline or agent. Contributes evidence to verification; it does not replace
+  application verification or authorize release.
 user-invocable: true
 metadata:
   kind: method

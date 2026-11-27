@@ -20,7 +20,7 @@ Read [activity system](../activity-system/SKILL.md) for scope and stopping point
 
 Compare the current observation with the previous finding and local policy. Preserve unresolved age, exceptions and ownership so a repeated run follows work through rather than rediscovering it as new. Keep the review finite and return accountable findings. Deeper remediation can be a separate scoped action.
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Modes and general purpose
 

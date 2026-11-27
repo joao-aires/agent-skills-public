@@ -16,7 +16,7 @@ Expose the assumptions that drive an outcome instead of presenting one impressiv
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [financial scenario modeling](../business-strategy/references/financial-scenario-modeling.md) and [revenue quality and unit economics](../business-strategy/references/revenue-quality-and-unit-economics.md). Tie pricing to [pricing and packaging](../business-strategy/references/pricing-and-packaging.md), market size to [market sizing](../business-strategy/references/market-sizing.md), and record per-segment economics with the [unit economics record](../business-strategy/assets/unit-economics-record.md).
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Own the request
 

@@ -20,7 +20,7 @@
  },
  "generated": {
   "repository": "joao-aires/agent-skills-public",
-  "digest": "ef36dca1",
+  "digest": "02f68f2f",
   "sources": [
    "plugins/*/skills/*/SKILL.md",
    "plugins/sdlc/skills/activity-system/references/catalog.md",
@@ -682,7 +682,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design and run the mechanics of a program-level AI evaluation: acceptance criteria, dataset and slice governance, grader choice and calibration, baselines, experiments, CI gates, production sampling, regression and red-team coverage. Use inside testing, design or release when an AI change, release or product claim needs evaluation evidence. It supplies the mechanics; the activity owns the decision and stopping point.",
+   "description": "Expertise and methods for AI evaluation programs: claims, acceptance, datasets and slices, graders, baselines, gates, production sampling, regression and red-teaming. Use when testing, design or release needs evaluation evidence for a model, RAG pipeline or agent. Contributes evidence to verification; it does not replace application verification or authorize release.",
    "path": "plugins/ai-development/skills/ai-evaluation/SKILL.md",
    "group": "ai-development",
    "constraints": {
@@ -728,7 +728,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Design and assess AI testing and evaluation across components, retrieval, agent trajectories, conversations, protocols and product journeys. Use for quality criteria, datasets, graders, regression gates and evaluation evidence independently of an implementation library or application language.",
+   "description": "Expertise and methods for AI testing and evaluation: criteria, datasets, graders, regression gates and evidence levels across components, retrieval, agent trajectories, conversations and product journeys. Use when testing or design needs to decide what to evaluate and what the evidence proves. Informs application verification; the testing activity owns the claim and stopping point.",
    "path": "plugins/ai-development/skills/ai-testing/SKILL.md",
    "group": "ai-development",
    "constraints": {
@@ -1165,7 +1165,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": false,
-   "description": "Design, implement, debug or migrate Chrome Manifest V3 extensions. Use for extension entrypoints, background lifecycle, messaging, persistence and WXT/CRXJS integration; preserve the accepted UI framework and backend.",
+   "description": "Expertise and methods for Chrome Manifest V3 extensions (MV3, content scripts, service workers, WXT, CRXJS): entrypoints, background lifecycle, messaging, persistence, debugging and migration. Use when design, implementation, testing or delivery needs extension-specific judgment. Informs interface, security and release decisions; those owners keep their decisions.",
    "path": "plugins/browser-extension-development/skills/browser-extension-development/SKILL.md",
    "group": "browser-extension-development",
    "constraints": {
@@ -1303,7 +1303,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Develop or review PostgreSQL schemas, transactions, migrations and access policies. Use for SQL, data integrity, concurrency and engine-specific persistence behavior with the actual application roles and server version.",
+   "description": "Expertise and methods for PostgreSQL (Postgres): schemas, transactions, indexes, migrations, access policies, performance and diagnostics. Use when design, implementation, testing or operations needs PostgreSQL-specific judgment. Informs database selection and data modeling; the design activity owns the choice and the data model.",
    "path": "plugins/database-postgresql-development/skills/postgresql-development/SKILL.md",
    "group": "database-postgresql-development",
    "constraints": {
@@ -2131,7 +2131,7 @@
    "origin": "local",
    "explicit": false,
    "user_invocable": true,
-   "description": "Design, generate, review and maintain Kubernetes application/infrastructure resources, Helm charts and Kustomize overlays with secure defaults, reliable lifecycle, controller ownership and rendered validation.",
+   "description": "Expertise and methods for Kubernetes (K8s): application and infrastructure resources, Helm charts, Kustomize overlays, probes, resource budgets, networking, rollout, controller ownership and rendered validation. Use when design, implementation or operations needs Kubernetes-specific judgment. Informs provisioning and live diagnosis; the platform owner and the incident response activity keep those decisions.",
    "path": "plugins/operations-platforms/skills/kubernetes-resource-engineering/SKILL.md",
    "group": "operations-platforms",
    "constraints": {
@@ -6638,19 +6638,19 @@
    "from": "browser-extension-development",
    "to": "browser-extension-security",
    "file": "plugins/browser-extension-development/skills/browser-extension-development/SKILL.md",
-   "line": 43
+   "line": 48
   },
   {
    "from": "browser-extension-development",
    "to": "browser-extension-testing",
    "file": "plugins/browser-extension-development/skills/browser-extension-development/SKILL.md",
-   "line": 61
+   "line": 66
   },
   {
    "from": "browser-extension-development",
    "to": "browser-extension-ui",
    "file": "plugins/browser-extension-development/skills/browser-extension-development/SKILL.md",
-   "line": 61
+   "line": 66
   },
   {
    "from": "browser-extension-security",

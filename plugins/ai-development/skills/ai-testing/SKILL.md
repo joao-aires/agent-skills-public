@@ -1,6 +1,11 @@
 ---
 name: ai-testing
-description: Design and assess AI testing and evaluation across components, retrieval, agent trajectories, conversations, protocols and product journeys. Use for quality criteria, datasets, graders, regression gates and evaluation evidence independently of an implementation library or application language.
+description: >-
+  Expertise and methods for AI testing and evaluation: criteria, datasets, graders,
+  regression gates and evidence levels across components, retrieval, agent trajectories,
+  conversations and product journeys. Use when testing or design needs to decide what
+  to evaluate and what the evidence proves. Informs application verification; the
+  testing activity owns the claim and stopping point.
 metadata:
   kind: method
   domain: ai

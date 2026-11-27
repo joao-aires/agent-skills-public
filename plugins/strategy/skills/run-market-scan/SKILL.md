@@ -16,7 +16,7 @@ Establish the market reality a decision depends on: who buys, what they spend, w
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Load [market entry](../business-strategy/references/market-entry.md) for beachheads and competitor profiles, [market system mapping](../business-strategy/references/market-system-mapping.md) for actors and profit pools, [competitive dynamics](../business-strategy/references/competitive-dynamics.md) for the three levels of competition, and [research protocol](../business-strategy/references/research-protocol.md) for evidence discipline. Use [craft-competitive-analysis](../craft-competitive-analysis/SKILL.md) to shape the competitor section.
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Own the request
 

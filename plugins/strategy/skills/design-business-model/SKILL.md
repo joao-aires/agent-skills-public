@@ -16,7 +16,7 @@ Turn customer value into a commercially viable business: a payer, a price metric
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [pricing and packaging](../business-strategy/references/pricing-and-packaging.md), [revenue quality and unit economics](../business-strategy/references/revenue-quality-and-unit-economics.md), [economic power and value capture](../business-strategy/references/economic-power-and-value-capture.md) and [moats and control points](../business-strategy/references/moats-and-control-points.md). Record economics with the [unit economics record](../business-strategy/assets/unit-economics-record.md).
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Own the request
 

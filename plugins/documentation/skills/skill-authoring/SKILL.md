@@ -72,6 +72,8 @@ A skill that cannot state its stopping point usually overlaps an activity. A ski
 
 The description is the primary trigger. State what the skill does and the contexts that should reach it. Distinguish it from the nearest adjacent work. Avoid a description that only names a topic; it will under-trigger or collide with a broader skill.
 
+For an expertise skill, open with the area and the word expertise: "Expertise and methods for `<area>` (`aliases`): `<coverage>`." Then state the trigger and the boundary. Use "Informs `<adjacent>`; `<owner>` owns the decision" for adjacent work the method can help with. Reserve "Not for" for genuine exclusions such as another artifact type or authority the skill does not hold.
+
 ### Body
 
 Keep the entry point focused on what every invocation needs:

@@ -16,7 +16,7 @@ Testing connects the requested outcome to observable acceptance and selects chec
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
 
-When the affected stack, architecture or domain has installed guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Establish the claim before implementation
 
