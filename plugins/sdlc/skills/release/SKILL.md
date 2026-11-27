@@ -20,6 +20,8 @@ Prepare or perform an authorized release and stop at the requested readiness ass
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point. For writing the artifact this activity produces, read [guide-release-note](../guide-release-note/SKILL.md) for structure, conventions and review.
 
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Establish the release boundary
 
 Resolve the requested stopping point before touching a target:

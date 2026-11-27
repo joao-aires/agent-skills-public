@@ -22,6 +22,8 @@ When a current [product feedback analysis](../artifact-system/references/contrac
 
 Record the agreed behavior, constraints and observable acceptance. When the next contributor needs a ticket, use the issue guidance in the [artifact system](../artifact-system/SKILL.md) for the handoff and [engineering workspace](../artifact-system/references/storage/coordination.md) for persistence. Resolve the artifact home with [artifact homes](../artifact-system/references/homes.md) before writing. Read [project-conventions](../project-conventions/SKILL.md) for affected project constraints. For new systems, substantial features, refactors, migrations, rearchitecture or work with materially uncertain actors, quality constraints or acceptance, read and apply [requirements-engineering](../requirements-engineering/SKILL.md) as supporting expertise. For a small well-defined fix, use only the applicable requirements checks without requiring a fuller analysis. Load other optional stack/domain guidance selected through the development workflow only when relevant and available.
 
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Establish the change
 
 Read the request alongside the code or documentation for the behavior being changed. Trace how the user reaches that behavior, what the application does today, and where the requested result differs. This gives the refinement a concrete starting point and often answers questions that would otherwise be sent back to the user.

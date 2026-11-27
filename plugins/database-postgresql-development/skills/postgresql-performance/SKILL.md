@@ -1,8 +1,10 @@
 ---
 name: postgresql-performance
-description: Diagnose and improve PostgreSQL query, locking, connection and maintenance
-  performance using representative workload evidence. Use for slow queries, pool pressure,
-  plan regressions and resource bottlenecks.
+description: >-
+  Expertise and methods for PostgreSQL performance. Diagnose and improve PostgreSQL query,
+  locking, connection and maintenance performance using representative workload evidence. Use
+  for slow queries, pool pressure, plan regressions and resource bottlenecks. It informs the
+  activity that composes it; that activity owns the decision and stopping point.
 license: MIT
 metadata:
   kind: method

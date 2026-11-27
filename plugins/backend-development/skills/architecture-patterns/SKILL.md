@@ -1,6 +1,14 @@
 ---
 name: architecture-patterns
-description: Select and compare backend architecture patterns — modular monolith, layered, hexagonal/ports-and-adapters, clean/onion, CQRS, event sourcing, microservices and serverless — by the forces that justify them, their costs and migration path. Use when an architecture proposal or option comparison needs pattern candidates, a fit check or a tradeoff review; the architecture decision, service behavior, event contracts and cross-service failure reasoning stay with their owning capabilities.
+description: >-
+  Expertise and methods for backend architecture patterns. Select and compare backend
+  architecture patterns — modular monolith, layered, hexagonal/ports-and-adapters,
+  clean/onion, CQRS, event sourcing, microservices and serverless — by the forces that justify
+  them, their costs and migration path. Use when an architecture proposal or option comparison
+  needs pattern candidates, a fit check or a tradeoff review; the architecture decision,
+  service behavior, event contracts and cross-service failure reasoning stay with their owning
+  capabilities. It informs the activity that composes it; that activity owns the decision and
+  stopping point.
 user-invocable: true
 metadata:
   kind: method

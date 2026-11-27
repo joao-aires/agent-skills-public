@@ -1,8 +1,10 @@
 ---
 name: postgresql-operations
-description: Plan or perform scoped PostgreSQL backup/recovery, maintenance, replication
-  and upgrades. Use for operating procedures and readiness with the actual hosting
-  model, recovery objectives and authorized target.
+description: >-
+  Expertise and methods for PostgreSQL operations. Plan or perform scoped PostgreSQL
+  backup/recovery, maintenance, replication and upgrades. Use for operating procedures and
+  readiness with the actual hosting model, recovery objectives and authorized target. It
+  informs the activity that composes it; that activity owns the decision and stopping point.
 license: MIT
 metadata:
   kind: method

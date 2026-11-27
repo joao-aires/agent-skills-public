@@ -1,6 +1,12 @@
 ---
 name: explain
-description: Explain a concept to a specific reader so they can predict, apply or decide, using intuition, bounded analogy, mechanism, a worked example, boundary cases and a comprehension check. Use for quick intuition, deep mechanism, decision or code explanation, and correcting a misconception. A conversational craft method, not an artifact contract.
+description: >-
+  Expertise and methods for concept explanation. Explain a concept to a specific reader so they can
+  predict, apply or decide, using intuition, bounded analogy, mechanism, a worked example,
+  boundary cases and a comprehension check. Use for quick intuition, deep mechanism, decision
+  or code explanation, and correcting a misconception. A conversational craft method, not an
+  artifact contract. It informs the activity that composes it; that activity owns the decision
+  and stopping point.
 user-invocable: true
 metadata:
   kind: method

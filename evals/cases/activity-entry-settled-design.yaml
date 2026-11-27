@@ -1,0 +1,30 @@
+description: activity-entry-settled-design
+metadata:
+  gate: pr
+  stage: design
+  kind: decision
+vars:
+  id: activity-entry-settled-design
+  prompt: |
+    The saved-search requirements are agreed. We need to settle whether the API should be
+    REST or GraphQL. Decide which activity applies and which installed expertise you would
+    consult. Do not implement. Write `activity: <name>` and `expertise: <name or none>` to
+    selection.txt; it is a scratch answer, not a durable artifact.
+  fixture: fixtures/empty
+  timeout_sec: 300
+  expect:
+    exit: 0
+    files:
+      contains:
+        selection.txt:
+          - "activity:"
+          - "design"
+    output_matches: '(REST|GraphQL)'
+    diff:
+      max_files: 1
+      allowed: [selection.txt]
+  judge:
+    rubric: Selects design, compares the API options, and does not implement or reopen agreed requirements.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

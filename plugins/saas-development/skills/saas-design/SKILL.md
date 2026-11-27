@@ -1,9 +1,11 @@
 ---
 name: saas-design
-description: Design or evolve SaaS tenancy, organization/customer lifecycle and administration
-  independently of framework or billing provider. Use when hosted-product behavior crosses
-  identity, commercial and operating boundaries. Entitlement state and commercial mechanics
-  belong to saas-billing.
+description: >-
+  Expertise and methods for SaaS design. Design or evolve SaaS tenancy, organization/customer
+  lifecycle and administration independently of framework or billing provider. Use when
+  hosted-product behavior crosses identity, commercial and operating boundaries. Entitlement
+  state and commercial mechanics belong to saas-billing. It informs the activity that composes
+  it; that activity owns the decision and stopping point.
 license: MIT
 metadata:
   kind: method

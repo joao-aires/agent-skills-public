@@ -22,9 +22,9 @@ Each skill separates **meaning** from **layout** and **rendering**. A diagram's 
 
 | Skill | Type | Owns | Stops at | Not for |
 | --- | --- | --- | --- | --- |
-| [architecture-diagramming](skills/architecture-diagramming/SKILL.md) | activity | View selection, element and relationship meaning, notation continuity, responsive HTML construction and render inspection | A delivered diagram with evidence scope, assumptions and checks | Current-system discovery, architecture truth or application change |
-| [presentation-building](skills/presentation-building/SKILL.md) | activity | Audience and message, argument structure, slide contribution, visual direction, portable construction and slide inspection | A delivered deck with actual checks and remaining gaps | Copy craft for a document, research or approval of the proposal |
-| [system-flow-explorer](skills/system-flow-explorer/SKILL.md) | activity | Scenario model, actors, ownership, messages, depth and view separation, JSON schema, rendering and structural validation | A validated model and rendered explorer with cited evidence | Evidence inventory, topology certification or application scaffolding |
+| [architecture-diagramming](skills/architecture-diagramming/SKILL.md) | method | View selection, element and relationship meaning, notation continuity, responsive HTML construction and render inspection | A delivered diagram with evidence scope, assumptions and checks | Current-system discovery, architecture truth or application change |
+| [presentation-building](skills/presentation-building/SKILL.md) | method | Audience and message, argument structure, slide contribution, visual direction, portable construction and slide inspection | A delivered deck with actual checks and remaining gaps | Copy craft for a document, research or approval of the proposal |
+| [system-flow-explorer](skills/system-flow-explorer/SKILL.md) | workflow | Scenario model, actors, ownership, messages, depth and view separation, JSON schema, rendering and structural validation | A validated model and rendered explorer with cited evidence | Evidence inventory, topology certification or application scaffolding |
 
 ## How it materialized
 

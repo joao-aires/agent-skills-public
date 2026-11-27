@@ -1,9 +1,11 @@
 ---
 name: requirements-engineering
-description: Elicit, analyze, validate and maintain verifiable functional and quality
-  requirements for features, refactors, new systems and architecture changes.
-  Use as supporting expertise during refine when stakeholder needs, behavior,
-  cross-system constraints or acceptance are materially uncertain.
+description: >-
+  Expertise and methods for requirements engineering. Elicit, analyze, validate and maintain
+  verifiable functional and quality requirements for features, refactors, new systems and
+  architecture changes. Use as supporting expertise during refine when stakeholder needs,
+  behavior, cross-system constraints or acceptance are materially uncertain. It informs the
+  activity that composes it; that activity owns the decision and stopping point.
 user-invocable: false
 metadata:
   kind: method

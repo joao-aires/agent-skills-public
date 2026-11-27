@@ -214,6 +214,10 @@ def write_markdown(rows, destination):
         f"| [{row['name']}](../{row['path']}) | {row['domain']} | {row['description']} |"
         for row in rows if row['kind'] == 'guide'
     )
+    activities = '\n'.join(
+        f"| [{row['name']}](../{row['path']}) | {row['plugin']} | {row['phase']} | {row['description']} |"
+        for row in sorted(rows, key=lambda r: (r['plugin'], r['name'])) if row['kind'] == 'activity'
+    )
     page = f'''# Skills map
 
 Generated from `SKILL.md` metadata and `agent-depot.json` labels. Open [skills-map.html](skills-map.html) for the filterable explorer.
@@ -252,6 +256,14 @@ Two core models, a method layer, three cross-cutting dimensions:
 | Kind | Skills |
 | --- | ---: |
 {kinds}
+
+## Activities
+
+Every skill with `kind: activity`, derived from metadata. The sdlc bundle's [activity catalog](../plugins/sdlc/skills/activity-system/references/catalog.md) adds curated stopping points and outputs for that bundle; this table is the complete list.
+
+| Activity | Plugin | Phase | Use when |
+| --- | --- | --- | --- |
+{activities}
 
 ## Artifact guides
 

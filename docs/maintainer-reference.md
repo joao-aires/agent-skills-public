@@ -84,6 +84,30 @@ Role (task/support), applicability (generic/stack-specific) and invocation remai
 
 Select only relevant expertise, reuse accepted decisions and preserve existing stack choices. Each capability retains its essential reasoning without assuming optional plugins exist. Missing guidance falls back to project evidence, general expertise and appropriate primary sources; missing execution tools have a separate evidence boundary. See [composition fallback](../plugins/sdlc/skills/activity-system/references/composition.md#fallback-when-expertise-is-absent) and [product and capability architecture](maintainers/sources.md#product-and-capability-architecture) for the rationale and boundaries.
 
+## Description vocabulary
+
+The activity and the expertise it may consult have to describe themselves in the same terms. The activity says "installed expertise or guidance for the affected stack, architecture or domain"; the expertise says what it is expertise for. The bridge is vocabulary, not a skill name.
+
+| Area | Canonical noun | Aliases to include | Phase words |
+| --- | --- | --- | --- |
+| AI | AI evaluation, AI testing | RAG, retrieval, agent traces, evals, hallucination | design, test, release |
+| Database | PostgreSQL | Postgres, psql, Supabase | design, implement, test, operate |
+| Platform | Kubernetes | K8s, Helm, manifests, workloads | design, implement, operate |
+| Browser | Chrome Manifest V3 | MV3, content script, service worker, Web Store | design, implement, test, release |
+| Frontend | React, Next.js | shadcn, Tailwind | design, implement, test |
+| Go | Go | Golang, go.mod, modules | design, implement, test |
+| TypeScript | TypeScript | TS, tsconfig, Node | design, implement, test |
+| Native | native clients | Tauri, React Native, Expo, iOS, Android | design, implement, test, release |
+| Security | security design | threat model, authn/authz, trust boundary, privacy | requirements, design, harden |
+| Requirements | requirements | spec, acceptance, scope, behavior | refine |
+| Delivery | release | deploy, ship, promote, rollback | release |
+| Visualization | architecture diagrams, presentations | C4, HTML deck, explorer | design, explain |
+| Strategy | business strategy | positioning, business model, market scan, go-to-market | plan, design |
+
+Use the canonical noun and the aliases users actually type; the noun alone under-triggers. Keep the opening to one clause and the rest specific.
+
+**Boundary wording.** Do not use "Not for" to exclude adjacent work a method can inform. Say "Informs X; Y owns the decision." Reserve "Not for" for genuine exclusions: a different artifact type, another activity's stopping point, or authority the skill does not hold.
+
 ## Keep guidance focused
 
 | Rule | Owner |

@@ -1,0 +1,31 @@
+description: activity-entry-unphased-idea
+metadata:
+  gate: pr
+  stage: cross-phase
+  kind: discovery
+vars:
+  id: activity-entry-unphased-idea
+  prompt: |
+    I'm thinking about building a personal knowledge app. I have not decided the first
+    slice or where decisions should live. Before you design or code anything, decide which
+    activity applies, and if no artifact home is configured, ask me where artifacts should
+    live. Write `activity: <name>` and `expertise: <name or none>` to selection.txt as a
+    scratch answer. selection.txt is not a durable artifact. Do not write any other file.
+  fixture: fixtures/empty
+  timeout_sec: 300
+  expect:
+    exit: 0
+    files:
+      contains:
+        selection.txt:
+          - "activity:"
+          - "expertise:"
+    output_matches: '(repository docs|inline|connected|where.*(artifact|store|persist))'
+    diff:
+      max_files: 1
+      allowed: [selection.txt]
+  judge:
+    rubric: Names a discovery or planning activity, asks the storage question once, and does not design or code.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

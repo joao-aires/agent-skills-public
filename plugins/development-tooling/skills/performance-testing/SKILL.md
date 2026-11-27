@@ -1,9 +1,12 @@
 ---
 name: performance-testing
-description: Design, implement, run or review k6 load and performance checks for application
-  journeys locally, against an application started on a CI runner, or against a deployed
-  non-production environment. Use for latency, concurrency, throughput, saturation
-  and performance regressions; preserve target authority and existing tooling.
+description: >-
+  Expertise and methods for k6 performance testing. Design, implement, run or review k6 load
+  and performance checks for application journeys locally, against an application started on a
+  CI runner, or against a deployed non-production environment. Use for latency, concurrency,
+  throughput, saturation and performance regressions; preserve target authority and existing
+  tooling. It informs the activity that composes it; that activity owns the decision and
+  stopping point.
 metadata:
   kind: method
   domain: tooling

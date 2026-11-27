@@ -1,8 +1,10 @@
 ---
 name: database-design
-description: Design or evolve stored data, constraints, transactions and migration
-  behavior independently of a database engine. Use for persistence choices, schema
-  changes, consistency boundaries and data lifecycle decisions.
+description: >-
+  Expertise and methods for database design. Design or evolve stored data, constraints,
+  transactions and migration behavior independently of a database engine. Use for persistence
+  choices, schema changes, consistency boundaries and data lifecycle decisions. It informs the
+  activity that composes it; that activity owns the decision and stopping point.
 license: MIT
 metadata:
   kind: method

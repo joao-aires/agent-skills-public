@@ -1,8 +1,11 @@
 ---
 name: saas-dashboard-design
-description: Design or improve SaaS customer and operator dashboards around decisions,
-  tenant context and actionable workflows. Use for dashboard information architecture,
-  metrics, tables, administration and realistic interface states across frontend stacks.
+description: >-
+  Expertise and methods for SaaS dashboard design. Design or improve SaaS customer and
+  operator dashboards around decisions, tenant context and actionable workflows. Use for
+  dashboard information architecture, metrics, tables, administration and realistic interface
+  states across frontend stacks. It informs the activity that composes it; that activity owns
+  the decision and stopping point.
 license: MIT
 metadata:
   kind: method

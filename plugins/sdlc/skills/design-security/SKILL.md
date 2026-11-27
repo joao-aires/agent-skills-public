@@ -1,6 +1,13 @@
 ---
 name: design-security
-description: Design security into a feature or system boundary — trust boundaries, data flow, authority placement, privacy, delegation and abuse resistance, including authentication, sessions, federation, machine identity and tenant/resource access. Use when a change introduces identities, user data, external inputs, integrations or new authority; not for scoped remediation, credential operations or compliance assessment.
+description: >-
+  Expertise and methods for security design. Design security into a feature or system boundary
+  — trust boundaries, data flow, authority placement, privacy, delegation and abuse
+  resistance, including authentication, sessions, federation, machine identity and
+  tenant/resource access. Use when a change introduces identities, user data, external inputs,
+  integrations or new authority; not for scoped remediation, credential operations or
+  compliance assessment. It informs the activity that composes it; that activity owns the
+  decision and stopping point.
 metadata:
   kind: method
   domain: security

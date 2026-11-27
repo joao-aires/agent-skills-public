@@ -1,6 +1,11 @@
 ---
 name: browser-extension-ui
-description: Design, implement or assess Chrome extension experiences by matching user tasks to suitable UI patterns and browser surfaces. Use for extension information architecture, surface lifecycle, injected UI, permission states and assets; preserve the product's design system.
+description: >-
+  Expertise and methods for Chrome MV3 interface design. Design, implement or assess Chrome
+  extension experiences by matching user tasks to suitable UI patterns and browser surfaces.
+  Use for extension information architecture, surface lifecycle, injected UI, permission
+  states and assets; preserve the product's design system. It informs the activity that
+  composes it; that activity owns the decision and stopping point.
 user-invocable: false
 metadata:
   kind: method

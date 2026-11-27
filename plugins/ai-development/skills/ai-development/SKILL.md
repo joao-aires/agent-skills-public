@@ -1,6 +1,11 @@
 ---
 name: ai-development
-description: Design, build and operate AI-enabled applications and agent integrations independently of a provider. Use for model/tool workflows, context and retrieval, skills, harnesses, MCP, agent interaction or generated UI, and their evaluation and delivery; apply technical guidance only to the accepted stack.
+description: >-
+  Expertise and methods for AI development. Design, build and operate AI-enabled applications
+  and agent integrations independently of a provider. Use for model/tool workflows, context
+  and retrieval, skills, harnesses, MCP, agent interaction or generated UI, and their
+  evaluation and delivery; apply technical guidance only to the accepted stack. It informs the
+  activity that composes it; that activity owns the decision and stopping point.
 metadata:
   kind: method
   domain: ai

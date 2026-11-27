@@ -1,9 +1,12 @@
 ---
 name: aws-platform
-description: Design, implement or review AWS workloads across identity, network, compute,
-  data, messaging, observability, cost, continuity and edge security. Use for IAM,
-  VPC, ECS/EKS/Lambda, RDS/Aurora, S3, SQS/SNS, CloudWatch, budgets, Backup, Route 53,
-  WAF and Secrets Manager decisions; verify service detail against current AWS docs.
+description: >-
+  Expertise and methods for AWS platform design. Design, implement or review AWS workloads
+  across identity, network, compute, data, messaging, observability, cost, continuity and edge
+  security. Use for IAM, VPC, ECS/EKS/Lambda, RDS/Aurora, S3, SQS/SNS, CloudWatch, budgets,
+  Backup, Route 53, WAF and Secrets Manager decisions; verify service detail against current
+  AWS docs. It informs the activity that composes it; that activity owns the decision and
+  stopping point.
 metadata:
   kind: method
   domain: platform

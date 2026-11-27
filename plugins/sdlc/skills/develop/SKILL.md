@@ -18,6 +18,8 @@ Take a rough idea, feature, refactor or improvement through clarification, desig
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point. For the ECR this activity keeps current, read [guide-ecr](../guide-ecr/SKILL.md). Read [guide-prd](../guide-prd/SKILL.md) and [guide-issue](../guide-issue/SKILL.md) when those artifacts are produced.
 
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## When starting a new application
 
 Read [new-application flow](references/new-application-flow.md). Reuse sufficient accepted evidence and establish missing outcomes before work that depends on them:
@@ -40,7 +42,6 @@ When client-specific implementation commands, a typechecker or a Git commit are 
 When optional guidance assumes commands, Git or tools that are unavailable, follow [composition](../activity-system/references/composition.md) and record the adaptation. Do not treat an upstream default as authority over the accepted project.
 
 Use [test](../test/SKILL.md) and the review composition (`code-review`, artifact assurance, guides/quality bar) as part of the engagement when implementation is authorized. Their authority still stops at local verification and assessment.
-
 
 ## Establish a useful slice
 
@@ -89,4 +90,4 @@ Finish with the implemented user outcome, the checks actually performed, and any
 
 ## Composition
 
-Read [artifact-system](../artifact-system/SKILL.md) and [coordination storage](../artifact-system/references/storage/coordination.md) for the artifact model, contracts and configured filesystem or document-provider home. Record each performed outcome in the ECR, even within an end-to-end `develop` request. A tracker is optional, and publication requires authority. Before creating or moving a durable artifact, read the repository artifact home map and [artifact homes](../artifact-system/references/homes.md). Use [design-system](../design-system/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent implementation. Read [git-contributions](../git-contributions/SKILL.md) for the objective's feature worktree, [test](../test/SKILL.md) for testing and completion. Load the optional stack/domain guidance selected through the development workflow only when relevant and available.
+Read [artifact-system](../artifact-system/SKILL.md) and [coordination storage](../artifact-system/references/storage/coordination.md) for the artifact model, contracts and configured filesystem or document-provider home. Record each performed outcome in the ECR, even within an end-to-end `develop` request. A tracker is optional, and publication requires authority. Before creating or moving a durable artifact, read the repository artifact home map and [artifact homes](../artifact-system/references/homes.md). Use [design-system](../design-system/SKILL.md) after product refinement or when the feature changes consequential architecture, before dependent implementation. Read [git-contributions](../git-contributions/SKILL.md) for the objective's feature worktree, [test](../test/SKILL.md) for testing and completion.

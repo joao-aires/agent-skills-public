@@ -1,9 +1,12 @@
 ---
 name: frontend-conventions
-description: Build, extend or review React/Next.js interfaces using the selected component system, compatible styling
-  conventions and supplied visual references. Use for dashboards, customer applications,
-  storefronts, content sites, navigation, styling, forms and frontend architecture;
-  preserve accepted project choices during ordinary feature work.
+description: >-
+  Expertise and methods for React/Next.js frontend implementation. Build, extend or review
+  React/Next.js interfaces using the selected component system, compatible styling conventions
+  and supplied visual references. Use for dashboards, customer applications, storefronts,
+  content sites, navigation, styling, forms and frontend architecture; preserve accepted
+  project choices during ordinary feature work. It informs the activity that composes it; that
+  activity owns the decision and stopping point.
 metadata:
   kind: method
   domain: frontend

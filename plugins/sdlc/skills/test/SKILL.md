@@ -16,6 +16,8 @@ Testing connects the requested outcome to observable acceptance and selects chec
 
 Read [activity system](../activity-system/SKILL.md) for scope and stopping point.
 
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Establish the claim before implementation
 
 Read accepted decisions, instructions and affected contracts. Preserve the existing architecture and UI direction unless changing them is the objective. Reuse agreed answers. A conversation can be sufficient scope. Use [Git contributions](../git-contributions/SKILL.md) for the objective worktree and contribution flow.
@@ -123,4 +125,4 @@ Record observations at the checked revision/target, the command or scenario, env
 
 ## Composition
 
-Apply [artifact-system](../artifact-system/SKILL.md) to the ECR sections used or produced by this activity, and [coordination storage](../artifact-system/references/storage/coordination.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Read [project conventions](../project-conventions/SKILL.md) for the project's checks and installed testing-journey expertise for changed user journeys. Load optional stack/domain guidance only when relevant and available.
+Apply [artifact-system](../artifact-system/SKILL.md) to the ECR sections used or produced by this activity, and [coordination storage](../artifact-system/references/storage/coordination.md) to locate the authorized filesystem or connected-provider authority. This does not require an issue or permit unrelated writes. Read [project conventions](../project-conventions/SKILL.md) for the project's checks.

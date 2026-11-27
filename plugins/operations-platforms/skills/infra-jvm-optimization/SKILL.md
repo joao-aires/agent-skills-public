@@ -1,10 +1,13 @@
 ---
 name: infra-jvm-optimization
-description: Measure and improve application/infrastructure resource efficiency, JVM
-  memory and GC, startup/shutdown, autoscaling, scheduling and resilience during setup,
-  feature changes or recurring optimization reviews.
+description: >-
+  Expertise and methods for JVM resource optimization. Measure and improve
+  application/infrastructure resource efficiency, JVM memory and GC, startup/shutdown,
+  autoscaling, scheduling and resilience during setup, feature changes or recurring
+  optimization reviews. It informs the activity that composes it; that activity owns the
+  decision and stopping point.
 metadata:
-  kind: activity
+  kind: method
   domain: platform
   phase: cross-phase
   scope: stack-specific

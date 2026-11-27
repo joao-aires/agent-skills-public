@@ -16,6 +16,8 @@ Resolve analysis into one coherent set of choices that a competent operator can 
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [choice cascade and strategy brief](../business-strategy/references/choice-cascade-and-strategy-brief.md), compare options with [strategy option set](../business-strategy/references/strategy-option-set.md), stress the result with [strategy stress testing](../business-strategy/references/strategy-stress-testing.md), and use [frameworks](../business-strategy/references/frameworks.md) only when a named lens is requested. Write the [strategy brief](../business-strategy/assets/strategy-brief.md) with [craft-strategy-brief](../craft-strategy-brief/SKILL.md).
 
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Own the request
 
 Frame the decision: what must be chosen, by whom, by when, over what horizon and under which constraints. If the request is to explore rather than decide, say so and stop before forcing a choice.

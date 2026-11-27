@@ -1,9 +1,12 @@
 ---
 name: kubernetes-troubleshooting
-description: Diagnose a running Kubernetes workload or cluster problem from observed
-  state. Use for pod lifecycle, events, current and previous logs, probes, resources
-  and scheduling, DNS and Service endpoints, network policy, storage, and control-plane
-  or managed-cluster differences. It does not provision clusters or design manifests.
+description: >-
+  Expertise and methods for Kubernetes troubleshooting. Diagnose a running Kubernetes workload
+  or cluster problem from observed state. Use for pod lifecycle, events, current and previous
+  logs, probes, resources and scheduling, DNS and Service endpoints, network policy, storage,
+  and control-plane or managed-cluster differences. It does not provision clusters or design
+  manifests. It informs the activity that composes it; that activity owns the decision and
+  stopping point.
 metadata:
   kind: method
   domain: platform

@@ -1,6 +1,11 @@
 ---
 name: usability-research
-description: Plan task-based usability studies and analyze supplied observations for a specific interface or flow. Use for research questions, participant tasks, neutral discussion guides or evidence synthesis; distinguish proposed studies, heuristic review and actual participant findings.
+description: >-
+  Expertise and methods for usability research. Plan task-based usability studies and analyze
+  supplied observations for a specific interface or flow. Use for research questions,
+  participant tasks, neutral discussion guides or evidence synthesis; distinguish proposed
+  studies, heuristic review and actual participant findings. It informs the activity that
+  composes it; that activity owns the decision and stopping point.
 user-invocable: true
 metadata:
   kind: method

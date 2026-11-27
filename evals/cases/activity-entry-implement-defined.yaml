@@ -1,0 +1,30 @@
+description: activity-entry-implement-defined
+metadata:
+  gate: nightly
+  stage: implement
+  kind: decision
+vars:
+  id: activity-entry-implement-defined
+  prompt: |
+    The saved-search design is accepted and recorded. Decide which activity applies to
+    build the next increment and which installed expertise you would consult. Do not write
+    application code. Write `activity: <name>` and `expertise: <name or none>` to
+    selection.txt as a scratch answer, not a durable artifact.
+  fixture: fixtures/empty
+  timeout_sec: 300
+  expect:
+    exit: 0
+    files:
+      contains:
+        selection.txt:
+          - "activity:"
+          - "implement"
+    output_matches: '(increment|implement|build)'
+    diff:
+      max_files: 1
+      allowed: [selection.txt]
+  judge:
+    rubric: Selects implement, does not design again, and names relevant implementation expertise without writing code.
+assert:
+  - type: javascript
+    value: file://assertions/contract.mjs

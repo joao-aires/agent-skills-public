@@ -1,6 +1,12 @@
 ---
 name: analyze-capacity-cost
-description: Analyze measured capacity and cost — demand and saturation, sizing, unit economics, FinOps allocation, forecasting, optimization evidence and verification. Use for a measured review of an existing or proposed system; capacity and cost plans, targets and accepted tradeoffs belong to design-system and the requirements record.
+description: >-
+  Expertise and methods for capacity and cost analysis. Analyze measured capacity and cost —
+  demand and saturation, sizing, unit economics, FinOps allocation, forecasting, optimization
+  evidence and verification. Use for a measured review of an existing or proposed system;
+  capacity and cost plans, targets and accepted tradeoffs belong to design-system and the
+  requirements record. It informs the activity that composes it; that activity owns the
+  decision and stopping point.
 metadata:
   kind: method
   domain: operations

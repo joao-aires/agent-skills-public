@@ -1,27 +1,37 @@
 ---
 name: ai-evaluation
-description: Plan, run and report a program-level AI evaluation for a change, release or product claim. Use for acceptance criteria, dataset and slice governance, grader choice and calibration, baselines, experiments, CI gates, production sampling, regression and red-team coverage, and the evidence behind a go/no-go recommendation.
+description: >-
+  Expertise and methods for AI evaluation programs: claims, acceptance, datasets and
+  slices, graders, baselines, gates, production sampling, regression and red-teaming.
+  Use when testing, design or release needs evaluation evidence for a model, RAG
+  pipeline or agent. Contributes evidence to verification; it does not replace
+  application verification or authorize release.
 user-invocable: true
 metadata:
-  kind: activity
+  kind: method
   domain: ai
   phase: cross-phase
   scope: generic
   invocation: both
 ---
 
-# Evaluate AI behavior as a program
+# AI evaluation mechanics
 
-Evaluate AI behavior as a program when a decision needs evidence across several cases, changes or operating conditions, rather than one bounded check. Own the evaluation program through the recorded result and its limits. The evaluation method, runner and deployment keep their owners.
+Use this method when a claim needs evidence across several cases, changes or operating conditions rather than one bounded check. It supplies the program mechanics; the activity that composes it owns the decision, output and stopping point.
 
-The program covers the decision and claim, acceptance, dataset and slice governance, graders, baseline and experiment, gates, production sampling, reporting and authority. It composes [AI testing](../ai-testing/SKILL.md) for what to evaluate and what the evidence means, installed evaluation-framework guidance for the selected implementation, application verification guidance when installed, installed observability guidance for execution signals, and the project's delivery authority. This skill does not own the evaluation method, the selected runner or the deployment.
+The mechanics cover the claim, acceptance, dataset and slice governance, graders, baseline and experiment, gates, production sampling, reporting and authority. It composes [AI testing](../ai-testing/SKILL.md) for what to evaluate and what the evidence means, installed evaluation-framework guidance for the selected implementation, application verification guidance when installed, installed observability guidance for execution signals, and the project's delivery authority. It does not own the evaluation method, the selected runner or the deployment.
 
-| Field | This activity |
+## Where it is used
+
+| Phase | What this method supplies |
 | --- | --- |
-| Intent | Support a named decision with evaluation evidence that is proportionate to its consequence. |
-| Output | An evaluation plan or result: claim, criteria, dataset/slices, graders, baseline, comparison, gate evidence and remaining limits. |
-| Stopping point | Evaluation plan/results and a decision recommendation. Not merge, deployment, publication or live mutation. |
-| Authority | Run evaluations only with authorized data, providers, credentials and budget. The decision owner accepts the result; the project's delivery authority owns delivery. |
+| Testing | The program behind acceptance or completion evidence for AI behavior |
+| Design | A comparable baseline and experiment for a model, prompt or architecture choice |
+| Release | The evidence and limits behind a readiness claim |
+
+## Composition
+
+Read [AI testing](../ai-testing/SKILL.md) for the method that decides what to evaluate and what each evidence level proves. This method owns the program mechanics; the activity keeps the decision and stopping point.
 
 ## Frame the decision and claim
 
@@ -134,11 +144,11 @@ A completed evaluation supports a decision. It does not authorize merge, deploym
 | Delivery readiness, promotion and recovery | Installed delivery and release guidance |
 | Evidence record and artifact homes | The project's ECR/verification record and artifact conventions |
 
-Stop when the plan or result and its limits are reported. If the request continues into deployment, merge or external publication, treat that as a separate authorized activity rather than extending this one.
+Return the plan or result and its limits to the activity that composed it. Deployment, merge and external publication remain separate authorized actions.
 
 ## Sources and fit
 
-This activity is original guidance informed by:
+This method is original guidance informed by:
 
 - OpenAI, [Evaluation best practices](https://developers.openai.com/api/docs/guides/evaluation-best-practices): eval-driven development, task-specific data, human calibration, continuous evaluation and common anti-patterns.
 - Anthropic, [Demystifying evals for AI agents](https://www.anthropic.com/research/demystifying-evals-for-ai-agents): capability and regression suites, balanced cases, grader design, transcript review, saturation and environment isolation.

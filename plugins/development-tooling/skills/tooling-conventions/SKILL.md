@@ -1,8 +1,11 @@
 ---
 name: tooling-conventions
-description: Configure selected GitHub Actions, Docker/Compose, local quality tools,
-  telemetry backends and web test drivers. Use for their implementation and compatibility
-  details after the project selects those tools; preserve existing alternatives.
+description: >-
+  Expertise and methods for repository tooling. Configure selected GitHub Actions,
+  Docker/Compose, local quality tools, telemetry backends and web test drivers. Use for their
+  implementation and compatibility details after the project selects those tools; preserve
+  existing alternatives. It informs the activity that composes it; that activity owns the
+  decision and stopping point.
 user-invocable: false
 metadata:
   kind: method

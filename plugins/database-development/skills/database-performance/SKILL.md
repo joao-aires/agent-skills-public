@@ -1,8 +1,11 @@
 ---
 name: database-performance
-description: Investigate database workload performance and compare improvements while
-  preserving correctness and operating budgets. Use for latency, throughput, contention,
-  connection or resource bottlenecks before choosing engine-specific tuning.
+description: >-
+  Expertise and methods for database performance. Investigate database workload performance
+  and compare improvements while preserving correctness and operating budgets. Use for
+  latency, throughput, contention, connection or resource bottlenecks before choosing
+  engine-specific tuning. It informs the activity that composes it; that activity owns the
+  decision and stopping point.
 license: MIT
 metadata:
   kind: method

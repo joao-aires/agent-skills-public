@@ -22,6 +22,8 @@ Read [activity system](../activity-system/SKILL.md) for scope and stopping point
 
 This activity answers "is this service ready to be depended on?" It does not answer "may we perform this release?" or "is this SaaS offering ready for this customer cohort?".
 
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Separate the readiness questions
 
 | Question | Owner |

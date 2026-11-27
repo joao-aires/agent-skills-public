@@ -17,7 +17,9 @@ metadata:
 
 Remove or bound a concrete security or privacy weakness in the requested scope, and stop at verified remediation or a reported gap.
 
-Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Use [verification](../test/SKILL.md) for verified remediation and seek matching security/privacy expertise when available. Load the optional stack/domain guidance selected by task guidance only when relevant and available.
+Read [activity system](../activity-system/SKILL.md) for scope and stopping point. Use [verification](../test/SKILL.md) for verified remediation and seek matching security/privacy expertise when available.
+
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
 
 ## Assess and remediate within scope
 

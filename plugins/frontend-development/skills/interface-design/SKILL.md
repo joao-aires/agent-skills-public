@@ -1,6 +1,12 @@
 ---
 name: interface-design
-description: Design, inspect and improve complete user interfaces across navigation, visual hierarchy, behavior, shared composition and accessibility. Use for new UI, cross-screen changes, visual refinements, design reviews and design-to-implementation handoffs; preserve accepted product direction and authorized scope.
+description: >-
+  Expertise and methods for interface design. Design, inspect and improve complete user
+  interfaces across navigation, visual hierarchy, behavior, shared composition and
+  accessibility. Use for new UI, cross-screen changes, visual refinements, design reviews and
+  design-to-implementation handoffs; preserve accepted product direction and authorized scope.
+  It informs the activity that composes it; that activity owns the decision and stopping
+  point.
 user-invocable: true
 metadata:
   kind: method

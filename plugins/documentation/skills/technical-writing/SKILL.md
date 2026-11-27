@@ -1,9 +1,11 @@
 ---
 name: technical-writing
-description: Cross-type technical writing craft for product and engineering documents,
-  including PRDs, requirements, architecture, decisions, guides and runbooks. Use
-  when reader fit, explanation, structure, examples or presentation need work;
-  artifact contracts, status and homes remain with the artifact system.
+description: >-
+  Expertise and methods for technical writing. Cross-type technical writing craft for product
+  and engineering documents, including PRDs, requirements, architecture, decisions, guides and
+  runbooks. Use when reader fit, explanation, structure, examples or presentation need work;
+  artifact contracts, status and homes remain with the artifact system. It informs the
+  activity that composes it; that activity owns the decision and stopping point.
 metadata:
   kind: method
   domain: documentation

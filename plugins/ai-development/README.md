@@ -17,7 +17,7 @@ Four disciplines answer different questions. The split is deliberate: one builds
 | How does an evaluation program run across a change, release or product claim? | [ai-evaluation](skills/ai-evaluation/SKILL.md) | Test design or operating signals |
 | How does the capability behave in production, within provider and cost limits, and how does it recover? | [ai-operations](skills/ai-operations/SKILL.md) | Application design or acceptance thresholds |
 
-`ai-testing` is the method; `ai-evaluation` is the activity that runs it as a program. Neither replaces application verification or the release decision.
+Both `ai-testing` and `ai-evaluation` are methods: `ai-testing` owns what to evaluate and what each evidence level proves; `ai-evaluation` owns the program mechanics. The testing phase composes them when a claim is about AI behavior. Neither replaces application verification or the release decision.
 
 ## Responsibilities
 
@@ -25,7 +25,7 @@ Four disciplines answer different questions. The split is deliberate: one builds
 | --- | --- | --- | --- | --- |
 | [ai-development](skills/ai-development/SKILL.md) | method | Task and system boundary, model-versus-code split, result design, context, retrieval, tools, harnesses, protocols, interaction and application verification needs | A design or implemented behavior with evidence needs | Choosing a vendor SDK or authorizing live actions |
 | [ai-testing](skills/ai-testing/SKILL.md) | method | Acceptance levels, representative cases, slices, measures, graders and what each evidence level proves | An evaluation approach with actual results and limits | Program scheduling, release gating or production sampling policy |
-| [ai-evaluation](skills/ai-evaluation/SKILL.md) | activity | Evaluation decision and claim, dataset and slice governance, baselines, experiments, CI gates, production sampling, red-team coverage and reporting | A go, conditional or no-go recommendation with evidence | Merge, deployment or publication authority |
+| [ai-evaluation](skills/ai-evaluation/SKILL.md) | method | Evaluation decision and claim, dataset and slice governance, baselines, experiments, CI gates, production sampling, red-team coverage and reporting | A go, conditional or no-go recommendation with evidence | Merge, deployment or publication authority |
 | [ai-operations](skills/ai-operations/SKILL.md) | method | Task observability, quality monitoring, latency and cost, provider limits, drift, rollout, recovery and configuration identity | Operating evidence, blind spots and next actions | Application design, acceptance criteria or release approval |
 
 ## How it materialized

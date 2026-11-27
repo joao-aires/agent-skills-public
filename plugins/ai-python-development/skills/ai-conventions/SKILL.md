@@ -1,6 +1,11 @@
 ---
 name: ai-conventions
-description: Implement accepted Python model/provider adapters and standalone FastMCP interfaces. Use for Gemini integration, version-matched Python MCP APIs and interaction integration; preserve established providers and frameworks.
+description: >-
+  Expertise and methods for Python AI implementation. Implement accepted Python model/provider
+  adapters and standalone FastMCP interfaces. Use for Gemini integration, version-matched
+  Python MCP APIs and interaction integration; preserve established providers and frameworks.
+  It informs the activity that composes it; that activity owns the decision and stopping
+  point.
 user-invocable: false
 metadata:
   kind: method

@@ -1,8 +1,11 @@
 ---
 name: native-client-development
-description: Build and verify TypeScript Tauri desktop clients and iOS/Android clients
-  connected to application backends. Use for native shell integration, accepted mobile frameworks, platform lifecycle, secure client storage, packaging and native testing;
-  preserve established client frameworks.
+description: >-
+  Expertise and methods for native client development. Build and verify TypeScript Tauri
+  desktop clients and iOS/Android clients connected to application backends. Use for native
+  shell integration, accepted mobile frameworks, platform lifecycle, secure client storage,
+  packaging and native testing; preserve established client frameworks. It informs the
+  activity that composes it; that activity owns the decision and stopping point.
 user-invocable: false
 metadata:
   kind: method

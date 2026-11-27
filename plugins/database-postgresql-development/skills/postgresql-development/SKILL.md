@@ -1,8 +1,11 @@
 ---
 name: postgresql-development
-description: Develop or review PostgreSQL schemas, transactions, migrations and access
-  policies. Use for SQL, data integrity, concurrency and engine-specific persistence
-  behavior with the actual application roles and server version.
+description: >-
+  Expertise and methods for PostgreSQL (Postgres): schemas, transactions, indexes,
+  migrations, access policies, performance and diagnostics. Use when design,
+  implementation, testing or operations needs PostgreSQL-specific judgment. Informs
+  database selection and data modeling; the design activity owns the choice and the
+  data model.
 license: MIT
 metadata:
   kind: method

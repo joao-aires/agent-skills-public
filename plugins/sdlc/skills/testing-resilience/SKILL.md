@@ -1,9 +1,12 @@
 ---
 name: testing-resilience
-description: Design, implement, run or review controlled failure tests for application
-  journeys, dependency outages, delays, worker loss and resource exhaustion. Use to
-  verify bounded failure handling and recovery in an authorized isolated or non-production
-  target; choose proportionate fixtures or experiments without requiring a chaos platform.
+description: >-
+  Expertise and methods for resilience testing. Design, implement, run or review controlled
+  failure tests for application journeys, dependency outages, delays, worker loss and resource
+  exhaustion. Use to verify bounded failure handling and recovery in an authorized isolated or
+  non-production target; choose proportionate fixtures or experiments without requiring a
+  chaos platform. It informs the activity that composes it; that activity owns the decision
+  and stopping point.
 metadata:
   kind: method
   domain: development

@@ -1,6 +1,10 @@
 ---
 name: skill-authoring
-description: Create, revise or review a skill in this collection. Use when adding a capability, deciding between a new skill and an expansion, writing or shortening SKILL.md, choosing references/scripts/assets, defining triggers, composing optional plugins, or evaluating whether a skill changes agent behavior. Not for writing a product document or a one-off prompt.
+description: >-
+  Expertise and methods for skill authoring. Create, revise or review a skill in this
+  collection. Use when adding a capability, deciding between a new skill and an expansion,
+  writing or shortening SKILL.md, choosing references/scripts/assets, defining triggers,
+  composing optional plugins, or evaluating whether a skill changes agent behavior. It informs the activity that composes it; that activity owns the decision and stopping point. For a product document, use technical writing; for a one-off prompt, no skill is needed.
 user-invocable: true
 metadata:
   kind: method
@@ -71,6 +75,8 @@ A skill that cannot state its stopping point usually overlaps an activity. A ski
 ### Description
 
 The description is the primary trigger. State what the skill does and the contexts that should reach it. Distinguish it from the nearest adjacent work. Avoid a description that only names a topic; it will under-trigger or collide with a broader skill.
+
+For an expertise skill, open with the area and the word expertise: "Expertise and methods for `<area>` (`aliases`): `<coverage>`." Then state the trigger and the boundary. Use "Informs `<adjacent>`; `<owner>` owns the decision" for adjacent work the method can help with. Reserve "Not for" for genuine exclusions such as another artifact type or authority the skill does not hold.
 
 ### Body
 

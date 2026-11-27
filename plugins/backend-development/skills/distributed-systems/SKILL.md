@@ -1,6 +1,13 @@
 ---
 name: distributed-systems
-description: Reason about cross-service consistency, replication, partitioning, consensus, time, failure detection, retries, timeouts, circuit breakers, idempotency, ambiguous outcomes, multi-region recovery and capacity. Use when a design or incident depends on behavior across process, network or region boundaries; architecture decisions, service contracts, fault experiments and telemetry stay with their owning activities.
+description: >-
+  Expertise and methods for distributed systems. Reason about cross-service consistency,
+  replication, partitioning, consensus, time, failure detection, retries, timeouts, circuit
+  breakers, idempotency, ambiguous outcomes, multi-region recovery and capacity. Use when a
+  design or incident depends on behavior across process, network or region boundaries;
+  architecture decisions, service contracts, fault experiments and telemetry stay with their
+  owning activities. It informs the activity that composes it; that activity owns the decision
+  and stopping point.
 user-invocable: true
 metadata:
   kind: method

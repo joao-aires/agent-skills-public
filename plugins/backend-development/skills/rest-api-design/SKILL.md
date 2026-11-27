@@ -1,6 +1,12 @@
 ---
 name: rest-api-design
-description: Design a REST/HTTP API contract covering resources, method and status semantics, representations, errors, collections, idempotency, conditional requests, versioning, caching, authorization boundaries, rate limits and OpenAPI. Use before implementing or changing an HTTP interface; not for service behavior design or framework setup.
+description: >-
+  Expertise and methods for REST API design. Design a REST/HTTP API contract covering
+  resources, method and status semantics, representations, errors, collections, idempotency,
+  conditional requests, versioning, caching, authorization boundaries, rate limits and
+  OpenAPI. Use before implementing or changing an HTTP interface; not for service behavior
+  design or framework setup. It informs the activity that composes it; that activity owns the
+  decision and stopping point.
 user-invocable: true
 metadata:
   kind: method

@@ -16,6 +16,8 @@ Make the chosen customer reachable, convincible and serviceable at a cost the bu
 
 Use [business strategy](../business-strategy/SKILL.md) as the logic owner. Apply [go-to-market](../business-strategy/references/go-to-market.md), use [market entry](../business-strategy/references/market-entry.md) for beachhead sequencing and [pricing and packaging](../business-strategy/references/pricing-and-packaging.md) for the commercial offer, and record the plan with the [GTM plan](../business-strategy/assets/gtm-plan.md).
 
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Own the request
 
 Frame the decision: which motion and channels should reach this buyer now, what must be ready before widening access, and what result would make the plan scale, narrow or stop.

@@ -18,6 +18,8 @@ Read [activity system](../activity-system/SKILL.md) for scope and stopping point
 
 For writing the artifact this activity produces, read [guide-postmortem](../guide-postmortem/SKILL.md) for structure, conventions and review.
 
+When the affected stack, architecture or domain has installed expertise or guidance, read it and carry its conclusions. If none exists, use project evidence and primary sources; this activity keeps the outcome, acceptance and stopping point.
+
 ## Choose the mode
 
 - **Facilitation:** build the timeline and evidence ledger, interview only where a gap matters, and draft the review. Read [facilitation](references/facilitation.md) and the [facilitation guide](references/facilitation-guide.md). For proxy/security or detection-gap incidents, use the [worked review](references/proxy-security-review.md) when useful.

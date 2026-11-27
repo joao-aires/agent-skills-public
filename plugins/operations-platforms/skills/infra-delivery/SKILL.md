@@ -1,9 +1,12 @@
 ---
 name: infra-delivery
-description: Define and deliver infrastructure and platform configuration as reconciled
-  desired state across Kubernetes and cloud targets. Use for infrastructure-as-code
-  choice, repository structure, environment promotion, policy and rendered-state
-  validation, Argo CD/Flux GitOps reconciliation, drift, pruning and recovery.
+description: >-
+  Expertise and methods for infrastructure delivery. Define and deliver infrastructure and
+  platform configuration as reconciled desired state across Kubernetes and cloud targets. Use
+  for infrastructure-as-code choice, repository structure, environment promotion, policy and
+  rendered-state validation, Argo CD/Flux GitOps reconciliation, drift, pruning and recovery.
+  It informs the activity that composes it; that activity owns the decision and stopping
+  point.
 metadata:
   kind: method
   domain: platform

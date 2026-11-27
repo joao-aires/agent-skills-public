@@ -1,8 +1,11 @@
 ---
 name: go-conventions
-description: Build, extend or review Go services, libraries and command-line applications.
-  Use for modules, package/API boundaries, errors, cancellation, runtime lifecycle
-  and meaningful Go verification without requiring a framework.
+description: >-
+  Expertise and methods for Go implementation. Build, extend or review Go services, libraries
+  and command-line applications. Use for modules, package/API boundaries, errors,
+  cancellation, runtime lifecycle and meaningful Go verification without requiring a
+  framework. It informs the activity that composes it; that activity owns the decision and
+  stopping point.
 license: MIT
 metadata:
   kind: method

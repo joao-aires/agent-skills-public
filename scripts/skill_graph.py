@@ -422,6 +422,7 @@ HTML = """<!doctype html>
     <button class="chip" id="mentions" aria-pressed="false"><i style="border-color:var(--mention)"></i>Mentions</button>
     <input id="search" type="search" placeholder="Search capabilities and records">
     <select id="plugin"><option value="">All plugins</option></select>
+    <select id="kind"><option value="">All kinds</option></select>
     <button class="chip" id="labels" aria-pressed="false">Always show labels</button>
     <button class="chip" id="orphans" aria-pressed="false">Show orphans</button>
     <button class="chip" id="physics" aria-pressed="true">Physics</button>
@@ -456,7 +457,7 @@ const edges=DATA.edges.map(e=>({...e}));
 const rawMentions=DATA.mentions.map(m=>({...m}));
 const state={relation:{route:true,compose:true,handoff:true,produces:true,'guided-by':true},
   layer:{capability:true,record:true,work:false},mentions:false,
-  focus:null,hover:null,search:'',plugin:'',labels:false,showOrphans:false,physics:true,
+  focus:null,hover:null,search:'',plugin:'',kind:'',labels:false,showOrphans:false,physics:true,
   moved:false,dragStart:null,panMoved:false,suppressClick:false,pointers:new Map(),pinch:null,
   cam:{x:0,y:0,k:1},alpha:1,dragging:null,pan:null};
 
@@ -516,26 +517,30 @@ nodes.forEach(n=>{if(!n.fixed)n.x*=1.55;});
 const workNodes=nodes.filter(n=>n.abstraction==='work').sort((a,b)=>a.order-b.order);
 workNodes.forEach((n,i)=>{n.x=(i-(workNodes.length-1)/2)*240;n.y=820;n.vx=0;n.vy=0;n.fixed=true;});
 
-// Records shown for a plugin are the ones its capabilities actually connect to.
-const pluginRecords={};
-nodes.filter(n=>n.abstraction==='capability').forEach(n=>{pluginRecords[n.plugin]=pluginRecords[n.plugin]||new Set();});
+// Records shown under a filter are the ones its capabilities actually connect to.
+const capNeighbors=new Map();
+nodes.filter(n=>n.abstraction==='capability').forEach(n=>capNeighbors.set(n.id,new Set()));
 edges.forEach(e=>{
-  if(e.a&&e.a.abstraction==='capability'&&e.b)pluginRecords[e.a.plugin].add(e.b.id);
-  if(e.b&&e.b.abstraction==='capability'&&e.a)pluginRecords[e.b.plugin].add(e.a.id);
+  if(e.a&&e.a.abstraction==='capability'&&e.b)capNeighbors.get(e.a.id).add(e.b.id);
+  if(e.b&&e.b.abstraction==='capability'&&e.a)capNeighbors.get(e.b.id).add(e.a.id);
 });
+const matchesFilters=c=>(!state.plugin||c.plugin===state.plugin)&&(!state.kind||c.kind===state.kind);
 const mentionIn={},mentionOut={};
 DATA.mentions.forEach(m=>{mentionOut[m.from]=(mentionOut[m.from]||0)+1;mentionIn[m.to]=(mentionIn[m.to]||0)+1;});
 
 function visibleNode(n){
   if(!state.layer[n.abstraction])return false;
-  const scoped=state.plugin&&n.plugin===state.plugin;
+  const filtered=state.plugin||state.kind;
   if(n.abstraction==='capability'){
-    // A plugin filter shows the plugin's whole membership, including skills with no declared edge.
-    if(state.plugin&&!scoped)return false;
-    if(n.degree===0&&!state.showOrphans&&!scoped)return false;
+    // A filter shows the whole matching membership, including skills with no declared edge.
+    if(!matchesFilters(n))return false;
+    if(n.degree===0&&!state.showOrphans&&!filtered)return false;
     return true;
   }
-  if(state.plugin&&n.abstraction==='record')return (pluginRecords[state.plugin]||new Set()).has(n.id);
+  if(n.abstraction==='record'&&filtered){
+    for(const c of nodes){ if(c.abstraction==='capability'&&matchesFilters(c)&&capNeighbors.get(c.id).has(n.id)) return true; }
+    return false;
+  }
   return true;
 }
 function visibleEdge(e){
@@ -792,6 +797,14 @@ sel.options[0].textContent=`All plugins · ${capabilities.length}`;
   const o=document.createElement('option');o.value=p;o.textContent=`${p} · ${count}`;sel.appendChild(o);
 });
 sel.onchange=()=>{state.plugin=sel.value;state.focus=null;fit();renderPanel();draw();};
+const kindSel=document.getElementById('kind');
+kindSel.options[0].textContent=`All kinds · ${capabilities.length}`;
+['activity','workflow','method','guide','system'].forEach(k=>{
+  const count=capabilities.filter(n=>n.kind===k).length;
+  if(!count)return;
+  const o=document.createElement('option');o.value=k;o.textContent=`${k} · ${count}`;kindSel.appendChild(o);
+});
+kindSel.onchange=()=>{state.kind=kindSel.value;state.focus=null;fit();renderPanel();draw();};
 document.getElementById('search').oninput=e=>{state.search=e.target.value.toLowerCase().trim();draw();};
 document.getElementById('labels').onclick=e=>{state.labels=!state.labels;e.currentTarget.setAttribute('aria-pressed',String(state.labels));draw();};
 document.getElementById('orphans').onclick=e=>{state.showOrphans=!state.showOrphans;e.currentTarget.setAttribute('aria-pressed',String(state.showOrphans));fit();draw();};
@@ -812,14 +825,15 @@ function relationList(arr,dir){
 function renderPanel(){
   if(!state.focus){
     const c=DATA.counts.by_relation||{};
-    const scoped=capabilities.filter(n=>!state.plugin||n.plugin===state.plugin);
+    const filters=[state.plugin,state.kind].filter(Boolean).join(' · ');
+    const scoped=capabilities.filter(n=>matchesFilters(n));
     const scopedIds=new Set(scoped.map(n=>n.id));
     const scopedOrphans=scoped.filter(n=>n.degree===0).length;
     const scopedMentions=DATA.mentions.filter(m=>scopedIds.has(m.from)).length;
-    const heading=state.plugin?`${state.plugin} · ${scoped.length} capabilities`:`${DATA.counts.capabilities} capabilities, ${DATA.counts.records} records`;
-    const isolatedNote=scopedOrphans?` (${state.plugin?'shown because the plugin is filtered':'hidden until you show orphans'})`:'';
+    const heading=filters?`${filters} · ${scoped.length} capabilities`:`${DATA.counts.capabilities} capabilities, ${DATA.counts.records} records`;
+    const isolatedNote=scopedOrphans?` (${filters?'shown because a filter is active':'hidden until you show orphans'})`:'';
     panel.innerHTML=`<h2>Reading the graph</h2><h3>${heading}</h3>
-      <p><b>${state.plugin||'All plugins'}</b>: ${scoped.length} capabilities, ${scoped.length-scopedOrphans} with a declared relationship, ${scopedOrphans} isolated${isolatedNote}, ${scopedMentions} mentions among them.</p>
+      <p><b>${filters||'All plugins'}</b>: ${scoped.length} capabilities, ${scoped.length-scopedOrphans} with a declared relationship, ${scopedOrphans} isolated${isolatedNote}, ${scopedMentions} mentions among them.</p>
       <p>${DATA.counts.edges} edges — ${c.route||0} route, ${c.compose||0} compose, ${c.handoff||0} hand off, ${c.produces||0} produces, ${c['guided-by']||0} guided by. Plus ${DATA.counts.mentions} mentions, not counted.</p>
       <p><b>Route</b> is explicit entry: a user-invoked alias calling a model-invoked skill. Description-based selection has no edge.</p>
       <p><b>Compose</b> is optional expertise; a solid line is declared in the skill, a dashed line comes from the catalog index. <b>Hand off</b> moves work between phases. <b>Produces</b> and <b>guided by</b> are record links, not moves.</p>

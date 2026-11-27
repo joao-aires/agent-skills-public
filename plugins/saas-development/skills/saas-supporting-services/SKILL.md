@@ -1,10 +1,12 @@
 ---
 name: saas-supporting-services
-description: Select, integrate and assess the supporting services a hosted product
-  depends on, including analytics, email, observability, hosting and edge, marketing
-  and social automation, search, queues, notifications and support. Use for
-  requirement-first build, buy, adopt or defer decisions and the integration contract,
-  independently of particular vendors.
+description: >-
+  Expertise and methods for SaaS supporting services. Select, integrate and assess the
+  supporting services a hosted product depends on, including analytics, email, observability,
+  hosting and edge, marketing and social automation, search, queues, notifications and
+  support. Use for requirement-first build, buy, adopt or defer decisions and the integration
+  contract, independently of particular vendors. It informs the activity that composes it;
+  that activity owns the decision and stopping point.
 license: MIT
 metadata:
   kind: method

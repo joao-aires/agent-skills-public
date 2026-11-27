@@ -1,6 +1,11 @@
 ---
 name: ai-deepeval-testing
-description: Implement Python AI evaluation suites with DeepEval for model, retrieval, agent trajectory, conversation and end-to-end quality. Use when DeepEval is selected or being evaluated; preserve existing evaluation tools and do not introduce model calls, hosted reporting or synthetic generation without scope.
+description: >-
+  Expertise and methods for DeepEval evaluation suites. Implement Python AI evaluation suites
+  with DeepEval for model, retrieval, agent trajectory, conversation and end-to-end quality.
+  Use when DeepEval is selected or being evaluated; preserve existing evaluation tools and do
+  not introduce model calls, hosted reporting or synthetic generation without scope. It
+  informs the activity that composes it; that activity owns the decision and stopping point.
 user-invocable: false
 metadata:
   kind: method

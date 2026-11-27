@@ -1,10 +1,12 @@
 ---
 name: project-conventions
-description: Establish or maintain an application repository's structure, stack constraints,
-  repository instruction files for coding agents, local setup and delivery conventions.
-  Use when starting, organizing or reviewing a project, or when repository guidance,
-  commands or agent instructions need to be created, audited or updated; keep ordinary
-  feature work within existing conventions.
+description: >-
+  Expertise and methods for project conventions. Establish or maintain an application
+  repository's structure, stack constraints, repository instruction files for coding agents,
+  local setup and delivery conventions. Use when starting, organizing or reviewing a project,
+  or when repository guidance, commands or agent instructions need to be created, audited or
+  updated; keep ordinary feature work within existing conventions. It informs the activity
+  that composes it; that activity owns the decision and stopping point.
 metadata:
   kind: method
   domain: development

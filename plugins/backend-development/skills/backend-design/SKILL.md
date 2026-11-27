@@ -1,6 +1,11 @@
 ---
 name: backend-design
-description: Define application-service behavior, authority, state and interface contracts independently of a framework. Use for APIs, durable jobs, stored data or integration changes before dependent implementation; preserve accepted behavior for local fixes.
+description: >-
+  Expertise and methods for backend design. Define application-service behavior, authority,
+  state and interface contracts independently of a framework. Use for APIs, durable jobs,
+  stored data or integration changes before dependent implementation; preserve accepted
+  behavior for local fixes. It informs the activity that composes it; that activity owns the
+  decision and stopping point.
 user-invocable: true
 metadata:
   kind: method

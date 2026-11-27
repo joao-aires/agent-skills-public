@@ -1,8 +1,11 @@
 ---
 name: python-automation-engineering
-description: Design, implement, review and maintain useful Python operational automations
-  and reporting tools with ergonomic CLIs, typed boundaries, reproducible projects,
-  complete API collection, resumable mutations and verified outcomes.
+description: >-
+  Expertise and methods for Python automation engineering. Design, implement, review and
+  maintain useful Python operational automations and reporting tools with ergonomic CLIs,
+  typed boundaries, reproducible projects, complete API collection, resumable mutations and
+  verified outcomes. It informs the activity that composes it; that activity owns the decision
+  and stopping point.
 metadata:
   kind: method
   domain: backend
